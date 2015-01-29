@@ -20,6 +20,7 @@ using DevExpress.XtraSplashScreen;
 using Prizm.Main.Languages;
 using System.Collections.Generic;
 using Prizm.Main.Common;
+using Prizm.Domain.Entity.Setup;
 
 
 namespace Prizm.Main
@@ -237,7 +238,9 @@ namespace Prizm.Main
             bool result = false;
             IProjectRepository repo = (IProjectRepository)Program.Kernel.Get(typeof(IProjectRepository));
 
-            if(repo.GetSingle() == null)
+            Domain.Entity.Project pj = repo.GetSingle();
+
+            if(pj == null)
             {
                 using (var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
                 {
@@ -246,13 +249,18 @@ namespace Prizm.Main
                     {
                         System.Environment.Exit(0);
                     }
+                    pj = repo.GetSingle();
+                    if (pj == null)
+                    {
+                        throw new ApplicationException("Could not find project settings");
+                    }
                 }
             }
             else
             {
                 result = true;
             }
-
+            workstationType = pj.WorkstationType;
             return result;
         }
 
@@ -268,9 +276,11 @@ namespace Prizm.Main
 
         //Global data
         private static PrizmApplicationXtraForm mainForm;
+        private static WorkstationType workstationType;
         /// <summary>
         /// Global access to main form need to update statusbar texts
         /// </summary>
         public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
+        public static WorkstationType ThisWorkstationType { get { return workstationType; } }
     }
 }

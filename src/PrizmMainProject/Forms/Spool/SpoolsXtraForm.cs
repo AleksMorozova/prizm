@@ -132,8 +132,7 @@ namespace Prizm.Main.Forms.Spool
             BindToViewModel();
 
             attachmentsButton.Enabled =
-                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty)
-                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             IsEditMode = ((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
@@ -285,7 +284,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

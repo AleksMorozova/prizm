@@ -28,6 +28,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using System.Windows.Forms;
 using Prizm.Main.Languages;
 using Prizm.Main.Forms.Settings.Inspections;
+using Domain.Entity.Security;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -677,7 +678,8 @@ namespace Prizm.Main.Forms.Settings
                     for(int rowHandle = 0; rowHandle < gridViewPermissions.RowCount; rowHandle++)
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
-                        if(viewModel.RoleHasPermission(role, perm))
+                        if(viewModel.RoleHasPermission(role, perm)
+                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), perm.Name)))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -704,7 +706,14 @@ namespace Prizm.Main.Forms.Settings
             switch(e.Action)
             {
                 case CollectionChangeAction.Add:
-                    viewModel.AddPermissionToRole(role, p);
+                    if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), p.Name)))
+                    {
+                        view.UnselectRow(e.ControllerRow);
+                    }
+                    else
+                    {
+                        viewModel.AddPermissionToRole(role, p);
+                    }
                     break;
                 case CollectionChangeAction.Remove:
                     viewModel.RemovePermissionFromRole(role, p);
@@ -1227,6 +1236,18 @@ namespace Prizm.Main.Forms.Settings
                         editForm.ShowDialog();
                     }
                 }
+            }
+        }
+
+        private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            var view = sender as GridView;
+
+            Permission p = view.GetRow(e.RowHandle) as Permission;
+
+            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation((Privileges)Enum.Parse(typeof(Privileges), p.Name)))
+            {
+                e.Appearance.ForeColor = Color.Gray;
             }
         }
 

@@ -48,7 +48,7 @@
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
-            this.extraFiles = new DevExpress.XtraEditors.SimpleButton();
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.deactivated = new DevExpress.XtraEditors.CheckEdit();
             this.distanceFromPK = new DevExpress.XtraEditors.TextEdit();
             this.PKNumber = new DevExpress.XtraEditors.TextEdit();
@@ -186,7 +186,7 @@
             this.newJointLayoutControl.Controls.Add(this.saveAndCreateButton);
             this.newJointLayoutControl.Controls.Add(this.repairOperations);
             this.newJointLayoutControl.Controls.Add(this.saveButton);
-            this.newJointLayoutControl.Controls.Add(this.extraFiles);
+            this.newJointLayoutControl.Controls.Add(this.attachmentsButton);
             this.newJointLayoutControl.Controls.Add(this.deactivated);
             this.newJointLayoutControl.Controls.Add(this.distanceFromPK);
             this.newJointLayoutControl.Controls.Add(this.PKNumber);
@@ -354,19 +354,19 @@
             this.saveButton.TabIndex = 18;
             this.saveButton.Text = "Со&хранить";
             // 
-            // extraFiles
+            // attachmentsButton
             // 
-            this.extraFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.extraFiles.Image = ((System.Drawing.Image)(resources.GetObject("extraFiles.Image")));
-            this.extraFiles.Location = new System.Drawing.Point(22, 506);
-            this.extraFiles.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
-            this.extraFiles.MinimumSize = new System.Drawing.Size(100, 20);
-            this.extraFiles.Name = "extraFiles";
-            this.extraFiles.Size = new System.Drawing.Size(100, 22);
-            this.extraFiles.StyleController = this.newJointLayoutControl;
-            this.extraFiles.TabIndex = 16;
-            this.extraFiles.Text = "&Вложения";
-            this.extraFiles.Click += new System.EventHandler(this.extraFiles_Click);
+            this.attachmentsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
+            this.attachmentsButton.Location = new System.Drawing.Point(22, 506);
+            this.attachmentsButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
+            this.attachmentsButton.MinimumSize = new System.Drawing.Size(100, 20);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
+            this.attachmentsButton.StyleController = this.newJointLayoutControl;
+            this.attachmentsButton.TabIndex = 16;
+            this.attachmentsButton.Text = "&Вложения";
+            this.attachmentsButton.Click += new System.EventHandler(this.extraFiles_Click);
             // 
             // deactivated
             // 
@@ -927,7 +927,7 @@
             // 
             // extraFilesLayout
             // 
-            this.extraFilesLayout.Control = this.extraFiles;
+            this.extraFilesLayout.Control = this.attachmentsButton;
             this.extraFilesLayout.CustomizationFormText = "extraFilesLayout";
             this.extraFilesLayout.Location = new System.Drawing.Point(0, 484);
             this.extraFilesLayout.MinSize = new System.Drawing.Size(104, 26);
@@ -1097,7 +1097,7 @@
         private DevExpress.XtraLayout.LayoutControlItem GPSLongLayout;
         private DevExpress.XtraLayout.LayoutControlItem elevationLayout;
         private DevExpress.XtraLayout.LayoutControlItem GPSLabelLayout;
-        private DevExpress.XtraEditors.SimpleButton extraFiles;
+        private DevExpress.XtraEditors.SimpleButton attachmentsButton;
         private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraGrid.Columns.GridColumn resultGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn controlDateGridColumn;

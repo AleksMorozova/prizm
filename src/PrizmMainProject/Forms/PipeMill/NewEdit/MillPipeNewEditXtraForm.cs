@@ -99,7 +99,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
             IsEditMode = true;
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
             #endregion //--- Read-only controls ---
 
             #region --- Set Properties.CharacterCasing to Upper ---

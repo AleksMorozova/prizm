@@ -706,36 +706,40 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             barButtonItemAudit.Enabled = ctx.HasAccess(Privileges.Audit);
-            barSubItemSettings.Enabled = ctx.HasAccess(Privileges.ViewSettings);
-            bool reportsPermission = ctx.HasAccess(Privileges.PrintReports);
-            barButtonItemMillReports.Enabled = reportsPermission;
-            barButtonItemConstructionReports.Enabled = reportsPermission;
-            barButtonItemInspectionReports.Enabled = reportsPermission;
-            bool newDataPermission = ctx.HasAccess(Privileges.NewDataEntry);
-            barButtonItemNewPipe.Enabled = newDataPermission;
-            barButtonItemNewRailcar.Enabled = newDataPermission;
-            barButtonItemNewJoint.Enabled = newDataPermission;
-            barButtonItemNewComponent.Enabled = newDataPermission;
-            barButtonItemSpool.Enabled = newDataPermission;
+            
+            barButtonItemSettingsProject.Enabled =
+                barButtonItemSettingsPipe.Enabled =
+                barButtonItemSettingsPipeline.Enabled =
+                barButtonItemComponentry.Enabled =
+                barButtonItemSettingsWelders.Enabled =
+                barButtonItemSettingsInspectors.Enabled =
+                barButtonItemSettingsUsers.Enabled =
+                barButtonItemRoles.Enabled = ctx.HasAccess(Privileges.ViewSettings) || ctx.HasAccess(Privileges.EditSettings);
 
-            switch (viewModel.WorkstationType.Value)
-            {
-                case Domain.Entity.Setup.WorkstationType.Master: 
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster);
-                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster);
-                    break;
-                case Domain.Entity.Setup.WorkstationType.Construction:
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromConstruction);
-                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtConstruction);
-                    break;
-                case Domain.Entity.Setup.WorkstationType.Mill:
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMill);
-                    break;
-                default:
-                    barButtonItemExport.Enabled = false;
-                    barButtonItemImport.Enabled = false;
-                    break;
-            }
+            barButtonItemMillReports.Enabled = ctx.HasAccess(Privileges.PrintMillReports);
+
+            pipeConstructionRepoBarButton.Enabled =
+                weldConstructionRepoBarButton.Enabled =
+                barButtonItemConstructionReports.Enabled = ctx.HasAccess(Privileges.PrintConstructionReports);
+
+            barButtonItemInspectionReports.Enabled = ctx.HasAccess(Privileges.PrintInspectionReports);
+            barButtonItemNewPipe.Enabled = ctx.HasAccess(Privileges.CreatePipe);
+            barButtonItemNewRailcar.Enabled = ctx.HasAccess(Privileges.CreateReleaseNote);
+            barButtonItemNewJoint.Enabled = ctx.HasAccess(Privileges.CreateJoint);
+            barButtonItemNewComponent.Enabled = ctx.HasAccess(Privileges.CreateComponent);
+            barButtonItemSpool.Enabled = ctx.HasAccess(Privileges.CreateSpool) || ctx.HasAccess(Privileges.ViewSpool) || ctx.HasAccess(Privileges.EditSpool);
+            barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
+            barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
+
+            barButtonItemFindEditJoints.Enabled = ctx.HasAccess(Privileges.SearchJoints);
+
+            barButtonItemFindEditParts.Enabled = ctx.HasAccess(Privileges.SearchParts);
+
+            barButtonItemPartIncomingInspection.Enabled = ctx.HasAccess(Privileges.PartsInspection);
+
+            barButtonItemMillFindEditPipes.Enabled = ctx.HasAccess(Privileges.SearchPipes);
+
+            barButtonItemFindEditShipRailcars.Enabled = ctx.HasAccess(Privileges.SearchReleaseNotes);
         }
 
         private Dictionary<int, CultureInfo> cultures = new Dictionary<int, CultureInfo>();

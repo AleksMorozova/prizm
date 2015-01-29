@@ -76,7 +76,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public bool CanExecute()
         {
             return viewModel.SaveOrUpdateJointCommand.CanExecute() 
-                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
         }
     }
 }

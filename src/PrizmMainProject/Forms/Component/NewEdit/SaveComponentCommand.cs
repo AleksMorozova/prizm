@@ -95,8 +95,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 && viewModel.Type != null
                 && viewModel.Component.IsActive
                 && ctx.HasAccess(viewModel.IsNew
-                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                                    : global::Domain.Entity.Security.Privileges.EditData);
+                                    ? global::Domain.Entity.Security.Privileges.CreateComponent
+                                    : global::Domain.Entity.Security.Privileges.EditComponent);
         }
                
     }
