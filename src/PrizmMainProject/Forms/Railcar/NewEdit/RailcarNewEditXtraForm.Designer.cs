@@ -213,7 +213,7 @@
             // 
             // pipeNumberLookUp
             // 
-            this.pipeNumberLookUp.Location = new System.Drawing.Point(35, 354);
+            this.pipeNumberLookUp.Location = new System.Drawing.Point(40, 358);
             this.pipeNumberLookUp.Name = "pipeNumberLookUp";
             this.pipeNumberLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -221,13 +221,13 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер")});
             this.pipeNumberLookUp.Properties.NullText = "";
             this.pipeNumberLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.pipeNumberLookUp.Size = new System.Drawing.Size(322, 20);
+            this.pipeNumberLookUp.Size = new System.Drawing.Size(327, 20);
             this.pipeNumberLookUp.StyleController = this.generalLayout;
             this.pipeNumberLookUp.TabIndex = 16;
             // 
             // railcarNumber
             // 
-            this.railcarNumber.Location = new System.Drawing.Point(37, 156);
+            this.railcarNumber.Location = new System.Drawing.Point(40, 159);
             this.railcarNumber.Name = "railcarNumber";
             this.railcarNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -238,7 +238,7 @@
             this.railcarNumber.Properties.DisplayMember = "Number";
             this.railcarNumber.Properties.NullText = "";
             this.railcarNumber.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.railcarNumber.Size = new System.Drawing.Size(333, 20);
+            this.railcarNumber.Size = new System.Drawing.Size(327, 20);
             this.railcarNumber.StyleController = this.generalLayout;
             this.railcarNumber.TabIndex = 15;
             this.railcarNumber.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.railcarNumber_ProcessNewValue);
@@ -267,9 +267,9 @@
             // 
             // destination
             // 
-            this.destination.Location = new System.Drawing.Point(37, 256);
+            this.destination.Location = new System.Drawing.Point(40, 259);
             this.destination.Name = "destination";
-            this.destination.Size = new System.Drawing.Size(333, 20);
+            this.destination.Size = new System.Drawing.Size(327, 20);
             this.destination.StyleController = this.generalLayout;
             this.destination.TabIndex = 6;
             // 
@@ -310,9 +310,9 @@
             // addPipeButton
             // 
             this.addPipeButton.Image = ((System.Drawing.Image)(resources.GetObject("addPipeButton.Image")));
-            this.addPipeButton.Location = new System.Drawing.Point(212, 388);
+            this.addPipeButton.Location = new System.Drawing.Point(220, 392);
             this.addPipeButton.Name = "addPipeButton";
-            this.addPipeButton.Size = new System.Drawing.Size(145, 22);
+            this.addPipeButton.Size = new System.Drawing.Size(147, 22);
             this.addPipeButton.StyleController = this.generalLayout;
             this.addPipeButton.TabIndex = 8;
             this.addPipeButton.Text = "&Добавить трубу";
@@ -320,9 +320,9 @@
             // 
             // certificateNumber
             // 
-            this.certificateNumber.Location = new System.Drawing.Point(37, 206);
+            this.certificateNumber.Location = new System.Drawing.Point(40, 209);
             this.certificateNumber.Name = "certificateNumber";
-            this.certificateNumber.Size = new System.Drawing.Size(333, 20);
+            this.certificateNumber.Size = new System.Drawing.Size(327, 20);
             this.certificateNumber.StyleController = this.generalLayout;
             this.certificateNumber.TabIndex = 5;
             // 
@@ -385,19 +385,19 @@
             this.addPipeLayoutControl,
             this.addButtonEmptySpaceItem,
             this.pipeNumberLayout});
-            this.addPipeLayoutGroup.Location = new System.Drawing.Point(0, 293);
+            this.addPipeLayoutGroup.Location = new System.Drawing.Point(0, 299);
             this.addPipeLayoutGroup.Name = "addPipeLayoutGroup";
-            this.addPipeLayoutGroup.Size = new System.Drawing.Size(371, 139);
-            this.addPipeLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 7, 7);
+            this.addPipeLayoutGroup.Size = new System.Drawing.Size(371, 135);
+            this.addPipeLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.addPipeLayoutGroup.Text = "Добавление труб к текущему вагону";
             // 
             // addPipeLayoutControl
             // 
             this.addPipeLayoutControl.Control = this.addPipeButton;
             this.addPipeLayoutControl.CustomizationFormText = "addPipelayoutControl";
-            this.addPipeLayoutControl.Location = new System.Drawing.Point(177, 50);
+            this.addPipeLayoutControl.Location = new System.Drawing.Point(180, 50);
             this.addPipeLayoutControl.Name = "addPipeLayoutControl";
-            this.addPipeLayoutControl.Size = new System.Drawing.Size(159, 36);
+            this.addPipeLayoutControl.Size = new System.Drawing.Size(161, 36);
             this.addPipeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.addPipeLayoutControl.Text = "addPipelayoutControl";
             this.addPipeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -409,7 +409,7 @@
             this.addButtonEmptySpaceItem.CustomizationFormText = "emptySpaceItem1";
             this.addButtonEmptySpaceItem.Location = new System.Drawing.Point(0, 50);
             this.addButtonEmptySpaceItem.Name = "addButtonEmptySpaceItem";
-            this.addButtonEmptySpaceItem.Size = new System.Drawing.Size(177, 36);
+            this.addButtonEmptySpaceItem.Size = new System.Drawing.Size(180, 36);
             this.addButtonEmptySpaceItem.Text = "addButtonEmptySpaceItem";
             this.addButtonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -419,7 +419,7 @@
             this.pipeNumberLayout.CustomizationFormText = "Ном&ер трубы";
             this.pipeNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.pipeNumberLayout.Name = "pipeNumberLayout";
-            this.pipeNumberLayout.Size = new System.Drawing.Size(336, 50);
+            this.pipeNumberLayout.Size = new System.Drawing.Size(341, 50);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.pipeNumberLayout.Text = "Ном&ер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -476,10 +476,10 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 432);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(0, 434);
             this.buttonsEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(371, 43);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(371, 41);
             this.buttonsEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -569,7 +569,8 @@
             this.layoutControlDestination});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 100);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(371, 193);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(371, 199);
+            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup1.Text = "Вагон";
             // 
             // railcarNumberLayout
@@ -578,7 +579,7 @@
             this.railcarNumberLayout.CustomizationFormText = "Номер вагона";
             this.railcarNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.railcarNumberLayout.Name = "railcarNumberLayout";
-            this.railcarNumberLayout.Size = new System.Drawing.Size(347, 50);
+            this.railcarNumberLayout.Size = new System.Drawing.Size(341, 50);
             this.railcarNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.railcarNumberLayout.Text = "Номер вагона";
             this.railcarNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -590,7 +591,7 @@
             this.certificateNumberLayout.CustomizationFormText = "Certificate number";
             this.certificateNumberLayout.Location = new System.Drawing.Point(0, 50);
             this.certificateNumberLayout.Name = "certificateNumberLayout";
-            this.certificateNumberLayout.Size = new System.Drawing.Size(347, 50);
+            this.certificateNumberLayout.Size = new System.Drawing.Size(341, 50);
             this.certificateNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.certificateNumberLayout.Text = "Номер се&ртификата";
             this.certificateNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -602,7 +603,7 @@
             this.layoutControlDestination.CustomizationFormText = "&Получатель";
             this.layoutControlDestination.Location = new System.Drawing.Point(0, 100);
             this.layoutControlDestination.Name = "layoutControlDestination";
-            this.layoutControlDestination.Size = new System.Drawing.Size(347, 50);
+            this.layoutControlDestination.Size = new System.Drawing.Size(341, 50);
             this.layoutControlDestination.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlDestination.Text = "&Получатель";
             this.layoutControlDestination.TextLocation = DevExpress.Utils.Locations.Top;
