@@ -66,8 +66,8 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
-            Thread.CurrentThread.CurrentCulture = LanguageManager.CultureInfo;
-            Thread.CurrentThread.CurrentUICulture = LanguageManager.CultureInfo;
+            Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
+            Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
             foreach(var arg in args)
             {
                 if(arg.Equals("seed"))
