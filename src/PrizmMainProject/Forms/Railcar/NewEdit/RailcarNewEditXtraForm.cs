@@ -70,6 +70,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindToViewModel();
             IsModified = false;
             IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
+            viewModel.LoadData();
         }
 
         #region --- Localization ---
@@ -110,7 +111,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Railcar");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
+            pipesList.DataBindings.Add("DataSource", bindingSource, "ReleaseNotePipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
 

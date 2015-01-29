@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Domain.Entity;
+using NHibernate.Exceptions;
+using NHibernate.SqlCommand;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -17,7 +20,31 @@ namespace Prizm.Data.DAL.Hibernate
     {
         [Inject]
         public ReleaseNoteRepository(ISession session) : base(session) { }
+        public IList<Pipe> GetReleasedNotePipe(Guid Id)
+        {
+            try
+            {
+                PipeTestResult result = null;
+                Inspector inspector = null;
+                Certificate certificate = null;
 
+                var q = session.QueryOver<Pipe>()
+                    .Where(n => ((n.Railcar.ReleaseNote.Id==Id)))
+                    .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity)
+                    .List<Pipe>();
+
+                return q;
+
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetStored", ex);
+            }
+
+        }
         #region IReleaseNoteRepository Members
         public List<ReleaseNote> SearchReleases(string number, DateTime date, string railcar, string certificate, string reciver)
         {
