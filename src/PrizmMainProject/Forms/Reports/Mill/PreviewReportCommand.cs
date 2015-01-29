@@ -56,6 +56,17 @@ namespace Prizm.Main.Forms.Reports.Mill
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
+                else if (viewModel.SelectedReportType == MillReportType.ByShipped)
+                {
+                    LoadingXtraReport report = new LoadingXtraReport();
+                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                    SubReportForLoadingXtraReport report2 = new SubReportForLoadingXtraReport();
+                    report2.DataSource = repo.GetRailcars(viewModel.StartDate, viewModel.EndDate);
+                    report.RequestParameters = false;
+                    report.xrSubreport1.ReportSource = report2;
+                    report.CreateDocument();
+                    viewModel.PreviewSource = report;
+                }
                 else 
                 { 
                     data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses, true);
