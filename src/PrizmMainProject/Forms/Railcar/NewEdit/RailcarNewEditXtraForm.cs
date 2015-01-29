@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.certificateNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
         }
 
         public RailcarNewEditXtraForm()
@@ -69,7 +69,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
-            IsEditMode = !viewModel.Shipped;
+            IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
         }
 
         #region --- Localization ---
@@ -154,6 +154,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             viewModel.pipesList.Add(viewModel.pipeToAdd, viewModel.Railcar);
             pipesList.RefreshDataSource();
+            pipeNumberLookUp.EditValue = null;
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             IsModified = true;
             commandManager.RefreshVisualState();
 
@@ -166,6 +168,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 viewModel.RemovePipe(number);
                 pipesList.RefreshDataSource();
+                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
                 IsModified = true;
                 commandManager.RefreshVisualState();
             }

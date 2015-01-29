@@ -95,6 +95,21 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
+        /// Gives any ChildForm index in corresponding childForms list that contains the element having mode equal ReadMode.
+        /// </summary>
+        /// <param name="formTypeName">string representation of form type name</param>
+        /// <param name="ReadMode"></param>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the
+        /// conditions defined by match, if found; otherwise, –1.</returns>
+        private int GetFormIndex(string formTypeName, bool ReadMode)
+        {
+            int index = -1;
+            index = childForms[formTypeName]
+                .FindIndex(x => x.IsEditMode == ReadMode);
+            return index;
+        }
+
+        /// <summary>
         /// Creates an instance of child form of given form type
         /// </summary>
         /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
@@ -255,6 +270,95 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
+        public void CreateRailcarForm(Guid id = default(Guid))
+        {
+            ChildForm form = null;
+            try
+            {
+
+                Type formType = typeof(RailcarNewEditXtraForm);
+
+                if (!childForms.ContainsKey(formType.Name))
+                {
+                    childForms.Add(formType.Name, new List<ChildForm>());
+                }
+
+                var forms = childForms[formType.Name];
+
+                if (forms.Count > 0)
+                {
+                    int indexById = GetFormIndex(formType.Name, id);
+
+                    if (indexById >= 0)
+                    {
+                        form = forms[indexById];
+                        form.Activate();
+                    }
+                    else
+                    {
+                        if (id == default(Guid))
+                        {
+                            int indexByEditMode = GetFormIndex(formType.Name, true);
+
+                            if (indexByEditMode >= 0)
+                            {
+                                string text = Resources.DLG_RAILCAR_CLOSE_EXIST; 
+                                ShowWarning(text, "");
+                                form = forms[indexByEditMode];
+                                form.Activate();
+                            }
+                        }
+                        else
+                        {
+                            int indexByEditMode = GetFormIndex(formType.Name, true);
+
+                            if (indexByEditMode >= 0)
+                            {
+                                string text = Resources.DLG_RAILCAR_OPEN_READONLY;
+                                bool readMode = this.ShowYesNo(text, "");
+                                if (readMode)
+                                {
+                                    ShowProcessing();
+                                    form = CreateChildForm(formType, id, string.Empty);
+                                    if (form != null)
+                                    {
+                                        ((ChildForm)form).IsEditMode = false;
+                                        ShowChildForm(form);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                ShowProcessing();
+                                form = CreateChildForm(formType, id, string.Empty);
+                                if (form != null)
+                                {
+                                    ((ChildForm)form).IsEditMode = true;
+                                    ShowChildForm(form);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    ShowProcessing();
+                    form = CreateChildForm(formType, id, string.Empty);
+                    if (form != null)
+                    {
+                        ((ChildForm)form).IsEditMode = true;
+                        ShowChildForm(form);
+                    }
+                }
+
+            }
+            finally
+            {
+                HideProcessing();
+            }
+        }
+
+
         #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -263,7 +367,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(RailcarNewEditXtraForm));
+            CreateRailcarForm();
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
@@ -602,36 +706,40 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             barButtonItemAudit.Enabled = ctx.HasAccess(Privileges.Audit);
-            barSubItemSettings.Enabled = ctx.HasAccess(Privileges.ViewSettings);
-            bool reportsPermission = ctx.HasAccess(Privileges.PrintReports);
-            barButtonItemMillReports.Enabled = reportsPermission;
-            barButtonItemConstructionReports.Enabled = reportsPermission;
-            barButtonItemInspectionReports.Enabled = reportsPermission;
-            bool newDataPermission = ctx.HasAccess(Privileges.NewDataEntry);
-            barButtonItemNewPipe.Enabled = newDataPermission;
-            barButtonItemNewRailcar.Enabled = newDataPermission;
-            barButtonItemNewJoint.Enabled = newDataPermission;
-            barButtonItemNewComponent.Enabled = newDataPermission;
-            barButtonItemSpool.Enabled = newDataPermission;
+            
+            barButtonItemSettingsProject.Enabled =
+                barButtonItemSettingsPipe.Enabled =
+                barButtonItemSettingsPipeline.Enabled =
+                barButtonItemComponentry.Enabled =
+                barButtonItemSettingsWelders.Enabled =
+                barButtonItemSettingsInspectors.Enabled =
+                barButtonItemSettingsUsers.Enabled =
+                barButtonItemRoles.Enabled = ctx.HasAccess(Privileges.ViewSettings) || ctx.HasAccess(Privileges.EditSettings);
 
-            switch (viewModel.WorkstationType.Value)
-            {
-                case Domain.Entity.Setup.WorkstationType.Master: 
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster);
-                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster);
-                    break;
-                case Domain.Entity.Setup.WorkstationType.Construction:
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromConstruction);
-                    barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtConstruction);
-                    break;
-                case Domain.Entity.Setup.WorkstationType.Mill:
-                    barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMill);
-                    break;
-                default:
-                    barButtonItemExport.Enabled = false;
-                    barButtonItemImport.Enabled = false;
-                    break;
-            }
+            barButtonItemMillReports.Enabled = ctx.HasAccess(Privileges.PrintMillReports);
+
+            pipeConstructionRepoBarButton.Enabled =
+                weldConstructionRepoBarButton.Enabled =
+                barButtonItemConstructionReports.Enabled = ctx.HasAccess(Privileges.PrintConstructionReports);
+
+            barButtonItemInspectionReports.Enabled = ctx.HasAccess(Privileges.PrintInspectionReports);
+            barButtonItemNewPipe.Enabled = ctx.HasAccess(Privileges.CreatePipe);
+            barButtonItemNewRailcar.Enabled = ctx.HasAccess(Privileges.CreateReleaseNote);
+            barButtonItemNewJoint.Enabled = ctx.HasAccess(Privileges.CreateJoint);
+            barButtonItemNewComponent.Enabled = ctx.HasAccess(Privileges.CreateComponent);
+            barButtonItemSpool.Enabled = ctx.HasAccess(Privileges.CreateSpool) || ctx.HasAccess(Privileges.ViewSpool) || ctx.HasAccess(Privileges.EditSpool);
+            barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
+            barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
+
+            barButtonItemFindEditJoints.Enabled = ctx.HasAccess(Privileges.SearchJoints);
+
+            barButtonItemFindEditParts.Enabled = ctx.HasAccess(Privileges.SearchParts);
+
+            barButtonItemPartIncomingInspection.Enabled = ctx.HasAccess(Privileges.PartsInspection);
+
+            barButtonItemMillFindEditPipes.Enabled = ctx.HasAccess(Privileges.SearchPipes);
+
+            barButtonItemFindEditShipRailcars.Enabled = ctx.HasAccess(Privileges.SearchReleaseNotes);
         }
 
         private Dictionary<int, CultureInfo> cultures = new Dictionary<int, CultureInfo>();

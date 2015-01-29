@@ -109,8 +109,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                     viewModel.ModifiableView.IsEditMode &&
                     ctx.HasAccess(viewModel.IsNew
-                        ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                        : global::Domain.Entity.Security.Privileges.EditData);
+                        ? global::Domain.Entity.Security.Privileges.CreatePipe
+                        : global::Domain.Entity.Security.Privileges.EditPipe);
         }
     
     }

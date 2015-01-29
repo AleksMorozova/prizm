@@ -50,7 +50,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
            
             try
             {
-
+                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+                {
+                    r.ReleaseNote = viewModel.ReleaseNote;
+                }
                 repos.BeginTransaction();
 
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
@@ -84,11 +87,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             bool conditionAndPermission;
             if(viewModel.IsNew)
             {
-                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateReleaseNote);
             }
             else
             {
-                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData);
+                conditionAndPermission = condition && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             }
             return conditionAndPermission;
         }

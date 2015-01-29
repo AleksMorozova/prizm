@@ -48,7 +48,7 @@ namespace Prizm.Data.DAL.Hibernate
                 Certificate certificate = null;
 
                 var q = session.QueryOver<Pipe>()
-                    .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true)))
+                    .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true) && n.Railcar == null))
                     .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
                     .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
                     .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)

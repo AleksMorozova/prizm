@@ -355,9 +355,6 @@
   <data name="AlertSaveRailcar" xml:space="preserve">
     <value>Данные вагона сохранены</value>
   </data>
-  <data name="SecurityPrivilege_AddAttachments" xml:space="preserve">
-    <value>Добавление вложений</value>
-  </data>
   <data name="SecurityPrivilege_EditSettings" xml:space="preserve">
     <value>Изменение настроек</value>
   </data>
@@ -665,14 +662,8 @@
   <data name="Length" xml:space="preserve">
     <value>Длина</value>
   </data>
-  <data name="SecurityPrivilege_EditData" xml:space="preserve">
-    <value>Редактирование данных</value>
-  </data>
   <data name="DLG_COMPONENT_DEACTIVATION_HEDER" xml:space="preserve">
     <value>Деактивация комплектующего элемента</value>
-  </data>
-  <data name="SecurityPrivilege_PrintReports" xml:space="preserve">
-    <value>Печать отчетов</value>
   </data>
   <data name="DLG_RAILCAR_UNSHIP_FIRST" xml:space="preserve">
     <value>Сначала расформируйте вагон.</value>
@@ -790,9 +781,6 @@
   </data>
   <data name="Diameter" xml:space="preserve">
     <value>Диаметр</value>
-  </data>
-  <data name="SecurityPrivilege_NewDataEntry" xml:space="preserve">
-    <value>Ввод данных</value>
   </data>
   <data name="PipeTestResultStatus_Failed" xml:space="preserve">
     <value>Брак</value>
@@ -914,6 +902,84 @@
   </data>
   <data name="history_item_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history_item_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DLG_RAILCAR_CLOSE_EXIST" xml:space="preserve">
+    <value>Пожалуйста сначала закройте редактируемое разрешение на отгрузку</value>
+  </data>
+  <data name="DLG_RAILCAR_OPEN_READONLY" xml:space="preserve">
+    <value>Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?</value>
+  </data>
+  <data name="SecurityPrivilege_CreateComponent" xml:space="preserve">
+    <value>Создание нового компонента</value>
+  </data>
+  <data name="SecurityPrivilege_CreateJoint" xml:space="preserve">
+    <value>Создание нового стыка</value>
+  </data>
+  <data name="SecurityPrivilege_CreatePipe" xml:space="preserve">
+    <value>Создание новой трубы</value>
+  </data>
+  <data name="SecurityPrivilege_CreateReleaseNote" xml:space="preserve">
+    <value>Создание нового разрешения на отгрузку</value>
+  </data>
+  <data name="SecurityPrivilege_CreateSpool" xml:space="preserve">
+    <value>Создание новой катушки</value>
+  </data>
+  <data name="SecurityPrivilege_EditComponent" xml:space="preserve">
+    <value>Редактирование компонента</value>
+  </data>
+  <data name="SecurityPrivilege_EditJoint" xml:space="preserve">
+    <value>Редактирование стыка</value>
+  </data>
+  <data name="SecurityPrivilege_EditPipe" xml:space="preserve">
+    <value>Редактирование трубы</value>
+  </data>
+  <data name="SecurityPrivilege_EditReleaseNote" xml:space="preserve">
+    <value>Редактирование разрешения на отгрузку</value>
+  </data>
+  <data name="SecurityPrivilege_EditSpool" xml:space="preserve">
+    <value>Редактирование катушки</value>
+  </data>
+  <data name="SecurityPrivilege_PartsInspection" xml:space="preserve">
+    <value>Входной контроль</value>
+  </data>
+  <data name="SecurityPrivilege_PrintConstructionReports" xml:space="preserve">
+    <value>Отчёты на строительстве</value>
+  </data>
+  <data name="SecurityPrivilege_PrintInspectionReports" xml:space="preserve">
+    <value>Отчёты на входном контроле</value>
+  </data>
+  <data name="SecurityPrivilege_PrintMillReports" xml:space="preserve">
+    <value>Отчёты на заводе</value>
+  </data>
+  <data name="SecurityPrivilege_ReleaseNotes" xml:space="preserve">
+    <value>Поиск разрешений на отгрузку</value>
+  </data>
+  <data name="SecurityPrivilege_SearchJoints" xml:space="preserve">
+    <value>Поиск стыков</value>
+  </data>
+  <data name="SecurityPrivilege_SearchParts" xml:space="preserve">
+    <value>Поиск элементов трубопровода</value>
+  </data>
+  <data name="SecurityPrivilege_SearchPipes" xml:space="preserve">
+    <value>Поиск труб</value>
+  </data>
+  <data name="SecurityPrivilege_ViewComponent" xml:space="preserve">
+    <value>Просмотр компонента</value>
+  </data>
+  <data name="SecurityPrivilege_ViewJoint" xml:space="preserve">
+    <value>Просмотр стыка</value>
+  </data>
+  <data name="SecurityPrivilege_ViewPipe" xml:space="preserve">
+    <value>Просмотр трубы</value>
+  </data>
+  <data name="SecurityPrivilege_ViewReleaseNote" xml:space="preserve">
+    <value>Просмотр разрешения на отгрузку</value>
+  </data>
+  <data name="SecurityPrivilege_ViewSpool" xml:space="preserve">
+    <value>Просмотр катушки</value>
+  </data>
+  <data name="SecurityPrivilege_SearchReleaseNotes" xml:space="preserve">
+    <value>Поиск разрешений на отгрузку</value>
   </data>
   <data name="CHEK_CONTROL_OPERATIONS" xml:space="preserve">
     <value>Проверьте контрольные операции.</value>

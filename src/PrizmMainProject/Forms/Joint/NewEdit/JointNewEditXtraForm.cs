@@ -69,11 +69,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
-            IsEditMode = true;
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
             firstJointElement.SetAsIdentifier();
             secondJointElement.SetAsIdentifier();           
-            extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
             #endregion
         }
 
@@ -230,7 +230,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 new LocalizedItem(saveButton, "JointNew_SaveButton"),    
                 new LocalizedItem(saveAndCreateButton, "JointNew_SaveAndCreateButton"), 
-                new LocalizedItem(extraFiles, "JointNew_ExtraFiles"),
+                new LocalizedItem(attachmentsButton, "JointNew_ExtraFiles"),
                 new LocalizedItem(deactivated, "JointNew_Deactivated"),
                 
                 new LocalizedItem(repairTypeGridColumn, "JointNew_RepairTypeGridColumn"),
@@ -440,12 +440,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void firstJointElement_EditValueChanged(object sender, EventArgs e)
         {
+            viewModel.FirstElementId = (Guid)firstJointElement.EditValue;
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }
 
         private void secondJointElement_EditValueChanged(object sender, EventArgs e)
         {
+            viewModel.SecondElementId = (Guid)secondJointElement.EditValue;
             commandManager["Save"].RefreshState();
             commandManager["SaveAndNew"].RefreshState();
         }

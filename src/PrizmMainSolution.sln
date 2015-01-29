@@ -14,6 +14,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrator", "DatabaseMigrator\DatabaseMigrator.csproj", "{0212D6C8-7BE1-4791-AF74-BED78895D490}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Version", "Version\Version.csproj", "{37938F49-CFEC-4B6C-8D55-758F0F5F9640}"
+	ProjectSection(ProjectDependencies) = postProject
+		{843DA113-0EE6-4DA3-A182-008B3BD09199} = {843DA113-0EE6-4DA3-A182-008B3BD09199}
+		{B950DA6A-6F29-42FD-A021-433CECBE5046} = {B950DA6A-6F29-42FD-A021-433CECBE5046}
+		{495328AA-7441-4E86-8003-3D881E8E0FDF} = {495328AA-7441-4E86-8003-3D881E8E0FDF}
+		{0212D6C8-7BE1-4791-AF74-BED78895D490} = {0212D6C8-7BE1-4791-AF74-BED78895D490}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +48,10 @@ Global
 		{0212D6C8-7BE1-4791-AF74-BED78895D490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0212D6C8-7BE1-4791-AF74-BED78895D490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0212D6C8-7BE1-4791-AF74-BED78895D490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37938F49-CFEC-4B6C-8D55-758F0F5F9640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37938F49-CFEC-4B6C-8D55-758F0F5F9640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37938F49-CFEC-4B6C-8D55-758F0F5F9640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37938F49-CFEC-4B6C-8D55-758F0F5F9640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
