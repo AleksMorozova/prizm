@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.certificateNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
         }
 
         public RailcarNewEditXtraForm()

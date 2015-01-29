@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ValidatableView = this;
             viewModel.Number = number;
             IsEditMode = true;
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();

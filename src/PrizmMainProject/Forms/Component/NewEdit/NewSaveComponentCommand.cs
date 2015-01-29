@@ -52,7 +52,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             return 
                 viewModel.SaveCommand.CanExecute() 
-                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent)
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateComponent);
         }
     }
 }

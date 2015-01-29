@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointNumber.SetAsIdentifier();
             firstJointElement.SetAsIdentifier();
             secondJointElement.SetAsIdentifier();           
-            extraFiles.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
             #endregion
         }
 
@@ -230,7 +230,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 new LocalizedItem(saveButton, "JointNew_SaveButton"),    
                 new LocalizedItem(saveAndCreateButton, "JointNew_SaveAndCreateButton"), 
-                new LocalizedItem(extraFiles, "JointNew_ExtraFiles"),
+                new LocalizedItem(attachmentsButton, "JointNew_ExtraFiles"),
                 new LocalizedItem(deactivated, "JointNew_Deactivated"),
                 
                 new LocalizedItem(repairTypeGridColumn, "JointNew_RepairTypeGridColumn"),

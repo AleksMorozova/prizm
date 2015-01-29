@@ -76,8 +76,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                  viewModel.Joint.IsActive
                  && 
                  ctx.HasAccess(viewModel.IsNew 
-                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                                    : global::Domain.Entity.Security.Privileges.EditData);
+                                    ? global::Domain.Entity.Security.Privileges.CreateJoint
+                                    : global::Domain.Entity.Security.Privileges.EditJoint);
         }
     }
 }
