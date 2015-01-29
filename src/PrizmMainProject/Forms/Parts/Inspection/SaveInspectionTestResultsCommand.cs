@@ -57,7 +57,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         public bool CanExecute()
         {
-            return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData));
+            return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.PartsInspection));
         }
     }
 }

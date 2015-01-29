@@ -82,8 +82,8 @@ namespace Prizm.Main.Forms.Spool
                 &&viewModel.SpoolIsActive
                 &&!string.IsNullOrEmpty(viewModel.PipeNumber)
                 && ctx.HasAccess(viewModel.IsNew
-                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                    : global::Domain.Entity.Security.Privileges.EditData);
+                    ? global::Domain.Entity.Security.Privileges.CreateSpool
+                    : global::Domain.Entity.Security.Privileges.EditSpool);
         }
     }
 }

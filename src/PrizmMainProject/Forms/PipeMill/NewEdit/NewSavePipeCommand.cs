@@ -67,7 +67,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public bool CanExecute()
         {
-            return viewModel.SavePipeCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+            return viewModel.SavePipeCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreatePipe)
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
         }
     }
 }
