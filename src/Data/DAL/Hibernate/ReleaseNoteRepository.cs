@@ -24,24 +24,35 @@ namespace Prizm.Data.DAL.Hibernate
         {
             try
             {
-                PipeTestResult result = null;
-                Inspector inspector = null;
-                Certificate certificate = null;
+                IList<Pipe> pipeList = new List<Pipe>();
+                ReleaseNote note = null;
+                Railcar car = null;
+                Pipe pipe = null;
 
-                var q = session.QueryOver<Pipe>()
-                    .Where(n => ((n.Railcar.ReleaseNote.Id==Id)))
-                    .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
-                    .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
-                    .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
-                    .TransformUsing(Transformers.DistinctRootEntity)
-                    .List<Pipe>();
+                var s = session.QueryOver<ReleaseNote>(() => note)
+                    .Where(n => ((n.Id==Id)))
+                    .JoinAlias(() => note.Railcars, () => car)
+                    .JoinAlias(() => car.Pipes, () => pipe)
+                    .TransformUsing(Transformers.DistinctRootEntity);
 
-                return q;
+                var listReleaseNote = new List<ReleaseNote>(s.List<ReleaseNote>());
+                foreach (ReleaseNote n in listReleaseNote) 
+                {
+                    foreach(Prizm.Domain.Entity.Mill.Railcar r in n.Railcars)
+                    {
+                        foreach (Pipe p in r.Pipes) 
+                        {
+                            pipeList.Add(p);
+                        }
+                    }
+                }
+
+                return pipeList;
 
             }
             catch (GenericADOException ex)
             {
-                throw new RepositoryException("GetStored", ex);
+                throw new RepositoryException("Get pipes from Release note", ex);
             }
 
         }
@@ -50,9 +61,11 @@ namespace Prizm.Data.DAL.Hibernate
         {
             ReleaseNote note = null;
             Railcar car = null;
+            Pipe pipe = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
                 .JoinAlias(() => note.Railcars, () => car)
+                .JoinAlias(() => car.Pipes, () => pipe)
                 .TransformUsing(Transformers.DistinctRootEntity);
 
             if(!string.IsNullOrWhiteSpace(railcar))
