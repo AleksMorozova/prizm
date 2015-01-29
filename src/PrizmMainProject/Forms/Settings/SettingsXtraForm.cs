@@ -253,7 +253,7 @@ namespace Prizm.Main.Forms.Settings
             var view = sender as GridView;
             pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
 
-            if (pipeSizesDuplicates.Count > 0)
+            if (pipeSizesDuplicates.Count > 0 || !CodeValidation())
             {
                 view.SetColumnError(pipeSizeGridColumn, Resources.UNIQUE_VALUE_REQUIRED);
                 e.Valid = false;
@@ -913,10 +913,26 @@ namespace Prizm.Main.Forms.Settings
         private bool PipeSizeValidation()
         {
             var pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
-                                        pipesSizeListGridView.FocusedRowHandle,
-                                        pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
-                                   );
-            pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
+                            pipesSizeListGridView.FocusedRowHandle,
+                            pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
+                       );
+
+            for (int i = 0; i < pipesSizeListGridView.RowCount; i++)
+            {
+
+                pipesSizeListGridView.FocusedRowHandle = i;
+
+
+                pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
+                                            pipesSizeListGridView.FocusedRowHandle,
+                                            pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
+                                       );
+
+                pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
+
+            }
+
+
 
             return pipeSizeEventArg.Valid;
         }
