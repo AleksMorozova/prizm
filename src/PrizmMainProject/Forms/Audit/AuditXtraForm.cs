@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Audit
             return new List<LocalizedItem>() 
                 { 
                     // layout items
-                    new LocalizedItem(numberLayout, "Audit_ElementNumberLabel"),
+                    new LocalizedItem(numberLayout, StringResources.Audit_ElementNumberLabel.Id),
                     new LocalizedItem(periodLabelLayout,"Audit_PeriodLabel"),
                     new LocalizedItem(startDateLayout,"Audit_StartDateLabel"),
                     new LocalizedItem(endDateLayout,"Audit_EndDateLabel"),

@@ -22,6 +22,8 @@ using System.Collections.Generic;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Setup;
 using System.Threading;
+using System.Text;
+using System.Reflection;
 
 
 namespace Prizm.Main
@@ -40,23 +42,9 @@ namespace Prizm.Main
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
 
         #region --- Language ---
+
         private static readonly ILanguageManager langManager = new LanguageManager();
         public static ILanguageManager LanguageManager { get { return langManager; } }
-
-        private static void AddLocalizationTemplatesFromForm(System.Type type, List<string> templateStrings)
-        {
-            if (type.IsSubclassOf(typeof(PrizmForm)))
-            {
-                templateStrings.Add("-----------------------------------------------");
-                foreach (ILocalizedItem item in (ILocalizable)Activator.CreateInstance(type))
-                {
-                    for (int index = 0; index < item.Count; index++)
-                    {
-                        templateStrings.Add(item.GetResourceId(index));
-                    }
-                }
-            }
-        }
 
         #endregion // --- Language ---
 
@@ -76,13 +64,19 @@ namespace Prizm.Main
                 }
                 if (arg.Equals("template"))
                 {
-                    LocalizedItem.IsCreatingTemplate = true;
                     List<string> templateStrings = new List<string>();
-                    AddLocalizationTemplatesFromForm(typeof(PrizmApplicationXtraForm), templateStrings);
-                    // TODO: add all other forms here
+                    
+                    MemberInfo[] info = typeof(StringResources).GetMembers(BindingFlags.Public | BindingFlags.Static);
+                    foreach (MemberInfo item in info)
+                    {
+                        FieldInfo field = typeof(StringResources).GetField(item.Name, BindingFlags.Public | BindingFlags.Static);
+                        StringResource lookup = (StringResource)field.GetValue(null);
+                        string tmp = lookup.ToString();
+                        templateStrings.Add(tmp);
+                    }
 
                     using (System.IO.StreamWriter file = new System.IO.StreamWriter(
-                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append:false))
+                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
                         foreach (var line in templateStrings)
                         {

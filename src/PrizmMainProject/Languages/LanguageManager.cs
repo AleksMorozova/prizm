@@ -101,6 +101,12 @@ namespace Prizm.Main.Languages
         private int indexDefault = -1;
         private int indexCurrent = -1;
 
+        /// <summary>
+        /// return list of all cultures, for which our local translations are available
+        /// (including default culture even if there is no appropriate external resource file).
+        /// </summary>
+        /// <param name="indexDefault">returned index of default culture in this list</param>
+        /// <returns>list of cultures</returns>
         public IReadOnlyList<CultureInfo> GetCultures(out int indexDefault)
         {
                 if (cultures.Count <= 0)
@@ -112,6 +118,11 @@ namespace Prizm.Main.Languages
                 return list;
         }
 
+        /// <summary>
+        /// Change current culture to given culture.
+        /// </summary>
+        /// <param name="culture">given culture</param>
+        /// <returns>true on success</returns>
         public bool LoadTranslation(CultureInfo culture)
         {
             bool status = false;
@@ -173,23 +184,25 @@ namespace Prizm.Main.Languages
             try
             {
                 resource = this.Current.GetString(resourceId, this.CurrentCulture);
+                ret = true;
             }
             catch (SystemException)
             {
+                ret = false;
+            }
+            if (ret == false || String.IsNullOrWhiteSpace(resource))
+            {
                 try
                 {
-                    resource = this.Default.GetString(resourceId, this.DefaultCulture);
+                    resource = this.Default.GetString(resourceId, Resources.Culture);
+                    ret = true;
                 }
-                catch (SystemException)
+                catch (SystemException e)
                 {
                     ret = false;
-#if DEBUG
-                    //it will not work for forms text
-                    //throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
-#endif
                 }
             }
-            if (String.IsNullOrWhiteSpace(resource))
+            if (ret == false || String.IsNullOrWhiteSpace(resource))
             {
                 resource = "<no resource>";
                 ret = false;
@@ -197,6 +210,10 @@ namespace Prizm.Main.Languages
             return ret;
         }
 
+        /// <summary>
+        /// Change language at all localizable items.
+        /// </summary>
+        /// <param name="localizable">localizable item</param>
         public void ChangeLanguage(ILocalizable localizable)
         {
             if (localizable != null)
@@ -205,6 +222,7 @@ namespace Prizm.Main.Languages
                 {
                     for (int index = 0; index < localizedItem.Count; index++)
                     {
+
                         string resource;
                         if (TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
                         {
@@ -220,10 +238,27 @@ namespace Prizm.Main.Languages
             }
         }
 
+        /// <summary>
+        /// Default culture information is always the same.
+        /// </summary>
         public CultureInfo DefaultCultureInfo
         {
             get { return defaultCultureInfo; }
         }
 
+        /// <summary>
+        /// retrieve localized strings for messages
+        /// </summary>
+        /// <param name="resourceDescription">id and description of localized string. Only id will be used.</param>
+        /// <returns>localized string, or empty if no localized or original string available.</returns>
+        public string GetString(StringResource resourceDescription)
+        {
+            string ret;
+            if (!TryGetLocalizedString(resourceDescription.Id, out ret))
+            {
+                // TODO: Log it
+            }
+            return ret ?? "";
+        }
     }
 }
