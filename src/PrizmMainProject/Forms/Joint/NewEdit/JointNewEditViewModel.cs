@@ -390,7 +390,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private PartData FindElementById(Guid id)
         {
-            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
+            return PartDataList != null ? PartDataList.FirstOrDefault<PartData>(x => x.Id == id) : null;
         }
 
         public EnumWrapper<JointStatus> JointConstructionStatus
