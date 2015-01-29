@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
        
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
-        public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
+        public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) { }
         public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
 
         public ComponentNewEditXtraForm(Guid id, string number)

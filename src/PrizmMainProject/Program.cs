@@ -186,7 +186,7 @@ namespace Prizm.Main
                 {
                     for(int index = 0; index < item.Count; index++)
                     {
-                        templateStrings.Add(item.GetResourceId(index));// + "=" + item.Text);
+                        templateStrings.Add(item.GetResourceId(index) + "=");
                     }
                 }
             }
@@ -202,6 +202,8 @@ namespace Prizm.Main
                     file.WriteLine(line);
                 }
             }
+            MessageBox.Show("Template stored");
+            Environment.Exit(0);
             return;
         }
 
