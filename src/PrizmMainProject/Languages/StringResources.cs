@@ -12,7 +12,48 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+        public static StringResource FirstEnterDate = new StringResource
+        {
+            Id = "FirstEnterDate",
+            Description = "Вначале необходимо ввести дату"
+        
+        public static StringResource JointSearch_ActivityCriteria_StatusActive = new StringResource {
+            Id = "JointSearch_ActivityCriteria_StatusActive",
+            Description = "Активные"
+        };
+                
+        public static StringResource JointSearch_ActivityCriteria_StatusUnactive = new StringResource {
+            Id = "JointSearch_ActivityCriteria_StatusUnactive",
+            Description = "Неактивные"
+        };
+                        
+        public static StringResource JointSearch_ActivityCriteria_StatusAll = new StringResource {
+            Id = "JointSearch_ActivityCriteria_StatusAll",
+            Description = "Все"
+        };
+                   
+        public static StringResource JointSearch_JointStatus_Welded = new StringResource {
+            Id = "JointSearch_JointStatus_Welded",
+            Description = "Сварен"
+        };
+                                        
+        public static StringResource JointSearch_JointStatus_Lowered = new StringResource {
+            Id = "JointSearch_JointStatus_Lowered",
+            Description = "Уложен"
+        };
+                                             
+        public static StringResource JointSearch_JointStatus_Withdrawn = new StringResource {
+            Id = "JointSearch_JointStatus_Withdrawn",
+            Description = "Вырезан"
+        };        
         //part types
+
+        public static StringResource AppSplashScreen_VersionLabel = new StringResource
+        {
+            Id = "AppSplashScreen_VersionLabel",
+            Description = "Текст перед версией программы на всплывающем окне при загрузке программы"
+        };
+
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};
@@ -25,6 +66,11 @@ namespace Prizm.Main.Languages
             Id = "PartTypeComponent", 
             Description = "Надпись типа элемента Компонент"};
 
+        public static StringResource PartTypeUndefined = new StringResource
+        {
+            Id = "PartTypeUndefined",
+            Description = "Надпись типа элемента Неопределен"
+        };
         //activity
         public static StringResource StatusActive = new StringResource { 
             Id = "StatusActive", 
@@ -44,10 +90,239 @@ namespace Prizm.Main.Languages
             Description = "Значение обязательно"
         };
 
+        //test result types
+        public static StringResource TestResultTypeBoolean = new StringResource { 
+            Id = "TestResultTypeBoolean", 
+            Description = "Тип результата контрольной операции. Логический"};
 
+        public static StringResource TestResultTypeRange = new StringResource { 
+            Id = "TestResultTypeRange", 
+            Description = "Тип результата контрольной операции. Диапазон"};
+
+        public static StringResource TestResultTypeString = new StringResource { 
+            Id = "TestResultTypeString", 
+            Description = "Тип результата контрольной операции. Строка"};
+
+        //test control type
+        public static StringResource ControlTypeWitness = new StringResource { 
+            Id = "ControlTypeWitness",
+            Description = "Вид контроля. Освидетельствование"};
+
+        public static StringResource ControlTypeReview = new StringResource { 
+            Id = "ControlTypeReview",
+            Description = "Вид контроля. Проверка документов"};
+
+        public static StringResource ControlTypeMonitor = new StringResource { 
+            Id = "ControlTypeMonitor", 
+            Description = "Вид контроля. Мониторинг"};
+
+        public static StringResource ControlTypeHold = new StringResource { 
+            Id = "ControlTypeHold", 
+            Description = "Вид контроля. Обязательная проверка"};
+
+        //part inspection status
+        public static StringResource PartInspectionStatusUndefined = new StringResource
+        {
+            Id = "PartInspectionStatusUndefined",
+            Description = "Статус на входном контроле. Неопределен"
+        };
+
+        public static StringResource PartInspectionStatusPending = new StringResource
+        {
+            Id = "PartInspectionStatusPending",
+            Description = "Статус на входном контроле. Ожидается"
+        };
+
+        public static StringResource PartInspectionStatusHold = new StringResource
+        {
+            Id = "PartInspectionStatusHold",
+            Description = "Статус на входном контроле. Задержан"
+        };
+
+        public static StringResource PartInspectionStatusRejected = new StringResource
+        {
+            Id = "PartInspectionStatusRejected",
+            Description = "Статус на входном контроле. Отклонено"
+        };
+
+        public static StringResource PartInspectionStatusAccepted = new StringResource
+        {
+            Id = "PartInspectionStatusAccepted",
+            Description = "Статус на входном контроле. Принято"
+        };
+
+        //messages
+        public static StringResource PartInspection_InspectionsSaved = new StringResource
+        {
+            Id = "PartInspection_InspectionsSaved",
+            Description = "Результаты контрольных операций успешно сохранены. Номер элемента: "
+        };
+
+        public static StringResource PartInspection_InspectionsSavedHeader = new StringResource
+        {
+            Id = "PartInspection_InspectionsSavedHeader",
+            Description = "Сохранение контрольных операций"
+        };
+
+        public static StringResource ExternalFiles_FileAttachSuccess = new StringResource
+        {
+            Id = "ExternalFiles_FileAttachSuccess",
+            Description = "Вложения успешно добавлены"
+        };
+
+        public static StringResource ExternalFiles_FileAttachSuccessHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileAttachSuccessHeader",
+            Description = "Добавление вложений"
+        };
+
+        public static StringResource ExternalFiles_FileDownloadHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileDownloadHeader",
+            Description = "Загрузка файла"
+        };
+
+        public static StringResource ExternalFiles_FileDownloadSuccess = new StringResource
+        {
+            Id = "ExternalFiles_FileDownloadSuccess",
+            Description = "Файл успешно загружен"
+        };
+
+        public static StringResource ExternalFiles_FileViewDownloadFail = new StringResource
+        {
+            Id = "ExternalFiles_FileViewDownloadFail",
+            Description = "Для просмотра и скачивания вложений необходимо их предварительное сохранение"
+        };
+
+        public static StringResource ExternalFiles_FileViewDownloadFailHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileViewDownloadFailHeader",
+            Description = "Просмотр и загрузка несохрaненных файлов"
+        };
+
+         public static StringResource Export_ArchiveExported = new StringResource
+        {
+            Id = "Export_ArchiveExported",
+            Description ="[{0}] Экспортировано в '{1}'"
+        };
+
+         public static StringResource Export_CreateTempStorage = new StringResource
+        {
+            Id = "Export_CreateTempStorage",
+            Description ="Создание временного хранилища."
+        };
+
+         public static StringResource Export_CreatingArchive = new StringResource
+        {
+            Id = "Export_CreatingArchive",
+            Description ="Создание конечного архива."
+        };
+	
+        public static StringResource Export_Error = new StringResource
+        {
+            Id = "Export_Error",
+            Description ="[{0}] Ошибка {1}"
+        };
+
+        public static StringResource Export_Filter = new StringResource
+        {
+            Id = "Export_Filter",
+            Description ="PRIZM archives|*.prizm"
+        };
+	
+	    public static StringResource Export_NoData = new StringResource
+        {
+            Id = "Export_NoData",
+            Description ="Нет новых данных для экспортирования."
+        };
+	
+         public static StringResource Export_ReadingData = new StringResource
+        {
+            Id = "Export_ReadingData",
+            Description ="Чтение данных."
+        };
+	
+         public static StringResource Export_WritingData = new StringResource
+        {
+            Id = "Export_WritingData",
+            Description ="Экспортирование завершено успешно."
+        };
+
+         public static StringResource Import_Checksum = new StringResource
+        {
+            Id = "Import_Checksum",
+            Description ="Проверка контрольной суммы"
+        };
+
+        public static StringResource Import_Conflict = new StringResource
+        {
+            Id = "Import_Conflict",
+            Description ="Труба с номером '{0}' уже существует в БД."
+        };
+        	
+        public static StringResource Import_CopyAttachments = new StringResource
+        {
+            Id = "Import_CopyAttachments",
+            Description ="Импорт вложений"
+        };
+
+        public static StringResource Import_Data = new StringResource
+        {
+            Id = "Import_Data",
+            Description ="Импорт данных"
+        };
+
+	    public static StringResource Import_SamePortion = new StringResource
+        {
+            Id = "Import_SamePortion",
+            Description ="Данная порция уже была импортирована и не может быть импортирована снова."
+        };
+
+        public static StringResource Import_TempStorage = new StringResource
+        {
+            Id = "Import_TempStorage",
+            Description ="Создание временного хранилища"
+        };
+	
+        public static StringResource Import_Unzip = new StringResource
+        {
+            Id = "Import_Unzip",
+            Description = "Распаковкаа"
+        };
+
+        public static StringResource Yes = new StringResource
+        {
+            Id = "Yes",
+            Description = "Да"
+        };
+
+        public static StringResource No = new StringResource
+        {
+            Id = "No",
+            Description = "Нет"
+        };
+
+         public static StringResource DateFirst = new StringResource
+        {
+            Id = "DateFirst",
+            Description = "Выберите дату"
+        };
+        	
         #endregion // --- Common
 
         #region PurchaseOrderForm
+        //message
+        public static StringResource PurchaseOrder_ValueRequired = new StringResource
+        {
+            Id = "PurchaseOrder_ValueRequaered",
+            Description = "Обязательное значение"
+        };
+        public static StringResource PurchaseOrder_ErrorHeader = new StringResource
+        {
+            Id = "PurchaseOrder_ErrorHeader",
+            Description = "Ошибка создания наряд-заказа"
+        };
+
         public static StringResource PurchaseOrder_NumberLabel = new StringResource
         {
             Id = "PurchaseOrder_NumberLabel",
@@ -227,6 +502,37 @@ namespace Prizm.Main.Languages
         #endregion IncomingInspectionReport
 
         #region Spool
+        //message
+        public static StringResource Spool_SpoolLengtBigerThenPipeLength = new StringResource
+        {
+            Id = "Spool_SpoolLengtBigerThenPipeLength",
+            Description = "Длина трубы меньше длины катушки"
+        };
+        public static StringResource Spool_CutSpoolFromPipe = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipe",
+            Description = "Катушка успешно отрезана"
+        };
+        public static StringResource Spool_CutSpoolFromPipeHeader = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipeHeader",
+            Description = "Заголовок орезания катушки"
+        };
+        public static StringResource Spool_NullSpoolLength = new StringResource
+        {
+            Id = "Spool_NullSpoolLength",
+            Description = "Длина катушки равна 0"
+        };
+        public static StringResource Spool_WrongPipeNumberForCutting = new StringResource
+        {
+            Id = "Spool_WrongPipeNumberForCutting",
+            Description = "Неверный номер трубы для нарезания на катушки"
+        };
+        public static StringResource Spool_WrongPipeNumberForCuttingHeader = new StringResource
+        {
+            Id = "Spool_WrongPipeNumberForCuttingHeader",
+            Description = "Неверный номер трубы для нарезания на катушки"
+        };
         public static StringResource Spool_PipeNumberLabel = new StringResource
         {
             Id = "Spool_PipeNumberLabel",
@@ -345,6 +651,107 @@ namespace Prizm.Main.Languages
         #endregion MissingPortion
 
         #region Settings
+        //message
+        public static StringResource  Settings_ValidateInspectorSertificate= new StringResource
+        {
+            Id = "Settings_ValidateInspectorSertificate",
+            Description = "Для ввода сертификата необходимо выбрать инспектора"
+        };
+        public static StringResource Settings_ValueRequired = new StringResource
+        {
+            Id = "Settings_ValueRequaered",
+            Description = "Обязательное значение"
+        };
+        public static StringResource Settings_UniqueValueRequired = new StringResource
+        {
+            Id = "Settings_UniqueValueRequired",
+            Description = "Значение должно быть уникальным"
+        };
+        public static StringResource Settings_ChekControlOperations = new StringResource
+        {
+            Id = "Settings_ChekControlOperations",
+            Description = "Необходимо проверить контрольную операцию"
+        };
+        public static StringResource Settings_DateExpired = new StringResource
+        {
+            Id = "Settings_DateExpired",
+            Description = "Дата сертификата просрочена"
+        };
+
+        public static StringResource Settings_ErrorHeader = new StringResource
+        {
+            Id = "Settings_ErrorHeader",
+            Description = "Заголовок ошибки"
+        };
+        public static StringResource Settings_CheckValues = new StringResource
+        {
+            Id = "Settings_CheckValues",
+            Description = "Необходимо проверить значение"
+        };
+        public static StringResource Settings_SetupSavedHeader = new StringResource
+        {
+            Id = "Settings_SetupSavedHeader",
+            Description = "Заголовок успешного сохранения настроек"
+        };
+        public static StringResource Settings_SetupSaves = new StringResource
+        {
+            Id = "Settings_SetupSaves",
+            Description = "Настройки сохранены"
+        };
+        //setting form
+        public static StringResource Settings_ProjectTab = new StringResource
+        {
+            Id = "Settings_ProjectTab",
+            Description = "Настройки. Вкладка - Проект"
+        };
+        public static StringResource Settings_PipeTab = new StringResource
+        {
+            Id = "Settings_PipeTab",
+            Description = "Настройки. Вкладка - Труба"
+        };
+        public static StringResource Settings_LineTab = new StringResource
+        {
+            Id = "Settings_LineTab",
+            Description = "Настройки. Вкладка - Трубопровод"
+        };
+        public static StringResource Settings_PartsTab = new StringResource
+        {
+            Id = "Settings_PartsTab",
+            Description = "Настройки. Вкладка - Комплектующие"
+        };
+        public static StringResource Settings_WeldersTab = new StringResource
+        {
+            Id = "Settings_WeldersTab",
+            Description = "Настройки. Вкладка - Сварщики"
+        };
+
+        public static StringResource Settings_InspectorsTab = new StringResource
+        {
+            Id = "Settings_InspectorsTab",
+            Description = "Настройки. Вкладка - Инспектора"
+        };
+
+        public static StringResource Settings_UsersTab = new StringResource
+        {
+            Id = "Settings_UsersTab",
+            Description = "Настройки. Вкладка - Пользователи"
+        };
+        public static StringResource Settings_RolesTab = new StringResource
+        {
+            Id = "Settings_RolesTab",
+            Description = "Настройки. Вкладка - Роли"
+        };
+        public static StringResource Settings_SaveButton = new StringResource
+        {
+            Id = "Settings_SaveButton",
+            Description = "Настройки. Кнопка - Сохранить"
+        };
+        public static StringResource Settings_CloseButton = new StringResource
+        {
+            Id = "Settings_CloseButton",
+            Description = "Настройки. Кнопка - Закрыть"
+        };
+
         //project page
         public static StringResource SettingsProject_TitleLabel = new StringResource
         {
@@ -493,51 +900,319 @@ namespace Prizm.Main.Languages
             Id = "SettingsPipe_InspectionsCodeColumn",
             Description = "Настройки-труба. Код контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsNameColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsNameColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsNameColumn",
             Description = "Настройки-труба. Название контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsCategoryColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsCategoryColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsCategoryColumn",
             Description = "Настройки-труба. Категория контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsControlTypeColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsControlTypeColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsControlTypeColumn",
             Description = "Настройки-труба. Тип контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsResultTypeColumn",
-            Description = "Настройки-труба. Результат конрольной операции"
+            Description = "Настройки-труба. Результат контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsBoolExpectedColumn",
-            Description = "Настройки-труба. Ожидаемы результат для булевского результата"
+            Description = "Настройки-труба. Ожидаемый результат для булевского результата"
         };
-                public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsMinExpectedColumn",
             Description = "Настройки-труба. Минимальный результат контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsMaxExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsMaxExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsMaxExpectedColumn",
             Description = "Настройки-труба. Максимальный результат контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsIsReqiredColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsIsReqiredColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsIsReqiredColumn",
             Description = "Настройки-труба. Обязательная контрольная операция"
         };
-                public static StringResource SettingsPipe_InspectionsIsActiveColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsIsActiveColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsIsActiveColumn",
             Description = "Настройки-труба. Активность контрольной операции"
         };
+        
+        //pipeline page
+        public static StringResource SettingsLine_LineGroup = new StringResource
+        {
+            Id = "SettingsLine_LineGroup",
+            Description = "Настройки - Трубопровод. Список контрольных и ремонтных операций для стыка"
+        };
+
+        public static StringResource SettingsLine_NameColumn = new StringResource
+        {
+            Id = "SettingsLine_NameColumn",
+            Description = "Настройки - Трубопровод. Название операции"
+        };
+
+        public static StringResource SettingsLine_IsReqiredColumn = new StringResource
+        {
+            Id = "SettingsLine_IsReqiredColumn",
+            Description = "Настройки - Трубопровод. Обязательная операция"
+        };
+
+        public static StringResource SettingsLine_TestTypeColumn = new StringResource
+        {
+            Id = "SettingsLine_TestTypeColumn",
+            Description = "Настройки - Трубопровод. Тип операции"
+        };
+
+        public static StringResource SettingsLine_HasAcceptedColumn = new StringResource
+        {
+            Id = "SettingsLine_HasAcceptedColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Принято"
+        };
+
+        public static StringResource SettingsLine_RepairColumn = new StringResource
+        {
+            Id = "SettingsLine_RepairColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Ремонт"
+        };
+
+        public static StringResource SettingsLine_WithdrawColumn = new StringResource
+        {
+            Id = "SettingsLine_WithdrawColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Вырезка"
+        };
+
+        public static StringResource SettingsLine_IsReqiredResultColumn = new StringResource
+        {
+            Id = "SettingsLine_IsReqiredResultColumn",
+            Description = "Настройки - Трубопровод. Обязательный результат контрольной операции"
+        };
+
+        public static StringResource SettingsLine_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsLine_IsActiveColumn",
+            Description = "Настройки - Трубопровод. Активность операции"
+        };
+
+        //component page
+
+        public static StringResource SettingsComponent_PartsType = new StringResource
+        {
+            Id = "SettingsComponent_PartsType",
+            Description = "Настройки - Комплектующие. Список типов комплектующих изделий"
+        };
+
+        public static StringResource SettingsComponent_TypeColumn = new StringResource
+        {
+            Id = "SettingsComponent_TypeColumn",
+            Description = "Настройки - Комплектующие. Тип комплектующего"
+        };
+
+        public static StringResource SettingsComponent_ConnectorsNumberColumn = new StringResource
+        {
+            Id = "SettingsComponent_ConnectorsNumberColumn",
+            Description = "Настройки - Комплектующие. Количество коннекторов у комплектующего"
+        };
+
+        public static StringResource SettingsComponent_IsActiveTypeColumn = new StringResource
+        {
+            Id = "SettingsComponent_IsActiveTypeColumn",
+            Description = "Настройки - Комплектующие. Активность комплектующего элемента"
+        };
+
+        //welder page
+        public static StringResource SettingsWelders_LastNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_LastNameColumn",
+            Description = "Настройки - Сварщики. Фамилия сварщика"
+        };
+        public static StringResource SettingsWelders_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_FirstNameColumn",
+            Description = "Настройки - Сварщики. Имя сварщика"
+        };
+        public static StringResource SettingsWelders_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_MiddleNameColumn",
+            Description = "Настройки - Сварщики. Отчество сварщика"
+        };
+        public static StringResource SettingsWelders_CertificateNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_CertificateNameColumn",
+            Description = "Настройки - Сварщики. Сертификат сварщика"
+        };
+        public static StringResource SettingsWelders_ExpiredColumn = new StringResource
+        {
+            Id = "SettingsWelders_ExpiredColumn",
+            Description = "Настройки - Сварщики. Срок действия сертификата"
+        };
+        public static StringResource SettingsWelders_StampColumn = new StringResource
+        {
+            Id = "SettingsWelders_StampColumn",
+            Description = "Настройки - Сварщики. Клеймо сварщика"
+        };
+        public static StringResource SettingsWelders_GradeColumn = new StringResource
+        {
+            Id = "SettingsWelders_GradeColumn",
+            Description = "Настройки - Сварщики. Уровень сварщика"
+        };
+        public static StringResource SettingsWelders_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsWelders_IsActiveColumn",
+            Description = "Настройки - Сварщики. Активность сварщика"
+        };
+
+        //inspectors page
+        public static StringResource SettingsInspectors_InspectorsLabel = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorsLabel",
+            Description = "Настройки - Инспектора. Список инспекторов"
+        };
+        public static StringResource SettingsInspectors_CertificatesLabel = new StringResource
+        {
+            Id = "SettingsInspectors_CertificatesLabel",
+            Description = "Настройки - Инспектора. Список сертификатов для конкретного инспектора"
+        };
+        public static StringResource SettingsInspectors_CertificateTypesLabel = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateTypesLabel",
+            Description = "Настройки - Инспектора. Типы сертификатов"
+        };
+        public static StringResource SettingsInspectors_InspectorsGroup = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorsGroup",
+            Description = "Настройки - Инспектора. Информация по всем инспекторам"
+        };
+        public static StringResource SettingsInspectors_CertificatesGroup = new StringResource
+        {
+            Id = "SettingsInspectors_CertificatesGroup",
+            Description = "Настройки - Инспектора. Информация по всем сертификатам"
+        };
+
+        public static StringResource SettingsInspectors_LastNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_LastNameColumn",
+            Description = "Настройки - Инспектора. Фамилия инспектора"
+        };
+        public static StringResource SettingsInspectors_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_FirstNameColumn",
+            Description = "Настройки - Инспектора. Имя инспектора"
+        };
+        public static StringResource SettingsInspectors_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_MiddleNameColumn",
+            Description = "Настройки - Инспектора. Отчество инспектора"
+        };
+
+        public static StringResource SettingsInspectors_CertificateNumberColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateNumberColumn",
+            Description = "Настройки - Инспектора. Номер сертификата инспектора"
+        };
+        public static StringResource SettingsInspectors_CertificateTypeColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateTypeColumn",
+            Description = "Настройки - Инспектора. Тип сертификата"
+        };
+        public static StringResource SettingsInspectors_CertificateExpirationColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateExpirationColumn",
+            Description = "Настройки - Инспектора. Срок дейстия сертификата инспектора"
+        };
+
+        public static StringResource SettingsInspectors_CertificateIsActiveColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateIsActiveColumn",
+            Description = "Настройки - Инспектора. Активность типа сертификата"
+        };
+        public static StringResource SettingsInspectors_CertificateNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateNameColumn",
+            Description = "Настройки - Инспектора. Название типа сертификата инспектора"
+        };
+
+        // user page
+
+        public static StringResource SettingsUser_UsersLabel = new StringResource
+        {
+            Id = "SettingsUser_UsersLabel",
+            Description = "Настройки - Пользователи. Список пользователей"
+        };
+        public static StringResource SettingsUser_LoginColumn = new StringResource
+        {
+            Id = "SettingsUser_LoginColumn",
+            Description = "Настройки - Пользователи. Логин пользователя"
+        };
+        public static StringResource SettingsUser_LastNameColumn = new StringResource
+        {
+            Id = "SettingsUser_LastNameColumn",
+            Description = "Настройки - Пользователи. Фамилия пользователя"
+        };
+        public static StringResource SettingsUser_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsUser_MiddleNameColumn",
+            Description = "Настройки - Пользователи. Отчество пользователя"
+        };
+        public static StringResource SettingsUser_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsUser_FirstNameColumn",
+            Description = "Настройки - Пользователи. Имя пользователя"
+        };
+        public static StringResource SettingsUser_PassExpiredColumn = new StringResource
+        {
+            Id = "SettingsUser_PassExpiredColumn",
+            Description = "Настройки - Пользователи. Срок истечения пароля"
+        };
+        public static StringResource SettingsUser_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsUser_IsActiveColumn",
+            Description = "Настройки - Пользователи.  Активность пользователя"
+        };
+        public static StringResource SettingsUser_PassColumn = new StringResource
+        {
+            Id = "SettingsUser_PassColumn",
+            Description = "Настройки - Пользователи. Пароль пользователя"
+        };
+
+        //role page
+        public static StringResource SettingsRoles_Label = new StringResource
+        {
+            Id = "SettingsRoles_Label",
+            Description = "Настройки - Роли. Список ролей"
+        };
+        public static StringResource SettingsRoles_PermissionLabel = new StringResource
+        {
+            Id = "SettingsRoles_PermissionLabel",
+            Description = "Настройки - Роли. Права для конкретной роли"
+        };
+        public static StringResource SettingsRole_NameColumn = new StringResource
+        {
+            Id = "SettingsRole_NameColumn",
+            Description = "Настройки - Роли. Название роли"
+        };
+        public static StringResource SettingsRole_DescriptionColumn = new StringResource
+        {
+            Id = "SettingsRole_DescriptionColumn",
+            Description = "Настройки - Роли. Описание роли"
+        };
+
         #endregion Settings
 
         #region --- Audit ---
@@ -617,7 +1292,7 @@ namespace Prizm.Main.Languages
         public static StringResource About_VersionLabel = new StringResource
         {
             Id = "About_VersionLabel",
-            Description = "Версия программы"
+            Description = "Текст перед версией программы в окне \"О программе \""
         };
         public static StringResource About_AcceptButton = new StringResource
         {
@@ -820,7 +1495,7 @@ namespace Prizm.Main.Languages
 
         #endregion
 
-        #region Heat Number Form
+        #region --- Heat Number Form ---
         public static StringResource HeatNumber_HeatNumberLabel = new StringResource { 
             Id = "HeatNumber_HeatNumberLabel", 
             Description = "Номер плавки. Надпись номера"};
@@ -834,5 +1509,1463 @@ namespace Prizm.Main.Languages
             Description = "Номер плавки. Надпись кнопки отмены"};
 
         #endregion
+        #region --- ComponentNewEdit ---
+
+        public static StringResource ComponentNewEdit_NewComponentLayoutGroup = new StringResource
+        {
+            Id = "ComponentNewEdit_NewComponentLayoutGroup",
+            Description = "Комплектующее изделие"
+        };
+
+        public static StringResource ComponentNewEdit_ComponentNumberLayout = new StringResource
+        {
+            Id = "ComponentNewEdit_ComponentNumberLayout",
+            Description = "Ном&ер изделия"
+        };
+
+        public static StringResource ComponentNewEdit_TypeLayoutControl = new StringResource
+        {
+            Id = "ComponentNewEdit_TypeLayoutControl",
+            Description = "&Тип изделия"
+        };
+
+        public static StringResource ComponentNewEdit_CertificateLayout = new StringResource
+        {
+            Id = "ComponentNewEdit_CertificateLayout",
+            Description = "Номер се&ртификата"
+        };
+
+        public static StringResource ComponentNewEdit_ComponentLengthLayout = new StringResource
+        {
+            Id = "ComponentNewEdit_ComponentLengthLayout",
+            Description = "Длина комплектую&щего, мм"
+        };
+
+        public static StringResource ComponentNewEdit_AttachmentsButton = new StringResource
+        {
+            Id = "ComponentNewEdit_AttachmentsButton",
+            Description = "&Вложения"
+        };
+
+        public static StringResource ComponentNewEdit_Deactivated = new StringResource
+        {
+            Id = "ComponentNewEdit_Deactivated",
+            Description = "Компонент деактивирован"
+        };
+
+        public static StringResource ComponentNewEdit_NewSaveComponentButton = new StringResource
+        {
+            Id = "ComponentNewEdit_NewSaveComponentButton",
+            Description = "Со&хранить / Создать"
+        };
+
+        public static StringResource ComponentNewEdit_SaveComponentButton = new StringResource
+        {
+            Id = "ComponentNewEdit_SaveComponentButton",
+            Description = "&Сохранить"
+        };
+
+        public static StringResource ComponentNewEdit_InspectionDateColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_InspectionDateColumn",
+            Description = "Дата инспекции"
+        };
+
+        public static StringResource ComponentNewEdit_InspectorColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_InspectorColumn",
+            Description = "Инспекторы"
+        };
+
+        public static StringResource ComponentNewEdit_ResultColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_ResultColumn",
+            Description = "Результат"
+        };
+
+        public static StringResource ComponentNewEdit_ReasonColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_ReasonColumn",
+            Description = "Причина"
+        };
+
+        public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_DiameterGridColumn",
+            Description = "Диаметр отверстия"
+        };
+
+        public static StringResource ComponentNewEdit_WallThicknessGridColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_WallThicknessGridColumn",
+            Description = "Толщина стенки"
+        };
+
+        public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
+        {
+            Id = "ComponentNewEdit_InspectionLayoutGroup",
+            Description = "Входно&й контроль"
+        };
+   
+        #endregion //--- ComponentNewEdit ---
+
+        #region --- JointNew ---
+
+        public static StringResource JointNew_JointNumberLayout = new StringResource
+        {
+            Id = "JointNew_JointNumberLayout",
+            Description = "Ном&ер стыка"
+        };
+
+        public static StringResource JointNew_JointStatusLayout = new StringResource
+        {
+            Id = "JointNew_JointStatusLayout",
+            Description = "Статус стыка"
+        };
+
+        public static StringResource JointNew_FirstJointElementLayout = new StringResource
+        {
+            Id = "JointNew_FirstJointElementLayout",
+            Description = "&Первый элемент стыка"
+        };
+
+        public static StringResource JointNew_SecondJointElementLayout = new StringResource
+        {
+            Id = "JointNew_SecondJointElementLayout",
+            Description = "В&торой элемент стыка"
+        };
+
+        public static StringResource JointNew_JointParametersLayoutGroup = new StringResource
+        {
+            Id = "JointNew_JointParametersLayoutGroup",
+            Description = "Параметры стыка"
+        };
+
+        public static StringResource JointNew_LoweringLayoutGroup = new StringResource
+        {
+            Id = "JointNew_LoweringLayoutGroup",
+            Description = "Параметры укладки"
+        };
+
+        public static StringResource JointNew_LoweringDateLayout = new StringResource
+        {
+            Id = "JointNew_LoweringDateLayout",
+            Description = "Дата &укладки"
+        };
+
+        public static StringResource JointNew_PKLabelLayout = new StringResource
+        {
+            Id = "JointNew_PKLabelLayout",
+            Description = "PK"
+        };
+
+        public static StringResource JointNew_PKNumberLayout = new StringResource
+        {
+            Id = "JointNew_PKNumberLayout",
+            Description = "Номер п&икета"
+        };
+
+        public static StringResource JointNew_DistanceFromPKLayout = new StringResource
+        {
+            Id = "JointNew_DistanceFromPKLayout",
+            Description = "Рассто&яние от пикета"
+        };
+
+        public static StringResource JointNew_GPSLabelLayout = new StringResource
+        {
+            Id = "JointNew_GPSLabelLayout",
+            Description = "GPSLabelLayout"
+        };
+
+        public static StringResource JointNew_GPSLatLayout = new StringResource
+        {
+            Id = "JointNew_GPSLatLayout",
+            Description = "&Широта"
+        };
+
+        public static StringResource JointNew_GPSLongLayout = new StringResource
+        {
+            Id = "JointNew_GPSLongLayout",
+            Description = "До&лгота"
+        };
+
+        public static StringResource JointNew_ElevationLayout = new StringResource
+        {
+            Id = "JointNew_ElevationLayout",
+            Description = "В&ысота"
+        };
+
+        public static StringResource JointNew_InspectionLayoutGroup = new StringResource
+        {
+            Id = "JointNew_InspectionLayoutGroup",
+            Description = "Операции"
+        };
+
+        public static StringResource JointNew_RepairOperationLayout = new StringResource
+        {
+            Id = "JointNew_RepairOperationLayout",
+            Description = "Сварка и ре&монт"
+        };
+
+        public static StringResource JointNew_ControlOperationsLayout = new StringResource
+        {
+            Id = "JointNew_ControlOperationsLayout",
+            Description = "Контрольные опера&ции"
+        };
+
+        public static StringResource JointNew_SaveButton = new StringResource
+        {
+            Id = "JointNew_SaveButton",
+            Description = "Со&хранить"
+        };
+
+        public static StringResource JointNew_SaveAndCreateButton = new StringResource
+        {
+            Id = "JointNew_SaveAndCreateButton",
+            Description = "Сох&ранить/Создать"
+        };
+
+        public static StringResource JointNew_ExtraFiles = new StringResource
+        {
+            Id = "JointNew_ExtraFiles",
+            Description = "&Вложения"
+        };
+
+        public static StringResource JointNew_Deactivated = new StringResource
+        {
+            Id = "JointNew_Deactivated",
+            Description = "Стык деактивирован"
+        };
+
+        public static StringResource JointNew_RepairTypeGridColumn = new StringResource
+        {
+            Id = "JointNew_RepairTypeGridColumn",
+            Description = "Название операции"
+        };
+
+        public static StringResource JointNew_RepairDateGridColumn = new StringResource
+        {
+            Id = "JointNew_RepairDateGridColumn",
+            Description = "Дата"
+        };
+
+        public static StringResource JointNew_CompletedGridColumn = new StringResource
+        {
+            Id = "JointNew_CompletedGridColumn",
+            Description = "Выполнено"
+        };
+
+        public static StringResource JointNew_WeldersGridColumn = new StringResource
+        {
+            Id = "JointNew_WeldersGridColumn",
+            Description = "Сварщики"
+        };
+
+        public static StringResource JointNew_ControlTypeGridColumn = new StringResource
+        {
+            Id = "JointNew_ControlTypeGridColumn",
+            Description = "Название операции"
+        };
+
+        public static StringResource JointNew_ResultGridColumn = new StringResource
+        {
+            Id = "JointNew_ResultGridColumn",
+            Description = "Результат"
+        };
+
+        public static StringResource JointNew_ControlDateGridColumn = new StringResource
+        {
+            Id = "JointNew_ControlDateGridColumn",
+            Description = "Дата контроля"
+        };
+
+        public static StringResource JointNew_InspectorsGridColumn = new StringResource
+        {
+            Id = "JointNew_InspectorsGridColumn",
+            Description = "Инспекторы"
+        };
+
+        public static StringResource JointNew_ValueGridColumn = new StringResource
+        {
+            Id = "JointNew_ValueGridColumn",
+            Description = "Значение"
+        };
+
+        #endregion //--- JointNew ---
+
+        #region --- JointSearch ---
+
+        public static StringResource JointSearch_JointNumber = new StringResource
+        {
+            Id = "JointSearch_JointNumber",
+            Description = "Ном&ер стыка"
+        };
+
+        public static StringResource JointSearch_ControlStateLayout = new StringResource
+        {
+            Id = "JointSearch_ControlStateLayout",
+            Description = "С&татус"
+        };
+
+        public static StringResource JointSearch_WeldingDateLabel = new StringResource
+        {
+            Id = "JointSearch_WeldingDateLabel",
+            Description = "Дата сварки"
+        };
+
+        public static StringResource JointSearch_WeldingDateFromLayout = new StringResource
+        {
+            Id = "JointSearch_WeldingDateFromLayout",
+            Description = "с"
+        };
+
+        public static StringResource JointSearch_WeldingDateToLayout = new StringResource
+        {
+            Id = "JointSearch_WeldingDateToLayout",
+            Description = "по"
+        };
+
+        public static StringResource JointSearch_KMlayout = new StringResource
+        {
+            Id = "JointSearch_KMlayout",
+            Description = "Номер п&икета"
+        };
+
+        public static StringResource JointSearch_ActivityLayout = new StringResource
+        {
+            Id = "JointSearch_ActivityLayout",
+            Description = "Состояние стыка"
+        };
+
+        public static StringResource JointSearch_SearchLayoutGroup = new StringResource
+        {
+            Id = "JointSearch_SearchLayoutGroup",
+            Description = "Параметры поиска"
+        };
+
+        public static StringResource JointSearch_SearchButton = new StringResource
+        {
+            Id = "JointSearch_SearchButton",
+            Description = "&Поиск"
+        };
+
+        public static StringResource JointSearch_SearchResultLayoutGroup = new StringResource
+        {
+            Id = "JointSearch_SearchResultLayoutGroup",
+            Description = "Резул&ьтаты поиска"
+        };
+
+        public static StringResource JointSearch_JointNumberGridColumn = new StringResource
+        {
+            Id = "JointSearch_JointNumberGridColumn",
+            Description = "Номер стыка"
+        };
+
+        public static StringResource JointSearch_JoinStatusGridColumn = new StringResource
+        {
+            Id = "JointSearch_JoinStatusGridColumn",
+            Description = "Статус"
+        };
+
+        public static StringResource JointSearch_NumberKPCol = new StringResource
+        {
+            Id = "JointSearch_NumberKPCol",
+            Description = "Номер пикета"
+        };
+
+        public static StringResource JointSearch_LoweringDateCol = new StringResource
+        {
+            Id = "JointSearch_LoweringDateCol",
+            Description = "Дата укладки"
+        };
+
+        public static StringResource JointSearch_GpsLatCol = new StringResource
+        {
+            Id = "JointSearch_GpsLatCol",
+            Description = "Широта"
+        };
+
+        
+        public static StringResource JointSearch_GpsLongCol = new StringResource
+        {
+            Id = "JointSearch_GpsLongCol",
+            Description = "Долгота"
+        };
+
+                
+        public static StringResource JointSearch_GpsHeightCol = new StringResource
+        {
+            Id = "JointSearch_GpsHeightCol",
+            Description = "Высота"
+        };
+
+        #endregion //--- JointSearch ---
+
+        #region --- ConstructionReports ---
+
+        public static StringResource ConstructionReports_ReportTypeLayout = new StringResource
+        {
+            Id = "ConstructionReports_ReportTypeLayout",
+            Description = "Тип отчета"
+        };
+        
+        public static StringResource ConstructionReports_TypeLayout = new StringResource
+        {
+            Id = "ConstructionReports_TypeLayout",
+            Description = "Тип изделия"
+        };
+                
+        public static StringResource ConstructionReports_StartJointLayout = new StringResource
+        {
+            Id = "ConstructionReports_StartJointLayout",
+            Description = "Начальный стык"
+        };
+                        
+        public static StringResource ConstructionReports_StartKPComboBoxLayoutControl = new StringResource
+        {
+            Id = "ConstructionReports_StartKPComboBoxLayoutControl",
+            Description = "Начальный пикет"
+        };
+                              
+        public static StringResource ConstructionReports_EndJointLayout = new StringResource
+        {
+            Id = "ConstructionReports_EndJointLayout",
+            Description = "Конечный стык"
+        };
+                                      
+        public static StringResource ConstructionReports_EndKPLayout = new StringResource
+        {
+            Id = "ConstructionReports_EndKPLayout",
+            Description = "Конечный пикет"
+        };
+                                           
+        public static StringResource ConstructionReports_PreviewButton = new StringResource
+        {
+            Id = "ConstructionReports_PreviewButton",
+            Description = "&Предпросмотр"
+        };
+                                                   
+        public static StringResource ConstructionReports_CreateReportButton = new StringResource
+        {
+            Id = "ConstructionReports_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+                                                   
+        public static StringResource ConstructionReports_CreateReportaLyoutGroup = new StringResource
+        {
+            Id = "ConstructionReports_CreateReportaLyoutGroup",
+            Description = "Сформировать отчёт"
+        };
+                                                           
+        public static StringResource ConstructionReports_PreviewLayoutGroup = new StringResource
+        {
+            Id = "ConstructionReports_PreviewLayoutGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+                                                                   
+        public static StringResource ConstructionReport_RadioJoints = new StringResource
+        {
+            Id = "ConstructionReport_RadioJoints",
+            Description = "Стыки"
+        };
+                                                               
+        public static StringResource ConstructionReport_RadioKP = new StringResource
+        {
+            Id = "ConstructionReport_RadioKP",
+            Description = "Пикеты"
+        };
+
+
+        #endregion //--- ConstructionReports ---
+
+        #region --- PipeConstractionReport ---
+
+        public static StringResource PipeConstractionReport_PipeNumberLayout = new StringResource
+        {
+            Id = "PipeConstractionReport_PipeNumberLayout",
+            Description = "Номер трубы"
+        };
+        
+        public static StringResource PipeConstractionReport_PipeTypeCheckedComboLayout = new StringResource
+        {
+            Id = "PipeConstractionReport_PipeTypeCheckedComboLayout",
+            Description = "Типоразмер"
+        };
+        
+        public static StringResource PipeConstractionReport_PipeReportParametersLayoutGroup = new StringResource
+        {
+            Id = "PipeConstractionReport_PipeReportParametersLayoutGroup",
+            Description = "Параметры отчета по трубам"
+        };
+        
+        public static StringResource PipeConstractionReport_PreviewButton = new StringResource
+        {
+            Id = "PipeConstractionReport_PreviewButton",
+            Description = "&Предпросмотр"
+        };
+
+        public static StringResource PipeConstractionReport_CreateReportButton = new StringResource
+        {
+            Id = "PipeConstractionReport_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+        
+        public static StringResource PipeConstractionReport_DocumentViewerLayoutGroup = new StringResource
+        {
+            Id = "PipeConstractionReport_DocumentViewerLayoutGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+        #endregion //--- PipeConstractionReport ---
+
+        #region --- WeldDateReport ---
+
+        public static StringResource WeldDateReport_WeldDateFromLayout = new StringResource {
+            Id = "WeldDateReport_WeldDateFromLayout",
+            Description = "Дата сварки: С"
+        };
+        
+        public static StringResource WeldDateReport_WeldDateToLayout = new StringResource {
+            Id = "WeldDateReport_WeldDateToLayout",
+            Description = "Дата сварки: По"
+        };
+        
+        public static StringResource WeldDateReport_PreviewButton = new StringResource {
+            Id = "WeldDateReport_PreviewButton",
+            Description = "&Предпросмотр"
+        };
+        
+        public static StringResource WeldDateReport_CreateReportButton = new StringResource {
+            Id = "WeldDateReport_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+                
+        public static StringResource WeldDateReport_WeldReportParameterGroup = new StringResource {
+            Id = "WeldDateReport_WeldReportParameterGroup",
+            Description = "Сформировать отчёт"
+        };
+        
+        public static StringResource WeldDateReport_JointReportViewerGroup = new StringResource {
+            Id = "WeldDateReport_JointReportViewerGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+        #endregion //--- WeldDateReport ---
+
+        #region --- JointCutDialog ---
+
+        public static StringResource JointCutDialog_FirstJoinedPartGroup = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartGroup",
+            Description = "Первый элемент"
+        };
+        
+        public static StringResource JointCutDialog_FirstJoinedPartNumberLayout = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartNumberLayout",
+            Description = "Номер"
+        };
+                
+        public static StringResource JointCutDialog_FirstJoinedPartLengthLayout = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartLengthLayout",
+            Description = "Длина, мм"
+        };
+             
+        public static StringResource JointCutDialog_SecondJoinedPartGroup = new StringResource {
+            Id = "JointCutDialog_SecondJoinedPartGroup",
+            Description = "Второй элемент"
+        };
+
+        public static StringResource JointCutDialog_SecondJoinedPartNumberLayout = new StringResource
+        {
+            Id = "JointCutDialog_SecondJoinedPartNumberLayout",
+            Description = "Номер"
+        };
+        
+        public static StringResource JointCutDialog_SecondJoinedPartLengthLayout = new StringResource {
+            Id = "JointCutDialog_SecondJoinedPartLengthLayout",
+            Description = "Длина, мм"
+        };
+        
+        public static StringResource JointCutDialog_CutJointButton = new StringResource {
+            Id = "JointCutDialog_CutJointButton",
+            Description = "Вырезать"
+        };
+        
+        public static StringResource JointCutDialog_CancelButton = new StringResource {
+            Id = "JointCutDialog_CancelButton",
+            Description = "Отмена"
+        };
+
+
+
+        #endregion //--- JointCutDialog ---
+
+        #region --- SelectDiameterDialog ---
+
+        public static StringResource SelectDiameterDialog_DiametersIntersectionLayout = new StringResource {
+            Id = "SelectDiameterDialog_DiametersIntersectionLayout",
+            Description = "Выбор диаметра соединения"
+        };
+        
+        public static StringResource SelectDiameterDialog_SaveChosenDiameter = new StringResource {
+            Id = "SelectDiameterDialog_SaveChosenDiameter",
+            Description = "Сохранить"
+        };
+
+        #endregion //--- SelectDiameterDialog ---
+
+        #region --- MillInspectionXtraForm ---
+        public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureMeters", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения метры"};
+
+        public static StringResource MillInspection_FrequencyMeasureTons = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureTons", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения тонны"};
+
+        public static StringResource MillInspection_FrequencyMeasurePipes = new StringResource { 
+            Id = "MillInspection_FrequencyMeasurePipes", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения трубы"};
+
+        public static StringResource MillInspection_SaveButton = new StringResource { 
+            Id = "MillInspection_SaveButton", Description = 
+            "Настройка контрольных опрераций завода. Надпись кнопки сохранения"};
+
+        public static StringResource MillInspection_CancelButton = new StringResource { 
+            Id = "MillInspection_CancelButton", 
+            Description = "Настройка контрольных опрераций завода. Надпись кнопки отмены"};
+
+        public static StringResource MillInspection_IsRequiredCheckbox = new StringResource { 
+            Id = "MillInspection_IsRequiredCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Обязательна"};
+
+        public static StringResource MillInspection_IsActiveCheckbox = new StringResource { 
+            Id = "MillInspection_IsActiveCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Активна"};
+
+        public static StringResource MillInspection_YesNoExpectedCheckbox = new StringResource { 
+            Id = "MillInspection_YesNoExpectedCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса булевого значения"};
+
+        public static StringResource MillInspection_CodeLabel = new StringResource { 
+            Id = "MillInspection_CodeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись кода"};
+
+        public static StringResource MillInspection_NameLabel = new StringResource { 
+            Id = "MillInspection_NameLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись названия"};
+
+        public static StringResource MillInspection_CategoryLabel = new StringResource { 
+            Id = "MillInspection_CategoryLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись категории"};
+
+        public static StringResource MillInspection_ResultTypeLabel = new StringResource { 
+            Id = "MillInspection_ResultTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа результата"};
+
+        public static StringResource MillInspection_ControlTypeLabel = new StringResource { 
+            Id = "MillInspection_ControlTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа контроля"};
+
+        public static StringResource MillInspection_FromLabel = new StringResource { 
+            Id = "MillInspection_FromLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись нижней границы значения"};
+
+        public static StringResource MillInspection_ToLabel = new StringResource { 
+            Id = "MillInspection_ToLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись верхней границы значения"};
+
+        public static StringResource MillInspection_FrequencyLabel = new StringResource { 
+            Id = "MillInspection_FrequencyLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись частоты"};
+
+        public static StringResource MillInspection_FrequencyMeasureLabel = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись единицы измерения частоты"};
+
+        public static StringResource MillInspection_RangeControlValueGroup = new StringResource { 
+            Id = "MillInspection_RangeControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели контрольного значения диапазон"};
+
+        public static StringResource MillInspection_BoolControlValueGroup = new StringResource { 
+            Id = "MillInspection_BoolControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения"};
+
+        public static StringResource MillInspection_FrequencyGroup = new StringResource { 
+            Id = "MillInspection_FrequencyGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
+
+        #endregion
+
+        #region --- PartInspectionXtraForm ---
+        public static StringResource PartInspection_SearchNumberLabel = 
+            new StringResource { 
+                Id = "PartInspection_SearchNumberLabel", 
+                Description = "Входной контроль элемента. Надпись искомого номера"};
+
+        public static StringResource PartInspection_ElementNumberLabel = new StringResource { 
+            Id = "PartInspection_ElementNumberLabel", 
+            Description = "Входной контроль элемента. Надпись номера элемента"};
+
+        public static StringResource PartInspection_ElementTypeLabel = new StringResource { 
+            Id = "PartInspection_ElementTypeLabel", 
+            Description = "Входной контроль элемента. Надпись типа элемента"};
+
+        public static StringResource PartInspection_SearchButton = new StringResource { 
+            Id = "PartInspection_SearchButton", 
+            Description = "Входной контроль элемента. Надпись кнопки поиска"};
+
+        public static StringResource PartInspection_SaveButton = new StringResource { 
+            Id = "PartInspection_SaveButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения"};
+
+        public static StringResource PartInspection_SaveAndClearButton = new StringResource { 
+            Id = "PartInspection_SaveAndClearButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения и очистки"};
+
+        public static StringResource PartInspection_DateColumnHeader = new StringResource { 
+            Id = "PartInspection_DateColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки даты"};
+
+        public static StringResource PartInspection_ResultColumnHeader = new StringResource { 
+            Id = "PartInspection_ResultColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки результата"};
+
+        public static StringResource PartInspection_InspectorColumnHeader = new StringResource {
+            Id = "PartInspection_InspectorColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки инспектора"};
+
+        public static StringResource PartInspection_ReasonColumnHeader = new StringResource { 
+            Id = "PartInspection_ReasonColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки причины"};
+
+        public static StringResource PartInspection_SearchGroup = new StringResource { 
+            Id = "PartInspection_SearchGroup", 
+            Description = "Входной контроль элемента. Надпись панели поиска"};
+
+        public static StringResource PartInspection_IncomingInspectionGroup = new StringResource { 
+            Id = "PartInspection_IncomingInspectionGroup", 
+            Description = "Входной контроль элемента. Надпись инспекций"};
+
+        #endregion
+
+        #region---NewEdit Pipe---
+        public static StringResource NewEditPipe_PipeNumberLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeNumberLabel",
+            Description = "Труба. Номер трубы"
+        };
+        public static StringResource NewEditPipe_PipeSizeLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeSizeLabel",
+            Description = "Труба. Типоразмер"
+        };
+        public static StringResource NewEditPipe_HeatsComboLabel = new StringResource
+        {
+            Id = "NewEditPipe_HeatsComboLabel",
+            Description = "Труба. Плавка"
+        };
+        public static StringResource NewEditPipe_PurchaseOrdersComboLabel = new StringResource
+        {
+            Id = "NewEditPipe_PurchaseOrdersComboLabel",
+            Description = "Труба. Номер наряд-заказа"
+        };
+        public static StringResource NewEditPipe_PurchaseOrederDateLabel = new StringResource
+        {
+            Id = "NewEditPipe_PurchaseOrederDateLabel",
+            Description = "Труба. Дата наряд-заказа"
+        };
+        public static StringResource NewEditPipe_PipeCreationLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeCreationLabel",
+            Description = "Труба. Дата создания трубы"
+        };
+        public static StringResource NewEditPipe_PipeStatusLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusLabel",
+            Description = "Труба. Статус трубы"
+        };
+        public static StringResource NewEditPipe_PlateNumberLabel = new StringResource
+        {
+            Id = "NewEditPipe_PlateNumberLabel",
+            Description = "Труба. Номер листа"
+        };
+        public static StringResource NewEditPipe_PlateThicknessLabel = new StringResource
+        {
+            Id = "NewEditPipe_PlateThicknessLabel",
+            Description = "Труба. Толщина листа"
+        };
+        public static StringResource NewEditPipe_PlateManufacturerLabel = new StringResource
+        {
+            Id = "NewEditPipe_PlateManufacturerLabel",
+            Description = "Труба. Производитель листа"
+        };
+        public static StringResource NewEditPipe_PlateSteelGradeLabel = new StringResource
+        {
+            Id = "NewEditPipe_PlateSteelGradeLabel",
+            Description = "Труба. Марка стали"
+        };
+        public static StringResource NewEditPipe_PipeLengthLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeLengthLabel",
+            Description = "Труба. Длина трубы"
+        };
+        public static StringResource NewEditPipe_PipeWeightLabel = new StringResource
+        {
+            Id = "NewEditPipe_PipeWeightLabel",
+            Description = "Труба. Вес трубы"
+        };
+        public static StringResource NewEditPipe_TypeSizeLengthLabel = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeLengthLabel",
+            Description = "Труба. Длина по типоразмеру"
+        };
+        public static StringResource NewEditPipe_TypeSizeDiameterLabel = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeDiameterLabel",
+            Description = "Труба. Диаметр по типоразмеру"
+        };
+        public static StringResource NewEditPipe_TypeSizeThicknessLabel = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeThicknessLabel",
+            Description = "Труба. Толщина по типоразмеру"
+        };
+        public static StringResource NewEditPipe_RailcarNumber_Label = new StringResource
+        {
+            Id = "NewEditPipe_RailcarNumber_Label",
+            Description = "Труба. Номер вагона"
+        };
+        public static StringResource NewEditPipe_RailcarCertificate_Label = new StringResource
+        {
+            Id = "NewEditPipe_RailcarCertificate_Label",
+            Description = "Труба. Сертификат вагона"
+        };
+        public static StringResource NewEditPipe_RailcarShippedDate_Label = new StringResource
+        {
+            Id = "NewEditPipe_RailcarShippedDate_Label",
+            Description = "Труба. Дата отправки вагона"
+        };
+        public static StringResource NewEditPipe_RailcarDestination_Label = new StringResource
+        {
+            Id = "NewEditPipe_RailcarDestination_Label",
+            Description = "Труба. Получатель"
+        };
+        public static StringResource NewEditPipe_AttachmentsButton = new StringResource
+        {
+            Id = "NewEditPipe_AttachmentsButton",
+            Description = "Труба. Кнопка добавления файлов"
+        };
+        public static StringResource NewEditPipe_DeactivatedCheckBox = new StringResource
+        {
+            Id = "NewEditPipe_DeactivatedCheckBox",
+            Description = "Труба. Деактивация"
+        };
+        public static StringResource NewEditPipe_SaveButton = new StringResource
+        {
+            Id = "NewEditPipe_SaveButton",
+            Description = "Труба. Кнопка сохранить"
+        };
+        public static StringResource NewEditPipe_SaveAndNewButton = new StringResource
+        {
+            Id = "NewEditPipe_SaveAndNewButton",
+            Description = "Труба. Кнопка сохранить и создать"
+        };
+        public static StringResource NewEditPipe_InspectionsAddButton = new StringResource
+        {
+            Id = "NewEditPipe_InspectionsAddButton",
+            Description = "Труба. Кнопка добавления контрольных операций"
+        };
+        public static StringResource NewEditPipe_InspectionsEditsButton = new StringResource
+        {
+            Id = "NewEditPipe_InspectionsEditsButton",
+            Description = "Труба. Кнопка редактирования контрольных операций"
+        };
+        public static StringResource NewEditPipe_WeldersColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_WeldersColumnHeader",
+            Description = "Труба. Столбец сварщики"
+        };
+        public static StringResource NewEditPipe_WeldingDateColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_WeldingDateColumnHeader",
+            Description = "Труба. Столбец дата сварки"
+        };
+        public static StringResource NewEditPipe_CoatingDateColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_CoatingDateColumnHeader",
+            Description = "Труба. Столбец дата покрытия"
+        };
+        public static StringResource NewEditPipe_CoatingTypeColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_CoatingTypeColumnHeader",
+            Description = "Труба. Столбец тип покрытия"
+        };
+        public static StringResource NewEditPipe_InspectionCodeColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionCodeColumnHeader",
+            Description = "Труба. Столбец код контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionNameColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionNameColumnHeader",
+            Description = "Труба. Столбец название контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionCategoryColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionCategoryColumnHeader",
+            Description = "Труба. Столбец группа контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionExpectedResultColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionExpectedResultColumnHeader",
+            Description = "Труба. Столбец ожидаемого результата контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionValueColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionValueColumnHeader",
+            Description = "Труба. Столбец значения контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionResultColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionResultColumnHeader",
+            Description = "Труба. Столбец результата контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectionDateColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectionDateColumnHeader",
+            Description = "Труба. Столбец даты контрольной операции"
+        };
+        public static StringResource NewEditPipe_InspectorsCodeColumnHeader = new StringResource
+        {
+            Id = "NewEditPipe_InspectorsCodeColumnHeader",
+            Description = "Труба. Столбец инспекторы"
+        };
+        public static StringResource NewEditPipe_PlateGroup = new StringResource
+        {
+            Id = "NewEditPipe_PlateGroup",
+            Description = "Труба. Группа лист"
+        };
+        public static StringResource NewEditPipe_FactSizeGroup = new StringResource
+        {
+            Id = "NewEditPipe_FactSizeGroup",
+            Description = "Труба. Группа фактических параметров"
+        };
+        public static StringResource NewEditPipe_TypeSizeGroup = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeGroup",
+            Description = "Труба. Группа параметров типоразмера"
+        };
+        public static StringResource NewEditPipe_ShippingGroup = new StringResource
+        {
+            Id = "NewEditPipe_ShippingGroup",
+            Description = "Труба. Группа отправка"
+        };
+        public static StringResource NewEditPipe_CoverGroup = new StringResource
+        {
+            Id = "NewEditPipe_CoverGroup",
+            Description = "Труба. Группа покрытие"
+        };
+        public static StringResource NewEditPipe_WeldsGroup = new StringResource
+        {
+            Id = "NewEditPipe_WeldsGroup",
+            Description = "Труба. Группа сварка"
+        };
+        public static StringResource NewEditPipe_PipeTabGroup = new StringResource
+        {
+            Id = "NewEditPipe_PipeTabGroup",
+            Description = "Труба. Вкладка трубы"
+        };
+        public static StringResource NewEditPipe_InspectionsTabGroup = new StringResource
+        {
+            Id = "NewEditPipe_InspectionsTabGroup",
+            Description = "Труба. Вкладка контрольных операций"
+        };
+        public static StringResource NewEditPipe_PipeStatusUndefined = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusUndefined",
+            Description = "Труба. Статус не определен"
+        };
+        public static StringResource NewEditPipe_PipeStatusProduced = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusProduced",
+            Description = "Труба. Статус в производстве"
+        };
+        public static StringResource NewEditPipe_PipeStatusStocked = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusStocked",
+            Description = "Труба. Статус на складе"
+        };
+        public static StringResource NewEditPipe_PipeStatusShipped = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusShipped",
+            Description = "Труба. Статус отгружена"
+        };
+        #endregion
+
+        #region---Search pipe---
+        public static StringResource SearchPipe_MillStatusProduced = new StringResource
+        {
+            Id = "SearchPipe_MillStatusProduced",
+            Description = "Поиск труб. Статус в производстве"
+        };
+        public static StringResource SearchPipe_MillStatusStocked = new StringResource
+        {
+            Id = "SearchPipe_MillStatusStocked",
+            Description = "Поиск труб. статус на складе"
+        };
+        public static StringResource SearchPipe_MillStatusShipped = new StringResource
+        {
+            Id = "SearchPipe_MillStatusShipped",
+            Description = "Поиск труб. статус отгружена"
+        };
+        public static StringResource SearchPipe_ActivityComboActive = new StringResource
+        {
+            Id = "SearchPipe_ActivityComboActive",
+            Description = "Поиск труб. Активность – активна"
+        };
+        public static StringResource SearchPipe_ActivityComboNotActive = new StringResource
+        {
+            Id = "SearchPipe_ActivityComboNotActive",
+            Description = "Поиск труб. Активность – деактивирована"
+        };
+        public static StringResource SearchPipe_ActivityComboAll = new StringResource
+        {
+            Id = "SearchPipe_ActivityComboAll",
+            Description = "Поиск труб. Активность – все"
+        };
+        public static StringResource SearchPipe_NumberLabel = new StringResource
+        {
+            Id = "SearchPipe_NumberLabel",
+            Description = "Поиск труб. Номер трубы"
+        };
+        public static StringResource SearchPipe_TypeSizeLabel = new StringResource
+        {
+            Id = "SearchPipe_TypeSizeLabel",
+            Description = "Поиск труб. Типоразмер"
+        };
+        public static StringResource SearchPipe_StatusLabel = new StringResource
+        {
+            Id = "SearchPipe_StatusLabel",
+            Description = "Поиск труб. Статус трубы"
+        };
+        public static StringResource SearchPipe_ActivityLabel = new StringResource
+        {
+            Id = "SearchPipe_ActivityLabel",
+            Description = "Поиск труб. Активность трубы"
+        };
+        public static StringResource SearchPipe_WeldingDateLabel = new StringResource
+        {
+            Id = "SearchPipe_WeldingDateLabel",
+            Description = "Поиск труб. Дата сварки"
+        };
+        public static StringResource SearchPipe_ExternalCoatingDateLabel = new StringResource
+        {
+            Id = "SearchPipe_ExternalCoatingDateLabel",
+            Description = "Поиск труб. Дата внешнего покрытия"
+        };
+        public static StringResource SearchPipe_InternalCoatingDateLabel = new StringResource
+        {
+            Id = "SearchPipe_InternalCoatingDateLabel",
+            Description = "Поиск труб. Дата внутреннего покрытия"
+        };
+        public static StringResource SearchPipe_SearchButton = new StringResource
+        {
+            Id = "SearchPipe_SearchButton",
+            Description = "Поиск труб. Кнопка поиск"
+        };
+        public static StringResource SearchPipe_PipeNumberColumn = new StringResource
+        {
+            Id = "SearchPipe_PipeNumberColumn",
+            Description = "Поиск труб. Столбец номер трубы"
+        };
+        public static StringResource SearchPipe_PipeMillColumn = new StringResource
+        {
+            Id = "SearchPipe_PipeMillColumn",
+            Description = "Поиск труб. Столбец завод"
+        };
+        public static StringResource SearchPipe_PipetypeSizeColumn = new StringResource
+        {
+            Id = "SearchPipe_PipetypeSizeColumn",
+            Description = "Поиск труб. Столбец типоразмер"
+        };
+        public static StringResource SearchPipe_PipeHeatNumberColumn = new StringResource
+        {
+            Id = "SearchPipe_PipeHeatNumberColumn",
+            Description = "Поиск труб. Столбец плавка"
+        };
+        public static StringResource SearchPipe_PipeStatusColumn = new StringResource
+        {
+            Id = "SearchPipe_PipeStatusColumn",
+            Description = "Поиск труб. Столбец статус"
+        };
+        public static StringResource SearchPipe_PipeWeldingDateColumn = new StringResource
+        {
+            Id = "SearchPipe_PipeWeldingDateColumn",
+            Description = "Поиск труб. Столбец дата сварки"
+        };
+        public static StringResource SearchPipe_ExternalCoatingDateColumn = new StringResource
+        {
+            Id = "SearchPipe_ExternalCoatingDateColumn",
+            Description = "Поиск труб. Столбец дата внешнего покрытия"
+        };
+        public static StringResource SearchPipe_InternalCoatingColumn = new StringResource
+        {
+            Id = "SearchPipe_InternalCoatingColumn",
+            Description = "Поиск труб. Столбец дата внутреннего покрытия"
+        };
+        public static StringResource SearchPipe_SearchGroup = new StringResource
+        {
+            Id = "SearchPipe_SearchGroup",
+            Description = "Поиск труб. Группа поиск"
+        };
+        public static StringResource SearchPipe_ResultGroup = new StringResource
+        {
+            Id = "SearchPipe_ResultGroup",
+            Description = "Поиск труб. Группа результат"
+        };
+        #endregion
+
+        #region---Railcar NewEdit---
+        public static StringResource RailcarNewEdit_ReleaseNumberLabel = new StringResource
+        {
+            Id = "RailcarNewEdit_ReleaseNumberLabel",
+            Description = "Разрешение на отгрузку. Номер разрешения"
+        };
+        public static StringResource RailcarNewEdit_ReleaseDateLabel = new StringResource
+        {
+            Id = "RailcarNewEdit_ReleaseDateLabel",
+            Description = "Разрешение на отгрузку. Дата разрешения"
+        };
+        public static StringResource RailcarNewEdit_RailcarNumberLabel = new StringResource
+        {
+            Id = "RailcarNewEdit_RailcarNumberLabel",
+            Description = "Разрешение на отгрузку. Номер вагона"
+        };
+        public static StringResource RailcarNewEdit_CertificateLabel = new StringResource
+        {
+            Id = "RailcarNewEdit_CertificateLabel",
+            Description = "Разрешение на отгрузку. Сертификат вагона"
+        };
+        public static StringResource RailcarNewEdit_DestinationLabel = new StringResource
+        {
+            Id = "RailcarNewEdit_DestinationLabel",
+            Description = "Разрешение на отгрузку. Получатель"
+        };
+        public static StringResource RailcarNewEdit_AddPipeButton = new StringResource
+        {
+            Id = "RailcarNewEdit_AddPipeButton",
+            Description = "Разрешение на отгрузку. Кнопка добавления трубы"
+        };
+        public static StringResource RailcarNewEdit_RemovePipeButton = new StringResource
+        {
+            Id = "RailcarNewEdit_RemovePipeButton",
+            Description = "Разрешение на отгрузку. Кнопка удаления трубы"
+        };
+        public static StringResource RailcarNewEdit_AttachmentsButton = new StringResource
+        {
+            Id = "RailcarNewEdit_AttachmentsButton",
+            Description = "Разрешение на отгрузку. Кнопка добавления файлов"
+        };
+        public static StringResource RailcarNewEdit_ShipButton = new StringResource
+        {
+            Id = "RailcarNewEdit_ShipButton",
+            Description = "Разрешение на отгрузку. Кнопка отгрузки"
+        };
+        public static StringResource RailcarNewEdit_UnshipButton = new StringResource
+        {
+            Id = "RailcarNewEdit_UnshipButton",
+            Description = "Разрешение на отгрузку. Кнопка отклонения отгрузки"
+        };
+        public static StringResource RailcarNewEdit_SaveButton = new StringResource
+        {
+            Id = "RailcarNewEdit_SaveButton",
+            Description = "Разрешение на отгрузку. Кнопка сохранить"
+        };
+        public static StringResource RailcarNewEdit_PipeNumberColumn = new StringResource
+        {
+            Id = "RailcarNewEdit_PipeNumberColumn",
+            Description = "Разрешение на отгрузку. Столбец номер трубы"
+        };
+        public static StringResource RailcarNewEdit_PipeTypeSizeColumn = new StringResource
+        {
+            Id = "RailcarNewEdit_PipeTypeSizeColumn",
+            Description = "Разрешение на отгрузку. Столбец типоразмер"
+        };
+        public static StringResource RailcarNewEdit_PipeStatusColumn = new StringResource
+        {
+            Id = "RailcarNewEdit_PipeStatusColumn",
+            Description = "Разрешение на отгрузку. Столбец статус"
+        };
+        #endregion //--- Railcar NewEdit ---
+
+        #region---Railcar Search---
+        public static StringResource ReleaseSearch_NumberLabel = new StringResource
+        {
+            Id = "ReleaseSearch_NumberLabel",
+            Description = "Поиск разрешений на отгрузку. Номер разрешения"
+        };
+        public static StringResource ReleaseSearch_DateLabel = new StringResource
+        {
+            Id = "ReleaseSearch_DateLabel",
+            Description = "Поиск разрешений на отгрузку. Дата"
+        };
+        public static StringResource ReleaseSearch_DestinationLabel = new StringResource
+        {
+            Id = "ReleaseSearch_DestinationLabel",
+            Description = "Поиск разрешений на отгрузку. Получатель"
+        };
+        public static StringResource ReleaseSearch_RailcarLabel = new StringResource
+        {
+            Id = "ReleaseSearch_RailcarLabel",
+            Description = "Поиск разрешений на отгрузку. Вагон"
+        };
+        public static StringResource ReleaseSearch_CertificateLabel = new StringResource
+        {
+            Id = "ReleaseSearch_CertificateLabel",
+            Description = "Поиск разрешений на отгрузку. Сертификат вагона"
+        };
+        public static StringResource NewEditPipe_SearchButton = new StringResource
+        {
+            Id = "NewEditPipe_SearchButton",
+            Description = "Поиск разрешений на отгрузку. Кнопка поиск"
+        };
+        public static StringResource ReleaseSearch_ReleaseNumberColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_ReleaseNumberColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец номер разрешения"
+        };
+        public static StringResource ReleaseSearch_ReleaseDateColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_ReleaseDateColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец дата разрешения"
+        };
+        public static StringResource ReleaseSearch_RailcarNumberColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_RailcarNumberColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец номер вагона"
+        };
+        public static StringResource ReleaseSearch_DestinationColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_DestinationColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец получатель"
+        };
+        public static StringResource ReleaseSearch_CertificateColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_CertificateColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец сертификат"
+        };
+        public static StringResource ReleaseSearch_SearchGroup = new StringResource
+        {
+            Id = "ReleaseSearch_SearchGroup",
+            Description = "Поиск разрешений на отгрузку. Группа поиск"
+        };
+        public static StringResource ReleaseSearch_ResultGroup = new StringResource
+        {
+            Id = "ReleaseSearch_ResultGroup",
+            Description = "Поиск разрешений на отгрузку. Группа результат"
+        };
+        #endregion //--- Railcar Search ---
+
+        #region---Login---
+        public static StringResource Login_LoginLabel = new StringResource
+        {
+            Id = "Login_LoginLabel",
+            Description = "Логин. Логин"
+        };
+        public static StringResource Login_PasswordLabel = new StringResource
+        {
+            Id = "Login_PasswordLabel",
+            Description = "Логин. Пароль"
+        };
+        public static StringResource Login_LoginButton = new StringResource
+        {
+            Id = "Login_LoginButton",
+            Description = "Логин. Кнопка логин"
+        };
+        public static StringResource Login_ExitButton = new StringResource
+        {
+            Id = "Login_ExitButton",
+            Description = "Логин. Кнопка выход"
+        };
+        #endregion //--- Login ---
+
+        #region First Setup
+        public static StringResource FirstSetup_ProjectTitleLabel = new StringResource
+        {
+            Id = "FirstSetup_ProjectTitleLabel",
+            Description = "Начальные установки. Название проекта"
+        };
+        public static StringResource FirstSetup_FileSizeLabel = new StringResource
+        {
+            Id = "FirstSetup_FileSizeLabel",
+            Description = "Начальные установки. Размер файла"
+        };
+        public static StringResource FirstSetup_TypeLabel = new StringResource
+        {
+            Id = "FirstSetup_TypeLabel",
+            Description = "Начальные установки. Тип станции"
+        };
+        public static StringResource FirstSetup_MillLabel = new StringResource
+        {
+            Id = "FirstSetup_MillLabel",
+            Description = "Начальные установки. Название завода"
+        };
+        public static StringResource FirstSetup_LoginLabel = new StringResource
+        {
+            Id = "FirstSetup_LoginLabel",
+            Description = "Начальные установки. Логин"
+        };
+        public static StringResource FirstSetup_PasswordLabel = new StringResource
+        {
+            Id = "FirstSetup_PasswordLabel",
+            Description = "Начальные установки. Пароль"
+        };
+        public static StringResource FirstSetup_ReEnterPasswordLabel = new StringResource
+        {
+            Id = "FirstSetup_ReEnterPasswordLabel",
+            Description = "Начальные установки. Повторный пароль"
+        };
+        public static StringResource FirstSetup_LastNameLabel = new StringResource
+        {
+            Id = "FirstSetup_LastNameLabel",
+            Description = "Начальные установки. Фамилия"
+        };
+        public static StringResource FirstSetup_FirstNameLabel = new StringResource
+        {
+            Id = "FirstSetup_FirstNameLabel",
+            Description = "Начальные установки. имя"
+        };
+        public static StringResource FirstSetup_MiddleNameLabel = new StringResource
+        {
+            Id = "FirstSetup_MiddleNameLabel",
+            Description = "Начальные установки. Отчество"
+        };
+        public static StringResource FirstSetup_SaveButton = new StringResource
+        {
+            Id = "FirstSetup_SaveButton",
+            Description = "Начальные установки. Кнопка сохранить"
+        };
+        public static StringResource FirstSetup_CancelButton = new StringResource
+        {
+            Id = "FirstSetup_CancelButton",
+            Description = "Начальные установки. Кнопка отмена"
+        };
+        #endregion
+
+        #region Heat
+        public static StringResource Heat_NumberLabel = new StringResource
+        {
+            Id = "Heat_NumberLabel",
+            Description = "Плавка. Номер плавки"
+        };
+        public static StringResource Heat_SteelLabel = new StringResource
+        {
+            Id = "Heat_SteelLabel",
+            Description = "Плавка. Марка стали"
+        };
+        public static StringResource Heat_PlateManufacturerLabel = new StringResource
+        {
+            Id = "Heat_PlateManufacturerLabel",
+            Description = "Плавка. Производитель листа"
+        };
+        public static StringResource Heat_SaveButton = new StringResource
+        {
+            Id = "Heat_SaveButton",
+            Description = "Плавка. Кнопка сохранить"
+        };
+        public static StringResource Heat_CancelButton = new StringResource
+        {
+            Id = "Heat_CancelButton",
+            Description = "Плавка. Кнопка отмена"
+        };
+        #endregion
+
+        #region Inspection
+        public static StringResource InspectionAddEdit_CodeLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_CodeLabel",
+            Description = "Контрольная операция. Код"
+        };
+        public static StringResource InspectionAddEdit_CategoryLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_CategoryLabel",
+            Description = "Контрольная операция. Категория"
+        };
+        public static StringResource InspectionAddEdit_NameLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_NameLabel",
+            Description = "Контрольная операция. Название"
+        };
+        public static StringResource InspectionAddEdit_ExpectedResultLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_ExpectedResultLabel",
+            Description = "Контрольная операция. Ожидаемый результат"
+        };
+        public static StringResource InspectionAddEdit_FactStringResultLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_FactStringResultLabel",
+            Description = "Контрольная операция. Фактический результат строка"
+        };
+        public static StringResource InspectionAddEdit_FactBoolResultLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_FactBoolResultLabel",
+            Description = "Контрольная операция. Фактический результат логический"
+        };
+        public static StringResource InspectionAddEdit_FactLimitResultLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_FactLimitResultLabel",
+            Description = "Контрольная операция. Фактический результат диапазон"
+        };
+        public static StringResource InspectionAddEdit_DateLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_DateLabel",
+            Description = "Контрольная операция. Дата"
+        };
+        public static StringResource InspectionAddEdit_StatusLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_StatusLabel",
+            Description = "Контрольная операция. Статус"
+        };
+        public static StringResource InspectionAddEdit_InspectorsLabel = new StringResource
+        {
+            Id = "InspectionAddEdit_InspectorsLabel",
+            Description = "Контрольная операция. Инспектора"
+        };
+        public static StringResource InspectionAddEdit_OperationGroup = new StringResource
+        {
+            Id = "InspectionAddEdit_OperationGroup",
+            Description = "Контрольная операция. Группа контрольная операция"
+        };
+        public static StringResource InspectionAddEdit_ResultGroup = new StringResource
+        {
+            Id = "InspectionAddEdit_ResultGroup",
+            Description = "Контрольная операция. Группа результат"
+        };
+        public static StringResource InspectionAddEdit_FactStringGroup = new StringResource
+        {
+            Id = "InspectionAddEdit_FactStringGroup",
+            Description = "Контрольная операция. Группа фактический строковый"
+        };
+        public static StringResource InspectionAddEdit_FactBoolGroup = new StringResource
+        {
+            Id = "InspectionAddEdit_FactBoolGroup",
+            Description = "Контрольная операция. Группа фактический логический"
+        };
+        public static StringResource InspectionAddEdit_FactLimitGroup = new StringResource
+        {
+            Id = "InspectionAddEdit_FactLimitGroup",
+            Description = "Контрольная операция. Группа фактический диапазон"
+        };
+        public static StringResource InspectionAddEdit_SaveButton = new StringResource
+        {
+            Id = "InspectionAddEdit_SaveButton",
+            Description = "Контрольная операция. Кнопка сохранить"
+        };
+        public static StringResource InspectionAddEdit_CancelButton = new StringResource
+        {
+            Id = "InspectionAddEdit_CancelButton",
+            Description = "Контрольная операция. Кнопка отмена"
+        };
+        #endregion
     }
-}
+} 

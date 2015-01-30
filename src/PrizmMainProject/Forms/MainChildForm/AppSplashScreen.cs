@@ -15,6 +15,7 @@ namespace Prizm.Main.Forms.MainChildForm
         public AppSplashScreen()
         {
             InitializeComponent();
+            version.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         #region Overrides
@@ -41,6 +42,8 @@ namespace Prizm.Main.Forms.MainChildForm
                 localizedItems = new List<LocalizedItem>()
                 {
                     new LocalizedItem(labelMessage, "InitialSplashScreen_Label"),
+
+                    new LocalizedItem(versionLabel, StringResources.AppSplashScreen_VersionLabel.Id),
                 };
             }
             return localizedItems.GetEnumerator();

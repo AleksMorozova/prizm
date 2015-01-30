@@ -82,9 +82,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return (selectedElement != null)? selectedElement.Number : string.Empty; }
         }
 
-        public string ElementType
+        public PartType ElementType
         {
-            get { return (selectedElement != null)? selectedElement.Type.ToString() : string.Empty; }
+            get { return (selectedElement != null) ? selectedElement.Type.Value : PartType.Undefined; }
         }
 
         public Main.Forms.Parts.Search.Part SelectedElement

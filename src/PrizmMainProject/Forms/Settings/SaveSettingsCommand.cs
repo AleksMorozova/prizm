@@ -15,6 +15,7 @@ using Prizm.Main.Documents;
 using Prizm.Domain.Entity.Security;
 using Prizm.Main.Security;
 using Ninject;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -40,7 +41,10 @@ namespace Prizm.Main.Forms.Settings
         {
             if(!viewModel.validatableView.Validate())
             {
-                notify.ShowError(Resources.CHECK_VALUES, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                     Program.LanguageManager.GetString(StringResources.Settings_CheckValues),
+                     Program.LanguageManager.GetString(StringResources.Settings_ErrorHeader));
+                    
                 return;
             }
 
@@ -73,8 +77,9 @@ namespace Prizm.Main.Forms.Settings
             viewModel.ModifiableView.IsModified = false;
 
             notify.ShowNotify(
-                Resources.DLG_SETUP_SAVED,
-                Resources.DLG_SETUP_SAVED_HEADER);
+                 Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
+                Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
+
 
             RefreshVisualStateEvent();
         }

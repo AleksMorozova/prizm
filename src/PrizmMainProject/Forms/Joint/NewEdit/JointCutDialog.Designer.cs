@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointCutDialog));
             this.jointCutDialogLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.secondJoinedPartLength = new DevExpress.XtraEditors.TextEdit();
             this.firstJoinedPartLength = new DevExpress.XtraEditors.TextEdit();
             this.secondJoinedPartNumber = new DevExpress.XtraEditors.TextEdit();
             this.firstJoinedPartNumber = new DevExpress.XtraEditors.TextEdit();
             this.cutJointButton = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.underSecondPartEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.underFirstPartEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.betweenFirstEmptySpaceI = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.firstJoinedPartGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.firstJoinedPartLengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstJoinedPartNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.secondJoinedPartLengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.betweenSecondEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.secondJoinedPartNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.firstJoinedPartGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.betweenFirstEmptySpaceI = new DevExpress.XtraLayout.EmptySpaceItem();
             this.secondJoinedPartGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.secondJoinedPartNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.betweenSecondEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.secondJoinedPartLengthLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.jointCutDialogLayout)).BeginInit();
             this.jointCutDialogLayout.SuspendLayout();
@@ -56,17 +56,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underSecondPartEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.underFirstPartEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betweenFirstEmptySpaceI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartLengthLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartLengthLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betweenSecondEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumberLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betweenFirstEmptySpaceI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumberLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betweenSecondEmptySpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartLengthLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +95,17 @@
             this.jointCutDialogLayout.Size = new System.Drawing.Size(352, 226);
             this.jointCutDialogLayout.TabIndex = 0;
             this.jointCutDialogLayout.Text = "layoutControl1";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.Location = new System.Drawing.Point(243, 192);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(97, 22);
+            this.cancelButton.StyleController = this.jointCutDialogLayout;
+            this.cancelButton.TabIndex = 9;
+            this.cancelButton.Text = "Отмена";
             // 
             // secondJoinedPartLength
             // 
@@ -159,20 +170,6 @@
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.cutJointButton;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(131, 180);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(100, 26);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(100, 26);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(100, 26);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // underSecondPartEmptySpace
             // 
             this.underSecondPartEmptySpace.AllowHotTrack = false;
@@ -195,29 +192,31 @@
             this.underFirstPartEmptySpace.Text = "underFirstPartEmptySpace";
             this.underFirstPartEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // betweenFirstEmptySpaceI
+            // firstJoinedPartGroup
             // 
-            this.betweenFirstEmptySpaceI.AllowHotTrack = false;
-            this.betweenFirstEmptySpaceI.CustomizationFormText = "betweenFirstEmptySpaceI";
-            this.betweenFirstEmptySpaceI.Location = new System.Drawing.Point(150, 0);
-            this.betweenFirstEmptySpaceI.Name = "betweenFirstEmptySpaceI";
-            this.betweenFirstEmptySpaceI.Size = new System.Drawing.Size(58, 40);
-            this.betweenFirstEmptySpaceI.Text = "betweenFirstEmptySpaceI";
-            this.betweenFirstEmptySpaceI.TextSize = new System.Drawing.Size(0, 0);
+            this.firstJoinedPartGroup.CustomizationFormText = "Первый элемент";
+            this.firstJoinedPartGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.firstJoinedPartLengthLayout,
+            this.firstJoinedPartNumberLayout,
+            this.betweenFirstEmptySpaceI});
+            this.firstJoinedPartGroup.Location = new System.Drawing.Point(0, 0);
+            this.firstJoinedPartGroup.Name = "firstJoinedPartGroup";
+            this.firstJoinedPartGroup.Size = new System.Drawing.Size(332, 83);
+            this.firstJoinedPartGroup.Text = "Первый элемент";
             // 
             // firstJoinedPartLengthLayout
             // 
             this.firstJoinedPartLengthLayout.Control = this.firstJoinedPartLength;
-            this.firstJoinedPartLengthLayout.CustomizationFormText = "Длинна, мм";
+            this.firstJoinedPartLengthLayout.CustomizationFormText = "Длина, мм";
             this.firstJoinedPartLengthLayout.Location = new System.Drawing.Point(208, 0);
             this.firstJoinedPartLengthLayout.MaxSize = new System.Drawing.Size(100, 0);
             this.firstJoinedPartLengthLayout.MinSize = new System.Drawing.Size(100, 40);
             this.firstJoinedPartLengthLayout.Name = "firstJoinedPartLengthLayout";
             this.firstJoinedPartLengthLayout.Size = new System.Drawing.Size(100, 40);
             this.firstJoinedPartLengthLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.firstJoinedPartLengthLayout.Text = "Длинна, мм";
+            this.firstJoinedPartLengthLayout.Text = "Длина, мм";
             this.firstJoinedPartLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.firstJoinedPartLengthLayout.TextSize = new System.Drawing.Size(57, 13);
+            this.firstJoinedPartLengthLayout.TextSize = new System.Drawing.Size(51, 13);
             // 
             // firstJoinedPartNumberLayout
             // 
@@ -231,57 +230,17 @@
             this.firstJoinedPartNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstJoinedPartNumberLayout.Text = "Номер";
             this.firstJoinedPartNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.firstJoinedPartNumberLayout.TextSize = new System.Drawing.Size(57, 13);
+            this.firstJoinedPartNumberLayout.TextSize = new System.Drawing.Size(51, 13);
             // 
-            // secondJoinedPartLengthLayout
+            // betweenFirstEmptySpaceI
             // 
-            this.secondJoinedPartLengthLayout.Control = this.secondJoinedPartLength;
-            this.secondJoinedPartLengthLayout.CustomizationFormText = "Длинна, мм";
-            this.secondJoinedPartLengthLayout.Location = new System.Drawing.Point(208, 0);
-            this.secondJoinedPartLengthLayout.MaxSize = new System.Drawing.Size(100, 40);
-            this.secondJoinedPartLengthLayout.MinSize = new System.Drawing.Size(100, 40);
-            this.secondJoinedPartLengthLayout.Name = "secondJoinedPartLengthLayout";
-            this.secondJoinedPartLengthLayout.Size = new System.Drawing.Size(100, 40);
-            this.secondJoinedPartLengthLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.secondJoinedPartLengthLayout.Text = "Длинна, мм";
-            this.secondJoinedPartLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.secondJoinedPartLengthLayout.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // betweenSecondEmptySpace
-            // 
-            this.betweenSecondEmptySpace.AllowHotTrack = false;
-            this.betweenSecondEmptySpace.CustomizationFormText = "betweenSecondEmptySpace";
-            this.betweenSecondEmptySpace.Location = new System.Drawing.Point(150, 0);
-            this.betweenSecondEmptySpace.Name = "betweenSecondEmptySpace";
-            this.betweenSecondEmptySpace.Size = new System.Drawing.Size(58, 40);
-            this.betweenSecondEmptySpace.Text = "betweenSecondEmptySpace";
-            this.betweenSecondEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // secondJoinedPartNumberLayout
-            // 
-            this.secondJoinedPartNumberLayout.Control = this.secondJoinedPartNumber;
-            this.secondJoinedPartNumberLayout.CustomizationFormText = "Второй элемент";
-            this.secondJoinedPartNumberLayout.Location = new System.Drawing.Point(0, 0);
-            this.secondJoinedPartNumberLayout.MaxSize = new System.Drawing.Size(150, 40);
-            this.secondJoinedPartNumberLayout.MinSize = new System.Drawing.Size(150, 40);
-            this.secondJoinedPartNumberLayout.Name = "secondJoinedPartNumberLayout";
-            this.secondJoinedPartNumberLayout.Size = new System.Drawing.Size(150, 40);
-            this.secondJoinedPartNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.secondJoinedPartNumberLayout.Text = "Номер";
-            this.secondJoinedPartNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.secondJoinedPartNumberLayout.TextSize = new System.Drawing.Size(57, 13);
-            // 
-            // firstJoinedPartGroup
-            // 
-            this.firstJoinedPartGroup.CustomizationFormText = "Первый элемент";
-            this.firstJoinedPartGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.firstJoinedPartLengthLayout,
-            this.firstJoinedPartNumberLayout,
-            this.betweenFirstEmptySpaceI});
-            this.firstJoinedPartGroup.Location = new System.Drawing.Point(0, 0);
-            this.firstJoinedPartGroup.Name = "firstJoinedPartGroup";
-            this.firstJoinedPartGroup.Size = new System.Drawing.Size(332, 83);
-            this.firstJoinedPartGroup.Text = "Первый элемент";
+            this.betweenFirstEmptySpaceI.AllowHotTrack = false;
+            this.betweenFirstEmptySpaceI.CustomizationFormText = "betweenFirstEmptySpaceI";
+            this.betweenFirstEmptySpaceI.Location = new System.Drawing.Point(150, 0);
+            this.betweenFirstEmptySpaceI.Name = "betweenFirstEmptySpaceI";
+            this.betweenFirstEmptySpaceI.Size = new System.Drawing.Size(58, 40);
+            this.betweenFirstEmptySpaceI.Text = "betweenFirstEmptySpaceI";
+            this.betweenFirstEmptySpaceI.TextSize = new System.Drawing.Size(0, 0);
             // 
             // secondJoinedPartGroup
             // 
@@ -295,16 +254,57 @@
             this.secondJoinedPartGroup.Size = new System.Drawing.Size(332, 83);
             this.secondJoinedPartGroup.Text = "Второй элемент";
             // 
-            // cancelButton
+            // secondJoinedPartNumberLayout
             // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(243, 192);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(97, 22);
-            this.cancelButton.StyleController = this.jointCutDialogLayout;
-            this.cancelButton.TabIndex = 9;
-            this.cancelButton.Text = "Отмена";
+            this.secondJoinedPartNumberLayout.Control = this.secondJoinedPartNumber;
+            this.secondJoinedPartNumberLayout.CustomizationFormText = "Второй элемент";
+            this.secondJoinedPartNumberLayout.Location = new System.Drawing.Point(0, 0);
+            this.secondJoinedPartNumberLayout.MaxSize = new System.Drawing.Size(150, 40);
+            this.secondJoinedPartNumberLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.secondJoinedPartNumberLayout.Name = "secondJoinedPartNumberLayout";
+            this.secondJoinedPartNumberLayout.Size = new System.Drawing.Size(150, 40);
+            this.secondJoinedPartNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.secondJoinedPartNumberLayout.Text = "Номер";
+            this.secondJoinedPartNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.secondJoinedPartNumberLayout.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // betweenSecondEmptySpace
+            // 
+            this.betweenSecondEmptySpace.AllowHotTrack = false;
+            this.betweenSecondEmptySpace.CustomizationFormText = "betweenSecondEmptySpace";
+            this.betweenSecondEmptySpace.Location = new System.Drawing.Point(150, 0);
+            this.betweenSecondEmptySpace.Name = "betweenSecondEmptySpace";
+            this.betweenSecondEmptySpace.Size = new System.Drawing.Size(58, 40);
+            this.betweenSecondEmptySpace.Text = "betweenSecondEmptySpace";
+            this.betweenSecondEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // secondJoinedPartLengthLayout
+            // 
+            this.secondJoinedPartLengthLayout.Control = this.secondJoinedPartLength;
+            this.secondJoinedPartLengthLayout.CustomizationFormText = "Длина, мм";
+            this.secondJoinedPartLengthLayout.Location = new System.Drawing.Point(208, 0);
+            this.secondJoinedPartLengthLayout.MaxSize = new System.Drawing.Size(100, 40);
+            this.secondJoinedPartLengthLayout.MinSize = new System.Drawing.Size(100, 40);
+            this.secondJoinedPartLengthLayout.Name = "secondJoinedPartLengthLayout";
+            this.secondJoinedPartLengthLayout.Size = new System.Drawing.Size(100, 40);
+            this.secondJoinedPartLengthLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.secondJoinedPartLengthLayout.Text = "Длина, мм";
+            this.secondJoinedPartLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.secondJoinedPartLengthLayout.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.cutJointButton;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(131, 180);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(100, 26);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(100, 26);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(100, 26);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -339,17 +339,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underSecondPartEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.underFirstPartEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betweenFirstEmptySpaceI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartLengthLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartLengthLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betweenSecondEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumberLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstJoinedPartGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betweenFirstEmptySpaceI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartNumberLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betweenSecondEmptySpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondJoinedPartLengthLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 

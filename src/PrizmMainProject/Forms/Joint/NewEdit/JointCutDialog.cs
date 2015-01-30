@@ -56,16 +56,16 @@ namespace Prizm.Main.Forms.Joint
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(firstJoinedPartGroup, "JointCutDialog_FirstJoinedPartGroup"),
-                new LocalizedItem(firstJoinedPartNumberLayout, "JointCutDialog_FirstJoinedPartNumberLayout"),
-                new LocalizedItem(firstJoinedPartLengthLayout, "JointCutDialog_FirstJoinedPartLengthLayout"),
+                new LocalizedItem(firstJoinedPartGroup, StringResources.JointCutDialog_FirstJoinedPartGroup.Id),
+                new LocalizedItem(firstJoinedPartNumberLayout, StringResources.JointCutDialog_FirstJoinedPartNumberLayout.Id),
+                new LocalizedItem(firstJoinedPartLengthLayout, StringResources.JointCutDialog_FirstJoinedPartLengthLayout.Id),
 
-                new LocalizedItem(secondJoinedPartGroup, "JointCutDialog_SecondJoinedPartGroup"),
-                new LocalizedItem(secondJoinedPartNumberLayout, "JointCutDialog_SecondJoinedPartNumberLayout"),
-                new LocalizedItem(secondJoinedPartLengthLayout, "JointCutDialog_SecondJoinedPartLengthLayout"),
+                new LocalizedItem(secondJoinedPartGroup, StringResources.JointCutDialog_SecondJoinedPartGroup.Id),
+                new LocalizedItem(secondJoinedPartNumberLayout, StringResources.JointCutDialog_SecondJoinedPartNumberLayout.Id),
+                new LocalizedItem(secondJoinedPartLengthLayout, StringResources.JointCutDialog_SecondJoinedPartLengthLayout.Id),
 
-                new LocalizedItem(cutJointButton, "JointCutDialog_CutJointButton"),
-                new LocalizedItem(cancelButton, "JointCutDialog_CancelButton"),
+                new LocalizedItem(cutJointButton, StringResources.JointCutDialog_CutJointButton.Id),
+                new LocalizedItem(cancelButton, StringResources.JointCutDialog_CancelButton.Id)
             };
         }
 
