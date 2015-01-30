@@ -311,5 +311,20 @@ namespace Prizm.Main.Languages
             Description = "Импорт. Надпись кнопки импорта"};
 
         #endregion
+
+        #region Heat Number Form
+        public static StringResource HeatNumber_HeatNumberLabel = new StringResource { 
+            Id = "HeatNumber_HeatNumberLabel", 
+            Description = "Номер плавки. Надпись номера"};
+
+        public static StringResource HeatNumber_SaveButton = new StringResource { 
+            Id = "HeatNumber_SaveButton", 
+            Description = "Номер плавки. Надпись кнопки сохранения"};
+
+        public static StringResource HeatNumber_CancelButton = new StringResource { Id = 
+            "HeatNumber_CancelButton", 
+            Description = "Номер плавки. Надпись кнопки отмены"};
+
+        #endregion
     }
 }
