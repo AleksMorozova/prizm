@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Purchase
 {
@@ -33,7 +34,10 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
             if (string.IsNullOrWhiteSpace(viewModel.Order.Number))
             {
                 viewModel.IsSaved = false;
-                notify.ShowError(Resources.DLG_ORDER_NUMBER_REQUIRED, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.PurchaseOrder_ValueRequired),
+                     Program.LanguageManager.GetString(StringResources.PurchaseOrder_ErrorHeader)
+                     );
             }
             else
             {
