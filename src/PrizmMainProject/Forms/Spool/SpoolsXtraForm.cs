@@ -258,7 +258,8 @@ namespace Prizm.Main.Forms.Spool
 
             if(inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0],
+                    Program.LanguageManager.GetString(StringResources.FirstEnterDate));
                 e.Cancel = true;
             }
             else

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -41,7 +42,9 @@ namespace Prizm.Main.Forms.Spool
 
             else
             {
-                notify.ShowError(Resources.Wrong_pipe_number_for_cutting, Resources.Wrong_pipe_number_for_cutting_Header);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.Spool_WrongPipeNumberForCutting),
+                    Program.LanguageManager.GetString(StringResources.Spool_WrongPipeNumberForCuttingHeader));
                 viewModel.ModifiableView.IsEditMode = false;
             }
             RefreshVisualStateEvent();
