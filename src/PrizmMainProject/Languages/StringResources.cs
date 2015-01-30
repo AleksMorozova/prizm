@@ -12,6 +12,11 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+        public static StringResource FirstEnterDate = new StringResource
+        {
+            Id = "FirstEnterDate",
+            Description = "В начале необходимо ввести дату"
+        };
         //part types
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
@@ -221,6 +226,37 @@ namespace Prizm.Main.Languages
         #endregion IncomingInspectionReport
 
         #region Spool
+        //message
+        public static StringResource Spool_SpoolLengtBigerThenPipeLength = new StringResource
+        {
+            Id = "Spool_SpoolLengtBigerThenPipeLength",
+            Description = "Длина трубы меньше длины катушки"
+        };
+        public static StringResource Spool_CutSpoolFromPipe = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipe",
+            Description = "Катушка успешно отрезана"
+        };
+        public static StringResource Spool_CutSpoolFromPipeHeader = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipeHeader",
+            Description = "Заголовок орезания катушки"
+        };
+        public static StringResource Spool_NullSpoolLength = new StringResource
+        {
+            Id = "Spool_NullSpoolLength",
+            Description = "Длина катушки равна 0"
+        };
+        public static StringResource Spool_WrongPipeNumberForCutting = new StringResource
+        {
+            Id = "Spool_WrongPipeNumberForCutting",
+            Description = "Неверный номер трубы для нарезания на катушки"
+        };
+        public static StringResource Spool_WrongPipeNumberForCuttingHeader = new StringResource
+        {
+            Id = "Spool_WrongPipeNumberForCuttingHeader",
+            Description = "Неверный номер трубы для нарезания на катушки"
+        };
         public static StringResource Spool_PipeNumberLabel = new StringResource
         {
             Id = "Spool_PipeNumberLabel",
