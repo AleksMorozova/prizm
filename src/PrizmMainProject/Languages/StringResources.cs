@@ -315,6 +315,61 @@ namespace Prizm.Main.Languages
         #endregion MissingPortion
 
         #region Settings
+
+        public static StringResource Settings_ProjectTab = new StringResource
+        {
+            Id = "Settings_ProjectTab",
+            Description = "Настройки. Вкладка - Проект"
+        };
+
+        public static StringResource Settings_PipeTab = new StringResource
+        {
+            Id = "Settings_PipeTab",
+            Description = "Настройки. Вкладка - Труба"
+        };
+        public static StringResource Settings_LineTab = new StringResource
+        {
+            Id = "Settings_LineTab",
+            Description = "Настройки. Вкладка - Трубопровод"
+        };
+        public static StringResource Settings_PartsTab = new StringResource
+        {
+            Id = "Settings_PartsTab",
+            Description = "Настройки. Вкладка - Комплектующие"
+        };
+        public static StringResource Settings_WeldersTab = new StringResource
+        {
+            Id = "Settings_WeldersTab",
+            Description = "Настройки. Вкладка - Сварщики"
+        };
+
+        public static StringResource Settings_InspectorsTab = new StringResource
+        {
+            Id = "Settings_InspectorsTab",
+            Description = "Настройки. Вкладка - Инспектора"
+        };
+
+        public static StringResource Settings_UsersTab = new StringResource
+        {
+            Id = "Settings_UsersTab",
+            Description = "Настройки. Вкладка - Пользователи"
+        };
+        public static StringResource Settings_RolesTab = new StringResource
+        {
+            Id = "Settings_RolesTab",
+            Description = "Настройки. Вкладка - Роли"
+        };
+        public static StringResource Settings_SaveButton = new StringResource
+        {
+            Id = "Settings_SaveButton",
+            Description = "Настройки. Кнопка - Сохренить"
+        };
+        public static StringResource Settings_CloseButton = new StringResource
+        {
+            Id = "Settings_CloseButton",
+            Description = "Настройки. Кнопка - Закрыть"
+        };
+
         //project page
         public static StringResource SettingsProject_TitleLabel = new StringResource
         {
@@ -463,51 +518,319 @@ namespace Prizm.Main.Languages
             Id = "SettingsPipe_InspectionsCodeColumn",
             Description = "Настройки-труба. Код контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsNameColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsNameColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsNameColumn",
             Description = "Настройки-труба. Название контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsCategoryColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsCategoryColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsCategoryColumn",
             Description = "Настройки-труба. Категория контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsControlTypeColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsControlTypeColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsControlTypeColumn",
             Description = "Настройки-труба. Тип контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsResultTypeColumn",
             Description = "Настройки-труба. Результат конрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsBoolExpectedColumn",
             Description = "Настройки-труба. Ожидаемы результат для булевского результата"
         };
-                public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsMinExpectedColumn",
             Description = "Настройки-труба. Минимальный результат контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsMaxExpectedColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsMaxExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsMaxExpectedColumn",
             Description = "Настройки-труба. Максимальный результат контрольной операции"
         };
-                public static StringResource SettingsPipe_InspectionsIsReqiredColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsIsReqiredColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsIsReqiredColumn",
             Description = "Настройки-труба. Обязательная контрольная операция"
         };
-                public static StringResource SettingsPipe_InspectionsIsActiveColumn = new StringResource
+        
+        public static StringResource SettingsPipe_InspectionsIsActiveColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsIsActiveColumn",
             Description = "Настройки-труба. Активность контрольной операции"
         };
+        
+        //pipeline page
+        public static StringResource SettingsLine_LineGroup = new StringResource
+        {
+            Id = "SettingsLine_LineGroup",
+            Description = "Настройки - Трубопровод. Список контрольных и ремонтных операций для стыка"
+        };
+
+        public static StringResource SettingsLine_NameColumn = new StringResource
+        {
+            Id = "SettingsLine_NameColumn",
+            Description = "Настройки - Трубопровод. Название операции"
+        };
+
+        public static StringResource SettingsLine_IsReqiredColumn = new StringResource
+        {
+            Id = "SettingsLine_IsReqiredColumn",
+            Description = "Настройки - Трубопровод. Обязательная операция"
+        };
+
+        public static StringResource SettingsLine_TestTypeColumn = new StringResource
+        {
+            Id = "SettingsLine_TestTypeColumn",
+            Description = "Настройки - Трубопровод. Тип операции"
+        };
+
+        public static StringResource SettingsLine_HasAcceptedColumn = new StringResource
+        {
+            Id = "SettingsLine_HasAcceptedColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Принято"
+        };
+
+        public static StringResource SettingsLine_RepairColumn = new StringResource
+        {
+            Id = "SettingsLine_RepairColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Ремонт"
+        };
+
+        public static StringResource SettingsLine_WithdrawColumn = new StringResource
+        {
+            Id = "SettingsLine_WithdrawColumn",
+            Description = "Настройки - Трубопровод. Результат контроля - Вырезка"
+        };
+
+        public static StringResource SettingsLine_IsReqiredResultColumn = new StringResource
+        {
+            Id = "SettingsLine_IsReqiredResultColumn",
+            Description = "Настройки - Трубопровод. Обязательный результат контрольной операции"
+        };
+
+        public static StringResource SettingsLine_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsLine_IsActiveColumn",
+            Description = "Настройки - Трубопровод. Активность операции"
+        };
+
+        //component page
+
+        public static StringResource SettingsComponent_PartsType = new StringResource
+        {
+            Id = "SettingsComponent_PartsType",
+            Description = "Настройки - Комплектующие. Список типов комплектующих изделий"
+        };
+
+        public static StringResource SettingsComponent_TypeColumn = new StringResource
+        {
+            Id = "SettingsComponent_TypeColumn",
+            Description = "Настройки - Комплектующие. Тип комплектующего"
+        };
+
+        public static StringResource SettingsComponent_ConnectorsNumberColumn = new StringResource
+        {
+            Id = "SettingsComponent_ConnectorsNumberColumn",
+            Description = "Настройки - Комплектующие. Количество конекторов у комплектующего"
+        };
+
+        public static StringResource SettingsComponent_IsActiveTypeColumn = new StringResource
+        {
+            Id = "SettingsComponent_IsActiveTypeColumn",
+            Description = "Настройки - Комплектующие. Активность комплектующего элемента"
+        };
+
+        //welder page
+        public static StringResource SettingsWelders_LastNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_LastNameColumn",
+            Description = "Настройки - Сварщики. Фамилия сварщика"
+        };
+        public static StringResource SettingsWelders_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_FirstNameColumn",
+            Description = "Настройки - Сварщики. Имя сварщика"
+        };
+        public static StringResource SettingsWelders_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_MiddleNameColumn",
+            Description = "Настройки - Сварщики. Отчество сварщика"
+        };
+        public static StringResource SettingsWelders_CertificateNameColumn = new StringResource
+        {
+            Id = "SettingsWelders_CertificateNameColumn",
+            Description = "Настройки - Сварщики. Сертификат сварщика"
+        };
+        public static StringResource SettingsWelders_ExpiredColumn = new StringResource
+        {
+            Id = "SettingsWelders_ExpiredColumn",
+            Description = "Настройки - Сварщики. Срок действия сертификата"
+        };
+        public static StringResource SettingsWelders_StampColumn = new StringResource
+        {
+            Id = "SettingsWelders_StampColumn",
+            Description = "Настройки - Сварщики. Клеймо сварщика"
+        };
+        public static StringResource SettingsWelders_GradeColumn = new StringResource
+        {
+            Id = "SettingsWelders_GradeColumn",
+            Description = "Настройки - Сварщики. Уровень сварщика"
+        };
+        public static StringResource SettingsWelders_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsWelders_IsActiveColumn",
+            Description = "Настройки - Сварщики. Активность сварщика"
+        };
+
+        //inspectors page
+        public static StringResource SettingsInspectors_InspectorsLabel = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorsLabel",
+            Description = "Настройки - Инспектора. Список инспекторов"
+        };
+        public static StringResource SettingsInspectors_CertificatesLabel = new StringResource
+        {
+            Id = "SettingsInspectors_CertificatesLabel",
+            Description = "Настройки - Инспектора. Список сертификатов для кокретного испектора"
+        };
+        public static StringResource SettingsInspectors_CertificateTypesLabel = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateTypesLabel",
+            Description = "Настройки - Инспектора. Типы сертификатов"
+        };
+        public static StringResource SettingsInspectors_InspectorsGroup = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorsGroup",
+            Description = "Настройки - Инспектора. Информация по всем инспекторам"
+        };
+        public static StringResource SettingsInspectors_CertificatesGroup = new StringResource
+        {
+            Id = "SettingsInspectors_CertificatesGroup",
+            Description = "Настройки - Инспектора. Информация по всем сертификатам"
+        };
+
+        public static StringResource SettingsInspectors_LastNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_LastNameColumn",
+            Description = "Настройки - Инспектора. Фамилия инспектора"
+        };
+        public static StringResource SettingsInspectors_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_FirstNameColumn",
+            Description = "Настройки - Инспектора. Имя инспектора"
+        };
+        public static StringResource SettingsInspectors_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_MiddleNameColumn",
+            Description = "Настройки - Инспектора. Отчество инспектора"
+        };
+
+        public static StringResource SettingsInspectors_CertificateNumberColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateNumberColumn",
+            Description = "Настройки - Инспектора. Номер сертификата инспектора"
+        };
+        public static StringResource SettingsInspectors_CertificateTypeColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateTypeColumn",
+            Description = "Настройки - Инспектора. Тип сертификата"
+        };
+        public static StringResource SettingsInspectors_CertificateExpirationColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateExpirationColumn",
+            Description = "Настройки - Инспектора. Срок дейстия сертификата инспектора"
+        };
+
+        public static StringResource SettingsInspectors_CertificateIsActiveColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateIsActiveColumn",
+            Description = "Настройки - Инспектора. Активность типа сертификата"
+        };
+        public static StringResource SettingsInspectors_CertificateNameColumn = new StringResource
+        {
+            Id = "SettingsInspectors_CertificateNameColumn",
+            Description = "Настройки - Инспектора. Название типа сертификата инспектора"
+        };
+
+        // user page
+
+        public static StringResource SettingsUser_UsersLabel = new StringResource
+        {
+            Id = "SettingsUser_UsersLabel",
+            Description = "Настройки - Пользователи. Список пользователей"
+        };
+        public static StringResource SettingsUser_LoginColumn = new StringResource
+        {
+            Id = "SettingsUser_LoginColumn",
+            Description = "Настройки - Пользователи. Логин пользователя"
+        };
+        public static StringResource SettingsUser_LastNameColumn = new StringResource
+        {
+            Id = "SettingsUser_LastNameColumn",
+            Description = "Настройки - Пользователи. Фамилия пользователя"
+        };
+        public static StringResource SettingsUser_MiddleNameColumn = new StringResource
+        {
+            Id = "SettingsUser_MiddleNameColumn",
+            Description = "Настройки - Пользователи. Отчество пользователя"
+        };
+        public static StringResource SettingsUser_FirstNameColumn = new StringResource
+        {
+            Id = "SettingsUser_FirstNameColumn",
+            Description = "Настройки - Пользователи. Имя пользвателя"
+        };
+        public static StringResource SettingsUser_PassExpiredColumn = new StringResource
+        {
+            Id = "SettingsUser_PassExpiredColumn",
+            Description = "Настройки - Пользователи. Срок истечения пароля"
+        };
+        public static StringResource SettingsUser_IsActiveColumn = new StringResource
+        {
+            Id = "SettingsUser_IsActiveColumn",
+            Description = "Настройки - Пользователи.  Активность пользователя"
+        };
+        public static StringResource SettingsUser_PassColumn = new StringResource
+        {
+            Id = "SettingsUser_PassColumn",
+            Description = "Настройки - Пользователи. Пароль пользователя"
+        };
+
+        //role page
+        public static StringResource SettingsRoles_Label = new StringResource
+        {
+            Id = "SettingsRoles_Label",
+            Description = "Настройки - Роли. Список ролей"
+        };
+        public static StringResource SettingsRoles_PermissionLabel = new StringResource
+        {
+            Id = "SettingsRoles_PermissionLabel",
+            Description = "Настройки - Роли. Права для конкретной роли"
+        };
+        public static StringResource SettingsRole_NameColumn = new StringResource
+        {
+            Id = "SettingsRole_NameColumn",
+            Description = "Настройки - Роли. Название роли"
+        };
+        public static StringResource SettingsRole_DescriptionColumn = new StringResource
+        {
+            Id = "SettingsRole_DescriptionColumn",
+            Description = "Настройки - Роли. Описание роли"
+        };
+
         #endregion Settings
 
         #region --- Audit ---
