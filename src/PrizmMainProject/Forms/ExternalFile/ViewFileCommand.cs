@@ -52,7 +52,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
             else
             {
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL), Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER));
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFail), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFailHeader));
             }
         }
 

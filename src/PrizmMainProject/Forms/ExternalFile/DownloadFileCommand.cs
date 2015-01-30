@@ -37,12 +37,12 @@ namespace Prizm.Main.Forms.ExternalFile
                 if (File.Exists(sourceFile))
                 {
                     File.Copy(sourceFile, viewModel.SelectedPath);
-                    notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_DOWNLOAD_SUCCESS),Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_DOWNLOAD_HEADER));
+                    notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadSuccess), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadHeader));
                 }
             }
             else
             {
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL),Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER));
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFail), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFailHeader));
             }
         }
 

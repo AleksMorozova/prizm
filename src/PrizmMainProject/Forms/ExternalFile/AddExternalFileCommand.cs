@@ -58,7 +58,7 @@ namespace Prizm.Main.Forms.ExternalFile
                 }
 
                 Directory.Delete(Directories.FilesToAttachFolder, true);
-                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_ATTACH_SUCCESS),Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER));
+                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
             }
         }
 

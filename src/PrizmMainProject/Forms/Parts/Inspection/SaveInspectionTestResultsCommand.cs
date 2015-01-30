@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 {
                     repo.Evict(itr);
                 }
-                notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_DLG_INSPECTIONS_SAVED), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_DLG_INSPECTIONS_SAVED_HEADER));
+                notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
             }
             catch (RepositoryException ex)
             {

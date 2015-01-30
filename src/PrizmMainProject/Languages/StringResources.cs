@@ -105,51 +105,51 @@ namespace Prizm.Main.Languages
         };
 
         //messages
-        public static StringResource PartInspection_DLG_INSPECTIONS_SAVED = new StringResource
+        public static StringResource PartInspection_InspectionsSaved = new StringResource
         {
-            Id = "PartInspection_DLG_INSPECTIONS_SAVED",
+            Id = "PartInspection_InspectionsSaved",
             Description = "Результаты контрольных операций успешно сохранены. Номер элемента: "
         };
 
-        public static StringResource PartInspection_DLG_INSPECTIONS_SAVED_HEADER = new StringResource
+        public static StringResource PartInspection_InspectionsSavedHeader = new StringResource
         {
-            Id = "PartInspection_DLG_INSPECTIONS_SAVED_HEADER",
+            Id = "PartInspection_InspectionsSavedHeader",
             Description = "Сохранение контрольных операций"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_ATTACH_SUCCESS = new StringResource
+        public static StringResource ExternalFiles_FileAttachSuccess = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_ATTACH_SUCCESS",
+            Id = "ExternalFiles_FileAttachSuccess",
             Description = "Вложения успешно добавлены"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER = new StringResource
+        public static StringResource ExternalFiles_FileAttachSuccessHeader = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER",
+            Id = "ExternalFiles_FileAttachSuccessHeader",
             Description = "Добавление вложений"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_DOWNLOAD_HEADER = new StringResource
+        public static StringResource ExternalFiles_FileDownloadHeader = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_DOWNLOAD_HEADER",
+            Id = "ExternalFiles_FileDownloadHeader",
             Description = "Загрузка файла"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_DOWNLOAD_SUCCESS = new StringResource
+        public static StringResource ExternalFiles_FileDownloadSuccess = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_DOWNLOAD_SUCCESS",
+            Id = "ExternalFiles_FileDownloadSuccess",
             Description = "Файл успешно загружен"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL = new StringResource
+        public static StringResource ExternalFiles_FileViewDownloadFail = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL",
+            Id = "ExternalFiles_FileViewDownloadFail",
             Description = "Для просмотра и скачивания вложений необходимо их предварительное сохранение"
         };
 
-        public static StringResource ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER = new StringResource
+        public static StringResource ExternalFiles_FileViewDownloadFailHeader = new StringResource
         {
-            Id = "ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER",
+            Id = "ExternalFiles_FileViewDownloadFailHeader",
             Description = "Просмотр и загрузка несохрaненных файлов"
         };
 
