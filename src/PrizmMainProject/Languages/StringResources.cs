@@ -534,14 +534,44 @@ namespace Prizm.Main.Languages
 
         #endregion //--- ConstructionReports ---
 
-        #region --- Audit ---
+        #region --- PipeConstractionReport ---
 
-        public static StringResource Audit_ElementNumberLabel = new StringResource
+        public static StringResource PipeConstractionReport_PipeNumberLayout = new StringResource
         {
-            Id = "Audit_ElementNumberLabel",
-            Description = "Аудит. Надпись номера элемента."
+            Id = "PipeConstractionReport_PipeNumberLayout",
+            Description = "Номер трубы"
+        };
+        
+        public static StringResource PipeConstractionReport_PipeTypeCheckedComboLayout = new StringResource
+        {
+            Id = "PipeConstractionReport_PipeTypeCheckedComboLayout",
+            Description = "Типоразмер"
+        };
+        
+        public static StringResource PipeConstractionReport_PipeReportParametersLayoutGroup = new StringResource
+        {
+            Id = "PipeConstractionReport_PipeReportParametersLayoutGroup",
+            Description = "Параметры отчета по трубам"
+        };
+        
+        public static StringResource PipeConstractionReport_PreviewButton = new StringResource
+        {
+            Id = "PipeConstractionReport_PreviewButton",
+            Description = "&Предпросмотр"
         };
 
-        #endregion //--- Audit ---
+        public static StringResource PipeConstractionReport_CreateReportButton = new StringResource
+        {
+            Id = "PipeConstractionReport_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+        
+        public static StringResource PipeConstractionReport_DocumentViewerLayoutGroup = new StringResource
+        {
+            Id = "PipeConstractionReport_DocumentViewerLayoutGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+        #endregion //--- PipeConstractionReport ---
     }
 }
