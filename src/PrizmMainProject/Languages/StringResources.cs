@@ -116,8 +116,37 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Railcar NewEdit ---
-
+        public static StringResource RailcarNewEdit_ReleaseNumberLabel = new StringResource { Id = "RailcarNewEdit_ReleaseNumberLabel", Description = "Разрешение на отгрузку. Номер разрешения" };
+        public static StringResource RailcarNewEdit_ReleaseDateLabel = new StringResource { Id = "RailcarNewEdit_ReleaseDateLabel", Description = "Разрешение на отгрузку. Дата разрешения" };
+        public static StringResource RailcarNewEdit_RailcarNumberLabel = new StringResource { Id = "RailcarNewEdit_RailcarNumberLabel", Description = "Разрешение на отгрузку. Номер вагона" };
+        public static StringResource RailcarNewEdit_CertificateLabel = new StringResource { Id = "RailcarNewEdit_CertificateLabel", Description = "Разрешение на отгрузку. Сертификат вагона" };
+        public static StringResource RailcarNewEdit_DestinationLabel = new StringResource { Id = "RailcarNewEdit_DestinationLabel", Description = "Разрешение на отгрузку. Получатель" };
+        public static StringResource RailcarNewEdit_AddPipeButton = new StringResource { Id = "RailcarNewEdit_AddPipeButton", Description = "Разрешение на отгрузку. Кнопка добавления трубы" };
+        public static StringResource RailcarNewEdit_RemovePipeButton = new StringResource { Id = "RailcarNewEdit_RemovePipeButton", Description = "Разрешение на отгрузку. Кнопка удаления трубы" };
+        public static StringResource RailcarNewEdit_AttachmentsButton = new StringResource { Id = "RailcarNewEdit_AttachmentsButton", Description = "Разрешение на отгрузку. Кнопка добавления файлов" };
+        public static StringResource RailcarNewEdit_ShipButton = new StringResource { Id = "RailcarNewEdit_ShipButton", Description = "Разрешение на отгрузку. Кнопка отгрузки" };
+        public static StringResource RailcarNewEdit_UnshipButton = new StringResource { Id = "RailcarNewEdit_UnshipButton", Description = "Разрешение на отгрузку. Кнопка отклонения отгрузки" };
+        public static StringResource RailcarNewEdit_SaveButton = new StringResource { Id = "RailcarNewEdit_SaveButton", Description = "Разрешение на отгрузку. Кнопка сохранить" };
+        public static StringResource RailcarNewEdit_PipeNumberColumn = new StringResource { Id = "RailcarNewEdit_PipeNumberColumn", Description = "Разрешение на отгрузку. Столбец номер трубы" };
+        public static StringResource RailcarNewEdit_PipeTypeSizeColumn = new StringResource { Id = "RailcarNewEdit_PipeTypeSizeColumn", Description = "Разрешение на отгрузку. Столбец типоразмер" };
+        public static StringResource RailcarNewEdit_PipeStatusColumn = new StringResource { Id = "RailcarNewEdit_PipeStatusColumn", Description = "Разрешение на отгрузку. Столбец статус" };
         #endregion //--- Railcar NewEdit ---
+
+        #region --- Railcar Search ---
+        public static StringResource ReleaseSearch_NumberLabel = new StringResource { Id = "ReleaseSearch_NumberLabel", Description = "Поиск разрешений на отгрузку. Номер разрешения" };
+        public static StringResource ReleaseSearch_DateLabel = new StringResource { Id = "ReleaseSearch_DateLabel", Description = "Поиск разрешений на отгрузку. Дата" };
+        public static StringResource ReleaseSearch_DestinationLabel = new StringResource { Id = "ReleaseSearch_DestinationLabel", Description = "Поиск разрешений на отгрузку. Получатель" };
+        public static StringResource ReleaseSearch_RailcarLabel = new StringResource { Id = "ReleaseSearch_RailcarLabel", Description = "Поиск разрешений на отгрузку. Вагон" };
+        public static StringResource ReleaseSearch_CertificateLabel = new StringResource { Id = "ReleaseSearch_CertificateLabel", Description = "Поиск разрешений на отгрузку. Сертификат вагона" };
+        public static StringResource NewEditPipe_SearchButton = new StringResource { Id = "NewEditPipe_SearchButton", Description = "Поиск разрешений на отгрузку. Кнопка поиск" };
+        public static StringResource ReleaseSearch_ReleaseNumberColumnHeader = new StringResource { Id = "ReleaseSearch_ReleaseNumberColumnHeader", Description = "Поиск разрешений на отгрузку. Столбец номер разрешения" };
+        public static StringResource ReleaseSearch_ReleaseDateColumnHeader = new StringResource { Id = "ReleaseSearch_ReleaseDateColumnHeader", Description = "Поиск разрешений на отгрузку. Столбец дата разрешения" };
+        public static StringResource ReleaseSearch_RailcarNumberColumnHeader = new StringResource { Id = "ReleaseSearch_RailcarNumberColumnHeader", Description = "Поиск разрешений на отгрузку. Столбец номер вагона" };
+        public static StringResource ReleaseSearch_DestinationColumnHeader = new StringResource { Id = "ReleaseSearch_DestinationColumnHeader", Description = "Поиск разрешений на отгрузку. Столбец получатель" };
+        public static StringResource ReleaseSearch_CertificateColumnHeader = new StringResource { Id = "ReleaseSearch_CertificateColumnHeader", Description = "Поиск разрешений на отгрузку. Столбец сертификат" };
+        public static StringResource ReleaseSearch_SearchGroup = new StringResource { Id = "ReleaseSearch_SearchGroup", Description = "Поиск разрешений на отгрузку. Группа поиск" };
+        public static StringResource ReleaseSearch_ResultGroup = new StringResource { Id = "ReleaseSearch_ResultGroup", Description = "Поиск разрешений на отгрузку. Группа результат" };
+        #endregion //--- Railcar Search ---
 
         #region --- Railcar NewEdit ---
 
