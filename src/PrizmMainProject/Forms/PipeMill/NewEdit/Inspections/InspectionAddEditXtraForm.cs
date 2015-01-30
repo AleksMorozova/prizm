@@ -88,25 +88,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(codeLayoutControlItem, "InspectionAddEdit_CodeLabel"),
-                new LocalizedItem(categoryLayoutControlItem, "InspectionAddEdit_CategoryLabel"),
-                new LocalizedItem(nameLayoutControlItem, "InspectionAddEdit_NameLabel"),
-                new LocalizedItem(expectedLayoutControlItem, "InspectionAddEdit_ExpectedResultLabel"),
-                new LocalizedItem(factStringLayoutControlItem, "InspectionAddEdit_FactStringResultLabel"),
-                new LocalizedItem(factBool, "InspectionAddEdit_FactBoolResultLabel"),
-                new LocalizedItem(factLimitLayout, "InspectionAddEdit_FactLimitResultLabel"),
-                new LocalizedItem(dateLayoutControlItem, "InspectionAddEdit_DateLabel"),
-                new LocalizedItem(statusLayoutControlItem, "InspectionAddEdit_StatusLabel"),
-                new LocalizedItem(inspectorsLayoutControlItem, "InspectionAddEdit_InspectorsLabel"),
+                new LocalizedItem(codeLayoutControlItem, StringResources.InspectionAddEdit_CodeLabel.Id),
+                new LocalizedItem(categoryLayoutControlItem, StringResources.InspectionAddEdit_CategoryLabel.Id),
+                new LocalizedItem(nameLayoutControlItem, StringResources.InspectionAddEdit_NameLabel.Id),
+                new LocalizedItem(expectedLayoutControlItem, StringResources.InspectionAddEdit_ExpectedResultLabel.Id),
+                new LocalizedItem(factStringLayoutControlItem, StringResources.InspectionAddEdit_FactStringResultLabel.Id),
+                new LocalizedItem(factBool, StringResources.InspectionAddEdit_FactBoolResultLabel.Id),
+                new LocalizedItem(factLimitLayout, StringResources.InspectionAddEdit_FactLimitResultLabel.Id),
+                new LocalizedItem(dateLayoutControlItem, StringResources.InspectionAddEdit_DateLabel.Id),
+                new LocalizedItem(statusLayoutControlItem, StringResources.InspectionAddEdit_StatusLabel.Id),
+                new LocalizedItem(inspectorsLayoutControlItem, StringResources.InspectionAddEdit_InspectorsLabel.Id),
 
-                new LocalizedItem(operationLayoutControlGroup, "InspectionAddEdit_OperationGroup"),
-                new LocalizedItem(resultLayoutControlGroup, "InspectionAddEdit_ResultGroup"),
-                new LocalizedItem(factStringLayoutControlGroup, "InspectionAddEdit_FactStringGroup"),
-                new LocalizedItem(factBoolLayoutControlGroup, "InspectionAddEdit_FactBoolGroup"),
-                new LocalizedItem(factDiapasonLayoutControlGroup, "InspectionAddEdit_FactLimitGroup"),
+                new LocalizedItem(operationLayoutControlGroup, StringResources.InspectionAddEdit_OperationGroup.Id),
+                new LocalizedItem(resultLayoutControlGroup, StringResources.InspectionAddEdit_ResultGroup.Id),
+                new LocalizedItem(factStringLayoutControlGroup, StringResources.InspectionAddEdit_FactStringGroup.Id),
+                new LocalizedItem(factBoolLayoutControlGroup, StringResources.InspectionAddEdit_FactBoolGroup.Id),
+                new LocalizedItem(factDiapasonLayoutControlGroup, StringResources.InspectionAddEdit_FactLimitGroup.Id),
 
-                new LocalizedItem(saveButton, "InspectionAddEdit_SaveButton"),
-                new LocalizedItem(cancelButton, "InspectionAddEdit_CancelButton")
+                new LocalizedItem(saveButton, StringResources.InspectionAddEdit_SaveButton.Id),
+                new LocalizedItem(cancelButton, StringResources.InspectionAddEdit_CancelButton.Id)
             };
         }
 
