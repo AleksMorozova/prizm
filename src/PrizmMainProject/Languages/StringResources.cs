@@ -250,5 +250,28 @@ namespace Prizm.Main.Languages
             Id = "CreateSpoolComponentDialog_CreateButton", 
             Description = "Диалог создания элемента. Кнопка создания"};
         #endregion
+
+        #region --- InspectionSelectPartDialog ---
+        public static StringResource InspectionSelectPartDialog_SearchResultsLabel = new StringResource { 
+            Id = "InspectionSelectPartDialog_SearchResultsLabel", 
+            Description = "Диалог выбора элемента инспекции. Надпись результатов поиска"};
+
+        public static StringResource InspectionSelectPartDialog_CancelButton = new StringResource { 
+            Id = "InspectionSelectPartDialog_CancelButton", Description = 
+            "Диалог выбора элемента инспекции. Надпись кнопки отмены"};
+
+        public static StringResource InspectionSelectPartDialog_InspectionButton = new StringResource { 
+            Id = "InspectionSelectPartDialog_InspectionButton", 
+            Description = "Диалог выбора элемента инспекции. Надпись кнопки контроля"};
+
+        public static StringResource InspectionSelectPartDialog_NumberColumnHeader = new StringResource { 
+            Id = "InspectionSelectPartDialog_NumberColumnHeader", 
+            Description = "Диалог выбора элемента инспекции. Надпись колонки номера"};
+
+        public static StringResource InspectionSelectPartDialog_TypeColumnHeader = new StringResource { 
+            Id = "InspectionSelectPartDialog_TypeColumnHeader", 
+            Description = "Диалог выбора элемента инспекции. Надпись колонки типа"};
+
+        #endregion
     }
 }
