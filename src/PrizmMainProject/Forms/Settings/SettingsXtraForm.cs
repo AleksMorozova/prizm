@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        private InspectorViewType CurrentInspector;
         private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
@@ -603,18 +604,25 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
             var view = sender as GridView; //cert Grid
-
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (inspc != null)
+            {
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
                 InspectorCertificate cert = view.GetRow(e.RowHandle) as InspectorCertificate; //certif from certif grid 
-                if(cert != null)
+                if (cert != null)
                 {
                     cert.Inspector = insp.Inspector;
                     cert.IsActive = true;
                     cert.Certificate = new Certificate { ExpirationDate = DateTime.Now };
                 }
+            }
+            }
+            else 
+            {
+                XtraMessageBox.Show("INSPECTOR!!!!!");
             }
         }
 
@@ -883,14 +891,18 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectorCertificateGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            GridView v = sender as GridView;
-            var data = v.GetRow(e.RowHandle) as InspectorCertificate;
-            if(data != null)
-            {
-                if(data.Certificate.ExpirationDate < DateTime.Now)
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
+            if (inspc !=null)
+            {            
+                GridView v = sender as GridView;
+                var data = v.GetRow(e.RowHandle) as InspectorCertificate;
+                if(data != null)
                 {
-                    e.Appearance.ForeColor = Color.Red;
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    if(data.Certificate.ExpirationDate < DateTime.Now)
+                    {
+                        e.Appearance.ForeColor = Color.Red;
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    }
                 }
             }
         }
@@ -1210,7 +1222,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            if(IsEditMode)
+            if (IsEditMode && IsEditable(IsEditMode))
             {
                 using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
                 {
@@ -1268,6 +1280,55 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private void plateManufacturersListView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(plateManufacturersListView, plateManufacturerGridColumn, e);
+        }
+
+        void ValidateName(GridView view, GridColumn NameColumn, ValidateRowEventArgs e)
+        {
+
+            string Name = (string)view.GetRowCellValue(e.RowHandle, NameColumn);
+           
+            view.ClearColumnErrors();
+
+            if (String.IsNullOrEmpty(Name))
+            {
+                view.SetColumnError(NameColumn, Resources.VALUE_REQUIRED);
+                e.Valid = false;
+            }
+
+        }
+
+        private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(categoriesGridView, categoryNameColumn, e);
+        }
+
+        private void seemTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(seemTypeGridView, seemTypeColumn, e);
+        }
+
+        private void pipesSizeListGridView_ValidateRow_1(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(pipesSizeListGridView, pipeSizeGridColumn, e);
+        }
+
+        private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(componentryTypeGridView, typeColumn, e);
+        }
+
+        private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(jointsOperationsGridView, nameGridColumn, e);
+        }
+
+        private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(certificateTypesView, certificateNameColumn, e);
+        }
 
     }
 }
