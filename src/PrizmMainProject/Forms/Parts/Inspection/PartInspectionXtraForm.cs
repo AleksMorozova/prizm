@@ -246,7 +246,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             if (inspResult.Inspectors == null || inspResult.Inspectors.Count <= 0)
             {
-                gv.SetColumnError(colInspector, Program.LanguageManager.GetString(StringResources.Value_Requared));
+                gv.SetColumnError(colInspector, Program.LanguageManager.GetString(StringResources.Value_Required));
                 e.Valid = false;
             }
         }
