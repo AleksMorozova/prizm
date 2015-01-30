@@ -41,12 +41,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(searchResultsLayout, "InspectionSelectPartDialog_SearchResultsLabel"),
-                new LocalizedItem(cancelButton, "InspectionSelectPartDialog_CancelButton"),
-                new LocalizedItem(acceptButton, "InspectionSelectPartDialog_InspectionButton"),
+                new LocalizedItem(searchResultsLayout, StringResources.InspectionSelectPartDialog_SearchResultsLabel.Id),
+                new LocalizedItem(cancelButton, StringResources.InspectionSelectPartDialog_CancelButton.Id),
+                new LocalizedItem(acceptButton, StringResources.InspectionSelectPartDialog_InspectionButton.Id),
                 // grid column headers
-                new LocalizedItem(numberCol, "InspectionSelectPartDialog_NumberColumnHeader"),
-                new LocalizedItem(typeCol, "InspectionSelectPartDialog_TypeColumnHeader"),
+                new LocalizedItem(numberCol, StringResources.InspectionSelectPartDialog_NumberColumnHeader.Id),
+                new LocalizedItem(typeCol, StringResources.InspectionSelectPartDialog_TypeColumnHeader.Id),
             };
         }
 
