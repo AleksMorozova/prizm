@@ -194,5 +194,25 @@ namespace Prizm.Main.Languages
 
         #endregion
 
+        #region ---Save Dialog---
+        public static StringResource SaveDialog_SaveLabel = new StringResource { 
+            Id = "SaveDialog_SaveLabel", 
+            Description = "Диалог сохранения. Текст"};
+
+        public static StringResource SaveDialog_SaveButton = new StringResource { 
+            Id = "SaveDialog_SaveButton", 
+            Description = "Диалог сохранения. Кнопка сохранения"};
+
+        public static StringResource SaveDialog_DontSaveButton = new StringResource { 
+            Id = "SaveDialog_DontSaveButton", 
+            Description = "Диалог сохранения. Кнопка Не сохранять"};
+
+        public static StringResource SaveDialog_CancelButton = new StringResource { 
+            Id = "SaveDialog_CancelButton", 
+            Description = "Диалог сохранения. Кнопка отмены"};
+
+
+        #endregion
+
     }
 }
