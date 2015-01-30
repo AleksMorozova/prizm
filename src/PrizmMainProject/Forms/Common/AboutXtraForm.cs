@@ -37,9 +37,11 @@ namespace Prizm.Main.Forms.Common
         {
             return new List<LocalizedItem>() 
                 { 
-                    new LocalizedItem(labelVersion, "About_VersionLabel"),
+                    new LocalizedItem(titleLabel, StringResources.AboutForm_TitleLabel.Id),
 
-                    new LocalizedItem(acceptButton, "About_AcceptButton")
+                    new LocalizedItem(labelVersion, StringResources.About_VersionLabel.Id),
+
+                    new LocalizedItem(acceptButton, StringResources.About_AcceptButton.Id)
                 };
         }
 
