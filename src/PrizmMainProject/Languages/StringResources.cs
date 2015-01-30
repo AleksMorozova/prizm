@@ -283,6 +283,11 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_PipeStatusStocked",
             Description = "Труба. Статус на складе"
         };
+        public static StringResource NewEditPipe_PipeStatusShipped = new StringResource
+        {
+            Id = "NewEditPipe_PipeStatusShipped",
+            Description = "Труба. Статус отгружена"
+        };
         #endregion
 
         #region---Search pipe---

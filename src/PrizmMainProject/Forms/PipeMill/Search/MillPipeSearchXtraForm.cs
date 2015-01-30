@@ -85,10 +85,19 @@ namespace Prizm.Main.Forms.PipeMill.Search
             return new List<LocalizedItem>()
             {
                 // checked combo boxes
-                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusProduced", "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
+                new LocalizedItem(pipeMillStatus, new string[]
+                { 
+                    StringResources.SearchPipe_MillStatusProduced.Id, 
+                    StringResources.SearchPipe_MillStatusStocked.Id, 
+                    StringResources.SearchPipe_MillStatusShipped.Id
+                }),
 
                 // combo boxes
-                new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_ActivityComboActive", "SearchPipe_ActivityComboNotActive", "SearchPipe_ActivityComboAll" }),
+                new LocalizedItem(pipeActivity, new string[]
+                { 
+                    StringResources.SearchPipe_ActivityComboActive.Id, 
+                    StringResources.SearchPipe_ActivityComboNotActive.Id, 
+                    StringResources.SearchPipe_ActivityComboAll.Id }),
 
                 // layout items
                 new LocalizedItem(pipeNumberLayout, StringResources.SearchPipe_NumberLabel.Id),

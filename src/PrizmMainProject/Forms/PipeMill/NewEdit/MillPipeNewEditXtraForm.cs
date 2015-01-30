@@ -366,7 +366,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     // one-way text edit for statuses. See data binding for appropriate text edit, to understand the connection.
                     new LocalizedItem(UpdateTextEdit, localizedAllPipeMillStatus,
-                        new string [] {"NewEditPipe_PipeStatusUndefined", "NewEditPipe_PipeStatusProduced", "NewEditPipe_PipeStatusStocked", "NewEditPipe_PipeStatusShipped"} ),
+                        new string [] {StringResources.NewEditPipe_PipeStatusUndefined.Id, 
+                            StringResources.NewEditPipe_PipeStatusProduced.Id, 
+                            StringResources.NewEditPipe_PipeStatusStocked.Id, 
+                            StringResources.NewEditPipe_PipeStatusShipped.Id} ),
 
 
                     // other
