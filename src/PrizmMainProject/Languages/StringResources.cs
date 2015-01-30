@@ -229,5 +229,26 @@ namespace Prizm.Main.Languages
 
         #endregion
 
+        #region --- CreateSpoolComponentDialog ---
+        public static StringResource CreateSpoolComponentDialog_CreateElementQuestionLabel = new StringResource {
+            Id = "CreateSpoolComponentDialog_CreateElementQuestionLabel", 
+            Description = "Диалог создания элемента. Текст вопроса"};
+
+        public static StringResource CreateSpoolComponentDialog_RadioSpool = new StringResource { 
+            Id = "CreateSpoolComponentDialog_RadioSpool", 
+            Description = "Диалог создания элемента. Радиокнопка катушки"};
+
+        public static StringResource CreateSpoolComponentDialog_RadioComponent = new StringResource { 
+            Id = "CreateSpoolComponentDialog_RadioComponent", 
+            Description = "Диалог создания элемента. Радиокнопка комплектующего"};
+
+        public static StringResource CreateSpoolComponentDialog_CancelButton = new StringResource {
+            Id = "CreateSpoolComponentDialog_CancelButton", 
+            Description = "Диалог создания элемента. Кнопка отмены"};
+
+        public static StringResource CreateSpoolComponentDialog_CreateButton = new StringResource { 
+            Id = "CreateSpoolComponentDialog_CreateButton", 
+            Description = "Диалог создания элемента. Кнопка создания"};
+        #endregion
     }
 }
