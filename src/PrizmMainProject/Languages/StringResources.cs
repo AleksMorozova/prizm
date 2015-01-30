@@ -66,6 +66,11 @@ namespace Prizm.Main.Languages
             Id = "PartTypeComponent", 
             Description = "Надпись типа элемента Компонент"};
 
+        public static StringResource PartTypeUndefined = new StringResource
+        {
+            Id = "PartTypeUndefined",
+            Description = "Надпись типа элемента Неопределен"
+        };
         //activity
         public static StringResource StatusActive = new StringResource { 
             Id = "StatusActive", 
@@ -79,7 +84,224 @@ namespace Prizm.Main.Languages
             Id = "StatusAll", 
             Description = "Надпись статуса активности элемента Все"};
 
+        //test result types
+        public static StringResource TestResultTypeBoolean = new StringResource { 
+            Id = "TestResultTypeBoolean", 
+            Description = "Тип результата контрольной операции. Логический"};
 
+        public static StringResource TestResultTypeRange = new StringResource { 
+            Id = "TestResultTypeRange", 
+            Description = "Тип результата контрольной операции. Диапазон"};
+
+        public static StringResource TestResultTypeString = new StringResource { 
+            Id = "TestResultTypeString", 
+            Description = "Тип результата контрольной операции. Строка"};
+
+        //test control type
+        public static StringResource ControlTypeWitness = new StringResource { 
+            Id = "ControlTypeWitness",
+            Description = "Вид контроля. Освидетельствование"};
+
+        public static StringResource ControlTypeReview = new StringResource { 
+            Id = "ControlTypeReview",
+            Description = "Вид контроля. Проверка документов"};
+
+        public static StringResource ControlTypeMonitor = new StringResource { 
+            Id = "ControlTypeMonitor", 
+            Description = "Вид контроля. Мониторинг"};
+
+        public static StringResource ControlTypeHold = new StringResource { 
+            Id = "ControlTypeHold", 
+            Description = "Вид контроля. Обязательная проверка"};
+
+        //part inspection status
+        public static StringResource PartInspectionStatusUndefined = new StringResource
+        {
+            Id = "PartInspectionStatusUndefined",
+            Description = "Статус на входном контроле. Неопределен"
+        };
+
+        public static StringResource PartInspectionStatusPending = new StringResource
+        {
+            Id = "PartInspectionStatusPending",
+            Description = "Статус на входном контроле. Ожидается"
+        };
+
+        public static StringResource PartInspectionStatusHold = new StringResource
+        {
+            Id = "PartInspectionStatusHold",
+            Description = "Статус на входном контроле. Задержан"
+        };
+
+        public static StringResource PartInspectionStatusRejected = new StringResource
+        {
+            Id = "PartInspectionStatusRejected",
+            Description = "Статус на входном контроле. Отклонено"
+        };
+
+        public static StringResource PartInspectionStatusAccepted = new StringResource
+        {
+            Id = "PartInspectionStatusAccepted",
+            Description = "Статус на входном контроле. Принято"
+        };
+
+        //messages
+        public static StringResource PartInspection_InspectionsSaved = new StringResource
+        {
+            Id = "PartInspection_InspectionsSaved",
+            Description = "Результаты контрольных операций успешно сохранены. Номер элемента: "
+        };
+
+        public static StringResource PartInspection_InspectionsSavedHeader = new StringResource
+        {
+            Id = "PartInspection_InspectionsSavedHeader",
+            Description = "Сохранение контрольных операций"
+        };
+
+        public static StringResource ExternalFiles_FileAttachSuccess = new StringResource
+        {
+            Id = "ExternalFiles_FileAttachSuccess",
+            Description = "Вложения успешно добавлены"
+        };
+
+        public static StringResource ExternalFiles_FileAttachSuccessHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileAttachSuccessHeader",
+            Description = "Добавление вложений"
+        };
+
+        public static StringResource ExternalFiles_FileDownloadHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileDownloadHeader",
+            Description = "Загрузка файла"
+        };
+
+        public static StringResource ExternalFiles_FileDownloadSuccess = new StringResource
+        {
+            Id = "ExternalFiles_FileDownloadSuccess",
+            Description = "Файл успешно загружен"
+        };
+
+        public static StringResource ExternalFiles_FileViewDownloadFail = new StringResource
+        {
+            Id = "ExternalFiles_FileViewDownloadFail",
+            Description = "Для просмотра и скачивания вложений необходимо их предварительное сохранение"
+        };
+
+        public static StringResource ExternalFiles_FileViewDownloadFailHeader = new StringResource
+        {
+            Id = "ExternalFiles_FileViewDownloadFailHeader",
+            Description = "Просмотр и загрузка несохрaненных файлов"
+        };
+
+         public static StringResource Export_ArchiveExported = new StringResource
+        {
+            Id = "Export_ArchiveExported",
+            Description ="[{0}] Экспортировано в '{1}'"
+        };
+
+         public static StringResource Export_CreateTempStorage = new StringResource
+        {
+            Id = "Export_CreateTempStorage",
+            Description ="Создание временного хранилища."
+        };
+
+         public static StringResource Export_CreatingArchive = new StringResource
+        {
+            Id = "Export_CreatingArchive",
+            Description ="Создание конечного архива."
+        };
+	
+        public static StringResource Export_Error = new StringResource
+        {
+            Id = "Export_Error",
+            Description ="[{0}] Ошибка {1}"
+        };
+
+        public static StringResource Export_Filter = new StringResource
+        {
+            Id = "Export_Filter",
+            Description ="PRIZM archives|*.prizm"
+        };
+	
+	    public static StringResource Export_NoData = new StringResource
+        {
+            Id = "Export_NoData",
+            Description ="Нет новых данных для экспортирования."
+        };
+	
+         public static StringResource Export_ReadingData = new StringResource
+        {
+            Id = "Export_ReadingData",
+            Description ="Чтение данных."
+        };
+	
+         public static StringResource Export_WritingData = new StringResource
+        {
+            Id = "Export_WritingData",
+            Description ="Экспортирование завершено успешно."
+        };
+
+         public static StringResource Import_Checksum = new StringResource
+        {
+            Id = "Import_Checksum",
+            Description ="Проверка контрольной суммы"
+        };
+
+        public static StringResource Import_Conflict = new StringResource
+        {
+            Id = "Import_Conflict",
+            Description ="Труба с номером '{0}' уже существует в БД."
+        };
+        	
+        public static StringResource Import_CopyAttachments = new StringResource
+        {
+            Id = "Import_CopyAttachments",
+            Description ="Импорт вложений"
+        };
+
+        public static StringResource Import_Data = new StringResource
+        {
+            Id = "Import_Data",
+            Description ="Импорт данных"
+        };
+
+	    public static StringResource Import_SamePortion = new StringResource
+        {
+            Id = "Import_SamePortion",
+            Description ="Данная порция уже была импортирована и не может быть импортирована снова."
+        };
+
+        public static StringResource Import_TempStorage = new StringResource
+        {
+            Id = "Import_TempStorage",
+            Description ="Создание временного хранилища"
+        };
+	
+        public static StringResource Import_Unzip = new StringResource
+        {
+            Id = "Import_Unzip",
+            Description = "Распаковкаа"
+        };
+
+        public static StringResource Yes = new StringResource
+        {
+            Id = "Yes",
+            Description = "Да"
+        };
+
+        public static StringResource No = new StringResource
+        {
+            Id = "No",
+            Description = "Нет"
+        };
+
+         public static StringResource DateFirst = new StringResource
+        {
+            Id = "DateFirst",
+            Description = "Выберите дату"
+        };
+        	
         #endregion // --- Common
 
         #region PurchaseOrderForm
@@ -1267,7 +1489,7 @@ namespace Prizm.Main.Languages
 
         #endregion
 
-        #region Heat Number Form
+        #region --- Heat Number Form ---
         public static StringResource HeatNumber_HeatNumberLabel = new StringResource { 
             Id = "HeatNumber_HeatNumberLabel", 
             Description = "Номер плавки. Надпись номера"};
@@ -1885,6 +2107,141 @@ namespace Prizm.Main.Languages
         };
 
         #endregion //--- SelectDiameterDialog ---
+
+        #region --- MillInspectionXtraForm ---
+        public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureMeters", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения метры"};
+
+        public static StringResource MillInspection_FrequencyMeasureTons = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureTons", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения тонны"};
+
+        public static StringResource MillInspection_FrequencyMeasurePipes = new StringResource { 
+            Id = "MillInspection_FrequencyMeasurePipes", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения трубы"};
+
+        public static StringResource MillInspection_SaveButton = new StringResource { 
+            Id = "MillInspection_SaveButton", Description = 
+            "Настройка контрольных опрераций завода. Надпись кнопки сохранения"};
+
+        public static StringResource MillInspection_CancelButton = new StringResource { 
+            Id = "MillInspection_CancelButton", 
+            Description = "Настройка контрольных опрераций завода. Надпись кнопки отмены"};
+
+        public static StringResource MillInspection_IsRequiredCheckbox = new StringResource { 
+            Id = "MillInspection_IsRequiredCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Обязательна"};
+
+        public static StringResource MillInspection_IsActiveCheckbox = new StringResource { 
+            Id = "MillInspection_IsActiveCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Активна"};
+
+        public static StringResource MillInspection_YesNoExpectedCheckbox = new StringResource { 
+            Id = "MillInspection_YesNoExpectedCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса булевого значения"};
+
+        public static StringResource MillInspection_CodeLabel = new StringResource { 
+            Id = "MillInspection_CodeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись кода"};
+
+        public static StringResource MillInspection_NameLabel = new StringResource { 
+            Id = "MillInspection_NameLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись названия"};
+
+        public static StringResource MillInspection_CategoryLabel = new StringResource { 
+            Id = "MillInspection_CategoryLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись категории"};
+
+        public static StringResource MillInspection_ResultTypeLabel = new StringResource { 
+            Id = "MillInspection_ResultTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа результата"};
+
+        public static StringResource MillInspection_ControlTypeLabel = new StringResource { 
+            Id = "MillInspection_ControlTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа контроля"};
+
+        public static StringResource MillInspection_FromLabel = new StringResource { 
+            Id = "MillInspection_FromLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись нижней границы значения"};
+
+        public static StringResource MillInspection_ToLabel = new StringResource { 
+            Id = "MillInspection_ToLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись верхней границы значения"};
+
+        public static StringResource MillInspection_FrequencyLabel = new StringResource { 
+            Id = "MillInspection_FrequencyLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись частоты"};
+
+        public static StringResource MillInspection_FrequencyMeasureLabel = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись единицы измерения частоты"};
+
+        public static StringResource MillInspection_RangeControlValueGroup = new StringResource { 
+            Id = "MillInspection_RangeControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели контрольного значения диапазон"};
+
+        public static StringResource MillInspection_BoolControlValueGroup = new StringResource { 
+            Id = "MillInspection_BoolControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения"};
+
+        public static StringResource MillInspection_FrequencyGroup = new StringResource { 
+            Id = "MillInspection_FrequencyGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
+
+        #endregion
+
+        #region --- PartInspectionXtraForm ---
+        public static StringResource PartInspection_SearchNumberLabel = 
+            new StringResource { 
+                Id = "PartInspection_SearchNumberLabel", 
+                Description = "Входной контроль элемента. Надпись искомого номера"};
+
+        public static StringResource PartInspection_ElementNumberLabel = new StringResource { 
+            Id = "PartInspection_ElementNumberLabel", 
+            Description = "Входной контроль элемента. Надпись номера элемента"};
+
+        public static StringResource PartInspection_ElementTypeLabel = new StringResource { 
+            Id = "PartInspection_ElementTypeLabel", 
+            Description = "Входной контроль элемента. Надпись типа элемента"};
+
+        public static StringResource PartInspection_SearchButton = new StringResource { 
+            Id = "PartInspection_SearchButton", 
+            Description = "Входной контроль элемента. Надпись кнопки поиска"};
+
+        public static StringResource PartInspection_SaveButton = new StringResource { 
+            Id = "PartInspection_SaveButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения"};
+
+        public static StringResource PartInspection_SaveAndClearButton = new StringResource { 
+            Id = "PartInspection_SaveAndClearButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения и очистки"};
+
+        public static StringResource PartInspection_DateColumnHeader = new StringResource { 
+            Id = "PartInspection_DateColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки даты"};
+
+        public static StringResource PartInspection_ResultColumnHeader = new StringResource { 
+            Id = "PartInspection_ResultColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки результата"};
+
+        public static StringResource PartInspection_InspectorColumnHeader = new StringResource {
+            Id = "PartInspection_InspectorColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки инспектора"};
+
+        public static StringResource PartInspection_ReasonColumnHeader = new StringResource { 
+            Id = "PartInspection_ReasonColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки причины"};
+
+        public static StringResource PartInspection_SearchGroup = new StringResource { 
+            Id = "PartInspection_SearchGroup", 
+            Description = "Входной контроль элемента. Надпись панели поиска"};
+
+        public static StringResource PartInspection_IncomingInspectionGroup = new StringResource { 
+            Id = "PartInspection_IncomingInspectionGroup", 
+            Description = "Входной контроль элемента. Надпись инспекций"};
+
+        #endregion
 
         #region---NewEdit Pipe---
         public static StringResource NewEditPipe_PipeNumberLabel = new StringResource

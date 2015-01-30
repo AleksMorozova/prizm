@@ -5,6 +5,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch.SerializableEntities;
@@ -43,23 +44,23 @@ namespace Prizm.Main.Synch.Import
 
             try
             {
-                FireMessage(Resources.Import_TempStorage);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_TempStorage));
                 string tempDir = CreateTempDir();
 
-                FireMessage(Resources.Import_Unzip);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Unzip));
                 UnzipContent(archiveName, tempDir);
 
                 progress += 5;
                 FireProgress(progress);
 
-                FireMessage(Resources.Import_Checksum);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Checksum));
                 ValidateChecksum(Path.Combine(tempDir, "Manifest"));
                 ValidateChecksum(Path.Combine(tempDir, "Data"));
 
                 progress += 5;
                 FireProgress(progress);
 
-                FireMessage(Resources.Import_Data);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Data));
                 ImportData(tempDir);
                 FireOnDone();
             }
@@ -105,7 +106,7 @@ namespace Prizm.Main.Synch.Import
         {
             Portion portion = importRepo.PortionRepo.Get(portionId);
             if (portion != null)
-                throw new ImportException(Resources.Import_SamePortion);
+                throw new ImportException(Program.LanguageManager.GetString(StringResources.Import_SamePortion));
 
         }
 
@@ -671,7 +672,7 @@ namespace Prizm.Main.Synch.Import
                     if (decision == ConflictDecision.Undefined || !forAll)
                     {
                         ConflictEventArgs args = new ConflictEventArgs();
-                        args.Message = string.Format(Resources.Import_Conflict, pipeObj.Number);
+                        args.Message = string.Format(Program.LanguageManager.GetString(StringResources.Import_Conflict), pipeObj.Number);
                         FireConflict(args);
                         decision = args.Decision;
                         forAll = args.ForAll;
