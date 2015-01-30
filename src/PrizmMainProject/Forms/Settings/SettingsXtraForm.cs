@@ -622,7 +622,8 @@ namespace Prizm.Main.Forms.Settings
             }
             else 
             {
-                inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0], Resources.VALUE_REQUIRED);
+                inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0],
+                    Program.LanguageManager.GetString(StringResources.Settings_ValidateInspectorSertificate));
             }
         }
 
