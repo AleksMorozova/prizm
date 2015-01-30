@@ -13,6 +13,13 @@ namespace Prizm.Main.Languages
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
         //part types
+
+        public static StringResource AppSplashScreen_VersionLabel = new StringResource
+        {
+            Id = "AppSplashScreen_VersionLabel",
+            Description = "Версия программы"
+        };
+
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};
