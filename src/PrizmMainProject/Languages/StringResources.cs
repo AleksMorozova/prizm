@@ -345,7 +345,49 @@ namespace Prizm.Main.Languages
             Id = "Settings_ValidateInspectorSertificate",
             Description = "Для ввода сертификата необходимо выбрать инспектора"
         };
- public static StringResource Settings_ProjectTab = new StringResource
+        public static StringResource Settings_ValueRequired = new StringResource
+        {
+            Id = "Settings_ValueRequaered",
+            Description = "Обязательное значение"
+        };
+        public static StringResource Settings_UniqueValueRequired = new StringResource
+        {
+            Id = "Settings_UniqueValueRequired",
+            Description = "Значение должно быть уникальным"
+        };
+        public static StringResource Settings_ChekControlOperations = new StringResource
+        {
+            Id = "Settings_ChekControlOperations",
+            Description = "Необходимо проверить контрольную операцию"
+        };
+        public static StringResource Settings_DateExpired = new StringResource
+        {
+            Id = "Settings_DateExpired",
+            Description = "Дата сертификата просрочена"
+        };
+
+        public static StringResource Settings_ErrorHeader = new StringResource
+        {
+            Id = "Settings_ErrorHeader",
+            Description = "Заголовок ошибки"
+        };
+        public static StringResource Settings_CheckValues = new StringResource
+        {
+            Id = "Settings_CheckValues",
+            Description = "Необходимо проверить значение"
+        };
+        public static StringResource Settings_SetupSavedHeader = new StringResource
+        {
+            Id = "Settings_SetupSavedHeader",
+            Description = "Заголовок успешного сохранения настроек"
+        };
+        public static StringResource Settings_SetupSaves = new StringResource
+        {
+            Id = "Settings_SetupSaves",
+            Description = "Настройки сохранены"
+        };
+        //setting form
+        public static StringResource Settings_ProjectTab = new StringResource
         {
             Id = "Settings_ProjectTab",
             Description = "Настройки. Вкладка - Проект"
@@ -390,7 +432,7 @@ namespace Prizm.Main.Languages
         public static StringResource Settings_SaveButton = new StringResource
         {
             Id = "Settings_SaveButton",
-            Description = "Настройки. Кнопка - Сохренить"
+            Description = "Настройки. Кнопка - Сохранить"
         };
         public static StringResource Settings_CloseButton = new StringResource
         {
@@ -568,13 +610,13 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsResultTypeColumn",
-            Description = "Настройки-труба. Результат конрольной операции"
+            Description = "Настройки-труба. Результат контрольной операции"
         };
         
         public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
         {
             Id = "SettingsPipe_InspectionsBoolExpectedColumn",
-            Description = "Настройки-труба. Ожидаемы результат для булевского результата"
+            Description = "Настройки-труба. Ожидаемый результат для булевского результата"
         };
         
         public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
@@ -673,7 +715,7 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsComponent_ConnectorsNumberColumn = new StringResource
         {
             Id = "SettingsComponent_ConnectorsNumberColumn",
-            Description = "Настройки - Комплектующие. Количество конекторов у комплектующего"
+            Description = "Настройки - Комплектующие. Количество коннекторов у комплектующего"
         };
 
         public static StringResource SettingsComponent_IsActiveTypeColumn = new StringResource
@@ -733,7 +775,7 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsInspectors_CertificatesLabel = new StringResource
         {
             Id = "SettingsInspectors_CertificatesLabel",
-            Description = "Настройки - Инспектора. Список сертификатов для кокретного испектора"
+            Description = "Настройки - Инспектора. Список сертификатов для конкретного инспектора"
         };
         public static StringResource SettingsInspectors_CertificateTypesLabel = new StringResource
         {
@@ -819,7 +861,7 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsUser_FirstNameColumn = new StringResource
         {
             Id = "SettingsUser_FirstNameColumn",
-            Description = "Настройки - Пользователи. Имя пользвателя"
+            Description = "Настройки - Пользователи. Имя пользователя"
         };
         public static StringResource SettingsUser_PassExpiredColumn = new StringResource
         {

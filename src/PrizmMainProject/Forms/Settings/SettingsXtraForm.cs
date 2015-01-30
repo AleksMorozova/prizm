@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
-            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
+            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.SettingsProject_MaskLabel);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -371,12 +371,16 @@ namespace Prizm.Main.Forms.Settings
 
             if(pipeSizesDuplicates.Count > 0)
             {
-                view.SetColumnError(pipeSizeGridColumn, Resources.UNIQUE_VALUE_REQUIRED);
+                view.SetColumnError(pipeSizeGridColumn, 
+
+                    Program.LanguageManager.GetString(StringResources.Settings_UniqueValueRequired));
                 e.Valid = false;
             }
             else if (!CodeValidation())
             {
-                view.SetColumnError(pipeSizeGridColumn, Resources.CHEK_CONTROL_OPERATIONS);
+                view.SetColumnError(pipeSizeGridColumn, 
+                     Program.LanguageManager.GetString(StringResources.Settings_ChekControlOperations)
+                    );
                 e.Valid = false;
             }
             else
@@ -452,7 +456,8 @@ namespace Prizm.Main.Forms.Settings
             string certificate = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderCert);
             if (String.IsNullOrEmpty(certificate))
             {
-                gridViewWelders.SetColumnError(colWelderCert, Resources.VALUE_REQUIRED);
+                gridViewWelders.SetColumnError(colWelderCert, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -486,13 +491,14 @@ namespace Prizm.Main.Forms.Settings
 
             if(string.IsNullOrWhiteSpace(certName))
             {
-                view.SetColumnError(certNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(certExpDate < DateTime.Now)
             {
-                view.SetColumnError(expDateColumn, Resources.DATA_EXPIRED);
+                view.SetColumnError(expDateColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
                 e.Valid = false;
             }
         }
@@ -507,13 +513,15 @@ namespace Prizm.Main.Forms.Settings
 
             if(String.IsNullOrEmpty(firstName))
             {
-                view.SetColumnError(firstNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(firstNameColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(String.IsNullOrEmpty(lastName))
             {
-                view.SetColumnError(lastNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(lastNameColumn,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -670,7 +678,8 @@ namespace Prizm.Main.Forms.Settings
                 if(String.IsNullOrEmpty(role.Name))
                 {
                     e.Valid = false;
-                    view.SetColumnError(colRoleSetupName, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colRoleSetupName, 
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 }
             }
         }
@@ -746,13 +755,15 @@ namespace Prizm.Main.Forms.Settings
                 User user = view.GetRow(e.RowHandle) as User;
                 if(String.IsNullOrEmpty(user.Login))
                 {
-                    view.SetColumnError(colLogin, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colLogin,
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                     e.Valid = false;
                     return;
                 }
                 if(String.IsNullOrEmpty(user.PasswordHash))
                 {
-                    view.SetColumnError(colUserPass, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colUserPass,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                     e.Valid = false;
                     return;
                 }
@@ -1104,19 +1115,19 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if(pipeTest.Code == null)
             {
-                gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
+                gv.SetColumnError(inspectionCodeGridColumn,  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(pipeTest.Name == null)
             {
-                gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
+                gv.SetColumnError(inspectionNameGridColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(pipeTest.Category == null)
             {
-                gv.SetColumnError(categoryColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(categoryColumn,  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -1131,7 +1142,7 @@ namespace Prizm.Main.Forms.Settings
             #region project title validation only afrer project tab is shown
             ConditionValidationRule projectTitleValidationRule = new ConditionValidationRule();
             projectTitleValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
-            projectTitleValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectTitleValidationRule.ErrorText =  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             projectTitleValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(projectTitle, projectTitleValidationRule);
@@ -1145,25 +1156,25 @@ namespace Prizm.Main.Forms.Settings
             ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
             diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
             diameterValidationRule.Value1 = 0;
-            diameterValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             diameterValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
             wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
             wallThicknessValidationRule.Value1 = 0;
-            wallThicknessValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             wallThicknessValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
             pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
             pipeLengthValidationRule.Value1 = 0;
-            pipeLengthValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             pipeLengthValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
             seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
             seamTypeValidationRule.Value1 = seamType.Properties.NullText;
-            seamTypeValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             seamTypeValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
@@ -1197,7 +1208,8 @@ namespace Prizm.Main.Forms.Settings
                     if(t.Code == null && t.Name == null)
                     {
                         codeValidate = false;
-                        inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+                        inspectionView.SetColumnError(inspectionView.Columns[0],
+                            Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                         break;
                     }
                 }
@@ -1205,7 +1217,8 @@ namespace Prizm.Main.Forms.Settings
             else
             {
                 codeValidate = false;
-                inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+                inspectionView.SetColumnError(inspectionView.Columns[0], 
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
             }
 
             return codeValidate;
@@ -1295,7 +1308,8 @@ namespace Prizm.Main.Forms.Settings
 
             if (String.IsNullOrEmpty(Name))
             {
-                view.SetColumnError(NameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(NameColumn,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
