@@ -47,6 +47,13 @@ namespace Prizm.Main.Languages
             Description = "Вырезан"
         };        
         //part types
+
+        public static StringResource AppSplashScreen_VersionLabel = new StringResource
+        {
+            Id = "AppSplashScreen_VersionLabel",
+            Description = "Текст перед версией программы на всплывающем окне при загрузке программы"
+        };
+
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};
@@ -1057,7 +1064,7 @@ namespace Prizm.Main.Languages
         public static StringResource About_VersionLabel = new StringResource
         {
             Id = "About_VersionLabel",
-            Description = "Версия программы"
+            Description = "Текст перед версией программы в окне \"О программе \""
         };
         public static StringResource About_AcceptButton = new StringResource
         {
