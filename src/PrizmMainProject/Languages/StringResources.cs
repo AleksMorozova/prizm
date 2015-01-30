@@ -1423,7 +1423,7 @@ namespace Prizm.Main.Languages
                 
         public static StringResource JointCutDialog_FirstJoinedPartLengthLayout = new StringResource {
             Id = "JointCutDialog_FirstJoinedPartLengthLayout",
-            Description = "Длинна, мм"
+            Description = "Длина, мм"
         };
              
         public static StringResource JointCutDialog_SecondJoinedPartGroup = new StringResource {
@@ -1439,7 +1439,7 @@ namespace Prizm.Main.Languages
         
         public static StringResource JointCutDialog_SecondJoinedPartLengthLayout = new StringResource {
             Id = "JointCutDialog_SecondJoinedPartLengthLayout",
-            Description = "Длинна, мм"
+            Description = "Длина, мм"
         };
         
         public static StringResource JointCutDialog_CutJointButton = new StringResource {
