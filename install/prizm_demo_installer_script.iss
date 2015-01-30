@@ -61,12 +61,11 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
-
 [Files]
-Source: "..\src\bin\Release\*.exe"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\bin\Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion; Excludes: "*vshost*"
 Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\src\bin\Release\*.config"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\src\bin\Release\*.manifest"; Excludes: "*vshost*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\bin\Release\*.config"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "*vshost*"
+Source: "..\src\bin\Release\*.manifest"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "*vshost*"
 Source: "{#DevExpressPath}DevExpress.Charts.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Data.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Mvvm.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -93,7 +92,8 @@ Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocaLDB_x86.MSI"; DestDir: "{t
 Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{tmp}"; DestName: "SqlLocalDB.MSI"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsLocalDb11Installed
 Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x86.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsMsOdbcSqlInstalled
 Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x64.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsMsOdbcSqlInstalled
-
+Source: "{#PrizmExternalPath}\external\Lang\ResGen.exe"; DestDir: "{app}\Languages\Resources"  ; Flags: ignoreversion
+Source: "{#PrizmExternalPath}\external\Lang\run.bat"; DestDir: "{app}\Languages\Resources"  ; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
