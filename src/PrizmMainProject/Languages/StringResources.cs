@@ -73,6 +73,37 @@ namespace Prizm.Main.Languages
             Id = "ControlTypeHold", 
             Description = "Вид контроля. Обязательная проверка"};
 
+        //part inspection status
+        public static StringResource PartInspectionStatusUndefined = new StringResource
+        {
+            Id = "PartInspectionStatusUndefined",
+            Description = "Статус на входном контроле. Неопределен"
+        };
+
+        public static StringResource PartInspectionStatusPending = new StringResource
+        {
+            Id = "PartInspectionStatusPending",
+            Description = "Статус на входном контроле. Ожидается"
+        };
+
+        public static StringResource PartInspectionStatusHold = new StringResource
+        {
+            Id = "PartInspectionStatusHold",
+            Description = "Статус на входном контроле. Задержан"
+        };
+
+        public static StringResource PartInspectionStatusRejected = new StringResource
+        {
+            Id = "PartInspectionStatusRejected",
+            Description = "Статус на входном контроле. Отклонено"
+        };
+
+        public static StringResource PartInspectionStatusAccepted = new StringResource
+        {
+            Id = "PartInspectionStatusAccepted",
+            Description = "Статус на входном контроле. Принято"
+        };
+
         #endregion // --- Common
 
         #region PurchaseOrderForm

@@ -129,11 +129,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 // layout control groups
                 new LocalizedItem(searchElementGroup, StringResources.PartInspection_SearchGroup.Id),
                 new LocalizedItem(inspectionControlGroup, StringResources.PartInspection_IncomingInspectionGroup.Id),
-                // other
 
                  // one-way text edit for part types. See data binding for appropriate text edit, to understand the connection.
                     new LocalizedItem(UpdateTextEdit, localizedAllPartTypes,
                         new string [] {StringResources.PartTypeUndefined.Id, StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
+
+                //TODO: Create LocalizedItem for repository lookup item 
 
             };
         }
