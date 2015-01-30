@@ -31,7 +31,6 @@ namespace Prizm.Main.Forms.Audit
 
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
-            this.Text = Program.LanguageManager.GetString(StringResources.Audit_TitleLabel);
             BindCommands();
             BindToViewModel();
         }

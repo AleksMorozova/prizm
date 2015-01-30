@@ -39,7 +39,6 @@ namespace Prizm.Main.Forms.Parts.Search
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
         {
-            this.Text = Program.LanguageManager.GetString(StringResources.PartSearch_TitleLabel);
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();

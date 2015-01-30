@@ -107,12 +107,6 @@ namespace Prizm.Main.Languages
             Id = "Audit_RadioUser", 
             Description = "Аудит. Надпись радиокнопки пользователя"};
 
-        public static StringResource Audit_TitleLabel = new StringResource
-        {
-            Id = "Audit_TitleLabel",
-            Description = "Текст в окне \"Аудит \""
-        };
-
         #endregion //--- Audit --
 
         #region --- About ---
@@ -158,11 +152,45 @@ namespace Prizm.Main.Languages
             Id = "PartSearch_SearchResultGroup", 
             Description = "Поиск элементов трубопровода. Надпись панели результатов поиска"};
 
-        public static StringResource PartSearch_TitleLabel = new StringResource
-        {
-            Id = "PartSearch_TitleLabel",
-            Description = "Текст в окне \"Поиск элементов трубопровода \""
-        };
+
+        #endregion
+
+        #region --- Export ---
+        public static StringResource Export_ExportButton = new StringResource { 
+            Id = "Export_ExportButton", 
+            Description = "Экспорт. Надпись кнопки экспорта"};
+
+        public static StringResource Export_PleaseWaitPanel = new StringResource { 
+            Id = "Export_PleaseWaitPanel", 
+            Description = "Экспорт. Надпись панели загрузки Ожидайте"};
+
+        public static StringResource Export_ExportingData = new StringResource { 
+            Id = "Export_ExportingData", 
+            Description = "Экспорт. Надпись панели загрузки экспортирование"};
+        
+        public static StringResource Export_LogLabel = new StringResource { 
+            Id = "Export_LogLabel", 
+            Description = "Экспорт. Надпись надписи журнала"};
+
+        public static StringResource Export_ReexportButton = new StringResource { 
+            Id = "Export_ReexportButton", 
+            Description = "Экспорт. Надпись кнопки реэкспорта"};
+
+        public static StringResource Export_PortionIdColumnHeader = new StringResource {
+            Id = "Export_PortionIdColumnHeader", 
+            Description = "Экспорт. Надпись колонки Id порции"};
+
+        public static StringResource Export_ExportDateColumnHeader = new StringResource { 
+            Id = "Export_ExportDateColumnHeader", 
+            Description = "Экспорт. Надпись колонки даты экспорта"};
+
+        public static StringResource Export_LogTab = new StringResource { 
+            Id = "Export_LogTab",
+            Description = "Экспорт. Надпись вкладки журнала"};
+
+        public static StringResource Export_HistoryTab = new StringResource { 
+            Id = "Export_HistoryTab",
+            Description = "Экспорт. Надпись вкладки истории"};
 
         #endregion
 
