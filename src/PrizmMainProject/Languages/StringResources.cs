@@ -654,5 +654,19 @@ namespace Prizm.Main.Languages
 
 
         #endregion //--- JointCutDialog ---
+
+        #region --- SelectDiameterDialog ---
+
+        public static StringResource SelectDiameterDialog_DiametersIntersectionLayout = new StringResource {
+            Id = "SelectDiameterDialog_DiametersIntersectionLayout",
+            Description = "Выбор диаметра соединения"
+        };
+        
+        public static StringResource SelectDiameterDialog_SaveChosenDiameter = new StringResource {
+            Id = "SelectDiameterDialog_SaveChosenDiameter",
+            Description = "Сохранить"
+        };
+
+        #endregion //--- SelectDiameterDialog ---
     }
 } 
