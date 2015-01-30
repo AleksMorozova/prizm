@@ -212,7 +212,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Resources.DateFirst);
+                inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else

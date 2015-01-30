@@ -254,6 +254,13 @@ namespace Prizm.Main.Languages
             Id = "No",
             Description = "Нет"
         };
+
+         public static StringResource DateFirst = new StringResource
+        {
+            Id = "DateFirst",
+            Description = "Выберите дату"
+        };
+        	
         #endregion // --- Common
 
         #region PurchaseOrderForm
