@@ -38,6 +38,12 @@ namespace Prizm.Main.Languages
             Id = "StatusAll", 
             Description = "Надпись статуса активности элемента Все"};
 
+        public static StringResource Value_Requared = new StringResource
+        {
+            Id = "VALUE_REQUIRED",
+            Description = "Значение обязательно"
+        };
+
 
         #endregion // --- Common
 

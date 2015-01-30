@@ -16,6 +16,7 @@ using Prizm.Main.Controls;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Main.Languages;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -212,7 +213,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             commandManager["Save"].RefreshState();
             commandManager["SavaAndClear"].RefreshState();
-        }            
-            
+        }
+
+        private void inspectionsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            var gv = sender as GridView;
+            var inspResult = gv.GetRow(e.RowHandle) as InspectionTestResult;
+
+            if (inspResult.Inspectors == null || inspResult.Inspectors.Count <= 0)
+            {
+                gv.SetColumnError(colInspector, Program.LanguageManager.GetString(StringResources.Value_Requared));
+                e.Valid = false;
+            }
+        }
     }
 }
