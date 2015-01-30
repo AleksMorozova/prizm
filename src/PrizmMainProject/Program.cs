@@ -269,7 +269,6 @@ namespace Prizm.Main
             }
         }
 
-
         //Global data
         private static PrizmApplicationXtraForm mainForm;
         private static WorkstationType workstationType;
