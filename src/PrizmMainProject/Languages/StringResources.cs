@@ -38,6 +38,35 @@ namespace Prizm.Main.Languages
             Id = "StatusAll", 
             Description = "Надпись статуса активности элемента Все"};
 
+        //test result types
+        public static StringResource TestResultTypeBoolean = new StringResource { 
+            Id = "TestResultTypeBoolean", 
+            Description = "Тип результата контрольной операции. Логический"};
+
+        public static StringResource TestResultTypeRange = new StringResource { 
+            Id = "TestResultTypeRange", 
+            Description = "Тип результата контрольной операции. Диапазон"};
+
+        public static StringResource TestResultTypeString = new StringResource { 
+            Id = "TestResultTypeString", 
+            Description = "Тип результата контрольной операции. Строка"};
+
+        //test control type
+        public static StringResource ControlTypeWitness = new StringResource { 
+            Id = "ControlTypeWitness",
+            Description = "Вид контроля. Освидетельствование"};
+
+        public static StringResource ControlTypeReview = new StringResource { 
+            Id = "ControlTypeReview",
+            Description = "Вид контроля. Проверка документов"};
+
+        public static StringResource ControlTypeMonitor = new StringResource { 
+            Id = "ControlTypeMonitor", 
+            Description = "Вид контроля. Мониторинг"};
+
+        public static StringResource ControlTypeHold = new StringResource { 
+            Id = "ControlTypeHold", 
+            Description = "Вид контроля. Обязательная проверка"};
 
         #endregion // --- Common
 
@@ -312,7 +341,7 @@ namespace Prizm.Main.Languages
 
         #endregion
 
-        #region Heat Number Form
+        #region --- Heat Number Form ---
         public static StringResource HeatNumber_HeatNumberLabel = new StringResource { 
             Id = "HeatNumber_HeatNumberLabel", 
             Description = "Номер плавки. Надпись номера"};
@@ -324,6 +353,89 @@ namespace Prizm.Main.Languages
         public static StringResource HeatNumber_CancelButton = new StringResource { Id = 
             "HeatNumber_CancelButton", 
             Description = "Номер плавки. Надпись кнопки отмены"};
+
+        #endregion
+
+        #region --- MillInspectionXtraForm ---
+        public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureMeters", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения метры"};
+
+        public static StringResource MillInspection_FrequencyMeasureTons = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureTons", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения тонны"};
+
+        public static StringResource MillInspection_FrequencyMeasurePipes = new StringResource { 
+            Id = "MillInspection_FrequencyMeasurePipes", 
+            Description = "Настройка контрольных опрераций завода. Мера измерения трубы"};
+
+        public static StringResource MillInspection_SaveButton = new StringResource { 
+            Id = "MillInspection_SaveButton", Description = 
+            "Настройка контрольных опрераций завода. Надпись кнопки сохранения"};
+
+        public static StringResource MillInspection_CancelButton = new StringResource { 
+            Id = "MillInspection_CancelButton", 
+            Description = "Настройка контрольных опрераций завода. Надпись кнопки отмены"};
+
+        public static StringResource MillInspection_IsRequiredCheckbox = new StringResource { 
+            Id = "MillInspection_IsRequiredCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Обязательна"};
+
+        public static StringResource MillInspection_IsActiveCheckbox = new StringResource { 
+            Id = "MillInspection_IsActiveCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Активна"};
+
+        public static StringResource MillInspection_YesNoExpectedCheckbox = new StringResource { 
+            Id = "MillInspection_YesNoExpectedCheckbox", 
+            Description = "Настройка контрольных опрераций завода. Надпись чекбокса булевого значения"};
+
+        public static StringResource MillInspection_CodeLabel = new StringResource { 
+            Id = "MillInspection_CodeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись кода"};
+
+        public static StringResource MillInspection_NameLabel = new StringResource { 
+            Id = "MillInspection_NameLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись названия"};
+
+        public static StringResource MillInspection_CategoryLabel = new StringResource { 
+            Id = "MillInspection_CategoryLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись категории"};
+
+        public static StringResource MillInspection_ResultTypeLabel = new StringResource { 
+            Id = "MillInspection_ResultTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа результата"};
+
+        public static StringResource MillInspection_ControlTypeLabel = new StringResource { 
+            Id = "MillInspection_ControlTypeLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись типа контроля"};
+
+        public static StringResource MillInspection_FromLabel = new StringResource { 
+            Id = "MillInspection_FromLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись нижней границы значения"};
+
+        public static StringResource MillInspection_ToLabel = new StringResource { 
+            Id = "MillInspection_ToLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись верхней границы значения"};
+
+        public static StringResource MillInspection_FrequencyLabel = new StringResource { 
+            Id = "MillInspection_FrequencyLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись частоты"};
+
+        public static StringResource MillInspection_FrequencyMeasureLabel = new StringResource { 
+            Id = "MillInspection_FrequencyMeasureLabel", 
+            Description = "Настройка контрольных опрераций завода. Надпись единицы измерения частоты"};
+
+        public static StringResource MillInspection_RangeControlValueGroup = new StringResource { 
+            Id = "MillInspection_RangeControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели контрольного значения диапазон"};
+
+        public static StringResource MillInspection_BoolControlValueGroup = new StringResource { 
+            Id = "MillInspection_BoolControlValueGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения"};
+
+        public static StringResource MillInspection_FrequencyGroup = new StringResource { 
+            Id = "MillInspection_FrequencyGroup", 
+            Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
 
         #endregion
     }

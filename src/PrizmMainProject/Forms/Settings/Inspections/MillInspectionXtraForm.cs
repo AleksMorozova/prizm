@@ -137,30 +137,30 @@ namespace Prizm.Main.Forms.Settings.Inspections
             {
                 //controls
                 // TODO: care about data binding by Text (grids)
-                  //new LocalizedItem(resultType, new  string [] {"MillInspection_ResultTypeBoolean", "MillInspection_ResultTypeRange", "MillInspection_ResultTypeString" }),
-                  //new LocalizedItem(controlType, new  string [] {"MillInspection_ControlTypeWitness","MillInspection_ControlTypeReview", "MillInspection_ControlTypeMonitor", "MillInspection_ControlTypeHold" }),
-                  //new LocalizedItem(frequencyMeasure, new  string [] {"MillInspection_FrequencyMeasureMeters","MillInspection_FrequencyMeasureTons", "MillInspection_FrequencyMeasurePipes" }),
-                  new LocalizedItem(saveButton, "MillInspection_SaveButton"),
-                  new LocalizedItem(cancelButton, "MillInspection_CancelButton"),
-                  new LocalizedItem(isRequired, "MillInspection_IsRequiredCheckbox"),
-                  new LocalizedItem(isActive, "MillInspection_IsActiveCheckbox"),
-                  new LocalizedItem(boolExpected, "MillInspection_YesNoExpectedCheckbox"),
+                  new LocalizedItem(resultType, new  string [] {StringResources.TestResultTypeBoolean.Id, StringResources.TestResultTypeRange.Id, StringResources.TestResultTypeString.Id }),
+                  new LocalizedItem(controlType, new  string [] {StringResources.ControlTypeWitness.Id, StringResources.ControlTypeReview.Id, StringResources.ControlTypeMonitor.Id, StringResources.ControlTypeHold.Id }),
+                  new LocalizedItem(frequencyMeasure, new  string [] {StringResources.MillInspection_FrequencyMeasureMeters.Id, StringResources.MillInspection_FrequencyMeasureTons.Id, StringResources.MillInspection_FrequencyMeasurePipes.Id }),
+                  new LocalizedItem(saveButton, StringResources.MillInspection_SaveButton.Id),
+                  new LocalizedItem(cancelButton, StringResources.MillInspection_CancelButton.Id),
+                  new LocalizedItem(isRequired, StringResources.MillInspection_IsRequiredCheckbox.Id),
+                  new LocalizedItem(isActive, StringResources.MillInspection_IsActiveCheckbox.Id),
+                  new LocalizedItem(boolExpected, StringResources.MillInspection_YesNoExpectedCheckbox.Id),
 
                   //layouts
-                  new LocalizedItem(codeLayout, "MillInspection_CodeLabel"),
-                  new LocalizedItem(operationNameLayout, "MillInspection_NameLabel"),
-                  new LocalizedItem(categoryLayout, "MillInspection_CategoryLabel"),
-                  new LocalizedItem(resultTypeLayout, "MillInspection_ResultTypeLabel"),
-                  new LocalizedItem(controlTypeLayout, "MillInspection_ControlTypeLabel"),
-                  new LocalizedItem(minExpectedLayout, "MillInspection_FromLabel"),
-                  new LocalizedItem(maxExpectedLayout, "MillInspection_ToLabel"),
-                  new LocalizedItem(frequencyLayout, "MillInspection_FrequencyLabel"),
-                  new LocalizedItem(frequencyMeasureLayout, "MillInspection_FrequencyMeasureLabel"),
+                  new LocalizedItem(codeLayout, StringResources.MillInspection_CodeLabel.Id),
+                  new LocalizedItem(operationNameLayout, StringResources.MillInspection_NameLabel.Id),
+                  new LocalizedItem(categoryLayout, StringResources.MillInspection_CategoryLabel.Id),
+                  new LocalizedItem(resultTypeLayout, StringResources.MillInspection_ResultTypeLabel.Id),
+                  new LocalizedItem(controlTypeLayout, StringResources.MillInspection_ControlTypeLabel.Id),
+                  new LocalizedItem(minExpectedLayout, StringResources.MillInspection_FromLabel.Id),
+                  new LocalizedItem(maxExpectedLayout, StringResources.MillInspection_ToLabel.Id),
+                  new LocalizedItem(frequencyLayout, StringResources.MillInspection_FrequencyLabel.Id),
+                  new LocalizedItem(frequencyMeasureLayout, StringResources.MillInspection_FrequencyMeasureLabel.Id),
 
                    // layout control groups
-                   new LocalizedItem(rangeExpectedGroup, "MillInspection_RangeControlValueGroup"),
-                   new LocalizedItem(boolExpectedGroup, "MillInspection_BoolControlValueGroup"),
-                   new LocalizedItem(frequencyGroup, "MillInspection_FrequencyGroup"),
+                   new LocalizedItem(rangeExpectedGroup, StringResources.MillInspection_RangeControlValueGroup.Id),
+                   new LocalizedItem(boolExpectedGroup, StringResources.MillInspection_BoolControlValueGroup.Id),
+                   new LocalizedItem(frequencyGroup, StringResources.MillInspection_FrequencyGroup.Id),
             };
         }
         #endregion // --- Localization ---
