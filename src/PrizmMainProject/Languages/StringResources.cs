@@ -25,6 +25,11 @@ namespace Prizm.Main.Languages
             Id = "PartTypeComponent", 
             Description = "Надпись типа элемента Компонент"};
 
+        public static StringResource PartTypeUndefined = new StringResource
+        {
+            Id = "PartTypeUndefined",
+            Description = "Надпись типа элемента Неопределен"
+        };
         //activity
         public static StringResource StatusActive = new StringResource { 
             Id = "StatusActive", 
@@ -938,6 +943,58 @@ namespace Prizm.Main.Languages
         public static StringResource MillInspection_FrequencyGroup = new StringResource { 
             Id = "MillInspection_FrequencyGroup", 
             Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
+
+        #endregion
+
+        #region --- PartInspectionXtraForm ---
+        public static StringResource PartInspection_SearchNumberLabel = 
+            new StringResource { 
+                Id = "PartInspection_SearchNumberLabel", 
+                Description = "Входной контроль элемента. Надпись искомого номера"};
+
+        public static StringResource PartInspection_ElementNumberLabel = new StringResource { 
+            Id = "PartInspection_ElementNumberLabel", 
+            Description = "Входной контроль элемента. Надпись номера элемента"};
+
+        public static StringResource PartInspection_ElementTypeLabel = new StringResource { 
+            Id = "PartInspection_ElementTypeLabel", 
+            Description = "Входной контроль элемента. Надпись типа элемента"};
+
+        public static StringResource PartInspection_SearchButton = new StringResource { 
+            Id = "PartInspection_SearchButton", 
+            Description = "Входной контроль элемента. Надпись кнопки поиска"};
+
+        public static StringResource PartInspection_SaveButton = new StringResource { 
+            Id = "PartInspection_SaveButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения"};
+
+        public static StringResource PartInspection_SaveAndClearButton = new StringResource { 
+            Id = "PartInspection_SaveAndClearButton", 
+            Description = "Входной контроль элемента. Надпись кнопки сохранения и очистки"};
+
+        public static StringResource PartInspection_DateColumnHeader = new StringResource { 
+            Id = "PartInspection_DateColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки даты"};
+
+        public static StringResource PartInspection_ResultColumnHeader = new StringResource { 
+            Id = "PartInspection_ResultColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки результата"};
+
+        public static StringResource PartInspection_InspectorColumnHeader = new StringResource {
+            Id = "PartInspection_InspectorColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки инспектора"};
+
+        public static StringResource PartInspection_ReasonColumnHeader = new StringResource { 
+            Id = "PartInspection_ReasonColumnHeader", 
+            Description = "Входной контроль элемента. Надпись колонки причины"};
+
+        public static StringResource PartInspection_SearchGroup = new StringResource { 
+            Id = "PartInspection_SearchGroup", 
+            Description = "Входной контроль элемента. Надпись панели поиска"};
+
+        public static StringResource PartInspection_IncomingInspectionGroup = new StringResource { 
+            Id = "PartInspection_IncomingInspectionGroup", 
+            Description = "Входной контроль элемента. Надпись инспекций"};
 
         #endregion
     }
