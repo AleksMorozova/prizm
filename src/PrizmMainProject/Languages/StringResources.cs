@@ -456,5 +456,92 @@ namespace Prizm.Main.Languages
 
         #endregion //--- JointSearch ---
 
+        #region --- ConstructionReports ---
+
+        public static StringResource ConstructionReports_ReportTypeLayout = new StringResource
+        {
+            Id = "ConstructionReports_ReportTypeLayout",
+            Description = "Тип отчета"
+        };
+        
+        public static StringResource ConstructionReports_TypeLayout = new StringResource
+        {
+            Id = "ConstructionReports_TypeLayout",
+            Description = "Тип изделия"
+        };
+                
+        public static StringResource ConstructionReports_StartJointLayout = new StringResource
+        {
+            Id = "ConstructionReports_StartJointLayout",
+            Description = "Начальный стык"
+        };
+                        
+        public static StringResource ConstructionReports_StartKPComboBoxLayoutControl = new StringResource
+        {
+            Id = "ConstructionReports_StartKPComboBoxLayoutControl",
+            Description = "Начальный пикет"
+        };
+                              
+        public static StringResource ConstructionReports_EndJointLayout = new StringResource
+        {
+            Id = "ConstructionReports_EndJointLayout",
+            Description = "Конечный стык"
+        };
+                                      
+        public static StringResource ConstructionReports_EndKPLayout = new StringResource
+        {
+            Id = "ConstructionReports_EndKPLayout",
+            Description = "Конечный пикет"
+        };
+                                           
+        public static StringResource ConstructionReports_PreviewButton = new StringResource
+        {
+            Id = "ConstructionReports_PreviewButton",
+            Description = "&Предпросмотр"
+        };
+                                                   
+        public static StringResource ConstructionReports_CreateReportButton = new StringResource
+        {
+            Id = "ConstructionReports_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+                                                   
+        public static StringResource ConstructionReports_CreateReportaLyoutGroup = new StringResource
+        {
+            Id = "ConstructionReports_CreateReportaLyoutGroup",
+            Description = "Сформировать отчёт"
+        };
+                                                           
+        public static StringResource ConstructionReports_PreviewLayoutGroup = new StringResource
+        {
+            Id = "ConstructionReports_PreviewLayoutGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+                                                                   
+        public static StringResource ConstructionReport_RadioJoints = new StringResource
+        {
+            Id = "ConstructionReport_RadioJoints",
+            Description = "Стыки"
+        };
+                                                               
+        public static StringResource ConstructionReport_RadioKP = new StringResource
+        {
+            Id = "ConstructionReport_RadioKP",
+            Description = "Пикеты"
+        };
+
+
+        #endregion //--- ConstructionReports ---
+
+        #region --- Audit ---
+
+        public static StringResource Audit_ElementNumberLabel = new StringResource
+        {
+            Id = "Audit_ElementNumberLabel",
+            Description = "Аудит. Надпись номера элемента."
+        };
+
+        #endregion //--- Audit ---
     }
 }
