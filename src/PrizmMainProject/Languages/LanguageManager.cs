@@ -50,8 +50,13 @@ namespace Prizm.Main.Languages
         private const string defaultCulture = "ru-RU";
         private CultureInfo defaultCultureInfo = new CultureInfo(defaultCulture);
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(LanguageManager));
+
         public LanguageManager()
         {
+            LanguageManager.log.Info("LANGUAGE");
+            LanguageManager.log.Error("LANGUAGE_ERROR");
+            LanguageManager.log.Fatal("LANGUAGE_FATAL");
             FindAvailableTranslations();
         }
 

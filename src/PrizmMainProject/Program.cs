@@ -24,6 +24,7 @@ using Prizm.Domain.Entity.Setup;
 using System.Threading;
 using System.Text;
 using System.Reflection;
+using System.IO;
 
 
 namespace Prizm.Main
@@ -41,12 +42,31 @@ namespace Prizm.Main
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
 
+
+        //Global data
+        private static PrizmApplicationXtraForm mainForm;
+        private static WorkstationType workstationType = WorkstationType.Undefined;
+        /// <summary>
+        /// Global access to main form need to update statusbar texts
+        /// </summary>
+        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
+        public static WorkstationType ThisWorkstationType { get { return workstationType; } }
+
         #region --- Language ---
 
-        private static readonly ILanguageManager langManager = new LanguageManager();
+        private static readonly ILanguageManager langManager;
         public static ILanguageManager LanguageManager { get { return langManager; } }
 
         #endregion // --- Language ---
+
+        /// <summary>
+        /// Initialize all static data. Log configuration should be performed earlier than any other initializations.
+        /// </summary>
+        static Program()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            langManager = new LanguageManager();
+        }
 
         /// <summary>
         ///     The main entry point for the application.
@@ -75,8 +95,8 @@ namespace Prizm.Main
                         templateStrings.Add(tmp);
                     }
 
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(
-                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
+                    using (StreamWriter file = new StreamWriter(
+                        Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
                         foreach (var line in templateStrings)
                         {
@@ -150,7 +170,12 @@ namespace Prizm.Main
             }
         }
 
-        static LoginResult Login(ref string failMessage)
+        /// <summary>
+        /// Try to log in
+        /// </summary>
+        /// <param name="failMessage">message for user, when login has been failed</param>
+        /// <returns>status of logging in attempt</returns>
+        private static LoginResult Login(ref string failMessage)
         {
            failMessage = Resources.AuthenticationFailed;
            LoginForm dlg = new LoginForm();
@@ -229,7 +254,11 @@ namespace Prizm.Main
            return LoginResult.Failed;
         }
 
-        static bool CreateProject()
+        /// <summary>
+        /// if no project settings available, it will be created if user enters all necessary data
+        /// </summary>
+        /// <returns>status if project settings were created</returns>
+        private static bool CreateProject()
         {
             bool result = false;
             IProjectRepository repo = (IProjectRepository)Program.Kernel.Get(typeof(IProjectRepository));
@@ -260,6 +289,9 @@ namespace Prizm.Main
             return result;
         }
 
+        /// <summary>
+        /// If there are no permissions available, they will be written to system.
+        /// </summary>
         private static void CreatePermissions()
         {
             IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
@@ -269,14 +301,5 @@ namespace Prizm.Main
             }
         }
 
-
-        //Global data
-        private static PrizmApplicationXtraForm mainForm;
-        private static WorkstationType workstationType;
-        /// <summary>
-        /// Global access to main form need to update statusbar texts
-        /// </summary>
-        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
-        public static WorkstationType ThisWorkstationType { get { return workstationType; } }
     }
 }
