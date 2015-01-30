@@ -38,11 +38,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             if (boolExpected.Checked)
             {
-                boolExpected.Text = " [ "+ Resources.YES +" ] ";
+                boolExpected.Text = " [ "+ Program.LanguageManager.GetString(StringResources.Yes) +" ] ";
             }
             else
             {
-                boolExpected.Text = " [ " + Resources.NO + " ] ";
+                boolExpected.Text = " [ " + Program.LanguageManager.GetString(StringResources.No) + " ] ";
             }
         }
 

@@ -147,7 +147,7 @@ namespace Prizm.Main.Forms.Synch
       private void btnBrowse_Click(object sender, EventArgs e)
       {
          OpenFileDialog dlg = new OpenFileDialog();
-         dlg.Filter = Resources.Export_Filter;
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter);
 
          if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
          {

@@ -134,7 +134,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                     new LocalizedItem(UpdateTextEdit, localizedAllPartTypes,
                         new string [] {StringResources.PartTypeUndefined.Id, StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
 
-                //TODO: Create LocalizedItem for repository lookup item 
+                //TODO: Create LocalizedItem for repository lookup item. When created, use StringResources.PartInspectionStatus_
 
             };
         }

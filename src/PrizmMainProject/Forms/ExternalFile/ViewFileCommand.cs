@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
@@ -51,7 +52,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
             else
             {
-                notify.ShowInfo(Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL, Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER);
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL), Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER));
             }
         }
 

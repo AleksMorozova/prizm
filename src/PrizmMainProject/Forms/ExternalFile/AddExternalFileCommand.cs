@@ -10,6 +10,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using System.IO;
 using Prizm.Main.Common;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
@@ -57,7 +58,7 @@ namespace Prizm.Main.Forms.ExternalFile
                 }
 
                 Directory.Delete(Directories.FilesToAttachFolder, true);
-                notify.ShowNotify(Resources.DLG_FILE_ATTACH_SUCCESS, Resources.DLG_FILE_ATTACH_SUCCESS_HEADER);
+                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_ATTACH_SUCCESS),Program.LanguageManager.GetString(StringResources.ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER));
             }
         }
 

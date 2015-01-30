@@ -104,6 +104,156 @@ namespace Prizm.Main.Languages
             Description = "Статус на входном контроле. Принято"
         };
 
+        //messages
+        public static StringResource PartInspection_DLG_INSPECTIONS_SAVED = new StringResource
+        {
+            Id = "PartInspection_DLG_INSPECTIONS_SAVED",
+            Description = "Результаты контрольных операций успешно сохранены. Номер элемента: "
+        };
+
+        public static StringResource PartInspection_DLG_INSPECTIONS_SAVED_HEADER = new StringResource
+        {
+            Id = "PartInspection_DLG_INSPECTIONS_SAVED_HEADER",
+            Description = "Сохранение контрольных операций"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_ATTACH_SUCCESS = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_ATTACH_SUCCESS",
+            Description = "Вложения успешно добавлены"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_ATTACH_SUCCESS_HEADER",
+            Description = "Добавление вложений"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_DOWNLOAD_HEADER = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_DOWNLOAD_HEADER",
+            Description = "Загрузка файла"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_DOWNLOAD_SUCCESS = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_DOWNLOAD_SUCCESS",
+            Description = "Файл успешно загружен"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL",
+            Description = "Для просмотра и скачивания вложений необходимо их предварительное сохранение"
+        };
+
+        public static StringResource ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER = new StringResource
+        {
+            Id = "ExternalFiles_DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER",
+            Description = "Просмотр и загрузка несохрaненных файлов"
+        };
+
+         public static StringResource Export_ArchiveExported = new StringResource
+        {
+            Id = "Export_ArchiveExported",
+            Description ="[{0}] Экспортировано в '{1}'"
+        };
+
+         public static StringResource Export_CreateTempStorage = new StringResource
+        {
+            Id = "Export_CreateTempStorage",
+            Description ="Создание временного хранилища."
+        };
+
+         public static StringResource Export_CreatingArchive = new StringResource
+        {
+            Id = "Export_CreatingArchive",
+            Description ="Создание конечного архива."
+        };
+	
+        public static StringResource Export_Error = new StringResource
+        {
+            Id = "Export_Error",
+            Description ="[{0}] Ошибка {1}"
+        };
+
+        public static StringResource Export_Filter = new StringResource
+        {
+            Id = "Export_Filter",
+            Description ="PRIZM archives|*.prizm"
+        };
+	
+	    public static StringResource Export_NoData = new StringResource
+        {
+            Id = "Export_NoData",
+            Description ="Нет новых данных для экспортирования."
+        };
+	
+         public static StringResource Export_ReadingData = new StringResource
+        {
+            Id = "Export_ReadingData",
+            Description ="Чтение данных."
+        };
+	
+         public static StringResource Export_WritingData = new StringResource
+        {
+            Id = "Export_WritingData",
+            Description ="Экспортирование завершено успешно."
+        };
+
+         public static StringResource Import_Checksum = new StringResource
+        {
+            Id = "Import_Checksum",
+            Description ="Проверка контрольной суммы"
+        };
+
+        public static StringResource Import_Conflict = new StringResource
+        {
+            Id = "Import_Conflict",
+            Description ="Труба с номером '{0}' уже существует в БД."
+        };
+        	
+        public static StringResource Import_CopyAttachments = new StringResource
+        {
+            Id = "Import_CopyAttachments",
+            Description ="Импорт вложений"
+        };
+
+        public static StringResource Import_Data = new StringResource
+        {
+            Id = "Import_Data",
+            Description ="Импорт данных"
+        };
+
+	    public static StringResource Import_SamePortion = new StringResource
+        {
+            Id = "Import_SamePortion",
+            Description ="Данная порция уже была импортирована и не может быть импортирована снова."
+        };
+
+        public static StringResource Import_TempStorage = new StringResource
+        {
+            Id = "Import_TempStorage",
+            Description ="Создание временного хранилища"
+        };
+	
+        public static StringResource Import_Unzip = new StringResource
+        {
+            Id = "Import_Unzip",
+            Description = "Распаковкаа"
+        };
+
+        public static StringResource Yes = new StringResource
+        {
+            Id = "Yes",
+            Description = "Да"
+        };
+
+        public static StringResource No = new StringResource
+        {
+            Id = "No",
+            Description = "Нет"
+        };
         #endregion // --- Common
 
         #region PurchaseOrderForm
