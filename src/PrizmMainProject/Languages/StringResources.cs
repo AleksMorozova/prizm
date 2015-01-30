@@ -339,6 +339,13 @@ namespace Prizm.Main.Languages
         #endregion MissingPortion
 
         #region Settings
+        //message
+        public static StringResource  Settings_ValidateInspectorSertificate= new StringResource
+        {
+            Id = "Settings_ValidateInspectorSertificate",
+            Description = "Для ввода сертификата необходимо выбрать инспектора"
+        };
+
         //project page
         public static StringResource SettingsProject_TitleLabel = new StringResource
         {
