@@ -108,6 +108,16 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_TypeSizeLengthLabel",
             Description = "Труба. Длина по типоразмеру"
         };
+        public static StringResource NewEditPipe_TypeSizeDiameterLabel = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeDiameterLabel",
+            Description = "Труба. Диаметр по типоразмеру"
+        };
+        public static StringResource NewEditPipe_TypeSizeThicknessLabel = new StringResource
+        {
+            Id = "NewEditPipe_TypeSizeThicknessLabel",
+            Description = "Труба. Толщина по типоразмеру"
+        };
         public static StringResource NewEditPipe_RailcarNumber_Label = new StringResource
         {
             Id = "NewEditPipe_RailcarNumber_Label",
