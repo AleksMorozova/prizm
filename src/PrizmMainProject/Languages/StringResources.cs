@@ -573,5 +573,39 @@ namespace Prizm.Main.Languages
         };
 
         #endregion //--- PipeConstractionReport ---
+
+        #region --- WeldDateReport ---
+
+        public static StringResource WeldDateReport_WeldDateFromLayout = new StringResource {
+            Id = "WeldDateReport_WeldDateFromLayout",
+            Description = "Дата сварки: С"
+        };
+        
+        public static StringResource WeldDateReport_WeldDateToLayout = new StringResource {
+            Id = "WeldDateReport_WeldDateToLayout",
+            Description = "Дата сварки: По"
+        };
+        
+        public static StringResource WeldDateReport_PreviewButton = new StringResource {
+            Id = "WeldDateReport_PreviewButton",
+            Description = "&Предпросмотр"
+        };
+        
+        public static StringResource WeldDateReport_CreateReportButton = new StringResource {
+            Id = "WeldDateReport_CreateReportButton",
+            Description = "Соз&дать отчет"
+        };
+                
+        public static StringResource WeldDateReport_WeldReportParameterGroup = new StringResource {
+            Id = "WeldDateReport_WeldReportParameterGroup",
+            Description = "Сформировать отчёт"
+        };
+        
+        public static StringResource WeldDateReport_JointReportViewerGroup = new StringResource {
+            Id = "WeldDateReport_JointReportViewerGroup",
+            Description = "Предварительный просмотр отчёта"
+        };
+
+        #endregion //--- WeldDateReport ---
     }
-}
+} 
