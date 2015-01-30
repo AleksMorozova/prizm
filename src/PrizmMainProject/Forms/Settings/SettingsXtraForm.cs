@@ -622,7 +622,7 @@ namespace Prizm.Main.Forms.Settings
             }
             else 
             {
-                XtraMessageBox.Show("INSPECTOR!!!!!");
+                inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0], Resources.VALUE_REQUIRED);
             }
         }
 
