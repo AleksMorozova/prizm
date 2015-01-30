@@ -296,5 +296,20 @@ namespace Prizm.Main.Languages
             Description = "Диалог конфликта при импорте. Надпись чекбокса Применить для всех"};
 
         #endregion
+
+        #region --- Import form ---
+        public static StringResource Import_ArchiveLabel = new StringResource { 
+            Id = "Import_ArchiveLabel", 
+            Description = "Импорт. Надпись архива"};
+
+        public static StringResource Import_BrowseButton = new StringResource { 
+            Id = "Import_BrowseButton", 
+            Description = "Импорт. Надпись кнопки поиска"};
+
+        public static StringResource Import_ImportButton = new StringResource { 
+            Id = "Import_ImportButton", 
+            Description = "Импорт. Надпись кнопки импорта"};
+
+        #endregion
     }
 }
