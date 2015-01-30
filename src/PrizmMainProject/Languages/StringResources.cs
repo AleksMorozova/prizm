@@ -12,7 +12,31 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+        //part types
+        public static StringResource PartTypePipe = new StringResource { 
+            Id = "PartTypePipe", 
+            Description = "Надпись типа элемента Труба"};
 
+        public static StringResource PartTypeSpool = new StringResource { 
+            Id = "PartTypeSpool", 
+            Description = "Надпись типа элемента Катушка"};
+
+        public static StringResource PartTypeComponent = new StringResource { 
+            Id = "PartTypeComponent", 
+            Description = "Надпись типа элемента Компонент"};
+
+        //activity
+        public static StringResource StatusActive = new StringResource { 
+            Id = "StatusActive", 
+            Description = "Надпись статуса активности элемента Активен"};
+
+        public static StringResource StatusInactive = new StringResource { 
+            Id = "StatusInactive", 
+            Description = "Надпись статуса активности элемента Неактивен"};
+
+        public static StringResource StatusAll = new StringResource { 
+            Id = "StatusAll", 
+            Description = "Надпись статуса активности элемента Все"};
 
 
         #endregion // --- Common
@@ -99,6 +123,48 @@ namespace Prizm.Main.Languages
         };
 
         #endregion // --- About ---
+
+        #region --- Part Search ---
+
+        public static StringResource PartSearch_SearchNumberLabel = new StringResource { 
+            Id = "PartSearch_SearchNumberLabel",
+            Description = "Поиск элементов трубопровода. Надпись номера элемента"};
+
+        public static StringResource PartSearch_SearchTypeLabel = new StringResource { 
+            Id = "PartSearch_SearchTypeLabel", 
+            Description = "Поиск элементов трубопровода. Надпись типа элемента"};
+
+        public static StringResource PartSearch_ActivityLabel = new StringResource { 
+            Id = "PartSearch_ActivityLabel", 
+            Description = "Поиск элементов трубопровода. Надпись активности элемента"};
+
+        public static StringResource PartSearch_SearchButton = new StringResource {
+            Id = "PartSearch_SearchButton", 
+            Description = "Поиск элементов трубопровода. Надпись кнопки поиска"};
+
+        public static StringResource PartSearch_NumberColumnHeader = new StringResource { 
+            Id = "PartSearch_NumberColumnHeader", 
+            Description = "Поиск элементов трубопровода. Надпись колонки номера"};
+
+        public static StringResource PartSearch_TypeColumnHeader = new StringResource { 
+            Id = "PartSearch_TypeColumnHeader", 
+            Description = "Поиск элементов трубопровода. Надпись колонки типа"};
+
+        public static StringResource PartSearch_SearchGroup = new StringResource { 
+            Id = "PartSearch_SearchGroup", 
+            Description = "Поиск элементов трубопровода. Надпись панели поиска"};
+
+        public static StringResource PartSearch_SearchResultGroup = new StringResource { 
+            Id = "PartSearch_SearchResultGroup", 
+            Description = "Поиск элементов трубопровода. Надпись панели результатов поиска"};
+
+        public static StringResource PartSearch_TitleLabel = new StringResource
+        {
+            Id = "PartSearch_TitleLabel",
+            Description = "Текст в окне \"Поиск элементов трубопровода \""
+        };
+
+        #endregion
 
     }
 }
