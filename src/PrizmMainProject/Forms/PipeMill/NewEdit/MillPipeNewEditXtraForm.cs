@@ -50,7 +50,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
-        private void UpdateTextEdit() {
+        private void UpdateTextEdit()
+        {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
         }
 
@@ -374,7 +375,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         #endregion // --- Localization ---
 
-
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
             if(weldingHistoryGridView.IsValidRowHandle(weldingHistoryGridView.FocusedRowHandle))
@@ -536,7 +536,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
-            if (e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
+            if(e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
                 e.Value =
                     getExpectedValue(view, e.ListSourceRowIndex);
         }
