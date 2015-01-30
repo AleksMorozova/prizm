@@ -15,32 +15,32 @@ namespace Prizm.Main.Languages
         
         public static StringResource JointSearch_ActivityCriteria_StatusActive = new StringResource {
             Id = "JointSearch_ActivityCriteria_StatusActive",
-            Description = "Active"
+            Description = "Активные"
         };
                 
         public static StringResource JointSearch_ActivityCriteria_StatusUnactive = new StringResource {
             Id = "JointSearch_ActivityCriteria_StatusUnactive",
-            Description = "UnActive"
+            Description = "Неактивные"
         };
                         
         public static StringResource JointSearch_ActivityCriteria_StatusAll = new StringResource {
             Id = "JointSearch_ActivityCriteria_StatusAll",
-            Description = "All"
+            Description = "Все"
         };
                    
         public static StringResource JointSearch_JointStatus_Welded = new StringResource {
             Id = "JointSearch_JointStatus_Welded",
-            Description = "Welded"
+            Description = "Сварен"
         };
                                         
         public static StringResource JointSearch_JointStatus_Lowered = new StringResource {
             Id = "JointSearch_JointStatus_Lowered",
-            Description = "Lowered"
+            Description = "Уложен"
         };
                                              
         public static StringResource JointSearch_JointStatus_Withdrawn = new StringResource {
             Id = "JointSearch_JointStatus_Withdrawn",
-            Description = "Withdrawn"
+            Description = "Вырезан"
         };        
 
 
