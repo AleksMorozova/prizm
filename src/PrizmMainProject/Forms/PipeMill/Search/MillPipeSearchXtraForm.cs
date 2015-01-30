@@ -105,7 +105,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 // grid column headers
                 new LocalizedItem(pipeNumberGridColumn, "SearchPipe_PipeNumberColumn"),
                 new LocalizedItem(pipeMillGridColumn, "SearchPipe_PipeMillColumn"),
-                new LocalizedItem(pipeNumberGridColumn, "SearchPipe_PipeNumberColumn"),
                 new LocalizedItem(pipeTypeSizeGridColumn, "SearchPipe_PipetypeSizeColumn"),
                 new LocalizedItem(heatNumberGridColumn, "SearchPipe_PipeHeatNumberColumn"),
                 new LocalizedItem(statusSearchGridColumn, "SearchPipe_PipeStatusColumn"),

@@ -88,5 +88,40 @@ namespace Prizm.Main.Languages
         public static StringResource NewEditPipe_PipeStatusStocked = new StringResource { Id = "NewEditPipe_PipeStatusStocked", Description = "Труба. Статус на складе" };
         #endregion
 
+        #region --- Search pipe ---
+        public static StringResource SearchPipe_MillStatusProduced = new StringResource { Id = "SearchPipe_MillStatusProduced", Description = "Поиск труб. Статус в производстве" };
+        public static StringResource SearchPipe_MillStatusStocked = new StringResource { Id = "SearchPipe_MillStatusStocked", Description = "Поиск труб. статус на складе" };
+        public static StringResource SearchPipe_MillStatusShipped = new StringResource { Id = "SearchPipe_MillStatusShipped", Description = "Поиск труб. статус отгружена" };
+        public static StringResource SearchPipe_ActivityComboActive = new StringResource { Id = "SearchPipe_ActivityComboActive", Description = "Поиск труб. Активность – активна" };
+        public static StringResource SearchPipe_ActivityComboNotActive = new StringResource { Id = "SearchPipe_ActivityComboNotActive", Description = "Поиск труб. Активность – деактивирована" };
+        public static StringResource SearchPipe_ActivityComboAll = new StringResource { Id = "SearchPipe_ActivityComboAll", Description = "Поиск труб. Активность – все" };
+        public static StringResource SearchPipe_NumberLabel = new StringResource { Id = "SearchPipe_NumberLabel", Description = "Поиск труб. Номер трубы" };
+        public static StringResource SearchPipe_TypeSizeLabel = new StringResource { Id = "SearchPipe_TypeSizeLabel", Description = "Поиск труб. Типоразмер" };
+        public static StringResource SearchPipe_StatusLabel = new StringResource { Id = "SearchPipe_StatusLabel", Description = "Поиск труб. Статус трубы" };
+        public static StringResource SearchPipe_ActivityLabel = new StringResource { Id = "SearchPipe_ActivityLabel", Description = "Поиск труб. Активность трубы" };
+        public static StringResource SearchPipe_WeldingDateLabel = new StringResource { Id = "SearchPipe_WeldingDateLabel", Description = "Поиск труб. Дата сварки" };
+        public static StringResource SearchPipe_ExternalCoatingDateLabel = new StringResource { Id = "SearchPipe_ExternalCoatingDateLabel", Description = "Поиск труб. Дата внешнего покрытия" };
+        public static StringResource SearchPipe_InternalCoatingDateLabel = new StringResource { Id = "SearchPipe_InternalCoatingDateLabel", Description = "Поиск труб. Дата внутреннего покрытия" };
+        public static StringResource SearchPipe_SearchButton = new StringResource { Id = "SearchPipe_SearchButton", Description = "Поиск труб. Кнопка поиск" };
+        public static StringResource SearchPipe_PipeNumberColumn = new StringResource { Id = "SearchPipe_PipeNumberColumn", Description = "Поиск труб. Столбец номер трубы" };
+        public static StringResource SearchPipe_PipeMillColumn = new StringResource { Id = "SearchPipe_PipeMillColumn", Description = "Поиск труб. Столбец завод" };
+        public static StringResource SearchPipe_PipetypeSizeColumn = new StringResource { Id = "SearchPipe_PipetypeSizeColumn", Description = "Поиск труб. Столбец типоразмер" };
+        public static StringResource SearchPipe_PipeHeatNumberColumn = new StringResource { Id = "SearchPipe_PipeHeatNumberColumn", Description = "Поиск труб. Столбец плавка" };
+        public static StringResource SearchPipe_PipeStatusColumn = new StringResource { Id = "SearchPipe_PipeStatusColumn", Description = "Поиск труб. Столбец статус" };
+        public static StringResource SearchPipe_PipeWeldingDateColumn = new StringResource { Id = "SearchPipe_PipeWeldingDateColumn", Description = "Поиск труб. Столбец дата сварки" };
+        public static StringResource SearchPipe_ExternalCoatingDateColumn = new StringResource { Id = "SearchPipe_ExternalCoatingDateColumn", Description = "Поиск труб. Столбец дата внешнего покрытия" };
+        public static StringResource SearchPipe_InternalCoatingColumn = new StringResource { Id = "SearchPipe_InternalCoatingColumn", Description = "Поиск труб. Столбец дата внутреннего покрытия" };
+        public static StringResource SearchPipe_SearchGroup = new StringResource { Id = "SearchPipe_SearchGroup", Description = "Поиск труб. Группа поиск" };
+        public static StringResource SearchPipe_ResultGroup = new StringResource { Id = "SearchPipe_ResultGroup", Description = "Поиск труб. Группа результат" };
+        #endregion
+
+        #region --- Railcar NewEdit ---
+
+        #endregion //--- Railcar NewEdit ---
+
+        #region --- Railcar NewEdit ---
+
+        #endregion //--- Railcar NewEdit ---
+
     }
 }
