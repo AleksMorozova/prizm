@@ -273,5 +273,28 @@ namespace Prizm.Main.Languages
             Description = "Диалог выбора элемента инспекции. Надпись колонки типа"};
 
         #endregion
+
+        #region ---Conflict Dialog
+        public static StringResource ConflictDialog_ConflictLabel = new StringResource { 
+            Id = "ConflictDialog_ConflictLabel", 
+            Description = "Диалог конфликта при импорте. Текст"};
+
+        public static StringResource ConflictDialog_ReplaceButton = new StringResource { 
+            Id = "ConflictDialog_ReplaceButton", 
+            Description = "Диалог конфликта при импорте. Надпись кнопки замены"};
+
+        public static StringResource ConflictDialog_SkipButton = new StringResource { 
+            Id = "ConflictDialog_SkipButton", 
+            Description = "Диалог конфликта при импорте. Надпись кнопки Пропустить"};
+
+        public static StringResource ConflictDialog_PostponeButton = new StringResource {
+            Id = "ConflictDialog_PostponeButton", 
+            Description = "Диалог конфликта при импорте. Надпись кнопки отложения решения"};
+
+        public static StringResource ConflictDialog_ApplyForAllChechbox = new StringResource { 
+            Id = "ConflictDialog_ApplyForAllChechbox", 
+            Description = "Диалог конфликта при импорте. Надпись чекбокса Применить для всех"};
+
+        #endregion
     }
 }
