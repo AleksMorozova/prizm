@@ -607,5 +607,52 @@ namespace Prizm.Main.Languages
         };
 
         #endregion //--- WeldDateReport ---
+
+        #region --- JointCutDialog ---
+
+        public static StringResource JointCutDialog_FirstJoinedPartGroup = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartGroup",
+            Description = "Первый элемент"
+        };
+        
+        public static StringResource JointCutDialog_FirstJoinedPartNumberLayout = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartNumberLayout",
+            Description = "Номер"
+        };
+                
+        public static StringResource JointCutDialog_FirstJoinedPartLengthLayout = new StringResource {
+            Id = "JointCutDialog_FirstJoinedPartLengthLayout",
+            Description = "Длинна, мм"
+        };
+             
+        public static StringResource JointCutDialog_SecondJoinedPartGroup = new StringResource {
+            Id = "JointCutDialog_SecondJoinedPartGroup",
+            Description = "Второй элемент"
+        };
+
+        public static StringResource JointCutDialog_SecondJoinedPartNumberLayout = new StringResource
+        {
+            Id = "JointCutDialog_SecondJoinedPartNumberLayout",
+            Description = "Номер"
+        };
+        
+        public static StringResource JointCutDialog_SecondJoinedPartLengthLayout = new StringResource {
+            Id = "JointCutDialog_SecondJoinedPartLengthLayout",
+            Description = "Длинна, мм"
+        };
+        
+        public static StringResource JointCutDialog_CutJointButton = new StringResource {
+            Id = "JointCutDialog_CutJointButton",
+            Description = "Вырезать"
+        };
+        
+        public static StringResource JointCutDialog_CancelButton = new StringResource {
+            Id = "JointCutDialog_CancelButton",
+            Description = "Отмена"
+        };
+
+
+
+        #endregion //--- JointCutDialog ---
     }
 } 
