@@ -71,19 +71,19 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(reportTypeLayout, "ConstructionReports_ReportTypeLayout"),
-                new LocalizedItem(typeLayout, "ConstructionReports_TypeLayout"),
-                new LocalizedItem(startJointLayout, "ConstructionReports_StartJointLayout"),
-                new LocalizedItem(startKPComboBoxLayoutControl, "ConstructionReports_StartKPComboBoxLayoutControl"),
-                new LocalizedItem(endJointLayout, "ConstructionReports_EndJointLayout"),
-                new LocalizedItem(endKPLayout, "ConstructionReports_EndKPLayout"),
-                new LocalizedItem(previewButton, "ConstructionReports_PreviewButton"),
-                new LocalizedItem(createReportButton, "ConstructionReports_CreateReportButton"),
-                new LocalizedItem(createReportaLyoutGroup, "ConstructionReports_CreateReportaLyoutGroup"),
-                new LocalizedItem(previewLayoutGroup, "ConstructionReports_PreviewLayoutGroup"),
+                new LocalizedItem(reportTypeLayout, StringResources.ConstructionReports_ReportTypeLayout.Id),
+                new LocalizedItem(typeLayout, StringResources.ConstructionReports_TypeLayout.Id),
+                new LocalizedItem(startJointLayout, StringResources.ConstructionReports_StartJointLayout.Id),
+                new LocalizedItem(startKPComboBoxLayoutControl, StringResources.ConstructionReports_StartKPComboBoxLayoutControl.Id),
+                new LocalizedItem(endJointLayout, StringResources.ConstructionReports_EndJointLayout.Id),
+                new LocalizedItem(endKPLayout, StringResources.ConstructionReports_EndKPLayout.Id),
+                new LocalizedItem(previewButton, StringResources.ConstructionReports_PreviewButton.Id),
+                new LocalizedItem(createReportButton, StringResources.ConstructionReports_CreateReportButton.Id),
+                new LocalizedItem(createReportaLyoutGroup, StringResources.ConstructionReports_CreateReportaLyoutGroup.Id),
+                new LocalizedItem(previewLayoutGroup, StringResources.ConstructionReports_PreviewLayoutGroup.Id),
                 // radio groups
                 new LocalizedItem(tracingModeRadioGroup, 
-                    new string[]{ "ConstructionReport_RadioJoints", "ConstructionReport_RadioKP" }),
+                    new string[]{ StringResources.ConstructionReport_RadioJoints.Id, StringResources.ConstructionReport_RadioKP.Id }),
 
                 // other
             };

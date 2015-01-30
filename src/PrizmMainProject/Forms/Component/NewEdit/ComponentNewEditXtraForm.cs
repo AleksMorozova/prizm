@@ -75,25 +75,25 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(newComponentLayoutGroup, "ComponentNewEdit_NewComponentLayoutGroup"),
-                new LocalizedItem(componentNumberLayout, "ComponentNewEdit_ComponentNumberLayout"),
-                new LocalizedItem(typeLayoutControl, "ComponentNewEdit_TypeLayoutControl"),
-                new LocalizedItem(certificateLayout, "ComponentNewEdit_CertificateLayout"),
-                new LocalizedItem(componentLengthLayout, "ComponentNewEdit_ComponentLengthLayout"),
-                new LocalizedItem(parametersGridLayout, "ComponentNewEdit_ParametersGridLayout"),
+                new LocalizedItem(newComponentLayoutGroup, StringResources.ComponentNewEdit_NewComponentLayoutGroup.Id),
+                new LocalizedItem(componentNumberLayout, StringResources.ComponentNewEdit_ComponentNumberLayout.Id),
+                new LocalizedItem(typeLayoutControl, StringResources.ComponentNewEdit_TypeLayoutControl.Id),
+                new LocalizedItem(certificateLayout, StringResources.ComponentNewEdit_CertificateLayout.Id),
+                new LocalizedItem(componentLengthLayout, StringResources.ComponentNewEdit_ComponentLengthLayout.Id),
+                new LocalizedItem(InspectionLayoutGroup, StringResources.ComponentNewEdit_InspectionLayoutGroup.Id),
                 
-                new LocalizedItem(attachmentsButton, "ComponentNewEdit_AttachmentsButton"),
-                new LocalizedItem(deactivated, "ComponentNewEdit_Deactivated"),
-                new LocalizedItem(newSaveComponentButton, "ComponentNewEdit_NewSaveComponentButton"),
-                new LocalizedItem(saveComponentButton, "ComponentNewEdit_SaveComponentButton"),
+                new LocalizedItem(attachmentsButton, StringResources.ComponentNewEdit_AttachmentsButton.Id),
+                new LocalizedItem(deactivated, StringResources.ComponentNewEdit_Deactivated.Id),
+                new LocalizedItem(newSaveComponentButton, StringResources.ComponentNewEdit_NewSaveComponentButton.Id),
+                new LocalizedItem(saveComponentButton, StringResources.ComponentNewEdit_SaveComponentButton.Id),
 
-                new LocalizedItem(inspectionDateColumn, "ComponentNewEdit_InspectionDateColumn"),
-                new LocalizedItem(inspectorColumn, "ComponentNewEdit_InspectorColumn"),
-                new LocalizedItem(resultColumn, "ComponentNewEdit_ResultColumn"),
-                new LocalizedItem(reasonColumn, "ComponentNewEdit_ReasonColumn"),
+                new LocalizedItem(inspectionDateColumn, StringResources.ComponentNewEdit_InspectionDateColumn.Id),
+                new LocalizedItem(inspectorColumn, StringResources.ComponentNewEdit_InspectorColumn.Id),
+                new LocalizedItem(resultColumn, StringResources.ComponentNewEdit_ResultColumn.Id),
+                new LocalizedItem(reasonColumn, StringResources.ComponentNewEdit_ReasonColumn.Id),
 
-                new LocalizedItem(diameterGridColumn, "ComponentNewEdit_DiameterGridColumn"),
-                new LocalizedItem(wallThicknessGridColumn, "ComponentNewEdit_WallThicknessGridColumn")
+                new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
+                new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id)
             };
         }
 

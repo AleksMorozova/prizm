@@ -94,25 +94,33 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(activity, new string[]{ "JointSearch_ActivityCriteria_StatusActive", "JointSearch_ActivityCriteria_StatusUnactive", "JointSearch_ActivityCriteria_StatusAll"}),
-                new LocalizedItem(controlState, new string[]{ "JointSearch_JointStatus_Welded", "JointSearch_JointStatus_Lowered", "JointSearch_JointStatus_Withdrawn"}),
-                new LocalizedItem(jointNumberLayout, "JointSearch_JointNumber"),
-                new LocalizedItem(controlStateLayout, "JointSearch_ControlStateLayout"),
-                new LocalizedItem(weldingDateLabel, "JointSearch_WeldingDateLabel"),
-                new LocalizedItem(weldingDateFromLayout, "JointSearch_WeldingDateFromLayout"),
-                new LocalizedItem(weldingDateToLayout, "JointSearch_WeldingDateToLayout"),
-                new LocalizedItem(KMlayout, "JointSearch_KMlayout"),
-                new LocalizedItem(activityLayout, "JointSearch_ActivityLayout"),
-                new LocalizedItem(searchLayoutGroup, "JointSearch_SearchLayoutGroup"),
-                new LocalizedItem(searchButton, "JointSearch_SearchButton"),
-                new LocalizedItem(searchResultLayoutGroup, "JointSearch_SearchResultLayoutGroup"),
-                new LocalizedItem(jointNumberGridColumn, "JointSearch_JointNumberGridColumn"),
-                new LocalizedItem(joinStatusGridColumn, "JointSearch_JoinStatusGridColumn"),
-                new LocalizedItem(numberKPCol, "JointSearch_NumberKPCol"),
-                new LocalizedItem(loweringDateCol, "JointSearch_LoweringDateCol"),
-                new LocalizedItem(gpsLatCol, "JointSearch_GpsLatCol"),
-                new LocalizedItem(gpsLongCol, "JointSearch_GpsLongCol"),
-                new LocalizedItem(gpsHeightCol, "JointSearch_GpsHeightCol")
+                new LocalizedItem(activity, new string[]{ 
+                    StringResources.JointSearch_ActivityCriteria_StatusActive.Id, 
+                    StringResources.JointSearch_ActivityCriteria_StatusUnactive.Id, 
+                    StringResources.JointSearch_ActivityCriteria_StatusAll.Id}),
+
+                new LocalizedItem(controlState, new string[]{ 
+                    StringResources.JointSearch_JointStatus_Welded.Id, 
+                    StringResources.JointSearch_JointStatus_Lowered.Id, 
+                    StringResources.JointSearch_JointStatus_Withdrawn.Id}),
+               
+                new LocalizedItem(jointNumberLayout, StringResources.JointSearch_JointNumber.Id),
+                new LocalizedItem(controlStateLayout, StringResources.JointSearch_ControlStateLayout.Id),
+                new LocalizedItem(weldingDateLabel, StringResources.JointSearch_WeldingDateLabel.Id),
+                new LocalizedItem(weldingDateFromLayout, StringResources.JointSearch_WeldingDateFromLayout.Id),
+                new LocalizedItem(weldingDateToLayout, StringResources.JointSearch_WeldingDateToLayout.Id),
+                new LocalizedItem(KMlayout, StringResources.JointSearch_KMlayout.Id),
+                new LocalizedItem(activityLayout, StringResources.JointSearch_ActivityLayout.Id),
+                new LocalizedItem(searchLayoutGroup, StringResources.JointSearch_SearchLayoutGroup.Id),
+                new LocalizedItem(searchButton, StringResources.JointSearch_SearchButton.Id),
+                new LocalizedItem(searchResultLayoutGroup, StringResources.JointSearch_SearchResultLayoutGroup.Id),
+                new LocalizedItem(jointNumberGridColumn, StringResources.JointSearch_JointNumberGridColumn.Id),
+                new LocalizedItem(joinStatusGridColumn, StringResources.JointSearch_JoinStatusGridColumn.Id),
+                new LocalizedItem(numberKPCol, StringResources.JointSearch_NumberKPCol.Id),
+                new LocalizedItem(loweringDateCol, StringResources.JointSearch_LoweringDateCol.Id),
+                new LocalizedItem(gpsLatCol, StringResources.JointSearch_GpsLatCol.Id),
+                new LocalizedItem(gpsLongCol, StringResources.JointSearch_GpsLongCol.Id),
+                new LocalizedItem(gpsHeightCol, StringResources.JointSearch_GpsHeightCol.Id)
             };
         }
 
