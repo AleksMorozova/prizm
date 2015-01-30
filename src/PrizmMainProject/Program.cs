@@ -56,18 +56,19 @@ namespace Prizm.Main
         {
             Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
             Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
+
             foreach(var arg in args)
             {
                 if(arg.Equals("seed"))
                 {
                     isSeed = true;
                 }
-                if (arg.Equals("template"))
+                if(arg.Equals("template"))
                 {
                     List<string> templateStrings = new List<string>();
-                    
+
                     MemberInfo[] info = typeof(StringResources).GetMembers(BindingFlags.Public | BindingFlags.Static);
-                    foreach (MemberInfo item in info)
+                    foreach(MemberInfo item in info)
                     {
                         FieldInfo field = typeof(StringResources).GetField(item.Name, BindingFlags.Public | BindingFlags.Static);
                         StringResource lookup = (StringResource)field.GetValue(null);
@@ -75,10 +76,10 @@ namespace Prizm.Main
                         templateStrings.Add(tmp);
                     }
 
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(
+                    using(System.IO.StreamWriter file = new System.IO.StreamWriter(
                         System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
-                        foreach (var line in templateStrings)
+                        foreach(var line in templateStrings)
                         {
                             file.WriteLine(line);
                         }
@@ -110,16 +111,16 @@ namespace Prizm.Main
                 //Permissions setup
                 CreatePermissions();
 
-                while (!CreateProject())
-                { }               
+                while(!CreateProject())
+                { }
 
                 //Login
                 string failMessage = String.Empty;
                 LoginResult loginResult = LoginResult.None;
-                while (loginResult != LoginResult.LoggedIn)
+                while(loginResult != LoginResult.LoggedIn)
                 {
                     loginResult = Login(ref failMessage);
-                    switch (loginResult)
+                    switch(loginResult)
                     {
                         case LoginResult.Failed:
                         case LoginResult.FailedUserInactive:
@@ -131,10 +132,10 @@ namespace Prizm.Main
                 mainForm = new PrizmApplicationXtraForm();
                 Application.Run(mainForm);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 String error = ex.ToString();//String.Format(Resources.IDS_ERROR + Environment.NewLine + "{0}\n{01}", ex.InnerException.Message + Environment.NewLine, ex.InnerException.InnerException.Message + Environment.NewLine);
-                if (cmdLineMode)
+                if(cmdLineMode)
                 {
                     Console.Error.WriteLine(error);
                 }
@@ -152,81 +153,81 @@ namespace Prizm.Main
 
         static LoginResult Login(ref string failMessage)
         {
-           failMessage = Resources.AuthenticationFailed;
-           LoginForm dlg = new LoginForm();
-           if (dlg.ShowDialog() == DialogResult.OK)
-           {
+            failMessage = Resources.AuthenticationFailed;
+            LoginForm dlg = new LoginForm();
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
 
-              string login = dlg.Login;
-              string password = dlg.Password;
+                string login = dlg.Login;
+                string password = dlg.Password;
 
-               #if DEBUG
-              if(string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
-              {
-                  login = "admin";
-                  password = "admin";
-              }
-               #endif
+#if DEBUG
+                if(string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
+                {
+                    login = "admin";
+                    password = "admin";
+                }
+#endif
 
-              User user = new User() { IsActive = false, Login = "system" };
-
-
-              IUserRepository userRepo;
+                User user = new User() { IsActive = false, Login = "system" };
 
 
-              using ( userRepo = Kernel.Get<IUserRepository>())
-              {
-                  user = userRepo.FindByLogin(login);
+                IUserRepository userRepo;
 
-                  if (user == null)
-                      return LoginResult.Failed;
-                  if (!user.IsActive)
-                  {
-                      failMessage = string.Format(Resources.AuthenticationFailedUserInactive, login);
-                      return LoginResult.FailedUserInactive;
-                  }
-              }
 
-              userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
+                using(userRepo = Kernel.Get<IUserRepository>())
+                {
+                    user = userRepo.FindByLogin(login);
 
-              string hash = PasswordEncryptor.EncryptPassword(password);
+                    if(user == null)
+                        return LoginResult.Failed;
+                    if(!user.IsActive)
+                    {
+                        failMessage = string.Format(Resources.AuthenticationFailedUserInactive, login);
+                        return LoginResult.FailedUserInactive;
+                    }
+                }
 
-              if (user.PasswordHash != hash)
-                 return LoginResult.Failed;
+                userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
 
-              if (user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
-              {
-                  PasswordChangeDialog dlgPassChange = new PasswordChangeDialog();
+                string hash = PasswordEncryptor.EncryptPassword(password);
 
-                  if (dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
-                      System.Windows.Forms.DialogResult.OK)
-                  {
-                      user.PasswordHash = dlgPassChange.NewPasswordHash;
-                      user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
+                if(user.PasswordHash != hash)
+                    return LoginResult.Failed;
 
-                      userRepo.BeginTransaction();
-                      userRepo.SaveOrUpdate(user);
-                      userRepo.Commit();
-                      userRepo.Evict(user);
-                  }
-                  else
-                  {
-                      return LoginResult.Failed;
-                  }
-              }
-              
-              ISecurityContext ctx = Kernel.Get<ISecurityContext>();
-              ctx.LoggedUser = user;
+                if(user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
+                {
+                    PasswordChangeDialog dlgPassChange = new PasswordChangeDialog();
 
-              HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
-              return LoginResult.LoggedIn;
-           }
-           else
-           {
-              System.Environment.Exit(0);
-           }
+                    if(dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
+                        System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlgPassChange.NewPasswordHash;
+                        user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
 
-           return LoginResult.Failed;
+                        userRepo.BeginTransaction();
+                        userRepo.SaveOrUpdate(user);
+                        userRepo.Commit();
+                        userRepo.Evict(user);
+                    }
+                    else
+                    {
+                        return LoginResult.Failed;
+                    }
+                }
+
+                ISecurityContext ctx = Kernel.Get<ISecurityContext>();
+                ctx.LoggedUser = user;
+
+                HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
+                return LoginResult.LoggedIn;
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+
+            return LoginResult.Failed;
         }
 
         static bool CreateProject()
@@ -238,15 +239,15 @@ namespace Prizm.Main
 
             if(pj == null)
             {
-                using (var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
+                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
                 {
                     setupDialog.ShowDialog();
-                    if (setupDialog.DialogResult == DialogResult.Cancel)
+                    if(setupDialog.DialogResult == DialogResult.Cancel)
                     {
                         System.Environment.Exit(0);
                     }
                     pj = repo.GetSingle();
-                    if (pj == null)
+                    if(pj == null)
                     {
                         throw new ApplicationException("Could not find project settings");
                     }
@@ -263,7 +264,7 @@ namespace Prizm.Main
         private static void CreatePermissions()
         {
             IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
-            if (repo.GetAll().Count == 0)
+            if(repo.GetAll().Count == 0)
             {
                 repo.SeedPermissions();
             }
