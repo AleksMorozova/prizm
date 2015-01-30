@@ -153,6 +153,7 @@
             this.inspectionsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
+            this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
             // 
             // colDate
             // 

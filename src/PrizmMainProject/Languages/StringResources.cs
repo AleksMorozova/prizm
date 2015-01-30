@@ -84,6 +84,12 @@ namespace Prizm.Main.Languages
             Id = "StatusAll", 
             Description = "Надпись статуса активности элемента Все"};
 
+        public static StringResource Value_Required = new StringResource
+        {
+            Id = "Value_Required",
+            Description = "Значение обязательно"
+        };
+
         //test result types
         public static StringResource TestResultTypeBoolean = new StringResource { 
             Id = "TestResultTypeBoolean", 
