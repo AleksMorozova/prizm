@@ -47,6 +47,18 @@ namespace Prizm.Main.Languages
         #endregion // --- Common
 
         #region PurchaseOrderForm
+        //message
+        public static StringResource PurchaseOrder_ValueRequired = new StringResource
+        {
+            Id = "PurchaseOrder_ValueRequaered",
+            Description = "Обязательное значение"
+        };
+        public static StringResource PurchaseOrder_ErrorHeader = new StringResource
+        {
+            Id = "PurchaseOrder_ErrorHeader",
+            Description = "Ошибка создания наряд-заказа"
+        };
+
         public static StringResource PurchaseOrder_NumberLabel = new StringResource
         {
             Id = "PurchaseOrder_NumberLabel",
