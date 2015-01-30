@@ -574,7 +574,6 @@ namespace Prizm.Main.Languages
             Id = "Audit_PeriodLabel", 
             Description = "Аудит. Надпись периода"};
 
-        #endregion //--- Audit ---
         public static StringResource Audit_StartDateLabel = new StringResource { 
             Id = "Audit_StartDateLabel", 
             Description = "Аудит. Надпись начальной даты)"};
