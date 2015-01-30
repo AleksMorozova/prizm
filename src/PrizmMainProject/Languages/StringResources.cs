@@ -314,6 +314,202 @@ namespace Prizm.Main.Languages
         };
         #endregion MissingPortion
 
+        #region Settings
+        //project page
+        public static StringResource SettingsProject_TitleLabel = new StringResource
+        {
+            Id = "SettingsProject_TitleLabel",
+            Description = "Настройки-Проект. Название проекта"
+        };
+        public static StringResource SettingsProject_ClientLabel = new StringResource
+        {
+            Id = "SettingsProject_ClientLabel",
+            Description = "Настройки-Проект. Имя заказчика"
+        };
+        public static StringResource SettingsProject_PlateManufacturerLabel = new StringResource
+        {
+            Id = "SettingsProject_PlateManufacturerLabel",
+            Description = "Настройки-Проект. Список производителей листов"
+        };
+        public static StringResource SettingsProject_DocumentSizeLabel = new StringResource
+        {
+            Id = "SettingsProject_DocumentSizeLabel",
+            Description = "Настройки-Проект. Максимальный размер документа"
+        };
+        public static StringResource SettingsProject_MillLabel = new StringResource
+        {
+            Id = "SettingsProject_MillLabel",
+            Description = "Настройки-Проект. Название завода"
+        };
+        public static StringResource SettingsProject_MaskEditLabel = new StringResource
+        {
+            Id = "SettingsProject_MaskEditLabel",
+            Description = "Настройки-Проект. Маска номера трубы"
+        };
+        public static StringResource SettingsProject_MaskLabel = new StringResource
+        {
+            Id = "SettingsProject_MaskLabel",
+            Description = "Настройки-Проект. Правила задачи маски"
+        };
+        public static StringResource SettingsProject_OperationsLabel = new StringResource
+        {
+            Id = "SettingsProject_OperationsLabel",
+            Description = "Настройки-Проект. Группы контрольных операций"
+        };
+        public static StringResource SettingsProject_SeamsLabel = new StringResource
+        {
+            Id = "SettingsProject_SeamsLabel",
+            Description = "Настройки-Проект. Типы швов"
+        };
+        public static StringResource SettingsProject_CommonGroup = new StringResource
+        {
+            Id = "SettingsProject_CommonGroup",
+            Description = "Настройки-Проект. Общие настройки"
+        };
+        public static StringResource SettingsProject_MillGroup = new StringResource
+        {
+            Id = "SettingsProject_MillGroup",
+            Description = "Настройки-Проект. Настройки для завода"
+        };
+        public static StringResource SettingsProject_PlateManColumn = new StringResource
+        {
+            Id = "SettingsProject_PlateManColumn",
+            Description = "Настройки-Проект. Производители листов-колонка"
+        };
+
+        public static StringResource SettingsProject_InspectionsCategoryColumn = new StringResource
+        {
+            Id = "SettingsProject_InspectionsCategoryColumn",
+            Description = "Настройки-Проект. Название категорий контрольных операций"
+        };
+        public static StringResource SettingsProject_InspectionsIsActiveColumn = new StringResource
+        {
+            Id = "SettingsProject_InspectionsIsActiveColumn",
+            Description = "Настройки-Проект. Активность категории контрольной операции"
+        };
+        public static StringResource SettingsProject_SeamTypeColumn = new StringResource
+        {
+            Id = "SettingsProject_SeamTypeColumn",
+            Description = "Настройки-Проект. Название типов швов"
+        };
+        public static StringResource SettingsProject_SeamIsActiveColumn = new StringResource
+        {
+            Id = "SettingsProject_SeamIsActiveColumn",
+            Description = "Настройки-Проект. Активность типа шва"
+        };
+
+        //pipe page
+        public static StringResource SettingsPipe_SizesLabel = new StringResource
+        {
+            Id = "SettingsPipe_SizesLabel",
+            Description = "Настройки-труба. Параметры типоразмера"
+        };
+
+        public static StringResource SettingsPipe_InspectionsLabel = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsLabel",
+            Description = "Настройки-труба. Контрольные операции для типоразмера"
+        };
+        public static StringResource SettingsPipe_DiameterLabel = new StringResource
+        {
+            Id = "SettingsPipe_DiameterLabel",
+            Description = "Настройки-труба. Диаметр трубы с заданым типоразмером"
+        };
+        public static StringResource SettingsPipe_WallThicknessLabel = new StringResource
+        {
+            Id = "SettingsPipe_WallThicknessLabel",
+            Description = "Настройки-труба. Толщина стенки для трубы с заданым типоразмером"
+        };
+        public static StringResource SettingsPipe_LengthLabel = new StringResource
+        {
+            Id = "SettingsPipe_LengthLabel",
+            Description = "Настройки-труба. Длина трубы для заданного типоразмера"
+        };
+        public static StringResource SettingsPipe_SeamTypeLabel = new StringResource
+        {
+            Id = "SettingsPipe_SeamTypeLabel",
+            Description = "Настройки-труба. Тип шва для заданого типоразмера"
+        };
+        
+        public static StringResource SettingsPipe_CloneTypeSizeButton = new StringResource
+        {
+            Id = "SettingsPipe_CloneTypeSizeButton",
+            Description = "Настройки-труба. Кнопка клонировать типоразмер"
+        };
+        public static StringResource SettingsPipe_AddTestButton = new StringResource
+        {
+            Id = "SettingsPipe_AddTestButton",
+            Description = "Настройки-труба. Кнопка добавить контрольную операцию"
+        };
+        public static StringResource SettingsPipe_EditTestButton = new StringResource
+        {
+            Id = "SettingsPipe_EditTestButton",
+            Description = "Настройки-труба. Кнопка редактировать контрольную операцию"
+        };
+
+        public static StringResource SettingsPipe_SizeGridColumn = new StringResource
+        {
+            Id = "SettingsPipe_SizeGridColumn",
+            Description = "Настройки-труба. Список типоразеров"
+        };
+        public static StringResource SettingsPipe_SizeIsActiveGridColumn = new StringResource
+        {
+            Id = "SettingsPipe_SizeIsActiveGridColumn",
+            Description = "Настройки-труба. Активность типоразмера"
+        };
+        
+        public static StringResource SettingsPipe_InspectionsCodeColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsCodeColumn",
+            Description = "Настройки-труба. Код контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsNameColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsNameColumn",
+            Description = "Настройки-труба. Название контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsCategoryColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsCategoryColumn",
+            Description = "Настройки-труба. Категория контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsControlTypeColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsControlTypeColumn",
+            Description = "Настройки-труба. Тип контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsResultTypeColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsResultTypeColumn",
+            Description = "Настройки-труба. Результат конрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsBoolExpectedColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsBoolExpectedColumn",
+            Description = "Настройки-труба. Ожидаемы результат для булевского результата"
+        };
+                public static StringResource SettingsPipe_InspectionsMinExpectedColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsMinExpectedColumn",
+            Description = "Настройки-труба. Минимальный результат контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsMaxExpectedColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsMaxExpectedColumn",
+            Description = "Настройки-труба. Максимальный результат контрольной операции"
+        };
+                public static StringResource SettingsPipe_InspectionsIsReqiredColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsIsReqiredColumn",
+            Description = "Настройки-труба. Обязательная контрольная операция"
+        };
+                public static StringResource SettingsPipe_InspectionsIsActiveColumn = new StringResource
+        {
+            Id = "SettingsPipe_InspectionsIsActiveColumn",
+            Description = "Настройки-труба. Активность контрольной операции"
+        };
+        #endregion Settings
+
         #region --- Audit ---
 
         public static StringResource Audit_ElementNumberLabel = new StringResource {
