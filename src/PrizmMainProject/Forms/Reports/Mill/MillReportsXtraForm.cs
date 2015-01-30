@@ -82,22 +82,26 @@ namespace Prizm.Main.Forms.Reports.Mill
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(reportTypesLayout, "MillReport_ReportTypesLabel"),
+                new LocalizedItem(reportTypesLayout, StringResources.MillReport_ReportTypesLabel.Id),
                 
-                new LocalizedItem(reportPeriodLabel, "MillReport_ReportPeriodLabel"),
-                new LocalizedItem(startDateLayout, "MillReport_StartDateLabel"),
-                new LocalizedItem(finalDateLayout, "MillReport_EndDateLabel"),
+                new LocalizedItem(reportPeriodLabel, StringResources.MillReport_ReportPeriodLabel.Id),
+                new LocalizedItem(startDateLayout, StringResources.MillReport_StartDateLabel.Id),
+                new LocalizedItem(finalDateLayout, StringResources.MillReport_EndDateLabel.Id),
 
-                new LocalizedItem(testCategoriesLayout, "MillReport_CategoriesLabel"),
-                new LocalizedItem(statusesLayout, "MillReport_StatusesLabel"),
+                new LocalizedItem(testCategoriesLayout, StringResources.MillReport_CategoriesLabel.Id),
+                new LocalizedItem(statusesLayout,StringResources.MillReport_StatusesLabel.Id),
 
-                new LocalizedItem(createReportaLyoutGroup, "MillReport_CreateGroup"),
-                new LocalizedItem(previewLayoutGroup, "MillReport_PreviewGroup"),
+                new LocalizedItem(createReportaLyoutGroup,StringResources.MillReport_CreateGroup.Id),
+                new LocalizedItem(previewLayoutGroup,StringResources.MillReport_PreviewGroup.Id),
 
-                new LocalizedItem(createReportButton, "MillReport_CreateButton"),
-                new LocalizedItem(previewButton, "MillReport_PreviewButton"),
+                new LocalizedItem(createReportButton,StringResources.MillReport_CreateButton.Id),
+                new LocalizedItem(previewButton,StringResources.MillReport_PreviewButton.Id),
 
-                new LocalizedItem(reportTypes, new string[] { "MillReport_TypeByCategories", "MillReport_TypeByShipped", "MillReport_TypeByProduced", "MillReport_TypeGeneral" }),
+                new LocalizedItem(reportTypes, new string[] { 
+                    StringResources.MillReport_TypeByCategories.Id, 
+                    StringResources.MillReport_TypeByShipped.Id, 
+                    StringResources.MillReport_TypeByProduced.Id, 
+                    StringResources.MillReport_TypeGeneral.Id }),
 
                 //new LocalizedItem(statuses, new string[] { "", "", "", "" }),
             };
