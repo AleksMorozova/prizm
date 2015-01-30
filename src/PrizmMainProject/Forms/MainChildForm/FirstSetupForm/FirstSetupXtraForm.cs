@@ -59,20 +59,20 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(titleLayoutControl, "FirstSetup_ProjectTitleLabel"),
-                new LocalizedItem(fileLayoutControlItem, "FirstSetup_FileSizeLabel"),
-                new LocalizedItem(typeLayoutControlItem, "FirstSetup_TypeLabel"),
-                new LocalizedItem(millLayoutControlItem, "FirstSetup_MillLabel"),
-                new LocalizedItem(loginLayoutControlItem, "FirstSetup_LoginLabel"),
-                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
-                new LocalizedItem(passLayoutControlItem, "FirstSetup_PasswordLabel"),
-                new LocalizedItem(reEnterLayoutControlItem, "FirstSetup_ReEnterPasswordLabel"),
-                new LocalizedItem(lastNameLayoutControlItem, "FirstSetup_LastNameLabel"),
-                new LocalizedItem(firstNameLayoutControlItem, "FirstSetup_FirstNameLabel"),
-                new LocalizedItem(millLayoutControlItem, "FirstSetup_MiddleNameLabel"),
+                new LocalizedItem(titleLayoutControl, StringResources.FirstSetup_ProjectTitleLabel.Id),
+                new LocalizedItem(fileLayoutControlItem, StringResources.FirstSetup_FileSizeLabel.Id),
+                new LocalizedItem(typeLayoutControlItem, StringResources.FirstSetup_TypeLabel.Id),
+                new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MillLabel.Id),
+                new LocalizedItem(loginLayoutControlItem, StringResources.FirstSetup_LoginLabel.Id),
+                new LocalizedItem(passLayoutControlItem, StringResources.FirstSetup_PasswordLabel.Id),
+                new LocalizedItem(passLayoutControlItem, StringResources.FirstSetup_PasswordLabel.Id),
+                new LocalizedItem(reEnterLayoutControlItem, StringResources.FirstSetup_ReEnterPasswordLabel.Id),
+                new LocalizedItem(lastNameLayoutControlItem, StringResources.FirstSetup_LastNameLabel.Id),
+                new LocalizedItem(firstNameLayoutControlItem, StringResources.FirstSetup_FirstNameLabel.Id),
+                new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
                 
-                new LocalizedItem(saveButton, "FirstSetup_SaveButton"),
-                new LocalizedItem(cancelButton, "FirstSetup_CancelButton")
+                new LocalizedItem(saveButton, StringResources.FirstSetup_SaveButton.Id),
+                new LocalizedItem(cancelButton, StringResources.FirstSetup_CancelButton.Id)
             };
         }
 

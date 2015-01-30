@@ -37,10 +37,10 @@ namespace Prizm.Main.Forms.Common
       {
           return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblLogin, "Login_LoginLabel"),
-              new LocalizedItem(lblPassword, "Login_PasswordLabel"),
-              new LocalizedItem(btnLogin, "Login_LoginButton"),
-              new LocalizedItem(btnExit, "Login_ExitButton")
+              new LocalizedItem(lblLogin, StringResources.Login_LoginLabel.Id),
+              new LocalizedItem(lblPassword, StringResources.Login_PasswordLabel.Id),
+              new LocalizedItem(btnLogin, StringResources.Login_LoginButton.Id),
+              new LocalizedItem(btnExit, StringResources.Login_ExitButton.Id)
           };
       }
 
