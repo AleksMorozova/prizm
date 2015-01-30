@@ -40,7 +40,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource Value_Requared = new StringResource
         {
-            Id = "VALUE_REQUIRED",
+            Id = "Value_Requared",
             Description = "Значение обязательно"
         };
 
