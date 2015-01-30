@@ -214,5 +214,20 @@ namespace Prizm.Main.Languages
 
         #endregion
 
+        #region --- External files ---
+        public static StringResource ExternalFiles_AddFileButton = new StringResource { 
+            Id = "ExternalFiles_AddFileButton", 
+            Description = "Вложения. Кнопка добавления"};
+
+        public static StringResource ExternalFiles_FileNameColumnHeader = new StringResource { 
+            Id = "ExternalFiles_FileNameColumnHeader", 
+            Description = "Вложения. Надпись колонки имени файла"};
+
+        public static StringResource ExternalFiles_UploadDateColumnHeader = new StringResource { 
+            Id = "ExternalFiles_UploadDateColumnHeader", 
+            Description = "Вложения. Надпись колонки даты загрузки"};
+
+        #endregion
+
     }
 }
