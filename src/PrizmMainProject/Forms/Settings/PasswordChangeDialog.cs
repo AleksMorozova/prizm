@@ -44,12 +44,12 @@ namespace Prizm.Main.Forms.Settings
         {
             return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblOldPass, "PassChange_OldPassLabel"),
-              new LocalizedItem(lblPass, "PassChange_PassLabel"),
-              new LocalizedItem(lblConfirm, "PassChange_ConfirmPassLabel"),
+              new LocalizedItem(lblOldPass, StringResources.PassChange_OldPassLabel.Id),
+              new LocalizedItem(lblPass, StringResources.PassChange_PassLabel.Id),
+              new LocalizedItem(lblConfirm, StringResources.PassChange_ConfirmPassLabel.Id),
 
-              new LocalizedItem(btnOk, "PassChange_OKButton"),
-              new LocalizedItem(btnCancel, "PassChange_CancelButton"),
+              new LocalizedItem(btnOk, StringResources.PassChange_OKButton.Id),
+              new LocalizedItem(btnCancel, StringResources.PassChange_CancelButton.Id),
           };
         }
 
