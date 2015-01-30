@@ -27,10 +27,10 @@ namespace Prizm.Main.Forms.Common
       {
           return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblText, "SaveDialog_SaveLabel"),
-              new LocalizedItem(btnSave, "SaveDialog_SaveButton"),
-              new LocalizedItem(btnDontSave, "SaveDialog_DontSaveButton"),
-              new LocalizedItem(btnCancel, "SaveDialog_CancelButton"),
+              new LocalizedItem(lblText, StringResources.SaveDialog_SaveLabel.Id),
+              new LocalizedItem(btnSave, StringResources.SaveDialog_SaveButton.Id),
+              new LocalizedItem(btnDontSave, StringResources.SaveDialog_DontSaveButton.Id),
+              new LocalizedItem(btnCancel, StringResources.SaveDialog_CancelButton.Id),
           };
       }
 

@@ -43,17 +43,17 @@ namespace Prizm.Main.Forms.Synch
           return new List<LocalizedItem>()
           {
               // controls
-              new LocalizedItem(btnExport, "Export_ExportButton"),
-              new LocalizedItem(progressPanel,"Export_PleaseWaitPanel", "Export_ExportingData"),
-              new LocalizedItem(lblLog,"Export_LogLabel"),
-              new LocalizedItem(btnReexport, "Export_ReexportButton"),
+              new LocalizedItem(btnExport, StringResources.Export_ExportButton.Id),
+              new LocalizedItem(progressPanel, StringResources.Export_PleaseWaitPanel.Id, StringResources.Export_ExportingData.Id),
+              new LocalizedItem(lblLog, StringResources.Export_LogLabel.Id),
+              new LocalizedItem(btnReexport, StringResources.Export_ReexportButton.Id),
               
               // grid column headers
-              new LocalizedItem(portionId, "Export_PortionIdColumnHeader"),
-              new LocalizedItem(gridColumnExportDate, "Export_ExportDateColumnHeader"),
+              new LocalizedItem(portionId, StringResources.Export_PortionIdColumnHeader.Id),
+              new LocalizedItem(gridColumnExportDate, StringResources.Export_ExportDateColumnHeader.Id),
               // other
-              new LocalizedItem(logTabPage,"Export_LogTab"),
-              new LocalizedItem(historyTabPage,"Export_HistoryTab"),
+              new LocalizedItem(logTabPage, StringResources.Export_LogTab.Id),
+              new LocalizedItem(historyTabPage,StringResources.Export_HistoryTab.Id),
           };
       }
 

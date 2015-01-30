@@ -54,11 +54,11 @@ namespace Prizm.Main.Forms.PipeMill
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(purchaseOrderNumberLayout, "PurchaseOrder_NumberLabel"),
-                new LocalizedItem(purchaseOrderDateLayout, "PurchaseOrder_DateLabel"),
+                new LocalizedItem(purchaseOrderNumberLayout, StringResources.PurchaseOrder_NumberLabel.Id),
+                new LocalizedItem(purchaseOrderDateLayout, StringResources.PurchaseOrder_DateLabel.Id),
 
-                new LocalizedItem(saveButton, "PurchaseOrder_SaveButton"),
-                new LocalizedItem(cancelButton, "PurchaseOrder_CancelButton")
+                new LocalizedItem(saveButton, StringResources.PurchaseOrder_SaveButton.Id),
+                new LocalizedItem(cancelButton, StringResources.PurchaseOrder_CancelButton.Id)
             };
         }
 
