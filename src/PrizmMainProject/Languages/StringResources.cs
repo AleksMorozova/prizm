@@ -16,6 +16,7 @@ namespace Prizm.Main.Languages
         {
             Id = "FirstEnterDate",
             Description = "Вначале необходимо ввести дату"
+        };
         
         public static StringResource JointSearch_ActivityCriteria_StatusActive = new StringResource {
             Id = "JointSearch_ActivityCriteria_StatusActive",
