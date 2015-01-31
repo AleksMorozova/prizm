@@ -93,9 +93,9 @@ Source: "{#PrizmExternalPath}\external\LocalDb\SqlLocalDB_x64.MSI"; DestDir: "{t
 Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x86.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: not Is64BitInstallMode and not IsMsOdbcSqlInstalled
 Source: "{#PrizmExternalPath}\external\msodbcsql\msodbcsql_x64.msi"; DestDir: "{tmp}"; DestName: "msodbcsql.msi"; Flags: ignoreversion nocompression; Check: Is64BitInstallMode and not IsMsOdbcSqlInstalled
 Source: "{#PrizmExternalPath}\external\Lang\ResGen.exe"; DestDir: "{app}\Languages\Resources"; Flags: ignoreversion
-Source: "{#PrizmExternalPath}\external\Lang\run.bat"; DestDir: "{app}\Languages"; Flags: ignoreversion
-Source: "{#PrizmExternalPath}\external\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
-Source: "{#PrizmExternalPath}\external\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\run.bat"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
