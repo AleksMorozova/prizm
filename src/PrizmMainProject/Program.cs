@@ -55,15 +55,16 @@ namespace Prizm.Main
         {
             Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
             Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
+
             foreach(var arg in args)
             {
                 if(arg.Equals("seed"))
                 {
                     isSeed = true;
                 }
-                if (arg.Equals("template"))
+                if(arg.Equals("template"))
                 {
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(
+                    using(System.IO.StreamWriter file = new System.IO.StreamWriter(
                         System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
                         foreach (var item in LanguageManager.EnumerateStringResources(typeof(StringResources)))
@@ -98,16 +99,16 @@ namespace Prizm.Main
                 //Permissions setup
                 CreatePermissions();
 
-                while (!CreateProject())
-                { }               
+                while(!CreateProject())
+                { }
 
                 //Login
                 string failMessage = String.Empty;
                 LoginResult loginResult = LoginResult.None;
-                while (loginResult != LoginResult.LoggedIn)
+                while(loginResult != LoginResult.LoggedIn)
                 {
                     loginResult = Login(ref failMessage);
-                    switch (loginResult)
+                    switch(loginResult)
                     {
                         case LoginResult.Failed:
                         case LoginResult.FailedUserInactive:
@@ -121,10 +122,10 @@ namespace Prizm.Main
                 mainForm = new PrizmApplicationXtraForm();
                 Application.Run(mainForm);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 String error = ex.ToString();
-                if (cmdLineMode)
+                if(cmdLineMode)
                 {
                     Console.Error.WriteLine(error);
                 }
@@ -143,81 +144,81 @@ namespace Prizm.Main
         static LoginResult Login(ref string failMessage)
         {
            failMessage = Program.LanguageManager.GetString(StringResources.Message_AuthentificationFailed);
-           LoginForm dlg = new LoginForm();
-           if (dlg.ShowDialog() == DialogResult.OK)
-           {
+            LoginForm dlg = new LoginForm();
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
 
-              string login = dlg.Login;
-              string password = dlg.Password;
+                string login = dlg.Login;
+                string password = dlg.Password;
 
-               #if DEBUG
-              if(string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
-              {
-                  login = "admin";
-                  password = "admin";
-              }
-               #endif
+#if DEBUG
+                if(string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
+                {
+                    login = "admin";
+                    password = "admin";
+                }
+#endif
 
-              User user = new User() { IsActive = false, Login = "system" };
-
-
-              IUserRepository userRepo;
+                User user = new User() { IsActive = false, Login = "system" };
 
 
-              using ( userRepo = Kernel.Get<IUserRepository>())
-              {
-                  user = userRepo.FindByLogin(login);
+                IUserRepository userRepo;
 
-                  if (user == null)
-                      return LoginResult.Failed;
-                  if (!user.IsActive)
-                  {
+
+                using(userRepo = Kernel.Get<IUserRepository>())
+                {
+                    user = userRepo.FindByLogin(login);
+
+                    if(user == null)
+                        return LoginResult.Failed;
+                    if(!user.IsActive)
+                    {
                       failMessage = string.Format(
                           Program.LanguageManager.GetString(StringResources.Message_AuthentificationFailedUserInactive), login);
-                      return LoginResult.FailedUserInactive;
-                  }
-              }
+                        return LoginResult.FailedUserInactive;
+                    }
+                }
 
-              userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
+                userRepo = (UserRepository)Program.Kernel.GetService(typeof(UserRepository));
 
-              string hash = PasswordEncryptor.EncryptPassword(password);
+                string hash = PasswordEncryptor.EncryptPassword(password);
 
-              if (user.PasswordHash != hash)
-                 return LoginResult.Failed;
+                if(user.PasswordHash != hash)
+                    return LoginResult.Failed;
 
-              if (user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
-              {
-                  PasswordChangeDialog dlgPassChange = new PasswordChangeDialog();
+                if(user.PasswordExpires != null && user.PasswordExpires < DateTime.Now)
+                {
+                    PasswordChangeDialog dlgPassChange = new PasswordChangeDialog();
 
-                  if (dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
-                      System.Windows.Forms.DialogResult.OK)
-                  {
-                      user.PasswordHash = dlgPassChange.NewPasswordHash;
-                      user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
+                    if(dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
+                        System.Windows.Forms.DialogResult.OK)
+                    {
+                        user.PasswordHash = dlgPassChange.NewPasswordHash;
+                        user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
 
-                      userRepo.BeginTransaction();
-                      userRepo.SaveOrUpdate(user);
-                      userRepo.Commit();
-                      userRepo.Evict(user);
-                  }
-                  else
-                  {
-                      return LoginResult.Failed;
-                  }
-              }
-              
-              ISecurityContext ctx = Kernel.Get<ISecurityContext>();
-              ctx.LoggedUser = user;
+                        userRepo.BeginTransaction();
+                        userRepo.SaveOrUpdate(user);
+                        userRepo.Commit();
+                        userRepo.Evict(user);
+                    }
+                    else
+                    {
+                        return LoginResult.Failed;
+                    }
+                }
 
-              HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
-              return LoginResult.LoggedIn;
-           }
-           else
-           {
-              System.Environment.Exit(0);
-           }
+                ISecurityContext ctx = Kernel.Get<ISecurityContext>();
+                ctx.LoggedUser = user;
 
-           return LoginResult.Failed;
+                HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
+                return LoginResult.LoggedIn;
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+
+            return LoginResult.Failed;
         }
 
         static bool CreateProject()
@@ -229,15 +230,15 @@ namespace Prizm.Main
 
             if(pj == null)
             {
-                using (var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
+                using(var setupDialog = (FirstSetupXtraForm)Program.Kernel.Get(typeof(FirstSetupXtraForm)))
                 {
                     setupDialog.ShowDialog();
-                    if (setupDialog.DialogResult == DialogResult.Cancel)
+                    if(setupDialog.DialogResult == DialogResult.Cancel)
                     {
                         System.Environment.Exit(0);
                     }
                     pj = repo.GetSingle();
-                    if (pj == null)
+                    if(pj == null)
                     {
                         throw new ApplicationException("Could not find project settings");
                     }
@@ -254,12 +255,11 @@ namespace Prizm.Main
         private static void CreatePermissions()
         {
             IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
-            if (repo.GetAll().Count == 0)
+            if(repo.GetAll().Count == 0)
             {
                 repo.SeedPermissions();
             }
         }
-
 
         //Global data
         private static PrizmApplicationXtraForm mainForm;
