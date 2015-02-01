@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,11 @@ namespace Prizm.Main.Forms
 
       private static bool AskDeleteItem()
       {
-         return MessageBox.Show(Resources.IDS_QUESTION_DELETE_SELECTED, Resources.PRIZM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+         return MessageBox.Show(
+                    Program.LanguageManager.GetString(StringResources.Message_DeleteRecord),
+                    Program.LanguageManager.GetString(StringResources.MainWindowHeader_Title), 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+             == DialogResult.Yes;
       }
    }
 }

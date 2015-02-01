@@ -8,6 +8,7 @@ using System.IO;
 using System.Globalization;
 using System.Resources;
 using Prizm.Main.Properties;
+using System.Reflection;
 
 namespace Prizm.Main.Languages
 {
@@ -260,5 +261,53 @@ namespace Prizm.Main.Languages
             }
             return ret ?? "";
         }
+
+        private class LocalEnumerator : IEnumerable<StringResource>
+        {
+            private System.Type type;
+            public LocalEnumerator(System.Type stringResourcesStaticClassType)
+            {
+                this.type = stringResourcesStaticClassType;
+            }
+
+            public IEnumerator<StringResource> GetEnumerator()
+            {
+                if (type.IsAbstract && type.IsSealed) // that language-dependent strange way to check static class
+                {
+                    MemberInfo[] info = typeof(StringResources).GetMembers(BindingFlags.Public | BindingFlags.Static);
+                    foreach (MemberInfo item in info)
+                    {
+                        FieldInfo field = typeof(StringResources).GetField(item.Name, BindingFlags.Public | BindingFlags.Static);
+                        yield return (StringResource)field.GetValue(null);
+                    }
+                }
+                else throw new ApplicationException("Cannot enumerate local strings in non-static class.");
+            }
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return this.GetEnumerator();
+            }
+        }
+
+        public IEnumerable<StringResource> EnumerateStringResources(System.Type stringResourcesStaticClassType)
+        {
+            return new LocalEnumerator(stringResourcesStaticClassType);
+        }
+
+        public StringResource? FindById(System.Type stringResourcesStaticClassType, string resourceId)
+        {
+            StringResource? ret = null;
+            foreach(var item in this.EnumerateStringResources(stringResourcesStaticClassType))
+            {
+                if(item.Id.Equals(resourceId))
+                {
+                    ret = item;
+                    break;
+                }
+            }
+            return ret;
+        }
+
     }
 }

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -38,7 +39,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             if(!viewModel.Shipped)
             {
-                notify.ShowError(Resources.DLG_UNSHIP_UNSHIPPED_RAILCAR, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_NotShipped),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
             {
@@ -52,7 +54,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 }
                
                 viewModel.Shipped = false;
-                notify.ShowSuccess(Resources.AlertUnsipRailcar, Resources.AlertInfoHeader);
+                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Unshipped),
+                    Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
+
                 viewModel.SaveCommand.Execute();
             }
             RefreshVisualStateEvent();

@@ -23,7 +23,6 @@ using Prizm.Main.Common;
 using Prizm.Domain.Entity.Setup;
 using System.Threading;
 using System.Text;
-using System.Reflection;
 
 
 namespace Prizm.Main
@@ -47,7 +46,7 @@ namespace Prizm.Main
         public static ILanguageManager LanguageManager { get { return langManager; } }
 
         #endregion // --- Language ---
-
+        
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
@@ -65,23 +64,12 @@ namespace Prizm.Main
                 }
                 if(arg.Equals("template"))
                 {
-                    List<string> templateStrings = new List<string>();
-
-                    MemberInfo[] info = typeof(StringResources).GetMembers(BindingFlags.Public | BindingFlags.Static);
-                    foreach(MemberInfo item in info)
-                    {
-                        FieldInfo field = typeof(StringResources).GetField(item.Name, BindingFlags.Public | BindingFlags.Static);
-                        StringResource lookup = (StringResource)field.GetValue(null);
-                        string tmp = lookup.ToString();
-                        templateStrings.Add(tmp);
-                    }
-
                     using(System.IO.StreamWriter file = new System.IO.StreamWriter(
                         System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
-                        foreach(var line in templateStrings)
+                        foreach (var item in LanguageManager.EnumerateStringResources(typeof(StringResources)))
                         {
-                            file.WriteLine(line);
+                            file.WriteLine(Environment.NewLine + ";" + item.Description + Environment.NewLine + item.Id + "=");
                         }
                     }
                     return;
@@ -124,7 +112,9 @@ namespace Prizm.Main
                     {
                         case LoginResult.Failed:
                         case LoginResult.FailedUserInactive:
-                            MessageBox.Show(failMessage, "PRIZMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(failMessage,
+                                Program.LanguageManager.GetString(StringResources.MainWindowHeader_Title),
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                     }
                 }
@@ -134,7 +124,7 @@ namespace Prizm.Main
             }
             catch(Exception ex)
             {
-                String error = ex.ToString();//String.Format(Resources.IDS_ERROR + Environment.NewLine + "{0}\n{01}", ex.InnerException.Message + Environment.NewLine, ex.InnerException.InnerException.Message + Environment.NewLine);
+                String error = ex.ToString();
                 if(cmdLineMode)
                 {
                     Console.Error.WriteLine(error);
@@ -153,7 +143,7 @@ namespace Prizm.Main
 
         static LoginResult Login(ref string failMessage)
         {
-            failMessage = Resources.AuthenticationFailed;
+           failMessage = Program.LanguageManager.GetString(StringResources.Message_AuthentificationFailed);
             LoginForm dlg = new LoginForm();
             if(dlg.ShowDialog() == DialogResult.OK)
             {
@@ -183,7 +173,8 @@ namespace Prizm.Main
                         return LoginResult.Failed;
                     if(!user.IsActive)
                     {
-                        failMessage = string.Format(Resources.AuthenticationFailedUserInactive, login);
+                      failMessage = string.Format(
+                          Program.LanguageManager.GetString(StringResources.Message_AuthentificationFailedUserInactive), login);
                         return LoginResult.FailedUserInactive;
                     }
                 }

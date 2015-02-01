@@ -121,7 +121,8 @@ namespace Prizm.Main.Forms.MainChildForm
             if (FramesCanOpen < 1)
             {
                 HideProcessing();
-                this.ShowError(Resources.IDS_NO_MORE_DOCUMENTS, Resources.DLG_ERROR_HEADER);
+                this.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen), 
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
             {
@@ -302,7 +303,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
                             if (indexByEditMode >= 0)
                             {
-                                string text = Resources.DLG_RAILCAR_CLOSE_EXIST; 
+                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote); 
                                 ShowWarning(text, "");
                                 form = forms[indexByEditMode];
                                 form.Activate();
@@ -314,7 +315,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
                             if (indexByEditMode >= 0)
                             {
-                                string text = Resources.DLG_RAILCAR_OPEN_READONLY;
+                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
                                 bool readMode = this.ShowYesNo(text, "");
                                 if (readMode)
                                 {
@@ -633,7 +634,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
 
-            localizedHeader.Add(this.Text);
+            localizedHeader.Add(Resources.MainWindowHeader_Title);  // usage of Resources is OK - setting default values here
             localizedHeader.Add(WorkstationType.Mill.ToString());
             localizedHeader.Add(WorkstationType.Master.ToString());
             localizedHeader.Add(WorkstationType.Construction.ToString());

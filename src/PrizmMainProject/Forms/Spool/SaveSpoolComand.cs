@@ -11,6 +11,7 @@ using Prizm.Main.Properties;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -56,7 +57,11 @@ namespace Prizm.Main.Forms.Spool
                viewModel.FilesFormViewModel = null;
             }
                     viewModel.ModifiableView.IsModified = false;
-                    notify.ShowNotify(Resources.Cut_Spool_from_pipe, Resources.Cut_Spool_from_pipe_Header);
+                    notify.ShowNotify(
+                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
+                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
+                        );
+
                     string oldPipeNumber = viewModel.Pipe.Number;
                     viewModel.NewSpool();
                     viewModel.PipeNumber = oldPipeNumber;
@@ -64,13 +69,17 @@ namespace Prizm.Main.Forms.Spool
                 }
                 else 
                 {
-                    notify.ShowError(Resources.Wrong_Spool_Lengs_MorePipeLength, Resources.Cut_Spool_from_pipe_Header);
+                    notify.ShowError(
+                         Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),
+                         Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                     viewModel.ModifiableView.IsEditMode = true;
                 }
             }
             else
             {
-                notify.ShowError(Resources.Wrong_Spool_Length_NullLength, Resources.Cut_Spool_from_pipe_Header);
+                notify.ShowError(
+                      Program.LanguageManager.GetString(StringResources.Spool_NullSpoolLength),
+                         Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                 viewModel.ModifiableView.IsEditMode = true;
             }
             
