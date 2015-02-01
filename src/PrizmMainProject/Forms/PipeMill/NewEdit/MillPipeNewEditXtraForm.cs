@@ -151,7 +151,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             IsModified = false;
-            pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
+            pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
+                + viewModel.Project.MillPipeNumberMask;
         }
 
         private void BindToViewModel()
@@ -211,8 +212,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-            //shippedDate.DataBindings
-            //    .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
+
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings
@@ -270,8 +270,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
 
             coatingTypeDict.Clear();
-            coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
-            coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
+            coatingTypeDict.Add(CoatingType.Internal, Program.LanguageManager.GetString(StringResources.MillPipe_CoatInternal));
+            coatingTypeDict.Add(CoatingType.External, Program.LanguageManager.GetString(StringResources.MillPipe_CoatExternal));
 
             repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;
 
@@ -429,7 +429,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if(weld == null || (weld != null && weld.Date == null))
             {
-                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -628,14 +629,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     {
                         if(viewModel.IsNew == true)
                         {
-                            if(this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader) != true)
+                            if(this.MdiParent.ShowYesNo(
+                                    Program.LanguageManager.GetString(StringResources.MillPipe_ChangeTypesizeConfirmation),
+                                    Program.LanguageManager.GetString(StringResources.MillPipe_PipeSizeChangeHeader))
+                                != true)
                             {
                                 e.Cancel = true;
                             }
                         }
                         else
                         {
-                            this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
+                            this.MdiParent.ShowNotify(
+                                Program.LanguageManager.GetString(StringResources.MillPipe_NotAllowedToChangeTypesize),
+                                Program.LanguageManager.GetString(StringResources.MillPipe_PipeSizeChangeHeader));
                             e.Cancel = true;
                         }
                     }
@@ -684,7 +690,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
             if(string.IsNullOrWhiteSpace(op))
             {
-                gv.SetColumnError(inspectionCodeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(inspectionCodeGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
 
@@ -695,7 +702,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 case PipeTestResultStatus.Repair:
                     if(date == null || date > DateTime.Now)
                     {
-                        gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
+                        gv.SetColumnError(controlDateGridColumn, 
+                            Program.LanguageManager.GetString(StringResources.MillPipe_ErrorEmptyOrFutureDate));
                         e.Valid = false;
                     }
 
@@ -709,7 +717,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
             {
-                pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+                pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
             }
         }
@@ -749,7 +757,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
             {
-                if(MessageBox.Show("Создать плавку " + e.DisplayValue.ToString(), "Новая плавка", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if(MessageBox.Show(
+                        string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewHeatQuestion), e.DisplayValue.ToString()),
+                        Program.LanguageManager.GetString(StringResources.MillPipe_NewHeadQuestionHeader),
+                        MessageBoxButtons.YesNo) 
+                    == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowHeatDialog(e.DisplayValue.ToString());
                 }
@@ -783,7 +795,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
             {
-                if(MessageBox.Show("Создать наряд-заказ " + e.DisplayValue.ToString(), "Новый наряд-заказ", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if(MessageBox.Show(
+                        string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestion), e.DisplayValue.ToString()),
+                        Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestionHeader), 
+                        MessageBoxButtons.YesNo) 
+                    == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowOrderDialog(e.DisplayValue.ToString());
                 }
@@ -822,7 +838,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
             if(pipeTestResult == null || (pipeTestResult != null && pipeTestResult.Date == null))
             {
-                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6], Resources.DateFirst);
+                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -941,7 +958,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region fields validation only afrer project tab is shown
             ConditionValidationRule notBlankValidationRule = new ConditionValidationRule();
             notBlankValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
-            notBlankValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            notBlankValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
             notBlankValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(pipeCreationDate, notBlankValidationRule);

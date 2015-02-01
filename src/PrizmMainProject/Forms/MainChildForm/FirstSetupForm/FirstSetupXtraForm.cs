@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();
-            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
+            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
         }
 
         private void BindToViewModel()

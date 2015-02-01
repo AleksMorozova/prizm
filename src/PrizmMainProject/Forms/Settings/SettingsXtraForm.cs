@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
-            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.SettingsProject_MaskLabel);
+            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -212,7 +212,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(extDocumentSizeLayoutControlItem, StringResources.SettingsProject_DocumentSizeLabel.Id),
                 new LocalizedItem(millNameLayoutControlItem, StringResources.SettingsProject_MillLabel.Id),
                 new LocalizedItem(maskLayoutControlItem, StringResources.SettingsProject_MaskEditLabel.Id),
-                new LocalizedItem(maskLabelLayoutControlItem, StringResources.SettingsProject_MaskLabel.Id),
+                new LocalizedItem(maskLabelLayoutControlItem, StringResources.Mask_Label.Id),
                 new LocalizedItem(operationsLayoutControlItem, StringResources.SettingsProject_OperationsLabel.Id),
                 new LocalizedItem(seamsLayoutControlItem, StringResources.SettingsProject_SeamsLabel.Id),
 

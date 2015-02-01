@@ -122,37 +122,67 @@ namespace Prizm.Main.Languages
             Description = "Вид контроля. Обязательная проверка"};
 
         //part inspection status
-        public static StringResource PartInspectionStatusUndefined = new StringResource
+        public static StringResource PartInspectionStatus_Undefined = new StringResource
         {
-            Id = "PartInspectionStatusUndefined",
+            Id = "PartInspectionStatus_Undefined",
             Description = "Статус на входном контроле. Неопределен"
         };
 
-        public static StringResource PartInspectionStatusPending = new StringResource
+        public static StringResource PartInspectionStatus_Pending = new StringResource
         {
-            Id = "PartInspectionStatusPending",
+            Id = "PartInspectionStatus_Pending",
             Description = "Статус на входном контроле. Ожидается"
         };
 
-        public static StringResource PartInspectionStatusHold = new StringResource
+        public static StringResource PartInspectionStatus_Hold = new StringResource
         {
-            Id = "PartInspectionStatusHold",
+            Id = "PartInspectionStatus_Hold",
             Description = "Статус на входном контроле. Задержан"
         };
 
-        public static StringResource PartInspectionStatusRejected = new StringResource
+        public static StringResource PartInspectionStatus_Rejected = new StringResource
         {
-            Id = "PartInspectionStatusRejected",
+            Id = "PartInspectionStatus_Rejected",
             Description = "Статус на входном контроле. Отклонено"
         };
 
-        public static StringResource PartInspectionStatusAccepted = new StringResource
+        public static StringResource PartInspectionStatus_Accepted = new StringResource
         {
-            Id = "PartInspectionStatusAccepted",
+            Id = "PartInspectionStatus_Accepted",
             Description = "Статус на входном контроле. Принято"
         };
 
-        //messages
+        //messages 
+        public static StringResource Message_ErrorHeader = new StringResource
+        {
+            Id = "Message_ErrorHeader",
+            Description = "Универсальный заголовок сообщения об ошибке: Ошибка"
+        };
+
+        public static StringResource Message_AuthentificationFailed = new StringResource
+        {
+            Id = "Message_AuthentificationFailed",
+            Description = "Сообщение при логине: Неверное имя пользователя или пароль."
+        };
+
+        public static StringResource Message_AuthentificationFailedUserInactive = new StringResource
+        {
+            Id = "Message_AuthentificationFailedUserInactive",
+            Description = "Сообщение при логине: Вход для пользователя {0} заблокирован"
+        };
+
+        public static StringResource Message_ComponentDeactivationQuestionHeader = new StringResource
+        {
+            Id = "Message_ComponentDeactivationQuestionHeader",
+            Description = "Заголовок вопроса о подтверждении деактивации компонента"
+        };
+
+        public static StringResource Message_ComponentDeactivationQuestion = new StringResource
+        {
+            Id = "Message_ComponentDeactivationQuestion",
+            Description = "Вопрос о подтверждении деактивации компонента: Данное действие приведет к деактивации комплектующего элемента.  Параметры комплектующего элемента станут невозможны для редактирования. Деактивировать комплектующий элемент?"
+        };
+
         public static StringResource PartInspection_InspectionsSaved = new StringResource
         {
             Id = "PartInspection_InspectionsSaved",
@@ -201,95 +231,6 @@ namespace Prizm.Main.Languages
             Description = "Просмотр и загрузка несохрaненных файлов"
         };
 
-         public static StringResource Export_ArchiveExported = new StringResource
-        {
-            Id = "Export_ArchiveExported",
-            Description ="[{0}] Экспортировано в '{1}'"
-        };
-
-         public static StringResource Export_CreateTempStorage = new StringResource
-        {
-            Id = "Export_CreateTempStorage",
-            Description ="Создание временного хранилища."
-        };
-
-         public static StringResource Export_CreatingArchive = new StringResource
-        {
-            Id = "Export_CreatingArchive",
-            Description ="Создание конечного архива."
-        };
-	
-        public static StringResource Export_Error = new StringResource
-        {
-            Id = "Export_Error",
-            Description ="[{0}] Ошибка {1}"
-        };
-
-        public static StringResource Export_Filter = new StringResource
-        {
-            Id = "Export_Filter",
-            Description ="PRIZM archives|*.prizm"
-        };
-	
-	    public static StringResource Export_NoData = new StringResource
-        {
-            Id = "Export_NoData",
-            Description ="Нет новых данных для экспортирования."
-        };
-	
-         public static StringResource Export_ReadingData = new StringResource
-        {
-            Id = "Export_ReadingData",
-            Description ="Чтение данных."
-        };
-	
-         public static StringResource Export_WritingData = new StringResource
-        {
-            Id = "Export_WritingData",
-            Description ="Экспортирование завершено успешно."
-        };
-
-         public static StringResource Import_Checksum = new StringResource
-        {
-            Id = "Import_Checksum",
-            Description ="Проверка контрольной суммы"
-        };
-
-        public static StringResource Import_Conflict = new StringResource
-        {
-            Id = "Import_Conflict",
-            Description ="Труба с номером '{0}' уже существует в БД."
-        };
-        	
-        public static StringResource Import_CopyAttachments = new StringResource
-        {
-            Id = "Import_CopyAttachments",
-            Description ="Импорт вложений"
-        };
-
-        public static StringResource Import_Data = new StringResource
-        {
-            Id = "Import_Data",
-            Description ="Импорт данных"
-        };
-
-	    public static StringResource Import_SamePortion = new StringResource
-        {
-            Id = "Import_SamePortion",
-            Description ="Данная порция уже была импортирована и не может быть импортирована снова."
-        };
-
-        public static StringResource Import_TempStorage = new StringResource
-        {
-            Id = "Import_TempStorage",
-            Description ="Создание временного хранилища"
-        };
-	
-        public static StringResource Import_Unzip = new StringResource
-        {
-            Id = "Import_Unzip",
-            Description = "Распаковкаа"
-        };
 
         public static StringResource Yes = new StringResource
         {
@@ -306,13 +247,97 @@ namespace Prizm.Main.Languages
          public static StringResource DateFirst = new StringResource
         {
             Id = "DateFirst",
-            Description = "Выберите дату"
+            Description = "Сообщение об ошибке: Выберите дату"
         };
-        	
+
+         public static StringResource Validation_ValueRequired = new StringResource
+         {
+             Id = "Validation_ValueRequired",
+             Description = "Сообщение об ошибке: Значение обязательно"
+         };
+
+         public static StringResource Validation_UniqueValueRequired = new StringResource
+         {
+             Id = "Validation_UniqueValueRequired",
+             Description = "Сообщение об ошибке: Введите уникальное значение"
+         };
+
+         public static StringResource Message_DeleteRecord = new StringResource
+         {
+             Id = "Message_DeleteRecord",
+             Description = "Вопрос об удалении записи: Удалить запись?"
+         };
+
+         public static StringResource Message_NoMoreDocumentsCanOpen = new StringResource
+         {
+             Id = "Message_NoMoreDocumentsCanOpen",
+             Description = "Сообщение: Нельзя одновременно открыть больше документов."
+         };
+
+         public static StringResource Alert_InfoHeader = new StringResource
+         {
+             Id = "Alert_InfoHeader",
+             Description = "Заголовок для информационного сообщения: Внимание"
+         };
+
+         public static StringResource Message_FailureReportDate = new StringResource
+         {
+             Id = "Message_FailureReportDate",
+             Description = "Сообщение об ошибке запуска отчёта: Начальная дата позже конечной"
+         };
+
+         public static StringResource Message_FailureReportDateHeader = new StringResource
+         {
+             Id = "Message_FailureReportDateHeader",
+             Description = "Заголовок для ошибки запуска отчёта: Неверный диапазон дат"
+         };
+
+
+
         #endregion // --- Common
 
+         #region --- Main Window ---
+
+         public static StringResource MainWindowHeader_Title = new StringResource
+         {
+             Id = "MainWindowHeader_Title",
+             Description = "Сокращённое название программы: PRISM v.2"
+         };
+
+         public static StringResource MainWindowHeader_Construction = new StringResource
+         {
+             Id = "MainWindowHeader_Construction",
+             Description = "Название рабочей станции: Строительство"
+         };
+
+         public static StringResource MainWindowHeader_Master = new StringResource
+         {
+             Id = "MainWindowHeader_Master",
+             Description = "Название рабочей станции: Главный"
+         };
+
+         public static StringResource MainWindowHeader_Mill = new StringResource
+         {
+             Id = "MainWindowHeader_Mill",
+             Description = "Название рабочей станции: Завод"
+         };
+
+         public static StringResource MainWindow_CloseEditingReleaseNote = new StringResource
+         {
+             Id = "MainWindow_CloseEditingReleaseNote",
+             Description = "Сообщение: Пожалуйста сначала закройте редактируемое разрешение на отгрузку"
+         };
+
+         public static StringResource MainWindow_OpenReleaseNoteReadOnly = new StringResource
+         {
+             Id = "MainWindow_OpenReleaseNoteReadOnly",
+             Description = "Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?"
+         };
+
+         #endregion //--- Main Window ---
+
         #region PurchaseOrderForm
-        //message
+         //message
         public static StringResource PurchaseOrder_ValueRequired = new StringResource
         {
             Id = "PurchaseOrder_ValueRequaered",
@@ -377,6 +402,19 @@ namespace Prizm.Main.Languages
             Id = "PassChange_CancelButton",
             Description = "Смена пароля. Кнопка отмены"
         };
+
+        public static StringResource PassChange_InvalidOldPassword = new StringResource
+        {
+            Id = "PassChange_InvalidOldPassword",
+            Description = "Сообщение об ошибке: Текущий пароль введен неверно."
+        };
+
+        public static StringResource PassChange_PasswordsNotMatch = new StringResource
+        {
+            Id = "PassChange_PasswordsNotMatch",
+            Description = "Сообщение об ошибке: Пароли не совпадают."
+        };
+
         #endregion PasswordChange
 
         #region MillReport
@@ -623,6 +661,26 @@ namespace Prizm.Main.Languages
             Id = "Spool_DeactivatedCheckBox",
             Description = "Катушка. Деактивация катушки"
         };
+
+        public static StringResource Spool_DeactivationQuestion = new StringResource
+        {
+            Id = "Spool_DeactivationQuestion",
+            Description = "Катушка, вопрос о деактивации: Данное действие приведет к деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деактивации рекомендуем присвоить ей соответствующий статус на входном контроле. Деактивировать комплектующий элемент?"
+        };
+
+        public static StringResource Spool_DeactivationQuestionHeader = new StringResource
+        {
+            Id = "Spool_DeactivationQuestionHeader",
+            Description = "Катушка, заголовок вопроса о деактивации: Деактивация катушки"
+        };
+
+        public static StringResource Spool_EditDocumentHeader = new StringResource
+        {
+            Id = "Spool_EditDocumentHeader",
+            Description = "Катушка, заголовок окна редактирования: Редактирование катушки"
+        };
+        
+
         #endregion Spool
 
         #region MissingPortion
@@ -653,7 +711,7 @@ namespace Prizm.Main.Languages
 
         #region Settings
         //message
-        public static StringResource  Settings_ValidateInspectorSertificate= new StringResource
+        public static StringResource  Settings_ValidateInspectorSertificate = new StringResource
         {
             Id = "Settings_ValidateInspectorSertificate",
             Description = "Для ввода сертификата необходимо выбрать инспектора"
@@ -784,11 +842,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsProject_MaskEditLabel",
             Description = "Настройки-Проект. Маска номера трубы"
         };
-        public static StringResource SettingsProject_MaskLabel = new StringResource
+
+        public static StringResource MillPipeNumber_Mask_Hint = new StringResource
         {
-            Id = "SettingsProject_MaskLabel",
-            Description = "Настройки-Проект. Правила задачи маски"
+            Id = "MillPipeNumber_Mask_Hint",
+            Description = "Текст подсказки формата номера трубы: Формат номера трубы: "
         };
+
         public static StringResource SettingsProject_OperationsLabel = new StringResource
         {
             Id = "SettingsProject_OperationsLabel",
@@ -1208,11 +1268,241 @@ namespace Prizm.Main.Languages
             Id = "SettingsRole_NameColumn",
             Description = "Настройки - Роли. Название роли"
         };
+
         public static StringResource SettingsRole_DescriptionColumn = new StringResource
         {
             Id = "SettingsRole_DescriptionColumn",
             Description = "Настройки - Роли. Описание роли"
         };
+
+        public static StringResource SecurityPrivilege_Audit = new StringResource
+        {
+            Id = "SecurityPrivilege_Audit",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_CreateComponent = new StringResource
+        {
+            Id = "SecurityPrivilege_CreateComponent",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_CreateJoint = new StringResource
+        {
+            Id = "SecurityPrivilege_CreateJoint",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_CreatePipe = new StringResource
+        {
+            Id = "SecurityPrivilege_CreatePipe",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_CreateReleaseNote = new StringResource
+        {
+            Id = "SecurityPrivilege_CreateReleaseNote",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_CreateSpool = new StringResource
+        {
+            Id = "SecurityPrivilege_CreateSpool",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_DeactivateComponent = new StringResource
+        {
+            Id = "SecurityPrivilege_DeactivateComponent",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_DeactivateJoint = new StringResource
+        {
+            Id = "SecurityPrivilege_DeactivateJoint",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_DeactivatePipe = new StringResource
+        {
+            Id = "SecurityPrivilege_DeactivatePipe",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_DeactivateSpool = new StringResource
+        {
+            Id = "SecurityPrivilege_DeactivateSpool",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditComponent = new StringResource
+        {
+            Id = "SecurityPrivilege_EditComponent",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditJoint = new StringResource
+        {
+            Id = "SecurityPrivilege_EditJoint",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditPipe = new StringResource
+        {
+            Id = "SecurityPrivilege_EditPipe",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditReleaseNote = new StringResource
+        {
+            Id = "SecurityPrivilege_EditReleaseNote",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditSettings = new StringResource
+        {
+            Id = "SecurityPrivilege_EditSettings",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_EditSpool = new StringResource
+        {
+            Id = "SecurityPrivilege_EditSpool",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ExportDataFromConstruction = new StringResource
+        {
+            Id = "SecurityPrivilege_ExportDataFromConstruction",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ExportDataFromMaster = new StringResource
+        {
+            Id = "SecurityPrivilege_ExportDataFromMaster",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ExportDataFromMill = new StringResource
+        {
+            Id = "SecurityPrivilege_ExportDataFromMill",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ImportData = new StringResource
+        {
+            Id = "SecurityPrivilege_ImportData",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ImportDataAtConstruction = new StringResource
+        {
+            Id = "SecurityPrivilege_ImportDataAtConstruction",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ImportDataAtMaster = new StringResource
+        {
+            Id = "SecurityPrivilege_ImportDataAtMaster",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_PartsInspection = new StringResource
+        {
+            Id = "SecurityPrivilege_PartsInspection",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_PrintConstructionReports = new StringResource
+        {
+            Id = "SecurityPrivilege_PrintConstructionReports",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_PrintInspectionReports = new StringResource
+        {
+            Id = "SecurityPrivilege_PrintInspectionReports",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_PrintMillReports = new StringResource
+        {
+            Id = "SecurityPrivilege_PrintMillReports",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ReleaseNotes = new StringResource
+        {
+            Id = "SecurityPrivilege_ReleaseNotes",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_SearchJoints = new StringResource
+        {
+            Id = "SecurityPrivilege_SearchJoints",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_SearchParts = new StringResource
+        {
+            Id = "SecurityPrivilege_SearchParts",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_SearchPipes = new StringResource
+        {
+            Id = "SecurityPrivilege_SearchPipes",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_SearchReleaseNotes = new StringResource
+        {
+            Id = "SecurityPrivilege_SearchReleaseNotes",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_UnshipAtMill = new StringResource
+        {
+            Id = "SecurityPrivilege_UnshipAtMill",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewComponent = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewComponent",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewJoint = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewJoint",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewPipe = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewPipe",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewReleaseNote = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewReleaseNote",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewSettings = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewSettings",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
+        public static StringResource SecurityPrivilege_ViewSpool = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewSpool",
+            Description = "Название соответствующей привилегии доступа"
+        };
+
 
         #endregion Settings
 
@@ -1339,7 +1629,14 @@ namespace Prizm.Main.Languages
 
         #endregion
 
-        #region --- Export ---
+        #region --- Export/Import ---
+
+        public static StringResource Export_Ready = new StringResource
+        {
+            Id = "Export_Ready",
+            Description = "Сообщение об успехе экспорта: Экспортирование завершено успешно."
+        };
+
         public static StringResource Export_ExportButton = new StringResource { 
             Id = "Export_ExportButton", 
             Description = "Экспорт. Надпись кнопки экспорта"};
@@ -1376,7 +1673,97 @@ namespace Prizm.Main.Languages
             Id = "Export_HistoryTab",
             Description = "Экспорт. Надпись вкладки истории"};
 
-        #endregion
+        public static StringResource Export_ArchiveExported = new StringResource
+        {
+            Id = "Export_ArchiveExported",
+            Description = "[{0}] Экспортировано в '{1}'"
+        };
+
+        public static StringResource Export_CreateTempStorage = new StringResource
+        {
+            Id = "Export_CreateTempStorage",
+            Description = "Создание временного хранилища."
+        };
+
+        public static StringResource Export_CreatingArchive = new StringResource
+        {
+            Id = "Export_CreatingArchive",
+            Description = "Создание конечного архива."
+        };
+
+        public static StringResource Export_Error = new StringResource
+        {
+            Id = "Export_Error",
+            Description = "[{0}] Ошибка {1}"
+        };
+
+        public static StringResource Export_Filter = new StringResource
+        {
+            Id = "Export_Filter",
+            Description = "PRIZM archives|*.prizm"
+        };
+
+        public static StringResource Export_NoData = new StringResource
+        {
+            Id = "Export_NoData",
+            Description = "Нет новых данных для экспортирования."
+        };
+
+        public static StringResource Export_ReadingData = new StringResource
+        {
+            Id = "Export_ReadingData",
+            Description = "Чтение данных."
+        };
+
+        public static StringResource Export_WritingData = new StringResource
+        {
+            Id = "Export_WritingData",
+            Description = "Экспортирование завершено успешно."
+        };
+
+        public static StringResource Import_Checksum = new StringResource
+        {
+            Id = "Import_Checksum",
+            Description = "Проверка контрольной суммы"
+        };
+
+        public static StringResource Import_Conflict = new StringResource
+        {
+            Id = "Import_Conflict",
+            Description = "Труба с номером '{0}' уже существует в БД."
+        };
+
+        public static StringResource Import_CopyAttachments = new StringResource
+        {
+            Id = "Import_CopyAttachments",
+            Description = "Импорт вложений"
+        };
+
+        public static StringResource Import_Data = new StringResource
+        {
+            Id = "Import_Data",
+            Description = "Импорт данных"
+        };
+
+        public static StringResource Import_SamePortion = new StringResource
+        {
+            Id = "Import_SamePortion",
+            Description = "Данная порция уже была импортирована и не может быть импортирована снова."
+        };
+
+        public static StringResource Import_TempStorage = new StringResource
+        {
+            Id = "Import_TempStorage",
+            Description = "Создание временного хранилища"
+        };
+
+        public static StringResource Import_Unzip = new StringResource
+        {
+            Id = "Import_Unzip",
+            Description = "Распаковкаа"
+        };
+
+        #endregion // --- Export/Import ---
 
         #region ---Save Dialog---
         public static StringResource SaveDialog_SaveLabel = new StringResource { 
@@ -1510,6 +1897,7 @@ namespace Prizm.Main.Languages
             Description = "Номер плавки. Надпись кнопки отмены"};
 
         #endregion
+
         #region --- ComponentNewEdit ---
 
         public static StringResource ComponentNewEdit_NewComponentLayoutGroup = new StringResource
@@ -1607,7 +1995,37 @@ namespace Prizm.Main.Languages
             Id = "ComponentNewEdit_InspectionLayoutGroup",
             Description = "Входно&й контроль"
         };
-   
+
+        public static StringResource ComponentNewEdit_Duplicate = new StringResource
+        {
+            Id = "ComponentNewEdit_Duplicate",
+            Description = "Сообщение о существующем номере: Уже существует комплектующий элемент с номером:"
+        };
+
+        public static StringResource ComponentNewEdit_DuplicateHeader = new StringResource
+        {
+            Id = "ComponentNewEdit_DuplicateHeader",
+            Description = "Заголовок сообщения о существующем номере: Дублирование номера комплектующего элемента"
+        };
+
+        public static StringResource ComponentNewEdit_Saved = new StringResource
+        {
+            Id = "ComponentNewEdit_Saved",
+            Description = "Сообщение о сохранении существующего элемента: Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #"
+        };
+
+        public static StringResource ComponentNewEdit_SavedHeader = new StringResource
+        {
+            Id = "ComponentNewEdit_SavedHeader",
+            Description = "Заголовок сообщения о сохранении существующего элемента"
+        };
+
+        public static StringResource ComponentNewEdit_DiameterValueValidation = new StringResource
+        {
+            Id = "ComponentNewEdit_DiameterValueValidation",
+            Description = "Сообщение об ошибке: Величина диаметра должна быть больше нуля"
+        };
+
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
@@ -1790,6 +2208,66 @@ namespace Prizm.Main.Languages
         {
             Id = "JointNew_ValueGridColumn",
             Description = "Значение"
+        };
+
+        public static StringResource Joint_WithdrawQuestionHeader = new StringResource
+        {
+            Id = "Joint_WithdrawQuestionHeader",
+            Description = "Заголовок вопроса о вырезке стыка: Вырезка стыка"
+        };
+
+        public static StringResource Joint_WithdrawQuestion = new StringResource
+        {
+            Id = "Joint_WithdrawQuestion",
+            Description = "Текст вопроса о вырезке стыка: Данное действие приведет к разъединению элементов трубопровода. Вы действительно хотите вырезать стык?"
+        };
+
+        public static StringResource Joint_DeactivationQuestion = new StringResource
+        {
+            Id = "Joint_DeactivationQuestion",
+            Description = "Вопрос о деактивации стыка: Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?"
+        };
+
+        public static StringResource Joint_DeactivationQuestionHeader = new StringResource
+        {
+            Id = "Joint_DeactivationQuestionHeader",
+            Description = "Заголовок вопроса о деактивации стыка: Деактивация стыка"
+        };
+
+        public static StringResource Joint_Saved = new StringResource
+        {
+            Id = "Joint_Saved",
+            Description = "Сообщение о сохранении стыка: Стык успешно сохранен в базе. Стык  #"
+        };
+
+        public static StringResource Joint_SavedHeader = new StringResource
+        {
+            Id = "Joint_SavedHeader",
+            Description = "Заголовок сообщения о сохранении стыка: Сохранение стыка"
+        };
+
+        public static StringResource Joint_Duplicate = new StringResource
+        {
+            Id = "Joint_Duplicate",
+            Description = "Сообщение о дублировании стыка: Уже существует стык с номером:"
+        };
+
+        public static StringResource Joint_DuplicateHeader = new StringResource
+        {
+            Id = "Joint_DuplicateHeader",
+            Description = "Заголовок сообщения о дублировании стыка: Дублирование номера стыка"
+        };
+
+        public static StringResource Joint_IncorrectDiameter = new StringResource
+        {
+            Id = "Joint_IncorrectDiameter",
+            Description = "Сообщение о диаметрах: Отсутствуют подходящие диаметры для формирования стыка."
+        };
+
+        public static StringResource Joint_IncorrectDiameterHeader = new StringResource
+        {
+            Id = "Joint_IncorrectDiameterHeader",
+            Description = "Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов"
         };
 
         #endregion //--- JointNew ---
@@ -2248,9 +2726,22 @@ namespace Prizm.Main.Languages
             Id = "PartInspection_IncomingInspectionGroup", 
             Description = "Входной контроль элемента. Надпись инспекций"};
 
+        public static StringResource Message_UnknownComponentType = new StringResource
+        {
+            Id = "Message_UnknownComponentType",
+            Description = "Сообщение: Неизвестный тип компонента"
+        };
+
         #endregion
 
         #region---NewEdit Pipe---
+
+        public static StringResource Mask_Label = new StringResource
+        {
+            Id = "Mask_Label",
+            Description = "Правила задания формата трубы: Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть"
+        };
+
         public static StringResource NewEditPipe_PipeNumberLabel = new StringResource
         {
             Id = "NewEditPipe_PipeNumberLabel",
@@ -2501,6 +2992,139 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_PipeStatusShipped",
             Description = "Труба. Статус отгружена"
         };
+
+        public static StringResource MillPipe_CoatInternal = new StringResource
+        {
+            Id = "MillPipe_CoatInternal",
+            Description = "Труба, тип покрытия: Внутреннее"
+        };
+
+        public static StringResource MillPipe_CoatExternal = new StringResource
+        {
+            Id = "MillPipe_CoatExternal",
+            Description = "Труба, тип покрытия: Внешнее"
+        };
+
+        public static StringResource MillPipe_PipeSizeChangeHeader = new StringResource
+        {
+            Id = "MillPipe_PipeSizeChangeHeader",
+            Description = "Заголовок сообщения - подтверждения об изменении типоразмера трубы"
+        };
+
+        public static StringResource MillPipe_ChangeTypesizeConfirmation = new StringResource
+        {
+            Id = "MillPipe_ChangeTypesizeConfirmation",
+            Description = "Вопрос о подтверждении изменения типоразмера: Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново"
+        };
+
+        public static StringResource MillPipe_NotAllowedToChangeTypesize = new StringResource
+        {
+            Id = "MillPipe_NotAllowedToChangeTypesize",
+            Description = "Сообщение о невозможности изменить типоразмер: Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером."
+        };
+
+        public static StringResource MillPipe_ValueDoesNotMatchMask = new StringResource
+        {
+            Id = "MillPipe_ValueDoesNotMatchMask",
+            Description = "Сообщение об ошибке: Значение не соответствует маске"
+        };
+
+        public static StringResource MillPipe_NewHeatQuestion = new StringResource
+        {
+            Id = "MillPipe_NewHeatQuestion",
+            Description = "Вопрос о создании новой плавки: Создать плавку {0}?"
+        };
+
+        public static StringResource MillPipe_NewHeadQuestionHeader = new StringResource
+        {
+            Id = "MillPipe_NewHeadQuestionHeader",
+            Description = "Заголовок вопроса о создании новой плавки: Новая плавка"
+        };
+
+        public static StringResource MillPipe_NewPurchaseOrderQuestion = new StringResource
+        {
+            Id = "MillPipe_NewPurchaseOrderQuestion",
+            Description = "Вопрос о создании нового наряд-заказа: Создать наряд-заказ {0}?"
+        };
+
+        public static StringResource MillPipe_NewPurchaseOrderQuestionHeader = new StringResource
+        {
+            Id = "MillPipe_NewPurchaseOrderQuestionHeader",
+            Description = "Заголовок вопроса о создании нового наряд-заказа: Новый наряд-заказ"
+        };
+
+        public static StringResource MillPipe_DeactivatePipeQuestion = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeQuestion",
+            Description = "Вопрос о деактивации: Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?"
+        };
+
+        public static StringResource MillPipe_DeactivatePipeQuestionHeader = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeQuestionHeader",
+            Description = "Заголовок вопроса о деактивации: Деактивация трубы"
+        };
+
+        public static StringResource MillPipe_DeactivatePipeShippedError = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeShippedError",
+            Description = "Сообщение: Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона."
+        };
+
+        public static StringResource MillPipe_DeactivatePipeShippedErrorHeader = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeShippedErrorHeader",
+            Description = "Заголовок сообщения: Деактивация трубы в вагоне невозможна"
+        };
+
+        public static StringResource MillPipe_DeactivatePipeInRailcarError = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeInRailcarError",
+            Description = "Сообщение: Невозможно деактивировать отгруженную трубу."
+        };
+
+        public static StringResource MillPipe_DeactivatePipeInRailcarErrorHeader = new StringResource
+        {
+            Id = "MillPipe_DeactivatePipeInRailcarErrorHeader",
+            Description = "Заголовок сообщения: Труба отгружена"
+        };
+
+        public static StringResource MillPipe_ExistingNumberError = new StringResource
+        {
+            Id = "MillPipe_ExistingNumberError",
+            Description = "Сообщение об ошибке: Уже существует труба с номером: "
+        };
+
+        public static StringResource MillPipe_ExistingNumberErrorHeader = new StringResource
+        {
+            Id = "MillPipe_ExistingNumberErrorHeader",
+            Description = "Заголовок сообщения о дублировании трубы: Дублирование номера трубы"
+        };
+
+        public static StringResource MillPipe_PipeSaved = new StringResource
+        {
+            Id = "MillPipe_PipeSaved",
+            Description = "Сообщение об успешном сохранении трубы: Труба успешно сохранена в базе. Труба  # "
+        };
+
+        public static StringResource MillPipe_PipeSavedHeader = new StringResource
+        {
+            Id = "MillPipe_PipeSavedHeader",
+            Description = "Заголовок сообщения об успешном сохранении трубы: Сохранение трубы"
+        };
+
+        public static StringResource MillPipe_ErrorEditingInspectionOperationPipeInRailcar = new StringResource
+        {
+            Id = "MillPipe_ErrorEditingInspectionOperationPipeInRailcar",
+            Description = "Сообщение: Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо удалить данную трубу из вагона. "
+        };
+
+        public static StringResource MillPipe_ErrorEmptyOrFutureDate = new StringResource
+        {
+            Id = "MillPipe_ErrorEmptyOrFutureDate",
+            Description = "Сообщение об ошибке даты: Дата не может быть пустой или будущей"
+        };
+
         #endregion
 
         #region---Search pipe---
@@ -2626,78 +3250,152 @@ namespace Prizm.Main.Languages
         };
         #endregion
 
-        #region---Railcar NewEdit---
-        public static StringResource RailcarNewEdit_ReleaseNumberLabel = new StringResource
+        #region---Release Note NewEdit---
+        public static StringResource ReleaseNoteNewEdit_ReleaseNumberLabel = new StringResource
         {
-            Id = "RailcarNewEdit_ReleaseNumberLabel",
+            Id = "ReleaseNoteNewEdit_ReleaseNumberLabel",
             Description = "Разрешение на отгрузку. Номер разрешения"
         };
-        public static StringResource RailcarNewEdit_ReleaseDateLabel = new StringResource
+        public static StringResource ReleaseNoteNewEdit_ReleaseDateLabel = new StringResource
         {
-            Id = "RailcarNewEdit_ReleaseDateLabel",
+            Id = "ReleaseNoteNewEdit_ReleaseDateLabel",
             Description = "Разрешение на отгрузку. Дата разрешения"
         };
-        public static StringResource RailcarNewEdit_RailcarNumberLabel = new StringResource
+        public static StringResource ReleaseNoteNewEdit_RailcarNumberLabel = new StringResource
         {
-            Id = "RailcarNewEdit_RailcarNumberLabel",
+            Id = "ReleaseNoteNewEdit_RailcarNumberLabel",
             Description = "Разрешение на отгрузку. Номер вагона"
         };
-        public static StringResource RailcarNewEdit_CertificateLabel = new StringResource
+        public static StringResource ReleaseNoteNewEdit_CertificateLabel = new StringResource
         {
-            Id = "RailcarNewEdit_CertificateLabel",
+            Id = "ReleaseNoteNewEdit_CertificateLabel",
             Description = "Разрешение на отгрузку. Сертификат вагона"
         };
-        public static StringResource RailcarNewEdit_DestinationLabel = new StringResource
+        public static StringResource ReleaseNoteNewEdit_DestinationLabel = new StringResource
         {
-            Id = "RailcarNewEdit_DestinationLabel",
+            Id = "ReleaseNoteNewEdit_DestinationLabel",
             Description = "Разрешение на отгрузку. Получатель"
         };
-        public static StringResource RailcarNewEdit_AddPipeButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_AddPipeButton = new StringResource
         {
-            Id = "RailcarNewEdit_AddPipeButton",
+            Id = "ReleaseNoteNewEdit_AddPipeButton",
             Description = "Разрешение на отгрузку. Кнопка добавления трубы"
         };
-        public static StringResource RailcarNewEdit_RemovePipeButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_RemovePipeButton = new StringResource
         {
-            Id = "RailcarNewEdit_RemovePipeButton",
+            Id = "ReleaseNoteNewEdit_RemovePipeButton",
             Description = "Разрешение на отгрузку. Кнопка удаления трубы"
         };
-        public static StringResource RailcarNewEdit_AttachmentsButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_AttachmentsButton = new StringResource
         {
-            Id = "RailcarNewEdit_AttachmentsButton",
+            Id = "ReleaseNoteNewEdit_AttachmentsButton",
             Description = "Разрешение на отгрузку. Кнопка добавления файлов"
         };
-        public static StringResource RailcarNewEdit_ShipButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_ShipButton = new StringResource
         {
-            Id = "RailcarNewEdit_ShipButton",
+            Id = "ReleaseNoteNewEdit_ShipButton",
             Description = "Разрешение на отгрузку. Кнопка отгрузки"
         };
-        public static StringResource RailcarNewEdit_UnshipButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_UnshipButton = new StringResource
         {
-            Id = "RailcarNewEdit_UnshipButton",
+            Id = "ReleaseNoteNewEdit_UnshipButton",
             Description = "Разрешение на отгрузку. Кнопка отклонения отгрузки"
         };
-        public static StringResource RailcarNewEdit_SaveButton = new StringResource
+        public static StringResource ReleaseNoteNewEdit_SaveButton = new StringResource
         {
-            Id = "RailcarNewEdit_SaveButton",
+            Id = "ReleaseNoteNewEdit_SaveButton",
             Description = "Разрешение на отгрузку. Кнопка сохранить"
         };
-        public static StringResource RailcarNewEdit_PipeNumberColumn = new StringResource
+        public static StringResource ReleaseNoteNewEdit_PipeNumberColumn = new StringResource
         {
-            Id = "RailcarNewEdit_PipeNumberColumn",
+            Id = "ReleaseNoteNewEdit_PipeNumberColumn",
             Description = "Разрешение на отгрузку. Столбец номер трубы"
         };
-        public static StringResource RailcarNewEdit_PipeTypeSizeColumn = new StringResource
+        public static StringResource ReleaseNoteNewEdit_PipeTypeSizeColumn = new StringResource
         {
-            Id = "RailcarNewEdit_PipeTypeSizeColumn",
+            Id = "ReleaseNoteNewEdit_PipeTypeSizeColumn",
             Description = "Разрешение на отгрузку. Столбец типоразмер"
         };
-        public static StringResource RailcarNewEdit_PipeStatusColumn = new StringResource
+        public static StringResource ReleaseNoteNewEdit_PipeStatusColumn = new StringResource
         {
-            Id = "RailcarNewEdit_PipeStatusColumn",
+            Id = "ReleaseNoteNewEdit_PipeStatusColumn",
             Description = "Разрешение на отгрузку. Столбец статус"
         };
+
+        public static StringResource ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar",
+            Description = "Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_UnshipFirst = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_UnshipFirst",
+            Description = "Сообщение: сначала расформируйте вагон/разрешение на отгрузку"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_NotShipped = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_NotShipped",
+            Description = "Сообщение об ошибке попытки отмены отгрузки: Отмена отгрузки не актуальна, вагоны сейчас не отгружены"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_Unshipped = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_Unshipped",
+            Description = "Сообщение об успешной отмене отгрузки: Отгрузка отменена. Дата отгрузки аннулирована. Трубы перемещены на склад."
+        };
+
+        public static StringResource ReleaseNoteNewEdit_Shipped = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_Shipped",
+            Description = "Сообщение об успешной отгрузке: Отгрузка произошла успешно."
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PipesAbsent = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_PipesAbsent",
+            Description = "Сообщение об ошибке отгрузки: Отправка без труб невозможна."
+        };
+
+        public static StringResource ReleaseNoteNewEdit_DifferentTypeSizeInRailcar = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_DifferentTypeSizeInRailcar",
+            Description = "Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера."
+        };
+
+        public static StringResource ReleaseNoteNewEdit_MissingReleaseNoteNumber = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_MissingReleaseNoteNumber",
+            Description = "Сообщение об ошибке: Введите номер разрешения на отгрузку."
+        };
+
+        public static StringResource ReleaseNoteNewEdit_SaveSuccess = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_SaveSuccess",
+            Description = "Сообщение: Данные разрешения на отгрузку сохранены"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_SaveSuccessHeader = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_SaveSuccessHeader",
+            Description = "Заголовок сообщения об успешном сохранении: Сохранение успешно"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_ShippedStatus = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_Shipped",
+            Description = "Статус разрешения на отгрузку: отгружено"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_Pending",
+            Description = "Статус разрешения на отгрузку: сформировано"
+        };
+
         #endregion //--- Railcar NewEdit ---
+
 
         #region---Railcar Search---
         public static StringResource ReleaseSearch_NumberLabel = new StringResource
@@ -2851,6 +3549,9 @@ namespace Prizm.Main.Languages
             Id = "FirstSetup_CancelButton",
             Description = "Начальные установки. Кнопка отмена"
         };
+
+
+
         #endregion
 
         #region Heat
@@ -2968,5 +3669,27 @@ namespace Prizm.Main.Languages
             Description = "Контрольная операция. Кнопка отмена"
         };
         #endregion
+
+        #region --- Notification ---
+
+        public static StringResource Notification_DublicatePipeNumber_Critical = new StringResource
+        {
+            Id = "Notification_DublicatePipeNumber_Critical",
+            Description = "Сообщение о дублировании номеров труб: Дубликат номера труб"
+        };
+
+        public static StringResource Notification_ExpiredCertificate_Critical = new StringResource
+        {
+            Id = "Notification_ExpiredCertificate_Critical",
+            Description = "Сообщение об окончании срока: Сертификат просрочен"
+        };
+
+        public static StringResource Notification_ExpiredCertificate_Warning = new StringResource
+        {
+            Id = "Notification_ExpiredCertificate_Warning",
+            Description = "Сообщение о приближении окончания срока: Заканчивается срок сертификата"
+        };
+
+        #endregion //--- Notification ---
     }
 } 

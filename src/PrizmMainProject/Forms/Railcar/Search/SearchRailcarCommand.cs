@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.Search
 {
@@ -58,7 +59,9 @@ namespace Prizm.Main.Forms.Railcar.Search
                             CarNumber = car.Number,
                             CarCertificate = car.Certificate,
                             CarDestination = car.Destination,
-                            Status = car.IsShipped ? Resources.Shipped : Resources.RailcarPending
+                            Status = car.IsShipped
+                                ? Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ShippedStatus) 
+                                : Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PendingStatus)
                         });
                     }
                 }

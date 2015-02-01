@@ -59,7 +59,7 @@ namespace Prizm.Main.Forms.Spool
             }
             else
             {
-                this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
+                this.Text = Program.LanguageManager.GetString(StringResources.Spool_EditDocumentHeader);
                 SetAlwaysReadOnly(pipeNumber);
             }
             IsEditMode = true;//do not remove until IsEditMode logic is changed
@@ -97,10 +97,10 @@ namespace Prizm.Main.Forms.Spool
                 "EditValue", SpoolBindingSource, "SpoolIsActive"));
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Accepted));
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Hold));
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Rejected));
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Pending));
             resultLookUpEdit.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;

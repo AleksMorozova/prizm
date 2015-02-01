@@ -83,11 +83,6 @@ namespace Prizm.Main.Forms.Audit
             {
                 if (value != auditResults)
                 {
-                    foreach (AuditLog record in value)
-                    {
-                        record.TableName = Resources.ResourceManager.GetString(record.TableName) == null ? record.TableName : Resources.ResourceManager.GetString(record.TableName);
-                        record.FieldName = Resources.ResourceManager.GetString(record.FieldName) == null ? record.FieldName : Resources.ResourceManager.GetString(record.FieldName);
-                    }
                     auditResults = value;
                     RaisePropertyChanged("AuditResults");
                 }

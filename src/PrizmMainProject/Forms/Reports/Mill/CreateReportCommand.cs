@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Domain.Entity.Mill;
 using System.ComponentModel;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
@@ -38,7 +39,8 @@ namespace Prizm.Main.Forms.Reports.Mill
         {
             if (viewModel.StartDate > viewModel.EndDate)
             {
-                notify.ShowNotify(Resources.AlertFailureReportDate, Resources.AlertFailureReportDateHeader);
+                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate), 
+                    Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
             }
             try
             {

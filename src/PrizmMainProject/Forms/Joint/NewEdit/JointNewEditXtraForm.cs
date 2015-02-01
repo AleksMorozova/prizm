@@ -465,22 +465,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             JointTestResult jointTestResult = gv.GetRow(e.RowHandle) as JointTestResult;
             if (jointTestResult.Operation == null)
             {
-                gv.SetColumnError(controlTypeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(controlTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Date == null)
             {
-                gv.SetColumnError(controlDateGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(controlDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Inspectors.Count == 0)
             {
-                gv.SetColumnError(inspectorsGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(inspectorsGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Status == 0)
             {
-                gv.SetColumnError(resultGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(resultGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -491,17 +491,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             JointWeldResult jointWeldResult = gv.GetRow(e.RowHandle) as JointWeldResult;
             if (jointWeldResult.Operation == null)
             {
-                gv.SetColumnError(repairTypeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(repairTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointWeldResult.Date == null)
             {
-                gv.SetColumnError(repairDateGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
-                gv.SetColumnError(weldersGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             jointStatus.EditValue = viewModel.JointConstructionStatus;
@@ -537,7 +537,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if (jointTestResult == null || (jointTestResult != null && jointTestResult.Date == null))
             {
-                controlOperationsView.SetColumnError(inspectionsGridView.VisibleColumns[2], Resources.DateFirst);
+                controlOperationsView.SetColumnError(
+                    inspectionsGridView.VisibleColumns[2], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -553,7 +555,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             
             if (weld == null || (weld != null && weld.Date == null))
             {
-                repairOperationsView.SetColumnError(repairOperationsView.VisibleColumns[1], Resources.DateFirst);
+                repairOperationsView.SetColumnError(
+                    repairOperationsView.VisibleColumns[1],
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 
                 e.Cancel = true;
             }

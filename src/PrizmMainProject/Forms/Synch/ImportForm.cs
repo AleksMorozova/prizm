@@ -123,7 +123,8 @@ namespace Prizm.Main.Forms.Synch
          string msg = e.Message;
          if (e.StackTrace != null)
             msg += "\n " + e.StackTrace;
-         MessageBox.Show(msg, Resources.DLG_ERROR_HEADER, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         MessageBox.Show(msg, 
+             Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), MessageBoxButtons.OK, MessageBoxIcon.Error);
          ResetControls();
       }
 

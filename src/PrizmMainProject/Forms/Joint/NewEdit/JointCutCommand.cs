@@ -1,4 +1,5 @@
 ﻿using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public void Execute()
         {
             if (notify.ShowYesNo(
-                   Resources.DLG_JOINT_WITHDRAWN,
-                   Resources.DLG_JOINT_WITHDRAWN_HEADER))
+                   Program.LanguageManager.GetString(StringResources.Joint_WithdrawQuestion),
+                   Program.LanguageManager.GetString(StringResources.Joint_WithdrawQuestionHeader)))
             {
                 viewModel.JointDisconnection();
 
