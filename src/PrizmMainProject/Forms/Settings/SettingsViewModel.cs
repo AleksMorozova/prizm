@@ -21,6 +21,7 @@ using Prizm.Domain.Entity.Security;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -130,7 +131,16 @@ namespace Prizm.Main.Forms.Settings
            IList<Permission> perms = repos.PermissionRepo.GetAll();
            foreach (var p in perms)
            {
-               p.NameTranslation = Resources.ResourceManager.GetString("SecurityPrivilege_" + p.Name);
+               string id = "SecurityPrivilege_" + p.Name;
+               StringResource? res = Program.LanguageManager.FindById(typeof(StringResources), id);
+               if (res != null)
+               {
+                   p.NameTranslation = Program.LanguageManager.GetString((StringResource)res);
+               }
+               else
+               {
+                   throw new ApplicationException("No resource description defined for " + id);
+               }
                Permissions.Add(p);
            }
         }

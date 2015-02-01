@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Ninject;
 using Prizm.Data.DAL;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -43,7 +44,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if(string.IsNullOrWhiteSpace(viewModel.Number))
             {
-                notify.ShowError(Resources.DLG_RAILCAR_NUMBER_EMPTY, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_MissingReleaseNoteNumber), 
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
 
@@ -79,7 +81,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     viewModel.FilesFormViewModel = null;
                 }
 
-                notify.ShowSuccess(Resources.AlertSaveRailcar, Resources.AlertSaveHeader);
+                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), 
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
             }
             catch(RepositoryException ex)
             {

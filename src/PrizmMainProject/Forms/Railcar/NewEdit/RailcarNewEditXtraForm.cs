@@ -79,24 +79,24 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(releasedNoteNumberLayout, StringResources.RailcarNewEdit_ReleaseNumberLabel.Id),
-                new LocalizedItem(releasedNoteDateLayout, StringResources.RailcarNewEdit_ReleaseDateLabel.Id),
-                new LocalizedItem(railcarNumberLayout, StringResources.RailcarNewEdit_RailcarNumberLabel.Id),
-                new LocalizedItem(certificateNumberLayout, StringResources.RailcarNewEdit_CertificateLabel.Id),
-                new LocalizedItem(layoutControlDestination, StringResources.RailcarNewEdit_DestinationLabel.Id),
+                new LocalizedItem(releasedNoteNumberLayout, StringResources.ReleaseNoteNewEdit_ReleaseNumberLabel.Id),
+                new LocalizedItem(releasedNoteDateLayout, StringResources.ReleaseNoteNewEdit_ReleaseDateLabel.Id),
+                new LocalizedItem(railcarNumberLayout, StringResources.ReleaseNoteNewEdit_RailcarNumberLabel.Id),
+                new LocalizedItem(certificateNumberLayout, StringResources.ReleaseNoteNewEdit_CertificateLabel.Id),
+                new LocalizedItem(layoutControlDestination, StringResources.ReleaseNoteNewEdit_DestinationLabel.Id),
 
                 //buttons
-                new LocalizedItem(addPipeButton, StringResources.RailcarNewEdit_AddPipeButton.Id),
-                new LocalizedItem(removePipe, StringResources.RailcarNewEdit_RemovePipeButton.Id),
-                new LocalizedItem(attachmentsButton, StringResources.RailcarNewEdit_AttachmentsButton.Id),
-                new LocalizedItem(shipButton, StringResources.RailcarNewEdit_ShipButton.Id),
-                new LocalizedItem(unshipButton, StringResources.RailcarNewEdit_UnshipButton.Id),
-                new LocalizedItem(saveButton, StringResources.RailcarNewEdit_SaveButton.Id),
+                new LocalizedItem(addPipeButton, StringResources.ReleaseNoteNewEdit_AddPipeButton.Id),
+                new LocalizedItem(removePipe, StringResources.ReleaseNoteNewEdit_RemovePipeButton.Id),
+                new LocalizedItem(attachmentsButton, StringResources.ReleaseNoteNewEdit_AttachmentsButton.Id),
+                new LocalizedItem(shipButton, StringResources.ReleaseNoteNewEdit_ShipButton.Id),
+                new LocalizedItem(unshipButton, StringResources.ReleaseNoteNewEdit_UnshipButton.Id),
+                new LocalizedItem(saveButton, StringResources.ReleaseNoteNewEdit_SaveButton.Id),
 
                 //columns
-                new LocalizedItem(pipeNumberGridColumn, StringResources.RailcarNewEdit_PipeNumberColumn.Id),
-                new LocalizedItem(pipeSizeGridColumn, StringResources.RailcarNewEdit_PipeTypeSizeColumn.Id),
-                new LocalizedItem(pipeStatusGridColumn, StringResources.RailcarNewEdit_PipeStatusColumn.Id)
+                new LocalizedItem(pipeNumberGridColumn, StringResources.ReleaseNoteNewEdit_PipeNumberColumn.Id),
+                new LocalizedItem(pipeSizeGridColumn, StringResources.ReleaseNoteNewEdit_PipeTypeSizeColumn.Id),
+                new LocalizedItem(pipeStatusGridColumn, StringResources.ReleaseNoteNewEdit_PipeStatusColumn.Id)
             };
         }
 

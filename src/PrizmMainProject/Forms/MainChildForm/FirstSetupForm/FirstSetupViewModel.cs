@@ -23,7 +23,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
     public class FirstSetupViewModel : ViewModelBase
     {
         private readonly IFirstSetupRepo firstSetupRepo;
-        public Role SuperUser = new Role() { Name = Resources.Administrator, Description = Resources.Administrator };
+        public Role SuperUser = new Role()
+        { 
+            Name = Resources.Administrator, Description = Resources.Administrator   // Resources. is OK here
+        };
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
 

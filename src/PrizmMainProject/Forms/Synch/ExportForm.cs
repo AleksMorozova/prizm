@@ -139,7 +139,7 @@ namespace Prizm.Main.Forms.Synch
          {
             log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_ArchiveExported), DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
             log.AppendText("--------------------------------------------------------------------------------------------\n");
-            log.AppendText(Resources.Export_Ready + "\n");
+            log.AppendText(Program.LanguageManager.GetString(StringResources.Export_Ready) + "\n");
          });
       }
 
@@ -147,7 +147,7 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_Msg, DateTime.Now.ToString(), msg) + "\n");
+             log.AppendText(string.Format("[{0}] {1}", DateTime.Now.ToString(), msg) + "\n");
          });
       }
 

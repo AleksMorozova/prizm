@@ -162,10 +162,14 @@ namespace Prizm.Main.Forms.Component.NewEdit
             #endregion
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, 
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Accepted));
+            inspectionStatusDict.Add(PartInspectionStatus.Hold,
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Hold));
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, 
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Rejected));
+            inspectionStatusDict.Add(PartInspectionStatus.Pending,
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Pending));
             repositoryInspectionStatus.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -294,7 +298,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -351,7 +356,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             if (diameter <= 0)
             {
-                gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
+                gv.SetColumnError(diameterGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DiameterValueValidation));
                 e.Valid = false;
             }
         }

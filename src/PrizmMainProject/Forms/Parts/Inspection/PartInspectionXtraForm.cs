@@ -89,9 +89,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             inspectionStatusDict.Clear();
             inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.PartInspectionStatus_Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.PartInspectionStatus_Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.PartInspectionStatus_Pending);
             inspectionStatusDict.Add(PartInspectionStatus.Undefined, string.Empty);
             resultStatusLookUpEdit.DataSource = inspectionStatusDict.Where(x => x.Key != PartInspectionStatus.Undefined);
 

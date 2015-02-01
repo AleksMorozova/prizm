@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -52,8 +53,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             if (c != null && c.Count > 0)
             {
                 notify.ShowInfo(
-                    string.Concat(Resources.DLG_COMPONENT_DUPLICATE, viewModel.Number),
-                    Resources.DLG_COMPONENT_DUPLICATE_HEDER);
+                    string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Duplicate), " ", viewModel.Number),
+                    Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DuplicateHeader));
                 viewModel.Number = string.Empty;
             }
             else
@@ -77,8 +78,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     }
 
                     notify.ShowSuccess(
-                         string.Concat(Resources.DLG_COMPONENT_SAVED, viewModel.Number),
-                         Resources.DLG_COMPONENT_SAVED_HEADER);
+                         string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
+                         Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));
                 }
                 catch (RepositoryException ex)
                 {
