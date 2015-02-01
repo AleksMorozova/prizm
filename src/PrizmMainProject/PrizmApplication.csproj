@@ -69,7 +69,9 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -895,6 +897,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
