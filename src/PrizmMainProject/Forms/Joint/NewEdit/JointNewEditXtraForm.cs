@@ -208,41 +208,41 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(jointNumberLayout, "JointNew_JointNumberLayout"),
-                new LocalizedItem(jointStatusLayout, "JointNew_JointStatusLayout"),
-                new LocalizedItem(firstJointElementLayout, "JointNew_FirstJointElementLayout"),
-                new LocalizedItem(secondJointElementLayout, "JointNew_SecondJointElementLayout"),
-                new LocalizedItem(jointParametersLayoutGroup, "JointNew_JointParametersLayoutGroup"),
+                new LocalizedItem(jointNumberLayout, StringResources.JointNew_JointNumberLayout.Id),
+                new LocalizedItem(jointStatusLayout, StringResources.JointNew_JointStatusLayout.Id),
+                new LocalizedItem(firstJointElementLayout, StringResources.JointNew_FirstJointElementLayout.Id),
+                new LocalizedItem(secondJointElementLayout, StringResources.JointNew_SecondJointElementLayout.Id),
+                new LocalizedItem(jointParametersLayoutGroup, StringResources.JointNew_JointParametersLayoutGroup.Id),
                 
-                new LocalizedItem(loweringLayoutGroup, "JointNew_LoweringLayoutGroup"),
-                new LocalizedItem(loweringDateLayout, "JointNew_LoweringDateLayout"),
-                new LocalizedItem(PKLabelLayout, "JointNew_PKLabelLayout"),
-                new LocalizedItem(PKNumberLayout, "JointNew_PKNumberLayout"),
-                new LocalizedItem(distanceFromPKLayout, "JointNew_DistanceFromPKLayout"),
-                new LocalizedItem(GPSLabelLayout, "JointNew_GPSLabelLayout"),
-                new LocalizedItem(GPSLatLayout, "JointNew_GPSLatLayout"),
-                new LocalizedItem(GPSLongLayout, "JointNew_GPSLongLayout"),
-                new LocalizedItem(elevationLayout, "JointNew_ElevationLayout"),      
+                new LocalizedItem(loweringLayoutGroup, StringResources.JointNew_LoweringLayoutGroup.Id),
+                new LocalizedItem(loweringDateLayout, StringResources.JointNew_LoweringDateLayout.Id),
+                new LocalizedItem(PKLabelLayout, StringResources.JointNew_PKLabelLayout.Id),
+                new LocalizedItem(PKNumberLayout, StringResources.JointNew_PKNumberLayout.Id),
+                new LocalizedItem(distanceFromPKLayout, StringResources.JointNew_DistanceFromPKLayout.Id),
+                new LocalizedItem(GPSLabelLayout, StringResources.JointNew_GPSLabelLayout.Id),
+                new LocalizedItem(GPSLatLayout, StringResources.JointNew_GPSLatLayout.Id),
+                new LocalizedItem(GPSLongLayout, StringResources.JointNew_GPSLongLayout.Id),
+                new LocalizedItem(elevationLayout, StringResources.JointNew_ElevationLayout.Id),      
          
-                new LocalizedItem(inspectionLayoutGroup, "JointNew_InspectionLayoutGroup"),
-                new LocalizedItem(repairOperationLayout, "JointNew_RepairOperationLayout"),    
-                new LocalizedItem(controlOperationsLayout, "JointNew_ControlOperationsLayout"),
+                new LocalizedItem(inspectionLayoutGroup, StringResources.JointNew_InspectionLayoutGroup.Id),
+                new LocalizedItem(repairOperationLayout, StringResources.JointNew_RepairOperationLayout.Id),    
+                new LocalizedItem(controlOperationsLayout, StringResources.JointNew_ControlOperationsLayout.Id),
 
-                new LocalizedItem(saveButton, "JointNew_SaveButton"),    
-                new LocalizedItem(saveAndCreateButton, "JointNew_SaveAndCreateButton"), 
-                new LocalizedItem(attachmentsButton, "JointNew_ExtraFiles"),
-                new LocalizedItem(deactivated, "JointNew_Deactivated"),
+                new LocalizedItem(saveButton, StringResources.JointNew_SaveButton.Id),    
+                new LocalizedItem(saveAndCreateButton, StringResources.JointNew_SaveAndCreateButton.Id), 
+                new LocalizedItem(attachmentsButton, StringResources.JointNew_ExtraFiles.Id),
+                new LocalizedItem(deactivated, StringResources.JointNew_Deactivated.Id),
                 
-                new LocalizedItem(repairTypeGridColumn, "JointNew_RepairTypeGridColumn"),
-                new LocalizedItem(repairDateGridColumn, "JointNew_RepairDateGridColumn"),
-                new LocalizedItem(completedGridColumn, "JointNew_CompletedGridColumn"),
-                new LocalizedItem(weldersGridColumn, "JointNew_WeldersGridColumn"),
+                new LocalizedItem(repairTypeGridColumn, StringResources.JointNew_RepairTypeGridColumn.Id),
+                new LocalizedItem(repairDateGridColumn, StringResources.JointNew_RepairDateGridColumn.Id),
+                new LocalizedItem(completedGridColumn, StringResources.JointNew_CompletedGridColumn.Id),
+                new LocalizedItem(weldersGridColumn, StringResources.JointNew_WeldersGridColumn.Id),
 
-                new LocalizedItem(controlTypeGridColumn, "JointNew_ControlTypeGridColumn"),
-                new LocalizedItem(resultGridColumn, "JointNew_ResultGridColumn"),
-                new LocalizedItem(controlDateGridColumn, "JointNew_ControlDateGridColumn"),
-                new LocalizedItem(inspectorsGridColumn, "JointNew_InspectorsGridColumn"),
-                new LocalizedItem(valueGridColumn, "JointNew_ValueGridColumn"),
+                new LocalizedItem(controlTypeGridColumn, StringResources.JointNew_ControlTypeGridColumn.Id),
+                new LocalizedItem(resultGridColumn, StringResources.JointNew_ResultGridColumn.Id),
+                new LocalizedItem(controlDateGridColumn, StringResources.JointNew_ControlDateGridColumn.Id),
+                new LocalizedItem(inspectorsGridColumn, StringResources.JointNew_InspectorsGridColumn.Id),
+                new LocalizedItem(valueGridColumn, StringResources.JointNew_ValueGridColumn.Id)
 
             };
         }
@@ -465,22 +465,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             JointTestResult jointTestResult = gv.GetRow(e.RowHandle) as JointTestResult;
             if (jointTestResult.Operation == null)
             {
-                gv.SetColumnError(controlTypeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(controlTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Date == null)
             {
-                gv.SetColumnError(controlDateGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(controlDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Inspectors.Count == 0)
             {
-                gv.SetColumnError(inspectorsGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(inspectorsGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointTestResult.Status == 0)
             {
-                gv.SetColumnError(resultGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(resultGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -491,17 +491,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             JointWeldResult jointWeldResult = gv.GetRow(e.RowHandle) as JointWeldResult;
             if (jointWeldResult.Operation == null)
             {
-                gv.SetColumnError(repairTypeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(repairTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointWeldResult.Date == null)
             {
-                gv.SetColumnError(repairDateGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
-                gv.SetColumnError(weldersGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
             jointStatus.EditValue = viewModel.JointConstructionStatus;
@@ -537,7 +537,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if (jointTestResult == null || (jointTestResult != null && jointTestResult.Date == null))
             {
-                controlOperationsView.SetColumnError(inspectionsGridView.VisibleColumns[2], Resources.DateFirst);
+                controlOperationsView.SetColumnError(
+                    inspectionsGridView.VisibleColumns[2], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -553,7 +555,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             
             if (weld == null || (weld != null && weld.Date == null))
             {
-                repairOperationsView.SetColumnError(repairOperationsView.VisibleColumns[1], Resources.DateFirst);
+                repairOperationsView.SetColumnError(
+                    repairOperationsView.VisibleColumns[1],
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 
                 e.Cancel = true;
             }

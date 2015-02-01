@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Settings
     {
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
+        private InspectorViewType CurrentInspector;
         private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
@@ -60,7 +61,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
-            pipeNumberMaskRulesLabel.Text = Resources.Mask_Label;
+            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -205,94 +206,94 @@ namespace Prizm.Main.Forms.Settings
             return new List<LocalizedItem>()
             {
                 // project page
-                new LocalizedItem(projectTitleLayoutControlItem, "SettingsProject_TitleLabel"),
-                new LocalizedItem(clientLayoutControlItem, "SettingsProject_ClientLabel"),
-                new LocalizedItem(plateManLayoutControlItem, "SettingsProject_PlateManufacturerLabel"),
-                new LocalizedItem(extDocumentSizeLayoutControlItem, "SettingsProject_DocumentSizeLabel"),
-                new LocalizedItem(millNameLayoutControlItem, "SettingsProject_MillLabel"),
-                new LocalizedItem(maskLayoutControlItem, "SettingsProject_MaskEditLabel"),
-                new LocalizedItem(maskLabelLayoutControlItem, "SettingsProject_MaskLabel"),
-                new LocalizedItem(operationsLayoutControlItem, "SettingsProject_OperationsLabel"),
-                new LocalizedItem(seamsLayoutControlItem, "SettingsProject_SeamsLabel"),
+                new LocalizedItem(projectTitleLayoutControlItem, StringResources.SettingsProject_TitleLabel.Id),
+                new LocalizedItem(clientLayoutControlItem, StringResources.SettingsProject_ClientLabel.Id),
+                new LocalizedItem(plateManLayoutControlItem, StringResources.SettingsProject_PlateManufacturerLabel.Id),
+                new LocalizedItem(extDocumentSizeLayoutControlItem, StringResources.SettingsProject_DocumentSizeLabel.Id),
+                new LocalizedItem(millNameLayoutControlItem, StringResources.SettingsProject_MillLabel.Id),
+                new LocalizedItem(maskLayoutControlItem, StringResources.SettingsProject_MaskEditLabel.Id),
+                new LocalizedItem(maskLabelLayoutControlItem, StringResources.Mask_Label.Id),
+                new LocalizedItem(operationsLayoutControlItem, StringResources.SettingsProject_OperationsLabel.Id),
+                new LocalizedItem(seamsLayoutControlItem, StringResources.SettingsProject_SeamsLabel.Id),
 
-                new LocalizedItem(commonParamsLayoutControlGroup, "SettingsProject_CommonGroup"),
-                new LocalizedItem(millLayoutControlGroup, "SettingsProject_MillGroup"),
+                new LocalizedItem(commonParamsLayoutControlGroup, StringResources.SettingsProject_CommonGroup.Id),
+                new LocalizedItem(millLayoutControlGroup, StringResources.SettingsProject_MillGroup.Id),
 
                 // plate manufacturer grid
-                new LocalizedItem(plateManufacturerGridColumn, "SettingsProject_PlateManColumn"),
+                new LocalizedItem(plateManufacturerGridColumn, StringResources.SettingsProject_PlateManColumn.Id),
                 // inspections grid
-                new LocalizedItem(categoryNameColumn, "SettingsProject_InspectionsCategoryColumn"),
-                new LocalizedItem(isActiveColumn, "SettingsProject_InspectionsIsActiveColumn"),
+                new LocalizedItem(categoryNameColumn, StringResources.SettingsProject_InspectionsCategoryColumn.Id),
+                new LocalizedItem(isActiveColumn, StringResources.SettingsProject_InspectionsIsActiveColumn.Id),
                 // seams grid
-                new LocalizedItem(seemTypeColumn, "SettingsProject_SeamTypeColumn"),
-                new LocalizedItem(seemTypeIsActiveColumn, "SettingsProject_SeamIsActiveColumn"),
+                new LocalizedItem(seemTypeColumn, StringResources.SettingsProject_SeamTypeColumn.Id),
+                new LocalizedItem(seemTypeIsActiveColumn, StringResources.SettingsProject_SeamIsActiveColumn.Id),
 
                 // pipe page
-                new LocalizedItem(sizesLayoutControlItem, "SettingsPipe_SizesLabel"),
-                new LocalizedItem(inspectionsLayoutControlItem, "SettingsPipe_InspectionsLabel"),
-                new LocalizedItem(diameterLayoutControlItem, "SettingsPipe_DiameterLabel"),
-                new LocalizedItem(wallThicknessLayoutControlItem, "SettingsPipe_WallThicknessLabel"),
-                new LocalizedItem(pipeLengthLayoutControlItem, "SettingsPipe_LengthLabel"),
-                new LocalizedItem(seamTypeLayoutControlItem, "SettingsPipe_SeamTypeLabel"),
+                new LocalizedItem(sizesLayoutControlItem, StringResources.SettingsPipe_SizesLabel.Id),
+                new LocalizedItem(inspectionsLayoutControlItem, StringResources.SettingsPipe_InspectionsLabel.Id),
+                new LocalizedItem(diameterLayoutControlItem, StringResources.SettingsPipe_DiameterLabel.Id),
+                new LocalizedItem(wallThicknessLayoutControlItem, StringResources.SettingsPipe_WallThicknessLabel.Id),
+                new LocalizedItem(pipeLengthLayoutControlItem, StringResources.SettingsPipe_LengthLabel.Id),
+                new LocalizedItem(seamTypeLayoutControlItem, StringResources.SettingsPipe_SeamTypeLabel.Id),
 
-                new LocalizedItem(cloneTypeSizeButton, "SettingsPipe_CloneTypeSizeButton"),
-                new LocalizedItem(addTestButton, "SettingsPipe_AddTestButton"),
-                new LocalizedItem(editTestButton, "SettingsPipe_EditTestButton"),
+                new LocalizedItem(cloneTypeSizeButton, StringResources.SettingsPipe_CloneTypeSizeButton.Id),
+                new LocalizedItem(addTestButton, StringResources.SettingsPipe_AddTestButton.Id),
+                new LocalizedItem(editTestButton, StringResources.SettingsPipe_EditTestButton.Id),
 
-                new LocalizedItem(pipeSizeGridColumn, "SettingsPipe_SizeGridColumn"),
-                new LocalizedItem(isActiveGridColumn, "SettingsPipe_SizeIsActiveGridColumn"),
+                new LocalizedItem(pipeSizeGridColumn, StringResources.SettingsPipe_SizeGridColumn.Id),
+                new LocalizedItem(isActiveGridColumn, StringResources.SettingsPipe_SizeIsActiveGridColumn.Id),
                 
-                new LocalizedItem(pipeSizeGridColumn, "SettingsPipe_InspectionsCodeColumn"),
-                new LocalizedItem(inspectionNameGridColumn, "SettingsPipe_InspectionsNameColumn"),
-                new LocalizedItem(categoryColumn, "SettingsPipe_InspectionsCategoryColumn"),
-                new LocalizedItem(controlTypeGridColumn, "SettingsPipe_InspectionsControlTypeColumn"),
-                new LocalizedItem(resultTypeGridColumn, "SettingsPipe_InspectionsResultTypeColumn"),
-                new LocalizedItem(boolExpectedGridColumn, "SettingsPipe_InspectionsBoolExpectedColumn"),
-                new LocalizedItem(minExpectedGridColumn, "SettingsPipe_InspectionsMinExpectedColumn"),
-                new LocalizedItem(maxExpectedGridColumn, "SettingsPipe_InspectionsMaxExpectedColumn"),
-                new LocalizedItem(isRequiredGridColumn, "SettingsPipe_InspectionsIsReqiredColumn"),
-                new LocalizedItem(testIsActiveGridColumn, "SettingsPipe_InspectionsIsActiveColumn"),
+                new LocalizedItem(pipeSizeGridColumn, StringResources.SettingsPipe_InspectionsCodeColumn.Id),
+                new LocalizedItem(inspectionNameGridColumn, StringResources.SettingsPipe_InspectionsNameColumn.Id),
+                new LocalizedItem(categoryColumn,StringResources.SettingsPipe_InspectionsCategoryColumn.Id),
+                new LocalizedItem(controlTypeGridColumn, StringResources.SettingsPipe_InspectionsControlTypeColumn.Id),
+                new LocalizedItem(resultTypeGridColumn, StringResources.SettingsPipe_InspectionsResultTypeColumn.Id),
+                new LocalizedItem(boolExpectedGridColumn, StringResources.SettingsPipe_InspectionsBoolExpectedColumn.Id),
+                new LocalizedItem(minExpectedGridColumn, StringResources.SettingsPipe_InspectionsMinExpectedColumn.Id),
+                new LocalizedItem(maxExpectedGridColumn, StringResources.SettingsPipe_InspectionsMaxExpectedColumn.Id),
+                new LocalizedItem(isRequiredGridColumn, StringResources.SettingsPipe_InspectionsIsReqiredColumn.Id),
+                new LocalizedItem(testIsActiveGridColumn, StringResources.SettingsPipe_InspectionsIsActiveColumn.Id),
 
                 // pipe line page
-                new LocalizedItem(lineLayoutControlGroup, "SettingsLine_LineGroup"),
+                new LocalizedItem(lineLayoutControlGroup, StringResources.SettingsLine_LineGroup.Id),
 
-                new LocalizedItem(nameGridColumn, "SettingsLine_NameColumn"),
-                new LocalizedItem(isRequiredForJointGridColumn, "SettingsLine_IsReqiredColumn"),
-                new LocalizedItem(TestTypeColumn, "SettingsLine_TestTypeColumn"),
-                new LocalizedItem(testHasAcceptedGridColumn, "SettingsLine_HasAcceptedColumn"),
-                new LocalizedItem(testHasToRepairGridColumn, "SettingsLine_RepairColumn"),
-                new LocalizedItem(testHasToWithdrawGridColumn, "SettingsLine_WithdrawColumn"),
-                new LocalizedItem(testResultRequiredGridColumn, "SettingsLine_IsReqiredColumn"),
-                new LocalizedItem(isActiveJointOperationGridColumn, "SettingsLine_IsActiveColumn"),
+                new LocalizedItem(nameGridColumn, StringResources.SettingsLine_NameColumn.Id),
+                new LocalizedItem(isRequiredForJointGridColumn, StringResources.SettingsLine_IsReqiredColumn.Id),
+                new LocalizedItem(TestTypeColumn, StringResources.SettingsLine_TestTypeColumn.Id),
+                new LocalizedItem(testHasAcceptedGridColumn, StringResources.SettingsLine_HasAcceptedColumn.Id),
+                new LocalizedItem(testHasToRepairGridColumn, StringResources.SettingsLine_RepairColumn.Id),
+                new LocalizedItem(testHasToWithdrawGridColumn, StringResources.SettingsLine_WithdrawColumn.Id),
+                new LocalizedItem(testResultRequiredGridColumn, StringResources.SettingsLine_IsReqiredResultColumn.Id),
+                new LocalizedItem(isActiveJointOperationGridColumn, StringResources.SettingsLine_IsActiveColumn.Id),
 
                 // components page
-                new LocalizedItem(partsTypeLayoutControlItem, "SettingsComponent_PartsType"),
+                new LocalizedItem(partsTypeLayoutControlItem, StringResources.SettingsComponent_PartsType.Id),
 
-                new LocalizedItem(typeColumn, "SettingsComponent_TypeColumn"),
-                new LocalizedItem(connectorsNumbersColumn, "SettingsComponent_ConnectorsNumberColumn"),
-                new LocalizedItem(isActiveComponentColumn, "SettingsComponent_IsActiveTypeColumn"),
+                new LocalizedItem(typeColumn, StringResources.SettingsComponent_TypeColumn.Id),
+                new LocalizedItem(connectorsNumbersColumn, StringResources.SettingsComponent_ConnectorsNumberColumn.Id),
+                new LocalizedItem(isActiveComponentColumn, StringResources.SettingsComponent_IsActiveTypeColumn.Id),
 
                 // welders page
-                new LocalizedItem(colWelderLastName, "SettingsWelders_LastNameColumn"),
-                new LocalizedItem(colWelderFirstName, "SettingsWelders_FirstNameColumn"),
-                new LocalizedItem(colWelderMiddleName, "SettingsWelders_MiddleNameColumn"),
-                new LocalizedItem(colWelderCert, "SettingsWelders_CertificateNameColumn"),
-                new LocalizedItem(colWelderCertExp, "SettingsWelders_ExpiredColumn"),
-                new LocalizedItem(colWelderStamp, "SettingsWelders_StampColumn"),
-                new LocalizedItem(colWelderGrade, "SettingsWelders_GradeColumn"),
-                new LocalizedItem(colWelderActive, "SettingsWelders_IsActiveColumn"),
+                new LocalizedItem(colWelderLastName, StringResources.SettingsWelders_LastNameColumn.Id),
+                new LocalizedItem(colWelderFirstName, StringResources.SettingsWelders_FirstNameColumn.Id),
+                new LocalizedItem(colWelderMiddleName, StringResources.SettingsWelders_MiddleNameColumn.Id),
+                new LocalizedItem(colWelderCert, StringResources.SettingsWelders_CertificateNameColumn.Id),
+                new LocalizedItem(colWelderCertExp, StringResources.SettingsWelders_ExpiredColumn.Id),
+                new LocalizedItem(colWelderStamp, StringResources.SettingsWelders_StampColumn.Id),
+                new LocalizedItem(colWelderGrade, StringResources.SettingsWelders_GradeColumn.Id),
+                new LocalizedItem(colWelderActive, StringResources.SettingsWelders_IsActiveColumn.Id),
 
                 // inspectors page
-                new LocalizedItem(inspectorsLayoutControlItem, "SettingsInspectors_InspectorsLabel"),
-                new LocalizedItem(certificateLayoutControlItem, "SettingsInspectors_CertificatesLabel"),
-                new LocalizedItem(certTypeListLayoutControlItem, "SettingsInspectors_CertificateTypesLabel"),
+                new LocalizedItem(inspectorsLayoutControlItem, StringResources.SettingsInspectors_InspectorsLabel.Id),
+                new LocalizedItem(certificateLayoutControlItem, StringResources.SettingsInspectors_CertificatesLabel.Id),
+                new LocalizedItem(certTypeListLayoutControlItem, StringResources.SettingsInspectors_CertificateTypesLabel.Id),
 
-                new LocalizedItem(inspectorsLayoutControlGroup, "SettingsInspectors_InspectorsGroup"),
-                new LocalizedItem(certificateTypeLayoutControlGroup, "SettingsInspectors_CertificatesGroup"),
+                new LocalizedItem(inspectorsLayoutControlGroup, StringResources.SettingsInspectors_InspectorsGroup.Id),
+                new LocalizedItem(certificateTypeLayoutControlGroup, StringResources.SettingsInspectors_CertificatesGroup.Id),
                 // inspectors grid
-                new LocalizedItem(colInspectorLastName, "SettingsInspectors_LastNameColumn"),
-                new LocalizedItem(colInspectorFirstName, "SettingsInspectors_FirstNameColumn"),
-                new LocalizedItem(colInspectorMiddleName, "SettingsInspectors_MiddleNameColumn"),
+                new LocalizedItem(colInspectorLastName, StringResources.SettingsInspectors_LastNameColumn.Id),
+                new LocalizedItem(colInspectorFirstName, StringResources.SettingsInspectors_FirstNameColumn.Id),
+                new LocalizedItem(colInspectorMiddleName, StringResources.SettingsInspectors_MiddleNameColumn.Id),
                 // certificates grid
                 new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
                 new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),
@@ -370,12 +371,16 @@ namespace Prizm.Main.Forms.Settings
 
             if(pipeSizesDuplicates.Count > 0)
             {
-                view.SetColumnError(pipeSizeGridColumn, Resources.UNIQUE_VALUE_REQUIRED);
+                view.SetColumnError(pipeSizeGridColumn, 
+
+                    Program.LanguageManager.GetString(StringResources.Settings_UniqueValueRequired));
                 e.Valid = false;
             }
             else if (!CodeValidation())
             {
-                view.SetColumnError(pipeSizeGridColumn, Resources.CHEK_CONTROL_OPERATIONS);
+                view.SetColumnError(pipeSizeGridColumn, 
+                     Program.LanguageManager.GetString(StringResources.Settings_ChekControlOperations)
+                    );
                 e.Valid = false;
             }
             else
@@ -451,7 +456,8 @@ namespace Prizm.Main.Forms.Settings
             string certificate = (string)gridViewWelders.GetRowCellValue(e.RowHandle, colWelderCert);
             if (String.IsNullOrEmpty(certificate))
             {
-                gridViewWelders.SetColumnError(colWelderCert, Resources.VALUE_REQUIRED);
+                gridViewWelders.SetColumnError(colWelderCert, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -485,13 +491,14 @@ namespace Prizm.Main.Forms.Settings
 
             if(string.IsNullOrWhiteSpace(certName))
             {
-                view.SetColumnError(certNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(certExpDate < DateTime.Now)
             {
-                view.SetColumnError(expDateColumn, Resources.DATA_EXPIRED);
+                view.SetColumnError(expDateColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
                 e.Valid = false;
             }
         }
@@ -506,13 +513,15 @@ namespace Prizm.Main.Forms.Settings
 
             if(String.IsNullOrEmpty(firstName))
             {
-                view.SetColumnError(firstNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(firstNameColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(String.IsNullOrEmpty(lastName))
             {
-                view.SetColumnError(lastNameColumn, Resources.VALUE_REQUIRED);
+                view.SetColumnError(lastNameColumn,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -603,18 +612,26 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectorCertificateGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
             var view = sender as GridView; //cert Grid
-
-            if(view.IsValidRowHandle(e.RowHandle))
+            if (inspc != null)
+            {
+            if (view.IsValidRowHandle(e.RowHandle))
             {
                 var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
                 InspectorCertificate cert = view.GetRow(e.RowHandle) as InspectorCertificate; //certif from certif grid 
-                if(cert != null)
+                if (cert != null)
                 {
                     cert.Inspector = insp.Inspector;
                     cert.IsActive = true;
                     cert.Certificate = new Certificate { ExpirationDate = DateTime.Now };
                 }
+            }
+            }
+            else 
+            {
+                inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0],
+                    Program.LanguageManager.GetString(StringResources.Settings_ValidateInspectorSertificate));
             }
         }
 
@@ -661,7 +678,8 @@ namespace Prizm.Main.Forms.Settings
                 if(String.IsNullOrEmpty(role.Name))
                 {
                     e.Valid = false;
-                    view.SetColumnError(colRoleSetupName, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colRoleSetupName, 
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 }
             }
         }
@@ -737,13 +755,15 @@ namespace Prizm.Main.Forms.Settings
                 User user = view.GetRow(e.RowHandle) as User;
                 if(String.IsNullOrEmpty(user.Login))
                 {
-                    view.SetColumnError(colLogin, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colLogin,
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                     e.Valid = false;
                     return;
                 }
                 if(String.IsNullOrEmpty(user.PasswordHash))
                 {
-                    view.SetColumnError(colUserPass, Resources.VALUE_REQUIRED);
+                    view.SetColumnError(colUserPass,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                     e.Valid = false;
                     return;
                 }
@@ -883,14 +903,18 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectorCertificateGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            GridView v = sender as GridView;
-            var data = v.GetRow(e.RowHandle) as InspectorCertificate;
-            if(data != null)
-            {
-                if(data.Certificate.ExpirationDate < DateTime.Now)
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
+            if (inspc !=null)
+            {            
+                GridView v = sender as GridView;
+                var data = v.GetRow(e.RowHandle) as InspectorCertificate;
+                if(data != null)
                 {
-                    e.Appearance.ForeColor = Color.Red;
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    if(data.Certificate.ExpirationDate < DateTime.Now)
+                    {
+                        e.Appearance.ForeColor = Color.Red;
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                    }
                 }
             }
         }
@@ -1091,19 +1115,19 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if(pipeTest.Code == null)
             {
-                gv.SetColumnError(inspectionCodeGridColumn, Resources.Empty_Operation_Code);
+                gv.SetColumnError(inspectionCodeGridColumn,  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(pipeTest.Name == null)
             {
-                gv.SetColumnError(inspectionNameGridColumn, Resources.Empty_Operation_Name);
+                gv.SetColumnError(inspectionNameGridColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(pipeTest.Category == null)
             {
-                gv.SetColumnError(categoryColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(categoryColumn,  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
         }
@@ -1118,7 +1142,7 @@ namespace Prizm.Main.Forms.Settings
             #region project title validation only afrer project tab is shown
             ConditionValidationRule projectTitleValidationRule = new ConditionValidationRule();
             projectTitleValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
-            projectTitleValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            projectTitleValidationRule.ErrorText =  Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             projectTitleValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(projectTitle, projectTitleValidationRule);
@@ -1132,25 +1156,25 @@ namespace Prizm.Main.Forms.Settings
             ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
             diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
             diameterValidationRule.Value1 = 0;
-            diameterValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             diameterValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
             wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
             wallThicknessValidationRule.Value1 = 0;
-            wallThicknessValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             wallThicknessValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
             pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
             pipeLengthValidationRule.Value1 = 0;
-            pipeLengthValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             pipeLengthValidationRule.ErrorType = ErrorType.Critical;
 
             ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
             seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
             seamTypeValidationRule.Value1 = seamType.Properties.NullText;
-            seamTypeValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
             seamTypeValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
@@ -1184,7 +1208,8 @@ namespace Prizm.Main.Forms.Settings
                     if(t.Code == null && t.Name == null)
                     {
                         codeValidate = false;
-                        inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+                        inspectionView.SetColumnError(inspectionView.Columns[0],
+                            Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                         break;
                     }
                 }
@@ -1192,7 +1217,8 @@ namespace Prizm.Main.Forms.Settings
             else
             {
                 codeValidate = false;
-                inspectionView.SetColumnError(inspectionView.Columns[0], Resources.VALUE_REQUIRED);
+                inspectionView.SetColumnError(inspectionView.Columns[0], 
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
             }
 
             return codeValidate;
@@ -1210,7 +1236,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            if(IsEditMode)
+            if (IsEditMode && IsEditable(IsEditMode))
             {
                 using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
                 {
@@ -1268,6 +1294,56 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private void plateManufacturersListView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(plateManufacturersListView, plateManufacturerGridColumn, e);
+        }
+
+        void ValidateName(GridView view, GridColumn NameColumn, ValidateRowEventArgs e)
+        {
+
+            string Name = (string)view.GetRowCellValue(e.RowHandle, NameColumn);
+           
+            view.ClearColumnErrors();
+
+            if (String.IsNullOrEmpty(Name))
+            {
+                view.SetColumnError(NameColumn,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                e.Valid = false;
+            }
+
+        }
+
+        private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(categoriesGridView, categoryNameColumn, e);
+        }
+
+        private void seemTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(seemTypeGridView, seemTypeColumn, e);
+        }
+
+        private void pipesSizeListGridView_ValidateRow_1(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(pipesSizeListGridView, pipeSizeGridColumn, e);
+        }
+
+        private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(componentryTypeGridView, typeColumn, e);
+        }
+
+        private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(jointsOperationsGridView, nameGridColumn, e);
+        }
+
+        private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            ValidateName(certificateTypesView, certificateNameColumn, e);
+        }
 
     }
 }

@@ -42,9 +42,9 @@ namespace Prizm.Main.Forms.Synch
       {
           return new List<LocalizedItem>()
           {
-              new LocalizedItem(archive, "Import_ArchiveLabel"),
-              new LocalizedItem(btnBrowse, "Import_BrowseButton"),
-              new LocalizedItem(btnImport, "Import_ImportButton"),
+              new LocalizedItem(archive, StringResources.Import_ArchiveLabel.Id),
+              new LocalizedItem(btnBrowse, StringResources.Import_BrowseButton.Id),
+              new LocalizedItem(btnImport, StringResources.Import_ImportButton.Id),
           };
       }
 
@@ -123,7 +123,8 @@ namespace Prizm.Main.Forms.Synch
          string msg = e.Message;
          if (e.StackTrace != null)
             msg += "\n " + e.StackTrace;
-         MessageBox.Show(msg, Resources.DLG_ERROR_HEADER, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         MessageBox.Show(msg, 
+             Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), MessageBoxButtons.OK, MessageBoxIcon.Error);
          ResetControls();
       }
 
@@ -147,7 +148,7 @@ namespace Prizm.Main.Forms.Synch
       private void btnBrowse_Click(object sender, EventArgs e)
       {
          OpenFileDialog dlg = new OpenFileDialog();
-         dlg.Filter = Resources.Export_Filter;
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter);
 
          if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
          {

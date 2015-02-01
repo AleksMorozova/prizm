@@ -50,11 +50,11 @@ namespace Prizm.Main.Forms.ExternalFile
             return new List<LocalizedItem>()
             {
                 //controls
-                new LocalizedItem(addFile, "ExternalFiles_AddFileButton"),
+                new LocalizedItem(addFile, StringResources.ExternalFiles_AddFileButton.Id),
                 
                  // grid column headers
-                new LocalizedItem(colFileName, "ExternalFiles_FilENameColumnHeader"),
-                new LocalizedItem(colUploadDate, "ExternalFiles_UploadDateColumnHeader"),
+                new LocalizedItem(colFileName, StringResources.ExternalFiles_FileNameColumnHeader.Id),
+                new LocalizedItem(colUploadDate, StringResources.ExternalFiles_UploadDateColumnHeader.Id),
             };
         }
 

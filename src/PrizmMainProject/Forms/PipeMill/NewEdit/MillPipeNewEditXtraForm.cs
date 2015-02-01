@@ -50,7 +50,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
-        private void UpdateTextEdit() {
+        private void UpdateTextEdit()
+        {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
         }
 
@@ -150,7 +151,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             IsModified = false;
-            pipeNumber.ToolTip = Resources.MillPipeNumber_Mask_Hint + viewModel.Project.MillPipeNumberMask;
+            pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
+                + viewModel.Project.MillPipeNumberMask;
         }
 
         private void BindToViewModel()
@@ -210,8 +212,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-            //shippedDate.DataBindings
-            //    .Add("EditValue", pipeNewEditBindingSource, "RailcarShippingDate");
+
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings
@@ -269,8 +270,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             inspectorsPopupContainerEdit.PopupControl.MaximumSize = inspectorsPopup.MaximumSize;
 
             coatingTypeDict.Clear();
-            coatingTypeDict.Add(CoatingType.Internal, Resources.COAT_INTERNAL);
-            coatingTypeDict.Add(CoatingType.External, Resources.COAT_EXTERNAL);
+            coatingTypeDict.Add(CoatingType.Internal, Program.LanguageManager.GetString(StringResources.MillPipe_CoatInternal));
+            coatingTypeDict.Add(CoatingType.External, Program.LanguageManager.GetString(StringResources.MillPipe_CoatExternal));
 
             repositoryItemLookUpEditCoatType.DataSource = coatingTypeDict;
 
@@ -302,70 +303,73 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return new List<LocalizedItem>() 
                 { 
                     // layout items
-                    new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-                    new LocalizedItem(pipeSizeLayout, "NewEditPipe_PipeSizeLabel"),
-                    new LocalizedItem(heatsLayout, "NewEditPipe_HeatsComboLabel"),
-                    new LocalizedItem(ordersLayout, "NewEditPipe_PurchaseOrdersComboLabel"),
-                    new LocalizedItem(purchaseOrderDateLayoutControl, "NewEditPipe_PurchaseOrederDateLabel"),
-                    new LocalizedItem(creationDateLayout, "NewEditPipe_PipeCreationLabel"),
-                    new LocalizedItem(statusLayout, "NewEditPipe_PipeStatusLabel"),
+                    new LocalizedItem(pipeNumberLayout, StringResources.NewEditPipe_PipeNumberLabel.Id),
+                    new LocalizedItem(pipeSizeLayout, StringResources.NewEditPipe_PipeSizeLabel.Id),
+                    new LocalizedItem(heatsLayout, StringResources.NewEditPipe_HeatsComboLabel.Id),
+                    new LocalizedItem(ordersLayout, StringResources.NewEditPipe_PurchaseOrdersComboLabel.Id),
+                    new LocalizedItem(purchaseOrderDateLayoutControl, StringResources.NewEditPipe_PurchaseOrederDateLabel.Id),
+                    new LocalizedItem(creationDateLayout, StringResources.NewEditPipe_PipeCreationLabel.Id),
+                    new LocalizedItem(statusLayout, StringResources.NewEditPipe_PipeStatusLabel.Id),
 
-                    new LocalizedItem(plateNumberLayout, "NewEditPipe_PlateNumberLabel"),
-                    new LocalizedItem(plateThicknessLayoutControlItem, "NewEditPipe_PlateThicknessLabel"),
-                    new LocalizedItem(plateManufacturer, "NewEditPipe_PlateManufacturerLabel"),
-                    new LocalizedItem(steelGradeLayoutControlItem, "NewEditPipe_PlateSteelGradeLabel"),
+                    new LocalizedItem(plateNumberLayout, StringResources.NewEditPipe_PlateNumberLabel.Id),
+                    new LocalizedItem(plateThicknessLayoutControlItem, StringResources.NewEditPipe_PlateThicknessLabel.Id),
+                    new LocalizedItem(plateManufacturer, StringResources.NewEditPipe_PlateManufacturerLabel.Id),
+                    new LocalizedItem(steelGradeLayoutControlItem, StringResources.NewEditPipe_PlateSteelGradeLabel.Id),
                     
-                    new LocalizedItem(pipeLengthLayout, "NewEditPipe_PipeLengthLabel"),
-                    new LocalizedItem(weightLayoutControlItem, "NewEditPipe_PipeWeightLabel"),
+                    new LocalizedItem(pipeLengthLayout, StringResources.NewEditPipe_PipeLengthLabel.Id),
+                    new LocalizedItem(weightLayoutControlItem, StringResources.NewEditPipe_PipeWeightLabel.Id),
 
-                    new LocalizedItem(lengthLayoutControlItem, "NewEditPipe_TypeSizeLengthLabel"),
-                    new LocalizedItem(diameterLayoutControlItem, "NewEditPipe_TypeSizeDiameterLabel"),
-                    new LocalizedItem(thicknessLayoutControlItem, "NewEditPipe_TypeSizeThicknessLabel"),
+                    new LocalizedItem(lengthLayoutControlItem, StringResources.NewEditPipe_TypeSizeLengthLabel.Id),
+                    new LocalizedItem(diameterLayoutControlItem, StringResources.NewEditPipe_TypeSizeDiameterLabel.Id),
+                    new LocalizedItem(thicknessLayoutControlItem, StringResources.NewEditPipe_TypeSizeThicknessLabel.Id),
 
-                    new LocalizedItem(railcarLayoutControlItem, "NewEditPipe_RailcarNumber_Label"),
-                    new LocalizedItem(certificateLayoutControlItem, "NewEditPipe_RailcarCertificate_Label"),
-                    new LocalizedItem(shippedDateLayoutControlItem, "NewEditPipe_RailcarShippedDate_Label"),
-                    new LocalizedItem(destinationLayoutControlItem, "NewEditPipe_RailcarDestination_Label"),
+                    new LocalizedItem(railcarLayoutControlItem, StringResources.NewEditPipe_RailcarNumber_Label.Id),
+                    new LocalizedItem(certificateLayoutControlItem, StringResources.NewEditPipe_RailcarCertificate_Label.Id),
+                    new LocalizedItem(shippedDateLayoutControlItem, StringResources.NewEditPipe_RailcarShippedDate_Label.Id),
+                    new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
-                    new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-                    new LocalizedItem(deactivated, "NewEditPipe_DeactivatedCheckBox"),
-                    new LocalizedItem(saveButton, "NewEditPipe_SaveButton"),
-                    new LocalizedItem(saveAndNewButton, "NewEditPipe_SaveAndNewButton"),
+                    new LocalizedItem(attachmentsButton, StringResources.NewEditPipe_AttachmentsButton.Id),
+                    new LocalizedItem(deactivated, StringResources.NewEditPipe_DeactivatedCheckBox.Id),
+                    new LocalizedItem(saveButton, StringResources.NewEditPipe_SaveButton.Id),
+                    new LocalizedItem(saveAndNewButton, StringResources.NewEditPipe_SaveAndNewButton.Id),
 
-                    new LocalizedItem(addInspectionButton, "NewEditPipe_InspectionsAddButton"),
-                    new LocalizedItem(editInspectionButton, "NewEditPipe_InspectionsEditsButton"),
+                    new LocalizedItem(addInspectionButton, StringResources.NewEditPipe_InspectionsAddButton.Id),
+                    new LocalizedItem(editInspectionButton, StringResources.NewEditPipe_InspectionsEditsButton.Id),
 
                     // grid column headers
-                    new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-                    new LocalizedItem(weldingDateGridColumn, "NewEditPipe_WeldingDateColumnHeader"),
+                    new LocalizedItem(weldersGridColumn, StringResources.NewEditPipe_WeldersColumnHeader.Id),
+                    new LocalizedItem(weldingDateGridColumn, StringResources.NewEditPipe_WeldingDateColumnHeader.Id),
                     
-                    new LocalizedItem(coatingDateGridColumn, "NewEditPipe_CoatingDateColumnHeader"),
-                    new LocalizedItem(coatingTypeGridColumn, "NewEditPipe_CoatingTypeColumnHeader"),
+                    new LocalizedItem(coatingDateGridColumn, StringResources.NewEditPipe_CoatingDateColumnHeader.Id),
+                    new LocalizedItem(coatingTypeGridColumn, StringResources.NewEditPipe_CoatingTypeColumnHeader.Id),
 
-                    new LocalizedItem(inspectionCodeGridColumn, "NewEditPipe_InspectionCodeColumnHeader"),
-                    new LocalizedItem(inspectionNameGridColumn, "NewEditPipe_InspectionNameColumnHeader"),
-                    new LocalizedItem(categoryGridColumn, "NewEditPipe_InspectionCategoryColumnHeader"),
-                    new LocalizedItem(expectedResultGridColumn, "NewEditPipe_InspectionExpectedResultColumnHeader"),
-                    new LocalizedItem(valueGridColumn, "NewEditPipe_InspectionValueColumnHeader"),
-                    new LocalizedItem(inspectionResultGridColumn, "NewEditPipe_InspectionResultColumnHeader"),
-                    new LocalizedItem(controlDateGridColumn, "NewEditPipe_InspectionDateColumnHeader"),
-                    new LocalizedItem(inspectorsGridColumn, "NewEditPipe_InspectorsCodeColumnHeader"),
+                    new LocalizedItem(inspectionCodeGridColumn, StringResources.NewEditPipe_InspectionCodeColumnHeader.Id),
+                    new LocalizedItem(inspectionNameGridColumn, StringResources.NewEditPipe_InspectionNameColumnHeader.Id),
+                    new LocalizedItem(categoryGridColumn, StringResources.NewEditPipe_InspectionCategoryColumnHeader.Id),
+                    new LocalizedItem(expectedResultGridColumn, StringResources.NewEditPipe_InspectionExpectedResultColumnHeader.Id),
+                    new LocalizedItem(valueGridColumn, StringResources.NewEditPipe_InspectionValueColumnHeader.Id),
+                    new LocalizedItem(inspectionResultGridColumn, StringResources.NewEditPipe_InspectionResultColumnHeader.Id),
+                    new LocalizedItem(controlDateGridColumn, StringResources.NewEditPipe_InspectionDateColumnHeader.Id),
+                    new LocalizedItem(inspectorsGridColumn, StringResources.NewEditPipe_InspectorsCodeColumnHeader.Id),
 
                     // layout control groups
-                    new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-                    new LocalizedItem(factSizeLayoutControlGroup, "NewEditPipe_FactSizeGroup"),
-                    new LocalizedItem(typeSizeaParametersLyoutGroup, "NewEditPipe_TypeSizeGroup"),
-                    new LocalizedItem(shippingLayoutControlGroup, "NewEditPipe_ShippingGroup"),
-                    new LocalizedItem(coverLayoutControlGroup, "NewEditPipe_CoverGroup"),
-                    new LocalizedItem(weldsLayoutControlGroup, "NewEditPipe_WeldsGroup"),
-                    new LocalizedItem(pipeTabLayoutControlGroup, "NewEditPipe_PipeTabGroup"),
-                    new LocalizedItem(inspectionsTabLayoutControlGroup, "NewEditPipe_InspectionsTabGroup"),
+                    new LocalizedItem(plateLayoutControlGroup, StringResources.NewEditPipe_PlateGroup.Id),
+                    new LocalizedItem(factSizeLayoutControlGroup, StringResources.NewEditPipe_FactSizeGroup.Id),
+                    new LocalizedItem(typeSizeaParametersLyoutGroup, StringResources.NewEditPipe_TypeSizeGroup.Id),
+                    new LocalizedItem(shippingLayoutControlGroup, StringResources.NewEditPipe_ShippingGroup.Id),
+                    new LocalizedItem(coverLayoutControlGroup, StringResources.NewEditPipe_CoverGroup.Id),
+                    new LocalizedItem(weldsLayoutControlGroup, StringResources.NewEditPipe_WeldsGroup.Id),
+                    new LocalizedItem(pipeTabLayoutControlGroup, StringResources.NewEditPipe_PipeTabGroup.Id),
+                    new LocalizedItem(inspectionsTabLayoutControlGroup, StringResources.NewEditPipe_InspectionsTabGroup.Id),
 
 
                     // one-way text edit for statuses. See data binding for appropriate text edit, to understand the connection.
                     new LocalizedItem(UpdateTextEdit, localizedAllPipeMillStatus,
-                        new string [] {"NewEditPipe_PipeStatusUndefined", "NewEditPipe_PipeStatusProduced", "NewEditPipe_PipeStatusStocked", "NewEditPipe_PipeStatusShipped"} ),
+                        new string [] {StringResources.NewEditPipe_PipeStatusUndefined.Id, 
+                            StringResources.NewEditPipe_PipeStatusProduced.Id, 
+                            StringResources.NewEditPipe_PipeStatusStocked.Id, 
+                            StringResources.NewEditPipe_PipeStatusShipped.Id} ),
 
 
                     // other
@@ -373,7 +377,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         #endregion // --- Localization ---
-
 
         private void repositoryItemPopupWelders_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
@@ -426,7 +429,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if(weld == null || (weld != null && weld.Date == null))
             {
-                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -536,7 +540,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
             GridView view = sender as GridView;
-            if (e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
+            if(e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
                 e.Value =
                     getExpectedValue(view, e.ListSourceRowIndex);
         }
@@ -625,14 +629,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     {
                         if(viewModel.IsNew == true)
                         {
-                            if(this.MdiParent.ShowYesNo(Resources.DLG_CHANGE_PIPESIZE_ON_NEWPIPE, Resources.PipeSizeChangeHeader) != true)
+                            if(this.MdiParent.ShowYesNo(
+                                    Program.LanguageManager.GetString(StringResources.MillPipe_ChangeTypesizeConfirmation),
+                                    Program.LanguageManager.GetString(StringResources.MillPipe_PipeSizeChangeHeader))
+                                != true)
                             {
                                 e.Cancel = true;
                             }
                         }
                         else
                         {
-                            this.MdiParent.ShowNotify(Resources.DLG_CHANGE_PIPESIZE_ON_EDITPIPE, Resources.PipeSizeChangeHeader);
+                            this.MdiParent.ShowNotify(
+                                Program.LanguageManager.GetString(StringResources.MillPipe_NotAllowedToChangeTypesize),
+                                Program.LanguageManager.GetString(StringResources.MillPipe_PipeSizeChangeHeader));
                             e.Cancel = true;
                         }
                     }
@@ -681,7 +690,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
             if(string.IsNullOrWhiteSpace(op))
             {
-                gv.SetColumnError(inspectionCodeGridColumn, Resources.VALUE_REQUIRED);
+                gv.SetColumnError(inspectionCodeGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
 
@@ -692,7 +702,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 case PipeTestResultStatus.Repair:
                     if(date == null || date > DateTime.Now)
                     {
-                        gv.SetColumnError(controlDateGridColumn, Resources.TestResultIncorrectDate);
+                        gv.SetColumnError(controlDateGridColumn, 
+                            Program.LanguageManager.GetString(StringResources.MillPipe_ErrorEmptyOrFutureDate));
                         e.Valid = false;
                     }
 
@@ -706,7 +717,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
             {
-                pipeNumber.ErrorText = Resources.VALUE_DOESNT_MATCH_MASK;
+                pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
             }
         }
@@ -746,7 +757,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
             {
-                if(MessageBox.Show("Создать плавку " + e.DisplayValue.ToString(), "Новая плавка", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if(MessageBox.Show(
+                        string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewHeatQuestion), e.DisplayValue.ToString()),
+                        Program.LanguageManager.GetString(StringResources.MillPipe_NewHeadQuestionHeader),
+                        MessageBoxButtons.YesNo) 
+                    == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowHeatDialog(e.DisplayValue.ToString());
                 }
@@ -780,7 +795,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!string.IsNullOrWhiteSpace(e.DisplayValue.ToString()))
             {
-                if(MessageBox.Show("Создать наряд-заказ " + e.DisplayValue.ToString(), "Новый наряд-заказ", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if(MessageBox.Show(
+                        string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestion), e.DisplayValue.ToString()),
+                        Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestionHeader), 
+                        MessageBoxButtons.YesNo) 
+                    == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowOrderDialog(e.DisplayValue.ToString());
                 }
@@ -819,7 +838,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
             if(pipeTestResult == null || (pipeTestResult != null && pipeTestResult.Date == null))
             {
-                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6], Resources.DateFirst);
+                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -938,7 +958,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region fields validation only afrer project tab is shown
             ConditionValidationRule notBlankValidationRule = new ConditionValidationRule();
             notBlankValidationRule.ConditionOperator = ConditionOperator.IsNotBlank;
-            notBlankValidationRule.ErrorText = Resources.VALUE_REQUIRED;
+            notBlankValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
             notBlankValidationRule.ErrorType = ErrorType.Critical;
 
             dxValidationProvider.SetValidationRule(pipeCreationDate, notBlankValidationRule);

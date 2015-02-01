@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Notifications
 {
@@ -24,10 +25,20 @@ namespace Prizm.Main.Forms.Notifications
             DateToOccur = dateToOccur;
         }
 
+        // TODO: move screen representation to Form
         private string GetResourceMessage(TypeNotification type, NotificationStatus status)
         {
-            string resourseName = string.Format("Notification_{0}_{1}", Enum.GetName(typeof(TypeNotification), type), Enum.GetName(typeof(NotificationStatus), status));
-            return Resources.ResourceManager.GetString(resourseName);
+            // TODO: avoid attaching enum names to string names or take care about not changing enum names and bad combinations
+            string resourсeName = string.Format("Notification_{0}_{1}", Enum.GetName(typeof(TypeNotification), type), Enum.GetName(typeof(NotificationStatus), status));
+            StringResource? res = Program.LanguageManager.FindById(typeof(StringResources), resourсeName);
+            if (res != null)
+            {
+                return Program.LanguageManager.GetString((StringResource)res);
+            }
+            else
+            {
+                throw new ApplicationException("Wrong id of notification text: " + resourсeName);
+            }
         }
 
         private byte[] GetImage(NotificationStatus status)

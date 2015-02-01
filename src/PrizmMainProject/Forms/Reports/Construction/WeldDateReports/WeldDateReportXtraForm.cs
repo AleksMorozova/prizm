@@ -74,12 +74,12 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(weldDateFromLayout, "WeldDateReport_WeldDateFromLayout"),
-                new LocalizedItem(weldDateToLayout, "WeldDateReport_WeldDateToLayout"),
-                new LocalizedItem(previewButton, "WeldDateReport_PreviewButton"),
-                new LocalizedItem(createReportButton, "WeldDateReport_CreateReportButton"),
-                new LocalizedItem(weldReportParameterGroup, "WeldDateReport_WeldReportParameterGroup"),
-                new LocalizedItem(jointReportViewerGroup, "WeldDateReport_JointReportViewerGroup"),
+                new LocalizedItem(weldDateFromLayout, StringResources.WeldDateReport_WeldDateFromLayout.Id),
+                new LocalizedItem(weldDateToLayout, StringResources.WeldDateReport_WeldDateToLayout.Id),
+                new LocalizedItem(previewButton, StringResources.WeldDateReport_PreviewButton.Id),
+                new LocalizedItem(createReportButton, StringResources.WeldDateReport_CreateReportButton.Id),
+                new LocalizedItem(weldReportParameterGroup, StringResources.WeldDateReport_WeldReportParameterGroup.Id),
+                new LocalizedItem(jointReportViewerGroup, StringResources.WeldDateReport_JointReportViewerGroup.Id),
             };
         }
 

@@ -2,6 +2,7 @@
 using Prizm.Data.DAL;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -36,12 +37,12 @@ namespace Prizm.Main.Forms.ExternalFile
                 if (File.Exists(sourceFile))
                 {
                     File.Copy(sourceFile, viewModel.SelectedPath);
-                    notify.ShowNotify(Resources.DLG_FILE_DOWNLOAD_SUCCESS,Resources.DLG_FILE_DOWNLOAD_HEADER);
+                    notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadSuccess), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadHeader));
                 }
             }
             else
             {
-                notify.ShowInfo(Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL,Resources.DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER);
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFail), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFailHeader));
             }
         }
 

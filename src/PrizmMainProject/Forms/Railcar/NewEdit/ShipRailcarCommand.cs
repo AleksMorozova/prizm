@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -45,7 +46,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if (noPipe)
             {
-                notify.ShowError(Resources.DLG_SHIP_RAILCAR_VS_PIPES, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PipesAbsent), 
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
 
@@ -60,7 +62,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if (difTypeSize)
             {
-                notify.ShowError(Resources.DLG_RAILCAR_TYPESIZE_ERROR, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcar),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             
 
@@ -77,7 +80,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 }
                 viewModel.Shipped = true;
                 viewModel.SaveCommand.Execute();
-                notify.ShowSuccess(Resources.AlertShipRailcar + " #" + viewModel.ReleaseNote.Number, Resources.AlertInfoHeader);
+                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Shipped) + " #" + viewModel.ReleaseNote.Number,
+                    Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
             }
             
             RefreshVisualStateEvent();

@@ -43,17 +43,17 @@ namespace Prizm.Main.Forms.Synch
           return new List<LocalizedItem>()
           {
               // controls
-              new LocalizedItem(btnExport, "Export_ExportButton"),
-              new LocalizedItem(progressPanel,"Export_PleaseWaitPanel", "Export_ExportingData"),
-              new LocalizedItem(lblLog,"Export_LogLabel"),
-              new LocalizedItem(btnReexport, "Export_ReexportButton"),
+              new LocalizedItem(btnExport, StringResources.Export_ExportButton.Id),
+              new LocalizedItem(progressPanel, StringResources.Export_PleaseWaitPanel.Id, StringResources.Export_ExportingData.Id),
+              new LocalizedItem(lblLog, StringResources.Export_LogLabel.Id),
+              new LocalizedItem(btnReexport, StringResources.Export_ReexportButton.Id),
               
               // grid column headers
-              new LocalizedItem(portionId, "Export_PortionIdColumnHeader"),
-              new LocalizedItem(gridColumnExportDate, "Export_ExportDateColumnHeader"),
+              new LocalizedItem(portionId, StringResources.Export_PortionIdColumnHeader.Id),
+              new LocalizedItem(gridColumnExportDate, StringResources.Export_ExportDateColumnHeader.Id),
               // other
-              new LocalizedItem(logTabPage,"Export_LogTab"),
-              new LocalizedItem(historyTabPage,"Export_HistoryTab"),
+              new LocalizedItem(logTabPage, StringResources.Export_LogTab.Id),
+              new LocalizedItem(historyTabPage,StringResources.Export_HistoryTab.Id),
           };
       }
 
@@ -66,12 +66,12 @@ namespace Prizm.Main.Forms.Synch
 
          if (portion == null && !exporter.AnyNewDataToExport())
          {
-            exporter_OnMessage(Resources.Export_NoData);
+            exporter_OnMessage(Program.LanguageManager.GetString(StringResources.Export_NoData));
             return;
          }
 
          SaveFileDialog dlg = new SaveFileDialog();
-         dlg.Filter = Resources.Export_Filter;
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter);
 
          if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             return;
@@ -113,7 +113,7 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_Error, DateTime.Now.ToString(), e.Message) + "\n");
+            log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_Error), DateTime.Now.ToString(), e.Message) + "\n");
             if (e.InnerException != null && e.InnerException.StackTrace != null)
             {
                log.AppendText(e.InnerException.StackTrace.ToString() + "\n");
@@ -137,9 +137,9 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_ArchiveExported, DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
+            log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_ArchiveExported), DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
             log.AppendText("--------------------------------------------------------------------------------------------\n");
-            log.AppendText(Resources.Export_Ready + "\n");
+            log.AppendText(Program.LanguageManager.GetString(StringResources.Export_Ready) + "\n");
          });
       }
 
@@ -147,7 +147,7 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_Msg, DateTime.Now.ToString(), msg) + "\n");
+             log.AppendText(string.Format("[{0}] {1}", DateTime.Now.ToString(), msg) + "\n");
          });
       }
 

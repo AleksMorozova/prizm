@@ -60,30 +60,32 @@ namespace Prizm.Main.Forms.Audit
         {
             return new List<LocalizedItem>() 
                 { 
+                    //
+
                     // layout items
                     new LocalizedItem(numberLayout, StringResources.Audit_ElementNumberLabel.Id),
-                    new LocalizedItem(periodLabelLayout,"Audit_PeriodLabel"),
-                    new LocalizedItem(startDateLayout,"Audit_StartDateLabel"),
-                    new LocalizedItem(endDateLayout,"Audit_EndDateLabel"),
-                    new LocalizedItem(userLayout,"Audit_UserLabel"),
+                    new LocalizedItem(periodLabelLayout, StringResources.Audit_PeriodLabel.Id),
+                    new LocalizedItem(startDateLayout,StringResources.Audit_StartDateLabel.Id),
+                    new LocalizedItem(endDateLayout,StringResources.Audit_EndDateLabel.Id),
+                    new LocalizedItem(userLayout, StringResources.Audit_UserLabel.Id),
 
                     // controls
-                    new LocalizedItem(search, "Audit_SearchButton"),
+                    new LocalizedItem(search, StringResources.Audit_SearchButton.Id),
 
                     // grid column headers
-                    new LocalizedItem(userGridColumn, "Audit_UserColumnHeader"),
-                    new LocalizedItem(dateGridColumn, "Audit_DateColumnHeader"),
-                    new LocalizedItem(entityGridColumn, "Audit_EntityColumnHeader"),
-                    new LocalizedItem(oldValueGridColumn, "Audit_OldValueColumnHeader"),
-                    new LocalizedItem(newValueGridColumn, "Audit_NewValueColumnHeader"),
-                    new LocalizedItem(fieldGridColumn, "Audit_FieldColumnHeader"),
-                    new LocalizedItem(numberColumn, "Audit_NumberColumnHeader"),
+                    new LocalizedItem(userGridColumn, StringResources.Audit_UserColumnHeader.Id),
+                    new LocalizedItem(dateGridColumn, StringResources.Audit_DateColumnHeader.Id),
+                    new LocalizedItem(entityGridColumn, StringResources.Audit_EntityColumnHeader.Id),
+                    new LocalizedItem(oldValueGridColumn, StringResources.Audit_OldValueColumnHeader.Id),
+                    new LocalizedItem(newValueGridColumn, StringResources.Audit_NewValueColumnHeader.Id),
+                    new LocalizedItem(fieldGridColumn, StringResources.Audit_FieldColumnHeader.Id),
+                    new LocalizedItem(numberColumn, StringResources.Audit_NumberColumnHeader.Id),
 
                     // layout control groups
-                    new LocalizedItem(searchParametersLayoutGroup, "Audit_SearchParametersGroup"),
+                    new LocalizedItem(searchParametersLayoutGroup, StringResources.Audit_SearchParametersGroup.Id),
 
                     // radiogroup
-                    new LocalizedItem(radioPeriodUser, new string [] {"Audit_RadioPeriod", "Audit_RadioUser"}),
+                    new LocalizedItem(radioPeriodUser, new string [] {StringResources.Audit_RadioPeriod.Id, StringResources.Audit_RadioUser.Id}),
                 };
         }
 
@@ -121,6 +123,18 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
+        private void auditResultsView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
+            {
+                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
+                if (resId != null)
+                {
+                    e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
+                }
+
+            }
+        }
 
     }
 }

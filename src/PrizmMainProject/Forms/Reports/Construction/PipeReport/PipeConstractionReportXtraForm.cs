@@ -71,12 +71,12 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(pipeNumberLayout, "PipeConstractionReport_PipeNumberLayout"),
-                new LocalizedItem(pipeTypeCheckedComboLayout, "PipeConstractionReport_PipeTypeCheckedComboLayout"),
-                new LocalizedItem(pipeReportParametersLayoutGroup, "PipeConstractionReport_PipeReportParametersLayoutGroup"),
-                new LocalizedItem(previewButton, "PipeConstractionReport_PreviewButton"),
-                new LocalizedItem(createReportButton, "PipeConstractionReport_CreateReportButton"),
-                new LocalizedItem(documentViewerLayoutGroup, "PipeConstractionReport_DocumentViewerLayoutGroup"),
+                new LocalizedItem(pipeNumberLayout, StringResources.PipeConstractionReport_PipeNumberLayout.Id),
+                new LocalizedItem(pipeTypeCheckedComboLayout, StringResources.PipeConstractionReport_PipeTypeCheckedComboLayout.Id),
+                new LocalizedItem(pipeReportParametersLayoutGroup, StringResources.PipeConstractionReport_PipeReportParametersLayoutGroup.Id),
+                new LocalizedItem(previewButton, StringResources.PipeConstractionReport_PreviewButton.Id),
+                new LocalizedItem(createReportButton, StringResources.PipeConstractionReport_CreateReportButton.Id),
+                new LocalizedItem(documentViewerLayoutGroup, StringResources.PipeConstractionReport_DocumentViewerLayoutGroup.Id),
             };
         }
 
