@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
@@ -34,8 +35,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public void Execute()
         {
             if (notify.ShowYesNo(
-                   Resources.DLG_JOINT_DEACTIVATION,
-                   Resources.DLG_JOINT_DEACTIVATION_HEADER))
+                   Program.LanguageManager.GetString(StringResources.Joint_DeactivationQuestion),
+                   Program.LanguageManager.GetString(StringResources.Joint_DeactivationQuestionHeader)))
             {              
                 viewModel.JointIsActive = false;
 

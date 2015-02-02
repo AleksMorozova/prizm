@@ -683,7 +683,6 @@
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.Name = "PrizmApplicationXtraForm";
-            this.Text = "[PRISM v.2]";
             this.Load += new System.EventHandler(this.PrizmApplicationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).EndInit();

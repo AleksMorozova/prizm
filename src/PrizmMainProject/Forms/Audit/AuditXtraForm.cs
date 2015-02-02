@@ -123,6 +123,18 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
+        private void auditResultsView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
+            {
+                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
+                if (resId != null)
+                {
+                    e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
+                }
+
+            }
+        }
 
     }
 }

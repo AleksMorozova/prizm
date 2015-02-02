@@ -15,6 +15,7 @@ using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -316,8 +317,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if (!(pipeToAdd.Railcar == null))
             {
-                notify.ShowError(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
-                    Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
+                        + " " + pipeToAdd.Railcar.Number,
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
             {
@@ -333,7 +336,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             if (Railcar.IsShipped)
             {
-                notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_UnshipFirst), 
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
 

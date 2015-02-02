@@ -90,92 +90,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Внимание.
+        /// </summary>
+        internal static string Alert_InfoHeader {
+            get {
+                return ResourceManager.GetString("Alert_InfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Произошла ошибка!.
         /// </summary>
         internal static string AlertFailureHeader {
             get {
                 return ResourceManager.GetString("AlertFailureHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Начальная дата позже конечной.
-        /// </summary>
-        internal static string AlertFailureReportDate {
-            get {
-                return ResourceManager.GetString("AlertFailureReportDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Неверный диапазон дат.
-        /// </summary>
-        internal static string AlertFailureReportDateHeader {
-            get {
-                return ResourceManager.GetString("AlertFailureReportDateHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Внимание.
-        /// </summary>
-        internal static string AlertInfoHeader {
-            get {
-                return ResourceManager.GetString("AlertInfoHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение успешно.
-        /// </summary>
-        internal static string AlertSaveHeader {
-            get {
-                return ResourceManager.GetString("AlertSaveHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данные вагона сохранены.
-        /// </summary>
-        internal static string AlertSaveRailcar {
-            get {
-                return ResourceManager.GetString("AlertSaveRailcar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вагон успешно отгружен.
-        /// </summary>
-        internal static string AlertShipRailcar {
-            get {
-                return ResourceManager.GetString("AlertShipRailcar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Отгрузка вагона отменена. Дата отгрузки аннулированна. Трубы перемещены на склад..
-        /// </summary>
-        internal static string AlertUnsipRailcar {
-            get {
-                return ResourceManager.GetString("AlertUnsipRailcar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
-        /// </summary>
-        internal static string AuthenticationFailed {
-            get {
-                return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вход для пользователя {0} заблокирован.
-        /// </summary>
-        internal static string AuthenticationFailedUserInactive {
-            get {
-                return ResourceManager.GetString("AuthenticationFailedUserInactive", resourceCulture);
             }
         }
         
@@ -216,24 +144,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Проверьте значения.
-        /// </summary>
-        internal static string CHECK_VALUES {
-            get {
-                return ResourceManager.GetString("CHECK_VALUES", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Проверьте контрольные операции..
-        /// </summary>
-        internal static string CHEK_CONTROL_OPERATIONS {
-            get {
-                return ResourceManager.GetString("CHEK_CONTROL_OPERATIONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Клиент.
         /// </summary>
         internal static string Client {
@@ -252,24 +162,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Внешнее.
-        /// </summary>
-        internal static string COAT_EXTERNAL {
-            get {
-                return ResourceManager.GetString("COAT_EXTERNAL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Внутреннее.
-        /// </summary>
-        internal static string COAT_INTERNAL {
-            get {
-                return ResourceManager.GetString("COAT_INTERNAL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Код.
         /// </summary>
         internal static string Code {
@@ -284,6 +176,51 @@ namespace Prizm.Main.Properties {
         internal static string Component {
             get {
                 return ResourceManager.GetString("Component", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Величина диаметра должна быть больше нуля.
+        /// </summary>
+        internal static string ComponentNewEdit_DiameterValueValidation {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_DiameterValueValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует комплектующий элемент с номером:.
+        /// </summary>
+        internal static string ComponentNewEdit_Duplicate {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_Duplicate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера комплектующего элемента.
+        /// </summary>
+        internal static string ComponentNewEdit_DuplicateHeader {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_DuplicateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #.
+        /// </summary>
+        internal static string ComponentNewEdit_Saved {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение комплектующего изделия.
+        /// </summary>
+        internal static string ComponentNewEdit_SavedHeader {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_SavedHeader", resourceCulture);
             }
         }
         
@@ -362,15 +299,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Срок действия истек.
-        /// </summary>
-        internal static string DATA_EXPIRED {
-            get {
-                return ResourceManager.GetString("DATA_EXPIRED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Дата.
         /// </summary>
         internal static string Date {
@@ -416,480 +344,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Величина диаметра должна быть больше нуля.
-        /// </summary>
-        internal static string DIAMETER_VALUE_VALIDATION {
-            get {
-                return ResourceManager.GetString("DIAMETER_VALUE_VALIDATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо данную труб из вагона. .
-        /// </summary>
-        internal static string DLG_AddFailedControlOperation {
-            get {
-                return ResourceManager.GetString("DLG_AddFailedControlOperation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером..
-        /// </summary>
-        internal static string DLG_CHANGE_PIPESIZE_ON_EDITPIPE {
-            get {
-                return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_EDITPIPE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново.
-        /// </summary>
-        internal static string DLG_CHANGE_PIPESIZE_ON_NEWPIPE {
-            get {
-                return ResourceManager.GetString("DLG_CHANGE_PIPESIZE_ON_NEWPIPE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет к деактивации комплектующего элемента. 
-        ///Параметры комплектующего элемента станут невозможны для редактирования. 
-        ///Деактивировать комплектующий элемент?.
-        /// </summary>
-        internal static string DLG_COMPONENT_DEACTIVATION {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивация комплектующего элемента.
-        /// </summary>
-        internal static string DLG_COMPONENT_DEACTIVATION_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_DEACTIVATION_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Уже существует комплектующий элемент с номером:.
-        /// </summary>
-        internal static string DLG_COMPONENT_DUPLICATE {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Дублирование номера комплектующего элемента.
-        /// </summary>
-        internal static string DLG_COMPONENT_DUPLICATE_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_DUPLICATE_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #.
-        /// </summary>
-        internal static string DLG_COMPONENT_SAVED {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_SAVED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение комплектующего изделия.
-        /// </summary>
-        internal static string DLG_COMPONENT_SAVED_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_COMPONENT_SAVED_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ошибка.
-        /// </summary>
-        internal static string DLG_ERROR_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_ERROR_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вложения успешно добавлены.
-        /// </summary>
-        internal static string DLG_FILE_ATTACH_SUCCESS {
-            get {
-                return ResourceManager.GetString("DLG_FILE_ATTACH_SUCCESS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Добавление вложений.
-        /// </summary>
-        internal static string DLG_FILE_ATTACH_SUCCESS_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_FILE_ATTACH_SUCCESS_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Загрузка файла.
-        /// </summary>
-        internal static string DLG_FILE_DOWNLOAD_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_FILE_DOWNLOAD_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Файл успешно загружен.
-        /// </summary>
-        internal static string DLG_FILE_DOWNLOAD_SUCCESS {
-            get {
-                return ResourceManager.GetString("DLG_FILE_DOWNLOAD_SUCCESS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Для просмотра и скачивания вложений необходимо их предварительное сохранение.
-        /// </summary>
-        internal static string DLG_FILE_VIEW_DOWMLOAD_FAIL {
-            get {
-                return ResourceManager.GetString("DLG_FILE_VIEW_DOWMLOAD_FAIL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Просмотр и загрузка несохрaненных файлов.
-        /// </summary>
-        internal static string DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_FILE_VIEW_DOWMLOAD_FAIL_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Результаты контрольных операций успешно сохранены. Номер элемента: .
-        /// </summary>
-        internal static string DLG_INSPECTIONS_SAVED {
-            get {
-                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение контрольных операций.
-        /// </summary>
-        internal static string DLG_INSPECTIONS_SAVED_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_INSPECTIONS_SAVED_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
-        /// </summary>
-        internal static string DLG_JOINT_DEACTIVATION {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_DEACTIVATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивация стыка.
-        /// </summary>
-        internal static string DLG_JOINT_DEACTIVATION_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_DEACTIVATION_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Уже существует стык с номером:.
-        /// </summary>
-        internal static string DLG_JOINT_DUPLICATE {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_DUPLICATE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Дублирование номера стыка.
-        /// </summary>
-        internal static string DLG_JOINT_DUPLICATE_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_DUPLICATE_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
-        /// </summary>
-        internal static string DLG_JOINT_INCORRECT_DIAMETER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
-        /// </summary>
-        internal static string DLG_JOINT_INCORRECT_DIAMETER_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_INCORRECT_DIAMETER_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
-        /// </summary>
-        internal static string DLG_JOINT_SAVED {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_SAVED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение стыка.
-        /// </summary>
-        internal static string DLG_JOINT_SAVED_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_SAVED_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет к разединению элементов трубопровода. 
-        ///Вы действительно хотите вырезать стык?.
-        /// </summary>
-        internal static string DLG_JOINT_WITHDRAWN {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_WITHDRAWN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вырезка стыка.
-        /// </summary>
-        internal static string DLG_JOINT_WITHDRAWN_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_JOINT_WITHDRAWN_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Номер наряд-заказа обязателен.
-        /// </summary>
-        internal static string DLG_ORDER_NUMBER_REQUIRED {
-            get {
-                return ResourceManager.GetString("DLG_ORDER_NUMBER_REQUIRED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
-        /// </summary>
-        internal static string DLG_PIPE_DEACTIVATION {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_DEACTIVATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивация трубы.
-        /// </summary>
-        internal static string DLG_PIPE_DEACTIVATION_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_DEACTIVATION_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Уже существует труба с номером: .
-        /// </summary>
-        internal static string DLG_PIPE_DUPLICATE {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_DUPLICATE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Дублирование номера трубы.
-        /// </summary>
-        internal static string DLG_PIPE_DUPLICATE_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_DUPLICATE_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона..
-        /// </summary>
-        internal static string DLG_PIPE_IN_RAILCAR {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивация трубы в вагоне невозможна.
-        /// </summary>
-        internal static string DLG_PIPE_IN_RAILCAR_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_IN_RAILCAR_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Невозможно деактивировать отгруженную трубу..
-        /// </summary>
-        internal static string DLG_PIPE_IS_SHIPPED {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Труба отгружена.
-        /// </summary>
-        internal static string DLG_PIPE_IS_SHIPPED_HEDER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_IS_SHIPPED_HEDER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Труба успешно сохранена в базе. Труба  # .
-        /// </summary>
-        internal static string DLG_PIPE_SAVED {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_SAVED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение трубы.
-        /// </summary>
-        internal static string DLG_PIPE_SAVED_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_PIPE_SAVED_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Пожалуйста сначала закройте редактируемое разрешение на отгрузку.
-        /// </summary>
-        internal static string DLG_RAILCAR_CLOSE_EXIST {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_CLOSE_EXIST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Введите номер вагона.
-        /// </summary>
-        internal static string DLG_RAILCAR_NUMBER_EMPTY {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_NUMBER_EMPTY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?.
-        /// </summary>
-        internal static string DLG_RAILCAR_OPEN_READONLY {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_OPEN_READONLY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данная труба находится в вагоне #.
-        /// </summary>
-        internal static string DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Все трубы в в вагоне должны быть одного типоразмера.
-        /// </summary>
-        internal static string DLG_RAILCAR_TYPESIZE_ERROR {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_TYPESIZE_ERROR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сначала расформируйте вагон..
-        /// </summary>
-        internal static string DLG_RAILCAR_UNSHIP_FIRST {
-            get {
-                return ResourceManager.GetString("DLG_RAILCAR_UNSHIP_FIRST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Настройки успешно сохранены..
-        /// </summary>
-        internal static string DLG_SETUP_SAVED {
-            get {
-                return ResourceManager.GetString("DLG_SETUP_SAVED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сохранение настроек.
-        /// </summary>
-        internal static string DLG_SETUP_SAVED_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_SETUP_SAVED_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Отправка вагона без труб невозможна.
-        /// </summary>
-        internal static string DLG_SHIP_RAILCAR_VS_PIPES {
-            get {
-                return ResourceManager.GetString("DLG_SHIP_RAILCAR_VS_PIPES", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данное действие приведет в деактивации катушки: длина исходной трубы будет 
-        ///пересчитана, параметры катушки станут невозможны для редактирования.
-        /// Если катушка содержит брак, вместо деакитвации рекомендуем присвоить ей соответсвующий статус на входном контроле.
-        ///Деактивировать комплектующий элемент?.
-        /// </summary>
-        internal static string DLG_SPOOL_DEACTIVATION {
-            get {
-                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Деактивация катушки.
-        /// </summary>
-        internal static string DLG_SPOOL_DEACTIVATION_HEADER {
-            get {
-                return ResourceManager.GetString("DLG_SPOOL_DEACTIVATION_HEADER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вагон не отгружен.
-        /// </summary>
-        internal static string DLG_UNSHIP_UNSHIPPED_RAILCAR {
-            get {
-                return ResourceManager.GetString("DLG_UNSHIP_UNSHIPPED_RAILCAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ограничение размера документа.
         /// </summary>
         internal static string DocumentSizeLimit {
@@ -913,15 +367,6 @@ namespace Prizm.Main.Properties {
         internal static string Empty_Operation_Name {
             get {
                 return ResourceManager.GetString("Empty_Operation_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  неизвестный тип компонента.
-        /// </summary>
-        internal static string ERROR_UnknownComponentType {
-            get {
-                return ResourceManager.GetString("ERROR_UnknownComponentType", resourceCulture);
             }
         }
         
@@ -977,15 +422,6 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("export_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to [{0}] {1}.
-        /// </summary>
-        internal static string Export_Msg {
-            get {
-                return ResourceManager.GetString("Export_Msg", resourceCulture);
             }
         }
         
@@ -1054,65 +490,11 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Задержано.
-        /// </summary>
-        internal static string Hold {
-            get {
-                return ResourceManager.GetString("Hold", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Уникальный идентификатор.
         /// </summary>
         internal static string Id {
             get {
                 return ResourceManager.GetString("Id", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Во время работы программы произошла ошибка. Причина: .
-        /// </summary>
-        internal static string IDS_ERROR {
-            get {
-                return ResourceManager.GetString("IDS_ERROR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
-        /// </summary>
-        internal static string IDS_NO_MORE_DOCUMENTS {
-            get {
-                return ResourceManager.GetString("IDS_NO_MORE_DOCUMENTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Удалить запись?.
-        /// </summary>
-        internal static string IDS_QUESTION_DELETE_SELECTED {
-            get {
-                return ResourceManager.GetString("IDS_QUESTION_DELETE_SELECTED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to У вас остались несохранённые изменения. Отменить закрытие документа?.
-        /// </summary>
-        internal static string IDS_QUESTION_DO_NOT_CLOSE {
-            get {
-                return ResourceManager.GetString("IDS_QUESTION_DO_NOT_CLOSE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Несохранённые изменения.
-        /// </summary>
-        internal static string IDS_QUESTION_DO_NOT_CLOSE_HEADER {
-            get {
-                return ResourceManager.GetString("IDS_QUESTION_DO_NOT_CLOSE_HEADER", resourceCulture);
             }
         }
         
@@ -1236,15 +618,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Текущий пароль введен неверно..
-        /// </summary>
-        internal static string InvalidOldPassword {
-            get {
-                return ResourceManager.GetString("InvalidOldPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Активен.
         /// </summary>
         internal static string IsActive {
@@ -1281,12 +654,103 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?.
+        /// </summary>
+        internal static string Joint_DeactivationQuestion {
+            get {
+                return ResourceManager.GetString("Joint_DeactivationQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация стыка.
+        /// </summary>
+        internal static string Joint_DeactivationQuestionHeader {
+            get {
+                return ResourceManager.GetString("Joint_DeactivationQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует стык с номером:.
+        /// </summary>
+        internal static string Joint_Duplicate {
+            get {
+                return ResourceManager.GetString("Joint_Duplicate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера стыка.
+        /// </summary>
+        internal static string Joint_DuplicateHeader {
+            get {
+                return ResourceManager.GetString("Joint_DuplicateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap joint_icon {
             get {
                 object obj = ResourceManager.GetObject("joint_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        /// </summary>
+        internal static string Joint_IncorrectDiameter {
+            get {
+                return ResourceManager.GetString("Joint_IncorrectDiameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        /// </summary>
+        internal static string Joint_IncorrectDiameterHeader {
+            get {
+                return ResourceManager.GetString("Joint_IncorrectDiameterHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
+        /// </summary>
+        internal static string Joint_Saved {
+            get {
+                return ResourceManager.GetString("Joint_Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение стыка.
+        /// </summary>
+        internal static string Joint_SavedHeader {
+            get {
+                return ResourceManager.GetString("Joint_SavedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к разъединению элементов трубопровода. 
+        ///Вы действительно хотите вырезать стык?.
+        /// </summary>
+        internal static string Joint_WithdrawQuestion {
+            get {
+                return ResourceManager.GetString("Joint_WithdrawQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string Joint_WithdrawQuestionHeader {
+            get {
+                return ResourceManager.GetString("Joint_WithdrawQuestionHeader", resourceCulture);
             }
         }
         
@@ -1400,6 +864,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пожалуйста сначала закройте редактируемое разрешение на отгрузку.
+        /// </summary>
+        internal static string MainWindow_CloseEditingReleaseNote {
+            get {
+                return ResourceManager.GetString("MainWindow_CloseEditingReleaseNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?.
+        /// </summary>
+        internal static string MainWindow_OpenReleaseNoteReadOnly {
+            get {
+                return ResourceManager.GetString("MainWindow_OpenReleaseNoteReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строительство.
         /// </summary>
         internal static string MainWindowHeader_Construction {
@@ -1427,6 +909,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PRISM v.2.
+        /// </summary>
+        internal static string MainWindowHeader_Title {
+            get {
+                return ResourceManager.GetString("MainWindowHeader_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть.
         /// </summary>
         internal static string Mask_Label {
@@ -1441,6 +932,98 @@ namespace Prizm.Main.Properties {
         internal static string MaxExpected {
             get {
                 return ResourceManager.GetString("MaxExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверное имя пользователя или пароль..
+        /// </summary>
+        internal static string Message_AuthentificationFailed {
+            get {
+                return ResourceManager.GetString("Message_AuthentificationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход для пользователя {0} заблокирован.
+        /// </summary>
+        internal static string Message_AuthentificationFailedUserInactive {
+            get {
+                return ResourceManager.GetString("Message_AuthentificationFailedUserInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации комплектующего элемента. 
+        ///Параметры комплектующего элемента станут невозможны для редактирования. 
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string Message_ComponentDeactivationQuestion {
+            get {
+                return ResourceManager.GetString("Message_ComponentDeactivationQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация комплектующего элемента.
+        /// </summary>
+        internal static string Message_ComponentDeactivationQuestionHeader {
+            get {
+                return ResourceManager.GetString("Message_ComponentDeactivationQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удалить запись?.
+        /// </summary>
+        internal static string Message_DeleteRecord {
+            get {
+                return ResourceManager.GetString("Message_DeleteRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        internal static string Message_ErrorHeader {
+            get {
+                return ResourceManager.GetString("Message_ErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Начальная дата позже конечной.
+        /// </summary>
+        internal static string Message_FailureReportDate {
+            get {
+                return ResourceManager.GetString("Message_FailureReportDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный диапазон дат.
+        /// </summary>
+        internal static string Message_FailureReportDateHeader {
+            get {
+                return ResourceManager.GetString("Message_FailureReportDateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя одновременно открыть больше документов..
+        /// </summary>
+        internal static string Message_NoMoreDocumentsCanOpen {
+            get {
+                return ResourceManager.GetString("Message_NoMoreDocumentsCanOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неизвестный тип компонента.
+        /// </summary>
+        internal static string Message_UnknownComponentType {
+            get {
+                return ResourceManager.GetString("Message_UnknownComponentType", resourceCulture);
             }
         }
         
@@ -1554,6 +1137,204 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново.
+        /// </summary>
+        internal static string MillPipe_ChangeTypesizeConfirmation {
+            get {
+                return ResourceManager.GetString("MillPipe_ChangeTypesizeConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Внешнее.
+        /// </summary>
+        internal static string MillPipe_CoatExternal {
+            get {
+                return ResourceManager.GetString("MillPipe_CoatExternal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Внутреннее.
+        /// </summary>
+        internal static string MillPipe_CoatInternal {
+            get {
+                return ResourceManager.GetString("MillPipe_CoatInternal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона..
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeInRailcarError {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeInRailcarError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы в вагоне невозможна.
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeInRailcarErrorHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeInRailcarErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?.
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeQuestion {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы.
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeQuestionHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невозможно деактивировать отгруженную трубу..
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeShippedError {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeShippedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба отгружена.
+        /// </summary>
+        internal static string MillPipe_DeactivatePipeShippedErrorHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_DeactivatePipeShippedErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо удалить данную трубу из вагона. .
+        /// </summary>
+        internal static string MillPipe_ErrorEditingInspectionOperationPipeInRailcar {
+            get {
+                return ResourceManager.GetString("MillPipe_ErrorEditingInspectionOperationPipeInRailcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
+        /// </summary>
+        internal static string MillPipe_ErrorEmptyOrFutureDate {
+            get {
+                return ResourceManager.GetString("MillPipe_ErrorEmptyOrFutureDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Уже существует труба с номером: .
+        /// </summary>
+        internal static string MillPipe_ExistingNumberError {
+            get {
+                return ResourceManager.GetString("MillPipe_ExistingNumberError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование номера трубы.
+        /// </summary>
+        internal static string MillPipe_ExistingNumberErrorHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_ExistingNumberErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Новая плавка.
+        /// </summary>
+        internal static string MillPipe_NewHeadQuestionHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_NewHeadQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создать плавку {0}?.
+        /// </summary>
+        internal static string MillPipe_NewHeatQuestion {
+            get {
+                return ResourceManager.GetString("MillPipe_NewHeatQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создать наряд-заказ {0}?.
+        /// </summary>
+        internal static string MillPipe_NewPurchaseOrderQuestion {
+            get {
+                return ResourceManager.GetString("MillPipe_NewPurchaseOrderQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Новый наряд-заказ.
+        /// </summary>
+        internal static string MillPipe_NewPurchaseOrderQuestionHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_NewPurchaseOrderQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером..
+        /// </summary>
+        internal static string MillPipe_NotAllowedToChangeTypesize {
+            get {
+                return ResourceManager.GetString("MillPipe_NotAllowedToChangeTypesize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба успешно сохранена в базе. Труба  # .
+        /// </summary>
+        internal static string MillPipe_PipeSaved {
+            get {
+                return ResourceManager.GetString("MillPipe_PipeSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение трубы.
+        /// </summary>
+        internal static string MillPipe_PipeSavedHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_PipeSavedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изменение типоразмера.
+        /// </summary>
+        internal static string MillPipe_PipeSizeChangeHeader {
+            get {
+                return ResourceManager.GetString("MillPipe_PipeSizeChangeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Значение не соответствует маске.
+        /// </summary>
+        internal static string MillPipe_ValueDoesNotMatchMask {
+            get {
+                return ResourceManager.GetString("MillPipe_ValueDoesNotMatchMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Формат номера трубы: .
         /// </summary>
         internal static string MillPipeNumber_Mask_Hint {
@@ -1653,15 +1434,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Нет.
-        /// </summary>
-        internal static string NO {
-            get {
-                return ResourceManager.GetString("NO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Дубликат номера труб.
         /// </summary>
         internal static string Notification_DublicatePipeNumber_Critical {
@@ -1735,6 +1507,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Задержано.
+        /// </summary>
+        internal static string PartInspectionStatus_Hold {
+            get {
+                return ResourceManager.GetString("PartInspectionStatus_Hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ожидает контроль.
+        /// </summary>
+        internal static string PartInspectionStatus_Pending {
+            get {
+                return ResourceManager.GetString("PartInspectionStatus_Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отклонено.
+        /// </summary>
+        internal static string PartInspectionStatus_Rejected {
+            get {
+                return ResourceManager.GetString("PartInspectionStatus_Rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неопределённый.
+        /// </summary>
+        internal static string PartInspectionStatus_Undefined {
+            get {
+                return ResourceManager.GetString("PartInspectionStatus_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Компонент.
         /// </summary>
         internal static string PartSearch_PartTypeComponent {
@@ -1789,6 +1597,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Текущий пароль введен неверно..
+        /// </summary>
+        internal static string PassChange_InvalidOldPassword {
+            get {
+                return ResourceManager.GetString("PassChange_InvalidOldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пароли не совпадают..
+        /// </summary>
+        internal static string PassChange_PasswordsNotMatch {
+            get {
+                return ResourceManager.GetString("PassChange_PasswordsNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap password {
@@ -1805,24 +1631,6 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("password_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Пароли не совпадают..
-        /// </summary>
-        internal static string PasswordsNotMatch {
-            get {
-                return ResourceManager.GetString("PasswordsNotMatch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ожидает контроль.
-        /// </summary>
-        internal static string Pending {
-            get {
-                return ResourceManager.GetString("Pending", resourceCulture);
             }
         }
         
@@ -1850,15 +1658,6 @@ namespace Prizm.Main.Properties {
         internal static string PipeMillSizeType {
             get {
                 return ResourceManager.GetString("PipeMillSizeType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изменение типоразмера.
-        /// </summary>
-        internal static string PipeSizeChangeHeader {
-            get {
-                return ResourceManager.GetString("PipeSizeChangeHeader", resourceCulture);
             }
         }
         
@@ -1944,15 +1743,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRIZM.
-        /// </summary>
-        internal static string PRIZM {
-            get {
-                return ResourceManager.GetString("PRIZM", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap prizma_appIcon_32 {
@@ -2018,29 +1808,110 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Все трубы в в вагоне должны быть одного типоразмера.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcar {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_DifferentTypeSizeInRailcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная труба находится в вагоне #.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите номер разрешения на отгрузку.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_MissingReleaseNoteNumber {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_MissingReleaseNoteNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отмена отгрузки не актуальна, вагоны сейчас не отгружены.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_NotShipped {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_NotShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сформирован.
         /// </summary>
-        internal static string RailcarPending {
+        internal static string ReleaseNoteNewEdit_PendingStatus {
             get {
-                return ResourceManager.GetString("RailcarPending", resourceCulture);
+                return ResourceManager.GetString("ReleaseNoteNewEdit_PendingStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отправка без труб невозможна.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_PipesAbsent {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_PipesAbsent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данные разрешения на отгрузку сохранены.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_SaveSuccess {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_SaveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение успешно.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_SaveSuccessHeader {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_SaveSuccessHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отгрузка произошла успешно.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_Shipped {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_Shipped", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Отгружен.
         /// </summary>
-        internal static string RailcarShipped {
+        internal static string ReleaseNoteNewEdit_ShippedStatus {
             get {
-                return ResourceManager.GetString("RailcarShipped", resourceCulture);
+                return ResourceManager.GetString("ReleaseNoteNewEdit_ShippedStatus", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отклонено.
+        ///   Looks up a localized string similar to Сначала расформируйте вагон/разрешение на отгрузку..
         /// </summary>
-        internal static string Rejected {
+        internal static string ReleaseNoteNewEdit_UnshipFirst {
             get {
-                return ResourceManager.GetString("Rejected", resourceCulture);
+                return ResourceManager.GetString("ReleaseNoteNewEdit_UnshipFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отгрузка отменена. Дата отгрузки аннулирована. Трубы перемещены на склад..
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_Unshipped {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_Unshipped", resourceCulture);
             }
         }
         
@@ -2051,15 +1922,6 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("reports_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сварка стыка.
-        /// </summary>
-        internal static string RequiredWeldJointOperation {
-            get {
-                return ResourceManager.GetString("RequiredWeldJointOperation", resourceCulture);
             }
         }
         
@@ -2525,11 +2387,32 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данное действие приведет к деактивации катушки: длина исходной трубы будет 
+        ///пересчитана, параметры катушки станут невозможны для редактирования.
+        /// Если катушка содержит брак, вместо деактивации рекомендуем присвоить ей соответствующий статус на входном контроле.
+        ///Деактивировать комплектующий элемент?.
+        /// </summary>
+        internal static string Spool_DeactivationQuestion {
+            get {
+                return ResourceManager.GetString("Spool_DeactivationQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string Spool_DeactivationQuestionHeader {
+            get {
+                return ResourceManager.GetString("Spool_DeactivationQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Редактирование катушки.
         /// </summary>
-        internal static string SPOOL_EDIT_FORM_TEXT {
+        internal static string Spool_EditDocumentHeader {
             get {
-                return ResourceManager.GetString("SPOOL_EDIT_FORM_TEXT", resourceCulture);
+                return ResourceManager.GetString("Spool_EditDocumentHeader", resourceCulture);
             }
         }
         
@@ -2625,15 +2508,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Дата не может быть пустой или будущей.
-        /// </summary>
-        internal static string TestResultIncorrectDate {
-            get {
-                return ResourceManager.GetString("TestResultIncorrectDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Объект инспекции.
         /// </summary>
         internal static string TestSubject {
@@ -2670,15 +2544,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Введите уникальное значение.
-        /// </summary>
-        internal static string UNIQUE_VALUE_REQUIRED {
-            get {
-                return ResourceManager.GetString("UNIQUE_VALUE_REQUIRED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Использованные изделия.
         /// </summary>
         internal static string UsedProductReport {
@@ -2697,20 +2562,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Значение не соответствует маске.
+        ///   Looks up a localized string similar to Введите уникальное значение.
         /// </summary>
-        internal static string VALUE_DOESNT_MATCH_MASK {
+        internal static string Validation_UniqueValueRequired {
             get {
-                return ResourceManager.GetString("VALUE_DOESNT_MATCH_MASK", resourceCulture);
+                return ResourceManager.GetString("Validation_UniqueValueRequired", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Значение обязательно.
         /// </summary>
-        internal static string VALUE_REQUIRED {
+        internal static string Validation_ValueRequired {
             get {
-                return ResourceManager.GetString("VALUE_REQUIRED", resourceCulture);
+                return ResourceManager.GetString("Validation_ValueRequired", resourceCulture);
             }
         }
         
@@ -2811,15 +2676,6 @@ namespace Prizm.Main.Properties {
         internal static string Wrong_Spool_Length_NullLength {
             get {
                 return ResourceManager.GetString("Wrong_Spool_Length_NullLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Да.
-        /// </summary>
-        internal static string YES {
-            get {
-                return ResourceManager.GetString("YES", resourceCulture);
             }
         }
         

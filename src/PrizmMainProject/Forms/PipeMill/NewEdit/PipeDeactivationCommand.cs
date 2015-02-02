@@ -10,6 +10,7 @@ using Prizm.Main.Properties;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
 using Ninject;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -41,8 +42,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if (viewModel.Pipe.Railcar == null)
             {
                 if (notify.ShowYesNo(
-                    Resources.DLG_PIPE_DEACTIVATION,
-                    Resources.DLG_PIPE_DEACTIVATION_HEDER))
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeQuestion),
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeQuestionHeader)))
                 {
                     viewModel.Pipe.IsActive = false;
                     viewModel.SavePipeCommand.Execute();
@@ -52,14 +53,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             else if (viewModel.PipeStatus == PipeMillStatus.Shipped)
             {
                 notify.ShowInfo(
-                    Resources.DLG_PIPE_IS_SHIPPED,
-                    Resources.DLG_PIPE_IS_SHIPPED_HEDER);
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeShippedError),
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeShippedErrorHeader));
             }
             else
             {
                 notify.ShowInfo(
-                    Resources.DLG_PIPE_IN_RAILCAR,
-                    Resources.DLG_PIPE_IN_RAILCAR_HEDER);
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarError),
+                    Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarErrorHeader));
             }
             RefreshVisualStateEvent();
         }

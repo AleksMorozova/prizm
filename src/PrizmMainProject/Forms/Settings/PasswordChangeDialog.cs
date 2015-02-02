@@ -65,7 +65,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 if(oldPasswordHash != passwordHash)
                 {
-                    MessageBox.Show(Resources.InvalidOldPassword);
+                    MessageBox.Show(Program.LanguageManager.GetString(StringResources.PassChange_InvalidOldPassword));
                     DialogResult = System.Windows.Forms.DialogResult.None;
                     return;
                 }
@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.Settings
 
             if(newPasswordHash != confirmPasswordHash)
             {
-                MessageBox.Show(Resources.PasswordsNotMatch);
+                MessageBox.Show(Program.LanguageManager.GetString(StringResources.PassChange_PasswordsNotMatch));
                 DialogResult = System.Windows.Forms.DialogResult.None;
                 return;
             }

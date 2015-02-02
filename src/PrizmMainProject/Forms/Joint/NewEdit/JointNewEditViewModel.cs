@@ -778,7 +778,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             JointWeldResult requredWeldResult = new JointWeldResult()
             { 
                 IsActive = true,
-                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
+                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld("Сварка стыка"), // looking for an editable value is a bad idea
                 Joint = this.Joint
             };
             jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};

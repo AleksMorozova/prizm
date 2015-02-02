@@ -16,6 +16,8 @@ using Prizm.Main.Controls;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Main.Languages;
+using Prizm.Main.Documents;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -27,6 +29,14 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
             = new Dictionary<PartInspectionStatus, string>();
+        // do NOT re-create it because reference passed to localization item. Clean it instead.
+        private List<string> localizedAllPartTypes = new List<string>();
+        private PartType originalPart = PartType.Undefined;
+        private void UpdateTextEdit()
+        {
+            bindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
+        }
+
         public PartInspectionXtraForm()
         {
             InitializeComponent();
@@ -39,6 +49,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems())
+            {
+                localizedAllPartTypes.Add(item.Item2);
+            }
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
             viewModel.ModifiableView = this;
@@ -64,14 +78,20 @@ namespace Prizm.Main.Forms.Parts.Inspection
             bindingSource.DataSource = viewModel;
             searchNumber.DataBindings.Add("Editvalue", bindingSource, "SearchNumber");
             elementNumber.DataBindings.Add("Text", bindingSource, "ElementNumber");
-            elementType.DataBindings.Add("Text", bindingSource, "ElementType");
+
+            Binding bind = new Binding("EditValue", bindingSource, "ElementType");
+            bind.FormattingEnabled = true;
+            bind.Format += (sender, e) => { originalPart = (PartType)e.Value; e.Value = (string)localizedAllPartTypes[(int)e.Value]; };
+            bind.Parse += (sender, e) => { e.Value = originalPart; };
+            elementType.DataBindings.Add(bind);
+
             inspections.DataBindings.Add("DataSource", bindingSource, "InspectionTestResults");
 
             inspectionStatusDict.Clear();
             inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.PartInspectionStatus_Hold);
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.PartInspectionStatus_Rejected);
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.PartInspectionStatus_Pending);
             inspectionStatusDict.Add(PartInspectionStatus.Undefined, string.Empty);
             resultStatusLookUpEdit.DataSource = inspectionStatusDict.Where(x => x.Key != PartInspectionStatus.Undefined);
 
@@ -92,26 +112,31 @@ namespace Prizm.Main.Forms.Parts.Inspection
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
-                new LocalizedItem(searchNumberLayout, "PartInspection_SearchNumberLabel"),
-                new LocalizedItem(elementNumberLayout, "PartInspection_ElementNumberLabel"),
-                new LocalizedItem(elementTypeLayout, "PartInspection_ElementTypeLabel"),
+                new LocalizedItem(searchNumberLayout, StringResources.PartInspection_SearchNumberLabel.Id),
+                new LocalizedItem(elementNumberLayout, StringResources.PartInspection_ElementNumberLabel.Id),
+                new LocalizedItem(elementTypeLayout, StringResources.PartInspection_ElementTypeLabel.Id),
 
                 // controls
-                new LocalizedItem(searchButton, "PartInspection_SearchButton"),
-                new LocalizedItem(saveButton, "PartInspection_SaveButton"),
-                new LocalizedItem(saveAndClearButton, "PartInspection_SaveAndClearButton"),
+                new LocalizedItem(searchButton, StringResources.PartInspection_SearchButton.Id),
+                new LocalizedItem(saveButton, StringResources.PartInspection_SaveButton.Id),
+                new LocalizedItem(saveAndClearButton, StringResources.PartInspection_SaveAndClearButton.Id),
 
                 // grid column headers
-                new LocalizedItem(colDate, "PartInspection_DateColumnHeader"),
-                new LocalizedItem(colResult, "PartInspection_ResultColumnHeader"),
-                new LocalizedItem(colInspector, "PartInspection_InspectorColumnHeader"),
-                new LocalizedItem(colReason, "PartInspection_ReasonColumnHeader"),
+                new LocalizedItem(colDate, StringResources.PartInspection_DateColumnHeader.Id),
+                new LocalizedItem(colResult, StringResources.PartInspection_ResultColumnHeader.Id),
+                new LocalizedItem(colInspector, StringResources.PartInspection_InspectorColumnHeader.Id),
+                new LocalizedItem(colReason, StringResources.PartInspection_ReasonColumnHeader.Id),
 
                 // layout control groups
-                new LocalizedItem(searchElementGroup, "PartInspection_SearchGroup"),
-                new LocalizedItem(inspectionControlGroup, "PartInspection_IncomingInspectionGroup"),
-                // other
+                new LocalizedItem(searchElementGroup, StringResources.PartInspection_SearchGroup.Id),
+                new LocalizedItem(inspectionControlGroup, StringResources.PartInspection_IncomingInspectionGroup.Id),
+
+                 // one-way text edit for part types. See data binding for appropriate text edit, to understand the connection.
+                    new LocalizedItem(UpdateTextEdit, localizedAllPartTypes,
+                        new string [] {StringResources.PartTypeUndefined.Id, StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
+
+                //TODO: Create LocalizedItem for repository lookup item. When created, use StringResources.PartInspectionStatus_
+
             };
         }
 
@@ -188,7 +213,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Resources.DateFirst);
+                inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -212,7 +237,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             commandManager["Save"].RefreshState();
             commandManager["SavaAndClear"].RefreshState();
-        }            
-            
+        }
+
+        private void inspectionsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            var gv = sender as GridView;
+            var inspResult = gv.GetRow(e.RowHandle) as InspectionTestResult;
+
+            if (inspResult.Inspectors == null || inspResult.Inspectors.Count <= 0)
+            {
+                gv.SetColumnError(colInspector, Program.LanguageManager.GetString(StringResources.Value_Required));
+                e.Valid = false;
+            }
+        }
     }
 }

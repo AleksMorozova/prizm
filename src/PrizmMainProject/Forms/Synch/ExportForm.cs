@@ -66,12 +66,12 @@ namespace Prizm.Main.Forms.Synch
 
          if (portion == null && !exporter.AnyNewDataToExport())
          {
-            exporter_OnMessage(Resources.Export_NoData);
+            exporter_OnMessage(Program.LanguageManager.GetString(StringResources.Export_NoData));
             return;
          }
 
          SaveFileDialog dlg = new SaveFileDialog();
-         dlg.Filter = Resources.Export_Filter;
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter);
 
          if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             return;
@@ -113,7 +113,7 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_Error, DateTime.Now.ToString(), e.Message) + "\n");
+            log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_Error), DateTime.Now.ToString(), e.Message) + "\n");
             if (e.InnerException != null && e.InnerException.StackTrace != null)
             {
                log.AppendText(e.InnerException.StackTrace.ToString() + "\n");
@@ -137,9 +137,9 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_ArchiveExported, DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
+            log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_ArchiveExported), DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
             log.AppendText("--------------------------------------------------------------------------------------------\n");
-            log.AppendText(Resources.Export_Ready + "\n");
+            log.AppendText(Program.LanguageManager.GetString(StringResources.Export_Ready) + "\n");
          });
       }
 
@@ -147,7 +147,7 @@ namespace Prizm.Main.Forms.Synch
       {
          InvokeIfRequired(() =>
          {
-            log.AppendText(string.Format(Resources.Export_Msg, DateTime.Now.ToString(), msg) + "\n");
+             log.AppendText(string.Format("[{0}] {1}", DateTime.Now.ToString(), msg) + "\n");
          });
       }
 

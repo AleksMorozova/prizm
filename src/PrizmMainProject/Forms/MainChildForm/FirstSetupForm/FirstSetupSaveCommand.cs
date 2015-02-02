@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Save(viewModel.Admin);
             firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-            firstSetupRepo.JointOperationRepo.SeedRequiredWeld(Resources.RequiredWeldJointOperation);
+            firstSetupRepo.JointOperationRepo.SeedRequiredWeld("Сварка стыка");
             firstSetupRepo.Commit();
             firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
             firstSetupRepo.UserRepo.Evict(viewModel.Admin);
