@@ -1871,7 +1871,7 @@ Login_ExitButton=Exit
 FirstSetup_ProjectTitleLabel=Project title
 
 ;Начальные установки. Размер файла
-FirstSetup_FileSizeLabel=External file size
+FirstSetup_FileSizeLabel=Maximum external file size(KB)
 
 ;Начальные установки. Тип станции
 FirstSetup_TypeLabel=Workstation type
