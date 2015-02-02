@@ -52,10 +52,10 @@
             this.searchEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.periodLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.periodLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.numberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
@@ -75,10 +75,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.periodLabelLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.periodLabelLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).BeginInit();
             this.SuspendLayout();
@@ -289,6 +289,7 @@
             this.generalAuditLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalAuditLayoutGroup.Name = "Root";
             this.generalAuditLayoutGroup.Size = new System.Drawing.Size(796, 436);
+            this.generalAuditLayoutGroup.Text = "Root";
             this.generalAuditLayoutGroup.TextVisible = false;
             // 
             // searchParametersLayoutGroup
@@ -330,6 +331,7 @@
             this.searchEmptySpace.Location = new System.Drawing.Point(596, 0);
             this.searchEmptySpace.Name = "searchEmptySpace";
             this.searchEmptySpace.Size = new System.Drawing.Size(156, 80);
+            this.searchEmptySpace.Text = "searchEmptySpace";
             this.searchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchButtonLayout
@@ -342,6 +344,7 @@
             this.searchButtonLayout.Name = "searchButtonLayout";
             this.searchButtonLayout.Size = new System.Drawing.Size(270, 39);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextVisible = false;
             // 
@@ -352,7 +355,19 @@
             this.emptySpaceItem1.Location = new System.Drawing.Point(586, 17);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(10, 24);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.radioPeriodUser;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(122, 80);
+            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // periodLabelLayout
             // 
@@ -364,22 +379,6 @@
             this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 0, 0);
             this.periodLabelLayout.Text = "За период";
             this.periodLabelLayout.TextSize = new System.Drawing.Size(81, 13);
-            // 
-            // endDateLayout
-            // 
-            this.endDateLayout.Control = this.endDate;
-            this.endDateLayout.CustomizationFormText = "По";
-            this.endDateLayout.Location = new System.Drawing.Point(444, 17);
-            this.endDateLayout.MaxSize = new System.Drawing.Size(142, 24);
-            this.endDateLayout.MinSize = new System.Drawing.Size(142, 24);
-            this.endDateLayout.Name = "endDateLayout";
-            this.endDateLayout.Size = new System.Drawing.Size(142, 24);
-            this.endDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.endDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 0);
-            this.endDateLayout.Text = "По";
-            this.endDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.endDateLayout.TextSize = new System.Drawing.Size(13, 13);
-            this.endDateLayout.TextToControlDistance = 5;
             // 
             // startDateLayout
             // 
@@ -397,15 +396,21 @@
             this.startDateLayout.TextSize = new System.Drawing.Size(7, 13);
             this.startDateLayout.TextToControlDistance = 5;
             // 
-            // layoutControlItem1
+            // endDateLayout
             // 
-            this.layoutControlItem1.Control = this.radioPeriodUser;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(122, 80);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.endDateLayout.Control = this.endDate;
+            this.endDateLayout.CustomizationFormText = "По";
+            this.endDateLayout.Location = new System.Drawing.Point(444, 17);
+            this.endDateLayout.MaxSize = new System.Drawing.Size(142, 24);
+            this.endDateLayout.MinSize = new System.Drawing.Size(142, 24);
+            this.endDateLayout.Name = "endDateLayout";
+            this.endDateLayout.Size = new System.Drawing.Size(142, 24);
+            this.endDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.endDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 0);
+            this.endDateLayout.Text = "По";
+            this.endDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.endDateLayout.TextSize = new System.Drawing.Size(13, 13);
+            this.endDateLayout.TextToControlDistance = 5;
             // 
             // numberLayout
             // 
@@ -425,6 +430,7 @@
             this.auditResultsLayout.Location = new System.Drawing.Point(0, 123);
             this.auditResultsLayout.Name = "auditResultsLayout";
             this.auditResultsLayout.Size = new System.Drawing.Size(776, 293);
+            this.auditResultsLayout.Text = "auditResultsLayout";
             this.auditResultsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.auditResultsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.auditResultsLayout.TextVisible = false;
@@ -458,10 +464,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.periodLabelLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.periodLabelLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startDateLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).EndInit();
             this.ResumeLayout(false);
