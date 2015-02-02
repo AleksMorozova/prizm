@@ -511,11 +511,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         bool IValidatable.Validate()
         {
-
-            repairOperationsView_ValidateRow(
-                        repairOperationsView,
-                        new DevExpress.XtraGrid.Views.Base
-                            .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
+            if (viewModel.JointWeldResults.Count > 0)
+            {
+                repairOperationsView_ValidateRow(
+                               repairOperationsView,
+                               new DevExpress.XtraGrid.Views.Base
+                                   .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
+            }
             return dxValidationProvider.Validate() &&
                    viewModel.JointWeldResults.Where(_ => _.Date == null ||
                                                     _.Operation == null ||

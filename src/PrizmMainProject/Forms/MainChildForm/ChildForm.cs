@@ -15,6 +15,8 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("")]
     public class ChildForm : PrizmForm, IModifiable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ChildForm));
+
         #region --- Modified and header ---
 
         private bool isModified = false;
@@ -241,7 +243,10 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             if(IsEditableMethod == null)
             {
-                throw new ApplicationException(String.Format("No method defined for conditional mode of control {0}", c.ToString()));
+                var e = new ApplicationException(String.Format("No method defined for conditional mode of control {0}", c.ToString()));
+                log.Error(e.Message);
+                throw e;
+
             }
             controls.Add(c, ControlCondition.Conditional, IsEditableMethod);
         }
@@ -297,7 +302,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
         protected override List<LocalizedItem> CreateLocalizedItems()
         {
-            throw new ApplicationException("ChildForm.CreateLocalizedItems must not be called.");
+            var e = new ApplicationException("ChildForm.CreateLocalizedItems must not be called.");
+            log.Error(e.Message);
+            throw e;
         }
     }
 

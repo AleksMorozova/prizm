@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class SaveComponentCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(GridViewExtensions));
+
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -83,6 +85,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 }
                 catch (RepositoryException ex)
                 {
+                    log.Error(ex.Message);
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
             }

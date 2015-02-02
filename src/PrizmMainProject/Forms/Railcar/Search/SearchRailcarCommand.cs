@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Railcar.Search
 {
     public class SearchRailcarCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SearchRailcarCommand));
+
         private readonly RailcarSearchViewModel viewModel;
         private readonly IReleaseNoteRepository repo;
         private readonly IUserNotify notify;
@@ -72,6 +74,7 @@ namespace Prizm.Main.Forms.Railcar.Search
             }
             catch(RepositoryException ex)
             {
+                log.Error(ex.Message);
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
 
