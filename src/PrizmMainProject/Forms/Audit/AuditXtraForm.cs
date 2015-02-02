@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.Audit
 
                 user.Enabled = false;
 
-                viewModel.TracingMode = TracingModeEnum.TracingByPeriod;
+                viewModel.TracingMode = TracingModeEnum.TracingByNumber;
             }
             else
             {
