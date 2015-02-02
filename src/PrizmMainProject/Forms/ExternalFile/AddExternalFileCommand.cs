@@ -59,6 +59,10 @@ namespace Prizm.Main.Forms.ExternalFile
                         repo.Commit();
                         repo.Evict(fileEntity);
                         System.IO.File.Copy(Directories.FilesToAttachFolder + fileEntity.NewName, Directories.TargetPath + fileEntity.NewName);
+
+                        log.Info(string.Format("The file #{0}, id:{1} has been added to entity.",
+                            fileEntity.FileName,
+                            fileEntity.Id));
                     }
                 }
                 catch (RepositoryException ex)

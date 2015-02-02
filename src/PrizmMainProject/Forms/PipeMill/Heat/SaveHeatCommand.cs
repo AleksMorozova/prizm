@@ -34,6 +34,10 @@ namespace Prizm.Main.Forms.PipeMill.Heat
                 repo.HeatRepo.SaveOrUpdate(heat);
                 repo.Commit();
                 repo.HeatRepo.Evict(heat);
+
+                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                    viewModel.Heat.Number,
+                    viewModel.Heat.Id));
             }
             catch (RepositoryException ex)
             {

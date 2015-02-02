@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class SaveComponentCommand: ICommand
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(GridViewExtensions));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveComponentCommand));
 
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
@@ -82,6 +82,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     notify.ShowSuccess(
                          string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
                          Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));
+
+                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.", 
+                        viewModel.Component.Number, 
+                        viewModel.Component.Id));
                 }
                 catch (RepositoryException ex)
                 {
