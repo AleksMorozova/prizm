@@ -534,39 +534,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        /// <summary>
-        ///Customizes data shown in Expected result column
-        /// </summary>
-        private void inspectionsGridView_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-        {
-            GridView view = sender as GridView;
-            if(e.Column.Name == expectedResultGridColumn.Name && e.IsGetData)
-                e.Value =
-                    getExpectedValue(view, e.ListSourceRowIndex);
-        }
-
-        /// <summary>
-        /// Returns data shown in Expected result column depending on expected result type
-        /// </summary>
-        private string getExpectedValue(GridView view, int listSourceRowIndex)
-        {
-            PipeTestResult pipeTestResult = view.GetRow(listSourceRowIndex) as PipeTestResult;
-            if(pipeTestResult != null && pipeTestResult.Operation != null)
-            {
-                switch(pipeTestResult.Operation.ResultType)
-                {
-                    case PipeTestResultType.Boolean:
-                        return pipeTestResult.Operation.BoolExpected.ToString();
-                    case PipeTestResultType.Diapason:
-                        return pipeTestResult.Operation.MinExpected + "-" + pipeTestResult.Operation.MaxExpected;
-                    default:
-                        return "";
-                }
-            }
-            else
-                return "";
-        }
-
         private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
             GridView view = sender as GridView;
