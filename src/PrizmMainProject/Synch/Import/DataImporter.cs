@@ -23,6 +23,7 @@ namespace Prizm.Main.Synch.Import
 {
     public class DataImporter : Importer, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
         public bool TaskIsCancelled { get; set; }
 
@@ -106,7 +107,11 @@ namespace Prizm.Main.Synch.Import
         {
             Portion portion = importRepo.PortionRepo.Get(portionId);
             if (portion != null)
-                throw new ImportException(Program.LanguageManager.GetString(StringResources.Import_SamePortion));
+            {
+                var ex = new ImportException(Program.LanguageManager.GetString(StringResources.Import_SamePortion));
+                log.Error(ex.Message);
+                throw ex;
+            }
 
         }
 

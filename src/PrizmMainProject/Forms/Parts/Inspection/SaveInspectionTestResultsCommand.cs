@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
 {
     public class SaveInspectionTestResultsCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveInspectionTestResultsCommand));
+
         private readonly IInspectionTestResultRepository repo;
         private readonly PartInspectionViewModel viewModel;
         private readonly IUserNotify notify;
@@ -51,6 +53,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
             catch (RepositoryException ex)
             {
+                log.Error(ex.Message);
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
             RefreshVisualStateEvent();

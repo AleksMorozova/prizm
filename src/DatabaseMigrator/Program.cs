@@ -10,6 +10,8 @@ namespace Prizm.DatabaseMigrator
 {
     class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
         private const string DATABASE = "SqlServer2008";
         private const string MIGRATE_TASK_NAME = "migrate";
         private const string ROLLBACK_TASK_NAME = "rollback";
@@ -32,7 +34,9 @@ namespace Prizm.DatabaseMigrator
 
                 if (!File.Exists(exeConfigurationFileMap.ExeConfigFilename))
                 {
-                    throw new Exception("Can't find configuration file: " + exeConfigurationFileMap);
+                    var ex = new Exception("Can't find configuration file: " + exeConfigurationFileMap);
+                    log.Error(ex.Message);
+                    throw ex;
                 }
                 var configuration = ConfigurationManager.OpenMappedExeConfiguration(exeConfigurationFileMap, ConfigurationUserLevel.None);
                 var connectionString = configuration.ConnectionStrings.ConnectionStrings[CONNECTION_NAME].ConnectionString;

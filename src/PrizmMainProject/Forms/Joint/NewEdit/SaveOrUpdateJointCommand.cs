@@ -14,6 +14,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class SaveOrUpdateJointCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveOrUpdateJointCommand));
+
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -60,6 +62,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             catch (RepositoryException ex)
             {
+                log.Error(ex.Message);
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
         }

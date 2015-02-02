@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.ExternalFile
 {
     public class AddExternalFileCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AddExternalFileCommand));
+
         private readonly IFileRepository repo;
         private readonly ExternalFilesViewModel viewModel;
         private readonly IUserNotify notify;
@@ -40,21 +42,29 @@ namespace Prizm.Main.Forms.ExternalFile
                     DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
                     directoryInfo.Attributes |= FileAttributes.Hidden;
                 }
-                foreach (KeyValuePair<string, string> kvp in viewModel.FilesToAttach)
+                try
                 {
-                    Prizm.Domain.Entity.File fileEntity = new Domain.Entity.File()
+                    foreach (KeyValuePair<string, string> kvp in viewModel.FilesToAttach)
                     {
-                        FileName = kvp.Value,
-                        UploadDate = DateTime.Now,
-                        Item = viewModel.Item,
-                        IsActive = true,
-                        NewName = kvp.Key
-                    };
-                    repo.BeginTransaction();
-                    repo.Save(fileEntity);
-                    repo.Commit();
-                    repo.Evict(fileEntity);
-                    System.IO.File.Copy(Directories.FilesToAttachFolder + fileEntity.NewName, Directories.TargetPath + fileEntity.NewName);
+                        Prizm.Domain.Entity.File fileEntity = new Domain.Entity.File()
+                        {
+                            FileName = kvp.Value,
+                            UploadDate = DateTime.Now,
+                            Item = viewModel.Item,
+                            IsActive = true,
+                            NewName = kvp.Key
+                        };
+                        repo.BeginTransaction();
+                        repo.Save(fileEntity);
+                        repo.Commit();
+                        repo.Evict(fileEntity);
+                        System.IO.File.Copy(Directories.FilesToAttachFolder + fileEntity.NewName, Directories.TargetPath + fileEntity.NewName);
+                    }
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
 
                 Directory.Delete(Directories.FilesToAttachFolder, true);

@@ -12,11 +12,14 @@ using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.Spool
 {
     public class SaveSpoolCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSpoolCommand));
+
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
@@ -39,35 +42,43 @@ namespace Prizm.Main.Forms.Spool
             {
                 if (viewModel.CanCut)
                 {
-                    viewModel.Pipe.ToExport = true;
-                    viewModel.Pipe.IsCutOnSpool = true;
-                    viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
-                    repos.BeginTransaction();
-                    repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-                    repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-                    repos.Commit();
-                    repos.PipeRepo.Evict(viewModel.Pipe);
-                    repos.SpoolRepo.Evict(viewModel.Spool);
+                    try
+                    {
+                        viewModel.Pipe.ToExport = true;
+                        viewModel.Pipe.IsCutOnSpool = true;
+                        viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
+                        repos.BeginTransaction();
+                        repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                        repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                        repos.Commit();
+                        repos.PipeRepo.Evict(viewModel.Pipe);
+                        repos.SpoolRepo.Evict(viewModel.Spool);
 
-            //saving attached documents
-            if (viewModel.FilesFormViewModel != null)
-            {
-               viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
-               viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-               viewModel.FilesFormViewModel = null;
-            }
-                    viewModel.ModifiableView.IsModified = false;
-                    notify.ShowNotify(
-                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
-                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
-                        );
+                        //saving attached documents
+                        if (viewModel.FilesFormViewModel != null)
+                        {
+                            viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
+                            viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                            viewModel.FilesFormViewModel = null;
+                        }
+                        viewModel.ModifiableView.IsModified = false;
+                        notify.ShowNotify(
+                            Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
+                            Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
+                            );
 
-                    string oldPipeNumber = viewModel.Pipe.Number;
-                    viewModel.NewSpool();
-                    viewModel.PipeNumber = oldPipeNumber;
-                    RefreshVisualStateEvent();
+                        string oldPipeNumber = viewModel.Pipe.Number;
+                        viewModel.NewSpool();
+                        viewModel.PipeNumber = oldPipeNumber;
+                        RefreshVisualStateEvent();
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        log.Error(ex.Message);
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                else 
+                else
                 {
                     notify.ShowError(
                          Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),

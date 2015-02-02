@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveRailcarCommand));
+
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
@@ -86,6 +88,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             }
             catch(RepositoryException ex)
             {
+                log.Error(ex.Message);
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
             RefreshVisualStateEvent();
