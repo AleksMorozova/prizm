@@ -12,11 +12,10 @@ namespace Prizm.Main.Security
    {
       public bool HasAccess(Privileges privilege)
       {
-          return true;
-         //if (LoggedUser == null)
-         //   return false;
+         if (LoggedUser == null)
+            return false;
 
-         //return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
+         return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
       }
 
       public Prizm.Domain.Entity.PersonName GetLoggedPerson()
