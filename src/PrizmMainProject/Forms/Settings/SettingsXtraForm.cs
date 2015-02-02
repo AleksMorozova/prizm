@@ -721,7 +721,7 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView;
             var role = gridViewRole.GetFocusedRow() as Role;
-
+            
             if(role == null)
                 return;
 
@@ -740,9 +740,69 @@ namespace Prizm.Main.Forms.Settings
                     }
                     break;
                 case CollectionChangeAction.Remove:
-                    viewModel.RemovePermissionFromRole(role, p);
+                    if (ParsePermission(p) == Privileges.EditSettings &&
+                        CountRolesWithEditSettingsPermission() <= 1)
+                        view.SelectRow(e.ControllerRow);
+                    else
+                        viewModel.RemovePermissionFromRole(role, p);
                     break;
             }
+        }
+
+        private Privileges ParsePermission(Permission permission)
+        {
+            return (Privileges)Enum.Parse(typeof(Privileges), permission.Name);
+        }
+
+        private int CountUsersWithEditSettingsPermission()
+        {
+            int countUsersWithEditSettingsPermssion = 0;
+            for (int userRowHadle = 0; userRowHadle < gridViewUsers.RowCount; userRowHadle++)
+            {
+                var user = gridViewUsers.GetRow(userRowHadle) as User;
+
+                if (user != null)
+                    countUsersWithEditSettingsPermssion +=
+                        UserHasEditSettingsPermission(user) ? 1 : 0;
+            }
+            return countUsersWithEditSettingsPermssion;
+        }
+
+        private int CountRolesWithEditSettingsPermission()
+        {
+            int countRolesWithEditSettingsPermission = 0;
+            for (int roleRowHandle = 0; roleRowHandle < gridViewRoles.RowCount; roleRowHandle++)
+            {
+                var role = gridViewRoles.GetRow(roleRowHandle) as Role;
+
+                if (role != null && RoleIsUsedByAnyUser(role))
+                    countRolesWithEditSettingsPermission +=
+                        RoleHasEditSettingsPermission(role) ? 1 : 0;
+            }
+            return countRolesWithEditSettingsPermission;
+        }
+
+        private bool RoleHasEditSettingsPermission(Role role)
+        {
+            return role.Permissions.Any(x => ParsePermission(x) == Privileges.EditSettings);
+        }
+
+        private bool UserHasEditSettingsPermission(User user)
+        {
+            return user.Roles.Any(x => x.Permissions.Any(y => ParsePermission(y) == Privileges.EditSettings));
+        }
+
+        private bool RoleIsUsedByAnyUser(Role role)
+        {
+            bool result = false;
+            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount && !result; userRowHandle++)
+            {
+                var user = gridViewUsers.GetRow(userRowHandle) as User;
+
+                if (user != null)
+                    result = user.Roles.Any(x => x.Id == role.Id);
+            }
+            return result;
         }
 
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -829,8 +889,14 @@ namespace Prizm.Main.Forms.Settings
                             viewModel.AddRoleToUser(role, user);
                             break;
                         case CollectionChangeAction.Remove:
-                            viewModel.RemoveRoleFromUser(role, user);
-                            break;
+                            if (RoleHasEditSettingsPermission(role) &&
+                                UserHasEditSettingsPermission(user) &&
+                                (CountUsersWithEditSettingsPermission() <= 1 ||
+                                CountRolesWithEditSettingsPermission() <= 1))
+                                view.SelectRow(e.ControllerRow);
+                            else
+                                viewModel.RemoveRoleFromUser(role, user);
+                        break;
                     }
                 }
             }
