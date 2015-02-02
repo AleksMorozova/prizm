@@ -23,6 +23,7 @@ using Prizm.Main.Common;
 using Prizm.Domain.Entity.Setup;
 using System.Threading;
 using System.Text;
+using System.IO;
 
 
 namespace Prizm.Main
@@ -40,13 +41,34 @@ namespace Prizm.Main
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1, FailedUserInactive = 2 }
 
+
+        //Global data
+        private static PrizmApplicationXtraForm mainForm;
+        private static WorkstationType workstationType = WorkstationType.Undefined;
+        /// <summary>
+        /// Global access to main form need to update statusbar texts
+        /// </summary>
+        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
+        public static WorkstationType ThisWorkstationType { get { return workstationType; } }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
         #region --- Language ---
 
-        private static readonly ILanguageManager langManager = new LanguageManager();
+        private static readonly ILanguageManager langManager;
         public static ILanguageManager LanguageManager { get { return langManager; } }
 
         #endregion // --- Language ---
         
+        /// <summary>
+        /// Initialize all static data. Log configuration should be performed earlier than any other initializations.
+        /// </summary>
+        static Program()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            langManager = new LanguageManager();
+        }
+
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
@@ -64,8 +86,8 @@ namespace Prizm.Main
                 }
                 if(arg.Equals("template"))
                 {
-                    using(System.IO.StreamWriter file = new System.IO.StreamWriter(
-                        System.IO.Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
+                    using (StreamWriter file = new StreamWriter(
+                        Path.Combine(Directories.LanguagesFolderName, "Strings.template.txt"), append: false, encoding: Encoding.UTF8))
                     {
                         foreach (var item in LanguageManager.EnumerateStringResources(typeof(StringResources)))
                         {
@@ -112,6 +134,7 @@ namespace Prizm.Main
                     {
                         case LoginResult.Failed:
                         case LoginResult.FailedUserInactive:
+                            log.Warn(string.Format("Failed to login for the reason: {0}", failMessage));
                             MessageBox.Show(failMessage,
                                 Program.LanguageManager.GetString(StringResources.MainWindowHeader_Title),
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -133,6 +156,7 @@ namespace Prizm.Main
                 {
                     MessageBox.Show(error);
                 }
+                log.Fatal(error);
             }
             finally
             {
@@ -141,7 +165,12 @@ namespace Prizm.Main
             }
         }
 
-        static LoginResult Login(ref string failMessage)
+        /// <summary>
+        /// Try to log in
+        /// </summary>
+        /// <param name="failMessage">message for user, when login has been failed</param>
+        /// <returns>status of logging in attempt</returns>
+        private static LoginResult Login(ref string failMessage)
         {
            failMessage = Program.LanguageManager.GetString(StringResources.Message_AuthentificationFailed);
             LoginForm dlg = new LoginForm();
@@ -221,7 +250,11 @@ namespace Prizm.Main
             return LoginResult.Failed;
         }
 
-        static bool CreateProject()
+        /// <summary>
+        /// if no project settings available, it will be created if user enters all necessary data
+        /// </summary>
+        /// <returns>status if project settings were created</returns>
+        private static bool CreateProject()
         {
             bool result = false;
             IProjectRepository repo = (IProjectRepository)Program.Kernel.Get(typeof(IProjectRepository));
@@ -240,7 +273,9 @@ namespace Prizm.Main
                     pj = repo.GetSingle();
                     if(pj == null)
                     {
-                        throw new ApplicationException("Could not find project settings");
+                        ApplicationException e = new ApplicationException("Could not find project settings");
+                        log.Error(e.Message);
+                        throw e;
                     }
                 }
             }
@@ -252,6 +287,9 @@ namespace Prizm.Main
             return result;
         }
 
+        /// <summary>
+        /// If there are no permissions available, they will be written to system.
+        /// </summary>
         private static void CreatePermissions()
         {
             IPermissionRepository repo = (IPermissionRepository)Program.Kernel.Get(typeof(IPermissionRepository));
@@ -261,13 +299,5 @@ namespace Prizm.Main
             }
         }
 
-        //Global data
-        private static PrizmApplicationXtraForm mainForm;
-        private static WorkstationType workstationType;
-        /// <summary>
-        /// Global access to main form need to update statusbar texts
-        /// </summary>
-        public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
-        public static WorkstationType ThisWorkstationType { get { return workstationType; } }
     }
 }

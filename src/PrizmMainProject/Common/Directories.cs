@@ -18,5 +18,7 @@ namespace Prizm.Main.Common
         public const string LanguagesResourcesFolderName = "Resources";
         public static string Languages = Path.Combine(Directory.GetCurrentDirectory(), LanguagesFolderName);
         public static string LanguagesResources = Path.Combine(Directory.GetCurrentDirectory(), LanguagesFolderName, LanguagesResourcesFolderName);
+
+        public static string Logs = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
     }
 }
