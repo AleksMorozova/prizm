@@ -55,9 +55,6 @@ namespace Prizm.Main.Languages
 
         public LanguageManager()
         {
-            LanguageManager.log.Info("LANGUAGE");
-            LanguageManager.log.Error("LANGUAGE_ERROR");
-            LanguageManager.log.Fatal("LANGUAGE_FATAL");
             FindAvailableTranslations();
         }
 
@@ -99,7 +96,9 @@ namespace Prizm.Main.Languages
             indexCurrent = indexDefault;
             if (cultures.Count < 0)
             {
-                throw new ApplicationException("Language error: no default culture information available.");
+                ApplicationException e = new ApplicationException("Language error: no default culture information available.");
+                log.Error(e.Message);
+                throw e;
             }
         }
 
@@ -211,6 +210,7 @@ namespace Prizm.Main.Languages
             if (ret == false || String.IsNullOrWhiteSpace(resource))
             {
                 resource = "<no resource>";
+                log.Warn(string.Format("No resource for id {0}.", resourceId));
                 ret = false;
             }
             return ret;
@@ -262,7 +262,7 @@ namespace Prizm.Main.Languages
             string ret;
             if (!TryGetLocalizedString(resourceDescription.Id, out ret))
             {
-                // TODO: Log it
+                log.Warn(string.Format("No StringResource for id {0}.", resourceDescription.Id));
             }
             return ret ?? "";
         }
@@ -286,7 +286,13 @@ namespace Prizm.Main.Languages
                         yield return (StringResource)field.GetValue(null);
                     }
                 }
-                else throw new ApplicationException("Cannot enumerate local strings in non-static class.");
+                else
+                {
+                    ApplicationException e = new ApplicationException(
+                        string.Format("Cannot enumerate local strings in non-static class {0}.", type.Name));
+                    log.Error(e.Message);
+                    throw e;
+                }
             }
 
             System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

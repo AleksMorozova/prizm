@@ -51,6 +51,8 @@ namespace Prizm.Main
         public static PrizmApplicationXtraForm MainForm { get { return mainForm; } }
         public static WorkstationType ThisWorkstationType { get { return workstationType; } }
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
         #region --- Language ---
 
         private static readonly ILanguageManager langManager;
@@ -132,6 +134,7 @@ namespace Prizm.Main
                     {
                         case LoginResult.Failed:
                         case LoginResult.FailedUserInactive:
+                            log.Warn(string.Format("Failed to login for the reason: {0}", failMessage));
                             MessageBox.Show(failMessage,
                                 Program.LanguageManager.GetString(StringResources.MainWindowHeader_Title),
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -153,6 +156,7 @@ namespace Prizm.Main
                 {
                     MessageBox.Show(error);
                 }
+                log.Fatal(error);
             }
             finally
             {
@@ -269,7 +273,9 @@ namespace Prizm.Main
                     pj = repo.GetSingle();
                     if(pj == null)
                     {
-                        throw new ApplicationException("Could not find project settings");
+                        ApplicationException e = new ApplicationException("Could not find project settings");
+                        log.Error(e.Message);
+                        throw e;
                     }
                 }
             }
