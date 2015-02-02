@@ -587,7 +587,7 @@
             // expectedResultGridColumn
             // 
             this.expectedResultGridColumn.Caption = "Ожидаемый результат";
-            this.expectedResultGridColumn.FieldName = "Operation.Result";
+            this.expectedResultGridColumn.FieldName = "Operation.DisplayExpectedResult";
             this.expectedResultGridColumn.Name = "expectedResultGridColumn";
             this.expectedResultGridColumn.OptionsColumn.ReadOnly = true;
             this.expectedResultGridColumn.Visible = true;

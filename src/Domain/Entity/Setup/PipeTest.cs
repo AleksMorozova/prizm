@@ -57,18 +57,20 @@ namespace Prizm.Domain.Entity.Setup
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
 
-        public virtual string Result { get 
+        public virtual string DisplayExpectedResult
         {
-            switch (this.ResultType)
+            get 
             {
-                case PipeTestResultType.Boolean:
-                    return this.BoolExpected.ToString();
-                case PipeTestResultType.Diapason:
-                    return this.MinExpected + "-" + this.MaxExpected;
-                default:
-                    return "";
-            }
-        } 
+                switch (this.ResultType)
+                {
+                    case PipeTestResultType.Boolean:
+                        return this.BoolExpected.ToString();
+                    case PipeTestResultType.Diapason:
+                        return this.MinExpected + "-" + this.MaxExpected;
+                    default:
+                        return "";
+                }
+            } 
         }
         //string test
     }
