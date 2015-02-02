@@ -85,6 +85,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         notify.ShowNotify(
                             string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
                             Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
+
+                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                            viewModel.Pipe.Number,
+                            viewModel.Pipe.Id));
                     }
                     catch (RepositoryException ex)
                     {
