@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class SavePipeCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SavePipeCommand));
+
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -86,6 +88,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     }
                     catch (RepositoryException ex)
                     {
+                        log.Error(ex.Message);
                         notify.ShowFailure(ex.InnerException.Message, ex.Message);
                     }
                 }

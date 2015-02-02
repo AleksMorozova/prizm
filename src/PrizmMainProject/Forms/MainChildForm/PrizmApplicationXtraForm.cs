@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.MainChildForm
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
         private static uint FramesCanOpen = 20;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PrizmApplicationXtraForm));
         private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
         private PrizmApplicationViewModel viewModel;
 
@@ -240,7 +241,9 @@ namespace Prizm.Main.Forms.MainChildForm
                 }
                 else
                 {
-                    throw new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
+                    var e = new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
+                    log.Error(e.Message);
+                    throw e;
                 }
             }
             finally
@@ -548,7 +551,9 @@ namespace Prizm.Main.Forms.MainChildForm
                     result = 1;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(string.Format("Unknown dialog answer - {0}", dlg));
+                    var e = new ArgumentOutOfRangeException(string.Format("Unknown dialog answer - {0}", dlg));
+                    log.Error(e.Message);
+                    throw e;
             }
             return result;
         }

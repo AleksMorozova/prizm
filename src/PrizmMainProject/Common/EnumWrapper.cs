@@ -13,6 +13,7 @@ namespace Prizm.Main.Common
     /// <typeparam name="TEnum">Enum type</typeparam>
     public class EnumWrapper<TEnum> where TEnum : struct, IConvertible
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(EnumWrapper<TEnum>));
         #region --- Enumerator ---
 
         private class PrivateEnumerator : IEnumerable<Tuple<int, string>>
@@ -28,7 +29,9 @@ namespace Prizm.Main.Common
                 var type = typeof(TEnum);
                 if (!type.IsEnum)
                 {
-                    throw new ArgumentException(string.Format("{0} must be an enumerated type", type));
+                    var e = new ArgumentException(string.Format("{0} must be an enumerated type", type));
+                    log.Error(e.Message);
+                    throw e;
                 }
                 int index = this.skip0 ? 1 : 0;
                 while (Enum.IsDefined(type, index))

@@ -15,6 +15,7 @@ namespace Prizm.Main.Synch.Export
 {
    public abstract class Exporter : IExporter
    {
+       private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Exporter));
       readonly protected IEncryptor encryptor;
       readonly protected IHasher hasher;
 
@@ -39,8 +40,12 @@ namespace Prizm.Main.Synch.Export
 
       protected void ZipContent(string tempDir)
       {
-         if (ArchiveName == null)
-            throw new ExportException("ArchiveName property should be set before exporting.");
+          if (ArchiveName == null)
+          {
+              var ex = new ExportException("ArchiveName property should be set before exporting.");
+              log.Error(ex.Message);
+              throw ex;
+          }
 
          if (System.IO.File.Exists(ArchiveName))
          {
@@ -115,7 +120,9 @@ namespace Prizm.Main.Synch.Export
          }
          else
          {
-            throw new ExportException(e.Message, e);
+            var ex = new ExportException(e.Message, e);
+            log.Error(ex.Message);
+            throw ex;
          }
       }
    }

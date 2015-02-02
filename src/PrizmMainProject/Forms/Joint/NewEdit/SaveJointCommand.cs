@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class SaveJointCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveJointCommand));
+
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -57,19 +59,27 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                try
                 {
-                    viewModel.SaveOrUpdateJointCommand.Execute();
+                    if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                    {
+                        viewModel.SaveOrUpdateJointCommand.Execute();
+                    }
+                    else if (viewModel.MakeTheConnection())
+                    {
+                        viewModel.SaveOrUpdateJointCommand.Execute();
+                    }
+                    else
+                    {
+                        notify.ShowInfo(
+                        Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
+                        Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+                    }
                 }
-                else if (viewModel.MakeTheConnection())
+                catch (RepositoryException ex)
                 {
-                    viewModel.SaveOrUpdateJointCommand.Execute();
-                }
-                else
-                {
-                    notify.ShowInfo(
-                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
-                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
             }
             RefreshVisualStateEvent();

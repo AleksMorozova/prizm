@@ -6,6 +6,8 @@
 
     class Utils
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Utils));
+
         private static string dataSourcePattern = "Data Source=";
         private static string initialCatalogPattern= "Initial Catalog=";
         private static string attachedDbFileNamePattern = "AttachDBFileName=";
@@ -141,7 +143,9 @@
             }
             else
             {
-                throw new Exception("Connection string does not contain attribute: " + dataSourcePattern);
+                var ex = new Exception("Connection string does not contain attribute: " + dataSourcePattern);
+                log.Error(ex.Message);
+                throw ex;
             }
         }
 
@@ -160,7 +164,9 @@
             }
             else
             {
-                throw new Exception("Connection string does not contain attribute: " + initialCatalogPattern);
+                var ex = new Exception("Connection string does not contain attribute: " + initialCatalogPattern);
+                log.Error(ex.Message);
+                throw ex;
             }
         }
 
@@ -179,7 +185,9 @@
             }
             else
             {
-                throw new Exception("Connection string does not contain attribute: " + attachedDbFileNamePattern);
+                var ex = new Exception("Connection string does not contain attribute: " + attachedDbFileNamePattern);
+                log.Error(ex.Message);
+                throw ex;
             }
         }
 

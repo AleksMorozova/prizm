@@ -27,6 +27,7 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingsViewModel));
         private PipeMillSizeType currentPipeMillSizeType;
         public BindingList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
@@ -139,7 +140,9 @@ namespace Prizm.Main.Forms.Settings
                }
                else
                {
-                   throw new ApplicationException("No resource description defined for " + id);
+                   var ex = new ApplicationException("No resource description defined for " + id);
+                   log.Error(ex.Message);
+                   throw ex;
                }
                Permissions.Add(p);
            }

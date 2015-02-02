@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
     public class SaveHeatCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveHeatCommand));
         private readonly HeatViewModel viewModel;
         private readonly IHeatRepositories repo;
 
@@ -26,11 +28,17 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         public void Execute()
         {
             var heat = viewModel.Heat;
-
-            repo.BeginTransaction();
-            repo.HeatRepo.SaveOrUpdate(heat);
-            repo.Commit();
-            repo.HeatRepo.Evict(heat);
+            try
+            {
+                repo.BeginTransaction();
+                repo.HeatRepo.SaveOrUpdate(heat);
+                repo.Commit();
+                repo.HeatRepo.Evict(heat);
+            }
+            catch (RepositoryException ex)
+            {
+                log.Error(ex.Message);
+            }
         }
 
         public bool CanExecute()

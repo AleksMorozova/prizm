@@ -10,12 +10,15 @@ using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointDeactivationCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointDeactivationCommand));
+
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -37,16 +40,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (notify.ShowYesNo(
                    Program.LanguageManager.GetString(StringResources.Joint_DeactivationQuestion),
                    Program.LanguageManager.GetString(StringResources.Joint_DeactivationQuestionHeader)))
-            {              
-                viewModel.JointIsActive = false;
+            {
+                try
+                {
+                    viewModel.JointIsActive = false;
 
-                repo.BeginTransaction();
-                repo.RepoJoint.Save(viewModel.Joint);
-                repo.Commit();
-                repo.RepoJoint.Evict(viewModel.Joint);
+                    repo.BeginTransaction();
+                    repo.RepoJoint.Save(viewModel.Joint);
+                    repo.Commit();
+                    repo.RepoJoint.Evict(viewModel.Joint);
 
-                viewModel.ModifiableView.IsEditMode = false;
-                viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.IsEditMode = false;
+                    viewModel.ModifiableView.IsModified = false;
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
             else
             {

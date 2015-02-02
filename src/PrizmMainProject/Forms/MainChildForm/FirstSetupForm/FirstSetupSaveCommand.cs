@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupSaveCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(FirstSetupSaveCommand));
+
         private readonly FirstSetupViewModel viewModel;
         private readonly IFirstSetupRepo firstSetupRepo;
 
@@ -34,30 +36,36 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            viewModel.Admin.Name = viewModel.Name;
-            viewModel.Admin.PasswordHash = PasswordEncryptor.EncryptPassword(viewModel.Password);
-            viewModel.Admin.IsActive = true;
-            viewModel.Project.IsActive = true;
-            if(viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Mill)
+            try
             {
-                viewModel.MillName = string.Empty;
-                viewModel.MillPipeNumberMask = string.Empty;
+                viewModel.Admin.Name = viewModel.Name;
+                viewModel.Admin.PasswordHash = PasswordEncryptor.EncryptPassword(viewModel.Password);
+                viewModel.Admin.IsActive = true;
+                viewModel.Project.IsActive = true;
+                if (viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Mill)
+                {
+                    viewModel.MillName = string.Empty;
+                    viewModel.MillPipeNumberMask = string.Empty;
+                }
+
+                firstSetupRepo.BeginTransaction();
+                firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
+                firstSetupRepo.UserRepo.Save(viewModel.Admin);
+                firstSetupRepo.ProjectRepo.Save(viewModel.Project);
+                firstSetupRepo.JointOperationRepo.SeedRequiredWeld("Сварка стыка");
+                firstSetupRepo.Commit();
+                firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
+                firstSetupRepo.UserRepo.Evict(viewModel.Admin);
+                firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
+                viewModel.IsSaved = true;
+
+                var seeder = new InnitialDataSeeder(viewModel);
+                seeder.Seed(Program.IsSeed);
             }
-
-            firstSetupRepo.BeginTransaction();
-            firstSetupRepo.RoleRepo.Save(viewModel.SuperUser);
-            firstSetupRepo.UserRepo.Save(viewModel.Admin);
-            firstSetupRepo.ProjectRepo.Save(viewModel.Project);
-            firstSetupRepo.JointOperationRepo.SeedRequiredWeld("Сварка стыка");
-            firstSetupRepo.Commit();
-            firstSetupRepo.RoleRepo.Evict(viewModel.SuperUser);
-            firstSetupRepo.UserRepo.Evict(viewModel.Admin);
-            firstSetupRepo.ProjectRepo.Evict(viewModel.Project);
-            viewModel.IsSaved = true;
-
-            var seeder = new InnitialDataSeeder(viewModel);
-            seeder.Seed(Program.IsSeed);
-            
+            catch (RepositoryException ex)
+            {
+                log.Error(ex.Message);
+            }
 
         }
 

@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SaveSettingsCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSettingsCommand));
+
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
@@ -48,38 +50,45 @@ namespace Prizm.Main.Forms.Settings
                 return;
             }
 
-            repos.BeginTransaction();
-            SaveWelders();
-            SaveInspectors();
-            SaveMillSizeTypes();
-            SavePlateManufacturers();
-            repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
-            SaveRoles();
-            SaveUsers();
-            SaveCategories();
-            SaveJointOperations();
-            SaveComponentryType();
-            SaveInspectorCertificateType();
-            SaveSeamType();
-            repos.Commit();
-            EvictMillSizeTypes();
-            EvictWelders();
-            EvictInspectors();
-            EvictPlateManufacturers();
-            EvictRoles();
-            EvictUsers();
-            EvictJointOperations();
-            repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
-            EvictCategories();
-            EvictComponentryType();
-            EvictInspectorCertificateType();
-            EvictSeamType();
-            viewModel.ModifiableView.IsModified = false;
+            try
+            {
+                repos.BeginTransaction();
+                SaveWelders();
+                SaveInspectors();
+                SaveMillSizeTypes();
+                SavePlateManufacturers();
+                repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
+                SaveRoles();
+                SaveUsers();
+                SaveCategories();
+                SaveJointOperations();
+                SaveComponentryType();
+                SaveInspectorCertificateType();
+                SaveSeamType();
+                repos.Commit();
+                EvictMillSizeTypes();
+                EvictWelders();
+                EvictInspectors();
+                EvictPlateManufacturers();
+                EvictRoles();
+                EvictUsers();
+                EvictJointOperations();
+                repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+                EvictCategories();
+                EvictComponentryType();
+                EvictInspectorCertificateType();
+                EvictSeamType();
+                viewModel.ModifiableView.IsModified = false;
 
-            notify.ShowNotify(
-                 Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
-                Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
-
+                notify.ShowNotify(
+                     Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
+                    Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
+            }
+            catch (RepositoryException ex)
+            {
+                log.Error(ex.Message);
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
 
             RefreshVisualStateEvent();
         }
