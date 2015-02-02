@@ -13,6 +13,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Synch
 {
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class MissingPortionsDialog : PrizmForm
     {
         public MissingPortionsDialog(int[] existingPortions, int[] missingPortions, string millName)
@@ -58,7 +59,10 @@ namespace Prizm.Main.Forms.Synch
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(missingNumbers, StringResources.MissingPortion_missingNumbers.Id),
+                new LocalizedItem(recomendation, StringResources.MissingPortion_recomendation.Id),
+                new LocalizedItem(acceptButton, StringResources.MissingPortion_acceptButton.Id),
+                new LocalizedItem(cancelButton, StringResources.MissingPortion_cancelButton.Id)
             };
         }
 

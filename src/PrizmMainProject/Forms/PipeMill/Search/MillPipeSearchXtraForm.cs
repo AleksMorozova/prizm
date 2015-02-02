@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             InitializeComponent();
             pipeNumber.SetAsIdentifier();
+            Bitmap bmp = Resources.search_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void BindToViewModel()
@@ -83,37 +85,45 @@ namespace Prizm.Main.Forms.PipeMill.Search
             return new List<LocalizedItem>()
             {
                 // checked combo boxes
-                new LocalizedItem(pipeMillStatus, new string[]{ "SearchPipe_MillStatusProduced", "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
+                new LocalizedItem(pipeMillStatus, new string[]
+                { 
+                    StringResources.SearchPipe_MillStatusProduced.Id, 
+                    StringResources.SearchPipe_MillStatusStocked.Id, 
+                    StringResources.SearchPipe_MillStatusShipped.Id
+                }),
 
                 // combo boxes
-                new LocalizedItem(pipeActivity, new string[]{ "SearchPipe_ActivityComboActive", "SearchPipe_ActivityComboNotActive", "SearchPipe_ActivityComboAll" }),
+                new LocalizedItem(pipeActivity, new string[]
+                { 
+                    StringResources.SearchPipe_ActivityComboActive.Id, 
+                    StringResources.SearchPipe_ActivityComboNotActive.Id, 
+                    StringResources.SearchPipe_ActivityComboAll.Id }),
 
                 // layout items
-                new LocalizedItem(pipeNumberLayout, "SearchPipe_NumberLabel"),
-                new LocalizedItem(PipeSizeLayoutControl, "SearchPipe_TypeSizeLabel"),
-                new LocalizedItem(pipeMillStatusLayout, "SearchPipe_StatusLabel"),
-                new LocalizedItem(pipeActivityLayoutControl, "SearchPipe_ActivityLabel"),
-                new LocalizedItem(weldingDateLayout, "SearchPipe_WeldingDateLabel"),
-                new LocalizedItem(externalCoatingDateLayout, "SearchPipe_ExternalCoatingDateLabel"),
-                new LocalizedItem(internalCoatingDateLayout, "SearchPipe_InternalCoatingDateLabel"),
+                new LocalizedItem(pipeNumberLayout, StringResources.SearchPipe_NumberLabel.Id),
+                new LocalizedItem(PipeSizeLayoutControl, StringResources.SearchPipe_TypeSizeLabel.Id),
+                new LocalizedItem(pipeMillStatusLayout, StringResources.SearchPipe_StatusLabel.Id),
+                new LocalizedItem(pipeActivityLayoutControl, StringResources.SearchPipe_ActivityLabel.Id),
+                new LocalizedItem(weldingDateLayout, StringResources.SearchPipe_WeldingDateLabel.Id),
+                new LocalizedItem(externalCoatingDateLayout, StringResources.SearchPipe_ExternalCoatingDateLabel.Id),
+                new LocalizedItem(internalCoatingDateLayout, StringResources.SearchPipe_InternalCoatingDateLabel.Id),
 
                 // controls
-                new LocalizedItem(searchButton, "SearchPipe_SearchButton"),
+                new LocalizedItem(searchButton, StringResources.SearchPipe_SearchButton.Id),
 
                 // grid column headers
-                new LocalizedItem(pipeNumberGridColumn, "SearchPipe_PipeNumberColumn"),
-                new LocalizedItem(pipeMillGridColumn, "SearchPipe_PipeMillColumn"),
-                new LocalizedItem(pipeNumberGridColumn, "SearchPipe_PipeNumberColumn"),
-                new LocalizedItem(pipeTypeSizeGridColumn, "SearchPipe_PipetypeSizeColumn"),
-                new LocalizedItem(heatNumberGridColumn, "SearchPipe_PipeHeatNumberColumn"),
-                new LocalizedItem(statusSearchGridColumn, "SearchPipe_PipeStatusColumn"),
-                new LocalizedItem(weldingDateGridColumn, "SearchPipe_PipeWeldingDateColumn"),
-                new LocalizedItem(externalCoatingDateGridColumn, "SearchPipe_ExternalCoatingDateColumn"),
-                new LocalizedItem(internalCoatingDateGridColumn, "SearchPipe_InternalCoatingColumn"),
+                new LocalizedItem(pipeNumberGridColumn, StringResources.SearchPipe_PipeNumberColumn.Id),
+                new LocalizedItem(pipeMillGridColumn, StringResources.SearchPipe_PipeMillColumn.Id),
+                new LocalizedItem(pipeTypeSizeGridColumn, StringResources.SearchPipe_PipetypeSizeColumn.Id),
+                new LocalizedItem(heatNumberGridColumn, StringResources.SearchPipe_PipeHeatNumberColumn.Id),
+                new LocalizedItem(statusSearchGridColumn, StringResources.SearchPipe_PipeStatusColumn.Id),
+                new LocalizedItem(weldingDateGridColumn, StringResources.SearchPipe_PipeWeldingDateColumn.Id),
+                new LocalizedItem(externalCoatingDateGridColumn, StringResources.SearchPipe_ExternalCoatingDateColumn.Id),
+                new LocalizedItem(internalCoatingDateGridColumn, StringResources.SearchPipe_InternalCoatingColumn.Id),
 
                 // layout control groups
-                new LocalizedItem(searchLayoutGroup, "SearchPipe_SearchGroup"),
-                new LocalizedItem(searchResultLayoutGroup, "SearchPipe_ResultGroup"),
+                new LocalizedItem(searchLayoutGroup, StringResources.SearchPipe_SearchGroup.Id),
+                new LocalizedItem(searchResultLayoutGroup, StringResources.SearchPipe_ResultGroup.Id),
 
                 // one-way by-column transformation statuses.
                 // See grid's CustomColumnDisplayText for all grid's columns, to understand the connection.

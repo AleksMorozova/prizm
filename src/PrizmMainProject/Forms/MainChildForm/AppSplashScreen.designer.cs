@@ -31,6 +31,8 @@
             this.marqueeProgressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelMessage = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.versionLabel = new DevExpress.XtraEditors.LabelControl();
+            this.version = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -65,11 +67,29 @@
             this.pictureBox.TabIndex = 10;
             this.pictureBox.TabStop = false;
             // 
+            // versionLabel
+            // 
+            this.versionLabel.Location = new System.Drawing.Point(323, 295);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(39, 13);
+            this.versionLabel.TabIndex = 11;
+            this.versionLabel.Text = "Версия:";
+            // 
+            // version
+            // 
+            this.version.Location = new System.Drawing.Point(385, 295);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(42, 13);
+            this.version.TabIndex = 12;
+            this.version.Text = "x.x.xx.x";
+            // 
             // AppSplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 320);
+            this.Controls.Add(this.version);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.marqueeProgressBarControl);
@@ -88,5 +108,7 @@
         private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl;
         private DevExpress.XtraEditors.LabelControl labelMessage;
         private System.Windows.Forms.PictureBox pictureBox;
+        private DevExpress.XtraEditors.LabelControl versionLabel;
+        private DevExpress.XtraEditors.LabelControl version;
     }
 }

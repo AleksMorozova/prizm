@@ -9,6 +9,7 @@ using Ninject;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -38,8 +39,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public void Execute()
         {
             if (notify.ShowYesNo(
-                Resources.DLG_COMPONENT_DEACTIVATION,
-                Resources.DLG_COMPONENT_DEACTIVATION_HEDER))
+                Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestion),
+                Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestionHeader)))
             {
                 viewModel.ComponentIsActive = false;
                 viewModel.SaveCommand.Execute();

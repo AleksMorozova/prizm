@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Domain.Entity.Mill;
 using System.ComponentModel;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
@@ -38,7 +39,8 @@ namespace Prizm.Main.Forms.Reports.Mill
         {
             if (viewModel.StartDate > viewModel.EndDate)
             {
-                notify.ShowNotify(Resources.AlertFailureReportDate, Resources.AlertFailureReportDateHeader);
+                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate), 
+                    Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
             }
             try
             {
@@ -61,7 +63,18 @@ namespace Prizm.Main.Forms.Reports.Mill
                     data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                     GeneralInformationXtraReport report = new GeneralInformationXtraReport();
                     report.DataSource = data;
-                    report.CreateDocument();
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
+                else if (viewModel.SelectedReportType == MillReportType.ByShipped)
+                {
+                    LoadingXtraReport report = new LoadingXtraReport();
+                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                    SubReportForLoadingXtraReport report2 = new SubReportForLoadingXtraReport();
+                    report2.DataSource = repo.GetRailcars(viewModel.StartDate, viewModel.EndDate);
+                    report.RequestParameters = false;
+                    report.xrSubreport1.ReportSource = report2;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();

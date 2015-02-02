@@ -17,6 +17,7 @@ using System.Text;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Main.Common;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -40,6 +41,8 @@ namespace Prizm.Main.Forms.Spool
             this.id = id;
 
             InitializeComponent();
+            Bitmap bmp = Resources.spool_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetControlsTextLength();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
@@ -56,10 +59,11 @@ namespace Prizm.Main.Forms.Spool
             }
             else
             {
-                this.Text = Resources.SPOOL_EDIT_FORM_TEXT;
+                this.Text = Program.LanguageManager.GetString(StringResources.Spool_EditDocumentHeader);
                 SetAlwaysReadOnly(pipeNumber);
             }
-            IsEditMode = true;
+            IsEditMode = true;//do not remove until IsEditMode logic is changed
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
         }
 
@@ -93,10 +97,10 @@ namespace Prizm.Main.Forms.Spool
                 "EditValue", SpoolBindingSource, "SpoolIsActive"));
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Accepted));
+            inspectionStatusDict.Add(PartInspectionStatus.Hold, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Hold));
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Rejected));
+            inspectionStatusDict.Add(PartInspectionStatus.Pending, Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Pending));
             resultLookUpEdit.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -129,11 +133,10 @@ namespace Prizm.Main.Forms.Spool
             BindToViewModel();
 
             attachmentsButton.Enabled =
-                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty)
-                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+                (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = ((!viewModel.IsNew || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
+            IsEditMode = ((this.id != Guid.Empty|| viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
         }
 
@@ -255,7 +258,8 @@ namespace Prizm.Main.Forms.Spool
 
             if(inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0],
+                    Program.LanguageManager.GetString(StringResources.FirstEnterDate));
                 e.Cancel = true;
             }
             else
@@ -282,7 +286,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

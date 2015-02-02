@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -54,8 +55,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 viewModel.ModifiableView.UpdateState();
 
                 notify.ShowNotify(
-                    string.Concat(Resources.DLG_JOINT_SAVED, viewModel.Number),
-                    Resources.DLG_JOINT_SAVED_HEADER);
+                    string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
+                    Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
             }
             catch (RepositoryException ex)
             {
@@ -76,8 +77,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                  viewModel.Joint.IsActive
                  && 
                  ctx.HasAccess(viewModel.IsNew 
-                                    ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                                    : global::Domain.Entity.Security.Privileges.EditData);
+                                    ? global::Domain.Entity.Security.Privileges.CreateJoint
+                                    : global::Domain.Entity.Security.Privileges.EditJoint);
         }
     }
 }

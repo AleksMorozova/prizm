@@ -15,11 +15,13 @@ using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        public BindingList<Pipe> ReleaseNotePipes { get; set; }
         private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
         private readonly IRailcarRepositories repos;
         private readonly IUserNotify notify;
@@ -52,15 +54,41 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             if (id == Guid.Empty)
             {
                 NewRailcar();
+                ReleaseNotePipes = new BindingList<Pipe>();
             }
             else
             {
                 ReleaseNote = repos.ReleaseNoteRepo.Get(id);
+                LoadData(id);
             }
-            
+           
         }
 
-        
+        public void LoadData(Guid id)
+        {
+            ReleaseNotePipes = new BindingList<Pipe>();
+            if (ReleaseNote != null)
+            {
+                GetAllPipes(id);
+            }
+            else
+            {
+                ReleaseNotePipes = new BindingList<Pipe>();
+            }
+        }
+
+        private void GetAllPipes(Guid id)
+        {
+            if (ReleaseNotePipes == null)
+                ReleaseNotePipes = new BindingList<Pipe>();
+
+            IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
+            foreach (var p in pipes)
+            {
+                ReleaseNotePipes.Add(p);
+            }
+        }
+
 
         public List<Pipe> AllPipes
         {
@@ -103,15 +131,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             get
             {
-                if (ReleaseNote.Date.HasValue)
-                {
-                    return ReleaseNote.Date.Value;
-                }
-                else
-                {
-                    return DateTime.MinValue;
-                }
-
+                return ReleaseNote.Date;
             }
             set
             {
@@ -297,12 +317,16 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if (!(pipeToAdd.Railcar == null))
             {
-                notify.ShowError(Resources.DLG_RAILCAR_PIPE_IN_OTHER_CAR_ERROR + pipeToAdd.Railcar.Number,
-                    Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
+                        + " " + pipeToAdd.Railcar.Number,
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
             {
                 Pipes.Add(pipeToAdd);
+                ReleaseNotePipes.Add(pipeToAdd);
+                AllPipes.Remove(pipeToAdd);
             }
 
             
@@ -312,7 +336,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             if (Railcar.IsShipped)
             {
-                notify.ShowError(Resources.DLG_RAILCAR_UNSHIP_FIRST, Resources.DLG_ERROR_HEADER);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_UnshipFirst), 
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
 
@@ -322,7 +348,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 {
                     try
                     {
+                        pipesList.Remove(pipe);
                         Pipes.Remove(pipe);
+                        AllPipes.Add(pipe);
+                        ReleaseNotePipes.Remove(pipe);
                         pipe.Railcar = null;
                         repos.PipeRepo.Merge(pipe);
                         break;

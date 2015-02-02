@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.Synch
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ConflictDialog : PrizmForm
    {
-      ConflictDecision decision = ConflictDecision.Undef;
+      ConflictDecision decision = ConflictDecision.Undefined;
 
       public ConflictDialog()
       {
@@ -36,11 +36,11 @@ namespace Prizm.Main.Forms.Synch
       {
           return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblTitle, "ConflictDialog_ConflictLabel"),
-              new LocalizedItem(btnReplace, "ConflictDialog_ReplaceButton"),
-              new LocalizedItem(btnSkip, "ConflictDialog_SkipButton"),
-              new LocalizedItem(btnPostpone, "ConflictDialog_PostponeButton"),
-              new LocalizedItem(chkForAll, "ConflictDialog_ApplyForAllChechbox"),
+              new LocalizedItem(lblTitle, StringResources.ConflictDialog_ConflictLabel.Id),
+              new LocalizedItem(btnReplace,StringResources.ConflictDialog_ReplaceButton.Id),
+              new LocalizedItem(btnSkip, StringResources.ConflictDialog_SkipButton.Id),
+              new LocalizedItem(btnPostpone, StringResources.ConflictDialog_PostponeButton.Id),
+              new LocalizedItem(chkForAll, StringResources.ConflictDialog_ApplyForAllChechbox.Id),
           };
       }
 

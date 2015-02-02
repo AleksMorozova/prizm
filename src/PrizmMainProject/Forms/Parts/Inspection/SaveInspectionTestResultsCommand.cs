@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -46,7 +47,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 {
                     repo.Evict(itr);
                 }
-                notify.ShowNotify(string.Concat(Resources.DLG_INSPECTIONS_SAVED, viewModel.SelectedElement.Number), Resources.DLG_INSPECTIONS_SAVED_HEADER);
+                notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
             }
             catch (RepositoryException ex)
             {
@@ -57,7 +58,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         public bool CanExecute()
         {
-            return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditData));
+            return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.PartsInspection));
         }
     }
 }

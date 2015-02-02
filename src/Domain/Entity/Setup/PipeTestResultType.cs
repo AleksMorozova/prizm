@@ -2,10 +2,9 @@
 {
     public enum PipeTestResultType
     {
+        Undefined = 0,
         Boolean = 1,
-        String = 2,
-        Diapason = 3,
-
-        Undef = 0
+        Diapason = 2,
+        String = 3,
     }
 }

@@ -5,6 +5,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Synch.Export;
 using Prizm.Main.Synch.SerializableEntities;
@@ -43,23 +44,23 @@ namespace Prizm.Main.Synch.Import
 
             try
             {
-                FireMessage(Resources.Import_TempStorage);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_TempStorage));
                 string tempDir = CreateTempDir();
 
-                FireMessage(Resources.Import_Unzip);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Unzip));
                 UnzipContent(archiveName, tempDir);
 
                 progress += 5;
                 FireProgress(progress);
 
-                FireMessage(Resources.Import_Checksum);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Checksum));
                 ValidateChecksum(Path.Combine(tempDir, "Manifest"));
                 ValidateChecksum(Path.Combine(tempDir, "Data"));
 
                 progress += 5;
                 FireProgress(progress);
 
-                FireMessage(Resources.Import_Data);
+                FireMessage(Program.LanguageManager.GetString(StringResources.Import_Data));
                 ImportData(tempDir);
                 FireOnDone();
             }
@@ -105,7 +106,7 @@ namespace Prizm.Main.Synch.Import
         {
             Portion portion = importRepo.PortionRepo.Get(portionId);
             if (portion != null)
-                throw new ImportException(Resources.Import_SamePortion);
+                throw new ImportException(Program.LanguageManager.GetString(StringResources.Import_SamePortion));
 
         }
 
@@ -195,6 +196,10 @@ namespace Prizm.Main.Synch.Import
             pipe.ProductionDate = pipeObj.ProductionDate;
             pipe.Type = ImportSizeType(pipeObj.Type);
             pipe.Railcar = ImportRailcar(pipeObj.Railcar);
+            if (pipeObj.Railcar != null)
+            {
+                pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
+            }
             pipe.PurchaseOrder = ImportPurchaseOrder(pipeObj.PurchaseOrder);
             pipe.Status = pipeObj.Status;
 
@@ -640,7 +645,7 @@ namespace Prizm.Main.Synch.Import
             }
 
             int step = PROGRESS_RANGE / pipes.Count;
-            ConflictDecision decision = ConflictDecision.Undef;
+            ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
 
             foreach (var pipeObj in pipes)
@@ -664,10 +669,10 @@ namespace Prizm.Main.Synch.Import
                 }
                 else
                 {
-                    if (decision == ConflictDecision.Undef || !forAll)
+                    if (decision == ConflictDecision.Undefined || !forAll)
                     {
                         ConflictEventArgs args = new ConflictEventArgs();
-                        args.Message = string.Format(Resources.Import_Conflict, pipeObj.Number);
+                        args.Message = string.Format(Program.LanguageManager.GetString(StringResources.Import_Conflict), pipeObj.Number);
                         FireConflict(args);
                         decision = args.Decision;
                         forAll = args.ForAll;
@@ -908,6 +913,33 @@ namespace Prizm.Main.Synch.Import
                 importRepo.RailcarRepo.SaveOrUpdate(railcar);
 
             return railcar;
+        }
+        private ReleaseNote ImportReleaseNote(ReleaseNoteObject releaseNoteObj)
+        {
+            if (releaseNoteObj == null)
+                return null;
+
+            bool isNew = false;
+            ReleaseNote releaseNote = importRepo.ReleaseNoteRepo.Get(releaseNoteObj.Id);
+            if (releaseNote == null)
+            {
+                releaseNote = new ReleaseNote();
+                isNew = true;
+            }
+
+            releaseNote.Id = releaseNoteObj.Id;
+            releaseNote.IsActive = releaseNoteObj.IsActive;
+            releaseNote.Number = releaseNoteObj.Number;
+            releaseNote.Shipped = releaseNoteObj.Shipped;
+            releaseNote.Date = releaseNoteObj.Date;
+
+
+            if (isNew)
+                importRepo.ReleaseNoteRepo.Save(releaseNote);
+            else
+                importRepo.ReleaseNoteRepo.SaveOrUpdate(releaseNote);
+
+            return releaseNote;
         }
 
         private PurchaseOrder ImportPurchaseOrder(PurchaseOrderObject purchaseOrderObj)

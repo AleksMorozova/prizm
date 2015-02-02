@@ -14,7 +14,7 @@ namespace Prizm.Domain.Entity.Mill
         }
 
         public virtual string Number { get; set; }
-        public virtual DateTime? Date { get; set; }
+        public virtual DateTime Date { get; set; }
         public virtual bool Shipped { get; set; }
 
         public virtual IList<Railcar> Railcars { get; set; }

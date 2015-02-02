@@ -8,6 +8,7 @@ using System.IO;
 using System.Globalization;
 using System.Resources;
 using Prizm.Main.Properties;
+using System.Reflection;
 
 namespace Prizm.Main.Languages
 {
@@ -49,6 +50,8 @@ namespace Prizm.Main.Languages
 
         private const string defaultCulture = "ru-RU";
         private CultureInfo defaultCultureInfo = new CultureInfo(defaultCulture);
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(LanguageManager));
 
         public LanguageManager()
         {
@@ -93,7 +96,9 @@ namespace Prizm.Main.Languages
             indexCurrent = indexDefault;
             if (cultures.Count < 0)
             {
-                throw new ApplicationException("Language error: no default culture information available.");
+                ApplicationException e = new ApplicationException("Language error: no default culture information available.");
+                log.Error(e.Message);
+                throw e;
             }
         }
 
@@ -101,6 +106,12 @@ namespace Prizm.Main.Languages
         private int indexDefault = -1;
         private int indexCurrent = -1;
 
+        /// <summary>
+        /// return list of all cultures, for which our local translations are available
+        /// (including default culture even if there is no appropriate external resource file).
+        /// </summary>
+        /// <param name="indexDefault">returned index of default culture in this list</param>
+        /// <returns>list of cultures</returns>
         public IReadOnlyList<CultureInfo> GetCultures(out int indexDefault)
         {
                 if (cultures.Count <= 0)
@@ -112,6 +123,11 @@ namespace Prizm.Main.Languages
                 return list;
         }
 
+        /// <summary>
+        /// Change current culture to given culture.
+        /// </summary>
+        /// <param name="culture">given culture</param>
+        /// <returns>true on success</returns>
         public bool LoadTranslation(CultureInfo culture)
         {
             bool status = false;
@@ -173,30 +189,37 @@ namespace Prizm.Main.Languages
             try
             {
                 resource = this.Current.GetString(resourceId, this.CurrentCulture);
+                ret = true;
             }
             catch (SystemException)
             {
+                ret = false;
+            }
+            if (ret == false || String.IsNullOrWhiteSpace(resource))
+            {
                 try
                 {
-                    resource = this.Default.GetString(resourceId, this.DefaultCulture);
+                    resource = this.Default.GetString(resourceId, Resources.Culture);
+                    ret = true;
                 }
-                catch (SystemException)
+                catch (SystemException e)
                 {
                     ret = false;
-#if DEBUG
-                    //it will not work for forms text
-                    //throw new ApplicationException(String.Format("No default string resource defined for ID {0}", resourceId));
-#endif
                 }
             }
-            if (String.IsNullOrWhiteSpace(resource))
+            if (ret == false || String.IsNullOrWhiteSpace(resource))
             {
                 resource = "<no resource>";
+                log.Warn(string.Format("No resource for id {0}.", resourceId));
                 ret = false;
             }
             return ret;
         }
 
+        /// <summary>
+        /// Change language at all localizable items.
+        /// </summary>
+        /// <param name="localizable">localizable item</param>
         public void ChangeLanguage(ILocalizable localizable)
         {
             if (localizable != null)
@@ -205,6 +228,7 @@ namespace Prizm.Main.Languages
                 {
                     for (int index = 0; index < localizedItem.Count; index++)
                     {
+
                         string resource;
                         if (TryGetLocalizedString(localizedItem.GetResourceId(index), out resource))
                         {
@@ -218,6 +242,82 @@ namespace Prizm.Main.Languages
                     localizedItem.Refresh();
                 }
             }
+        }
+
+        /// <summary>
+        /// Default culture information is always the same.
+        /// </summary>
+        public CultureInfo DefaultCultureInfo
+        {
+            get { return defaultCultureInfo; }
+        }
+
+        /// <summary>
+        /// retrieve localized strings for messages
+        /// </summary>
+        /// <param name="resourceDescription">id and description of localized string. Only id will be used.</param>
+        /// <returns>localized string, or empty if no localized or original string available.</returns>
+        public string GetString(StringResource resourceDescription)
+        {
+            string ret;
+            if (!TryGetLocalizedString(resourceDescription.Id, out ret))
+            {
+                log.Warn(string.Format("No StringResource for id {0}.", resourceDescription.Id));
+            }
+            return ret ?? "";
+        }
+
+        private class LocalEnumerator : IEnumerable<StringResource>
+        {
+            private System.Type type;
+            public LocalEnumerator(System.Type stringResourcesStaticClassType)
+            {
+                this.type = stringResourcesStaticClassType;
+            }
+
+            public IEnumerator<StringResource> GetEnumerator()
+            {
+                if (type.IsAbstract && type.IsSealed) // that language-dependent strange way to check static class
+                {
+                    MemberInfo[] info = typeof(StringResources).GetMembers(BindingFlags.Public | BindingFlags.Static);
+                    foreach (MemberInfo item in info)
+                    {
+                        FieldInfo field = typeof(StringResources).GetField(item.Name, BindingFlags.Public | BindingFlags.Static);
+                        yield return (StringResource)field.GetValue(null);
+                    }
+                }
+                else
+                {
+                    ApplicationException e = new ApplicationException(
+                        string.Format("Cannot enumerate local strings in non-static class {0}.", type.Name));
+                    log.Error(e.Message);
+                    throw e;
+                }
+            }
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return this.GetEnumerator();
+            }
+        }
+
+        public IEnumerable<StringResource> EnumerateStringResources(System.Type stringResourcesStaticClassType)
+        {
+            return new LocalEnumerator(stringResourcesStaticClassType);
+        }
+
+        public StringResource? FindById(System.Type stringResourcesStaticClassType, string resourceId)
+        {
+            StringResource? ret = null;
+            foreach(var item in this.EnumerateStringResources(stringResourcesStaticClassType))
+            {
+                if(item.Id.Equals(resourceId))
+                {
+                    ret = item;
+                    break;
+                }
+            }
+            return ret;
         }
 
     }

@@ -120,7 +120,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             foreach(string controlTypeName in Enum.GetNames(typeof(PipeTestResultStatus)))
             {
-                if(controlTypeName != Enum.GetName(typeof(PipeTestResultStatus), PipeTestResultStatus.Undef))
+                if(controlTypeName != Enum.GetName(typeof(PipeTestResultStatus), PipeTestResultStatus.Undefined))
                     TestResultStatuses.Add(new EnumWrapper<PipeTestResultStatus>()
                     {
                         Value = (PipeTestResultStatus)Enum.Parse(typeof(PipeTestResultStatus), controlTypeName)

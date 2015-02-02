@@ -390,7 +390,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private PartData FindElementById(Guid id)
         {
-            return (from PartData p in PartDataList where p.Id == id select p).FirstOrDefault();
+            return PartDataList != null ? PartDataList.FirstOrDefault<PartData>(x => x.Id == id) : null;
         }
 
         public EnumWrapper<JointStatus> JointConstructionStatus
@@ -775,14 +775,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = jointStatus.Value;
             this.JointTestResults = new BindingList<JointTestResult>();
-            JointWeldResult requredWeldResult = new JointWeldResult()
-            { 
-                IsActive = true,
-                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(Resources.RequiredWeldJointOperation), 
-                Joint = this.Joint
-            };
-            jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
-            this.Joint.JointWeldResults.Add(requredWeldResult);
+            if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
+            {
+                JointWeldResult requredWeldResult = new JointWeldResult()
+                {
+                    IsActive = true,
+                    Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
+                    Joint = this.Joint
+                };
+                jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
+                this.Joint.JointWeldResults.Add(requredWeldResult);
+            }
+            else 
+            {
+                this.JointWeldResults = new BindingList<JointWeldResult>();
+            }
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;

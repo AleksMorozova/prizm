@@ -11,6 +11,7 @@ using Prizm.Main.Properties;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -52,8 +53,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if (p != null && p.Count > 0)
             {
                 notify.ShowInfo(
-                    string.Concat(Resources.DLG_PIPE_DUPLICATE, viewModel.Number),
-                    Resources.DLG_PIPE_DUPLICATE_HEDER);
+                    string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberError), viewModel.Number),
+                    Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberErrorHeader));
                 viewModel.Number = string.Empty;
             }
             else
@@ -80,8 +81,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
-                            string.Concat(Resources.DLG_PIPE_SAVED, viewModel.Number),
-                            Resources.DLG_PIPE_SAVED_HEADER);
+                            string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
+                            Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
                     }
                     catch (RepositoryException ex)
                     {
@@ -90,7 +91,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
                 else 
                 {
-                    notify.ShowInfo(Resources.DLG_AddFailedControlOperation, Resources.DLG_PIPE_SAVED_HEADER);
+                    notify.ShowInfo(
+                        Program.LanguageManager.GetString(StringResources.MillPipe_ErrorEditingInspectionOperationPipeInRailcar),
+                        Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
                 }
             }
 
@@ -109,8 +112,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 !string.IsNullOrEmpty(viewModel.PlateNumber) &&
                     viewModel.ModifiableView.IsEditMode &&
                     ctx.HasAccess(viewModel.IsNew
-                        ? global::Domain.Entity.Security.Privileges.NewDataEntry
-                        : global::Domain.Entity.Security.Privileges.EditData);
+                        ? global::Domain.Entity.Security.Privileges.CreatePipe
+                        : global::Domain.Entity.Security.Privileges.EditPipe);
         }
     
     }

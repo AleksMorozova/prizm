@@ -18,6 +18,7 @@ using System.Linq;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
 using Prizm.Main.Languages;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -43,6 +44,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.id = id;
 
             InitializeComponent();
+
+            Bitmap bmp = Resources.components_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
                .Get<ComponentNewEditViewModel>(new ConstructorArgument("id", id));
@@ -50,8 +55,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
             viewModel.Number = number;
-            IsEditMode = true;
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent);
+            attachmentsButton.Enabled = true;
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();
@@ -70,25 +75,25 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(newComponentLayoutGroup, "ComponentNewEdit_NewComponentLayoutGroup"),
-                new LocalizedItem(componentNumberLayout, "ComponentNewEdit_ComponentNumberLayout"),
-                new LocalizedItem(typeLayoutControl, "ComponentNewEdit_TypeLayoutControl"),
-                new LocalizedItem(certificateLayout, "ComponentNewEdit_CertificateLayout"),
-                new LocalizedItem(componentLengthLayout, "ComponentNewEdit_ComponentLengthLayout"),
-                new LocalizedItem(parametersGridLayout, "ComponentNewEdit_ParametersGridLayout"),
+                new LocalizedItem(newComponentLayoutGroup, StringResources.ComponentNewEdit_NewComponentLayoutGroup.Id),
+                new LocalizedItem(componentNumberLayout, StringResources.ComponentNewEdit_ComponentNumberLayout.Id),
+                new LocalizedItem(typeLayoutControl, StringResources.ComponentNewEdit_TypeLayoutControl.Id),
+                new LocalizedItem(certificateLayout, StringResources.ComponentNewEdit_CertificateLayout.Id),
+                new LocalizedItem(componentLengthLayout, StringResources.ComponentNewEdit_ComponentLengthLayout.Id),
+                new LocalizedItem(InspectionLayoutGroup, StringResources.ComponentNewEdit_InspectionLayoutGroup.Id),
                 
-                new LocalizedItem(attachmentsButton, "ComponentNewEdit_AttachmentsButton"),
-                new LocalizedItem(deactivated, "ComponentNewEdit_Deactivated"),
-                new LocalizedItem(newSaveComponentButton, "ComponentNewEdit_NewSaveComponentButton"),
-                new LocalizedItem(saveComponentButton, "ComponentNewEdit_SaveComponentButton"),
+                new LocalizedItem(attachmentsButton, StringResources.ComponentNewEdit_AttachmentsButton.Id),
+                new LocalizedItem(deactivated, StringResources.ComponentNewEdit_Deactivated.Id),
+                new LocalizedItem(newSaveComponentButton, StringResources.ComponentNewEdit_NewSaveComponentButton.Id),
+                new LocalizedItem(saveComponentButton, StringResources.ComponentNewEdit_SaveComponentButton.Id),
 
-                new LocalizedItem(inspectionDateColumn, "ComponentNewEdit_InspectionDateColumn"),
-                new LocalizedItem(inspectorColumn, "ComponentNewEdit_InspectorColumn"),
-                new LocalizedItem(resultColumn, "ComponentNewEdit_ResultColumn"),
-                new LocalizedItem(reasonColumn, "ComponentNewEdit_ReasonColumn"),
+                new LocalizedItem(inspectionDateColumn, StringResources.ComponentNewEdit_InspectionDateColumn.Id),
+                new LocalizedItem(inspectorColumn, StringResources.ComponentNewEdit_InspectorColumn.Id),
+                new LocalizedItem(resultColumn, StringResources.ComponentNewEdit_ResultColumn.Id),
+                new LocalizedItem(reasonColumn, StringResources.ComponentNewEdit_ReasonColumn.Id),
 
-                new LocalizedItem(diameterGridColumn, "ComponentNewEdit_DiameterGridColumn"),
-                new LocalizedItem(wallThicknessGridColumn, "ComponentNewEdit_WallThicknessGridColumn")
+                new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
+                new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id)
             };
         }
 
@@ -157,10 +162,14 @@ namespace Prizm.Main.Forms.Component.NewEdit
             #endregion
 
             inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.Pending);
+            inspectionStatusDict.Add(PartInspectionStatus.Accepted, 
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Accepted));
+            inspectionStatusDict.Add(PartInspectionStatus.Hold,
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Hold));
+            inspectionStatusDict.Add(PartInspectionStatus.Rejected, 
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Rejected));
+            inspectionStatusDict.Add(PartInspectionStatus.Pending,
+                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Pending));
             repositoryInspectionStatus.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
@@ -289,7 +298,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
-                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], Resources.DateFirst);
+                inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0], 
+                    Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
             else
@@ -346,7 +356,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             if (diameter <= 0)
             {
-                gv.SetColumnError(diameterGridColumn, Resources.DIAMETER_VALUE_VALIDATION);
+                gv.SetColumnError(diameterGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DiameterValueValidation));
                 e.Valid = false;
             }
         }

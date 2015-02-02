@@ -21,11 +21,15 @@ namespace Prizm.Main.Forms.Common
         public AboutXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.prizma_appIcon_32;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void AboutXtraForm_Load(object sender, EventArgs e)
         {
-            this.titleLabel.Text = Resources.AboutForm_TitleLabel;
+            titleLabel.Text = Program.LanguageManager.GetString(StringResources.AboutForm_TitleLabel);
+            textEditVersionNumber.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            textEditVersionNumber.ReadOnly = true;
         }
         #region --- Localization ---
 
@@ -33,10 +37,11 @@ namespace Prizm.Main.Forms.Common
         {
             return new List<LocalizedItem>() 
                 { 
-                    new LocalizedItem(labelVersion, "About_VersionLabel"),
-                    new LocalizedItem(assemblyLabel, "About_AssemblyLabel"),
+                    new LocalizedItem(titleLabel, StringResources.AboutForm_TitleLabel.Id),
 
-                    new LocalizedItem(acceptButton, "About_AcceptButton")
+                    new LocalizedItem(labelVersion, StringResources.About_VersionLabel.Id),
+
+                    new LocalizedItem(acceptButton, StringResources.About_AcceptButton.Id)
                 };
         }
 

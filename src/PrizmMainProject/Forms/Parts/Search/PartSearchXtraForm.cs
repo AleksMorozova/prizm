@@ -33,6 +33,8 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             InitializeComponent();
             number.SetAsIdentifier();
+            Bitmap bmp = Resources.search_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void PartsSearchXtraForm_Load(object sender, EventArgs e)
@@ -50,7 +52,6 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             RefreshTypes();
             activity.SelectedIndex = 0;
-            viewModel.Activity = activity.SelectedItem.ToString();
         }
 
         private void BindToViewModel()
@@ -58,7 +59,7 @@ namespace Prizm.Main.Forms.Parts.Search
             bindingSource.DataSource = viewModel;
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
             number.DataBindings.Add("Editvalue", bindingSource, "Number");
-            activity.DataBindings.Add("EditValue", bindingSource, "Activity");
+            activity.DataBindings.Add("SelectedIndex", bindingSource, "ActivityIndex");
         }
 
         private void BindCommands()
@@ -73,22 +74,22 @@ namespace Prizm.Main.Forms.Parts.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(numberLayoutControl, "PartSearch_SearchNumberLabel"),
-                new LocalizedItem(typeLayoutControl, "PartSearch_SearchTypeLabel"),
-                new LocalizedItem(activityLayout, "PartSearch_ActivityLabel"),
+                new LocalizedItem(numberLayoutControl, StringResources.PartSearch_SearchNumberLabel.Id),
+                new LocalizedItem(typeLayoutControl, StringResources.PartSearch_SearchTypeLabel.Id),
+                new LocalizedItem(activityLayout, StringResources.PartSearch_ActivityLabel.Id),
 
                 // controls
-               new LocalizedItem(searchButton, "PartSearch_SearchButton"),
-               new LocalizedItem(type, new  string [] {"PartSearch_PartTypePipe", "PartSearch_PartTypeSpool", "PartSearch_PartTypeComponent"} ),
-               new LocalizedItem(activity, new  string [] {"PartSearch_StatusActive", "PartSearch_StatusInactive","PartSearch_StatusAll" }),
+               new LocalizedItem(searchButton, StringResources.PartSearch_SearchButton.Id),
+               new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
+               new LocalizedItem(activity, new  string [] {StringResources.StatusActive.Id, StringResources.StatusInactive.Id, StringResources.StatusAll.Id }),
 
                 // grid column headers
-                new LocalizedItem(numberCol, "PartSearch_NumberColumnHeader"),
-                new LocalizedItem(typeCol, "PartSearch_TypeColumnHeader"),
+                new LocalizedItem(numberCol, StringResources.PartSearch_NumberColumnHeader.Id),
+                new LocalizedItem(typeCol, StringResources.PartSearch_TypeColumnHeader.Id),
 
                 // layout control groups
-                new LocalizedItem(searchLayoutControlGroup, "PartSearch_SearchGroup"),
-                new LocalizedItem(searchResultLayoutGroup, "PartSearch_SearchResultGroup"),
+                new LocalizedItem(searchLayoutControlGroup, StringResources.PartSearch_SearchGroup.Id),
+                new LocalizedItem(searchResultLayoutGroup, StringResources.PartSearch_SearchResultGroup.Id),
                 // form
                 //??
             };

@@ -21,6 +21,7 @@ using Prizm.Domain.Entity.Security;
 using Prizm.Main.Common;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -91,7 +92,7 @@ namespace Prizm.Main.Forms.Settings
 
            foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
            {
-               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undef))
+               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undefined))
                ControlType.Add(new EnumWrapper<PipeTestControlType>()
                {
                    Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName)
@@ -101,7 +102,7 @@ namespace Prizm.Main.Forms.Settings
 
            foreach (string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
            {
-               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undef))
+               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undefined))
                ResultType.Add(new EnumWrapper<PipeTestResultType>()
                {
                    Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName)
@@ -130,7 +131,16 @@ namespace Prizm.Main.Forms.Settings
            IList<Permission> perms = repos.PermissionRepo.GetAll();
            foreach (var p in perms)
            {
-               p.NameTranslation = Resources.ResourceManager.GetString("SecurityPrivilege_" + p.Name);
+               string id = "SecurityPrivilege_" + p.Name;
+               StringResource? res = Program.LanguageManager.FindById(typeof(StringResources), id);
+               if (res != null)
+               {
+                   p.NameTranslation = Program.LanguageManager.GetString((StringResource)res);
+               }
+               else
+               {
+                   throw new ApplicationException("No resource description defined for " + id);
+               }
                Permissions.Add(p);
            }
         }
@@ -356,6 +366,16 @@ namespace Prizm.Main.Forms.Settings
               {
                  Inspectors.Add(new InspectorViewType(i));
               }
+           }
+
+           foreach (var insp in this.Inspectors)
+           {
+               // Due to incomplete the collection type matching returned at reading from the database and properties binding  
+               // the following solution have been proposed. Perhaps this problem can be solved by entities mapping.
+               if (insp.Certificates.Count == 0)
+               {
+                   insp.Certificates = new List<InspectorCertificate>();
+               }
            }
 
            Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;

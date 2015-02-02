@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
             this.reportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.infoLabel = new DevExpress.XtraEditors.LabelControl();
             this.tracingModeRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.start = new DevExpress.XtraEditors.ComboBoxEdit();
             this.end = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -56,9 +57,9 @@
             this.endJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.startJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.createButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.underPreviewEmptySpaceI = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.underCreateButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
@@ -84,9 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underPreviewEmptySpaceI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underCreateButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.infoLabel);
             this.generalLayout.Controls.Add(this.tracingModeRadioGroup);
             this.generalLayout.Controls.Add(this.start);
             this.generalLayout.Controls.Add(this.end);
@@ -120,9 +122,19 @@
             this.generalLayout.Name = "generalLayout";
             this.generalLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(251, 263, 250, 350);
             this.generalLayout.Root = this.generalLayoutGroup;
-            this.generalLayout.Size = new System.Drawing.Size(940, 450);
+            this.generalLayout.Size = new System.Drawing.Size(1100, 450);
             this.generalLayout.TabIndex = 70;
             this.generalLayout.Text = "layoutControl1";
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Location = new System.Drawing.Point(606, 43);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(367, 26);
+            this.infoLabel.StyleController = this.generalLayout;
+            this.infoLabel.TabIndex = 76;
+            this.infoLabel.Text = "Данный тип отчета содержит все сваренные элементы расположенные \r\nмежду заданными" +
+    " точками не зависимо от их связности.";
             // 
             // tracingModeRadioGroup
             // 
@@ -205,7 +217,7 @@
             this.previewReportDocument.IsMetric = false;
             this.previewReportDocument.Location = new System.Drawing.Point(24, 172);
             this.previewReportDocument.Name = "previewReportDocument";
-            this.previewReportDocument.Size = new System.Drawing.Size(892, 254);
+            this.previewReportDocument.Size = new System.Drawing.Size(1052, 254);
             this.previewReportDocument.Status = " ";
             this.previewReportDocument.TabIndex = 56;
             // 
@@ -232,7 +244,7 @@
             this.createReportaLyoutGroup});
             this.generalLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutGroup.Name = "generalLayoutGroup";
-            this.generalLayoutGroup.Size = new System.Drawing.Size(940, 450);
+            this.generalLayoutGroup.Size = new System.Drawing.Size(1100, 450);
             this.generalLayoutGroup.Text = "generalLayoutGroup";
             this.generalLayoutGroup.TextVisible = false;
             // 
@@ -243,7 +255,7 @@
             this.previewLayout});
             this.previewLayoutGroup.Location = new System.Drawing.Point(0, 129);
             this.previewLayoutGroup.Name = "previewLayoutGroup";
-            this.previewLayoutGroup.Size = new System.Drawing.Size(920, 301);
+            this.previewLayoutGroup.Size = new System.Drawing.Size(1080, 301);
             this.previewLayoutGroup.Text = "Предварительный просмотр отчёта ";
             // 
             // previewLayout
@@ -252,7 +264,7 @@
             this.previewLayout.CustomizationFormText = "previewLayout";
             this.previewLayout.Location = new System.Drawing.Point(0, 0);
             this.previewLayout.Name = "previewLayout";
-            this.previewLayout.Size = new System.Drawing.Size(896, 258);
+            this.previewLayout.Size = new System.Drawing.Size(1056, 258);
             this.previewLayout.Text = "previewLayout";
             this.previewLayout.TextSize = new System.Drawing.Size(0, 0);
             this.previewLayout.TextVisible = false;
@@ -272,12 +284,12 @@
             this.endJointLayout,
             this.startJointLayout,
             this.createButtonLayout,
-            this.underPreviewEmptySpaceI,
-            this.underCreateButtonEmptySpace,
-            this.tracingModeLayoutControl});
+            this.tracingModeLayoutControl,
+            this.infoLabelLayout,
+            this.emptySpaceItem1});
             this.createReportaLyoutGroup.Location = new System.Drawing.Point(0, 0);
             this.createReportaLyoutGroup.Name = "createReportaLyoutGroup";
-            this.createReportaLyoutGroup.Size = new System.Drawing.Size(920, 129);
+            this.createReportaLyoutGroup.Size = new System.Drawing.Size(1080, 129);
             this.createReportaLyoutGroup.Text = "Сформировать отчёт";
             // 
             // typeLayout
@@ -313,9 +325,9 @@
             // 
             this.buttonsEmptySpace.AllowHotTrack = false;
             this.buttonsEmptySpace.CustomizationFormText = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Location = new System.Drawing.Point(858, 0);
+            this.buttonsEmptySpace.Location = new System.Drawing.Point(858, 44);
             this.buttonsEmptySpace.Name = "buttonsEmptySpace";
-            this.buttonsEmptySpace.Size = new System.Drawing.Size(38, 86);
+            this.buttonsEmptySpace.Size = new System.Drawing.Size(198, 42);
             this.buttonsEmptySpace.Text = "buttonsEmptySpace";
             this.buttonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -429,30 +441,6 @@
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.createButtonLayout.TextVisible = false;
             // 
-            // underPreviewEmptySpaceI
-            // 
-            this.underPreviewEmptySpaceI.AllowHotTrack = false;
-            this.underPreviewEmptySpaceI.CustomizationFormText = "underPreviewEmptySpaceI";
-            this.underPreviewEmptySpaceI.Location = new System.Drawing.Point(567, 0);
-            this.underPreviewEmptySpaceI.MinSize = new System.Drawing.Size(104, 24);
-            this.underPreviewEmptySpaceI.Name = "underPreviewEmptySpaceI";
-            this.underPreviewEmptySpaceI.Size = new System.Drawing.Size(144, 44);
-            this.underPreviewEmptySpaceI.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.underPreviewEmptySpaceI.Text = "underPreviewEmptySpaceI";
-            this.underPreviewEmptySpaceI.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // underCreateButtonEmptySpace
-            // 
-            this.underCreateButtonEmptySpace.AllowHotTrack = false;
-            this.underCreateButtonEmptySpace.CustomizationFormText = "underCreateButtonEmptySpace";
-            this.underCreateButtonEmptySpace.Location = new System.Drawing.Point(711, 0);
-            this.underCreateButtonEmptySpace.MinSize = new System.Drawing.Size(104, 24);
-            this.underCreateButtonEmptySpace.Name = "underCreateButtonEmptySpace";
-            this.underCreateButtonEmptySpace.Size = new System.Drawing.Size(147, 44);
-            this.underCreateButtonEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.underCreateButtonEmptySpace.Text = "underCreateButtonEmptySpace";
-            this.underCreateButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // tracingModeLayoutControl
             // 
             this.tracingModeLayoutControl.Control = this.tracingModeRadioGroup;
@@ -468,6 +456,28 @@
             this.tracingModeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.tracingModeLayoutControl.TextVisible = false;
             // 
+            // infoLabelLayout
+            // 
+            this.infoLabelLayout.Control = this.infoLabel;
+            this.infoLabelLayout.CustomizationFormText = "layoutControlItem1";
+            this.infoLabelLayout.Location = new System.Drawing.Point(567, 0);
+            this.infoLabelLayout.Name = "infoLabelLayout";
+            this.infoLabelLayout.Size = new System.Drawing.Size(489, 30);
+            this.infoLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
+            this.infoLabelLayout.Text = "infoLabelLayout";
+            this.infoLabelLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.infoLabelLayout.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(567, 30);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 14);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // bindingSource
             // 
             this.bindingSource.AllowNew = false;
@@ -476,7 +486,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.ClientSize = new System.Drawing.Size(1100, 450);
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConstructionReportsXtraForm";
@@ -507,9 +517,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underPreviewEmptySpaceI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underCreateButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -548,9 +558,10 @@
         private DevExpress.XtraLayout.EmptySpaceItem reportTypeEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem endJointLayout;
         private DevExpress.XtraLayout.LayoutControlItem startJointLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem underPreviewEmptySpaceI;
-        private DevExpress.XtraLayout.EmptySpaceItem underCreateButtonEmptySpace;
         private DevExpress.XtraEditors.RadioGroup tracingModeRadioGroup;
         private DevExpress.XtraLayout.LayoutControlItem tracingModeLayoutControl;
+        private DevExpress.XtraEditors.LabelControl infoLabel;
+        private DevExpress.XtraLayout.LayoutControlItem infoLabelLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

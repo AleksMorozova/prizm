@@ -18,6 +18,7 @@ using Prizm.Main.Documents;
 using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
 using Prizm.Main.Languages;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -38,6 +39,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.id = id;
 
             InitializeComponent();
+            Bitmap bmp = Resources.shipment_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
@@ -52,7 +55,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.certificateNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
-            attachmentsButton.Enabled = ctx.HasAccess(global::Domain.Entity.Security.Privileges.AddAttachments);
+            attachmentsButton.Enabled = true;
         }
 
         public RailcarNewEditXtraForm()
@@ -66,7 +69,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
-            IsEditMode = !viewModel.Shipped;
+            IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
         }
 
         #region --- Localization ---
@@ -76,24 +79,24 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(releasedNoteNumberLayout, "RailcarNewEdit_ReleaseNumberLabel"),
-                new LocalizedItem(releasedNoteDateLayout, "RailcarNewEdit_ReleaseDateLabel"),
-                new LocalizedItem(railcarNumberLayout, "RailcarNewEdit_RailcarNumberLabel"),
-                new LocalizedItem(certificateNumberLayout, "RailcarNewEdit_CertificateLabel"),
-                new LocalizedItem(layoutControlDestination, "RailcarNewEdit_DestinationLabel"),
+                new LocalizedItem(releasedNoteNumberLayout, StringResources.ReleaseNoteNewEdit_ReleaseNumberLabel.Id),
+                new LocalizedItem(releasedNoteDateLayout, StringResources.ReleaseNoteNewEdit_ReleaseDateLabel.Id),
+                new LocalizedItem(railcarNumberLayout, StringResources.ReleaseNoteNewEdit_RailcarNumberLabel.Id),
+                new LocalizedItem(certificateNumberLayout, StringResources.ReleaseNoteNewEdit_CertificateLabel.Id),
+                new LocalizedItem(layoutControlDestination, StringResources.ReleaseNoteNewEdit_DestinationLabel.Id),
 
                 //buttons
-                new LocalizedItem(addPipeButton, "RailcarNewEdit_AddPipeButton"),
-                new LocalizedItem(removePipe, "RailcarNewEdit_RemovePipeButton"),
-                new LocalizedItem(attachmentsButton, "RailcarNewEdit_AttachmentsButton"),
-                new LocalizedItem(shipButton, "RailcarNewEdit_ShipButton"),
-                new LocalizedItem(unshipButton, "RailcarNewEdit_UnshipButton"),
-                new LocalizedItem(saveButton, "RailcarNewEdit_SaveButton"),
+                new LocalizedItem(addPipeButton, StringResources.ReleaseNoteNewEdit_AddPipeButton.Id),
+                new LocalizedItem(removePipe, StringResources.ReleaseNoteNewEdit_RemovePipeButton.Id),
+                new LocalizedItem(attachmentsButton, StringResources.ReleaseNoteNewEdit_AttachmentsButton.Id),
+                new LocalizedItem(shipButton, StringResources.ReleaseNoteNewEdit_ShipButton.Id),
+                new LocalizedItem(unshipButton, StringResources.ReleaseNoteNewEdit_UnshipButton.Id),
+                new LocalizedItem(saveButton, StringResources.ReleaseNoteNewEdit_SaveButton.Id),
 
                 //columns
-                new LocalizedItem(pipeNumberGridColumn, "RailcarNewEdit_PipeNumberColumn"),
-                new LocalizedItem(pipeSizeGridColumn, "RailcarNewEdit_PipeTypeSizeColumn"),
-                new LocalizedItem(pipeStatusGridColumn, "RailcarNewEdit_PipeStatusColumn")
+                new LocalizedItem(pipeNumberGridColumn, StringResources.ReleaseNoteNewEdit_PipeNumberColumn.Id),
+                new LocalizedItem(pipeSizeGridColumn, StringResources.ReleaseNoteNewEdit_PipeTypeSizeColumn.Id),
+                new LocalizedItem(pipeStatusGridColumn, StringResources.ReleaseNoteNewEdit_PipeStatusColumn.Id)
             };
         }
 
@@ -107,7 +110,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Railcar");
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
-            pipesList.DataBindings.Add("DataSource", bindingSource, "Pipes");
+            pipesList.DataBindings.Add("DataSource", bindingSource, "ReleaseNotePipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
 
@@ -151,6 +154,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
             viewModel.pipesList.Add(viewModel.pipeToAdd, viewModel.Railcar);
             pipesList.RefreshDataSource();
+            pipeNumberLookUp.EditValue = null;
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             IsModified = true;
             commandManager.RefreshVisualState();
 
@@ -163,6 +168,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 viewModel.RemovePipe(number);
                 pipesList.RefreshDataSource();
+                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
                 IsModified = true;
                 commandManager.RefreshVisualState();
             }

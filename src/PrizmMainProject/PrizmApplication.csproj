@@ -63,6 +63,15 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>prizma_appIcon_256.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -145,6 +154,10 @@
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\prizm_external\external\log4net-1.2.13\bin\net\4.0\release\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -480,9 +493,22 @@
     <Compile Include="Forms\Reports\Mill\GeneralInformationXtraReport.Designer.cs">
       <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\LoadingXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\LoadingXtraReport.Designer.cs">
+      <DependentUpon>LoadingXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\Mill\MillReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Mill\PreviewReportCommand.cs" />
+    <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.Designer.cs">
+      <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
+    <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -521,13 +547,17 @@
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Languages\ILocalizable.cs" />
-    <Compile Include="Forms\Synch\MissingPortionsDialog.cs" />
+    <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Synch\MissingPortionsDialog.Designer.cs">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Languages\ILanguageManager.cs" />
     <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Languages\LocalizedItem.cs" />
+    <Compile Include="Languages\StringResource.cs" />
+    <Compile Include="Languages\StringResources.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -804,6 +834,9 @@
     <EmbeddedResource Include="Forms\Reports\Mill\GeneralInformationXtraReport.resx">
       <DependentUpon>GeneralInformationXtraReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\LoadingXtraReport.resx">
+      <DependentUpon>LoadingXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\MillReportsXtraReport.resx">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -825,6 +858,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.resx">
+      <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Inspections\MillInspectionXtraForm.resx">
+      <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\PasswordChangeDialog.resx">
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
@@ -858,6 +897,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="PrizmApplication_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Domain.Entity.AuditLog.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Inspector.datasource" />
     <None Include="Properties\DataSources\Domain.Entity.Mill.Weld.datasource" />
@@ -1062,7 +1102,24 @@
   <ItemGroup>
     <None Include="Resources\import.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="prizma_appIcon_16.ico" />
+    <Content Include="prizma_appIcon_256.ico" />
+    <Content Include="prizma_appIcon_32.ico" />
+    <Content Include="prizma_appIcon_48.ico" />
+    <None Include="Resources\history_item_16.png" />
+    <None Include="Resources\page_setup_16.png" />
+    <None Include="Resources\properties_16.png" />
+    <None Include="Resources\spool_icon.png" />
+    <None Include="Resources\shipment_icon.png" />
+    <None Include="Resources\search_icon.png" />
+    <None Include="Resources\reports_icon.png" />
+    <None Include="Resources\prizma_appIcon_32.png" />
+    <None Include="Resources\mill_pipe_icon.png" />
+    <None Include="Resources\joint_icon.png" />
+    <None Include="Resources\inControl_icon.png" />
+    <None Include="Resources\components_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

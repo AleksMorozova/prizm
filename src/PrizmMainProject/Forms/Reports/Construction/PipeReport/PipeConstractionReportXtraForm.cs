@@ -12,6 +12,7 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Languages;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 {
@@ -24,6 +25,8 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public PipeConstractionReportXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.reports_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void PipeConstractionReportXtraForm_Load(object sender, EventArgs e)
@@ -68,13 +71,12 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             return new List<LocalizedItem>()
             {
-                new LocalizedItem(pipeNumberLayout, "PipeConstractionReport_PipeNumberLayout"),
-                new LocalizedItem(pipeTypeCheckedComboLayout, "PipeConstractionReport_PipeTypeCheckedComboLayout"),
-                new LocalizedItem(pipeCertNumberLayout, "PipeConstractionReport_PipeCertNumberLayout"),
-                new LocalizedItem(pipeReportParametersLayoutGroup, "PipeConstractionReport_PipeReportParametersLayoutGroup"),
-                new LocalizedItem(previewButton, "PipeConstractionReport_PreviewButton"),
-                new LocalizedItem(createReportButton, "PipeConstractionReport_CreateReportButton"),
-                new LocalizedItem(documentViewerLayoutGroup, "PipeConstractionReport_DocumentViewerLayoutGroup"),
+                new LocalizedItem(pipeNumberLayout, StringResources.PipeConstractionReport_PipeNumberLayout.Id),
+                new LocalizedItem(pipeTypeCheckedComboLayout, StringResources.PipeConstractionReport_PipeTypeCheckedComboLayout.Id),
+                new LocalizedItem(pipeReportParametersLayoutGroup, StringResources.PipeConstractionReport_PipeReportParametersLayoutGroup.Id),
+                new LocalizedItem(previewButton, StringResources.PipeConstractionReport_PreviewButton.Id),
+                new LocalizedItem(createReportButton, StringResources.PipeConstractionReport_CreateReportButton.Id),
+                new LocalizedItem(documentViewerLayoutGroup, StringResources.PipeConstractionReport_DocumentViewerLayoutGroup.Id),
             };
         }
 

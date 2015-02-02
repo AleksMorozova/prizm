@@ -9,6 +9,7 @@ using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
@@ -46,8 +47,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (joints != null && joints.Count > 0)
             {
                 notify.ShowInfo(
-                    string.Concat(Resources.DLG_JOINT_DUPLICATE, viewModel.Number),
-                    Resources.DLG_JOINT_DUPLICATE_HEADER);
+                    string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
+                    Program.LanguageManager.GetString(StringResources.Joint_DuplicateHeader));
                 viewModel.Number = string.Empty;
             }
             else
@@ -63,8 +64,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 else
                 {
                     notify.ShowInfo(
-                    Resources.DLG_JOINT_INCORRECT_DIAMETER,
-                    Resources.DLG_JOINT_INCORRECT_DIAMETER_HEADER);
+                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
+                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
                 }
 
                 viewModel.NewJoint();
@@ -76,7 +77,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public bool CanExecute()
         {
             return viewModel.SaveOrUpdateJointCommand.CanExecute() 
-                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry);
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
         }
     }
 }

@@ -8,11 +8,10 @@ namespace Prizm.Domain.Entity.Mill
 {
     public enum PipeTestResultStatus
     {
+        Undefined = 0,
         Scheduled = 1,
         Passed = 2,
         Failed = 3,
         Repair = 4,
-
-        Undef = 0
     }
 }

@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 using System.Security.Cryptography;
 using System.IO.Compression;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Synch.Export
 {
@@ -36,7 +37,7 @@ namespace Prizm.Main.Synch.Export
 
       public bool AnyNewDataToExport()
       {
-         IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
+          IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
          IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
          IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
 
@@ -176,16 +177,16 @@ namespace Prizm.Main.Synch.Export
       {
          try
          {
-            FireMessage(Resources.Export_ReadingData);
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_ReadingData));
 
             Project project = exportRepo.ProjectRepo.GetSingle();
             Data data = PrepareData(portion, project);
 
-            FireMessage(Resources.Export_CreateTempStorage);
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreateTempStorage));
 
             string tempDir = CreateTempDir();
 
-            FireMessage(Resources.Export_WritingData);
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_WritingData));
 
             WriteManifest(tempDir, portion.Id, portion.PortionNumber, portion.ExportDateTime, project.WorkstationType);
 
@@ -193,7 +194,7 @@ namespace Prizm.Main.Synch.Export
 
             WriteAttachments(tempDir, data);
 
-            FireMessage(Resources.Export_CreatingArchive);
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreatingArchive));
 
             ZipContent(tempDir);
 

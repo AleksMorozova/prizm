@@ -17,6 +17,8 @@ using Prizm.Main.DummyData;
 using Prizm.Main.Commands;
 using Prizm.Main.Languages;
 using System.Collections.Generic;
+using Prizm.Main.Properties;
+using System.Drawing;
 
 
 namespace Prizm.Main.Forms.Railcar.Search
@@ -30,6 +32,8 @@ namespace Prizm.Main.Forms.Railcar.Search
         public RailcarSearchXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.search_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();
@@ -71,26 +75,26 @@ namespace Prizm.Main.Forms.Railcar.Search
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(releaseNoteNumberayout, "ReleaseSearch_NumberLabel"),
-                new LocalizedItem(releaseNoteDateLayout, "ReleaseSearch_DateLabel"),
-                new LocalizedItem(destinationLayout, "ReleaseSearch_DestinationLabel"),
-                new LocalizedItem(railcarNumberLayout, "ReleaseSearch_RailcarLabel"),
-                new LocalizedItem(certificateNumberLayout, "ReleaseSearch_CertificateLabel"),
+                new LocalizedItem(releaseNoteNumberayout, StringResources.ReleaseSearch_NumberLabel.Id),
+                new LocalizedItem(releaseNoteDateLayout, StringResources.ReleaseSearch_DateLabel.Id),
+                new LocalizedItem(destinationLayout, StringResources.ReleaseSearch_DestinationLabel.Id),
+                new LocalizedItem(railcarNumberLayout, StringResources.ReleaseSearch_RailcarLabel.Id),
+                new LocalizedItem(certificateNumberLayout, StringResources.ReleaseSearch_CertificateLabel.Id),
 
                 // controls
-                new LocalizedItem(searchButton, "NewEditPipe_SearchButton"),
+                new LocalizedItem(searchButton, StringResources.NewEditPipe_SearchButton.Id),
 
                 // grid column headers
-                new LocalizedItem(releaseNoteNumberGridColumn, "ReleaseSearch_ReleaseNumberColumnHeader"),
-                new LocalizedItem(releaseNoteDateGridColumn, "ReleaseSearch_ReleaseDateColumnHeader"),
-                new LocalizedItem(number, "ReleaseSearch_RailcarNumberColumnHeader"),
-                new LocalizedItem(dest, "ReleaseSearch_DestinationColumnHeader"),
-                new LocalizedItem(certificate, "ReleaseSearch_CertificateColumnHeader"),
-                new LocalizedItem(statusColumn, "ReleaseSearch_RailcarNumberColumnHeader"),
+                new LocalizedItem(releaseNoteNumberGridColumn, StringResources.ReleaseSearch_ReleaseNumberColumnHeader.Id),
+                new LocalizedItem(releaseNoteDateGridColumn, StringResources.ReleaseSearch_ReleaseDateColumnHeader.Id),
+                new LocalizedItem(number, StringResources.ReleaseSearch_RailcarNumberColumnHeader.Id),
+                new LocalizedItem(dest, StringResources.ReleaseSearch_DestinationColumnHeader.Id),
+                new LocalizedItem(certificate, StringResources.ReleaseSearch_CertificateColumnHeader.Id),
+                new LocalizedItem(statusColumn, StringResources.ReleaseSearch_RailcarNumberColumnHeader.Id),
 
                 // layout control groups
-                new LocalizedItem(searchParametersLayoutGroup, "ReleaseSearch_SearchGroup"),
-                new LocalizedItem(resultParametersLayoutGroup, "ReleaseSearch_ResultGroup")
+                new LocalizedItem(searchParametersLayoutGroup, StringResources.ReleaseSearch_SearchGroup.Id),
+                new LocalizedItem(resultParametersLayoutGroup, StringResources.ReleaseSearch_ResultGroup.Id)
 
                 // other
             };
@@ -109,7 +113,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.OpenChildForm(typeof(RailcarNewEditXtraForm), id);
+                parent.CreateRailcarForm(id);
             }
         }
 

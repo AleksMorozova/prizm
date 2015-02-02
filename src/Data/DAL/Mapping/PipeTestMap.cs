@@ -21,6 +21,11 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.MaxExpected, "maxExpected");
             Map(_ => _.BoolExpected, "boolExpected");
             Map(_ => _.IsRequired, "isRequired");
+            Component<PipeTestFrequency>(x => x.Frequency, m =>
+            {
+                m.Map(x => x.Quantaty).Column("frequency");
+                m.Map(x => x.Measure).Column("frequencyMeasure");
+            });
 
             References<Category>(x => x.Category).Column("categoryId").Cascade.All();
 

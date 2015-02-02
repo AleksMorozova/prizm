@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Ninject;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -32,8 +33,8 @@ namespace Prizm.Main.Forms.Spool
         public void Execute()
         {
             if (notify.ShowYesNo(
-                  Resources.DLG_SPOOL_DEACTIVATION,
-                  Resources.DLG_SPOOL_DEACTIVATION_HEADER))
+                  Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestion),
+                  Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestionHeader)))
             {
                 viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;       
                 viewModel.Spool.IsActive = false;

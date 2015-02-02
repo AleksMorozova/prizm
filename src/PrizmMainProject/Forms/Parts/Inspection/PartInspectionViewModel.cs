@@ -8,6 +8,7 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.Parts.Search;
+using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using System;
@@ -82,9 +83,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return (selectedElement != null)? selectedElement.Number : string.Empty; }
         }
 
-        public string ElementType
+        public PartType ElementType
         {
-            get { return (selectedElement != null)? selectedElement.Type.ToString() : string.Empty; }
+            get { return (selectedElement != null) ? selectedElement.Type.Value : PartType.Undefined; }
         }
 
         public Main.Forms.Parts.Search.Part SelectedElement
@@ -106,7 +107,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
                                 break;
                             case PartType.Component: convertedPart = (Domain.Entity.Part)repos.RepoComponent.Get(selectedElement.Id);
                                 break;
-                            default: notify.ShowError(Resources.DLG_ERROR_HEADER, Resources.IDS_ERROR + Resources.ERROR_UnknownComponentType);
+                            default: notify.ShowError(
+                                Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), 
+                                Program.LanguageManager.GetString(StringResources.Message_UnknownComponentType));
                                 break;
                         }
                         var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);

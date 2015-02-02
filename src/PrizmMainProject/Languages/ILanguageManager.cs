@@ -13,5 +13,9 @@ namespace Prizm.Main.Languages
         IReadOnlyList<CultureInfo> GetCultures(out int indexDefault);
         bool LoadTranslation(CultureInfo culture);
         void ChangeLanguage(ILocalizable localizable);
+        CultureInfo DefaultCultureInfo { get; }
+        string GetString(StringResource resourceDescription);
+        IEnumerable<StringResource> EnumerateStringResources(System.Type stringResourcesStaticClassType);
+        StringResource? FindById(System.Type stringResourcesStaticClassType, string resourceId);
     }
 }

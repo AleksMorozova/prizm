@@ -2,8 +2,10 @@
 using Prizm.Main.Commands;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
@@ -16,6 +18,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
         public InspectionReportsXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.reports_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
         private void BindToViewModel()
         {
@@ -47,15 +51,15 @@ namespace Prizm.Main.Forms.Reports.Incoming
             return new List<LocalizedItem>()
             {
                 // layout items
-                new LocalizedItem(incomingInspectionDateLabel, "InspectionReport_DateLabel"),
-                new LocalizedItem(startDateLayout, "InspectionReport_StartDateLabel"),
-                new LocalizedItem(endDateLayout, "InspectionReport_EndDateLabel"),
+                new LocalizedItem(incomingInspectionDateLabel, StringResources.InspectionReport_DateLabel.Id),
+                new LocalizedItem(startDateLayout, StringResources.InspectionReport_StartDateLabel.Id),
+                new LocalizedItem(endDateLayout, StringResources.InspectionReport_EndDateLabel.Id),
 
-                new LocalizedItem(createReportLayoutGroup, "InspectionReport_CreateGroup"),
-                new LocalizedItem(previewReportLayoutGroup, "InspectionReport_PreviewGroup"),
+                new LocalizedItem(createReportLayoutGroup, StringResources.InspectionReport_CreateGroup.Id),
+                new LocalizedItem(previewReportLayoutGroup, StringResources.InspectionReport_PreviewGroup.Id),
 
-                new LocalizedItem(previewButton, "InspectionReport_PreviewButton"),
-                new LocalizedItem(createReportButton, "InspectionReport_CreateButton")
+                new LocalizedItem(previewButton, StringResources.InspectionReport_PreviewButton.Id),
+                new LocalizedItem(createReportButton, StringResources.InspectionReport_CreateButton.Id)
             };
         }
 

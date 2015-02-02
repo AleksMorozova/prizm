@@ -44,12 +44,12 @@ namespace Prizm.Main.Forms.Settings
         {
             return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblOldPass, "PassChange_OldPassLabel"),
-              new LocalizedItem(lblPass, "PassChange_PassLabel"),
-              new LocalizedItem(lblConfirm, "PassChange_ConfirmPassLabel"),
+              new LocalizedItem(lblOldPass, StringResources.PassChange_OldPassLabel.Id),
+              new LocalizedItem(lblPass, StringResources.PassChange_PassLabel.Id),
+              new LocalizedItem(lblConfirm, StringResources.PassChange_ConfirmPassLabel.Id),
 
-              new LocalizedItem(btnOk, "PassChange_OKButton"),
-              new LocalizedItem(btnCancel, "PassChange_CancelButton"),
+              new LocalizedItem(btnOk, StringResources.PassChange_OKButton.Id),
+              new LocalizedItem(btnCancel, StringResources.PassChange_CancelButton.Id),
           };
         }
 
@@ -65,7 +65,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 if(oldPasswordHash != passwordHash)
                 {
-                    MessageBox.Show(Resources.InvalidOldPassword);
+                    MessageBox.Show(Program.LanguageManager.GetString(StringResources.PassChange_InvalidOldPassword));
                     DialogResult = System.Windows.Forms.DialogResult.None;
                     return;
                 }
@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.Settings
 
             if(newPasswordHash != confirmPasswordHash)
             {
-                MessageBox.Show(Resources.PasswordsNotMatch);
+                MessageBox.Show(Program.LanguageManager.GetString(StringResources.PassChange_PasswordsNotMatch));
                 DialogResult = System.Windows.Forms.DialogResult.None;
                 return;
             }

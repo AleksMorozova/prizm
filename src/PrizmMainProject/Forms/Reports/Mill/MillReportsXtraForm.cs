@@ -17,18 +17,22 @@ using DevExpress.XtraEditors.Controls;
 using Prizm.Main.Common;
 using Prizm.Main.Commands;
 using Prizm.Main.Languages;
+using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillReportsXtraForm : ChildForm
     {
         private MillReportsViewModel viewModel;
-        private ICommandManager commandManager = new CommandManager(); 
+        private ICommandManager commandManager = new CommandManager();
 
         public MillReportsXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.reports_icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void BindToViewModel()
@@ -40,12 +44,15 @@ namespace Prizm.Main.Forms.Reports.Mill
             testCategories.DataSource = viewModel.InspectionCategories;
             testCategories.DisplayMember = "Name";
             testCategories.ValueMember = "Id";
-            statuses.DataSource = viewModel.Statuses;
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
-            foreach (var item in EnumWrapper<MillReportType>.EnumerateItems())
+            foreach(var item in EnumWrapper<MillReportType>.EnumerateItems())
             {
                 reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
+            }
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            {
+                statuses.Items.Add(item.Item2);
             }
 
             reportTypes.DataBindings.Add("EditValue", millReportsBindingSource, "SelectedReportType");
@@ -65,6 +72,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
+            reportTypes.SelectedIndex = 3;
         }
 
         #region --- Localization ---
@@ -74,18 +82,28 @@ namespace Prizm.Main.Forms.Reports.Mill
             return new List<LocalizedItem>()
             {
                 // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
+                new LocalizedItem(reportTypesLayout, StringResources.MillReport_ReportTypesLabel.Id),
+                
+                new LocalizedItem(reportPeriodLabel, StringResources.MillReport_ReportPeriodLabel.Id),
+                new LocalizedItem(startDateLayout, StringResources.MillReport_StartDateLabel.Id),
+                new LocalizedItem(finalDateLayout, StringResources.MillReport_EndDateLabel.Id),
 
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
+                new LocalizedItem(testCategoriesLayout, StringResources.MillReport_CategoriesLabel.Id),
+                new LocalizedItem(statusesLayout,StringResources.MillReport_StatusesLabel.Id),
 
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
+                new LocalizedItem(createReportaLyoutGroup,StringResources.MillReport_CreateGroup.Id),
+                new LocalizedItem(previewLayoutGroup,StringResources.MillReport_PreviewGroup.Id),
 
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
+                new LocalizedItem(createReportButton,StringResources.MillReport_CreateButton.Id),
+                new LocalizedItem(previewButton,StringResources.MillReport_PreviewButton.Id),
 
-                // other
+                new LocalizedItem(reportTypes, new string[] { 
+                    StringResources.MillReport_TypeByCategories.Id, 
+                    StringResources.MillReport_TypeByShipped.Id, 
+                    StringResources.MillReport_TypeByProduced.Id, 
+                    StringResources.MillReport_TypeGeneral.Id }),
+
+                //new LocalizedItem(statuses, new string[] { "", "", "", "" }),
             };
         }
 
@@ -94,10 +112,10 @@ namespace Prizm.Main.Forms.Reports.Mill
         private void generalReportTypes_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
             List<Guid> checkedItems = new List<Guid>();
-            foreach (var item in testCategories.CheckedItems)
+            foreach(var item in testCategories.CheckedItems)
             {
                 var category = item as Category;
-                if (category != null)
+                if(category != null)
                     checkedItems.Add(category.Id);
             }
             viewModel.SearchIds = checkedItems;
@@ -105,28 +123,28 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void reportTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (reportTypes.SelectedIndex < 0) return;
             var selected = (MillReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;
             statuses.Enabled = true;
 
-            
-                if (selected != MillReportType.ByCategories)
-                {
-                    testCategories.Enabled = false;
-                    statuses.Enabled = false;
-                }
-        
+            if(selected != MillReportType.ByCategories)
+            {
+                testCategories.Enabled = false;
+                statuses.Enabled = false;
+            }
+
 
         }
 
         private void statuses_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             List<string> statusList = new List<string>();
-            foreach (var item in statuses.CheckedItems)
+            foreach(var item in statuses.CheckedItems)
             {
                 var status = item as EnumWrapper<PipeTestResultStatus>;
-                if (status != null)
+                if(status != null)
                     statusList.Add(status.Value.ToString());
             }
             viewModel.SearchStatuses = statusList;

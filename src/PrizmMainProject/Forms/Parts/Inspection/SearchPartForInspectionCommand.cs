@@ -54,7 +54,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 InspectionSelectPartDialog dialog = new InspectionSelectPartDialog(parts, viewModel);
                 dialog.ShowDialog();
             }
-            else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.NewDataEntry))
+            else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.PartsInspection))
             {
                 CreateSpoolComponentDialog dialog = new CreateSpoolComponentDialog(viewModel.SearchNumber);
                 dialog.ShowDialog();
