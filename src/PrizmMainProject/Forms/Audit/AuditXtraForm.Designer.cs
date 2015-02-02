@@ -105,22 +105,22 @@
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(24, 59);
+            this.number.Location = new System.Drawing.Point(146, 59);
             this.number.Name = "number";
-            this.number.Size = new System.Drawing.Size(117, 20);
+            this.number.Size = new System.Drawing.Size(200, 20);
             this.number.StyleController = this.searchGroupLayout;
             this.number.TabIndex = 11;
             // 
             // radioPeriodUser
             // 
-            this.radioPeriodUser.Location = new System.Drawing.Point(145, 43);
+            this.radioPeriodUser.Location = new System.Drawing.Point(24, 43);
             this.radioPeriodUser.Name = "radioPeriodUser";
             this.radioPeriodUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioPeriodUser.Properties.Appearance.Options.UseBackColor = true;
             this.radioPeriodUser.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Период"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Номер элемента"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Пользователь")});
-            this.radioPeriodUser.Size = new System.Drawing.Size(109, 77);
+            this.radioPeriodUser.Size = new System.Drawing.Size(118, 76);
             this.radioPeriodUser.StyleController = this.searchGroupLayout;
             this.radioPeriodUser.TabIndex = 10;
             this.radioPeriodUser.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
@@ -128,7 +128,7 @@
             // search
             // 
             this.search.Image = ((System.Drawing.Image)(resources.GetObject("search.Image")));
-            this.search.Location = new System.Drawing.Point(518, 98);
+            this.search.Location = new System.Drawing.Point(350, 84);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(100, 22);
             this.search.StyleController = this.searchGroupLayout;
@@ -138,30 +138,30 @@
             // user
             // 
             this.user.Enabled = false;
-            this.user.Location = new System.Drawing.Point(258, 100);
+            this.user.Location = new System.Drawing.Point(146, 99);
             this.user.Name = "user";
             this.user.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.user.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.user.Size = new System.Drawing.Size(241, 20);
+            this.user.Size = new System.Drawing.Size(185, 20);
             this.user.StyleController = this.searchGroupLayout;
             this.user.TabIndex = 8;
             // 
             // periodLabel
             // 
-            this.periodLabel.Location = new System.Drawing.Point(372, 43);
+            this.periodLabel.Location = new System.Drawing.Point(464, 43);
             this.periodLabel.Name = "periodLabel";
-            this.periodLabel.Size = new System.Drawing.Size(142, 13);
+            this.periodLabel.Size = new System.Drawing.Size(152, 13);
             this.periodLabel.StyleController = this.searchGroupLayout;
             this.periodLabel.TabIndex = 7;
             // 
             // auditResults
             // 
             this.auditResults.Cursor = System.Windows.Forms.Cursors.Default;
-            this.auditResults.Location = new System.Drawing.Point(12, 136);
+            this.auditResults.Location = new System.Drawing.Point(12, 135);
             this.auditResults.MainView = this.auditResultsView;
             this.auditResults.Name = "auditResults";
-            this.auditResults.Size = new System.Drawing.Size(772, 288);
+            this.auditResults.Size = new System.Drawing.Size(772, 289);
             this.auditResults.TabIndex = 6;
             this.auditResults.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.auditResultsView});
@@ -255,7 +255,7 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(399, 60);
+            this.endDate.Location = new System.Drawing.Point(491, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -268,7 +268,7 @@
             // startDate
             // 
             this.startDate.EditValue = null;
-            this.startDate.Location = new System.Drawing.Point(272, 60);
+            this.startDate.Location = new System.Drawing.Point(364, 60);
             this.startDate.Name = "startDate";
             this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -289,7 +289,6 @@
             this.generalAuditLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalAuditLayoutGroup.Name = "Root";
             this.generalAuditLayoutGroup.Size = new System.Drawing.Size(796, 436);
-            this.generalAuditLayoutGroup.Text = "Root";
             this.generalAuditLayoutGroup.TextVisible = false;
             // 
             // searchParametersLayoutGroup
@@ -300,24 +299,24 @@
             this.searchEmptySpace,
             this.searchButtonLayout,
             this.emptySpaceItem1,
-            this.periodLabelLayout,
-            this.endDateLayout,
-            this.startDateLayout,
             this.layoutControlItem1,
+            this.periodLabelLayout,
+            this.startDateLayout,
+            this.endDateLayout,
             this.numberLayout});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
-            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 124);
+            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 123);
             this.searchParametersLayoutGroup.Text = "Параметры поиска";
             // 
             // userLayout
             // 
             this.userLayout.Control = this.user;
             this.userLayout.CustomizationFormText = "По&льзователь";
-            this.userLayout.Location = new System.Drawing.Point(234, 41);
+            this.userLayout.Location = new System.Drawing.Point(122, 40);
             this.userLayout.MinSize = new System.Drawing.Size(204, 40);
             this.userLayout.Name = "userLayout";
-            this.userLayout.Size = new System.Drawing.Size(260, 40);
+            this.userLayout.Size = new System.Drawing.Size(204, 40);
             this.userLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.userLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
             this.userLayout.Text = "Пользователь";
@@ -328,23 +327,21 @@
             // 
             this.searchEmptySpace.AllowHotTrack = false;
             this.searchEmptySpace.CustomizationFormText = "searchEmptySpace";
-            this.searchEmptySpace.Location = new System.Drawing.Point(598, 0);
+            this.searchEmptySpace.Location = new System.Drawing.Point(596, 0);
             this.searchEmptySpace.Name = "searchEmptySpace";
-            this.searchEmptySpace.Size = new System.Drawing.Size(154, 81);
-            this.searchEmptySpace.Text = "searchEmptySpace";
+            this.searchEmptySpace.Size = new System.Drawing.Size(156, 80);
             this.searchEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchButtonLayout
             // 
             this.searchButtonLayout.Control = this.search;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(494, 55);
+            this.searchButtonLayout.Location = new System.Drawing.Point(326, 41);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(104, 26);
             this.searchButtonLayout.MinSize = new System.Drawing.Size(104, 26);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(104, 26);
+            this.searchButtonLayout.Size = new System.Drawing.Size(270, 39);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextVisible = false;
             // 
@@ -352,19 +349,18 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(494, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(586, 17);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(104, 55);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // periodLabelLayout
             // 
             this.periodLabelLayout.Control = this.periodLabel;
             this.periodLabelLayout.CustomizationFormText = "periodLabelLayout";
-            this.periodLabelLayout.Location = new System.Drawing.Point(234, 0);
+            this.periodLabelLayout.Location = new System.Drawing.Point(326, 0);
             this.periodLabelLayout.Name = "periodLabelLayout";
-            this.periodLabelLayout.Size = new System.Drawing.Size(260, 17);
+            this.periodLabelLayout.Size = new System.Drawing.Size(270, 17);
             this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 0, 0);
             this.periodLabelLayout.Text = "За период";
             this.periodLabelLayout.TextSize = new System.Drawing.Size(81, 13);
@@ -373,7 +369,7 @@
             // 
             this.endDateLayout.Control = this.endDate;
             this.endDateLayout.CustomizationFormText = "По";
-            this.endDateLayout.Location = new System.Drawing.Point(352, 17);
+            this.endDateLayout.Location = new System.Drawing.Point(444, 17);
             this.endDateLayout.MaxSize = new System.Drawing.Size(142, 24);
             this.endDateLayout.MinSize = new System.Drawing.Size(142, 24);
             this.endDateLayout.Name = "endDateLayout";
@@ -389,7 +385,7 @@
             // 
             this.startDateLayout.Control = this.startDate;
             this.startDateLayout.CustomizationFormText = "&С";
-            this.startDateLayout.Location = new System.Drawing.Point(234, 17);
+            this.startDateLayout.Location = new System.Drawing.Point(326, 17);
             this.startDateLayout.MaxSize = new System.Drawing.Size(118, 24);
             this.startDateLayout.MinSize = new System.Drawing.Size(118, 24);
             this.startDateLayout.Name = "startDateLayout";
@@ -405,10 +401,9 @@
             // 
             this.layoutControlItem1.Control = this.radioPeriodUser;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(121, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(113, 81);
-            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(122, 80);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -416,9 +411,9 @@
             // 
             this.numberLayout.Control = this.number;
             this.numberLayout.CustomizationFormText = "Номер элемента";
-            this.numberLayout.Location = new System.Drawing.Point(0, 0);
+            this.numberLayout.Location = new System.Drawing.Point(122, 0);
             this.numberLayout.Name = "numberLayout";
-            this.numberLayout.Size = new System.Drawing.Size(121, 81);
+            this.numberLayout.Size = new System.Drawing.Size(204, 40);
             this.numberLayout.Text = "Номер элемента";
             this.numberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayout.TextSize = new System.Drawing.Size(81, 13);
@@ -427,10 +422,9 @@
             // 
             this.auditResultsLayout.Control = this.auditResults;
             this.auditResultsLayout.CustomizationFormText = "auditResultsLayout";
-            this.auditResultsLayout.Location = new System.Drawing.Point(0, 124);
+            this.auditResultsLayout.Location = new System.Drawing.Point(0, 123);
             this.auditResultsLayout.Name = "auditResultsLayout";
-            this.auditResultsLayout.Size = new System.Drawing.Size(776, 292);
-            this.auditResultsLayout.Text = "auditResultsLayout";
+            this.auditResultsLayout.Size = new System.Drawing.Size(776, 293);
             this.auditResultsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.auditResultsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.auditResultsLayout.TextVisible = false;
