@@ -63,11 +63,11 @@ namespace Prizm.Data.DAL.Hibernate
             }
         }
 
-        public JointOperation GetRequiredWeld(string requiredWeldOperation)
+        public JointOperation GetRequiredWeld()
         {
             try
             {
-                return session.QueryOver<JointOperation>().Where(_ => _.Name == requiredWeldOperation && _.Type == JointOperationType.Weld).SingleOrDefault();
+                return session.QueryOver<JointOperation>().Where(_ => _.Type == JointOperationType.Weld && _.IsRequired == true).List<JointOperation>().FirstOrDefault();
             }
             catch(GenericADOException e)
             { 

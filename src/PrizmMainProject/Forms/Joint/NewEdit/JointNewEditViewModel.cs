@@ -775,14 +775,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = jointStatus.Value;
             this.JointTestResults = new BindingList<JointTestResult>();
-            JointWeldResult requredWeldResult = new JointWeldResult()
-            { 
-                IsActive = true,
-                Operation = repoConstruction.RepoJointOperation.GetRequiredWeld("Сварка стыка"), // looking for an editable value is a bad idea
-                Joint = this.Joint
-            };
-            jointWeldResults = new BindingList<JointWeldResult>() {requredWeldResult};
-            this.Joint.JointWeldResults.Add(requredWeldResult);
+            if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
+            {
+                JointWeldResult requredWeldResult = new JointWeldResult()
+                {
+                    IsActive = true,
+                    Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
+                    Joint = this.Joint
+                };
+                jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
+                this.Joint.JointWeldResults.Add(requredWeldResult);
+            }
+            else 
+            {
+                this.JointWeldResults = new BindingList<JointWeldResult>();
+            }
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;
