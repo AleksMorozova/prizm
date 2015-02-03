@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         {
             viewModel.Data = repo.GetPipelineElements(viewModel.WeldDateFrom, viewModel.WeldDateTo);
             if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
-                log.Warn("Data Table for Weld by Date report is NULL or empty");
+                log.Warn( "Construction report: Data Table for Weld by Date report is NULL or empty" );
 
             var report = new WeldDateXtraReport();
 

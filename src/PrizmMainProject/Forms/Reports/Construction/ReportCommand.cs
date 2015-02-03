@@ -178,7 +178,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
             else
             {
-                log.Warn("List of Pipeline elements is NULL");
+                log.Warn(string.Format("List of Pipeline elements is NULL for construction report type: {0}", viewModel.ReportType));
             }
         }
 

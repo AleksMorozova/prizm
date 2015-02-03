@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
             else
             {
-                log.Warn("List of files is NULL");
+                log.Warn(string.Format("List of attached files for Entity id:{0} is NULL", item));
             }
         }
 

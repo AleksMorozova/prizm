@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             this.data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
             if (this.data == null || this.data.Rows.Count <= 0)
-                log.Warn("Data Table of Pieces is NULL or empty.");
+                log.Warn( "Report at Construction: Data Table of Pieces is NULL or empty." );
 
             this.partDataList = FormWeldedParts(data);
 
@@ -76,7 +76,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null)
                 .ToList<construct.Joint>();
             if (this.Joints == null || this.Joints.Count <= 0)
-                log.Warn("List of Joints is NULL or empty.");
+                log.Warn( "Report at Construction: List of Joints is NULL or empty." );
 
 
             createCommand = ViewModelSource

@@ -49,7 +49,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             this.Inspectors = repos.RepoInspector.GetAll();
             if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn("List of Inspectors is NULL or empty");
+                log.Warn( "Incoming Inspection of Componentry: List of Inspectors is NULL or empty" );
 
             searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
             saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));

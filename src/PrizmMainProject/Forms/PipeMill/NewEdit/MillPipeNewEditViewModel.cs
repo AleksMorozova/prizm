@@ -115,11 +115,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             Welders = repoMill.WelderRepo.GetAll();
             if (this.Welders == null || this.Welders.Count <= 0)
-                log.Warn("List of Welders is NULL or empty");
+                log.Warn(string.Format("Pipe (id:{0}) creation: List of Welders is NULL or empty", id));
 
             Inspectors = repoMill.RepoInspector.GetAll();
             if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn("List of Inspectors is NULL or empty");
+                log.Warn(string.Format("Pipe (id:{0}) creation: List of Inspectors is NULL or empty", id));
 
             GetAvailableTests();
 
@@ -148,7 +148,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             else
             {
-                log.Warn("List of Pipe Tests is NULL.");
+                log.Warn(string.Format("List of Pipe Tests for type {0} is NULL.", Pipe.Type));
             }
         }
 

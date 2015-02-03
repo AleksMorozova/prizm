@@ -90,15 +90,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
             if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn("List of Inspectors is NULL or empty");
+                log.Warn(string.Format("Joint (id:{0}) creation: List of Inspectors is NULL or empty", this.JointId));
 
             Welders = repoConstruction.RepoWelder.GetAll();
             if (this.Welders == null || this.Welders.Count <= 0)
-                log.Warn("List of Welders is NULL or empty");
+                log.Warn(string.Format("Joint (id:{0}) creation: List of Welders is NULL or empty", this.JointId));
 
             Pieces = adoRepo.GetPipelineElements();
             if (this.Pieces == null || this.Pieces.Rows.Count <= 0)
-                log.Warn("Data Table of Pieces is NULL or empty");
+                log.Warn(string.Format("Joint (id:{0}) creation: Data Table of Pieces is NULL or empty", this.JointId));
 
             extractOperationsCommand.Execute();
 

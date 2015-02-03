@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.Spool
             this.Inspectors = repos.RepoInspector.GetAll();
 
             if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn("List of Inspectors is NULL or empty");
+                log.Warn(string.Format("Spool (id:{0}) creation: List of Inspectors is NULL or empty", id));
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
               () => new EditPipeForCutCommand(this, repos, notify));

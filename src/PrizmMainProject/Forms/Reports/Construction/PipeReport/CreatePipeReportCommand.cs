@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
                 viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
 
             if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
-                log.Warn("Data Table for Pipe Report report is NULL or empty");
+                log.Warn(string.Format("Data Table for Pipe Report (pipe #{0}) report is NULL or empty", viewModel.PipeNumber));
 
             var report = new PipeConstructionXtraReport();
 

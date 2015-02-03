@@ -76,7 +76,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             else
             {
                 ReleaseNotePipes = new BindingList<Pipe>();
-                log.Warn("List of Pipes in Release Note is NULL.");
+                log.Warn(string.Format("List of Pipes in Release Note (id:{0}) is NULL.", id));
             }
         }
 
@@ -388,7 +388,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 var tmp = new List<Pipe>(repos.PipeRepo.GetStored());
                 allPipes = tmp;
                 if (this.allPipes == null || this.allPipes.Count <= 0)
-                    log.Warn("List of Stored Pipes is NULL or empty");
+                    log.Warn( "List of Stored Pipes in Release Note is NULL or empty" );
             }
             catch (RepositoryException ex)
             {

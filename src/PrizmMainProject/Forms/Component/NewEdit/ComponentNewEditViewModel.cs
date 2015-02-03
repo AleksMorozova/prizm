@@ -69,7 +69,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
 
             if(this.Inspectors == null || this.Inspectors.Count <=0)
-                log.Warn("List of Inspectors is NULL or empty");
+                log.Warn(string.Format("Componentry (id:{0}) creation: List of Inspectors is NULL or empty", id));
         }
 
         public Prizm.Domain.Entity.Construction.Component Component { get; set; }
