@@ -1461,6 +1461,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сообщение об окончании срока: Сертификат просрочен.
+        /// </summary>
+        internal static string Notification_WelderCertificateExpired_Critical {
+            get {
+                return ResourceManager.GetString("Notification_WelderCertificateExpired_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер.
         /// </summary>
         internal static string Number {
