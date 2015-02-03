@@ -818,6 +818,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 Pipe.Status = PipeMillStatus.Stocked;
             }
+            RaisePropertyChanged("PipeStatus");
         }
 
         /// <summary>
