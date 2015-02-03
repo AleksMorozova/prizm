@@ -12,6 +12,18 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+
+        public static StringResource SelectInspectorsForTestResult = new StringResource
+        {
+            Id = "SelectInspectorsForTestResult ",
+            Description = "Настройка контрольных опрераций завода. Сообщение - Выберите в инспектора"
+        };
+        public static StringResource SelectInspectorsForTestResultHeader = new StringResource
+        {
+            Id = "electInspectorsForTestResultHeader",
+            Description = "Настройка контрольных опрераций завода. Сообщение - Укажите инспектора"
+        };
+
         public static StringResource FirstEnterDate = new StringResource
         {
             Id = "FirstEnterDate",
@@ -2594,6 +2606,12 @@ namespace Prizm.Main.Languages
         #endregion //--- SelectDiameterDialog ---
 
         #region --- MillInspectionXtraForm ---
+
+        public static StringResource MillInspection_SaveTestResult = new StringResource
+        {
+            Id = "MillInspection_SaveTestResult",
+            Description = "Настройка контрольных опрераций завода. Заголовок сообщения - Укажите инспектора"
+        };
         public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
             Id = "MillInspection_FrequencyMeasureMeters", 
             Description = "Настройка контрольных опрераций завода. Мера измерения метры"};

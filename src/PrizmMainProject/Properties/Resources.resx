@@ -993,4 +993,10 @@
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
     <value>Отгружен</value>
   </data>
+  <data name="SelectInspectorsForTestResult" xml:space="preserve">
+    <value>Укажите инспектора</value>
+  </data>
+  <data name="SelectInspectorsForTestResultHeader" xml:space="preserve">
+    <value>Ошибка сохранения контрольной операции</value>
+  </data>
 </root>

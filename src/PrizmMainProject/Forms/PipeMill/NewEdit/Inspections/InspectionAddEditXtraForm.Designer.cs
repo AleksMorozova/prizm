@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.factLimit = new DevExpress.XtraEditors.SpinEdit();
@@ -65,9 +66,9 @@
             this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.testsBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
@@ -552,11 +553,11 @@
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(816, 586);
             this.Controls.Add(this.rootLayoutControl);
             this.Name = "InspectionAddEditXtraForm";
             this.Text = "InspectionAddEditXtraForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InspectionAddEditXtraForm_FormClosing);
             this.Load += new System.EventHandler(this.InspectionAddEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
