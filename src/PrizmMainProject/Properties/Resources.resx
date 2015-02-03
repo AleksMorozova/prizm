@@ -993,4 +993,16 @@
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
     <value>Отгружен</value>
   </data>
+  <data name="WorkstationType_Construction" xml:space="preserve">
+    <value>Строительство</value>
+  </data>
+  <data name="WorkstationType_Master" xml:space="preserve">
+    <value>Главный</value>
+  </data>
+  <data name="WorkstationType_Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
+  <data name="WorkstationType_Undefined" xml:space="preserve">
+    <value>Неоперделен</value>
+  </data>
 </root>
