@@ -113,7 +113,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.CreateRailcarForm(id);
+                parent.OpenRailcarForm(typeof(RailcarNewEditXtraForm),id);
             }
         }
 

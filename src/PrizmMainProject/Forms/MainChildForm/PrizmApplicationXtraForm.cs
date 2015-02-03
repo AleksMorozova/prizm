@@ -95,20 +95,7 @@ namespace Prizm.Main.Forms.MainChildForm
             return index;
         }
 
-        /// <summary>
-        /// Gives any ChildForm index in corresponding childForms list that contains the element having mode equal ReadMode.
-        /// </summary>
-        /// <param name="formTypeName">string representation of form type name</param>
-        /// <param name="ReadMode"></param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the
-        /// conditions defined by match, if found; otherwise, –1.</returns>
-        private int GetFormIndex(string formTypeName, bool ReadMode)
-        {
-            int index = -1;
-            index = childForms[formTypeName]
-                .FindIndex(x => x.IsEditMode == ReadMode);
-            return index;
-        }
+      
 
         /// <summary>
         /// Creates an instance of child form of given form type
@@ -215,12 +202,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
                 if (typeof(ChildForm).IsAssignableFrom(formType))
                 {
-                    if (!childForms.ContainsKey(formType.Name))
-                    {
-                        childForms.Add(formType.Name, new List<ChildForm>());
-                    }
-
-                    var forms = childForms[formType.Name];
+                    var forms = GetListChildForm(formType);
 
                     int index = GetFormIndex(formType.Name, id);
 
@@ -274,93 +256,88 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        public void CreateRailcarForm(Guid id = default(Guid))
+        public void OpenRailcarForm(Type formType, Guid id = default(Guid))
         {
             ChildForm form = null;
-            try
+            var forms = GetListChildForm(formType);
+
+            //search
+            int indexById = GetFormIndex(formType.Name, id);
+
+            if (indexById >= 0) // is open
             {
-
-                Type formType = typeof(RailcarNewEditXtraForm);
-
-                if (!childForms.ContainsKey(formType.Name))
+                form = forms[indexById];
+            }
+            if (form != null)
+            {
+                form.Activate();
+            }
+            else //create new
+            {
+                int index = FindOpenForm(formType.Name, true);
+                if (index >= 0)// this type form is open in edit mode
                 {
-                    childForms.Add(formType.Name, new List<ChildForm>());
-                }
-
-                var forms = childForms[formType.Name];
-
-                if (forms.Count > 0)
-                {
-                    int indexById = GetFormIndex(formType.Name, id);
-
-                    if (indexById >= 0)
+                    if (id == default(Guid))
                     {
-                        form = forms[indexById];
+                        string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
+                        ShowWarning(text, "");
+                        form = forms[index];
                         form.Activate();
                     }
                     else
                     {
-                        if (id == default(Guid))
+                        string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
+                        if (this.ShowYesNo(text, ""))
                         {
-                            int indexByEditMode = GetFormIndex(formType.Name, true);
-
-                            if (indexByEditMode >= 0)
-                            {
-                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote); 
-                                ShowWarning(text, "");
-                                form = forms[indexByEditMode];
-                                form.Activate();
-                            }
-                        }
-                        else
-                        {
-                            int indexByEditMode = GetFormIndex(formType.Name, true);
-
-                            if (indexByEditMode >= 0)
-                            {
-                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
-                                bool readMode = this.ShowYesNo(text, "");
-                                if (readMode)
-                                {
-                                    ShowProcessing();
-                                    form = CreateChildForm(formType, id, string.Empty);
-                                    if (form != null)
-                                    {
-                                        ((ChildForm)form).IsEditMode = false;
-                                        ShowChildForm(form);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                ShowProcessing();
-                                form = CreateChildForm(formType, id, string.Empty);
-                                if (form != null)
-                                {
-                                    ((ChildForm)form).IsEditMode = true;
-                                    ShowChildForm(form);
-                                }
-                            }
+                            OpenEditForm(formType, id, false);
                         }
                     }
                 }
                 else
                 {
-                    ShowProcessing();
-                    form = CreateChildForm(formType, id, string.Empty);
-                    if (form != null)
-                    {
-                        ((ChildForm)form).IsEditMode = true;
-                        ShowChildForm(form);
-                    }
+                    OpenEditForm(formType, id, true);
+                }
+            }
+        }
+
+        private void OpenEditForm(Type formType, Guid id, bool IsEdit = true)
+        {
+            ChildForm form = CreateChildForm(formType, id, string.Empty);
+            if (form != null)
+            {
+                ShowChildForm(form);
+                if (!IsEdit)
+                {
+                    ((ChildForm)form).IsEditMode = false;
                 }
 
             }
-            finally
-            {
-                HideProcessing();
-            }
         }
+
+        /// <summary>
+        /// Find ChildForm index in corresponding childForms list that contains the element having mode equal ReadMode.
+        /// </summary>
+        /// <param name="formTypeName">string representation of form type name</param>
+        /// <param name="ReadMode"></param>
+        /// <returns>The zero-based index of the first occurrence of an element that matches the
+        /// conditions defined by match, if found; otherwise, –1.</returns>
+        private int FindOpenForm(string formTypeName, bool ReadMode)
+        {
+            int index = -1;
+            index = childForms[formTypeName]
+                .FindIndex(x => x.IsEditMode == ReadMode);
+            return index;
+        }
+
+        private List<ChildForm> GetListChildForm(Type formType)
+        {
+            if (!childForms.ContainsKey(formType.Name))
+            {
+                childForms.Add(formType.Name, new List<ChildForm>());
+            }
+            return childForms[formType.Name];
+        }
+
 
 
         #region Menu buttons
@@ -371,7 +348,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateRailcarForm();
+           OpenRailcarForm(typeof(RailcarNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
