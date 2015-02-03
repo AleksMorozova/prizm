@@ -3384,13 +3384,13 @@ namespace Prizm.Main.Languages
 
         public static StringResource ReleaseNoteNewEdit_ShippedStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Shipped",
+            Id = "ReleaseNoteNewEdit_ShippedStatus",
             Description = "Статус разрешения на отгрузку: отгружено"
         };
 
         public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Pending",
+            Id = "ReleaseNoteNewEdit_PendingStatus",
             Description = "Статус разрешения на отгрузку: сформировано"
         };
 
