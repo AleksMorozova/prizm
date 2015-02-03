@@ -59,6 +59,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 notify.ShowNotify(
                     string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
                     Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
+
+                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                    viewModel.Joint.Number,
+                    viewModel.Joint.Id));
             }
             catch (RepositoryException ex)
             {

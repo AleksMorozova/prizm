@@ -222,13 +222,20 @@ namespace Prizm.Main
                     if(dlgPassChange.ShowPasswordDialog(user.PasswordHash) ==
                         System.Windows.Forms.DialogResult.OK)
                     {
-                        user.PasswordHash = dlgPassChange.NewPasswordHash;
-                        user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
+                        try
+                        {
+                            user.PasswordHash = dlgPassChange.NewPasswordHash;
+                            user.PasswordExpires = DateTime.Now.AddMonths(monthsCountPasswordProlongation);
 
-                        userRepo.BeginTransaction();
-                        userRepo.SaveOrUpdate(user);
-                        userRepo.Commit();
-                        userRepo.Evict(user);
+                            userRepo.BeginTransaction();
+                            userRepo.SaveOrUpdate(user);
+                            userRepo.Commit();
+                            userRepo.Evict(user);
+                        }
+                        catch (RepositoryException ex)
+                        {
+                            log.Error(ex.Message);
+                        }
                     }
                     else
                     {

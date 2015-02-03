@@ -62,10 +62,15 @@ namespace Prizm.Main.Forms.Spool
                             viewModel.FilesFormViewModel = null;
                         }
                         viewModel.ModifiableView.IsModified = false;
+
                         notify.ShowNotify(
                             Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
                             Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
                             );
+
+                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                            viewModel.Spool.Number,
+                            viewModel.Spool.Id));
 
                         string oldPipeNumber = viewModel.Pipe.Number;
                         viewModel.NewSpool();

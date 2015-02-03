@@ -50,6 +50,10 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
                     repo.SaveOrUpdate(viewModel.Order);
                     repo.Commit();
                     viewModel.IsSaved = true;
+
+                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                        viewModel.Order.Number,
+                        viewModel.Order.Id));
                 }
                 catch (RepositoryException ex)
                 {
