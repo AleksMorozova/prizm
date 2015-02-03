@@ -1002,6 +1002,10 @@
   <data name="ConstractionReport_ReportTypeUsedProductReport" xml:space="preserve">
     <value>По использованным изделиям</value>
   </data>
+  <data name="ConstractionReport_TracingReportInfoLabelText" xml:space="preserve">
+    <value>Данный тип отчета содержит все сваренные элементы расположенные 
+между заданными точками не зависимо от их связности.</value>
+  </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
   </data>

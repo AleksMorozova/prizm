@@ -1995,3 +1995,6 @@ ConstractionReport_ReportTypeTracingReport=Tracing report
 
 ;Тип отчета. По использованным изделиям
 ConstractionReport_ReportTypeUsedProductReport=By used products
+
+;Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям
+ConstractionReport_TracingReportInfoLabelText = This report type contains all welded elements located between selected points regardless of their connectivity

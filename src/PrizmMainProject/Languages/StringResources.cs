@@ -2508,6 +2508,12 @@ namespace Prizm.Main.Languages
             Description = "Тип отчета. По использованным изделиям"
         };
 
+        public static StringResource ConstractionReport_TracingReportInfoLabelText = new StringResource
+        {
+            Id = "ConstractionReport_TracingReportInfoLabelText",
+            Description = "Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям"
+        };
+
         #endregion //--- PipeConstractionReport ---
 
         #region --- WeldDateReport ---

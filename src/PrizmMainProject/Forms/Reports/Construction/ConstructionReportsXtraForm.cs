@@ -110,6 +110,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
+            infoLabel.Text = Program.LanguageManager.GetString(StringResources.ConstractionReport_TracingReportInfoLabelText);
+
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
             foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0:true))
