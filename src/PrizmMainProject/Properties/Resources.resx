@@ -1011,16 +1011,16 @@
   <data name="WorkstationType_Undefined" xml:space="preserve">
     <value>Неоперделен</value>
   </data>
-  <data name="PipeStatusProduced" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusProduced" xml:space="preserve">
     <value>В производстве</value>
   </data>
-  <data name="PipeStatusShipped" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusShipped" xml:space="preserve">
     <value>Отправлена</value>
   </data>
-  <data name="PipeStatusStocked" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusStocked" xml:space="preserve">
     <value>На складе</value>
   </data>
-  <data name="PipeStatusUndefined" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
     <value>Неопределен</value>
   </data>
 </root>
