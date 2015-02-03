@@ -993,4 +993,7 @@
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
     <value>Отгружен</value>
   </data>
+  <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
+    <value>Сообщение об окончании срока: Сертификат просрочен</value>
+  </data>
 </root>
