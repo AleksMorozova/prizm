@@ -144,7 +144,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (viewModel.Status != PipeTestResultStatus.Scheduled &&inspectors.SelectedInspectors.Count > 0 )
+            if (viewModel.Status != PipeTestResultStatus.Scheduled )
             {
                 if (inspectors.SelectedInspectors.Count > 0)
                 {
