@@ -1416,6 +1416,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Производится.
+        /// </summary>
+        internal static string NewEditPipe_PipeStatusProduced {
+            get {
+                return ResourceManager.GetString("NewEditPipe_PipeStatusProduced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отгружена.
+        /// </summary>
+        internal static string NewEditPipe_PipeStatusShipped {
+            get {
+                return ResourceManager.GetString("NewEditPipe_PipeStatusShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to На складе.
+        /// </summary>
+        internal static string NewEditPipe_PipeStatusStocked {
+            get {
+                return ResourceManager.GetString("NewEditPipe_PipeStatusStocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неопределен.
+        /// </summary>
+        internal static string NewEditPipe_PipeStatusUndefined {
+            get {
+                return ResourceManager.GetString("NewEditPipe_PipeStatusUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt; Создать плавку &gt;.
         /// </summary>
         internal static string NewHeatCombo {
@@ -1749,15 +1785,6 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("prizma_appIcon_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Производится.
-        /// </summary>
-        internal static string Produced {
-            get {
-                return ResourceManager.GetString("Produced", resourceCulture);
             }
         }
         
@@ -2378,15 +2405,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отгружена.
-        /// </summary>
-        internal static string Shipped {
-            get {
-                return ResourceManager.GetString("Shipped", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Дата отправки.
         /// </summary>
         internal static string ShippingDate {
@@ -2486,15 +2504,6 @@ namespace Prizm.Main.Properties {
         internal static string StatusUnactive {
             get {
                 return ResourceManager.GetString("StatusUnactive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to На складе.
-        /// </summary>
-        internal static string Stocked {
-            get {
-                return ResourceManager.GetString("Stocked", resourceCulture);
             }
         }
         

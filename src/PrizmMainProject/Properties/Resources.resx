@@ -460,7 +460,7 @@
   <data name="TestSubject" xml:space="preserve">
     <value>Объект инспекции</value>
   </data>
-  <data name="Produced" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusProduced" xml:space="preserve">
     <value>Производится</value>
   </data>
   <data name="PipeTestResultStatus_Passed" xml:space="preserve">
@@ -677,7 +677,7 @@
   <data name="ReleaseNoteNewEdit_MissingReleaseNoteNumber" xml:space="preserve">
     <value>Введите номер разрешения на отгрузку</value>
   </data>
-  <data name="Shipped" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusShipped" xml:space="preserve">
     <value>Отгружена</value>
   </data>
   <data name="Spool" xml:space="preserve">
@@ -716,7 +716,7 @@
   <data name="MillPipe_ExistingNumberErrorHeader" xml:space="preserve">
     <value>Дублирование номера трубы</value>
   </data>
-  <data name="Stocked" xml:space="preserve">
+  <data name="NewEditPipe_PipeStatusStocked" xml:space="preserve">
     <value>На складе</value>
   </data>
   <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
@@ -1010,5 +1010,8 @@
   </data>
   <data name="WorkstationType_Undefined" xml:space="preserve">
     <value>Неоперделен</value>
+  </data>
+  <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
+    <value>Неопределен</value>
   </data>
 </root>
