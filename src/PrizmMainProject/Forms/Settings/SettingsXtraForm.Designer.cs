@@ -1960,7 +1960,6 @@ namespace Prizm.Main.Forms.Settings
             this.RootGroup.Location = new System.Drawing.Point(0, 0);
             this.RootGroup.Name = "Root";
             this.RootGroup.Size = new System.Drawing.Size(1275, 550);
-            this.RootGroup.Text = "Root";
             this.RootGroup.TextVisible = false;
             // 
             // tabbedControlGroup
@@ -2205,7 +2204,6 @@ namespace Prizm.Main.Forms.Settings
             this.maskLabelLayoutControlItem.Name = "maskLabelLayoutControlItem";
             this.maskLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 2);
             this.maskLabelLayoutControlItem.Size = new System.Drawing.Size(413, 50);
-            this.maskLabelLayoutControlItem.Text = "maskLabelLayoutControlItem";
             this.maskLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.maskLabelLayoutControlItem.TextVisible = false;
             // 
@@ -2341,7 +2339,6 @@ namespace Prizm.Main.Forms.Settings
             this.cloneButtonLayoutControlItem.Name = "cloneButtonLayoutControlItem";
             this.cloneButtonLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 30, 2, 2);
             this.cloneButtonLayoutControlItem.Size = new System.Drawing.Size(437, 26);
-            this.cloneButtonLayoutControlItem.Text = "cloneButtonLayoutControlItem";
             this.cloneButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cloneButtonLayoutControlItem.TextVisible = false;
             // 
@@ -2361,7 +2358,6 @@ namespace Prizm.Main.Forms.Settings
             this.addTestButtonLayout.Name = "addTestButtonLayout";
             this.addTestButtonLayout.Size = new System.Drawing.Size(94, 36);
             this.addTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.addTestButtonLayout.Text = "addTestButtonLayout";
             this.addTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.addTestButtonLayout.TextVisible = false;
             // 
@@ -2372,7 +2368,6 @@ namespace Prizm.Main.Forms.Settings
             this.testButtonsEmptySpace.Location = new System.Drawing.Point(654, 0);
             this.testButtonsEmptySpace.Name = "testButtonsEmptySpace";
             this.testButtonsEmptySpace.Size = new System.Drawing.Size(577, 36);
-            this.testButtonsEmptySpace.Text = "testButtonsEmptySpace";
             this.testButtonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // editTestButtonLayout
@@ -2383,7 +2378,6 @@ namespace Prizm.Main.Forms.Settings
             this.editTestButtonLayout.Name = "editTestButtonLayout";
             this.editTestButtonLayout.Size = new System.Drawing.Size(123, 36);
             this.editTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.editTestButtonLayout.Text = "editTestButtonLayout";
             this.editTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.editTestButtonLayout.TextVisible = false;
             // 
@@ -2438,7 +2432,6 @@ namespace Prizm.Main.Forms.Settings
             this.emptySpaceItem.Location = new System.Drawing.Point(619, 0);
             this.emptySpaceItem.Name = "emptySpaceItem";
             this.emptySpaceItem.Size = new System.Drawing.Size(612, 458);
-            this.emptySpaceItem.Text = "emptySpaceItem";
             this.emptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // partsSplitterItem
@@ -2576,7 +2569,6 @@ namespace Prizm.Main.Forms.Settings
             this.closeButtonLayoutControlItem.Location = new System.Drawing.Point(1107, 504);
             this.closeButtonLayoutControlItem.Name = "closeButtonLayoutControlItem";
             this.closeButtonLayoutControlItem.Size = new System.Drawing.Size(148, 26);
-            this.closeButtonLayoutControlItem.Text = "closeButtonLayoutControlItem";
             this.closeButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.closeButtonLayoutControlItem.TextVisible = false;
             // 
@@ -2587,7 +2579,6 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem.Location = new System.Drawing.Point(0, 504);
             this.buttonEmptySpaceItem.Name = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.Size = new System.Drawing.Size(961, 26);
-            this.buttonEmptySpaceItem.Text = "buttonEmptySpaceItem";
             this.buttonEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // editDictionary
