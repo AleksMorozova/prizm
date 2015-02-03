@@ -2496,6 +2496,18 @@ namespace Prizm.Main.Languages
             Description = "Предварительный просмотр отчёта"
         };
 
+        public static StringResource ConstractionReport_ReportTypeTracingReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeTracingReport",
+            Description = "Тип отчета. По трассировке"
+        };
+
+        public static StringResource ConstractionReport_ReportTypeUsedProductReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeUsedProductReport",
+            Description = "Тип отчета. По использованным изделиям"
+        };
+
         #endregion //--- PipeConstractionReport ---
 
         #region --- WeldDateReport ---

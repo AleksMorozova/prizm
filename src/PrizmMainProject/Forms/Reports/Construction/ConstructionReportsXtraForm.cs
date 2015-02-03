@@ -85,7 +85,10 @@ namespace Prizm.Main.Forms.Reports.Construction
                 new LocalizedItem(tracingModeRadioGroup, 
                     new string[]{ StringResources.ConstructionReport_RadioJoints.Id, StringResources.ConstructionReport_RadioKP.Id }),
 
-                // other
+                // comboboxes
+                new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
+                new LocalizedItem(reportType, new string[] {StringResources.ConstractionReport_ReportTypeTracingReport.Id, StringResources.ConstractionReport_ReportTypeUsedProductReport.Id}),
+
             };
         }
 

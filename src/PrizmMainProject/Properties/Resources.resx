@@ -996,6 +996,12 @@
   <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
     <value>Сообщение об окончании срока: Сертификат просрочен</value>
   </data>
+  <data name="ConstractionReport_ReportTypeTracingReport" xml:space="preserve">
+    <value>По трассировке</value>
+  </data>
+  <data name="ConstractionReport_ReportTypeUsedProductReport" xml:space="preserve">
+    <value>По использованным изделиям</value>
+  </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
   </data>

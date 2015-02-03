@@ -253,6 +253,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По трассировке.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeTracingReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeTracingReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По использованным изделиям.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeUsedProductReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeUsedProductReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус на строительстве.
         /// </summary>
         internal static string ConstructionStatus {

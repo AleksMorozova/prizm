@@ -1977,3 +1977,21 @@ Notification_ExpiredCertificate_Critical=Certificate's date is expired
 
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
 Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+
+;Тип рабочей станции. Неопределен
+WorkstationType_Undefined=Undefined
+
+;Тип рабочей станции. Главный
+WorkstationType_Master=Master
+
+;Тип рабочей станции. Завод
+WorkstationType_Mill=Mill
+
+;Тип рабочей станции. Строительство
+WorkstationType_Construction=Construction
+
+;Тип отчета. По трассировке
+ConstractionReport_ReportTypeTracingReport=Tracing report
+
+;Тип отчета. По использованным изделиям
+ConstractionReport_ReportTypeUsedProductReport=By used products
