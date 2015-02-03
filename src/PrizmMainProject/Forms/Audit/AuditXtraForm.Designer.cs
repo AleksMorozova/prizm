@@ -59,7 +59,6 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
             this.searchGroupLayout.SuspendLayout();
@@ -85,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,22 +109,23 @@
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(115, 59);
+            this.number.Location = new System.Drawing.Point(130, 59);
             this.number.Name = "number";
-            this.number.Size = new System.Drawing.Size(185, 20);
+            this.number.Size = new System.Drawing.Size(170, 20);
             this.number.StyleController = this.searchGroupLayout;
             this.number.TabIndex = 11;
             // 
             // radioPeriodUser
             // 
             this.radioPeriodUser.Location = new System.Drawing.Point(24, 43);
+            this.radioPeriodUser.MaximumSize = new System.Drawing.Size(120, 76);
             this.radioPeriodUser.Name = "radioPeriodUser";
             this.radioPeriodUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioPeriodUser.Properties.Appearance.Options.UseBackColor = true;
             this.radioPeriodUser.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Номер элемента"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Пользователь")});
-            this.radioPeriodUser.Size = new System.Drawing.Size(87, 66);
+            this.radioPeriodUser.Size = new System.Drawing.Size(87, 76);
             this.radioPeriodUser.StyleController = this.searchGroupLayout;
             this.radioPeriodUser.TabIndex = 10;
             this.radioPeriodUser.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
@@ -144,12 +143,12 @@
             // user
             // 
             this.user.Enabled = false;
-            this.user.Location = new System.Drawing.Point(115, 99);
+            this.user.Location = new System.Drawing.Point(130, 99);
             this.user.Name = "user";
             this.user.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.user.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.user.Size = new System.Drawing.Size(185, 20);
+            this.user.Size = new System.Drawing.Size(170, 20);
             this.user.StyleController = this.searchGroupLayout;
             this.user.TabIndex = 8;
             // 
@@ -311,8 +310,7 @@
             this.emptySpaceItem3,
             this.emptySpaceItem2,
             this.emptySpaceItem1,
-            this.emptySpaceItem4,
-            this.emptySpaceItem6});
+            this.emptySpaceItem4});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
             this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 123);
@@ -323,11 +321,12 @@
             this.userLayout.Control = this.user;
             this.userLayout.CustomizationFormText = "По&льзователь";
             this.userLayout.Location = new System.Drawing.Point(91, 40);
+            this.userLayout.MaxSize = new System.Drawing.Size(204, 0);
             this.userLayout.MinSize = new System.Drawing.Size(204, 40);
             this.userLayout.Name = "userLayout";
             this.userLayout.Size = new System.Drawing.Size(204, 40);
             this.userLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.userLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
+            this.userLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.userLayout.Text = "Пользователь";
             this.userLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.userLayout.TextSize = new System.Drawing.Size(81, 13);
@@ -338,7 +337,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(91, 70);
+            this.layoutControlItem1.Size = new System.Drawing.Size(91, 80);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -390,9 +389,12 @@
             this.numberLayout.Control = this.number;
             this.numberLayout.CustomizationFormText = "Номер элемента";
             this.numberLayout.Location = new System.Drawing.Point(91, 0);
+            this.numberLayout.MaxSize = new System.Drawing.Size(204, 40);
+            this.numberLayout.MinSize = new System.Drawing.Size(204, 40);
             this.numberLayout.Name = "numberLayout";
             this.numberLayout.Size = new System.Drawing.Size(204, 40);
-            this.numberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
+            this.numberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.numberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.numberLayout.Text = "Номер элемента";
             this.numberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.numberLayout.TextSize = new System.Drawing.Size(81, 13);
@@ -414,8 +416,11 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(295, 41);
+            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(0, 39);
+            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 39);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(260, 39);
+            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -430,8 +435,11 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(555, 41);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(197, 39);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(197, 39);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(197, 39);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -441,14 +449,6 @@
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(93, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem6
-            // 
-            this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 70);
-            this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(91, 10);
-            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // auditResultsLayout
             // 
@@ -497,7 +497,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).EndInit();
             this.ResumeLayout(false);
 
@@ -536,6 +535,5 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
     }
 }
