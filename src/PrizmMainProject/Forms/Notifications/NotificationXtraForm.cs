@@ -74,7 +74,7 @@ namespace PrizmMain.Forms.Notifications
                     typeEditor = typeof(SettingsXtraForm);
                     page = 5;
                     break;
-                case TypeNotification.WelderCrtificateExpired:
+                case TypeNotification.WelderCertificateExpired:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 4;
                     break;

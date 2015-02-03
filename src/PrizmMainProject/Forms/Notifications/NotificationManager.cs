@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Notifications
                     this.strategyFill = new InspectorCertificateFill();
                     loader = new InspectorCertificateLoader(this);
                     break;
-                case TypeNotification.WelderCrtificateExpired:
+                case TypeNotification.WelderCertificateExpired:
                     strategyFill = new WelderCertificateFill();
                     loader = new WelderCertificateLoader(this);
                     break;
