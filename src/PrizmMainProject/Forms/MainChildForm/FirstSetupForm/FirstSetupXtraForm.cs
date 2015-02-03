@@ -20,7 +20,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
     public partial class FirstSetupXtraForm : PrizmForm
     {
         FirstSetupViewModel viewModel;
-
+        private List<string> localizedAllWorkstations = new List<string>();
+        private void UpdateTextEdit()
+        {
+            bindingSource.CancelEdit(); 
+        }
         [Inject]
         public FirstSetupXtraForm(FirstSetupViewModel vm)
         {
@@ -33,6 +37,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<WorkstationType>.EnumerateItems())
+            {
+                localizedAllWorkstations.Add(item.Item2);
+            }
             BindToViewModel();
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
         }
@@ -41,7 +49,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             bindingSource.DataSource = viewModel;
 
-            type.DataBindings.Add("EditValue", bindingSource, "Type");
+            Binding bind = new Binding("EditValue", bindingSource, "Type");
+            bind.FormattingEnabled = true;
+            bind.Format += (sender, e) => { e.Value = (string)localizedAllWorkstations[(int)e.Value]; };
+            type.DataBindings.Add(bind);
             projectName.DataBindings.Add("EditValue", bindingSource, "ProjectTitle");
             fileSize.DataBindings.Add("EditValue", bindingSource, "Size");
             mill.DataBindings.Add("EditValue", bindingSource, "MillName");
@@ -51,6 +62,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             lastName.DataBindings.Add("EditValue", bindingSource, "LastName");
             firstName.DataBindings.Add("EditValue", bindingSource, "FirstName");
             middleName.DataBindings.Add("EditValue", bindingSource, "MiddleName");
+            this.Text += ": [" + bind + "]";
         }
 
         #region --- Localization ---
@@ -72,7 +84,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
                 
                 new LocalizedItem(saveButton, StringResources.FirstSetup_SaveButton.Id),
-                new LocalizedItem(cancelButton, StringResources.FirstSetup_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.FirstSetup_CancelButton.Id),
+
+                new LocalizedItem(UpdateTextEdit, localizedAllWorkstations,
+                        new string [] {StringResources.WorkstationType_Undefined.Id, 
+                            StringResources.WorkstationType_Master.Id, 
+                            StringResources.WorkstationType_Mill.Id, 
+                            StringResources.WorkstationType_Construction.Id} ),
             };
         }
 
