@@ -20,6 +20,7 @@ namespace Prizm.Main.Forms.Reports.Mill
 {
     public class CreateReportCommand: ICommand 
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CreateReportCommand));
 
         readonly IMillReportsRepository repo;
         readonly MillReportsViewModel viewModel;
@@ -92,6 +93,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
             catch (RepositoryException ex)
             {
+                log.Error(string.Concat(ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
            

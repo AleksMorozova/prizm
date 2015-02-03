@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class ComponentNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ComponentNewEditViewModel));
+
         private readonly IComponentRepositories repos;
         private readonly IUserNotify notify;
         private readonly ISecurityContext context;
@@ -65,6 +67,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 this.Component = repos.ComponentRepo.Get(id);
             }
+
+            if(this.Inspectors == null || this.Inspectors.Count <=0)
+                log.Warn(string.Format("Componentry (id:{0}) creation: List of Inspectors is NULL or empty", id));
         }
 
         public Prizm.Domain.Entity.Construction.Component Component { get; set; }
