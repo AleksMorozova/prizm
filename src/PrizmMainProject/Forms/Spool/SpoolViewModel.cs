@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.Spool
         public BindingList<Pipe> allPipes { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         private readonly ISecurityContext ctx;
-
+        public bool emptyInspectors = false;
         public bool IsNew { get { return this.Spool.IsNew(); } }
 
         [Inject]

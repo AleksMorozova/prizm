@@ -18,6 +18,8 @@ using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Main.Common;
 using System.Drawing;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -306,6 +308,37 @@ namespace Prizm.Main.Forms.Spool
         {
             spoolNumber.Properties.MaxLength = LengthLimit.SpoolNumber;
 
+        }
+
+        private void ValidateInspection(GridView view, string NameColumn, ValidateRowEventArgs e)
+        {
+            string Name = (string)view.GetRowCellValue(e.RowHandle, NameColumn);
+
+            view.ClearColumnErrors();
+
+            if (String.IsNullOrEmpty(Name))
+            {
+                view.SetColumnError(inspectorsGridColumn,
+                   Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult));
+                e.Valid = false;
+            }
+        }
+
+        private void inspectionHistoryGridView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            InspectionTestResult inspection = view.GetRow(view.FocusedRowHandle) as InspectionTestResult;
+            if (inspection.Status != PartInspectionStatus.Pending)
+            {
+                if (inspection.Inspectors.Count <= 0)
+                {
+                    ValidateInspection(inspectionHistoryGridView, inspectorsGridColumn.Name.ToString(), e);
+                    viewModel.emptyInspectors = true;
+                }
+                else { viewModel.emptyInspectors = false; }
+            }
+            else { viewModel.emptyInspectors = false; }
+            
         }
     }
 }
