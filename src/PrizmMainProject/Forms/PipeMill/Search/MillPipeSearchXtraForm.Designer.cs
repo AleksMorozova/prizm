@@ -360,6 +360,7 @@
             this.PipeSearchLayout.Name = "PipeSearchLayout";
             this.PipeSearchLayout.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 8, 0);
             this.PipeSearchLayout.Size = new System.Drawing.Size(1210, 461);
+            this.PipeSearchLayout.Text = "PipeSearchLayout";
             this.PipeSearchLayout.TextVisible = false;
             // 
             // searchLayoutGroup
@@ -415,6 +416,7 @@
             this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(898, 0);
             this.searchGroupTopEmptySpace.Name = "searchGroupTopEmptySpace";
             this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(266, 46);
+            this.searchGroupTopEmptySpace.Text = "searchGroupTopEmptySpace";
             this.searchGroupTopEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // weldingDateLayout
@@ -460,6 +462,7 @@
             this.searchGroupButtomEmptySpace.Location = new System.Drawing.Point(777, 46);
             this.searchGroupButtomEmptySpace.Name = "searchGroupButtomEmptySpace";
             this.searchGroupButtomEmptySpace.Size = new System.Drawing.Size(387, 44);
+            this.searchGroupButtomEmptySpace.Text = "searchGroupButtomEmptySpace";
             this.searchGroupButtomEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchGroupEmptySpace
@@ -469,6 +472,7 @@
             this.searchGroupEmptySpace.Location = new System.Drawing.Point(604, 45);
             this.searchGroupEmptySpace.Name = "searchGroupEmptySpace";
             this.searchGroupEmptySpace.Size = new System.Drawing.Size(173, 45);
+            this.searchGroupEmptySpace.Text = "searchGroupEmptySpace";
             this.searchGroupEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // searchButtonLayout
@@ -479,6 +483,7 @@
             this.searchButtonLayout.Name = "searchButtonLayout";
             this.searchButtonLayout.Size = new System.Drawing.Size(121, 31);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 5);
+            this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextVisible = false;
             // 
@@ -489,6 +494,7 @@
             this.searchButtonEmptySpace.Location = new System.Drawing.Point(777, 0);
             this.searchButtonEmptySpace.Name = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.Size = new System.Drawing.Size(121, 15);
+            this.searchButtonEmptySpace.Text = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PipeSizeLayoutControl
@@ -546,6 +552,7 @@
             this.emptySpaceUnderButton.Location = new System.Drawing.Point(985, 0);
             this.emptySpaceUnderButton.Name = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.Size = new System.Drawing.Size(73, 167);
+            this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MillPipeSearchXtraForm

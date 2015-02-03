@@ -183,12 +183,6 @@ namespace Prizm.Main.Forms.Settings
 
             seamType.DataBindings.Add("EditValue", pipeMillSizeTypeBindingSource, "SeamType");
 
-            inspectionOperation.DataBindings.Add("Enabled", pipeMillSizeTypeBindingSource, "TypeSizeEditAllowed");
-
-            diameterLayoutControlItem.DataBindings.Add("Enabled", pipeMillSizeTypeBindingSource, "DiameterEditAllowed");
-
-            //diameterLayoutControlItem.DataBindings.Add("OptionsToolTip.ToolTip", pipeMillSizeTypeBindingSource, "DiameterEditToolTip");
-
             jointOperationTypeLookUpEdit.DataSource = viewModel.JointOperationTypes;
 
             #endregion
