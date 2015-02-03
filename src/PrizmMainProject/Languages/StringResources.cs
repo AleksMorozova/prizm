@@ -46,6 +46,12 @@ namespace Prizm.Main.Languages
         public static StringResource JointSearch_JointStatus_Withdrawn = new StringResource {
             Id = "JointSearch_JointStatus_Withdrawn",
             Description = "Вырезан"
+        };
+
+        public static StringResource JointNewEdit_JointStatus_Undefined = new StringResource
+        {
+            Id = "JointNewEdit_JointStatus_Undefined",
+            Description = "Неопределен"
         };        
         //part types
 

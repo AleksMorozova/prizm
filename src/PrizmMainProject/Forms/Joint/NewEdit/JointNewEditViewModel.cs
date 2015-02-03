@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
-        private EnumWrapper<JointStatus> jointStatus = new EnumWrapper<JointStatus>(JointStatus.Welded);
+        private JointStatus jointStatus = JointStatus.Welded;
 
         private PartData firstElement;
         private PartData secondElement;
@@ -393,7 +393,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return PartDataList != null ? PartDataList.FirstOrDefault<PartData>(x => x.Id == id) : null;
         }
 
-        public EnumWrapper<JointStatus> JointConstructionStatus
+        public JointStatus JointConstructionStatus
         {
             get 
             {
@@ -406,16 +406,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Joint.Status = JointStatus.Withdrawn;
                 }
 
-                jointStatus.Value = Joint.Status;
+                jointStatus = Joint.Status;
 
                 return jointStatus; 
             }
             set 
             {
-                if (value.Value != Joint.Status)
+                if (value != Joint.Status)
                 {
                     jointStatus = value;
-                    Joint.Status = value.Value;
+                    Joint.Status = value;
                     RaisePropertyChanged("JointConstructionStatus");
                 }
             }
@@ -773,7 +773,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Joint.FirstElement = new PartData();
             Joint.SecondElement = new PartData();
             this.Joint.IsActive = true;
-            this.Joint.Status = jointStatus.Value;
+            this.Joint.Status = jointStatus;
             this.JointTestResults = new BindingList<JointTestResult>();
             if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
             {
