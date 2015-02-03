@@ -26,6 +26,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public class ConstructionReportViewModel : ViewModelBase
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ConstructionReportViewModel));
+
         private readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
 
@@ -65,12 +67,16 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.notify = notify;
 
             this.data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
+            if (this.data == null || this.data.Rows.Count <= 0)
+                log.Warn("Data Table of Pieces is NULL or empty.");
 
             this.partDataList = FormWeldedParts(data);
 
             this.Joints = repoJoint.GetAll()
                 .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null)
                 .ToList<construct.Joint>();
+            if (this.Joints == null || this.Joints.Count <= 0)
+                log.Warn("List of Joints is NULL or empty.");
 
 
             createCommand = ViewModelSource

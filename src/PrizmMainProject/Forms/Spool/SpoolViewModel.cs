@@ -23,6 +23,8 @@ namespace Prizm.Main.Forms.Spool
 {
     public class SpoolViewModel : ViewModelBase, IDisposable, ISupportModifiableView
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SpoolViewModel));
+
         private readonly ISpoolRepositories repos;
         readonly ICommand searchCommand;
         readonly ICommand saveCommand;
@@ -47,6 +49,9 @@ namespace Prizm.Main.Forms.Spool
             this.ctx = ctx;
             this.notify = notify;
             this.Inspectors = repos.RepoInspector.GetAll();
+
+            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+                log.Warn("List of Inspectors is NULL or empty");
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
               () => new EditPipeForCutCommand(this, repos, notify));

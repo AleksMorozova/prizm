@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     public class MillPipeNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MillPipeNewEditViewModel));
+
         private PipeMillSizeType currentType;
 
         private string mill;
@@ -111,10 +113,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 GetAllPipeTestResults();
             }
 
-
             Welders = repoMill.WelderRepo.GetAll();
+            if (this.Welders == null || this.Welders.Count <= 0)
+                log.Warn("List of Welders is NULL or empty");
 
             Inspectors = repoMill.RepoInspector.GetAll();
+            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+                log.Warn("List of Inspectors is NULL or empty");
 
             GetAvailableTests();
 
@@ -137,8 +142,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void GetAvailableTests()
         {
             var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
-            if(tests != null)
+            if (tests != null)
+            {
                 AvailableTests = new BindingList<PipeTest>(tests);
+            }
+            else
+            {
+                log.Warn("List of Pipe Tests is NULL.");
+            }
         }
 
         #region Collection-like properties

@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.ExternalFile
 {
     public class ExternalFilesViewModel: ViewModelBase, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ExternalFilesViewModel));
+
         private readonly IFileRepository repo;
         private readonly AddExternalFileCommand addExternalFileCommand;
         private readonly DownloadFileCommand downloadFileCommand;
@@ -58,7 +60,11 @@ namespace Prizm.Main.Forms.ExternalFile
             var fileList = repo.GetByItem(item);
             if (fileList != null)
             {
-            files = new BindingList<Prizm.Domain.Entity.File>(fileList);
+                files = new BindingList<Prizm.Domain.Entity.File>(fileList);
+            }
+            else
+            {
+                log.Warn("List of files is NULL");
             }
         }
 

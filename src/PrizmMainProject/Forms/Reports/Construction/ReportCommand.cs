@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public class ReportCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ReportCommand));
+
         private readonly IMillReportsRepository repo;
         private readonly ConstructionReportViewModel viewModel;
         private readonly IUserNotify notify;
@@ -115,6 +117,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
             catch (RepositoryException ex)
             {
+                log.Error(string.Concat( ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
         }
@@ -136,7 +139,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 }
 
                 var paths = graph.Pathfinder(
-                    viewModel.StartJoint.FirstElement, 
+                    viewModel.StartJoint.FirstElement,
                     viewModel.EndJoint.FirstElement);
 
                 if (paths.Count != 0)
@@ -145,7 +148,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                     path = graph.RemovalExternalComponents(
                         viewModel.StartJoint,
-                        viewModel.EndJoint, 
+                        viewModel.EndJoint,
                         path);
 
                     for (int i = path.Count - 1; i > 0; --i)
@@ -156,14 +159,14 @@ namespace Prizm.Main.Forms.Reports.Construction
                             FirstPartTypeDescription = path[i].Data.PartTypeDescription,
                             FirstPartLength = path[i].Data.Length,
 
-                            SecondPartNumber = path[i -1].Data.Number,
+                            SecondPartNumber = path[i - 1].Data.Number,
                             SecondPartTypeDescription = path[i - 1].Data.PartTypeDescription,
                             SecondPartLength = path[i - 1].Data.Length
                         };
 
                         var commonJoint = path[i].GetCommonJoint(path[i - 1]);
                         tracingDataItem.JointNumber = commonJoint.Data.Number;
-                        tracingDataItem.WeldingDate = 
+                        tracingDataItem.WeldingDate =
                             commonJoint.Data
                             .JointWeldResults.First().Date.Value.ToShortDateString();
 
@@ -172,6 +175,10 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                     PipelineLenghtCalculation();
                 }
+            }
+            else
+            {
+                log.Warn("List of Pipeline elements is NULL");
             }
         }
 
