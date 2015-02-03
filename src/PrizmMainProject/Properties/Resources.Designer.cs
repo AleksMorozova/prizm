@@ -1662,6 +1662,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to В производстве.
+        /// </summary>
+        internal static string PipeStatusProduced {
+            get {
+                return ResourceManager.GetString("PipeStatusProduced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отправлена.
+        /// </summary>
+        internal static string PipeStatusShipped {
+            get {
+                return ResourceManager.GetString("PipeStatusShipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to На складе.
+        /// </summary>
+        internal static string PipeStatusStocked {
+            get {
+                return ResourceManager.GetString("PipeStatusStocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неопределен.
+        /// </summary>
+        internal static string PipeStatusUndefined {
+            get {
+                return ResourceManager.GetString("PipeStatusUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контольная операция трубы.
         /// </summary>
         internal static string PipeTest {
