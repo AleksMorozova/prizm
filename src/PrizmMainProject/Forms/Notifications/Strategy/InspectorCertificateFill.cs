@@ -16,7 +16,7 @@ namespace Prizm.Main.Forms.Notifications.Strategy
         internal override void SetNotificationStatus(Notification notification)
         {
 
-            if (notification.DayToOccur <= 0)
+            if (notification.DayToOccur < 0)
             {
                 notification.Status = NotificationStatus.Critical;
             }

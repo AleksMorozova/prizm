@@ -996,4 +996,7 @@
   <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
     <value>Сообщение об окончании срока: Сертификат просрочен</value>
   </data>
+  <data name="Notification_WelderCertificateExpired_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
+  </data>
 </root>
