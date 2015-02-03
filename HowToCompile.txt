@@ -1,12 +1,20 @@
--------------------------------------
-One-time conditions:
+﻿Необходимы программы:
+1) VS 2012 Express for Desktop
+2) DevExpress 14.2
+3) GitHub for Windows or Git Extensions
+4) SQL Server Management Studio 2012
 
-1. Add full-path reference to createDrive.cmd to Startup folder of Start/All programs menu).
-   Start it manually once or restart PC.
-2. Have installed at standard place (ProgramFiles(x86)):
-   - DevExpress 13.1
-   - Visual Studio 2012
+Процесс компиляции:
+1)	Необходимо установить гитхаб клиент и клонировать два репозитория – prizm и prizm_external.
+2)	Запускаем PrizmMainSolution из Visual Studio. Переключаемся в режим Release и перестраиваем решение (Build – Rebuild solution).
+В случае если какие-то библиотеки не подключены, необходимо использовать консоль менеджера пакетов (Tools – Library Package Manager – Package Manager Console) для подключения недостающих библиотек. Библиотеки подключаются следующим образом: 
+PM> Install-Package Название _ Библиотеки -Version Номер _ Версии
+После установки недостающих библиотек, перестраиваем решение еще раз. 
+3)	После успешной перестройки переходим в папку install и запускаем "!CreateCompileScript.cmd" скрипт. 
+Если необходимо, в этом скприпте можно изменить путь к папке prizm_external и к библиотекам devExpress 
+4)	Запускаем созданный скрипт «!Compile. cmd»
+5)	Запускаем файл установки из созданной папки release.
 
--------------------------------------
-
-Open src/PrizmMainSolution.sln from Visual Studio.
+Клонирование репозитория:
+1) создаем папку в которую поместим клонированный репозиторий
+2) Выбираем «Clone repository». Если необходимо указываем адрес репозитория, папку созданную для репозитория, и ветку из репозитория, которую мы хотим клонировать.

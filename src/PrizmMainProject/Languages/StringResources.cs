@@ -3725,6 +3725,12 @@ namespace Prizm.Main.Languages
             Description = "Сообщение о приближении окончания срока: Заканчивается срок сертификата"
         };
 
+        public static StringResource Notification_WelderCertificateExpired_Critical = new StringResource
+        {
+            Id = "Notification_WelderCertificateExpired_Critical",
+            Description = "Сообщение об окончании срока: Сертификат просрочен"
+        };
+
         #endregion //--- Notification ---
     }
 } 

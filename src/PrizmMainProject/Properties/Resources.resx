@@ -996,6 +996,9 @@
   <data name="Settings_SetupSavedHeader" xml:space="preserve">
     <value>Сохранение настроек</value>
   </data>
+  <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
+    <value>Сообщение об окончании срока: Сертификат просрочен</value>
+  </data>
   <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
   </data>
