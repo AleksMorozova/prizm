@@ -1026,4 +1026,10 @@
   <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
     <value>Неопределен</value>
   </data>
+  <data name="InspectionsSavedHeader" xml:space="preserve">
+    <value>Сохранение контрольных операций</value>
+  </data>
+  <data name="PartInspection_InspectionsSaved" xml:space="preserve">
+    <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
+  </data>
 </root>

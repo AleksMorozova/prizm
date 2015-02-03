@@ -573,6 +573,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сохранение контрольных операций.
+        /// </summary>
+        internal static string InspectionsSavedHeader {
+            get {
+                return ResourceManager.GetString("InspectionsSavedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус на входном контроле.
         /// </summary>
         internal static string InspectionStatus {
@@ -1521,6 +1530,15 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("page_setup_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Результаты контрольных операций успешно сохранены. Номер элемента: .
+        /// </summary>
+        internal static string PartInspection_InspectionsSaved {
+            get {
+                return ResourceManager.GetString("PartInspection_InspectionsSaved", resourceCulture);
             }
         }
         
