@@ -281,24 +281,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Отрезана катушка заданной длины.
-        /// </summary>
-        internal static string Cut_Spool_from_pipe {
-            get {
-                return ResourceManager.GetString("Cut_Spool_from_pipe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Создание катушки.
-        /// </summary>
-        internal static string Cut_Spool_from_pipe_Header {
-            get {
-                return ResourceManager.GetString("Cut_Spool_from_pipe_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Дата.
         /// </summary>
         internal static string Date {
@@ -2450,6 +2432,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Отрезана катушка заданной длины.
+        /// </summary>
+        internal static string Spool_CutSpoolFromPipe {
+            get {
+                return ResourceManager.GetString("Spool_CutSpoolFromPipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание катушки.
+        /// </summary>
+        internal static string Spool_CutSpoolFromPipeHeader {
+            get {
+                return ResourceManager.GetString("Spool_CutSpoolFromPipeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к деактивации катушки: длина исходной трубы будет 
         ///пересчитана, параметры катушки станут невозможны для редактирования.
         /// Если катушка содержит брак, вместо деактивации рекомендуем присвоить ей соответствующий статус на входном контроле.
@@ -2486,6 +2486,42 @@ namespace Prizm.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("spool_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина катушки не может быть равна 0.
+        /// </summary>
+        internal static string Spool_NullSpoolLength {
+            get {
+                return ResourceManager.GetString("Spool_NullSpoolLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длины трубы не достаточно для отрезания заданной катушки.
+        /// </summary>
+        internal static string Spool_SpoolLengtBigerThenPipeLength {
+            get {
+                return ResourceManager.GetString("Spool_SpoolLengtBigerThenPipeLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введен неверный номер трубы.
+        /// </summary>
+        internal static string Spool_WrongPipeNumberForCutting {
+            get {
+                return ResourceManager.GetString("Spool_WrongPipeNumberForCutting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный номер трубы.
+        /// </summary>
+        internal static string Spool_WrongPipeNumberForCuttingHeader {
+            get {
+                return ResourceManager.GetString("Spool_WrongPipeNumberForCuttingHeader", resourceCulture);
             }
         }
         
@@ -2739,42 +2775,6 @@ namespace Prizm.Main.Properties {
         internal static string WorkstationType_Undefined {
             get {
                 return ResourceManager.GetString("WorkstationType_Undefined", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Введен неверный номер трубы.
-        /// </summary>
-        internal static string Wrong_pipe_number_for_cutting {
-            get {
-                return ResourceManager.GetString("Wrong_pipe_number_for_cutting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Неверный номер трубы.
-        /// </summary>
-        internal static string Wrong_pipe_number_for_cutting_Header {
-            get {
-                return ResourceManager.GetString("Wrong_pipe_number_for_cutting_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Длины трубы не достаточно для отрезания заданной катушки.
-        /// </summary>
-        internal static string Wrong_Spool_Lengs_MorePipeLength {
-            get {
-                return ResourceManager.GetString("Wrong_Spool_Lengs_MorePipeLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Длина катушки не может быть равна 0.
-        /// </summary>
-        internal static string Wrong_Spool_Length_NullLength {
-            get {
-                return ResourceManager.GetString("Wrong_Spool_Length_NullLength", resourceCulture);
             }
         }
         
