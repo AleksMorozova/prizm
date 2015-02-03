@@ -62,7 +62,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             lastName.DataBindings.Add("EditValue", bindingSource, "LastName");
             firstName.DataBindings.Add("EditValue", bindingSource, "FirstName");
             middleName.DataBindings.Add("EditValue", bindingSource, "MiddleName");
-            this.Text += ": [" + bind + "]";
         }
 
         #region --- Localization ---

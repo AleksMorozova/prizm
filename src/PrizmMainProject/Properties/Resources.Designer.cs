@@ -2350,6 +2350,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сохранение настроек.
+        /// </summary>
+        internal static string Settings_SetupSavedHeader {
+            get {
+                return ResourceManager.GetString("Settings_SetupSavedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки успешно сохранены..
+        /// </summary>
+        internal static string Settings_SetupSaves {
+            get {
+                return ResourceManager.GetString("Settings_SetupSaves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap shipment_icon {

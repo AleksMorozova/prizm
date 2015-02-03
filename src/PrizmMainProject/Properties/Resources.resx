@@ -993,6 +993,12 @@
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
     <value>Отгружен</value>
   </data>
+  <data name="Settings_SetupSavedHeader" xml:space="preserve">
+    <value>Сохранение настроек</value>
+  </data>
+  <data name="Settings_SetupSaves" xml:space="preserve">
+    <value>Настройки успешно сохранены.</value>
+  </data>
   <data name="WorkstationType_Construction" xml:space="preserve">
     <value>Строительство</value>
   </data>
