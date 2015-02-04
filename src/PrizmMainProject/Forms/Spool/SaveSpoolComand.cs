@@ -13,6 +13,7 @@ using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Languages;
 using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -24,7 +25,7 @@ namespace Prizm.Main.Forms.Spool
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
         readonly ISecurityContext ctx;
-
+        private int emptyInspectors=0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify, ISecurityContext ctx)
@@ -42,7 +43,15 @@ namespace Prizm.Main.Forms.Spool
             {
                 if (viewModel.CanCut)
                 {
-                    if (!viewModel.emptyInspectors)
+                    foreach (InspectionTestResult t in viewModel.InspectionTestResults)
+                    {
+                        if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
+                        {
+                            emptyInspectors++;
+                        }
+                    }
+
+                    if (emptyInspectors == 0)
                     {
                         try
                         {
@@ -99,6 +108,7 @@ namespace Prizm.Main.Forms.Spool
                          Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),
                          Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                     viewModel.ModifiableView.IsEditMode = true;
+                    emptyInspectors = 0;
                 }
             }
             else

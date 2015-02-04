@@ -36,31 +36,40 @@ namespace Prizm.Main.Forms.Parts.Inspection
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            try
+            if (!viewModel.emptyInspectors)
             {
-                viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
-                repo.BeginTransaction();
-                foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                try
                 {
-                    repo.SaveOrUpdate(itr);
-                }
-                repo.Commit();
-                foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
-                {
-                    repo.Evict(itr);
-                }
-                notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
+                    viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
+                    repo.BeginTransaction();
+                    foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                    {
+                        repo.SaveOrUpdate(itr);
+                    }
+                    repo.Commit();
+                    foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                    {
+                        repo.Evict(itr);
+                    }
+                    notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
 
-                log.Info(string.Format("The Inspection Test Results for entity #{0}, id:{1} has been saved in DB.",
-                    viewModel.SelectedElement.Number,
-                    viewModel.SelectedElement.Id));
+                    log.Info(string.Format("The Inspection Test Results for entity #{0}, id:{1} has been saved in DB.",
+                        viewModel.SelectedElement.Number,
+                        viewModel.SelectedElement.Id));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+                RefreshVisualStateEvent();
             }
-            catch (RepositoryException ex)
+            else 
             {
-                log.Error(ex.Message);
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
             }
-            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()

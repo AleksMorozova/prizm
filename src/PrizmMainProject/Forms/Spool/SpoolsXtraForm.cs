@@ -328,17 +328,10 @@ namespace Prizm.Main.Forms.Spool
         {
             GridView view = sender as GridView;
             InspectionTestResult inspection = view.GetRow(view.FocusedRowHandle) as InspectionTestResult;
-            if (inspection.Status != PartInspectionStatus.Pending)
+            if (inspection.Status != PartInspectionStatus.Pending &&  inspection.Inspectors.Count <= 0)
             {
-                if (inspection.Inspectors.Count <= 0)
-                {
-                    ValidateInspection(inspectionHistoryGridView, inspectorsGridColumn.Name.ToString(), e);
-                    viewModel.emptyInspectors = true;
-                }
-                else { viewModel.emptyInspectors = false; }
+                ValidateInspection(inspectionHistoryGridView, inspectorsGridColumn.Name.ToString(), e);
             }
-            else { viewModel.emptyInspectors = false; }
-            
         }
     }
 }
