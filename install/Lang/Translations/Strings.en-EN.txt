@@ -1,4 +1,15 @@
-﻿
+﻿;Сообщение - Укажите инспектора
+SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
+
+;Сообщение - Укажите сварщика
+SelectWeldersForOperation=Please enter welders for appropriate weld operations
+
+;Заголовок сообщения - Укажите инспектора
+SelectInspectorsForTestResultHeader=Error input of control operation
+
+;Заголовок сообщения - Укажите сварщика
+SelectWeldersForOperationHeader=Error input of welding operation
+
 ;Вначале необходимо ввести дату
 FirstEnterDate=Please enter date first
 
