@@ -25,7 +25,7 @@ namespace Prizm.Main.Forms.Spool
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
         readonly ISecurityContext ctx;
-        private int emptyInspectors=0;
+        private int numberOfOperationWithoutInspectors=0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify, ISecurityContext ctx)
@@ -47,11 +47,11 @@ namespace Prizm.Main.Forms.Spool
                     {
                         if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
                         {
-                            emptyInspectors++;
+                            numberOfOperationWithoutInspectors++;
                         }
                     }
 
-                    if (emptyInspectors == 0)
+                    if (numberOfOperationWithoutInspectors == 0)
                     {
                         try
                         {
@@ -108,7 +108,7 @@ namespace Prizm.Main.Forms.Spool
                          Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),
                          Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                     viewModel.ModifiableView.IsEditMode = true;
-                    emptyInspectors = 0;
+                    numberOfOperationWithoutInspectors = 0;
                 }
             }
             else

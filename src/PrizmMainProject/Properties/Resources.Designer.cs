@@ -2477,6 +2477,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Укажите сварщика для операции.
+        /// </summary>
+        internal static string SelectWeldersForOperation {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка создания сварочной операции.
+        /// </summary>
+        internal static string SelectWeldersForOperationHeader {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранение настроек.
         /// </summary>
         internal static string Settings_SetupSavedHeader {

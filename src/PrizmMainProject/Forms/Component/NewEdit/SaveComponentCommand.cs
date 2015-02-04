@@ -24,7 +24,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
-        private int emptyInspectors=0;
+        private int numberOfOperationWithoutInspectors=0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
@@ -67,10 +67,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 {
                     if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count<=0) 
                     {
-                        emptyInspectors++;
+                        numberOfOperationWithoutInspectors++;
                     }
                 }
-                if (emptyInspectors==0)
+                if (numberOfOperationWithoutInspectors==0)
                 {
                     try
                     {
@@ -109,7 +109,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     notify.ShowError(
                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
-                    emptyInspectors = 0;
+                    numberOfOperationWithoutInspectors = 0;
                 }
             }
             RefreshVisualStateEvent();

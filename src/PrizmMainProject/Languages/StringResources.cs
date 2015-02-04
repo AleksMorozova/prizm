@@ -24,6 +24,17 @@ namespace Prizm.Main.Languages
             Description = "Заголовок сообщения - Укажите инспектора"
         };
 
+        public static StringResource SelectWeldersForOperation = new StringResource
+        {
+            Id = "SelectWeldersForOperation ",
+            Description = "Сообщение - Укажите сварщика"
+        };
+        public static StringResource SelectWeldersForOperationHeader = new StringResource
+        {
+            Id = "SelectWeldersForOperationHeader",
+            Description = "Заголовок сообщения - Укажите сварщика"
+        };
+
         public static StringResource FirstEnterDate = new StringResource
         {
             Id = "FirstEnterDate",

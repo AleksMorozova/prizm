@@ -535,15 +535,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                new DevExpress.XtraGrid.Views.Base
                                    .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
             }
-            return dxValidationProvider.Validate() &&
-                   viewModel.JointWeldResults.Where(_ => _.Date == null ||
-                                                    _.Operation == null ||
-                                                    (_.Operation.Type == JointOperationType.Weld
-                                                    && _.Welders.Count == 0)).Count() <= 0 &&
-                   viewModel.JointTestResults.Where(_ => _.Operation == null ||
-                                                    _.Date == null ||
-                                                    _.Inspectors.Count == 0 ||
-                                                    _.Status == 0).Count() <= 0;                    
+            return dxValidationProvider.Validate();
+            //       viewModel.JointWeldResults.Where(_ => _.Date == null ||
+            //                                        _.Operation == null ||
+            //                                        (_.Operation.Type == JointOperationType.Weld
+            //                                        && _.Welders.Count == 0)).Count() <= 0 &&
+            //       viewModel.JointTestResults.Where(_ => _.Operation == null ||
+            //                                        _.Date == null ||
+            //                                        _.Inspectors.Count == 0 ||
+            //                                        _.Status == 0).Count() <= 0;  
+            
+     
         }
 
         #endregion

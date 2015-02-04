@@ -11,6 +11,7 @@ using DevExpress.Mvvm.POCO;
 using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -20,6 +21,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
+        private int numberOfWeldOperationWithoutWelders=0;
+        private int numberOfControlOperationWithoutInspectors = 0;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
@@ -34,45 +37,82 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.ValidatableView.Validate())
+            foreach(JointWeldResult w in viewModel.JointWeldResults)
             {
-                return;
+                if (w.Welders.Count <= 0)
+                {
+                    numberOfWeldOperationWithoutWelders++;
+                }
             }
 
-            if (viewModel.Joint.LoweringDate == DateTime.MinValue)
+            foreach (JointTestResult t in viewModel.JointTestResults)
             {
-                viewModel.Joint.LoweringDate = null;
-            }
-            var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
-            foreach (var joint in joints)
-            {
-                repo.RepoJoint.Evict(joint);
-            }
-            if (joints != null && joints.Count > 0)
-            {
-                notify.ShowInfo(
-                    string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
-                    Program.LanguageManager.GetString(StringResources.Joint_DuplicateHeader));
-                viewModel.Number = string.Empty;
-            }
-            else
-            {
-                if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                if (t.Inspectors.Count <= 0)
                 {
-                    viewModel.SaveOrUpdateJointCommand.Execute();
+                    numberOfControlOperationWithoutInspectors++;
                 }
-                else if (viewModel.MakeTheConnection())
+            }
+            if (numberOfWeldOperationWithoutWelders==0)
+            {
+                if (numberOfControlOperationWithoutInspectors==0)
                 {
-                    viewModel.SaveOrUpdateJointCommand.Execute();
+                    if (!viewModel.ValidatableView.Validate())
+                    {
+                        return;
+                    }
+
+                    if (viewModel.Joint.LoweringDate == DateTime.MinValue)
+                    {
+                        viewModel.Joint.LoweringDate = null;
+                    }
+                    var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
+                    foreach (var joint in joints)
+                    {
+                        repo.RepoJoint.Evict(joint);
+                    }
+                    if (joints != null && joints.Count > 0)
+                    {
+                        notify.ShowInfo(
+                            string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
+                            Program.LanguageManager.GetString(StringResources.Joint_DuplicateHeader));
+                        viewModel.Number = string.Empty;
+                    }
+                    else
+                    {
+                        numberOfWeldOperationWithoutWelders=0;
+                        numberOfControlOperationWithoutInspectors = 0;
+
+                        if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                        {
+                            viewModel.SaveOrUpdateJointCommand.Execute();
+
+                        }
+                        else if (viewModel.MakeTheConnection())
+                        {
+                            viewModel.SaveOrUpdateJointCommand.Execute();
+                        }
+                        else
+                        {
+                            notify.ShowInfo(
+                            Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
+                            Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+                        }
+                    }
+                    RefreshVisualStateEvent();
                 }
                 else
                 {
-                    notify.ShowInfo(
-                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
-                    Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+                    notify.ShowError(
+                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
                 }
             }
-            RefreshVisualStateEvent();
+            else 
+            {
+                notify.ShowError(
+                                       Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
+                                       Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
+            }
         }
 
         public bool CanExecute()

@@ -285,11 +285,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     {
                         inspectionTestResult.Inspectors.Add(i);
                     }
-
                 }
             }
-            GridView view = sender as GridView;
-
         }
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)

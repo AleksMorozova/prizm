@@ -22,7 +22,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly PartInspectionViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-
+        private int numberOfOperationWithoutInspectors = 0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
@@ -36,7 +36,14 @@ namespace Prizm.Main.Forms.Parts.Inspection
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (!viewModel.emptyInspectors)
+            foreach (InspectionTestResult t in viewModel.InspectionTestResults)
+            {
+                if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
+                {
+                    numberOfOperationWithoutInspectors++;
+                }
+            }
+            if (numberOfOperationWithoutInspectors==0)
             {
                 try
                 {
@@ -69,6 +76,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 notify.ShowError(
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                numberOfOperationWithoutInspectors = 0;
             }
         }
 

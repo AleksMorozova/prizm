@@ -38,7 +38,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public IList<Inspector> Inspectors { get; set; }
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
-        public bool emptyInspectors = false;
 
         [Inject]
         public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify, ISecurityContext ctx)
