@@ -1032,4 +1032,10 @@
   <data name="PartInspection_InspectionsSaved" xml:space="preserve">
     <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
 </root>

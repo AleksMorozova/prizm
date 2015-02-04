@@ -178,11 +178,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(factBool.Checked)
             {
-                factBool.Text = " [ Да ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + "] ";
             }
             else
             {
-                factBool.Text = " [ Нет ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.No)  + " ] ";
             }
         }
     }

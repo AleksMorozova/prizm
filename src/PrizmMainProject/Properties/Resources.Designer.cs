@@ -1461,6 +1461,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Нет.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дубликат номера труб.
         /// </summary>
         internal static string Notification_DublicatePipeNumber_Critical {
@@ -2793,6 +2802,15 @@ namespace Prizm.Main.Properties {
         internal static string WorkstationType_Undefined {
             get {
                 return ResourceManager.GetString("WorkstationType_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Да.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         
