@@ -152,6 +152,7 @@
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.factLimit.Properties.Mask.EditMask = "d";
             this.factLimit.Size = new System.Drawing.Size(311, 20);
             this.factLimit.StyleController = this.rootLayoutControl;
             this.factLimit.TabIndex = 15;

@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(RailcarViewModel));
+
         public BindingList<Pipe> ReleaseNotePipes { get; set; }
         private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
         private readonly IRailcarRepositories repos;
@@ -74,13 +76,17 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             else
             {
                 ReleaseNotePipes = new BindingList<Pipe>();
+                log.Warn(string.Format("List of Pipes in Release Note (id:{0}) is NULL.", id));
             }
         }
 
         private void GetAllPipes(Guid id)
         {
             if (ReleaseNotePipes == null)
+            {
                 ReleaseNotePipes = new BindingList<Pipe>();
+                log.Warn(string.Format("List of Pipes in Release Note (id:{0}) is NULL.", id));
+            }
 
             IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
             foreach (var p in pipes)
@@ -381,9 +387,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             {
                 var tmp = new List<Pipe>(repos.PipeRepo.GetStored());
                 allPipes = tmp;
+                if (this.allPipes == null || this.allPipes.Count <= 0)
+                    log.Warn( "List of Stored Pipes in Release Note is NULL or empty" );
             }
             catch (RepositoryException ex)
             {
+                log.Error(string.Format("Unable to retrieve stored pipe: ", ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
         }
