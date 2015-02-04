@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class SaveRailcarCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveRailcarCommand));
+
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
@@ -83,9 +85,14 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), 
                     Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
+
+                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                    viewModel.ReleaseNote.Number,
+                    viewModel.ReleaseNote.Id));
             }
             catch(RepositoryException ex)
             {
+                log.Error(ex.Message);
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
             RefreshVisualStateEvent();

@@ -27,6 +27,7 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SettingsViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingsViewModel));
         private PipeMillSizeType currentPipeMillSizeType;
         public BindingList<PipeMillSizeType> PipeMillSizeType { get; set; }
         public Project CurrentProjectSettings { get; set; }
@@ -139,7 +140,9 @@ namespace Prizm.Main.Forms.Settings
                }
                else
                {
-                   throw new ApplicationException("No resource description defined for " + id);
+                   var ex = new ApplicationException("No resource description defined for " + id);
+                   log.Error(ex.Message);
+                   throw ex;
                }
                Permissions.Add(p);
            }
@@ -292,6 +295,9 @@ namespace Prizm.Main.Forms.Settings
         private void GetAllPipeMillSizeType()
         {
             var allSizeType = repos.PipeSizeTypeRepo.GetAll().ToList();
+            if (allSizeType == null || allSizeType.Count <= 0)
+                log.Warn( "Setup settings: List of Size Type is NULL or empty" );
+
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
             PipeMillSizeType.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
@@ -299,6 +305,9 @@ namespace Prizm.Main.Forms.Settings
         void GetAllJointOperations()
         {
             var foundOperations = repos.JointRepo.GetAll().ToList();
+            if (foundOperations == null || foundOperations.Count <= 0)
+                log.Warn( "Setup settings:List of found Operations is NULL or empty" );
+
             JointOperations = new BindingList<JointOperation>(foundOperations);
             JointOperations.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
@@ -311,10 +320,14 @@ namespace Prizm.Main.Forms.Settings
            var foundWelders = repos.WelderRepo.GetAll();
            if (foundWelders != null)
            {
-              foreach (Welder w in foundWelders)
-              {
-                 Welders.Add(new WelderViewType(w));
-              }
+               foreach (Welder w in foundWelders)
+               {
+                   Welders.Add(new WelderViewType(w));
+               }
+           }
+           else
+           {
+               log.Warn( " Setup settings: List of found Welders is NULL." );
            }
 
            Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
@@ -333,6 +346,10 @@ namespace Prizm.Main.Forms.Settings
                     CertificateTypes.Add(t);
                 }
             }
+            else
+            {
+                log.Warn( "Setup settings:List of Certificate Types is NULL." );
+            }
 
             CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
@@ -350,6 +367,10 @@ namespace Prizm.Main.Forms.Settings
                     SeamTypes.Add(s);
                 }
             }
+            else
+            {
+                log.Warn( "Setup settings: List of Seam Types is NULL." );
+            }
 
             SeamTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
@@ -366,6 +387,10 @@ namespace Prizm.Main.Forms.Settings
               {
                  Inspectors.Add(new InspectorViewType(i));
               }
+           }
+           else
+           {
+               log.Warn( "Setup settings: List of Inspectors is NULL." );
            }
 
            foreach (var insp in this.Inspectors)
@@ -398,6 +423,10 @@ namespace Prizm.Main.Forms.Settings
         private void GetAllManufacturers()
         {
            var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
+
+           if (foundPlateManufacturers == null || foundPlateManufacturers.Count <= 0)
+               log.Warn( "Setup settings: List of Plate Manufacturers is NULL or empty" );
+
            PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
            PlateManufacturers.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
@@ -414,6 +443,10 @@ namespace Prizm.Main.Forms.Settings
                 {
                     ComponentryTypes.Add(t);
                 }
+            }
+            else
+            {
+                log.Warn( "Setup settings: List of Componentry Types is NULL." );
             }
             ComponentryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }

@@ -10,6 +10,8 @@ namespace Prizm.Main.Forms.Notifications
 {
     public class NotificationManager : INotificationManager
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationManager));
+
         StrategyNotificationFill strategyFill;
         DataNotificationLoader loader;
         TypeNotification type;
@@ -27,12 +29,14 @@ namespace Prizm.Main.Forms.Notifications
                     this.strategyFill = new InspectorCertificateFill();
                     loader = new InspectorCertificateLoader(this);
                     break;
-                case TypeNotification.WelderCrtificateExpired:
+                case TypeNotification.WelderCertificateExpired:
                     strategyFill = new WelderCertificateFill();
                     loader = new WelderCertificateLoader(this);
                     break;
                 default:
-                    throw new NotImplementedException();
+                    var ex = new NotImplementedException();
+                    log.Error(ex.Message);
+                    throw ex;
                     //break; // unreachable code
             }
         }

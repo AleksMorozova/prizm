@@ -1,4 +1,5 @@
-﻿using Prizm.Main.Commands;
+﻿using Prizm.Data.DAL;
+using Prizm.Main.Commands;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using System;
@@ -11,6 +12,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointCutCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointCutCommand));
+
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -33,22 +36,30 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                    Program.LanguageManager.GetString(StringResources.Joint_WithdrawQuestion),
                    Program.LanguageManager.GetString(StringResources.Joint_WithdrawQuestionHeader)))
             {
-                viewModel.JointDisconnection();
+                try
+                {
+                    viewModel.JointDisconnection();
 
-                viewModel.FirstElement = null;
-                viewModel.SecondElement = null;
+                    viewModel.FirstElement = null;
+                    viewModel.SecondElement = null;
 
-                viewModel.Joint.FirstElement = null;
-                viewModel.Joint.SecondElement = null;
+                    viewModel.Joint.FirstElement = null;
+                    viewModel.Joint.SecondElement = null;
 
-                viewModel.JointConstructionStatus.Value = Domain.Entity.Construction.JointStatus.Withdrawn;
+                    viewModel.JointConstructionStatus = Domain.Entity.Construction.JointStatus.Withdrawn;
 
-                repo.BeginTransaction();
-                repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-                repo.Commit();
-                repo.RepoJoint.Evict(viewModel.Joint);
+                    repo.BeginTransaction();
+                    repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
+                    repo.Commit();
+                    repo.RepoJoint.Evict(viewModel.Joint);
 
-                viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.IsModified = false;
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
         }
 

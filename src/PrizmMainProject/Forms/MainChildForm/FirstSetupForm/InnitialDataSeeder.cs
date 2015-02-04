@@ -12,6 +12,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class InnitialDataSeeder : IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(InnitialDataSeeder));
+
         private const int HEATCOUNT = 5;
         private const int PIPECOUNT = 1210;
         private const int INSPECTORCOUNT = 25;
@@ -823,7 +825,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             else
             {
-                throw new ArgumentException("Out of range");
+                var ex = new ArgumentException("Out of range");
+                log.Error(ex.Message);
+                throw ex;
             }
             return result;
         }

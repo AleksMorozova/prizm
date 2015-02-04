@@ -22,7 +22,7 @@ namespace PrizmMain.Forms.Notifications
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class NotificationXtraForm : ChildForm
     {
-
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationXtraForm));
         // Fields
         private NotificationViewModel viewModel;
 
@@ -74,12 +74,14 @@ namespace PrizmMain.Forms.Notifications
                     typeEditor = typeof(SettingsXtraForm);
                     page = 5;
                     break;
-                case TypeNotification.WelderCrtificateExpired:
+                case TypeNotification.WelderCertificateExpired:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 4;
                     break;
                 default:
-                    throw new NotImplementedException();
+                    var ex = new NotImplementedException();
+                    log.Error(ex.Message);
+                    throw ex;
                     //break; // unreachable code
             }
 
