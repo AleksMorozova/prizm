@@ -64,6 +64,7 @@ namespace Prizm.Main.Forms.MainChildForm
             this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
+
         /// <summary>
         /// Gives the ChildForm index in corresponding childForms list that contains the element defined by id.
         /// </summary>
@@ -95,48 +96,26 @@ namespace Prizm.Main.Forms.MainChildForm
             return index;
         }
 
-      
-
         /// <summary>
         /// Creates an instance of child form of given form type
         /// </summary>
         /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
         /// <returns>reference to newly created child form</returns>
-        private ChildForm CreateChildForm(Type formType, Guid id, string number)
+        private ChildForm CreateChildForm(Type formType, List<KeyValuePair<string, object>> parameters)
         {
             ChildForm newlyCreatedForm = null;
 
             if (FramesCanOpen < 1)
             {
                 HideProcessing();
-                this.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen), 
+                this.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
             {
-                if (id == Guid.Empty && number == string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType);
-                }
-                else if (id != Guid.Empty && number == string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("id", id));
-                }
-                else if (id == Guid.Empty && number != string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("number", number));
-                }
-                else
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("id", id),
-                        new ConstructorArgument("number", number));
-                }
+
+                newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType,
+                        parameters.Select(kvp => new ConstructorArgument(kvp.Key, kvp.Value)).ToArray());
 
                 childForms[formType.Name].Add(newlyCreatedForm);
                 newlyCreatedForm.MdiParent = this;
@@ -187,55 +166,6 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
-        /// </summary>
-        /// <param name="formType">exact type of form</param>
-        /// <param name="id">Guid of entity</param>
-        /// <param name="parameters">input parameters passed to the newly created form</param>
-        public ChildForm OpenChildForm(Type formType, Guid id = default(Guid), string number = emptyString)
-        {
-            ChildForm form = null;
-
-            try
-            {
-                ShowProcessing();
-
-                if (typeof(ChildForm).IsAssignableFrom(formType))
-                {
-                    var forms = GetListChildForm(formType);
-
-                    int index = GetFormIndex(formType.Name, id);
-
-                    if (index >= 0 && forms.Count > 0)
-                    {
-                        form = forms[index];
-                        form.Activate();
-                    }
-                    else
-                    {
-                        form = CreateChildForm(formType, id, number);
-
-                        if (form != null)
-                        {
-                            ShowChildForm(form);
-                        }
-                    }
-                }
-                else
-                {
-                    var e = new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
-                    log.Error(e.Message);
-                    throw e;
-                }
-            }
-            finally
-            {
-                HideProcessing();
-            }
-            return form;
-        }
-
-        /// <summary>
         /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
         /// </summary>
         /// <param name="page">number of starting page</param>
@@ -256,57 +186,96 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        public void OpenRailcarForm(Type formType, Guid id = default(Guid))
+        /// <summary>
+        /// Old function, will be delete
+        /// </summary>
+        /// <param name="formType"></param>
+        /// <param name="id"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public ChildForm OpenChildForm(Type formType, Guid id = default(Guid), string number = emptyString)
         {
+            List<KeyValuePair<string, object>> parametrs = new List<KeyValuePair<string, object>>();
+            if (id != Guid.Empty)
+            {
+                parametrs.Add(new KeyValuePair<string, object>("id", id));
+            }
+            if (number != string.Empty)
+            {
+                parametrs.Add(new KeyValuePair<string, object>("number", number));
+            }
+            return OpenChildForm(formType, parametrs, id);
+        }
+
+        /// <summary>
+        /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
+        /// </summary>
+        /// <param name="formType">exact type of form</param>
+        /// <param name="id">Guid of entity</param>
+        /// <param name="parameters">input parameters passed to the newly created form</param>
+        public ChildForm OpenChildForm(Type formType, List<KeyValuePair<string, object>> parameters, Guid id = default(Guid))
+        {
+
             ChildForm form = null;
-            var forms = GetListChildForm(formType);
+            if (typeof(ChildForm).IsAssignableFrom(formType))
+            {
+                var forms = GetListChildForm(formType);
+                //search
+                int indexById = GetFormIndex(formType.Name, id);
 
-            //search
-            int indexById = GetFormIndex(formType.Name, id);
-
-            if (indexById >= 0) // is open
-            {
-                form = forms[indexById];
-            }
-            if (form != null)
-            {
-                form.Activate();
-            }
-            else //create new
-            {
-                int index = FindOpenForm(formType.Name, true);
-                if (index >= 0)// this type form is open in edit mode
+                if (indexById >= 0 && forms.Count > 0) // is open
                 {
-                    if (id == default(Guid))
+                    form = forms[indexById];
+                }
+                if (form != null)
+                {
+                    form.Activate();
+                }
+                else //create new
+                {
+                    int index = FindOpenForm(formType.Name, true);
+
+                    if (formType == typeof(RailcarNewEditXtraForm) && index >= 0)// this type form is open in edit mode
                     {
-                        string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
-                        ShowWarning(text, "");
-                        form = forms[index];
-                        form.Activate();
+                        if (id == default(Guid))
+                        {
+                            string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
+                            ShowWarning(text, "");
+                            form = forms[index];
+                            form.Activate();
+                        }
+                        else
+                        {
+                            string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
+                            if (this.ShowYesNo(text, ""))
+                            {
+                                ShowChildForm(formType, parameters, false);
+                            }
+                        }
                     }
                     else
                     {
-                        string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
-                        if (this.ShowYesNo(text, ""))
-                        {
-                            OpenEditForm(formType, id, false);
-                        }
+                        ShowChildForm(formType, parameters, true);
                     }
                 }
-                else
-                {
-                    OpenEditForm(formType, id, true);
-                }
             }
+            else
+            {
+                var e = new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
+                log.Error(e.Message);
+                throw e;
+            }
+            return form;
         }
 
-        private void OpenEditForm(Type formType, Guid id, bool IsEdit = true)
+        private void ShowChildForm(Type formType, List<KeyValuePair<string, object>> parameters, bool IsEditMode = true)
         {
-            ChildForm form = CreateChildForm(formType, id, string.Empty);
+            ChildForm form = CreateChildForm(formType, parameters);
+
             if (form != null)
             {
                 ShowChildForm(form);
-                if (!IsEdit)
+                if (!IsEditMode)
                 {
                     ((ChildForm)form).IsEditMode = false;
                 }
@@ -348,7 +317,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-           OpenRailcarForm(typeof(RailcarNewEditXtraForm));
+            OpenChildForm(typeof(RailcarNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
