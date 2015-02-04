@@ -117,7 +117,7 @@ namespace Prizm.Data.DAL.Hibernate
                 }
             }
 
-            return retVal;
+            return retVal ?? new List<AuditLog>();
         }
 
         /// <summary>
@@ -130,10 +130,12 @@ namespace Prizm.Data.DAL.Hibernate
         public IList<AuditLog> GetRecordsByUser(string user, DateTime startDate, DateTime endDate)
         {
 
-            return session.QueryOver<AuditLog>()
+            var retVal = session.QueryOver<AuditLog>()
                 .Where(_ => _.AuditDate <= endDate && _.AuditDate >= startDate)
                 .WhereRestrictionOn(x => x.User).IsLike(user).List<AuditLog>();
 
+
+            return retVal ?? new List<AuditLog>();
         }
     }
 }
