@@ -784,18 +784,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if(Pipe.Railcar != null)
                 {
-                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
+                    resultValue =
+                        !(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
                         || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
-                        || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
-                        )
-                    {
-                        resultValue = false;
-                    }
-                    else
-                    {
-                        Pipe.Status = PipeMillStatus.Stocked;
-                        resultValue = true;
-                    }
+                        || testsResults.Contains(PipeTestResultStatus.Repair.ToString()));
                 }
                 else
                 {
