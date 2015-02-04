@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartInspectionXtraForm));
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
@@ -37,10 +36,11 @@
             this.inspectionsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colResult = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.resultCombo = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.colReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.elementType = new DevExpress.XtraEditors.TextEdit();
             this.elementNumber = new DevExpress.XtraEditors.TextEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -58,14 +58,15 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultCombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchNumber.Properties)).BeginInit();
@@ -132,7 +133,8 @@
             this.inspections.Name = "inspections";
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.resultStatusLookUpEdit,
-            this.inspectorsPopupContainerEdit});
+            this.inspectorsPopupContainerEdit,
+            this.resultCombo});
             this.inspections.Size = new System.Drawing.Size(848, 256);
             this.inspections.TabIndex = 8;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -167,25 +169,19 @@
             // colResult
             // 
             this.colResult.Caption = "Результат";
-            this.colResult.ColumnEdit = this.resultStatusLookUpEdit;
+            this.colResult.ColumnEdit = this.resultCombo;
             this.colResult.FieldName = "Status";
             this.colResult.Name = "colResult";
             this.colResult.Visible = true;
             this.colResult.VisibleIndex = 1;
             this.colResult.Width = 148;
             // 
-            // resultStatusLookUpEdit
+            // resultCombo
             // 
-            this.resultStatusLookUpEdit.AutoHeight = false;
-            this.resultStatusLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.resultCombo.AutoHeight = false;
+            this.resultCombo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.resultStatusLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Статус")});
-            this.resultStatusLookUpEdit.DisplayMember = "Value";
-            this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
-            this.resultStatusLookUpEdit.NullText = "";
-            this.resultStatusLookUpEdit.EditValueChanged += new System.EventHandler(this.resultStatusLookUpEdit_EditValueChanged);
-            this.resultStatusLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultStatusLookUpEdit_CustomDisplayText);
+            this.resultCombo.Name = "resultCombo";
             // 
             // colInspector
             // 
@@ -216,6 +212,19 @@
             this.colReason.Visible = true;
             this.colReason.VisibleIndex = 3;
             this.colReason.Width = 175;
+            // 
+            // resultStatusLookUpEdit
+            // 
+            this.resultStatusLookUpEdit.AutoHeight = false;
+            this.resultStatusLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultStatusLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Статус")});
+            this.resultStatusLookUpEdit.DisplayMember = "Value";
+            this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
+            this.resultStatusLookUpEdit.NullText = "";
+            this.resultStatusLookUpEdit.EditValueChanged += new System.EventHandler(this.resultStatusLookUpEdit_EditValueChanged);
+            this.resultStatusLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultStatusLookUpEdit_CustomDisplayText);
             // 
             // elementType
             // 
@@ -430,8 +439,9 @@
             this.inspectionLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultCombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchNumber.Properties)).EndInit();
@@ -486,5 +496,6 @@
         private DevExpress.XtraEditors.SimpleButton saveAndClearButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndClearLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox resultCombo;
     }
 }

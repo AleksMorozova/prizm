@@ -1,4 +1,5 @@
-﻿using Prizm.Main.Forms.MainChildForm;
+﻿using DevExpress.XtraEditors;
+using Prizm.Main.Forms.MainChildForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,8 @@ namespace Prizm.Main.Languages
             RadioGroup,
             TextEditOneWayStatus, 
             GridView,
-            FormHeader
+            FormHeader,
+            RepositoryCombo
         };
 
         public LocalizedItem(System.Windows.Forms.Control control, string resourceId)
@@ -218,6 +220,23 @@ namespace Prizm.Main.Languages
             }
         }
 
+        public LocalizedItem(DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryCombo, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+            this.obj = (object)repositoryCombo;
+            this.type = ItemType.RepositoryCombo;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.defaultValues[index] = repositoryCombo.Items[index].ToString();
+            }
+        }
+
         public string Text
         {
             set
@@ -323,7 +342,17 @@ namespace Prizm.Main.Languages
                                 }
                             }
                             break;
+                        case ItemType.RepositoryCombo:
+                            {
+                                var repoCombo = (DevExpress.XtraEditors.Repository.RepositoryItemComboBox)obj;
+                        //set selected index somehow
+                                if (index < Count)
+                                {
+                                    ((DevExpress.XtraEditors.Repository.RepositoryItemComboBox)obj).Items[index] = value;
+                                }
 
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -407,6 +436,10 @@ namespace Prizm.Main.Languages
                     break;
                 case ItemType.FormHeader:
                     ((Tuple<PrizmForm, List<string>>)obj).Item1.UpdateTitle();
+                    break;
+                case ItemType.RepositoryCombo:
+                    var repoCombo = (DevExpress.XtraEditors.Repository.RepositoryItemComboBox)obj;
+//set selected index
                     break;
                 default:
                     break;
