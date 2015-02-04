@@ -1032,4 +1032,26 @@
   <data name="PartInspection_InspectionsSaved" xml:space="preserve">
     <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
   </data>
+  <data name="ConstractionReport_ReportTypeTracingReport" xml:space="preserve">
+    <value>По трассировке</value>
+  </data>
+  <data name="ConstractionReport_ReportTypeUsedProductReport" xml:space="preserve">
+    <value>По использованным изделиям</value>
+  </data>
+  <data name="ConstractionReport_TracingReportInfoLabelText" xml:space="preserve">
+    <value>Данный тип отчета содержит все сваренные элементы расположенные 
+между заданными точками не зависимо от их связности.</value>
+  </data>
+  <data name="PartTypeComponent" xml:space="preserve">
+    <value>Комплектующее</value>
+  </data>
+  <data name="PartTypePipe" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="PartTypeSpool" xml:space="preserve">
+    <value>Катушка</value>
+  </data>
+  <data name="PartTypeUndefined" xml:space="preserve">
+    <value>Неопределен</value>
+  </data>
 </root>

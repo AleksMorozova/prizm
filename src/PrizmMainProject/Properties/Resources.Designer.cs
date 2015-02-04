@@ -253,6 +253,34 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По трассировке.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeTracingReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeTracingReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По использованным изделиям.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeUsedProductReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeUsedProductReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
+        ///между заданными точками не зависимо от их связности..
+        /// </summary>
+        internal static string ConstractionReport_TracingReportInfoLabelText {
+            get {
+                return ResourceManager.GetString("ConstractionReport_TracingReportInfoLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус на строительстве.
         /// </summary>
         internal static string ConstructionStatus {
@@ -1638,6 +1666,42 @@ namespace Prizm.Main.Properties {
         internal static string PartSearch_StatusInactive {
             get {
                 return ResourceManager.GetString("PartSearch_StatusInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Комплектующее.
+        /// </summary>
+        internal static string PartTypeComponent {
+            get {
+                return ResourceManager.GetString("PartTypeComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба.
+        /// </summary>
+        internal static string PartTypePipe {
+            get {
+                return ResourceManager.GetString("PartTypePipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка.
+        /// </summary>
+        internal static string PartTypeSpool {
+            get {
+                return ResourceManager.GetString("PartTypeSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неопределен.
+        /// </summary>
+        internal static string PartTypeUndefined {
+            get {
+                return ResourceManager.GetString("PartTypeUndefined", resourceCulture);
             }
         }
         
