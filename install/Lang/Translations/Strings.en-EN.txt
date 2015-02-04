@@ -1424,7 +1424,7 @@ PartInspection_SearchButton=Search and &open for editing
 PartInspection_SaveButton=&Save
 
 ;Входной контроль элемента. Надпись кнопки сохранения и очистки
-PartInspection_SaveAndClearButton=Save\C&lear
+PartInspection_SaveAndClearButton=Save\\C&lear
 
 ;Входной контроль элемента. Надпись колонки даты
 PartInspection_DateColumnHeader=Date
@@ -1520,7 +1520,7 @@ NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
 NewEditPipe_SaveButton=&Save
 
 ;Труба. Кнопка сохранить и создать
-NewEditPipe_SaveAndNewButton=Save\Cr&eate
+NewEditPipe_SaveAndNewButton=Save\\Cr&eate
 
 ;Труба. Кнопка добавления контрольных операций
 NewEditPipe_InspectionsAddButton=Add
@@ -1977,3 +1977,24 @@ Notification_ExpiredCertificate_Critical=Certificate's date is expired
 
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
 Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+
+;Тип рабочей станции. Неопределен
+WorkstationType_Undefined=Undefined
+
+;Тип рабочей станции. Главный
+WorkstationType_Master=Master
+
+;Тип рабочей станции. Завод
+WorkstationType_Mill=Mill
+
+;Тип рабочей станции. Строительство
+WorkstationType_Construction=Construction
+
+;Тип отчета. По трассировке
+ConstractionReport_ReportTypeTracingReport=Tracing report
+
+;Тип отчета. По использованным изделиям
+ConstractionReport_ReportTypeUsedProductReport=By used products
+
+;Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям
+ConstractionReport_TracingReportInfoLabelText = This report type contains all welded elements located between selected points regardless of their connectivity

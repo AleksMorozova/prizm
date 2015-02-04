@@ -57,6 +57,7 @@ namespace Prizm.Main.Forms.MainChildForm
                         case DialogResult.No:
                             AutoValidate = System.Windows.Forms.AutoValidate.Disable;
                             isAutoValidate = false;
+                            log.Warn(string.Format("The form {0} has been closed without saving.", this.ToString()));
                             break;
                         case DialogResult.Yes:
                             if(SaveCommand != null && SaveCommand.CanExecute())

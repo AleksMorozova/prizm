@@ -10,6 +10,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public class PipelineGraph
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PipelineGraph));
+
         private const int maximumPathsNumber = 2;
         private const int jointPartVertexCount = 2;
         private Dictionary<Guid, PipelineVertex> piecesVertex;
@@ -44,10 +46,18 @@ namespace Prizm.Main.Forms.Reports.Construction
                     piecesVertex[joint.FirstElement.Id].JointsEdge.Add(jointEdge);
                     piecesVertex[joint.SecondElement.Id].JointsEdge.Add(jointEdge);
                 }
+                else
+                {
+                    log.Warn(string.Format("The one of requested keys is not in the dictionary of welded parts. Joint #{0}, id:{1}", joint.Number, joint.Id));
+                }
             }
-            catch
+            catch(NullReferenceException e)
             {
-                //TODO: NullReference
+                log.Error(
+                    string.Format("Unable to add the joint #{0}, id:{1} as edge of the pipeline.",
+                    joint.Number, joint.Id));
+
+                throw e;
             }
         }
 
@@ -55,58 +65,70 @@ namespace Prizm.Main.Forms.Reports.Construction
             construct.PartData startPartData,
             construct.PartData endPartData)
         {
-            var startPiece = piecesVertex[startPartData.Id];
-            var endPiece = piecesVertex[endPartData.Id];
-
             List<List<PipelineVertex>> paths = new List<List<PipelineVertex>>();
-
             Stack<PipelineVertex> stack = new Stack<PipelineVertex>();
 
-            stack.Push(startPiece);
-
-            List<JointEdge> joints = stack.Peek().JointsEdge;
-
-            int[] path = new int[this.piecesVertex.Count];
-
-            int k = 0;
-
-            while (stack.Count > 0 && paths.Count < maximumPathsNumber)
+            try
             {
-                while (k < joints.Count)
+                var startPiece = piecesVertex[startPartData.Id];
+                var endPiece = piecesVertex[endPartData.Id];
+
+                stack.Push(startPiece);
+
+                List<JointEdge> joints = stack.Peek().JointsEdge;
+
+                int[] path = new int[this.piecesVertex.Count];
+
+                int k = 0;
+
+                while (stack.Count > 0 && paths.Count < maximumPathsNumber)
                 {
-                    for (int i = 0; i < jointPartVertexCount; ++i)
+                    while (k < joints.Count)
                     {
-                        if (!stack.Contains(joints[k].PartsVertex[i]))
+                        for (int i = 0; i < jointPartVertexCount; ++i)
                         {
-                            path[stack.Count - 1] = k;
-                            stack.Push(joints[k].PartsVertex[i]);
-                            joints = stack.Peek().JointsEdge;
-                            k = 0;
+                            if (!stack.Contains(joints[k].PartsVertex[i]))
+                            {
+                                path[stack.Count - 1] = k;
+                                stack.Push(joints[k].PartsVertex[i]);
+                                joints = stack.Peek().JointsEdge;
+                                k = 0;
+                                break;
+                            }
+                            else if (i == 1)
+                            {
+                                ++k;
+                            }
+                        }
+                        if (stack.Peek() == endPiece)
+                        {
+                            paths.Add(stack.ToList<PipelineVertex>());
                             break;
                         }
-                        else if (i == 1)
-                        {
-                            ++k;
-                        }
                     }
-                    if (stack.Peek() == endPiece)
+
+                    if (stack.Count > 1)
                     {
-                        paths.Add(stack.ToList<PipelineVertex>());
-                        break;
+                        stack.Pop();
+                        joints = stack.Peek().JointsEdge;
+
+                        path[stack.Count - 1]++;
+
+                        k = path[stack.Count - 1];
                     }
+                    else
+                        break;
                 }
+            }
+            catch (KeyNotFoundException e)
+            {
+                log.Error(
+                    string.Format(
+                    "The one of requested keys is not in the dictionary of welded parts: start Part #{0}, id:{1}; end Part #{2}, id:{3}", 
+                    startPartData.Number, startPartData.Id,
+                    endPartData.Number, endPartData.Id));
 
-                if (stack.Count > 1)
-                {
-                    stack.Pop();
-                    joints = stack.Peek().JointsEdge;
-
-                    path[stack.Count - 1]++;
-
-                    k = path[stack.Count - 1];
-                }
-                else
-                    break;
+                throw e;
             }
             return paths;
         }
