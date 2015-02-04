@@ -53,7 +53,6 @@ namespace Prizm.Main.Languages
             Id = "JointNewEdit_JointStatus_Undefined",
             Description = "Неопределен"
         };        
-        //part types
 
         public static StringResource AppSplashScreen_VersionLabel = new StringResource
         {
@@ -61,6 +60,7 @@ namespace Prizm.Main.Languages
             Description = "Текст перед версией программы на всплывающем окне при загрузке программы"
         };
 
+        #region --- PartType ---
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};
@@ -78,7 +78,10 @@ namespace Prizm.Main.Languages
             Id = "PartTypeUndefined",
             Description = "Надпись типа элемента Неопределен"
         };
-        //activity
+
+        #endregion
+
+        #region --- Activity ---
         public static StringResource StatusActive = new StringResource { 
             Id = "StatusActive", 
             Description = "Надпись статуса активности элемента Активен"};
@@ -90,6 +93,7 @@ namespace Prizm.Main.Languages
         public static StringResource StatusAll = new StringResource { 
             Id = "StatusAll", 
             Description = "Надпись статуса активности элемента Все"};
+        #endregion
 
         public static StringResource Value_Required = new StringResource
         {
@@ -97,7 +101,7 @@ namespace Prizm.Main.Languages
             Description = "Значение обязательно"
         };
 
-        //test result types
+        #region --- Test result types ---
         public static StringResource TestResultTypeBoolean = new StringResource { 
             Id = "TestResultTypeBoolean", 
             Description = "Тип результата контрольной операции. Логический"};
@@ -109,8 +113,10 @@ namespace Prizm.Main.Languages
         public static StringResource TestResultTypeString = new StringResource { 
             Id = "TestResultTypeString", 
             Description = "Тип результата контрольной операции. Строка"};
+        #endregion
 
-        //test control type
+
+        #region --- Test control type ---
         public static StringResource ControlTypeWitness = new StringResource { 
             Id = "ControlTypeWitness",
             Description = "Вид контроля. Освидетельствование"};
@@ -126,8 +132,9 @@ namespace Prizm.Main.Languages
         public static StringResource ControlTypeHold = new StringResource { 
             Id = "ControlTypeHold", 
             Description = "Вид контроля. Обязательная проверка"};
+        #endregion
 
-        //part inspection status
+        #region --- PartInspectionStatus ---
         public static StringResource PartInspectionStatus_Undefined = new StringResource
         {
             Id = "PartInspectionStatus_Undefined",
@@ -157,6 +164,34 @@ namespace Prizm.Main.Languages
             Id = "PartInspectionStatus_Accepted",
             Description = "Статус на входном контроле. Принято"
         };
+        #endregion
+
+
+        #region --- Workstation types ---
+        public static StringResource WorkstationType_Undefined = new StringResource
+        {
+            Id = "WorkstationType_Undefined",
+            Description = "Тип рабочей станции. Неопределен"
+        };
+
+        public static StringResource WorkstationType_Master = new StringResource
+        {
+            Id = "WorkstationType_Master",
+            Description = "Тип рабочей станции. Главный"
+        };
+
+        public static StringResource WorkstationType_Mill= new StringResource
+        {
+            Id = "WorkstationType_Mill",
+            Description = "Тип рабочей станции. Завод"
+        };
+        
+        public static StringResource WorkstationType_Construction = new StringResource
+        {
+            Id = "WorkstationType_Construction",
+            Description = "Тип рабочей станции. Строительство"
+        };
+        #endregion
 
         //messages 
         public static StringResource Message_ErrorHeader = new StringResource

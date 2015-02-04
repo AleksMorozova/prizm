@@ -253,7 +253,7 @@
   <data name="MillPipe_ErrorEmptyOrFutureDate" xml:space="preserve">
     <value>Дата не может быть пустой или будущей</value>
   </data>
-  <data name="Wrong_pipe_number_for_cutting_Header" xml:space="preserve">
+  <data name="Spool_WrongPipeNumberForCuttingHeader" xml:space="preserve">
     <value>Неверный номер трубы</value>
   </data>
   <data name="Joint_Duplicate" xml:space="preserve">
@@ -298,13 +298,13 @@
   <data name="SecurityPrivilege_ExportDataFromMaster" xml:space="preserve">
     <value>Экспорт данных из Мастер</value>
   </data>
-  <data name="Cut_Spool_from_pipe_Header" xml:space="preserve">
+  <data name="Spool_CutSpoolFromPipeHeader" xml:space="preserve">
     <value>Создание катушки</value>
   </data>
   <data name="Mask_Label" xml:space="preserve">
     <value>Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть</value>
   </data>
-  <data name="Cut_Spool_from_pipe" xml:space="preserve">
+  <data name="Spool_CutSpoolFromPipe" xml:space="preserve">
     <value> Отрезана катушка заданной длины</value>
   </data>
   <data name="PipelineLengthReport" xml:space="preserve">
@@ -564,7 +564,7 @@
   <data name="password_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wrong_pipe_number_for_cutting" xml:space="preserve">
+  <data name="Spool_WrongPipeNumberForCutting" xml:space="preserve">
     <value>Введен неверный номер трубы</value>
   </data>
   <data name="MillName" xml:space="preserve">
@@ -611,7 +611,7 @@
   <data name="Pipe" xml:space="preserve">
     <value>Труба</value>
   </data>
-  <data name="Wrong_Spool_Lengs_MorePipeLength" xml:space="preserve">
+  <data name="Spool_SpoolLengtBigerThenPipeLength" xml:space="preserve">
     <value>Длины трубы не достаточно для отрезания заданной катушки</value>
   </data>
   <data name="MillPipe_PipeSaved" xml:space="preserve">
@@ -695,7 +695,7 @@
   <data name="Project" xml:space="preserve">
     <value>Настройки проекта</value>
   </data>
-  <data name="Wrong_Spool_Length_NullLength" xml:space="preserve">
+  <data name="Spool_NullSpoolLength" xml:space="preserve">
     <value>Длина катушки не может быть равна 0</value>
   </data>
   <data name="Date" xml:space="preserve">
@@ -993,8 +993,44 @@
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
     <value>Отгружен</value>
   </data>
+  <data name="Settings_SetupSavedHeader" xml:space="preserve">
+    <value>Сохранение настроек</value>
+  </data>
   <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
     <value>Сообщение об окончании срока: Сертификат просрочен</value>
+  </data>
+  <data name="Settings_SetupSaves" xml:space="preserve">
+    <value>Настройки успешно сохранены.</value>
+  </data>
+  <data name="WorkstationType_Construction" xml:space="preserve">
+    <value>Строительство</value>
+  </data>
+  <data name="WorkstationType_Master" xml:space="preserve">
+    <value>Главный</value>
+  </data>
+  <data name="WorkstationType_Mill" xml:space="preserve">
+    <value>Завод</value>
+  </data>
+  <data name="WorkstationType_Undefined" xml:space="preserve">
+    <value>Неоперделен</value>
+  </data>
+  <data name="NewEditPipe_PipeStatusProduced" xml:space="preserve">
+    <value>В производстве</value>
+  </data>
+  <data name="NewEditPipe_PipeStatusShipped" xml:space="preserve">
+    <value>Отправлена</value>
+  </data>
+  <data name="NewEditPipe_PipeStatusStocked" xml:space="preserve">
+    <value>На складе</value>
+  </data>
+  <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
+    <value>Неопределен</value>
+  </data>
+  <data name="InspectionsSavedHeader" xml:space="preserve">
+    <value>Сохранение контрольных операций</value>
+  </data>
+  <data name="PartInspection_InspectionsSaved" xml:space="preserve">
+    <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
   </data>
   <data name="ConstractionReport_ReportTypeTracingReport" xml:space="preserve">
     <value>По трассировке</value>

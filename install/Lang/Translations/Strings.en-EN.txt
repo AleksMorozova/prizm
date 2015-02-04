@@ -1424,7 +1424,7 @@ PartInspection_SearchButton=Search and &open for editing
 PartInspection_SaveButton=&Save
 
 ;Входной контроль элемента. Надпись кнопки сохранения и очистки
-PartInspection_SaveAndClearButton=Save\C&lear
+PartInspection_SaveAndClearButton=Save\\C&lear
 
 ;Входной контроль элемента. Надпись колонки даты
 PartInspection_DateColumnHeader=Date
@@ -1520,7 +1520,7 @@ NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
 NewEditPipe_SaveButton=&Save
 
 ;Труба. Кнопка сохранить и создать
-NewEditPipe_SaveAndNewButton=Save\Cr&eate
+NewEditPipe_SaveAndNewButton=Save\\Cr&eate
 
 ;Труба. Кнопка добавления контрольных операций
 NewEditPipe_InspectionsAddButton=Add
