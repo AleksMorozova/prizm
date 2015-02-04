@@ -10,11 +10,14 @@ using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
     public class ComponentDeactivationCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ComponentDeactivationCommand));
+
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -42,9 +45,17 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestion),
                 Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestionHeader)))
             {
-                viewModel.ComponentIsActive = false;
-                viewModel.SaveCommand.Execute();
-                viewModel.ModifiableView.IsEditMode = false;
+                try
+                {
+                    viewModel.ComponentIsActive = false;
+                    viewModel.SaveCommand.Execute();
+                    viewModel.ModifiableView.IsEditMode = false;
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
             RefreshVisualStateEvent();
         }

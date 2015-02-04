@@ -17,6 +17,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 {
     public class ShipRailcarCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ShipRailcarCommand));
+
         private readonly IRailcarRepositories repos;
         private readonly RailcarViewModel viewModel;
         private readonly IUserNotify notify;
@@ -82,6 +84,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 viewModel.SaveCommand.Execute();
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Shipped) + " #" + viewModel.ReleaseNote.Number,
                     Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
+
+                log.Info(string.Format("Shipment is successful. Release Note #{0}, id:{1}.",
+                    viewModel.ReleaseNote.Number,
+                    viewModel.ReleaseNote.Id));
             }
             
             RefreshVisualStateEvent();

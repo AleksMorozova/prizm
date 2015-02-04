@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
             this.reportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -60,7 +59,7 @@
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
@@ -130,11 +129,9 @@
             // 
             this.infoLabel.Location = new System.Drawing.Point(606, 43);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(367, 26);
+            this.infoLabel.Size = new System.Drawing.Size(455, 13);
             this.infoLabel.StyleController = this.generalLayout;
             this.infoLabel.TabIndex = 76;
-            this.infoLabel.Text = "Данный тип отчета содержит все сваренные элементы расположенные \r\nмежду заданными" +
-    " точками не зависимо от их связности.";
             // 
             // tracingModeRadioGroup
             // 
@@ -462,7 +459,7 @@
             this.infoLabelLayout.CustomizationFormText = "layoutControlItem1";
             this.infoLabelLayout.Location = new System.Drawing.Point(567, 0);
             this.infoLabelLayout.Name = "infoLabelLayout";
-            this.infoLabelLayout.Size = new System.Drawing.Size(489, 30);
+            this.infoLabelLayout.Size = new System.Drawing.Size(489, 17);
             this.infoLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.infoLabelLayout.Text = "infoLabelLayout";
             this.infoLabelLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -472,9 +469,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(567, 30);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(567, 17);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 14);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 27);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 

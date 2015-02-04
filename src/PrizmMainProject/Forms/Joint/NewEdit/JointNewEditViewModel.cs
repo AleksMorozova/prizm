@@ -26,6 +26,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 {
     public class JointNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointNewEditViewModel));
+
         private readonly IConstructionRepository repoConstruction;
         private readonly Prizm.Data.DAL.IMillReportsRepository adoRepo;
         private readonly IUserNotify notify;
@@ -41,7 +43,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
-        private EnumWrapper<JointStatus> jointStatus = new EnumWrapper<JointStatus>(JointStatus.Welded);
+        private JointStatus jointStatus = JointStatus.Welded;
 
         private PartData firstElement;
         private PartData secondElement;
@@ -87,8 +89,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             #endregion
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
+            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+                log.Warn(string.Format("Joint (id:{0}) creation: List of Inspectors is NULL or empty", this.JointId));
+
             Welders = repoConstruction.RepoWelder.GetAll();
+            if (this.Welders == null || this.Welders.Count <= 0)
+                log.Warn(string.Format("Joint (id:{0}) creation: List of Welders is NULL or empty", this.JointId));
+
             Pieces = adoRepo.GetPipelineElements();
+            if (this.Pieces == null || this.Pieces.Rows.Count <= 0)
+                log.Warn(string.Format("Joint (id:{0}) creation: Data Table of Pieces is NULL or empty", this.JointId));
+
             extractOperationsCommand.Execute();
 
             if(id == Guid.Empty)
@@ -99,8 +110,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                if (Joint.FirstElement != null 
-                    && Joint.SecondElement != null 
+                if (Joint.FirstElement != null
+                    && Joint.SecondElement != null
                     && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
                 {
                     this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
@@ -109,16 +120,29 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Joint.FirstElement = this.firstElement;
                     Joint.SecondElement = this.secondElement;
                 }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not has connected Parts or is Withdrawn.", Joint.Number));
+                }
 
                 var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
                 if (weldResults != null)
                 {
                     jointWeldResults = new BindingList<JointWeldResult>(weldResults);
                 }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not have Welding Results.", Joint.Number));
+                }
+
                 var testResults = repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
                 if (testResults != null)
                 {
                     jointTestResults = new BindingList<JointTestResult>(testResults);
+                }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not have Test Results.", Joint.Number));
                 }
             }
         }
@@ -393,7 +417,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return PartDataList != null ? PartDataList.FirstOrDefault<PartData>(x => x.Id == id) : null;
         }
 
-        public EnumWrapper<JointStatus> JointConstructionStatus
+        public JointStatus JointConstructionStatus
         {
             get 
             {
@@ -406,16 +430,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     Joint.Status = JointStatus.Withdrawn;
                 }
 
-                jointStatus.Value = Joint.Status;
+                jointStatus = Joint.Status;
 
                 return jointStatus; 
             }
             set 
             {
-                if (value.Value != Joint.Status)
+                if (value != Joint.Status)
                 {
                     jointStatus = value;
-                    Joint.Status = value.Value;
+                    Joint.Status = value;
                     RaisePropertyChanged("JointConstructionStatus");
                 }
             }
@@ -558,6 +582,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 part = repoConstruction.RepoSpool.Get(partData.Id);
             }
+
+            if (part == null)
+                log.Warn(string.Format("Part id:{0} is not found in the database", partData.Id));
 
             return part;
         }
@@ -773,7 +800,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Joint.FirstElement = new PartData();
             Joint.SecondElement = new PartData();
             this.Joint.IsActive = true;
-            this.Joint.Status = jointStatus.Value;
+            this.Joint.Status = jointStatus;
             this.JointTestResults = new BindingList<JointTestResult>();
             if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
             {

@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.Purchase
 {
     public class SaveOrderCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveOrderCommand));
+
         IPurchaseOrderRepository repo;
         PurchaseOrderViewModel viewModel;
         IUserNotify notify;
@@ -41,10 +44,21 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
             }
             else
             {
-                repo.BeginTransaction();
-                repo.SaveOrUpdate(viewModel.Order);
-                repo.Commit();
-                viewModel.IsSaved = true;
+                try
+                {
+                    repo.BeginTransaction();
+                    repo.SaveOrUpdate(viewModel.Order);
+                    repo.Commit();
+                    viewModel.IsSaved = true;
+
+                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                        viewModel.Order.Number,
+                        viewModel.Order.Id));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                }
             }
             
         }

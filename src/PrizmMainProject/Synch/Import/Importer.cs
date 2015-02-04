@@ -10,6 +10,8 @@ namespace Prizm.Main.Synch.Import
 {
    public abstract class Importer : IImporter
    {
+       private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Importer));
+
       protected readonly IHasher hasher;
       protected readonly IEncryptor encryptor;
 
@@ -51,7 +53,10 @@ namespace Prizm.Main.Synch.Import
             return ImportResult.Failed;
          }
 
-         throw new ImportException(e.Message, e);
+         var ex = new ImportException(e.Message, e);
+         log.Error(ex.Message);
+         throw ex;
+
       }
 
       protected void FireConflict(ConflictEventArgs args)
@@ -86,13 +91,17 @@ namespace Prizm.Main.Synch.Import
       {
          if (!System.IO.File.Exists(fileName))
          {
-            throw new ImportException(string.Format("File {0} does not exists.", fileName));
+            var ex = new ImportException(string.Format("File {0} does not exists.", fileName));
+            log.Error(ex.Message);
+            throw ex;
          }
 
          string hashFileName = fileName + ".sha1";
          if (!System.IO.File.Exists(hashFileName))
          {
-            throw new ImportException(string.Format("Hash file {0} does not exists.", hashFileName));
+            var ex = new ImportException(string.Format("Hash file {0} does not exists.", hashFileName));
+            log.Error(ex.Message);
+            throw ex;
          }
 
          string hash = System.IO.File.ReadAllText(hashFileName);
@@ -108,7 +117,11 @@ namespace Prizm.Main.Synch.Import
          string actualHash = hasher.GetHash(bytes);
 
          if (actualHash != hash)
-            throw new ImportException(string.Format("SHA-1 hashsum for file '{0}' does not match with actual.", fileName));
+         {
+             var ex = new ImportException(string.Format("SHA-1 hashsum for file '{0}' does not match with actual.", fileName));
+             log.Error(ex.Message);
+             throw ex;
+         }
       }
 
       public abstract ImportResult Import(string archiveName);

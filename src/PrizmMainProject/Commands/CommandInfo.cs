@@ -13,6 +13,8 @@ namespace Prizm.Main.Commands
       ICommand executor = null;
       IAttacher attacher = null;
 
+      private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CommandInfo));
+
       public CommandInfo Executor(ICommand executor)
       {
          this.executor = executor;
@@ -27,8 +29,12 @@ namespace Prizm.Main.Commands
 
       public CommandInfo AttachTo(SimpleButton button)
       {
-         if (executor == null)
-            throw new InvalidOperationException("command executor is not specified");
+          if (executor == null)
+          {
+              var e = new InvalidOperationException("command executor is not specified");
+              log.Error(e.Message);
+              throw e;
+          }
 
          attacher = new SimpleButtonAttacher(executor, button);
          return this;
@@ -37,7 +43,11 @@ namespace Prizm.Main.Commands
       public CommandInfo AttachTo(CheckEdit check)
       {
           if (executor == null)
-              throw new InvalidOperationException("command executor is not specified");
+          {
+              var e = new InvalidOperationException("command executor is not specified");
+              log.Error(e.Message);
+              throw e;
+          }
 
           attacher = new CheckEditAttacher(executor, check);
           return this;
@@ -52,8 +62,12 @@ namespace Prizm.Main.Commands
 
       public CommandInfo Execute()
       {
-         if (executor == null)
-            throw new InvalidOperationException("executor is null");
+          if (executor == null)
+          {
+              var e = new InvalidOperationException("executor is null");
+              log.Error(e.Message);
+              throw e;
+          }
 
          if (executor.CanExecute())
          {
@@ -123,8 +137,12 @@ namespace Prizm.Main.Commands
 
          void btn_Click(object sender, EventArgs e)
          {
-            if (command == null)
-               throw new InvalidOperationException("command is null");
+             if (command == null)
+             {
+                 var ex = new InvalidOperationException("command is null");
+                 log.Error(ex.Message);
+                 throw ex;
+             }
 
             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
             try
@@ -174,8 +192,12 @@ namespace Prizm.Main.Commands
 
          void check_Modified(object sender, EventArgs e)
          {
-            if (command == null)
-               throw new InvalidOperationException("command is null");
+             if (command == null)
+             {
+                 var ex = new InvalidOperationException("command is null");
+                 log.Error(ex.Message);
+                 throw ex;
+             }
 
             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
             try
@@ -213,8 +235,12 @@ namespace Prizm.Main.Commands
 
          public void Execute()
          {
-            if (execute == null)
-               throw new InvalidOperationException("execute function is null");
+             if (execute == null)
+             {
+                 var ex = new InvalidOperationException("execute function is null");
+                 log.Error(ex.Message);
+                 throw ex;
+             }
 
             object args = queryParameter != null ? queryParameter() : null;
             execute(args);

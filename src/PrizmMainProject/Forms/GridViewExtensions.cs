@@ -12,6 +12,8 @@ namespace Prizm.Main.Forms
 {
    public static class GridViewExtensions
    {
+       private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(GridViewExtensions));
+
       public static void RemoveSelectedItem<T>(this GridView view, System.Windows.Forms.KeyEventArgs e, IList<T> list, Func<T, bool> isNewCondition) where T : class
       {
          if (e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
@@ -20,7 +22,11 @@ namespace Prizm.Main.Forms
              if (item != null)
              {
                  if (!(item is T))
-                     throw new AggregateException("Incorrect type of object bound to grid.");
+                 {
+                     var ex = new AggregateException("Incorrect type of object bound to grid.");
+                     log.Error(ex.Message);
+                     throw ex;
+                 }
 
                  T entity = item as T;
                  if (isNewCondition(entity) && AskDeleteItem())

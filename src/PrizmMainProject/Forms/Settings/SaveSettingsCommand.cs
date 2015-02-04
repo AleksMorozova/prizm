@@ -21,6 +21,8 @@ namespace Prizm.Main.Forms.Settings
 {
     public class SaveSettingsCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSettingsCommand));
+
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
         readonly IUserNotify notify;
@@ -48,38 +50,45 @@ namespace Prizm.Main.Forms.Settings
                 return;
             }
 
-            repos.BeginTransaction();
-            SaveWelders();
-            SaveInspectors();
-            SaveMillSizeTypes();
-            SavePlateManufacturers();
-            repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
-            SaveRoles();
-            SaveUsers();
-            SaveCategories();
-            SaveJointOperations();
-            SaveComponentryType();
-            SaveInspectorCertificateType();
-            SaveSeamType();
-            repos.Commit();
-            EvictMillSizeTypes();
-            EvictWelders();
-            EvictInspectors();
-            EvictPlateManufacturers();
-            EvictRoles();
-            EvictUsers();
-            EvictJointOperations();
-            repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
-            EvictCategories();
-            EvictComponentryType();
-            EvictInspectorCertificateType();
-            EvictSeamType();
-            viewModel.ModifiableView.IsModified = false;
+            try
+            {
+                repos.BeginTransaction();
+                SaveWelders();
+                SaveInspectors();
+                SaveMillSizeTypes();
+                SavePlateManufacturers();
+                repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
+                SaveRoles();
+                SaveUsers();
+                SaveCategories();
+                SaveJointOperations();
+                SaveComponentryType();
+                SaveInspectorCertificateType();
+                SaveSeamType();
+                repos.Commit();
+                EvictMillSizeTypes();
+                EvictWelders();
+                EvictInspectors();
+                EvictPlateManufacturers();
+                EvictRoles();
+                EvictUsers();
+                EvictJointOperations();
+                repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+                EvictCategories();
+                EvictComponentryType();
+                EvictInspectorCertificateType();
+                EvictSeamType();
+                viewModel.ModifiableView.IsModified = false;
 
-            notify.ShowNotify(
-                 Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
-                Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
-
+                notify.ShowNotify(
+                     Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
+                    Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
+            }
+            catch (RepositoryException ex)
+            {
+                log.Error(ex.Message);
+                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+            }
 
             RefreshVisualStateEvent();
         }
@@ -97,6 +106,7 @@ namespace Prizm.Main.Forms.Settings
            if (viewModel.Users != null)
            {
               viewModel.Users.ForEach<User>(_ => repos.UserRepo.SaveOrUpdate(_));
+              log.Info("Settings setup for Users has been updated in DB.");
            }
         }
 
@@ -113,6 +123,7 @@ namespace Prizm.Main.Forms.Settings
            if (viewModel.Roles != null)
            {
               viewModel.Roles.ForEach<Role>(_ => repos.RoleRepo.SaveOrUpdate(_));
+              log.Info("Settings setup for Roles has been updated in DB.");
            }
         }
 
@@ -159,6 +170,8 @@ namespace Prizm.Main.Forms.Settings
             {
                 repos.PipeSizeTypeRepo.SaveOrUpdate(t);
             }
+
+            log.Info("Settings setup for Pipe Mill Sizetype has been updated in DB.");
         }
 
         void SaveJointOperations()
@@ -167,15 +180,18 @@ namespace Prizm.Main.Forms.Settings
             {
                 repos.JointRepo.SaveOrUpdate(o);
             }
-        }
 
+            log.Info("Settings setup for Joint Operations has been updated in DB.");
+        }
 
         void SaveWelders()
         {
             if (viewModel.Welders != null)
             {
                 viewModel.Welders.ForEach<WelderViewType>(_ => repos.WelderRepo.SaveOrUpdate(_.Welder));
-           }
+            }
+
+            log.Info("Settings setup for Welders has been updated in DB.");
         }
 
         void SaveInspectors()
@@ -184,13 +200,15 @@ namespace Prizm.Main.Forms.Settings
            {
               viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.SaveOrUpdate(_.Inspector));
            }
+
+           log.Info("Settings setup for Inspectors has been updated in DB.");
         }
 
         void EvictInspectors()
         {
-           if (viewModel.Inspectors != null)
-           {
-              viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.Evict(_.Inspector));
+            if (viewModel.Inspectors != null)
+            {
+                viewModel.Inspectors.ForEach<InspectorViewType>(_ => repos.InspectorRepo.Evict(_.Inspector));
             }
         }
 
@@ -200,9 +218,10 @@ namespace Prizm.Main.Forms.Settings
             {
                 repos.PlateManufacturerRepo.SaveOrUpdate(manufacturer);
             }
-        }
 
-        
+            log.Info("Settings setup for Plate Manufacturers has been updated in DB.");
+        }
+      
         private void EvictCategories()
         {
             foreach (var category in viewModel.CategoryTypes)
@@ -211,15 +230,15 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
         private void SaveCategories()
         {
             foreach (var category in viewModel.CategoryTypes)
             {
                 repos.СategoryRepo.SaveOrUpdate(category);
             }
-        }
 
+            log.Info("Settings setup for Category Types has been updated in DB.");
+        }
 
         private void EvictComponentryType()
         {
@@ -229,15 +248,15 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
         private void SaveComponentryType()
         {
             foreach (var component in viewModel.ComponentryTypes)
             {
                 repos.ComponentTypeRepo.SaveOrUpdate(component);
             }
-        }
 
+            log.Info("Settings setup for Componentry Types has been updated in DB.");
+        }
 
         private void EvictInspectorCertificateType()
         {
@@ -247,15 +266,15 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
         private void SaveInspectorCertificateType()
         {
             foreach (var certificate in viewModel.CertificateTypes)
             {
                 repos.CertificateTypeRepo.SaveOrUpdate(certificate);
             }
-        }
 
+            log.Info("Settings setup for Inspector Certificate Types has been updated in DB.");
+        }
 
         private void EvictSeamType()
         {
@@ -265,13 +284,14 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-
         private void SaveSeamType()
         {
             foreach (var seam in viewModel.SeamTypes)
             {
                 repos.SeamTypeRepo.SaveOrUpdate(seam);
             }
+
+            log.Info("Settings setup for Seam Types has been updated in DB.");
         }
 
     }

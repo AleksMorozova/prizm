@@ -15,6 +15,7 @@ namespace Prizm.Main.Forms.Notifications
 {
     public class Notification
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Notification));
 
         // Methods
         public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, DateTime dateToOccur)
@@ -37,7 +38,9 @@ namespace Prizm.Main.Forms.Notifications
             }
             else
             {
-                throw new ApplicationException("Wrong id of notification text: " + resourсeName);
+                var e = new ApplicationException("Wrong id of notification text: " + resourсeName);
+                log.Error(e.Message);
+                throw e;
             }
         }
 
@@ -117,7 +120,7 @@ namespace Prizm.Main.Forms.Notifications
     {
         DublicatePipeNumber,
         ExpiredCertificate,
-        WelderCrtificateExpired
+        WelderCertificateExpired
     }
 
 }
