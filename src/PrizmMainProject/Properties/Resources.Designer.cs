@@ -2468,7 +2468,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ошибка ввода результата контроля.
+        ///   Looks up a localized string similar to Ошибка ввода контрольной операции.
         /// </summary>
         internal static string SelectInspectorsForTestResultHeader {
             get {
