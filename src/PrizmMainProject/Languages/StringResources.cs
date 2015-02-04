@@ -58,6 +58,12 @@ namespace Prizm.Main.Languages
         public static StringResource JointSearch_JointStatus_Withdrawn = new StringResource {
             Id = "JointSearch_JointStatus_Withdrawn",
             Description = "Вырезан"
+        };
+
+        public static StringResource JointNewEdit_JointStatus_Undefined = new StringResource
+        {
+            Id = "JointNewEdit_JointStatus_Undefined",
+            Description = "Неопределен"
         };        
 
         public static StringResource AppSplashScreen_VersionLabel = new StringResource
@@ -2543,6 +2549,24 @@ namespace Prizm.Main.Languages
             Description = "Предварительный просмотр отчёта"
         };
 
+        public static StringResource ConstractionReport_ReportTypeTracingReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeTracingReport",
+            Description = "Тип отчета. По трассировке"
+        };
+
+        public static StringResource ConstractionReport_ReportTypeUsedProductReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeUsedProductReport",
+            Description = "Тип отчета. По использованным изделиям"
+        };
+
+        public static StringResource ConstractionReport_TracingReportInfoLabelText = new StringResource
+        {
+            Id = "ConstractionReport_TracingReportInfoLabelText",
+            Description = "Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям"
+        };
+
         #endregion //--- PipeConstractionReport ---
 
         #region --- WeldDateReport ---
@@ -3432,13 +3456,13 @@ namespace Prizm.Main.Languages
 
         public static StringResource ReleaseNoteNewEdit_ShippedStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Shipped",
+            Id = "ReleaseNoteNewEdit_ShippedStatus",
             Description = "Статус разрешения на отгрузку: отгружено"
         };
 
         public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Pending",
+            Id = "ReleaseNoteNewEdit_PendingStatus",
             Description = "Статус разрешения на отгрузку: сформировано"
         };
 
