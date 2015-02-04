@@ -55,14 +55,12 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.certificateNumber.SetAsIdentifier();
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsIdentifier();
+
             attachmentsButton.Enabled = true;
         }
 
-        public RailcarNewEditXtraForm()
-            : this(Guid.Empty)
-        {
-
-        }
+        public RailcarNewEditXtraForm() : this(Guid.Empty) { }
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {

@@ -18,6 +18,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
 {
     public class PreviewReportCommand: ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PreviewReportCommand));
+
         readonly IMillReportsRepository repo;
         readonly InspectionReportsViewModel viewModel;
         readonly IUserNotify notify;
@@ -49,6 +51,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             }
             catch (RepositoryException ex)
             {
+                log.Error(string.Concat(ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
 

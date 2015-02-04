@@ -75,9 +75,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
         }
 
-        public string Type
+        public WorkstationType Type
         {
-            get { return new EnumWrapper<WorkstationType>(project.WorkstationType).Name; }
+            get { return project.WorkstationType; }
         }
 
         public int Size

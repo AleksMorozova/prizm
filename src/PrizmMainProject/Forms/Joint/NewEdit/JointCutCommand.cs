@@ -46,7 +46,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.Joint.FirstElement = null;
                     viewModel.Joint.SecondElement = null;
 
-                    viewModel.JointConstructionStatus.Value = Domain.Entity.Construction.JointStatus.Withdrawn;
+                    viewModel.JointConstructionStatus = Domain.Entity.Construction.JointStatus.Withdrawn;
 
                     repo.BeginTransaction();
                     repo.RepoJoint.SaveOrUpdate(viewModel.Joint);

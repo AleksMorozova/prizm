@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
 {
     public class PartInspectionViewModel : ViewModelBase, IDisposable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PartInspectionViewModel));
+
         SearchPartForInspectionCommand searchCommand;
         SaveInspectionTestResultsCommand saveInspectionTestResultsCommand;
         SaveAndClearTestResultsCommand saveAndClearTestResultsCommand;
@@ -44,7 +46,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
             this.repos = repos;
             this.notify = notify;
             this.ctx = ctx;
+
             this.Inspectors = repos.RepoInspector.GetAll();
+            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+                log.Warn( "Incoming Inspection of Componentry: List of Inspectors is NULL or empty" );
+
             searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
             saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));
             saveAndClearTestResultsCommand = ViewModelSource.Create(() => new SaveAndClearTestResultsCommand(this));
@@ -110,13 +116,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
                             default: notify.ShowError(
                                 Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), 
                                 Program.LanguageManager.GetString(StringResources.Message_UnknownComponentType));
+                                log.Warn(string.Format("Unknown type of component. Type:{0}, #{1}.", selectedElement.Type, selectedElement.Number));
                                 break;
                         }
                         var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);
-                        if (results != null )
+                        if (results != null)
                         {
                             InspectionTestResults = new BindingList<InspectionTestResult>(results);
                             convertedPart.InspectionTestResults = InspectionTestResults;
+                        }
+                        else
+                        {
+                            log.Warn(string.Format("List of Inspection Test Result is NULL. Element #{0}", selectedElement.Number));
                         }
                     }
                     RaisePropertyChanged("SelectedElement");
