@@ -2395,6 +2395,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Укажите инспектора.
+        /// </summary>
+        internal static string SelectInspectorsForTestResult {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка ввода результата контроля.
+        /// </summary>
+        internal static string SelectInspectorsForTestResultHeader {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResultHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранение настроек.
         /// </summary>
         internal static string Settings_SetupSavedHeader {

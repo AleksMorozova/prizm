@@ -20,7 +20,7 @@ namespace Prizm.Main.Languages
         };
         public static StringResource SelectInspectorsForTestResultHeader = new StringResource
         {
-            Id = "electInspectorsForTestResultHeader",
+            Id = "SelectInspectorsForTestResultHeader",
             Description = "Заголовок сообщения - Укажите инспектора"
         };
 

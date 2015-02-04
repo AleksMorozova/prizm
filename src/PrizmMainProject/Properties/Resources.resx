@@ -996,13 +996,15 @@
   <data name="Settings_SetupSavedHeader" xml:space="preserve">
     <value>Сохранение настроек</value>
   </data>
-<data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
+  <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
     <value>Сообщение об окончании срока: Сертификат просрочен</value>
-   <data name="Settings_SetupSaves" xml:space="preserve">
+  </data>
+  <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
   </data>
   <data name="WorkstationType_Construction" xml:space="preserve">
-    <value>Строительство</value>  </data> 
+    <value>Строительство</value>
+  </data>
   <data name="WorkstationType_Master" xml:space="preserve">
     <value>Главный</value>
   </data>
@@ -1029,5 +1031,11 @@
   </data>
   <data name="PartInspection_InspectionsSaved" xml:space="preserve">
     <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
+  </data>
+  <data name="SelectInspectorsForTestResult" xml:space="preserve">
+    <value>Укажите инспектора</value>
+  </data>
+  <data name="SelectInspectorsForTestResultHeader" xml:space="preserve">
+    <value>Ошибка ввода результата контроля</value>
   </data>
 </root>
