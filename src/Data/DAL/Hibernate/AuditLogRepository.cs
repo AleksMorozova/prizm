@@ -134,7 +134,6 @@ namespace Prizm.Data.DAL.Hibernate
                 .Where(_ => _.AuditDate <= endDate && _.AuditDate >= startDate)
                 .WhereRestrictionOn(x => x.User).IsLike(user).List<AuditLog>();
 
-
             return retVal ?? new List<AuditLog>();
         }
     }
