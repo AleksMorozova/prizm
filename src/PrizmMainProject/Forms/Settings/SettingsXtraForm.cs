@@ -740,46 +740,11 @@ namespace Prizm.Main.Forms.Settings
                     }
                     break;
                 case CollectionChangeAction.Remove:
-                    if (ParsePermission(p) == Privileges.EditSettings &&
-                        OnlyRoleWithEditSettingPermissionUsedByUndeletableUser(role))
-                        view.SelectRow(e.ControllerRow);
-                    else
                         viewModel.RemovePermissionFromRole(role, p);
                     break;
             }
         }
-
-        private Privileges ParsePermission(Permission permission)
-        {
-            return (Privileges)Enum.Parse(typeof(Privileges), permission.Name);
-        }
-
-        private bool RoleHasEditSettingsPermission(Role role)
-        {
-            return role.Permissions.Any(x => ParsePermission(x) == Privileges.EditSettings);
-        }
-
-        private bool OnlyRoleWithEditSettingPermissionUsedByUndeletableUser(Role role)
-        {
-            bool result = false;
-            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount && !result; userRowHandle++)
-            {
-                var user = gridViewUsers.GetRow(userRowHandle) as User;
-
-                if (user != null && 
-                    user.Undeletable == true &&
-                    OnlyRoleWithEditSettingsPermission(user, role))
-                    result = true;
-            }
-            return result;
-        }
-
-        private bool OnlyRoleWithEditSettingsPermission(User user, Role role)
-        {
-            return !user.Roles
-                .Any(x => RoleHasEditSettingsPermission(x) && x.Id != role.Id);
-        }
-
+        
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
@@ -864,10 +829,6 @@ namespace Prizm.Main.Forms.Settings
                             viewModel.AddRoleToUser(role, user);
                             break;
                         case CollectionChangeAction.Remove:
-                            if (user.Undeletable &&
-                                OnlyRoleWithEditSettingsPermission(user, role))
-                                view.SelectRow(e.ControllerRow);
-                            else
                                 viewModel.RemoveRoleFromUser(role, user);
                         break;
                     }
@@ -1104,7 +1065,12 @@ namespace Prizm.Main.Forms.Settings
                 codeValidate = CodeValidation();
                 pipeSizeValidate = PipeSizeValidation();
             }
-            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate;
+
+            bool administratorCanEditSettingsValidation =
+                AdministatorCanEditSettingsValidation();
+
+            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate
+                && administratorCanEditSettingsValidation;
         }
 
         private bool PipeSizeValidation()
@@ -1146,6 +1112,29 @@ namespace Prizm.Main.Forms.Settings
             }
             codeValidate = PipeTestsCheck();
             return codeValidate;
+        }
+
+        /// <summary>
+        /// Checks whether user that was created
+        /// in initial settings has edit settings permission
+        /// or not
+        /// </summary>
+        private bool AdministatorCanEditSettingsValidation()
+        {
+            bool administatorCanEditSettings = false;
+            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount && !administatorCanEditSettings; userRowHandle++)
+            {
+                var user = gridViewUsers.GetRow(userRowHandle) as User;
+
+                if (user != null &&
+                    user.Undeletable == true)
+                {
+                    administatorCanEditSettings = user.Roles
+                        .Any(x => x.Permissions
+                            .Any(y => (Privileges)Enum.Parse(typeof(Privileges), y.Name) == Privileges.EditSettings));
+                }
+            }
+            return administatorCanEditSettings;
         }
 
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
