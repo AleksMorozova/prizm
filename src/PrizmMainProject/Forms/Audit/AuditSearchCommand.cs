@@ -28,14 +28,14 @@ namespace Prizm.Main.Forms.Audit
         public void Execute()
         {
 
-            if (viewModel.TracingMode == TracingModeEnum.TracingByPeriod)
+            if (viewModel.TracingMode == TracingModeEnum.TracingByNumber)
             {
                 var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate);
                 viewModel.AuditResults = new BindingList<AuditLog>(results);
             }
             else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
             {
-                var results = repo.GetRecords(viewModel.Number, viewModel.SelectedUser);
+                var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate);
                 viewModel.AuditResults = new BindingList<AuditLog>(results);
             }
 
