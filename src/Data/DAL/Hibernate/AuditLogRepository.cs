@@ -42,7 +42,7 @@ namespace Prizm.Data.DAL.Hibernate
 
 
         /// <summary>
-        /// search by Number overload
+        /// search by Number
         /// </summary>
         /// <param name="number"></param>
         /// <param name="startDate"></param>
@@ -121,7 +121,7 @@ namespace Prizm.Data.DAL.Hibernate
         }
 
         /// <summary>
-        /// search by User overload
+        /// search by User
         /// </summary>
         /// <param name="user"></param>
         /// <param name="startDate"></param>
