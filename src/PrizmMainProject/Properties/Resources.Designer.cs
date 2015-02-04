@@ -1570,7 +1570,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отклонено.
+        ///   Looks up a localized string similar to Брак.
         /// </summary>
         internal static string PartInspectionStatus_Rejected {
             get {

@@ -1977,3 +1977,15 @@ Notification_ExpiredCertificate_Critical=Certificate's date is expired
 
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
 Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+
+;Результат контрольной операции. Ожидается
+PipeTestResultStatus_Scheduled=Scheduled
+
+;Результат контрольной операции. Принят
+PipeTestResultStatus_Passed=Passed
+
+;Результат контрольной операции. Брак
+PipeTestResultStatus_Failed=Failed
+
+;Результат контрольной операции. Ремонт
+PipeTestResultStatus_Repair=Repair

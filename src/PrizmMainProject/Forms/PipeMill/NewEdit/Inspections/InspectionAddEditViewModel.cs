@@ -292,6 +292,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         #endregion
 
+        public int StatusIndex
+        {
+            get { return (int)Status - 1; }
+            set
+            {
+                if (value != (int)Status - 1)
+                {
+                    Status = (PipeTestResultStatus)value + 1;
+                    RaisePropertyChanged("StatusIndex");
+                }
+            }
+        }
+
         internal void ChangeTest(string code)
         {
             var test = availableTests.FirstOrDefault(x => x.Code == code);
