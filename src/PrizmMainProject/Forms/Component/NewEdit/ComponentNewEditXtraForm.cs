@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) {}
         public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
+        private ExternalFilesXtraForm filesForm;
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
@@ -101,7 +102,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Component.Id,IsEditMode);
+            if (filesForm==null) 
+            {
+                filesForm = new ExternalFilesXtraForm(viewModel.Component.Id, IsEditMode);
+            }
+
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -111,6 +116,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 filesForm.ViewModel = viewModel.FilesFormViewModel;
             }
             filesForm.ShowDialog();
+            
         }
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
