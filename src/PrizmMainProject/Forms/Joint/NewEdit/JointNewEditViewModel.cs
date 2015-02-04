@@ -802,6 +802,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = jointStatus;
             this.JointTestResults = new BindingList<JointTestResult>();
+            //required operation
             if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
             {
                 JointWeldResult requredWeldResult = new JointWeldResult()
