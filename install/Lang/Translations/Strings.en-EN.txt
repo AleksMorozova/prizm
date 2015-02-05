@@ -2027,3 +2027,33 @@ WorkstationType_Mill=Mill
 
 ;Тип рабочей станции. Строительство
 WorkstationType_Construction=Construction
+
+;Вид контроля. Освидетельствование
+ControlTypeWitness=Witness
+
+;Вид контроля. Проверка документов
+ControlTypeReview=Review
+
+;Вид контроля. Мониторинг
+ControlTypeMonitor=Monitor
+
+;Вид контроля. Обязательная проверка
+ControlTypeHold=Hold
+
+;Необходимо проверить значение
+Settings_CheckValues=Please, check values
+
+;Заголовок ошибки
+Settings_ErrorHeader=Error
+
+;Тип результата контрольной операции. Логический
+TestResultTypeBoolean=Boolean
+
+;Тип результата контрольной операции. Диапазон
+TestResultTypeRange=Range
+
+;Тип результата контрольной операции. Строка
+TestResultTypeString=String
+
+;Тип отчета.По трассировке
+ConstractionReport_ReportTypeTracingReport= Tracing report
