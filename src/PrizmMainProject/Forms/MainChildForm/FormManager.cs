@@ -96,7 +96,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         /// <param name="sender">child form expected</param>
         /// <param name="arguments"></param>
-        public void ChildClosedEventHandler(object sender, EventArgs arguments)
+        private void ChildClosedEventHandler(object sender, EventArgs arguments)
         {
             if (typeof(ChildForm).IsAssignableFrom(sender.GetType()))
             {
@@ -280,11 +280,14 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
-        public Dictionary<string, List<ChildForm>> ChildForms
+        public IEnumerable<ChildForm> ChildForms
         {
             get
             {
-                return childForms;
+                foreach (var element in childForms.SelectMany(k => k.Value))
+                {
+                    yield return element;
+                }
             }
         }
 

@@ -530,15 +530,13 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeChangeLanguage()
         {
             Program.LanguageManager.ChangeLanguage(this);
-            foreach (var childType in FormManager.Instance.ChildForms)
-            {
-                foreach (var child in childType.Value)
-                {
-                    ILocalizable localizable = child as ILocalizable;
 
-                    Program.LanguageManager.ChangeLanguage(child as ILocalizable);
-                }
+            foreach (var child in FormManager.Instance.ChildForms)
+            {
+                ILocalizable localizable = child as ILocalizable;
+                Program.LanguageManager.ChangeLanguage(child as ILocalizable);
             }
+
         }
 
 
