@@ -79,7 +79,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 this.Text = "Добавление контрольной операции";
             }
 
-            //TODO: Refresh inspector state 
+            //TODO: Should be tested if code below is still necessary 
             this.inspectors.SelectInspectors(viewModel.SelectInspectors());
         }
 

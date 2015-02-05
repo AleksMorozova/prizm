@@ -42,7 +42,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 TestResult.Status = PipeTestResultStatus.Scheduled;
                 TestResult.Operation = new PipeTest();
 
-                //TODO: Check availableTests is null
                 if (this.availableTests != null && this.availableTests.Count > 0)
                     TestResult.Operation = this.availableTests[0];
             }
@@ -115,7 +114,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public string Code
         {
-            get { return testResult.Operation != null ? testResult.Operation.Code : null; }
+            get { return testResult.Operation.Code; }
             set
             {
                 if(value != testResult.Operation.Code)
