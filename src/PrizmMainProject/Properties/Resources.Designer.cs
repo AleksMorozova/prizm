@@ -271,6 +271,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Обязательная проверка.
+        /// </summary>
+        internal static string ControlTypeHold {
+            get {
+                return ResourceManager.GetString("ControlTypeHold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Мониторинг.
+        /// </summary>
+        internal static string ControlTypeMonitor {
+            get {
+                return ResourceManager.GetString("ControlTypeMonitor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проверка документов.
+        /// </summary>
+        internal static string ControlTypeReview {
+            get {
+                return ResourceManager.GetString("ControlTypeReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Освидетельствование.
+        /// </summary>
+        internal static string ControlTypeWitness {
+            get {
+                return ResourceManager.GetString("ControlTypeWitness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap critical_warning {
@@ -2648,6 +2684,33 @@ namespace Prizm.Main.Properties {
         internal static string Test {
             get {
                 return ResourceManager.GetString("Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логический.
+        /// </summary>
+        internal static string TestResultTypeBoolean {
+            get {
+                return ResourceManager.GetString("TestResultTypeBoolean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Диапазон.
+        /// </summary>
+        internal static string TestResultTypeRange {
+            get {
+                return ResourceManager.GetString("TestResultTypeRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Строка.
+        /// </summary>
+        internal static string TestResultTypeString {
+            get {
+                return ResourceManager.GetString("TestResultTypeString", resourceCulture);
             }
         }
         

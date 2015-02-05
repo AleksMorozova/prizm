@@ -1038,10 +1038,31 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
+  <data name="ControlTypeHold" xml:space="preserve">
+    <value>Обязательная проверка</value>
+  </data>
+  <data name="ControlTypeMonitor" xml:space="preserve">
+    <value>Мониторинг</value>
+  </data>
+  <data name="ControlTypeReview" xml:space="preserve">
+    <value>Проверка документов</value>
+  </data>
+  <data name="ControlTypeWitness" xml:space="preserve">
+    <value>Освидетельствование</value>
+  </data>
   <data name="Settings_CheckValues" xml:space="preserve">
     <value>Проверьте значения</value>
   </data>
   <data name="Settings_ErrorHeader" xml:space="preserve">
     <value>Ошибка</value>
+  </data>
+  <data name="TestResultTypeBoolean" xml:space="preserve">
+    <value>Логический</value>
+  </data>
+  <data name="TestResultTypeRange" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="TestResultTypeString" xml:space="preserve">
+    <value>Строка</value>
   </data>
 </root>
