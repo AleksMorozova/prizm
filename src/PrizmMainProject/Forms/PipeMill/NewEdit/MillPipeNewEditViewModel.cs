@@ -780,30 +780,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             List<string> testsResults = orderTestResult();
 
-            if(Pipe.Status == PipeMillStatus.Stocked)
+            if (Pipe.Status == PipeMillStatus.Stocked && Pipe.Railcar != null)
             {
-                if(Pipe.Railcar != null)
-                {
-                    if(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
-                        || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
-                        || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
-                        )
-                    {
-                        resultValue = false;
-                    }
-                    else
-                    {
-                        Pipe.Status = PipeMillStatus.Stocked;
-                        resultValue = true;
-                    }
-                }
-                else
-                {
-                    ChangePipeStatus(testsResults);
-                    resultValue = true;
-                }
+                resultValue =
+                    !(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
+                    || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
+                    || testsResults.Contains(PipeTestResultStatus.Repair.ToString()));
             }
-
             else
             {
                 ChangePipeStatus(testsResults);
@@ -829,6 +812,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 Pipe.Status = PipeMillStatus.Stocked;
             }
+            RaisePropertyChanged("PipeStatus");
         }
 
         /// <summary>
