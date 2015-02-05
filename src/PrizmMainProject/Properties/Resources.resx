@@ -1038,4 +1038,10 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
+  <data name="Settings_CheckValues" xml:space="preserve">
+    <value>Проверьте значения</value>
+  </data>
+  <data name="Settings_ErrorHeader" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
 </root>

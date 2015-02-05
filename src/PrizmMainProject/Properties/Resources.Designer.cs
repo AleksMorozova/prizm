@@ -2404,6 +2404,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Проверьте значения.
+        /// </summary>
+        internal static string Settings_CheckValues {
+            get {
+                return ResourceManager.GetString("Settings_CheckValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        internal static string Settings_ErrorHeader {
+            get {
+                return ResourceManager.GetString("Settings_ErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранение настроек.
         /// </summary>
         internal static string Settings_SetupSavedHeader {
