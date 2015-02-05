@@ -11,10 +11,11 @@ using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    public class SaveComponentCommand: ICommand
+    public class SaveComponentCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveComponentCommand));
 
@@ -23,12 +24,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
+        private int numberOfOperationWithoutInspectors=0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
         public SaveComponentCommand(
             ComponentNewEditViewModel viewModel,
-            IComponentRepositories repo, 
+            IComponentRepositories repo,
             IUserNotify notify,
             ISecurityContext ctx)
         {
@@ -41,7 +43,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.ValidatableView.Validate())
+            if (!viewModel.ValidatableView.Validate())
             {
                 return;
             }
@@ -61,36 +63,81 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
             else
             {
-                try
+                foreach (InspectionTestResult t in viewModel.InspectionTestResults)
                 {
-                    viewModel.Component.InspectionStatus = viewModel.Component.GetPartInspectionStatus();
-                    repos.BeginTransaction();
-                    repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
-                    repos.Commit();
-                    repos.ComponentRepo.Evict(viewModel.Component);
-                    viewModel.ModifiableView.IsModified = false;
-                    viewModel.ModifiableView.UpdateState();
+                    if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count<=0) 
+                    {
+                        numberOfOperationWithoutInspectors++;
+                    }
+                }
+                if (numberOfOperationWithoutInspectors==0)
+                {
+                    try
+                    {
+                        viewModel.Component.InspectionStatus = viewModel.Component.GetPartInspectionStatus();
+                        repos.BeginTransaction();
+
+                    var filesViewModel = viewModel.FilesFormViewModel;
+                    viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
 
                     //saving attached documents
-                    if (viewModel.FilesFormViewModel != null)
+                    bool fileCopySuccess = true;
+                    if ((null != filesViewModel) && (filesViewModel.FilesToAttach.Count != 0))
                     {
-                        viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
-                        viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                        viewModel.FilesFormViewModel = null;
+                        if (viewModel.FilesFormViewModel.TrySaveFiles())
+                        {
+                            viewModel.FilesFormViewModel.PersistFiles(repos);
+                        }
+                        else
+                        {
+                            fileCopySuccess = false;
+                            repos.Rollback();
+                        }
                     }
 
-                    notify.ShowSuccess(
-                         string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
-                         Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));
+                    if (fileCopySuccess)
+                    {
+                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
+                        repos.Commit();
+                        repos.ComponentRepo.Evict(viewModel.Component);
+                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.UpdateState();
 
-                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.", 
-                        viewModel.Component.Number, 
-                        viewModel.Component.Id));
+                        if ((null != filesViewModel) && (filesViewModel.Files.Count > 0))
+                        {
+                            foreach (var file in viewModel.FilesFormViewModel.Files)
+                            {
+                                repos.FileRepo.Evict(file);
+                            }
+                            viewModel.FilesFormViewModel = null;
+                        }
+
+                        notify.ShowSuccess(
+                            string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
+                            Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));
+                    }
+                    else
+                    {
+                        notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                    }
+
+                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                            viewModel.Component.Number,
+                            viewModel.Component.Id));
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        log.Error(ex.Message);
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                catch (RepositoryException ex)
+                else
                 {
-                    log.Error(ex.Message);
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    notify.ShowError(
+                   Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                   Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                    numberOfOperationWithoutInspectors = 0;
                 }
             }
             RefreshVisualStateEvent();
@@ -106,6 +153,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                     ? global::Domain.Entity.Security.Privileges.CreateComponent
                                     : global::Domain.Entity.Security.Privileges.EditComponent);
         }
-               
+
     }
 }
