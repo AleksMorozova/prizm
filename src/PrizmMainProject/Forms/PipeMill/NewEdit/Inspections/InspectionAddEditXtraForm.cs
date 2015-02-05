@@ -86,6 +86,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            {
+                status.Properties.Items.Add(item.Item2);
+            }
             BindToViewModel();
 
             status.Text = string.Empty;
@@ -107,8 +111,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             name.DataBindings.Add("EditValue", bindingSource, "Name");
             expected.DataBindings.Add("EditValue", bindingSource, "Expected");
 
-            status.Properties.DataSource = viewModel.statuses;
-            status.DataBindings.Add("EditValue", bindingSource, "Status");
+            status.DataBindings.Add("SelectedIndex", bindingSource, "StatusIndex");
             date.DataBindings.Add("EditValue", bindingSource, "Date");
 
             factBool.DataBindings.Add("Checked", bindingSource, "FactBool");
@@ -141,7 +144,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(factDiapasonLayoutControlGroup, StringResources.InspectionAddEdit_FactLimitGroup.Id),
 
                 new LocalizedItem(saveButton, StringResources.InspectionAddEdit_SaveButton.Id),
-                new LocalizedItem(cancelButton, StringResources.InspectionAddEdit_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.InspectionAddEdit_CancelButton.Id),
+
+                new LocalizedItem(status, new string [] {StringResources.PipeTestResultStatus_Scheduled.Id, 
+                                                         StringResources.PipeTestResultStatus_Passed.Id,
+                                                         StringResources.PipeTestResultStatus_Failed.Id,
+                                                         StringResources.PipeTestResultStatus_Repair.Id})
             };
         }
 
@@ -223,11 +231,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if (factBool.Checked)
             {
-                factBool.Text = " [ Да ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + "] ";
             }
             else
             {
-                factBool.Text = " [ Нет ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.No)  + " ] ";
             }
         }
 

@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-
+        private ExternalFilesXtraForm filesForm = null;
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
@@ -692,15 +692,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id, IsEditMode);
-            if(viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 

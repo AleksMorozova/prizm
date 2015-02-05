@@ -3,6 +3,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -159,7 +160,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 switch(testResult.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
-                        expStr = (testResult.Operation.BoolExpected) ? "Да" : "Нет";
+                        expStr = (testResult.Operation.BoolExpected) ? Program.LanguageManager.GetString(StringResources.Yes) : Program.LanguageManager.GetString(StringResources.No);
                         break;
                     case PipeTestResultType.String:
                         expStr = testResult.Operation.StringExpected;
@@ -303,6 +304,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
 
         #endregion
+
+        public int StatusIndex
+        {
+            get { return (int)Status - 1; }
+            set
+            {
+                if (value != (int)Status - 1)
+                {
+                    Status = (PipeTestResultStatus)value + 1;
+                    RaisePropertyChanged("StatusIndex");
+                }
+            }
+        }
 
         internal void ChangeTest(string code)
         {
