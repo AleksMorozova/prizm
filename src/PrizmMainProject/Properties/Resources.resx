@@ -1054,4 +1054,16 @@
   <data name="PartTypeUndefined" xml:space="preserve">
     <value>Неопределен</value>
   </data>
+  <data name="SelectInspectorsForTestResult" xml:space="preserve">
+    <value>Укажите инспектора</value>
+  </data>
+  <data name="SelectInspectorsForTestResultHeader" xml:space="preserve">
+    <value>Ошибка ввода контрольной операции</value>
+  </data>
+  <data name="SelectWeldersForOperation" xml:space="preserve">
+    <value>Укажите сварщика для операции</value>
+  </data>
+  <data name="SelectWeldersForOperationHeader" xml:space="preserve">
+    <value>Ошибка создания сварочной операции</value>
+  </data>
 </root>
