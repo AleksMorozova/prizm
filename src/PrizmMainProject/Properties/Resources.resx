@@ -1001,6 +1001,8 @@
   </data>
   <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
+  <data name="Notification_WelderCertificateExpired_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
   </data>
   <data name="WorkstationType_Construction" xml:space="preserve">
     <value>Строительство</value>
@@ -1012,7 +1014,7 @@
     <value>Завод</value>
   </data>
   <data name="WorkstationType_Undefined" xml:space="preserve">
-    <value>Неоперделен</value>
+    <value>Не определен</value>
   </data>
   <data name="NewEditPipe_PipeStatusProduced" xml:space="preserve">
     <value>В производстве</value>
@@ -1024,7 +1026,7 @@
     <value>На складе</value>
   </data>
   <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
-    <value>Неопределен</value>
+    <value>Не определен</value>
   </data>
   <data name="InspectionsSavedHeader" xml:space="preserve">
     <value>Сохранение контрольных операций</value>
@@ -1054,6 +1056,8 @@
   <data name="PartTypeUndefined" xml:space="preserve">
     <value>Неопределен</value>
   </data>
+  
+  
   <data name="SelectInspectorsForTestResult" xml:space="preserve">
     <value>Укажите инспектора</value>
   </data>

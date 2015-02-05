@@ -20,7 +20,7 @@ namespace Prizm.Main.Forms.Notifications.Data
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(
-                @" SELECT  id, firstName, lastName, isActive, certificateExpiration
+                @" SELECT  id, firstName, lastName, middleName, certificateExpiration
                        FROM  Welder
                 WHERE   (DATEDIFF(day, GETDATE(), certificateExpiration) < 5) AND (isActive = 1) ");
             return sb.ToString();
