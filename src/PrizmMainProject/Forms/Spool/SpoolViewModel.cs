@@ -254,7 +254,10 @@ namespace Prizm.Main.Forms.Spool
             Spool.ConstructionStatus = PartConstructionStatus.Pending;
             Spool.InspectionStatus = PartInspectionStatus.Pending;
             Pipe = new Pipe();
-            
+            if (this.FilesFormViewModel != null)
+            {
+                this.FilesFormViewModel.RefreshFiles(this.Spool.Id);
+            }
         }
         #region ---- Commands ----
         public ICommand SearchCommand

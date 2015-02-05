@@ -802,6 +802,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint.IsActive = true;
             this.Joint.Status = jointStatus;
             this.JointTestResults = new BindingList<JointTestResult>();
+            if (this.FilesFormViewModel != null)
+            {
+                this.FilesFormViewModel.RefreshFiles(this.Joint.Id);
+            }
             //required operation
             if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
             {

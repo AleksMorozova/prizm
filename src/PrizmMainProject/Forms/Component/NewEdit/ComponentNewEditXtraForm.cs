@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public ComponentNewEditXtraForm(Guid id) : this(id, string.Empty) { }
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) { }
         public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
-        private ExternalFilesXtraForm filesForm;
+        private ExternalFilesXtraForm filesForm = null;
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {

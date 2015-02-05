@@ -77,7 +77,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         {
                             viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
                             viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                            viewModel.FilesFormViewModel = null;
                         }
 
                         viewModel.ModifiableView.IsModified = false;

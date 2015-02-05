@@ -28,10 +28,10 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         private Guid id;
         private ICommandManager commandManager = new CommandManager();
         private RailcarViewModel viewModel;
+        private ExternalFilesXtraForm filesForm = null;
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
         public RailcarNewEditXtraForm(Guid id)
@@ -206,15 +206,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm();//new ExternalFilesXtraForm(IsEditMode, viewModel.Railcar.Id, IsEditMode);
-            if(viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 

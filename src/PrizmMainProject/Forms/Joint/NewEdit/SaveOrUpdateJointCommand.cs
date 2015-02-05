@@ -61,7 +61,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     {
                         viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
                         viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                        viewModel.FilesFormViewModel = null;
                     }
 
                     viewModel.ModifiableView.UpdateState();

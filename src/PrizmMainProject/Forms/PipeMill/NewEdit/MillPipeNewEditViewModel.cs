@@ -632,7 +632,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Length = 0;
             this.Diameter = 0;
             this.PipeTestResults = new BindingList<PipeTestResult>();
-
+            if (this.FilesFormViewModel != null)
+            {
+                this.FilesFormViewModel.RefreshFiles(this.Pipe.Id);
+            }
             this.Pipe.Mill = mill;
             this.Pipe.ToExport = false;
         }

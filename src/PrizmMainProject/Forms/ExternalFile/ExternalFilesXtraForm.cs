@@ -104,13 +104,9 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public void SetData(bool isEditMode)
         {
-            if (isEditMode)
+            if (!isEditMode)
             {
-                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            }
-            else
-            {
-                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                buttonLayoutControlGroup.Enabled = false;
             }
         }
 

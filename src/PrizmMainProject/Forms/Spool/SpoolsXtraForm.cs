@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.Spool
     {
         private Guid id;
         private SpoolViewModel viewModel;
+        private ExternalFilesXtraForm filesForm = null;
         private Dictionary<PartInspectionStatus, string> inspectionStatusDict
            = new Dictionary<PartInspectionStatus, string>();
         ICommandManager commandManager = new CommandManager();
@@ -176,15 +177,13 @@ namespace Prizm.Main.Forms.Spool
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm();//new ExternalFilesXtraForm(IsEditMode, viewModel.Spool.Id, IsEditMode);
-            if(viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 
