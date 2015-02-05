@@ -1,4 +1,5 @@
 ﻿using Ninject;
+using Prizm.Data.DAL.Hibernate;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
@@ -12,6 +13,7 @@ using Prizm.Main.Synch.SerializableEntities;
 using Prizm.UnitTests.Synch.SerializableEntities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,7 +33,9 @@ namespace Prizm.Main.Synch.Import
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
             : base(hasher, encryptor)
         {
-            this.importRepo = importRepo;
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            HibernateUtil.Initialize(settings.ConnectionString, true);
+            this.importRepo = Program.Kernel.Get<IImportRepository>();
         }
 
         int progress = 0;
@@ -1042,6 +1046,8 @@ namespace Prizm.Main.Synch.Import
         public void Dispose()
         {
             importRepo.Dispose();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            HibernateUtil.Initialize(settings.ConnectionString, false);
         }
     }
 }
