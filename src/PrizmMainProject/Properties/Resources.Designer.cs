@@ -253,6 +253,34 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По трассировке.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeTracingReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeTracingReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По использованным изделиям.
+        /// </summary>
+        internal static string ConstractionReport_ReportTypeUsedProductReport {
+            get {
+                return ResourceManager.GetString("ConstractionReport_ReportTypeUsedProductReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
+        ///между заданными точками не зависимо от их связности..
+        /// </summary>
+        internal static string ConstractionReport_TracingReportInfoLabelText {
+            get {
+                return ResourceManager.GetString("ConstractionReport_TracingReportInfoLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Статус на строительстве.
         /// </summary>
         internal static string ConstructionStatus {
@@ -1687,6 +1715,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Комплектующее.
+        /// </summary>
+        internal static string PartTypeComponent {
+            get {
+                return ResourceManager.GetString("PartTypeComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Труба.
+        /// </summary>
+        internal static string PartTypePipe {
+            get {
+                return ResourceManager.GetString("PartTypePipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка.
+        /// </summary>
+        internal static string PartTypeSpool {
+            get {
+                return ResourceManager.GetString("PartTypeSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неопределен.
+        /// </summary>
+        internal static string PartTypeUndefined {
+            get {
+                return ResourceManager.GetString("PartTypeUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Текущий пароль введен неверно..
         /// </summary>
         internal static string PassChange_InvalidOldPassword {
@@ -2436,6 +2500,42 @@ namespace Prizm.Main.Properties {
         internal static string SecurityPrivilege_ViewSpool {
             get {
                 return ResourceManager.GetString("SecurityPrivilege_ViewSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Укажите инспектора.
+        /// </summary>
+        internal static string SelectInspectorsForTestResult {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка ввода контрольной операции.
+        /// </summary>
+        internal static string SelectInspectorsForTestResultHeader {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResultHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Укажите сварщика для операции.
+        /// </summary>
+        internal static string SelectWeldersForOperation {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка создания сварочной операции.
+        /// </summary>
+        internal static string SelectWeldersForOperationHeader {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperationHeader", resourceCulture);
             }
         }
         

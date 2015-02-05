@@ -44,6 +44,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+        private List<string> localizedAllJointStatus = new List<string>();
+        private void UpdateTextEdit()
+        {
+            jointNewEditBindingSoure.CancelEdit();
+        }
 
         public JointNewEditXtraForm(Guid id)
         {
@@ -123,8 +128,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
-            jointStatus.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
+
+            Binding bind = new Binding("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
+            bind.FormattingEnabled = true;
+            bind.Format += (sender, e) => { e.Value = (string)localizedAllJointStatus[(int)e.Value]; };
+            jointStatus.DataBindings.Add(bind);
 
 
 
@@ -190,6 +198,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<JointStatus>.EnumerateItems())
+            {
+                localizedAllJointStatus.Add(item.Item2);
+            }
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -242,8 +254,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 new LocalizedItem(resultGridColumn, StringResources.JointNew_ResultGridColumn.Id),
                 new LocalizedItem(controlDateGridColumn, StringResources.JointNew_ControlDateGridColumn.Id),
                 new LocalizedItem(inspectorsGridColumn, StringResources.JointNew_InspectorsGridColumn.Id),
-                new LocalizedItem(valueGridColumn, StringResources.JointNew_ValueGridColumn.Id)
+                new LocalizedItem(valueGridColumn, StringResources.JointNew_ValueGridColumn.Id),
 
+                new LocalizedItem(UpdateTextEdit, localizedAllJointStatus,
+                        new string [] { StringResources.JointNewEdit_JointStatus_Undefined.Id,
+                            StringResources.JointSearch_JointStatus_Welded.Id, 
+                            StringResources.JointSearch_JointStatus_Lowered.Id, 
+                            StringResources.JointSearch_JointStatus_Withdrawn.Id} )
             };
         }
 
@@ -511,6 +528,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         bool IValidatable.Validate()
         {
+            // validation for required weld operation
             if (viewModel.JointWeldResults.Count > 0)
             {
                 repairOperationsView_ValidateRow(
@@ -518,15 +536,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                new DevExpress.XtraGrid.Views.Base
                                    .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
             }
-            return dxValidationProvider.Validate() &&
-                   viewModel.JointWeldResults.Where(_ => _.Date == null ||
-                                                    _.Operation == null ||
-                                                    (_.Operation.Type == JointOperationType.Weld
-                                                    && _.Welders.Count == 0)).Count() <= 0 &&
-                   viewModel.JointTestResults.Where(_ => _.Operation == null ||
-                                                    _.Date == null ||
-                                                    _.Inspectors.Count == 0 ||
-                                                    _.Status == 0).Count() <= 0;                    
+            return dxValidationProvider.Validate();
         }
 
         #endregion

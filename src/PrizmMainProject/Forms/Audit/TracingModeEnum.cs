@@ -8,7 +8,7 @@ namespace Prizm.Main.Forms.Audit
 {
     public enum TracingModeEnum
     {
-        TracingByPeriod = 0,
+        TracingByNumber = 0,
         TracingByUser = 1
     }
 }

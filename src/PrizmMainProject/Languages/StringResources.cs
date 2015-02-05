@@ -12,6 +12,29 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+
+        public static StringResource SelectInspectorsForTestResult = new StringResource
+        {
+            Id = "SelectInspectorsForTestResult ",
+            Description = "Сообщение - Укажите инспектора"
+        };
+        public static StringResource SelectInspectorsForTestResultHeader = new StringResource
+        {
+            Id = "SelectInspectorsForTestResultHeader",
+            Description = "Заголовок сообщения - Укажите инспектора"
+        };
+
+        public static StringResource SelectWeldersForOperation = new StringResource
+        {
+            Id = "SelectWeldersForOperation ",
+            Description = "Сообщение - Укажите сварщика"
+        };
+        public static StringResource SelectWeldersForOperationHeader = new StringResource
+        {
+            Id = "SelectWeldersForOperationHeader",
+            Description = "Заголовок сообщения - Укажите сварщика"
+        };
+
         public static StringResource FirstEnterDate = new StringResource
         {
             Id = "FirstEnterDate",
@@ -46,6 +69,12 @@ namespace Prizm.Main.Languages
         public static StringResource JointSearch_JointStatus_Withdrawn = new StringResource {
             Id = "JointSearch_JointStatus_Withdrawn",
             Description = "Вырезан"
+        };
+
+        public static StringResource JointNewEdit_JointStatus_Undefined = new StringResource
+        {
+            Id = "JointNewEdit_JointStatus_Undefined",
+            Description = "Неопределен"
         };        
 
         public static StringResource AppSplashScreen_VersionLabel = new StringResource
@@ -273,6 +302,18 @@ namespace Prizm.Main.Languages
         {
             Id = "ExternalFiles_FileDownloadHeader",
             Description = "Загрузка файла"
+        };
+
+        public static StringResource ExternalFiles_NotCopied = new StringResource
+        {
+            Id = "ExternalFiles_NotCopied",
+            Description = "Прикрепленные файлы не сохранены"
+        };
+
+        public static StringResource ExternalFiles_NotCopied_Header = new StringResource
+        {
+            Id = "ExternalFiles_NotCopied_Header",
+            Description = "Ошибка сохранения прикрепленных файлов"
         };
 
         public static StringResource ExternalFiles_FileDownloadSuccess = new StringResource
@@ -2558,6 +2599,24 @@ namespace Prizm.Main.Languages
             Description = "Предварительный просмотр отчёта"
         };
 
+        public static StringResource ConstractionReport_ReportTypeTracingReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeTracingReport",
+            Description = "Тип отчета. По трассировке"
+        };
+
+        public static StringResource ConstractionReport_ReportTypeUsedProductReport = new StringResource
+        {
+            Id = "ConstractionReport_ReportTypeUsedProductReport",
+            Description = "Тип отчета. По использованным изделиям"
+        };
+
+        public static StringResource ConstractionReport_TracingReportInfoLabelText = new StringResource
+        {
+            Id = "ConstractionReport_TracingReportInfoLabelText",
+            Description = "Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям"
+        };
+
         #endregion //--- PipeConstractionReport ---
 
         #region --- WeldDateReport ---
@@ -2656,6 +2715,7 @@ namespace Prizm.Main.Languages
         #endregion //--- SelectDiameterDialog ---
 
         #region --- MillInspectionXtraForm ---
+
         public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
             Id = "MillInspection_FrequencyMeasureMeters", 
             Description = "Настройка контрольных опрераций завода. Мера измерения метры"};
@@ -3446,13 +3506,13 @@ namespace Prizm.Main.Languages
 
         public static StringResource ReleaseNoteNewEdit_ShippedStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Shipped",
+            Id = "ReleaseNoteNewEdit_ShippedStatus",
             Description = "Статус разрешения на отгрузку: отгружено"
         };
 
         public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
         {
-            Id = "ReleaseNoteNewEdit_Pending",
+            Id = "ReleaseNoteNewEdit_PendingStatus",
             Description = "Статус разрешения на отгрузку: сформировано"
         };
 
