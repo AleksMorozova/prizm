@@ -302,6 +302,7 @@
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
+    <Compile Include="Forms\MainChildForm\FormManager.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
     <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
