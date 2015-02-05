@@ -67,7 +67,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
 
             command.Execute();
             
-            fileRepo.Verify(_ => _.BeginTransaction(), Times.Once);
+            fileRepo.Verify(_ => _.BeginTransaction(), Times.Once());
             fileRepo.Verify(_ => _.Save(It.IsAny<Domain.Entity.File>()), Times.Once());
             fileRepo.Verify(_ => _.Commit(), Times.Once());
             fileRepo.Verify(_ => _.Evict(It.IsAny<Domain.Entity.File>()), Times.Once());
