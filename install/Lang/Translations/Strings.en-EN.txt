@@ -1989,17 +1989,17 @@ Notification_ExpiredCertificate_Critical=Certificate's date is expired
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
 Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
 
-;Тип рабочей станции. Неопределен
-WorkstationType_Undefined=Undefined
+;Результат контрольной операции. Ожидается
+PipeTestResultStatus_Scheduled=Scheduled
 
-;Тип рабочей станции. Главный
-WorkstationType_Master=Master
+;Результат контрольной операции. Принят
+PipeTestResultStatus_Passed=Passed
 
-;Тип рабочей станции. Завод
-WorkstationType_Mill=Mill
+;Результат контрольной операции. Брак
+PipeTestResultStatus_Failed=Failed
 
-;Тип рабочей станции. Строительство
-WorkstationType_Construction=Construction
+;Результат контрольной операции. Ремонт
+PipeTestResultStatus_Repair=Repair
 
 ;Тип отчета. По трассировке
 ConstractionReport_ReportTypeTracingReport=Tracing report
@@ -2015,3 +2015,45 @@ ExternalFiles_NotCopied_Header=External files saving error
 
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
+
+;Тип рабочей станции. Неопределен
+WorkstationType_Undefined=Undefined
+
+;Тип рабочей станции. Главный
+WorkstationType_Master=Master
+
+;Тип рабочей станции. Завод
+WorkstationType_Mill=Mill
+
+;Тип рабочей станции. Строительство
+WorkstationType_Construction=Construction
+
+;Вид контроля. Освидетельствование
+ControlTypeWitness=Witness
+
+;Вид контроля. Проверка документов
+ControlTypeReview=Review
+
+;Вид контроля. Мониторинг
+ControlTypeMonitor=Monitor
+
+;Вид контроля. Обязательная проверка
+ControlTypeHold=Hold
+
+;Необходимо проверить значение
+Settings_CheckValues=Please, check values
+
+;Заголовок ошибки
+Settings_ErrorHeader=Error
+
+;Тип результата контрольной операции. Логический
+TestResultTypeBoolean=Boolean
+
+;Тип результата контрольной операции. Диапазон
+TestResultTypeRange=Range
+
+;Тип результата контрольной операции. Строка
+TestResultTypeString=String
+
+;Тип отчета.По трассировке
+ConstractionReport_ReportTypeTracingReport= Tracing report

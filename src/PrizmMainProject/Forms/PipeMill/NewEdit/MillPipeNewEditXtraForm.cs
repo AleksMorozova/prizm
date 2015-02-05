@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private InspectionAddEditXtraForm inspectionForm;
         private Guid id;
         ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
@@ -46,7 +47,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         Dictionary<CoatingType, string> coatingTypeDict = new Dictionary<CoatingType, string>();
         private PipeTestResult currentTestResult;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-
+        private ExternalFilesXtraForm filesForm = null;
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
@@ -691,15 +692,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Pipe.Id, IsEditMode);
-            if(viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 
@@ -854,37 +853,35 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if(IsEditMode)
+            if (IsEditMode)
             {
-                using(var addForm = new InspectionAddEditXtraForm(tests, inspectors, null, statuses))
-                {
-                    if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
-                        viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
-                        IsModified = true;
-                        inspections.RefreshDataSource();
-                        viewModel.GetLengthFromOperation();
-                        pipeLength.Refresh();
-                        weight.Refresh();
-                    }
-                }
-            }
-        }
+                var addForm = GetInspectionForm(tests, inspectors, null, statuses);
 
-        private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
-        {
-            if(IsEditMode)
-            {
-                using(var editForm = new InspectionAddEditXtraForm(tests, insp, row, status))
+                if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    editForm.ShowDialog();
+                    addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
+                    viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                     IsModified = true;
                     inspections.RefreshDataSource();
                     viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
                     weight.Refresh();
                 }
+            }
+        }
+
+        private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
+        {
+            if (IsEditMode)
+            {
+                var editForm = GetInspectionForm(tests, insp, row, status);
+
+                editForm.ShowDialog();
+                IsModified = true;
+                inspections.RefreshDataSource();
+                viewModel.GetLengthFromOperation();
+                pipeLength.Refresh();
+                weight.Refresh();
             }
         }
 
@@ -934,6 +931,23 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #endregion
         }
 
+        private InspectionAddEditXtraForm GetInspectionForm(
+            BindingList<PipeTest> tests, 
+            IList<Inspector> inspectors, 
+            PipeTestResult row, 
+            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
+            if (inspectionForm == null)
+            {
+                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses);
+            }
+            else
+            {
+                inspectionForm.SetupForm(tests, inspectors, row, statuses);
+            }
+
+            return inspectionForm;
+        }
     }
 }
 

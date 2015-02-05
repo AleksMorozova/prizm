@@ -46,8 +46,10 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         public override string GetOwnerName(object[] tuple)
         {
-            return tuple[1].ToString() + " " + tuple[2].ToString() + " " + tuple[3].ToString() + " " +
+            string middleName = (tuple[3] == null) ? "" : tuple[3].ToString() + " ";
+            string text = tuple[1].ToString() + " " + tuple[2].ToString() + " " +
             Resources.ResourceManager.GetString("Certificate") + " №" + tuple[4].ToString();
+            return text;
         }
 
         public override DateTime GetDateToOccur(object[] tuple)
