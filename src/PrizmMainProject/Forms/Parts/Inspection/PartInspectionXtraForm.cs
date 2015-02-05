@@ -53,11 +53,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
             {
                 localizedAllPartTypes.Add(item.Item2);
             }
-
-            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0:true))
-            {
-                resultCombo.Items.Add(item.Item2);
-            }
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
             viewModel.ModifiableView = this;
@@ -99,6 +94,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.PartInspectionStatus_Pending);
             inspectionStatusDict.Add(PartInspectionStatus.Undefined, string.Empty);
             resultStatusLookUpEdit.DataSource = inspectionStatusDict.Where(x => x.Key != PartInspectionStatus.Undefined);
+
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
             inspectorSelectionControl.DataSource = inspectorsDataSource;
@@ -140,10 +136,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
                         new string [] {StringResources.PartTypeUndefined.Id, StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
 
                 //TODO: Create LocalizedItem for repository lookup item. When created, use StringResources.PartInspectionStatus_
-                new LocalizedItem(resultCombo,  new string [] {StringResources.PartInspectionStatus_Pending.Id, 
-                                                                  StringResources.PartInspectionStatus_Hold.Id,
-                                                                  StringResources.PartInspectionStatus_Accepted.Id,
-                                                                  StringResources.PartInspectionStatus_Rejected.Id})
 
             };
         }
@@ -258,6 +250,5 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 e.Valid = false;
             }
         }
-
     }
 }
