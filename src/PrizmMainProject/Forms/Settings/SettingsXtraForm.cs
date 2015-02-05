@@ -1059,15 +1059,14 @@ namespace Prizm.Main.Forms.Settings
         {
             bool codeValidate = true;
             bool pipeSizeValidate = true;
+            bool administratorCanEditSettingsValidation = 
+                    AdministatorCanEditSettingsValidation();
 
             if(pipeLayoutControlGroup.Tag != null)
             {
                 codeValidate = CodeValidation();
                 pipeSizeValidate = PipeSizeValidation();
             }
-
-            bool administratorCanEditSettingsValidation =
-                AdministatorCanEditSettingsValidation();
 
             return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate
                 && administratorCanEditSettingsValidation;
@@ -1121,8 +1120,8 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private bool AdministatorCanEditSettingsValidation()
         {
-            bool administatorCanEditSettings = false;
-            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount && !administatorCanEditSettings; userRowHandle++)
+            bool administatorCanEditSettings = true;
+            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount; userRowHandle++)
             {
                 var user = gridViewUsers.GetRow(userRowHandle) as User;
 
@@ -1133,6 +1132,9 @@ namespace Prizm.Main.Forms.Settings
                         .Any(x => x.Permissions
                             .Any(y => (Privileges)Enum.Parse(typeof(Privileges), y.Name) == Privileges.EditSettings));
                 }
+
+                if (administatorCanEditSettings)
+                    break;
             }
             return administatorCanEditSettings;
         }
