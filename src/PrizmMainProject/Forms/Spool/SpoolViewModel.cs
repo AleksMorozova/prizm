@@ -242,6 +242,7 @@ namespace Prizm.Main.Forms.Spool
             if (FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
+                FilesFormViewModel = null;
             }
         }
 

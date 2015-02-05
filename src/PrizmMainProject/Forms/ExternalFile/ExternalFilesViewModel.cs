@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.ExternalFile
         public Guid Item { get; set; }
 
         [Inject]
-        public ExternalFilesViewModel(IFileRepository repo, IUserNotify notify) //Guid item, 
+        public ExternalFilesViewModel(IFileRepository repo, IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;

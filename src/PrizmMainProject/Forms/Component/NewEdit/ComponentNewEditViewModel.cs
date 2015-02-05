@@ -285,6 +285,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             if (FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
+                FilesFormViewModel = null;
             }
         }
 

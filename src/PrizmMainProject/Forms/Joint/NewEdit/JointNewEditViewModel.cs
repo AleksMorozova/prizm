@@ -154,6 +154,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
+                FilesFormViewModel = null;
             }
         }
 

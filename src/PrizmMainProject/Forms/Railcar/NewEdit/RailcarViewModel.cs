@@ -305,6 +305,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             if (FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
+                FilesFormViewModel = null;
             }
         }
 

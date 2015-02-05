@@ -106,7 +106,7 @@ namespace Prizm.Main.Forms.ExternalFile
         {
             if (!isEditMode)
             {
-                buttonLayoutControlGroup.Enabled = false;
+                buttonLayoutControlGroup.Enabled = isEditMode;
             }
         }
 

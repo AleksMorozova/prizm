@@ -647,6 +647,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if(FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
+                FilesFormViewModel = null;
             }
         }
 
