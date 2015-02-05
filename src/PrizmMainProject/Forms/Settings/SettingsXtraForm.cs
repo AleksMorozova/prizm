@@ -152,6 +152,8 @@ namespace Prizm.Main.Forms.Settings
 
             permissionsBindingSource.DataSource = viewModel.Permissions;
 
+            gridControlPermission.DataSource = viewModel.Permissions;
+
             usersBindingSource.DataSource = viewModel.Users;
 
             gridControlRoles.DataSource = rolesBindingSource;
@@ -1131,10 +1133,10 @@ namespace Prizm.Main.Forms.Settings
                     administatorCanEditSettings = user.Roles
                         .Any(x => x.Permissions
                             .Any(y => (Privileges)Enum.Parse(typeof(Privileges), y.Name) == Privileges.EditSettings));
-                }
 
-                if (administatorCanEditSettings)
-                    break;
+                    if (administatorCanEditSettings)
+                        break;
+                }
             }
             return administatorCanEditSettings;
         }
