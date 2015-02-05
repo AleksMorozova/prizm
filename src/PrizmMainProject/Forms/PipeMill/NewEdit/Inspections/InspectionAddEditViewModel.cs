@@ -23,20 +23,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
+            this.SetupViewModelState(tests, inspectors, current, statuses);
+        }
+
+        public void SetupViewModelState(
+            IList<PipeTest> tests, 
+            IList<Inspector> inspectors, 
+            PipeTestResult current, 
+            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
             this.availableTests = tests;
             this.inspectors = inspectors;
             this.statuses = statuses;
-            if(current == null)
+            if (current == null)
             {
-                TestResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
+                TestResult = new PipeTestResult();
                 TestResult.Operation = new PipeTest();
+                TestResult.Status = PipeTestResultStatus.Scheduled;
+                TestResult.Operation = new PipeTest();
+
                 //TODO: Check availableTests is null
-                TestResult.Operation = this.availableTests[0];
+                if (this.availableTests != null && this.availableTests.Count > 0)
+                    TestResult.Operation = this.availableTests[0];
             }
             else
             {
                 TestResult = current;
-                switch(current.Operation.ResultType)
+                switch (current.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
                         factBool = (current.Value != null && current.Value.Equals("True")) ? true : false;
@@ -54,7 +67,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
                 status = current.Status;
             }
-            if(testResult.Value == null)
+            if (testResult.Value == null)
             {
                 testResult.Value = string.Empty;
             }
@@ -102,7 +115,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public string Code
         {
-            get { return testResult.Operation.Code; }
+            get { return testResult.Operation != null ? testResult.Operation.Code : null; }
             set
             {
                 if(value != testResult.Operation.Code)

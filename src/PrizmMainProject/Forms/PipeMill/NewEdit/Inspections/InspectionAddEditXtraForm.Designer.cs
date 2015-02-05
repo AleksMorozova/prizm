@@ -559,6 +559,7 @@
             this.Controls.Add(this.rootLayoutControl);
             this.Name = "InspectionAddEditXtraForm";
             this.Text = "InspectionAddEditXtraForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionAddEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.InspectionAddEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
