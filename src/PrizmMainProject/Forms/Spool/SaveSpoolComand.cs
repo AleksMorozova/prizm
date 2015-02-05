@@ -70,7 +70,6 @@ namespace Prizm.Main.Forms.Spool
                             {
                                 viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
                                 viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                                viewModel.FilesFormViewModel = null;
                             }
                             viewModel.ModifiableView.IsModified = false;
 

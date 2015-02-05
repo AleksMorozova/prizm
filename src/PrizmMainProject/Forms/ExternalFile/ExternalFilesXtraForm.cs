@@ -19,22 +19,12 @@ namespace Prizm.Main.Forms.ExternalFile
     {
         private ExternalFilesViewModel viewModel;
 
-        public ExternalFilesXtraForm(Guid item, bool isEditMode)
+        public ExternalFilesXtraForm()
         {
             InitializeComponent();
             viewModel = (ExternalFilesViewModel)Program
                 .Kernel
-                .Get<ExternalFilesViewModel>(
-                new ConstructorArgument("item", item));
-
-            if(isEditMode)
-            {
-                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            }
-            else
-            {
-                buttonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            }
+                .Get<ExternalFilesViewModel>();
         }
 
         private void ExternalFilesXtraForm_Load(object sender, EventArgs e)
@@ -59,7 +49,7 @@ namespace Prizm.Main.Forms.ExternalFile
         }
 
         #endregion // --- Localization ---
-        
+
         private void addFile_Click(object sender, EventArgs e)
         {
             Guid newNameId = Guid.NewGuid();
@@ -79,7 +69,7 @@ namespace Prizm.Main.Forms.ExternalFile
                 }
                 fileInfo.CopyTo(string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension));
                 viewModel.FilesToAttach.Add(newNameId.ToString() + fileInfo.Extension, fileInfo.Name);
-                Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() {FileName = fileInfo.Name, UploadDate = DateTime.Now };
+                Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() { FileName = fileInfo.Name, UploadDate = DateTime.Now };
                 viewModel.Files.Add(newFile);
             }
         }
@@ -109,6 +99,14 @@ namespace Prizm.Main.Forms.ExternalFile
             {
                 viewModel.SelectedFile = selectedFile;
                 viewModel.ViewFileCommand.Execute();
+            }
+        }
+
+        public void SetData(bool isEditMode)
+        {
+            if (!isEditMode)
+            {
+                buttonLayoutControlGroup.Enabled = isEditMode;
             }
         }
 

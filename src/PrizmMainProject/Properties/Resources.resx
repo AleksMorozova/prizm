@@ -503,7 +503,7 @@
     <value>Пикеты</value>
   </data>
   <data name="PartInspectionStatus_Rejected" xml:space="preserve">
-    <value>Отклонено</value>
+    <value>Брак</value>
   </data>
   <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1002,6 +1002,9 @@
   <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
   </data>
+  <data name="Notification_WelderCertificateExpired_Warning" xml:space="preserve">
+    <value>Заканчивается срок сертификата</value>
+  </data>
   <data name="WorkstationType_Construction" xml:space="preserve">
     <value>Строительство</value>
   </data>
@@ -1012,7 +1015,7 @@
     <value>Завод</value>
   </data>
   <data name="WorkstationType_Undefined" xml:space="preserve">
-    <value>Неоперделен</value>
+    <value>Не определен</value>
   </data>
   <data name="NewEditPipe_PipeStatusProduced" xml:space="preserve">
     <value>В производстве</value>
@@ -1024,13 +1027,46 @@
     <value>На складе</value>
   </data>
   <data name="NewEditPipe_PipeStatusUndefined" xml:space="preserve">
-    <value>Неопределен</value>
+    <value>Не определен</value>
   </data>
   <data name="InspectionsSavedHeader" xml:space="preserve">
     <value>Сохранение контрольных операций</value>
   </data>
   <data name="PartInspection_InspectionsSaved" xml:space="preserve">
     <value>Результаты контрольных операций успешно сохранены. Номер элемента: </value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="ControlTypeHold" xml:space="preserve">
+    <value>Обязательная проверка</value>
+  </data>
+  <data name="ControlTypeMonitor" xml:space="preserve">
+    <value>Мониторинг</value>
+  </data>
+  <data name="ControlTypeReview" xml:space="preserve">
+    <value>Проверка документов</value>
+  </data>
+  <data name="ControlTypeWitness" xml:space="preserve">
+    <value>Освидетельствование</value>
+  </data>
+  <data name="Settings_CheckValues" xml:space="preserve">
+    <value>Проверьте значения</value>
+  </data>
+  <data name="Settings_ErrorHeader" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="TestResultTypeBoolean" xml:space="preserve">
+    <value>Логический</value>
+  </data>
+  <data name="TestResultTypeRange" xml:space="preserve">
+    <value>Диапазон</value>
+  </data>
+  <data name="TestResultTypeString" xml:space="preserve">
+    <value>Строка</value>
   </data>
   <data name="ConstractionReport_ReportTypeTracingReport" xml:space="preserve">
     <value>По трассировке</value>
@@ -1040,7 +1076,7 @@
   </data>
   <data name="ConstractionReport_TracingReportInfoLabelText" xml:space="preserve">
     <value>Данный тип отчета содержит все сваренные элементы расположенные 
-между заданными точками не зависимо от их связности.</value>
+    между заданными точками не зависимо от их связности.</value>
   </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>

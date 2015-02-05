@@ -43,6 +43,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         BindingList<EnumWrapper<JointTestResultStatus>> availableResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private ExternalFilesXtraForm filesForm = null;
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private void UpdateTextEdit()
@@ -88,15 +89,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id,IsEditMode);
-            if (viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 
