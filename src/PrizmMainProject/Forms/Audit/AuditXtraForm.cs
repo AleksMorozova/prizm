@@ -105,20 +105,14 @@ namespace Prizm.Main.Forms.Audit
 
             if (edit.SelectedIndex == 0)
             {
-                startDate.Enabled = true;
-                endDate.Enabled = true;
-
+                number.Enabled = true;
                 user.Enabled = false;
-
-                viewModel.TracingMode = TracingModeEnum.TracingByPeriod;
+                viewModel.TracingMode = TracingModeEnum.TracingByNumber;
             }
             else
             {
+                number.Enabled = false;
                 user.Enabled = true;
-
-                startDate.Enabled = false;
-                endDate.Enabled = false;
-
                 viewModel.TracingMode = TracingModeEnum.TracingByUser;
             }
         }
