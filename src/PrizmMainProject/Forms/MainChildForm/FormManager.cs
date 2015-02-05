@@ -24,13 +24,13 @@ namespace Prizm.Main.Forms.MainChildForm
         private static uint FramesCanOpen = 20;
         private static FormManager InstanceField;
         private ILog log;
-        private IUserNotify mainForm;
+        private IUserNotify notify;
 
         // Methods
-        public static void Initialize(IUserNotify mainForm, ILog log)
+        public static void Initialize(IUserNotify notify, ILog log)
         {
             InstanceField = new FormManager();
-            Instance.mainForm = mainForm;
+            Instance.notify = notify;
             Instance.log = log;
         }
 
@@ -45,8 +45,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
             if (FramesCanOpen < 1)
             {
-                mainForm.HideProcessing();
-                mainForm.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen),
+                notify.HideProcessing();
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
             else
@@ -87,7 +87,7 @@ namespace Prizm.Main.Forms.MainChildForm
             }
             finally
             {
-                mainForm.HideProcessing();
+                notify.HideProcessing();
             }
         }
 
@@ -204,14 +204,14 @@ namespace Prizm.Main.Forms.MainChildForm
                         if (id == default(Guid))
                         {
                             string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
-                            mainForm.ShowWarning(text, "");
+                            notify.ShowWarning(text, "");
                             form = forms[index];
                             form.Activate();
                         }
                         else
                         {
                             string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
-                            if (mainForm.ShowYesNo(text, ""))
+                            if (notify.ShowYesNo(text, ""))
                             {
                                 form = ShowChildForm(formType, parameters, false);
                             }
@@ -256,14 +256,14 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             try
             {
-                mainForm.ShowProcessing();
+                notify.ShowProcessing();
                 form.Show();
                 form.WindowState = FormWindowState.Normal;
                 form.WindowState = FormWindowState.Maximized;
             }
             finally
             {
-                mainForm.HideProcessing();
+                notify.HideProcessing();
             }
         }
 

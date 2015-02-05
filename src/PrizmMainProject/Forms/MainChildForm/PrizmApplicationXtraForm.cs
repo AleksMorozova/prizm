@@ -48,9 +48,8 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
-        private static uint FramesCanOpen = 20;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PrizmApplicationXtraForm));
-        private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
         private PrizmApplicationViewModel viewModel;
 
         private const string emptyString = "";
@@ -531,7 +530,7 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeChangeLanguage()
         {
             Program.LanguageManager.ChangeLanguage(this);
-            foreach (var childType in childForms)
+            foreach (var childType in FormManager.Instance.ChildForms)
             {
                 foreach (var child in childType.Value)
                 {
