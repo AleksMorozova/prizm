@@ -1001,6 +1001,7 @@
   </data>
   <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
+  </data>
   <data name="Notification_WelderCertificateExpired_Warning" xml:space="preserve">
     <value>Заканчивается срок сертификата</value>
   </data>
@@ -1075,7 +1076,7 @@
   </data>
   <data name="ConstractionReport_TracingReportInfoLabelText" xml:space="preserve">
     <value>Данный тип отчета содержит все сваренные элементы расположенные 
-между заданными точками не зависимо от их связности.</value>
+    между заданными точками не зависимо от их связности.</value>
   </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
@@ -1089,8 +1090,6 @@
   <data name="PartTypeUndefined" xml:space="preserve">
     <value>Неопределен</value>
   </data>
-  
-  
   <data name="SelectInspectorsForTestResult" xml:space="preserve">
     <value>Укажите инспектора</value>
   </data>
