@@ -1992,26 +1992,14 @@ Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
 ;Результат контрольной операции. Ожидается
 PipeTestResultStatus_Scheduled=Scheduled
 
-;Тип рабочей станции. Неопределен
-WorkstationType_Undefined=Undefined
-
 ;Результат контрольной операции. Принят
 PipeTestResultStatus_Passed=Passed
-
-;Тип рабочей станции. Главный
-WorkstationType_Master=Master
 
 ;Результат контрольной операции. Брак
 PipeTestResultStatus_Failed=Failed
 
-;Тип рабочей станции. Завод
-WorkstationType_Mill=Mill
-
 ;Результат контрольной операции. Ремонт
 PipeTestResultStatus_Repair=Repair
-
-;Тип рабочей станции. Строительство
-WorkstationType_Construction=Construction
 
 ;Тип отчета. По трассировке
 ConstractionReport_ReportTypeTracingReport=Tracing report
@@ -2027,3 +2015,15 @@ ExternalFiles_NotCopied_Header=External files saving error
 
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
+
+;Тип рабочей станции. Неопределен
+WorkstationType_Undefined=Undefined
+
+;Тип рабочей станции. Главный
+WorkstationType_Master=Master
+
+;Тип рабочей станции. Завод
+WorkstationType_Mill=Mill
+
+;Тип рабочей станции. Строительство
+WorkstationType_Construction=Construction
