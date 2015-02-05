@@ -173,13 +173,13 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspectionStatus_Hold = new StringResource
         {
             Id = "PartInspectionStatus_Hold",
-            Description = "Статус на входном контроле. Задержан"
+            Description = "Статус на входном контроле. Задержано"
         };
 
         public static StringResource PartInspectionStatus_Rejected = new StringResource
         {
             Id = "PartInspectionStatus_Rejected",
-            Description = "Статус на входном контроле. Отклонено"
+            Description = "Статус на входном контроле. Брак"
         };
 
         public static StringResource PartInspectionStatus_Accepted = new StringResource
@@ -188,7 +188,6 @@ namespace Prizm.Main.Languages
             Description = "Статус на входном контроле. Принято"
         };
         #endregion
-
 
         #region --- Workstation types ---
         public static StringResource WorkstationType_Undefined = new StringResource
@@ -214,6 +213,34 @@ namespace Prizm.Main.Languages
             Id = "WorkstationType_Construction",
             Description = "Тип рабочей станции. Строительство"
         };
+        #endregion
+
+        #region --- Pipe test result statuses ---
+        public static StringResource PipeTestResultStatus_Scheduled = new StringResource
+        {
+            Id = "PipeTestResultStatus_Scheduled",
+            Description = "Результат контрольной операции. Ожидается"
+        };
+
+        public static StringResource PipeTestResultStatus_Passed = new StringResource
+        {
+            Id = "PipeTestResultStatus_Passed",
+            Description = "Результат контрольной операции. Принят"
+        };
+
+        public static StringResource PipeTestResultStatus_Failed = new StringResource
+        {
+            Id = "PipeTestResultStatus_Failed",
+            Description = "Результат контрольной операции. Брак"
+        };
+
+        public static StringResource PipeTestResultStatus_Repair = new StringResource
+        {
+            Id = "PipeTestResultStatus_Repair",
+            Description = "Результат контрольной операции. Ремонт"
+        };
+
+
         #endregion
 
         //messages 
