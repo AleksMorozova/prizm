@@ -107,7 +107,7 @@ namespace Prizm.Main
                 // Database
                 ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
 
-                HibernateUtil.Initialize(settings.ConnectionString);
+                HibernateUtil.Initialize(settings.ConnectionString,false);
 
                 // Ninject
                 Kernel = new StandardKernel(new PrizmModule());

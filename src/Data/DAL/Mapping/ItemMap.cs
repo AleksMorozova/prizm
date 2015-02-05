@@ -1,4 +1,5 @@
 ﻿using Prizm.Domain.Entity;
+using Prizm.Data.DAL.Hibernate;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,15 @@ namespace Prizm.Data.DAL.Mapping
         {
             UseUnionSubclassForInheritanceMapping();
 
-            Id(x => x.Id).Column("id").UnsavedValue(Guid.Empty).GeneratedBy.Assigned();
+            if(HibernateUtil.Import)
+            {
+                Id(x => x.Id).Column("id").UnsavedValue(Guid.Empty).GeneratedBy.Assigned();
+            }
+            else
+            {
+                Id(x => x.Id).Column("id").GeneratedBy.Guid();
+            }
+
             Map(x => x.IsActive).Column("isActive");
         }
 
