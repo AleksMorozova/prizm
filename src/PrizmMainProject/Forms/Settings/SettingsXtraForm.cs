@@ -152,6 +152,8 @@ namespace Prizm.Main.Forms.Settings
 
             permissionsBindingSource.DataSource = viewModel.Permissions;
 
+            gridControlPermission.DataSource = viewModel.Permissions;
+
             usersBindingSource.DataSource = viewModel.Users;
 
             gridControlRoles.DataSource = rolesBindingSource;
