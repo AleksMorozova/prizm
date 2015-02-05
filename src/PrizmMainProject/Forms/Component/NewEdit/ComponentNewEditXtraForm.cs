@@ -104,17 +104,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             if (filesForm==null) 
             {
-                filesForm = new ExternalFilesXtraForm(viewModel.Component.Id, IsEditMode);
-            }
-
-            if (viewModel.FilesFormViewModel == null)
-            {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
             
         }

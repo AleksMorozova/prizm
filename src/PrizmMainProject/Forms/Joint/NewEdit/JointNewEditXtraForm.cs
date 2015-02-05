@@ -88,7 +88,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id,IsEditMode);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm();//new ExternalFilesXtraForm(IsEditMode, viewModel.Joint.Id,IsEditMode);
             if (viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;

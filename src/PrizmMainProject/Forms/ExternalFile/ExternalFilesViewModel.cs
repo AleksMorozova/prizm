@@ -26,26 +26,17 @@ namespace Prizm.Main.Forms.ExternalFile
         private readonly DownloadFileCommand downloadFileCommand;
         private readonly ViewFileCommand viewFileCommand;
         private readonly IUserNotify notify;
-        private readonly Guid item;
         private BindingList<Prizm.Domain.Entity.File> files;
         private Prizm.Domain.Entity.File selectedFile;
         public Dictionary<string, string> FilesToAttach = new Dictionary<string, string>();
         public Guid Item { get; set; }
 
         [Inject]
-        public ExternalFilesViewModel(IFileRepository repo, Guid item, IUserNotify notify)
+        public ExternalFilesViewModel(IFileRepository repo, IUserNotify notify) //Guid item, 
         {
             this.repo = repo;
-            this.item = item;
             this.notify = notify;
-            if (item!= Guid.Empty)
-            {
-                RefreshFiles();
-            }
-            else 
-            { 
-                files = new BindingList<Prizm.Domain.Entity.File>(); 
-            }
+           
 
             addExternalFileCommand =
               ViewModelSource.Create(() => new AddExternalFileCommand(repo, this, notify));
@@ -55,17 +46,25 @@ namespace Prizm.Main.Forms.ExternalFile
               ViewModelSource.Create(() => new ViewFileCommand(repo, this, notify));
         }
 
-        public void RefreshFiles()
+        public void RefreshFiles(Guid item)
         {
-            var fileList = repo.GetByItem(item);
-            if (fileList != null)
+            if (item != Guid.Empty)
             {
-                files = new BindingList<Prizm.Domain.Entity.File>(fileList);
+                var fileList = repo.GetByItem(item);
+                if (fileList != null)
+                {
+                    files = new BindingList<Prizm.Domain.Entity.File>(fileList);
+                }
+                else
+                {
+                    log.Warn(string.Format("List of attached files for Entity id:{0} is NULL", item));
+                }
             }
             else
             {
-                log.Warn(string.Format("List of attached files for Entity id:{0} is NULL", item));
+                files = new BindingList<Prizm.Domain.Entity.File>();
             }
+           
         }
 
         public BindingList<Prizm.Domain.Entity.File> Files

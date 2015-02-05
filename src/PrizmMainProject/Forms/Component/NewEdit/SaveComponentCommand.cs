@@ -87,7 +87,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         {
                             viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
                             viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                            viewModel.FilesFormViewModel = null;
+                            //viewModel.FilesFormViewModel = null;
                         }
 
                         notify.ShowSuccess(

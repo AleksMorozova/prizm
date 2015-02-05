@@ -206,7 +206,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Railcar.Id, IsEditMode);
+            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm();//new ExternalFilesXtraForm(IsEditMode, viewModel.Railcar.Id, IsEditMode);
             if(viewModel.FilesFormViewModel == null)
             {
                 viewModel.FilesFormViewModel = filesForm.ViewModel;

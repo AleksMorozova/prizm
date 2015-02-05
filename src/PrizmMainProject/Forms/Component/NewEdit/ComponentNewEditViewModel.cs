@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.context = context;
             this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
             this.Inspectors = repos.RepoInspector.GetAll();
-
+            
             saveCommand = ViewModelSource
                 .Create(() => new SaveComponentCommand(this, repos, notify, context));
 
@@ -272,6 +272,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Certificate = string.Empty;
             this.Type = null;
             this.Component.ToExport = false;
+            if (this.FilesFormViewModel != null)
+            {
+                this.FilesFormViewModel.RefreshFiles(this.Component.Id);
+            }
         }
 
         public void Dispose()
