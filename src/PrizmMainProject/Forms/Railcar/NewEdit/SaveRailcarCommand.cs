@@ -80,7 +80,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 {
                     viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
-                    viewModel.FilesFormViewModel = null;
                 }
 
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), 
