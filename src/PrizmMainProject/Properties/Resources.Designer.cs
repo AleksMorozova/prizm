@@ -508,6 +508,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Результаты измерения длины должны быть введены..
+        /// </summary>
+        internal static string FixedCategoryLengthPassed {
+            get {
+                return ResourceManager.GetString("FixedCategoryLengthPassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не заданы результаты измерений.
+        /// </summary>
+        internal static string FixedCategoryLengthPassedHeader {
+            get {
+                return ResourceManager.GetString("FixedCategoryLengthPassedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {

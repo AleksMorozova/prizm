@@ -2028,6 +2028,12 @@ WorkstationType_Mill=Mill
 ;Тип рабочей станции. Строительство
 WorkstationType_Construction=Construction
 
+;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
+
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
+
 ;Настройки - Трубопровод.Тип операции.Контрольная
 JointOperationType_Test=Inspection
 
