@@ -90,9 +90,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             BindToViewModel();
 
-            status.Text = string.Empty;
-            status.EditValue = viewModel.Status;
-
             factBool_CheckedChanged(null, null);
         }
 
@@ -191,6 +188,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 Program.MainForm.ShowError
                     (Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader)
+                    );
+            }
+            else if (viewModel.Status == PipeTestResultStatus.Passed 
+                && viewModel.Operation.Category.Type == FixedCategory.Length
+                && string.IsNullOrEmpty(viewModel.FactLimit))
+            {
+                this.DialogResult = DialogResult.None;
+                Program.MainForm.ShowError
+                    (Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassed),
+                    Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassedHeader)
                     );
             }
             else

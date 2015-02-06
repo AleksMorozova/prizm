@@ -2057,3 +2057,9 @@ TestResultTypeString=String
 
 ;Тип отчета.По трассировке
 ConstractionReport_ReportTypeTracingReport= Tracing report
+
+;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
+
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
