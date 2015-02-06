@@ -1838,7 +1838,7 @@ namespace Prizm.Main.Languages
         public static StringResource Export_Filter = new StringResource
         {
             Id = "Export_Filter",
-            Description = "PRIZM archives|*.prizm"
+            Description = "PRISM archives"
         };
 
         public static StringResource Export_NoData = new StringResource
