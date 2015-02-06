@@ -173,7 +173,7 @@
     <value>Контольная операция трубы</value>
   </data>
   <data name="Export_Filter" xml:space="preserve">
-    <value>PRISM archives|*.prism</value>
+    <value>PRISM archives</value>
   </data>
   <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
     <value>Экспорт данных на заводе</value>
@@ -589,7 +589,7 @@
     <value>Плавка</value>
   </data>
   <data name="AboutForm_TitleLabel" xml:space="preserve">
-    <value>PRIZM – программа полного цикла управления 
+    <value>PRISM – программа полного цикла управления 
 процессом производства, транспортировки 
 и строительства промышленных труб.</value>
   </data>
@@ -1114,10 +1114,7 @@
   <data name="JointOperationType_Withdraw" xml:space="preserve">
     <value>Вырезка стыка</value>
   </data>
-  <data name="FixedCategoryLengthPassed" xml:space="preserve">
-    <value>Результаты измерения длины должны быть введены.</value>
-  </data>
-  <data name="FixedCategoryLengthPassedHeader" xml:space="preserve">
-    <value>Не заданы результаты измерений</value>
+  <data name="prizm" xml:space="preserve">
+    <value>|*.prism</value>
   </data>
 </root>

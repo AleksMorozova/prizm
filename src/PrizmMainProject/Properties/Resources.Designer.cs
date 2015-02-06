@@ -453,7 +453,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRISM archives|*.prism.
+        ///   Looks up a localized string similar to PRISM archives.
         /// </summary>
         internal static string Export_Filter {
             get {
@@ -504,24 +504,6 @@ namespace Prizm.Main.Properties {
         internal static string Export_WritingData {
             get {
                 return ResourceManager.GetString("Export_WritingData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Результаты измерения длины должны быть введены..
-        /// </summary>
-        internal static string FixedCategoryLengthPassed {
-            get {
-                return ResourceManager.GetString("FixedCategoryLengthPassed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Не заданы результаты измерений.
-        /// </summary>
-        internal static string FixedCategoryLengthPassedHeader {
-            get {
-                return ResourceManager.GetString("FixedCategoryLengthPassedHeader", resourceCulture);
             }
         }
         
@@ -1956,6 +1938,15 @@ namespace Prizm.Main.Properties {
         internal static string PlateManufacturer {
             get {
                 return ResourceManager.GetString("PlateManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to |*.prism.
+        /// </summary>
+        internal static string prizm {
+            get {
+                return ResourceManager.GetString("prizm", resourceCulture);
             }
         }
         
