@@ -2045,3 +2045,27 @@ JointOperationType_Weld=Weld
 
 ;Настройки - Трубопровод.Тип операции.Вырезка стыка
 JointOperationType_Withdraw=Withdraw
+
+;Разрешение на отгрузку. Группа вагона
+ReleaseNoteNewEdit_RailcarLayoutControlGroup=Railcar
+
+;Разрешение на отгрузку. Группа добавления трубы
+ReleaseNoteNewEdit_AddPipeLayoutGroup=Adding pipes to current railcar
+
+;Разрешение на отгрузку. Группа труб
+ReleaseNoteNewEdit_PipesListLayoutGroup=Pipe list
+
+;Разрешение на отгрузку. Надпись номера трубы
+ReleaseNoteNewEdit_PipeNumberLayout=Pipe number
+
+;Настройки-труба. Группа параметров типоразмера
+SettingsPipe_sizeParamsLayoutControlGroup= Size type parameters
+
+;Настройки - Трубопровод. Набор операций - условия приемки стыка для спуска
+SettingsLine_JointOperationLayoutControlItem = Inspections list - conditions for passing
+
+;Настройки - Инспектора. Активен
+SettingsInspectors_IsActive= Is active
+
+;Настройки - Инспектора. Уровень
+SettingsInspectors_InspectorGrade=Grade

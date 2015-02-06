@@ -1130,6 +1130,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsPipe_InspectionsIsActiveColumn",
             Description = "Настройки-труба. Активность контрольной операции"
         };
+
+        public static StringResource SettingsPipe_sizeParamsLayoutControlGroup = new StringResource
+        {
+            Id = "SettingsPipe_sizeParamsLayoutControlGroup",
+            Description = "Настройки-труба. Группа параметров типоразмера"
+        };
+
         
         //pipeline page
         public static StringResource SettingsLine_LineGroup = new StringResource
@@ -1137,6 +1144,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsLine_LineGroup",
             Description = "Настройки - Трубопровод. Список контрольных и ремонтных операций для стыка"
         };
+
+        public static StringResource SettingsLine_JointOperationLayoutControlItem = new StringResource
+        {
+            Id = "SettingsLine_JointOperationLayoutControlItem",
+            Description = "Настройки - Трубопровод. Набор операций - условия приемки стыка для спуска"
+        };
+
 
         public static StringResource SettingsLine_NameColumn = new StringResource
         {
@@ -1209,6 +1223,8 @@ namespace Prizm.Main.Languages
             Id = "JointOperationType_Withdraw",
             Description = "Настройки - Трубопровод.Тип операции.Вырезка стыка"
         };
+
+
         //component page
 
         public static StringResource SettingsComponent_PartsType = new StringResource
@@ -1283,6 +1299,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsInspectors_InspectorsLabel",
             Description = "Настройки - Инспектора. Список инспекторов"
         };
+
+        public static StringResource SettingsInspectors_InspectorLayoutControlGroup = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorLayoutControlGroup",
+            Description = "Настройки - Инспектора. Группа инспекторов"
+        };
+
         public static StringResource SettingsInspectors_CertificatesLabel = new StringResource
         {
             Id = "SettingsInspectors_CertificatesLabel",
@@ -1318,6 +1341,18 @@ namespace Prizm.Main.Languages
         {
             Id = "SettingsInspectors_MiddleNameColumn",
             Description = "Настройки - Инспектора. Отчество инспектора"
+        };
+
+        public static StringResource SettingsInspectors_IsActive = new StringResource
+        {
+            Id = "SettingsInspectors_IsActive",
+            Description = "Настройки - Инспектора. Активен"
+        };
+
+        public static StringResource SettingsInspectors_InspectorGrade = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorGrade",
+            Description = "Настройки - Инспектора. Уровень"
         };
 
         public static StringResource SettingsInspectors_CertificateNumberColumn = new StringResource
@@ -3550,6 +3585,31 @@ namespace Prizm.Main.Languages
             Id = "ReleaseNoteNewEdit_PendingStatus",
             Description = "Статус разрешения на отгрузку: сформировано"
         };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarLayoutControlGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarLayoutControlGroup",
+            Description = "Разрешение на отгрузку. Группа вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_AddPipeLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_AddPipeLayoutGroup",
+            Description = "Разрешение на отгрузку. Группа добавления трубы"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PipesListLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_PipesListLayoutGroup",
+            Description = "Разрешение на отгрузку. Группа труб"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PipeNumberLayout = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_PipeNumberLayout",
+            Description = "Разрешение на отгрузку. Надпись номера трубы"
+        };
+        
 
         #endregion //--- Railcar NewEdit ---
 
