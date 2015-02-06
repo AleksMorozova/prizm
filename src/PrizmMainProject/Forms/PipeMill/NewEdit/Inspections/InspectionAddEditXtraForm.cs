@@ -70,7 +70,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             else
             {
                 code.Properties.ReadOnly = false;
-
+                code.Properties.Items.Clear();
                 foreach (var item in viewModel.Tests)
                 {
                     code.Properties.Items.Add(item.Code);
@@ -78,9 +78,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                 this.Text = "Добавление контрольной операции";
             }
-
-            //TODO: Should be tested if code below is still necessary 
-            this.inspectors.SelectInspectors(viewModel.SelectInspectors());
         }
 
 
