@@ -1,11 +1,18 @@
-﻿;Сообщение - Укажите инспектора
-SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
+﻿;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
 
-;Сообщение - Укажите сварщика
-SelectWeldersForOperation=Please enter welders for appropriate weld operations
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
+
+
+;Сообщение - Укажите инспектора
+SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
 
 ;Заголовок сообщения - Укажите инспектора
 SelectInspectorsForTestResultHeader=Error input of control operation
+
+;Сообщение - Укажите сварщика
+SelectWeldersForOperation=Please enter welders for appropriate weld operations
 
 ;Заголовок сообщения - Укажите сварщика
 SelectWeldersForOperationHeader=Error input of welding operation
@@ -30,6 +37,9 @@ JointSearch_JointStatus_Lowered=Lowered
 
 ;Вырезан
 JointSearch_JointStatus_Withdrawn=Withdrawn
+
+;Неопределен
+JointNewEdit_JointStatus_Undefined=Undefined
 
 ;Текст перед версией программы на всплывающем окне при загрузке программы
 AppSplashScreen_VersionLabel=Version:
@@ -2028,12 +2038,6 @@ WorkstationType_Mill=Mill
 ;Тип рабочей станции. Строительство
 WorkstationType_Construction=Construction
 
-;Не заданы результаты измерений
-FixedCategoryLengthPassedHeader=Measurement results are not specified
-
-;Результаты измерения длины должны быть введены.
-FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
-
 ;Настройки - Трубопровод.Тип операции.Контрольная
 JointOperationType_Test=Inspection
 
@@ -2069,3 +2073,115 @@ SettingsInspectors_IsActive= Is active
 
 ;Настройки - Инспектора. Уровень
 SettingsInspectors_InspectorGrade=Grade
+
+;Главное меню, пункт Файл
+Menu_File=&File
+
+;Главное меню, пункт Экспорт
+Menu_File_Export=&Export
+
+;Главное меню, пункт Импорт
+Menu_File_Import=&Import
+
+;Главное меню, пункт Выход
+Menu_File_Exit=E&xit
+
+;Главное меню, пункт Завод
+Menu_Mill=&Mill
+
+;Главное меню, пункт Новая труба
+Menu_Mill_NewPipe=New &pipe
+
+;Главное меню, пункт Поиск труб
+Menu_Mill_SearchPipes=&Find pipes
+
+;Главное меню, пункт Разрешение на отгрузку
+Menu_Mill_NewReleaseNote=New &release note
+
+;Главное меню, пункт Поиск разрешений на отгрузку
+Menu_Mill_SearchReleaseNotes=F&ind release notes
+
+;Главное меню, пункт Отчёты на заводе
+Menu_Mill_Reports=&Reports at mill
+
+;Главное меню, пункт Строительство и входной контроль
+Menu_Construction=Incoming inspection and &Construction
+
+;Главное меню, пункт Создать комплектующее
+Menu_Construction_NewComponent=New &Component
+
+;Главное меню, пункт Создать стык
+Menu_Construction_NewJoint=New &joint
+
+;Главное меню, пункт Входной контроль элементов трубопровода
+Menu_Construction_PartIncomingInspection=&Incoming inspection of elements
+
+;Главное меню, пункт Поиск элементов трубопровода
+Menu_Construction_FindParts=&Find elements
+
+;Главное меню, пункт Поиск стыков
+Menu_Construction_FindJoints=Fin&d joints
+
+;Главное меню, пункт Катушки
+Menu_Construction_Spool=&Spools
+
+;Главное меню, пункт Отчёты на входном контроле
+Menu_Construction_InspectionReports=&Inspection reports
+
+;Главное меню, пункт Отчёты по трубам на стройке
+Menu_Construction_PipeReports=&Pipe reports
+
+;Главное меню, пункт Отчёты по сварке (по дате)
+Menu_Construction_WeldReports=&Weld reports
+
+;Главное меню, пункт Отчёты по сварке участка между пикетами
+Menu_Construction_JointPKReports=&Tracing reports
+
+;Главное меню, пункт Настройки
+Menu_Settings=&Settings
+
+;Главное меню, настройки, пункт Проект
+Menu_Settings_Project=Pro&ject
+
+;Главное меню, настройки, пункт Труба
+Menu_Settings_Pipe=&Pipe
+
+;Главное меню, настройки, пункт Трубопровод
+Menu_Settings_Pipeline=Pipe&line
+
+;Главное меню, настройки, пункт Комплектующие
+Menu_Settings_Componentry=&Componentry
+
+;Главное меню, настройки, пункт Сварщики
+Menu_Settings_Welders=&Welders
+
+;Главное меню, настройки, пункт Инспекторы
+Menu_Settings_Inspectors=&Inspectors
+
+;Главное меню, настройки, пункт Пользователи
+Menu_Settings_Users=&Users
+
+;Главное меню, настройки, пункт Роли
+Menu_Settings_Roles=&Roles
+
+;Главное меню, настройки, пункт Язык
+Menu_Settings_Language=&Language
+
+;Главное меню, настройки, пункт Разное
+Menu_Misc=M&iscellaneous
+
+;Главное меню, настройки, пункт Аудит
+Menu_Misc_Audit=&Audit
+
+;Главное меню, настройки, пункт Важные сообщения
+Menu_Misc_ImportantMessages=&Important messages
+
+;Главное меню, настройки, пункт Помощь
+Menu_Help=&Help
+
+;Главное меню, настройки, пункт О программе
+Menu_Help_About=&About
+
+;Текст на панели статуса: Важные сообщения 
+MainWindow_StatusNotificationsHeader=Important messages 
+
