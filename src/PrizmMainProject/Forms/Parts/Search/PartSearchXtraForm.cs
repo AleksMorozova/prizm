@@ -188,7 +188,7 @@ namespace Prizm.Main.Forms.Parts.Search
                 PartType result;
                 if (Enum.TryParse<PartType>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedPartTypes[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == PartType.Undefined) ? "" : localizedPartTypes[(int)result - 1]; //-1 because we skip 0
                 }
             }
         }

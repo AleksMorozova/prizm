@@ -113,7 +113,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
                               {
                                  repos.FileRepo.Evict(file);
                               }
-                              viewModel.FilesFormViewModel = null;
                            }
 
                            notify.ShowSuccess(
