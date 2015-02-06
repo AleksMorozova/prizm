@@ -87,7 +87,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                 // comboboxes
                 new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
-                new LocalizedItem(reportType, new string[] {StringResources.ConstractionReport_ReportTypeTracingReport.Id, StringResources.ConstractionReport_ReportTypeUsedProductReport.Id}),
+                new LocalizedItem(reportType, new string[] {StringResources.ConstructionReport_ReportTypeTracingReport.Id, StringResources.ConstructionReport_ReportTypeUsedProductReport.Id}),
 
             };
         }
@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
-            infoLabel.Text = Program.LanguageManager.GetString(StringResources.ConstractionReport_TracingReportInfoLabelText);
+            infoLabel.Text = Program.LanguageManager.GetString(StringResources.ConstructionReport_TracingReportInfoLabelText);
 
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
