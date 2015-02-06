@@ -834,7 +834,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.PlateNumber = plateNumber.Text;
+            if (plateNumber.IsEditorActive)
+            {
+                viewModel.PlateNumber = plateNumber.Text;
+            }
             commandManager.RefreshVisualState();
         }
 
