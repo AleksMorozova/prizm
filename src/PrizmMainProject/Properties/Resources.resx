@@ -274,7 +274,7 @@
   <data name="SecurityPrivilege_DeactivateJoint" xml:space="preserve">
     <value>Деактивация стыка</value>
   </data>
-  <data name="Constraction_Report_label" xml:space="preserve">
+  <data name="Construction_Report_label" xml:space="preserve">
     <value>Точки отсчета</value>
   </data>
   <data name="IsRequired" xml:space="preserve">
@@ -499,7 +499,7 @@
   <data name="StatusActive" xml:space="preserve">
     <value>Активные</value>
   </data>
-  <data name="Constraction_UsedProductReport_label" xml:space="preserve">
+  <data name="Construction_UsedProductReport_label" xml:space="preserve">
     <value>Пикеты</value>
   </data>
   <data name="PartInspectionStatus_Rejected" xml:space="preserve">
