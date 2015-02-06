@@ -46,12 +46,18 @@ namespace Prizm.Data.DAL.Hibernate
                 PipeTestResult result = null;
                 Inspector inspector = null;
                 Certificate certificate = null;
+                Coat coat = null;
+                Weld weld = null;
+                Spool spool = null;
 
                 var q = session.QueryOver<Pipe>()
                     .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true) && n.Railcar == null))
                     .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
                     .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
                     .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+                    .JoinAlias(r => r.Coats, () => coat,JoinType.LeftOuterJoin)
+                    .JoinAlias(r => r.Welds, () => weld, JoinType.LeftOuterJoin)
+                    .JoinAlias(r => r.Spools, () => spool, JoinType.LeftOuterJoin)
                     .TransformUsing(Transformers.DistinctRootEntity)
                     .List<Pipe>();
 
