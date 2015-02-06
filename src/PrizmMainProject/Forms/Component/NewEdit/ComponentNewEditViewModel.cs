@@ -25,9 +25,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext context;
 
-
         private BindingList<ComponentType> componentTypes;
-        private bool isNew;
+
         private SaveComponentCommand saveCommand;
         private NewSaveComponentCommand newSaveCommand;
         private ComponentDeactivationCommand deactivationCommand;
@@ -35,6 +34,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
+        public bool IsNew { get { return this.Component.IsNew(); } }
 
         [Inject]
         public ComponentNewEditViewModel(
@@ -48,6 +48,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.context = context;
             this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
             this.Inspectors = repos.RepoInspector.GetAll();
+
             saveCommand = ViewModelSource
                 .Create(() => new SaveComponentCommand(this, repos, notify, context));
 
@@ -67,7 +68,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 this.Component = repos.ComponentRepo.Get(id);
             }
 
-            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+            if(this.Inspectors == null || this.Inspectors.Count <=0)
                 log.Warn(string.Format("Componentry (id:{0}) creation: List of Inspectors is NULL or empty", id));
         }
 
@@ -119,11 +120,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public string Certificate
         {
-            get
-            {
-                return
+            get 
+            { 
+                return 
                     Component.Certificate ??
-                    string.Empty;
+                    string.Empty; 
             }
             set
             {
@@ -137,11 +138,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public ComponentType Type
         {
-            get
-            {
-                return
+            get 
+            { 
+                return 
                     Component.Type ??
-                    null;
+                    null; 
             }
             set
             {
@@ -163,11 +164,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public string Number
         {
-            get
-            {
-                return
+            get 
+            { 
+                return 
                     Component.Number ??
-                    string.Empty;
+                    string.Empty; 
             }
             set
             {
@@ -194,11 +195,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public IList<Connector> Connectors
         {
-            get
-            {
-                return
+            get 
+            { 
+                return 
                     Component.Connectors ??
-                    new List<Connector>();
+                    new List<Connector>(); 
             }
             set
             {
@@ -216,7 +217,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 return
                     (Component.InspectionTestResults is BindingList<InspectionTestResult>
-                    ? (BindingList<InspectionTestResult>)Component.InspectionTestResults
+                    ? (BindingList<InspectionTestResult>) Component.InspectionTestResults
                     : new BindingList<InspectionTestResult>(Component.InspectionTestResults));
             }
             set
@@ -242,15 +243,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
         }
 
-        public bool IsNew
-        {
-            get { return isNew; }
-            set
-            {
-                if (value != isNew)
-                { isNew = value; }
-            }
-        }
         #region ---- Commands ----
         public ICommand SaveCommand
         {
@@ -271,7 +263,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public void NewComponent()
         {
             this.Component = new Prizm.Domain.Entity.Construction.Component();
-            this.isNew = true;
+
             this.Component.InspectionStatus = PartInspectionStatus.Pending;
             this.Component.ConstructionStatus = PartConstructionStatus.Pending;
             this.Component.IsActive = true;
