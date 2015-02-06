@@ -1873,7 +1873,7 @@ namespace Prizm.Main.Languages
         public static StringResource Export_Filter = new StringResource
         {
             Id = "Export_Filter",
-            Description = "PRIZM archives|*.prizm"
+            Description = "PRISM archives"
         };
 
         public static StringResource Export_NoData = new StringResource
@@ -2631,63 +2631,63 @@ namespace Prizm.Main.Languages
 
         #endregion //--- ConstructionReports ---
 
-        #region --- PipeConstractionReport ---
+        #region --- PipeConstructionReport ---
 
-        public static StringResource PipeConstractionReport_PipeNumberLayout = new StringResource
+        public static StringResource PipeConstructionReport_PipeNumberLayout = new StringResource
         {
-            Id = "PipeConstractionReport_PipeNumberLayout",
+            Id = "PipeConstructionReport_PipeNumberLayout",
             Description = "Номер трубы"
         };
         
-        public static StringResource PipeConstractionReport_PipeTypeCheckedComboLayout = new StringResource
+        public static StringResource PipeConstructionReport_PipeTypeCheckedComboLayout = new StringResource
         {
-            Id = "PipeConstractionReport_PipeTypeCheckedComboLayout",
+            Id = "PipeConstructionReport_PipeTypeCheckedComboLayout",
             Description = "Типоразмер"
         };
         
-        public static StringResource PipeConstractionReport_PipeReportParametersLayoutGroup = new StringResource
+        public static StringResource PipeConstructionReport_PipeReportParametersLayoutGroup = new StringResource
         {
-            Id = "PipeConstractionReport_PipeReportParametersLayoutGroup",
+            Id = "PipeConstructionReport_PipeReportParametersLayoutGroup",
             Description = "Параметры отчета по трубам"
         };
         
-        public static StringResource PipeConstractionReport_PreviewButton = new StringResource
+        public static StringResource PipeConstructionReport_PreviewButton = new StringResource
         {
-            Id = "PipeConstractionReport_PreviewButton",
+            Id = "PipeConstructionReport_PreviewButton",
             Description = "&Предпросмотр"
         };
 
-        public static StringResource PipeConstractionReport_CreateReportButton = new StringResource
+        public static StringResource PipeConstructionReport_CreateReportButton = new StringResource
         {
-            Id = "PipeConstractionReport_CreateReportButton",
+            Id = "PipeConstructionReport_CreateReportButton",
             Description = "Соз&дать отчет"
         };
         
-        public static StringResource PipeConstractionReport_DocumentViewerLayoutGroup = new StringResource
+        public static StringResource PipeConstructionReport_DocumentViewerLayoutGroup = new StringResource
         {
-            Id = "PipeConstractionReport_DocumentViewerLayoutGroup",
+            Id = "PipeConstructionReport_DocumentViewerLayoutGroup",
             Description = "Предварительный просмотр отчёта"
         };
 
-        public static StringResource ConstractionReport_ReportTypeTracingReport = new StringResource
+        public static StringResource ConstructionReport_ReportTypeTracingReport = new StringResource
         {
-            Id = "ConstractionReport_ReportTypeTracingReport",
+            Id = "ConstructionReport_ReportTypeTracingReport",
             Description = "Тип отчета. По трассировке"
         };
 
-        public static StringResource ConstractionReport_ReportTypeUsedProductReport = new StringResource
+        public static StringResource ConstructionReport_ReportTypeUsedProductReport = new StringResource
         {
-            Id = "ConstractionReport_ReportTypeUsedProductReport",
+            Id = "ConstructionReport_ReportTypeUsedProductReport",
             Description = "Тип отчета. По использованным изделиям"
         };
 
-        public static StringResource ConstractionReport_TracingReportInfoLabelText = new StringResource
+        public static StringResource ConstructionReport_TracingReportInfoLabelText = new StringResource
         {
-            Id = "ConstractionReport_TracingReportInfoLabelText",
+            Id = "ConstructionReport_TracingReportInfoLabelText",
             Description = "Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям"
         };
 
-        #endregion //--- PipeConstractionReport ---
+        #endregion //--- PipeConstructionReport ---
 
         #region --- WeldDateReport ---
 
