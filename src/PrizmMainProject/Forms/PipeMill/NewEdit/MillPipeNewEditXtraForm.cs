@@ -316,9 +316,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     new LocalizedItem(creationDateLayout, StringResources.NewEditPipe_PipeCreationLabel.Id),
                     new LocalizedItem(statusLayout, StringResources.NewEditPipe_PipeStatusLabel.Id),
 
-                    new LocalizedItem(plateNumberLayout, StringResources.NewEditPipe_PlateNumberLabel.Id),
+                    new LocalizedItem(plateNumberLayoutControlItem, StringResources.NewEditPipe_PlateNumberLabel.Id),
                     new LocalizedItem(plateThicknessLayoutControlItem, StringResources.NewEditPipe_PlateThicknessLabel.Id),
-                    new LocalizedItem(plateManufacturer, StringResources.NewEditPipe_PlateManufacturerLabel.Id),
+                    new LocalizedItem(plateManufacturerLayoutControlItem, StringResources.NewEditPipe_PlateManufacturerLabel.Id),
                     new LocalizedItem(steelGradeLayoutControlItem, StringResources.NewEditPipe_PlateSteelGradeLabel.Id),
                     
                     new LocalizedItem(pipeLengthLayout, StringResources.NewEditPipe_PipeLengthLabel.Id),

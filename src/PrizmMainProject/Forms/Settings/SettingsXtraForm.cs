@@ -269,6 +269,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(maxExpectedGridColumn, StringResources.SettingsPipe_InspectionsMaxExpectedColumn.Id),
                 new LocalizedItem(isRequiredGridColumn, StringResources.SettingsPipe_InspectionsIsReqiredColumn.Id),
                 new LocalizedItem(testIsActiveGridColumn, StringResources.SettingsPipe_InspectionsIsActiveColumn.Id),
+                new LocalizedItem(sizeParamsLayoutControlGroup, StringResources.SettingsPipe_sizeParamsLayoutControlGroup.Id),
 
                 // pipe line page
                 new LocalizedItem(lineLayoutControlGroup, StringResources.SettingsLine_LineGroup.Id),
@@ -281,6 +282,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(testHasToWithdrawGridColumn, StringResources.SettingsLine_WithdrawColumn.Id),
                 new LocalizedItem(testResultRequiredGridColumn, StringResources.SettingsLine_IsReqiredResultColumn.Id),
                 new LocalizedItem(isActiveJointOperationGridColumn, StringResources.SettingsLine_IsActiveColumn.Id),
+                new LocalizedItem(jointOperationLayoutControlItem, StringResources.SettingsLine_JointOperationLayoutControlItem.Id),
 
                 // components page
                 new LocalizedItem(partsTypeLayoutControlItem, StringResources.SettingsComponent_PartsType.Id),
@@ -303,13 +305,14 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(inspectorsLayoutControlItem, StringResources.SettingsInspectors_InspectorsLabel.Id),
                 new LocalizedItem(certificateLayoutControlItem, StringResources.SettingsInspectors_CertificatesLabel.Id),
                 new LocalizedItem(certTypeListLayoutControlItem, StringResources.SettingsInspectors_CertificateTypesLabel.Id),
-
-                new LocalizedItem(inspectorsLayoutControlGroup, StringResources.SettingsInspectors_InspectorsGroup.Id),
+                new LocalizedItem(inspectorLayoutControlGroup, StringResources.SettingsInspectors_InspectorsGroup.Id),
                 new LocalizedItem(certificateTypeLayoutControlGroup, StringResources.SettingsInspectors_CertificatesGroup.Id),
                 // inspectors grid
                 new LocalizedItem(colInspectorLastName, StringResources.SettingsInspectors_LastNameColumn.Id),
                 new LocalizedItem(colInspectorFirstName, StringResources.SettingsInspectors_FirstNameColumn.Id),
                 new LocalizedItem(colInspectorMiddleName, StringResources.SettingsInspectors_MiddleNameColumn.Id),
+                new LocalizedItem(colInspectorActive, StringResources.SettingsInspectors_IsActive.Id),
+                new LocalizedItem(colInspectorGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
                 // certificates grid
                 new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
                 new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),

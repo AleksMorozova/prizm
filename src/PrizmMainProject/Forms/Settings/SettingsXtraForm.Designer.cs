@@ -181,8 +181,13 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.lineLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.jointOperationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.inspectorLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certificateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -209,19 +214,14 @@ namespace Prizm.Main.Forms.Settings
             this.addTestButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.testButtonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editTestButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lineLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.jointOperationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.partsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.partsTypeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.partsSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.weldersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.weldersLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.inspectorLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.certificateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -326,8 +326,13 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
@@ -354,19 +359,14 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.addTestButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testButtonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTestButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
@@ -1964,8 +1964,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.lineLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 2;
+            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 5;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -1978,26 +1978,84 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
             // 
-            // lineLayoutControlGroup
+            // inspectorsLayoutControlGroup
             // 
-            this.lineLayoutControlGroup.CustomizationFormText = "Тру&бопровод";
-            this.lineLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.jointOperationLayoutControlItem});
-            this.lineLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.lineLayoutControlGroup.Name = "lineLayoutControlGroup";
-            this.lineLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.lineLayoutControlGroup.Text = "Тру&бопровод";
+            this.inspectorsLayoutControlGroup.CustomizationFormText = "&Инспекторы";
+            this.inspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.inspectorLayoutControlGroup,
+            this.certificateTypeLayoutControlGroup,
+            this.inspectorSplitterItem});
+            this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
+            this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
             // 
-            // jointOperationLayoutControlItem
+            // inspectorLayoutControlGroup
             // 
-            this.jointOperationLayoutControlItem.Control = this.jointOperations;
-            this.jointOperationLayoutControlItem.CustomizationFormText = "Набор операций - условия приемки стыка для спуска";
-            this.jointOperationLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.jointOperationLayoutControlItem.Name = "jointOperationLayoutControlItem";
-            this.jointOperationLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
-            this.jointOperationLayoutControlItem.Text = "Набор операций - условия приемки стыка для спуска";
-            this.jointOperationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.jointOperationLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            this.inspectorLayoutControlGroup.CustomizationFormText = "Инспекторы";
+            this.inspectorLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certificateLayoutControlItem,
+            this.inspectorsLayoutControlItem});
+            this.inspectorLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectorLayoutControlGroup.Name = "inspectorLayoutControlGroup";
+            this.inspectorLayoutControlGroup.Size = new System.Drawing.Size(870, 458);
+            this.inspectorLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectorLayoutControlGroup.Text = "Инспекторы";
+            // 
+            // certificateLayoutControlItem
+            // 
+            this.certificateLayoutControlItem.Control = this.gridControlInspectorsCertificates;
+            this.certificateLayoutControlItem.CustomizationFormText = "Сертификаты";
+            this.certificateLayoutControlItem.Location = new System.Drawing.Point(384, 0);
+            this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
+            this.certificateLayoutControlItem.Size = new System.Drawing.Size(456, 409);
+            this.certificateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certificateLayoutControlItem.Text = "Сертификаты";
+            this.certificateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // inspectorsLayoutControlItem
+            // 
+            this.inspectorsLayoutControlItem.Control = this.gridControlInspectors;
+            this.inspectorsLayoutControlItem.CustomizationFormText = "Инспекторы";
+            this.inspectorsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.inspectorsLayoutControlItem.Name = "inspectorsLayoutControlItem";
+            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(384, 409);
+            this.inspectorsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectorsLayoutControlItem.Text = "Инспекторы";
+            this.inspectorsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectorsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // certificateTypeLayoutControlGroup
+            // 
+            this.certificateTypeLayoutControlGroup.CustomizationFormText = "Типы сертификатов";
+            this.certificateTypeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certTypeListLayoutControlItem});
+            this.certificateTypeLayoutControlGroup.Location = new System.Drawing.Point(875, 0);
+            this.certificateTypeLayoutControlGroup.Name = "certificateTypeLayoutControlGroup";
+            this.certificateTypeLayoutControlGroup.Size = new System.Drawing.Size(356, 458);
+            this.certificateTypeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certificateTypeLayoutControlGroup.Text = "Типы сертификатов";
+            // 
+            // certTypeListLayoutControlItem
+            // 
+            this.certTypeListLayoutControlItem.Control = this.certificateTypes;
+            this.certTypeListLayoutControlItem.CustomizationFormText = "Список типов";
+            this.certTypeListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.certTypeListLayoutControlItem.Name = "certTypeListLayoutControlItem";
+            this.certTypeListLayoutControlItem.Size = new System.Drawing.Size(326, 409);
+            this.certTypeListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certTypeListLayoutControlItem.Text = "Список типов";
+            this.certTypeListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certTypeListLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // inspectorSplitterItem
+            // 
+            this.inspectorSplitterItem.AllowHotTrack = true;
+            this.inspectorSplitterItem.CustomizationFormText = "Разделитель";
+            this.inspectorSplitterItem.Location = new System.Drawing.Point(870, 0);
+            this.inspectorSplitterItem.Name = "inspectorSplitterItem";
+            this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
             // projectLayoutControlGroup
             // 
@@ -2325,6 +2383,27 @@ namespace Prizm.Main.Forms.Settings
             this.editTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.editTestButtonLayout.TextVisible = false;
             // 
+            // lineLayoutControlGroup
+            // 
+            this.lineLayoutControlGroup.CustomizationFormText = "Тру&бопровод";
+            this.lineLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.jointOperationLayoutControlItem});
+            this.lineLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.lineLayoutControlGroup.Name = "lineLayoutControlGroup";
+            this.lineLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.lineLayoutControlGroup.Text = "Тру&бопровод";
+            // 
+            // jointOperationLayoutControlItem
+            // 
+            this.jointOperationLayoutControlItem.Control = this.jointOperations;
+            this.jointOperationLayoutControlItem.CustomizationFormText = "Набор операций - условия приемки стыка для спуска";
+            this.jointOperationLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.jointOperationLayoutControlItem.Name = "jointOperationLayoutControlItem";
+            this.jointOperationLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
+            this.jointOperationLayoutControlItem.Text = "Набор операций - условия приемки стыка для спуска";
+            this.jointOperationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.jointOperationLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
             // partsLayoutControlGroup
             // 
             this.partsLayoutControlGroup.CustomizationFormText = "Комплектую&щие";
@@ -2386,85 +2465,6 @@ namespace Prizm.Main.Forms.Settings
             this.weldersLayoutControlItem.Text = "Сварщики";
             this.weldersLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.weldersLayoutControlItem.TextVisible = false;
-            // 
-            // inspectorsLayoutControlGroup
-            // 
-            this.inspectorsLayoutControlGroup.CustomizationFormText = "&Инспекторы";
-            this.inspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.inspectorLayoutControlGroup,
-            this.certificateTypeLayoutControlGroup,
-            this.inspectorSplitterItem});
-            this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
-            this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
-            // 
-            // inspectorLayoutControlGroup
-            // 
-            this.inspectorLayoutControlGroup.CustomizationFormText = "Инспекторы";
-            this.inspectorLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.certificateLayoutControlItem,
-            this.inspectorsLayoutControlItem});
-            this.inspectorLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectorLayoutControlGroup.Name = "inspectorLayoutControlGroup";
-            this.inspectorLayoutControlGroup.Size = new System.Drawing.Size(870, 458);
-            this.inspectorLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectorLayoutControlGroup.Text = "Инспекторы";
-            // 
-            // certificateLayoutControlItem
-            // 
-            this.certificateLayoutControlItem.Control = this.gridControlInspectorsCertificates;
-            this.certificateLayoutControlItem.CustomizationFormText = "Сертификаты";
-            this.certificateLayoutControlItem.Location = new System.Drawing.Point(384, 0);
-            this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
-            this.certificateLayoutControlItem.Size = new System.Drawing.Size(456, 409);
-            this.certificateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certificateLayoutControlItem.Text = "Сертификаты";
-            this.certificateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certificateLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // inspectorsLayoutControlItem
-            // 
-            this.inspectorsLayoutControlItem.Control = this.gridControlInspectors;
-            this.inspectorsLayoutControlItem.CustomizationFormText = "Инспекторы";
-            this.inspectorsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.inspectorsLayoutControlItem.Name = "inspectorsLayoutControlItem";
-            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(384, 409);
-            this.inspectorsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectorsLayoutControlItem.Text = "Инспекторы";
-            this.inspectorsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectorsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // certificateTypeLayoutControlGroup
-            // 
-            this.certificateTypeLayoutControlGroup.CustomizationFormText = "Типы сертификатов";
-            this.certificateTypeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.certTypeListLayoutControlItem});
-            this.certificateTypeLayoutControlGroup.Location = new System.Drawing.Point(875, 0);
-            this.certificateTypeLayoutControlGroup.Name = "certificateTypeLayoutControlGroup";
-            this.certificateTypeLayoutControlGroup.Size = new System.Drawing.Size(356, 458);
-            this.certificateTypeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certificateTypeLayoutControlGroup.Text = "Типы сертификатов";
-            // 
-            // certTypeListLayoutControlItem
-            // 
-            this.certTypeListLayoutControlItem.Control = this.certificateTypes;
-            this.certTypeListLayoutControlItem.CustomizationFormText = "Список типов";
-            this.certTypeListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.certTypeListLayoutControlItem.Name = "certTypeListLayoutControlItem";
-            this.certTypeListLayoutControlItem.Size = new System.Drawing.Size(326, 409);
-            this.certTypeListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certTypeListLayoutControlItem.Text = "Список типов";
-            this.certTypeListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certTypeListLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // inspectorSplitterItem
-            // 
-            this.inspectorSplitterItem.AllowHotTrack = true;
-            this.inspectorSplitterItem.CustomizationFormText = "Разделитель";
-            this.inspectorSplitterItem.Location = new System.Drawing.Point(870, 0);
-            this.inspectorSplitterItem.Name = "inspectorSplitterItem";
-            this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
             // usersLayoutControlGroup
             // 
@@ -2702,8 +2702,13 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
@@ -2730,19 +2735,14 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.addTestButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testButtonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTestButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
