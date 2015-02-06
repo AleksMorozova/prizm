@@ -967,6 +967,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     e.DisplayText = localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
                 }
             }
+            if (e.Column.Name == expectedResultGridColumn.Name)
+            {
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
+                if (pipeTestResult != null)
+                {
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
+                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); }
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
+                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.No); }
+                }
+            }
         }
     }
 }
