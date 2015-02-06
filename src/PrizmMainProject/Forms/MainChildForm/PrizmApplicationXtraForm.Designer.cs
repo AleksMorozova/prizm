@@ -538,27 +538,27 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1152, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(1284, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1152, 27);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1284, 27);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1152, 22);
+            this.barDockControlRight.Location = new System.Drawing.Point(1284, 20);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 574);
             // 
             // barButtonItemSettingsDictionaries
@@ -675,7 +675,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
             this.BackgroundImageStore = global::Prizm.Main.Properties.Resources.main_logo_03;
-            this.ClientSize = new System.Drawing.Size(1152, 623);
+            this.ClientSize = new System.Drawing.Size(1284, 623);
             this.Controls.Add(this.flyoutPanel);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
