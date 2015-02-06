@@ -301,7 +301,7 @@ Spool_WrongPipeNumberForCutting=Wrong pipe number
 ;Неверный номер трубы для нарезания на катушки
 Spool_WrongPipeNumberForCuttingHeader=Pipe number
 
-;Катушка. Номер трубы для нарезания на кутушки
+;Катушка. Номер трубы для нарезания на кaтушки
 Spool_PipeNumberLabel=Pipe number
 
 ;Катушка. Номер катушки
@@ -485,7 +485,7 @@ SettingsPipe_DiameterLabel=Pipe's &diameter
 SettingsPipe_WallThicknessLabel=Wall &thickness
 
 ;Настройки-труба. Длина трубы для заданного типоразмера
-SettingsPipe_LengthLabel=Pipe's l&ength
+SettingsPipe_LengthLabel=Pipe l&ength
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
@@ -521,7 +521,7 @@ SettingsPipe_InspectionsControlTypeColumn=Inspection type
 SettingsPipe_InspectionsResultTypeColumn=Result type
 
 ;Настройки-труба. Ожидаемый результат для булевского результата
-SettingsPipe_InspectionsBoolExpectedColumn=Expected bool value
+SettingsPipe_InspectionsBoolExpectedColumn=Expected logic value
 
 ;Настройки-труба. Минимальный результат контрольной операции
 SettingsPipe_InspectionsMinExpectedColumn=Expected min value
@@ -952,7 +952,7 @@ SaveDialog_DontSaveButton=&Do not save
 SaveDialog_CancelButton=&Cancel
 
 ;Вложения. Кнопка добавления
-ExternalFiles_AddFileButton=Add file
+ExternalFiles_AddFileButton=Add &file
 
 ;Вложения. Надпись колонки имени файла
 ExternalFiles_FileNameColumnHeader=File name
@@ -994,13 +994,13 @@ InspectionSelectPartDialog_TypeColumnHeader=Type
 ConflictDialog_ConflictLabel=During import a conflict has occurred
 
 ;Диалог конфликта при импорте. Надпись кнопки замены
-ConflictDialog_ReplaceButton=Replace
+ConflictDialog_ReplaceButton=&Replace
 
 ;Диалог конфликта при импорте. Надпись кнопки Пропустить
-ConflictDialog_SkipButton=Skip
+ConflictDialog_SkipButton=&Skip
 
 ;Диалог конфликта при импорте. Надпись кнопки отложения решения
-ConflictDialog_PostponeButton=Postpone
+ConflictDialog_PostponeButton=&Postpone
 
 ;Диалог конфликта при импорте. Надпись чекбокса Применить для всех
 ConflictDialog_ApplyForAllChechbox=Apply for all future conflicts
@@ -1009,7 +1009,7 @@ ConflictDialog_ApplyForAllChechbox=Apply for all future conflicts
 Import_ArchiveLabel=Archive
 
 ;Импорт. Надпись кнопки поиска
-Import_BrowseButton=Browse
+Import_BrowseButton=&Browse
 
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
@@ -1195,7 +1195,7 @@ Joint_Saved=Joint has been successfully saved in database. Joint number
 Joint_SavedHeader=Joint saving
 
 ;Сообщение о дублировании стыка: Уже существует стык с номером:
-Joint_Duplicate=There is already joint with number:
+Joint_Duplicate=Joint already exists, number:
 
 ;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
 Joint_DuplicateHeader=Joint number duplication
@@ -1351,13 +1351,13 @@ JointCutDialog_SecondJoinedPartLengthLayout=Length
 JointCutDialog_CutJointButton=Withdraw
 
 ;Отмена
-JointCutDialog_CancelButton=Cancel
+JointCutDialog_CancelButton=&Cancel
 
 ;Выбор диаметра соединения
 SelectDiameterDialog_DiametersIntersectionLayout=Connection diameter choosing
 
 ;Сохранить
-SelectDiameterDialog_SaveChosenDiameter=Save
+SelectDiameterDialog_SaveChosenDiameter=&Save
 
 ;Настройка контрольных опрераций завода. Мера измерения метры
 MillInspection_FrequencyMeasureMeters=Meters
@@ -1369,10 +1369,10 @@ MillInspection_FrequencyMeasureTons=Tons
 MillInspection_FrequencyMeasurePipes=Pipes
 
 ;Настройка контрольных опрераций завода. Надпись кнопки сохранения
-MillInspection_SaveButton=Save
+MillInspection_SaveButton=&Save
 
 ;Настройка контрольных опрераций завода. Надпись кнопки отмены
-MillInspection_CancelButton=Cancel
+MillInspection_CancelButton=&Cancel
 
 ;Настройка контрольных опрераций завода. Надпись чекбокса Обязательна
 MillInspection_IsRequiredCheckbox=Is required
@@ -1474,10 +1474,10 @@ NewEditPipe_HeatsComboLabel=&Heat
 NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
 
 ;Труба. Дата наряд-заказа
-NewEditPipe_PurchaseOrederDateLabel=Purchase order &date
+NewEditPipe_PurchaseOrederDateLabel=Purchase order da&te
 
 ;Труба. Дата создания трубы
-NewEditPipe_PipeCreationLabel=Creation da&te
+NewEditPipe_PipeCreationLabel=Creat&ion date
 
 ;Труба. Статус трубы
 NewEditPipe_PipeStatusLabel=Status on &mill
@@ -1486,7 +1486,7 @@ NewEditPipe_PipeStatusLabel=Status on &mill
 NewEditPipe_PlateNumberLabel=Number
 
 ;Труба. Толщина листа
-NewEditPipe_PlateThicknessLabel=Th&ickness
+NewEditPipe_PlateThicknessLabel=Thic&kness
 
 ;Труба. Производитель листа
 NewEditPipe_PlateManufacturerLabel=Manufacturer
@@ -1531,13 +1531,13 @@ NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
 NewEditPipe_SaveButton=&Save
 
 ;Труба. Кнопка сохранить и создать
-NewEditPipe_SaveAndNewButton=Save\\Cr&eate
+NewEditPipe_SaveAndNewButton=Save\\&Create
 
 ;Труба. Кнопка добавления контрольных операций
-NewEditPipe_InspectionsAddButton=Add
+NewEditPipe_InspectionsAddButton=A&dd
 
 ;Труба. Кнопка редактирования контрольных операций
-NewEditPipe_InspectionsEditsButton=Edit
+NewEditPipe_InspectionsEditsButton=&Edit
 
 ;Труба. Столбец сварщики
 NewEditPipe_WeldersColumnHeader=Welders
@@ -1621,13 +1621,13 @@ MillPipe_CoatExternal=External
 MillPipe_PipeSizeChangeHeader=Changing pipe size type
 
 ;Вопрос о подтверждении изменения типоразмера: Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново
-MillPipe_ChangeTypesizeConfirmation=Do you really want to change pipe size type? All entered inspection results will be deleted and shoult be entered again.
+MillPipe_ChangeTypesizeConfirmation=Do you really want to change pipe size type? All entered inspection results will be deleted and should be entered again.
 
 ;Сообщение о невозможности изменить типоразмер: Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.
 MillPipe_NotAllowedToChangeTypesize=Cannot change size type for pipe with existing inspection operations data. If size type is wrong, please deactivate this pipe and create new one with the same number and corrent size type.
 
 ;Сообщение об ошибке: Значение не соответствует маске
-MillPipe_ValueDoesNotMatchMask=Value does not match mask
+MillPipe_ValueDoesNotMatchMask=Value does not match the mask
 
 ;Вопрос о создании новой плавки: Создать плавку {0}?
 MillPipe_NewHeatQuestion=Do you want to create heat with number {0}?
@@ -1660,10 +1660,10 @@ MillPipe_DeactivatePipeInRailcarError=Cannot deactivate shipped pipe
 MillPipe_DeactivatePipeInRailcarErrorHeader=Pipe is shipped
 
 ;Сообщение об ошибке: Уже существует труба с номером: 
-MillPipe_ExistingNumberError=There is already pipe with number:
+MillPipe_ExistingNumberError=Pipe already exists, number:
 
 ;Заголовок сообщения о дублировании трубы: Дублирование номера трубы
-MillPipe_ExistingNumberErrorHeader=Pipe number duplicating
+MillPipe_ExistingNumberErrorHeader=Pipe number duplication
 
 ;Сообщение об успешном сохранении трубы: Труба успешно сохранена в базе. Труба  # 
 MillPipe_PipeSaved=Pipe was  successfully saved in database. Pipe #
@@ -1822,7 +1822,7 @@ ReleaseNoteNewEdit_SaveSuccess=Release note data are saved
 ReleaseNoteNewEdit_SaveSuccessHeader=Saved successfully
 
 ;Статус разрешения на отгрузку: отгружено
-ReleaseNoteNewEdit_Shipped=Shipped
+ReleaseNoteNewEdit_ShippedStatus=Shipped
 
 ;Статус разрешения на отгрузку: сформировано
 ReleaseNoteNewEdit_Pending=Pending
@@ -1909,10 +1909,10 @@ FirstSetup_FirstNameLabel=First name
 FirstSetup_MiddleNameLabel=Middle name 
 
 ;Начальные установки. Кнопка сохранить
-FirstSetup_SaveButton=Save
+FirstSetup_SaveButton=&Save
 
 ;Начальные установки. Кнопка отмена
-FirstSetup_CancelButton=Cancel
+FirstSetup_CancelButton=&Cancel
 
 ;Плавка. Номер плавки
 Heat_NumberLabel=Heat num&ber
@@ -1945,7 +1945,7 @@ InspectionAddEdit_ExpectedResultLabel=Expected result
 InspectionAddEdit_FactStringResultLabel=Actual string result
 
 ;Контрольная операция. Фактический результат логический
-InspectionAddEdit_FactBoolResultLabel=Actual bool result
+InspectionAddEdit_FactBoolResultLabel=Actual logic result
 
 ;Контрольная операция. Фактический результат диапазон
 InspectionAddEdit_FactLimitResultLabel=Actual range result
@@ -2028,35 +2028,11 @@ WorkstationType_Mill=Mill
 ;Тип рабочей станции. Строительство
 WorkstationType_Construction=Construction
 
-;Вид контроля. Освидетельствование
-ControlTypeWitness=Witness
+;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
 
-;Вид контроля. Проверка документов
-ControlTypeReview=Review
-
-;Вид контроля. Мониторинг
-ControlTypeMonitor=Monitor
-
-;Вид контроля. Обязательная проверка
-ControlTypeHold=Hold
-
-;Необходимо проверить значение
-Settings_CheckValues=Please, check values
-
-;Заголовок ошибки
-Settings_ErrorHeader=Error
-
-;Тип результата контрольной операции. Логический
-TestResultTypeBoolean=Boolean
-
-;Тип результата контрольной операции. Диапазон
-TestResultTypeRange=Range
-
-;Тип результата контрольной операции. Строка
-TestResultTypeString=String
-
-;Тип отчета.По трассировке
-ConstractionReport_ReportTypeTracingReport= Tracing report
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
 
 ;Настройки - Трубопровод.Тип операции.Контрольная
 JointOperationType_Test=Inspection

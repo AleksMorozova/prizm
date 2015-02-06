@@ -234,7 +234,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                PartInspectionStatus result;
                if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
                {
-                   e.DisplayText = localizedAllInspectionStatus[(int)result - 1];
+                   e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
                }
            }
         }
