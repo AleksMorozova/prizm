@@ -50,6 +50,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private ExternalFilesXtraForm filesForm = null;
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
+        private List<string> localizedAllPipeTestResultStatus= new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
         private void UpdateTextEdit()
         {
@@ -132,9 +133,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
+                localizedAllPipeTestResultStatus.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0:true))
+            {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
-
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -372,7 +376,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             StringResources.NewEditPipe_PipeStatusStocked.Id, 
                             StringResources.NewEditPipe_PipeStatusShipped.Id} ),
 
-
+                    //grid enums
+                    new LocalizedItem (inspectionsGridView, localizedAllPipeTestResultStatus, new string [] { StringResources.PipeTestResultStatus_Scheduled.Id,
+                                                                                                              StringResources.PipeTestResultStatus_Passed.Id,
+                                                                                                              StringResources.PipeTestResultStatus_Failed.Id,
+                                                                                                              StringResources.PipeTestResultStatus_Repair.Id})
                     // other
                 };
         }
@@ -947,6 +955,29 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             return inspectionForm;
+        }
+
+        private void inspectionsGridView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == inspectionResultGridColumn.Name && e.Value != null)
+            {
+                PipeTestResultStatus result;
+                if (Enum.TryParse<PipeTestResultStatus>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+            if (e.Column.Name == expectedResultGridColumn.Name)
+            {
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
+                if (pipeTestResult != null)
+                {
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
+                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); }
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
+                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.No); }
+                }
+            }
         }
     }
 }

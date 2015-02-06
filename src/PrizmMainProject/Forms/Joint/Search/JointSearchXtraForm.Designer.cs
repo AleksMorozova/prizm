@@ -170,6 +170,7 @@
             this.resultView.OptionsView.ShowIndicator = false;
             this.resultView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.resultView_RowCellStyle);
             this.resultView.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.resultView_CustomUnboundColumnData);
+            this.resultView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.resultView_CustomColumnDisplayText);
             this.resultView.DoubleClick += new System.EventHandler(this.resultView_DoubleClick);
             // 
             // idCol

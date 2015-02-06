@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeNewEditXtraForm));
             DevExpress.Utils.Animation.FadeTransition fadeTransition1 = new DevExpress.Utils.Animation.FadeTransition();
             this.weldersListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldingHistory = new DevExpress.XtraGrid.GridControl();
-            this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldBindingSource = new System.Windows.Forms.BindingSource();
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.generalPipeLayout = new DevExpress.XtraLayout.LayoutControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -48,13 +47,12 @@
             this.addInspectionButton = new DevExpress.XtraEditors.SimpleButton();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.inspections = new DevExpress.XtraGrid.GridControl();
-            this.inspectionOperation = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionOperation = new System.Windows.Forms.BindingSource();
             this.inspectionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.valueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.testResultValue = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.inspectionResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectorsGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.controlDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,6 +60,7 @@
             this.inspectionCodeLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.expectedResultGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.plateThickness = new DevExpress.XtraEditors.TextEdit();
             this.plateNumber = new DevExpress.XtraEditors.TextEdit();
             this.shippedDate = new DevExpress.XtraEditors.TextEdit();
@@ -78,7 +77,7 @@
             this.railcarNumber = new DevExpress.XtraEditors.TextEdit();
             this.saveAndNewButton = new DevExpress.XtraEditors.SimpleButton();
             this.coatingHistory = new DevExpress.XtraGrid.GridControl();
-            this.coatDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coatDataSource = new System.Windows.Forms.BindingSource();
             this.coatingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coatingTypeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,10 +139,10 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.weldingDs = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.weldingDs = new System.Windows.Forms.BindingSource();
+            this.pipeNewEditBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
@@ -160,9 +159,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateThickness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).BeginInit();
@@ -463,6 +462,7 @@
             this.inspectionsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsGridView_InitNewRow);
             this.inspectionsGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectionsGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsGridView_ValidateRow);
+            this.inspectionsGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.inspectionsGridView_CustomColumnDisplayText);
             this.inspectionsGridView.DoubleClick += new System.EventHandler(this.inspectionsGridView_DoubleClick);
             // 
             // inspectionNameGridColumn
@@ -494,25 +494,12 @@
             // inspectionResultGridColumn
             // 
             this.inspectionResultGridColumn.Caption = "Результат контроля";
-            this.inspectionResultGridColumn.ColumnEdit = this.resultStatusLookUpEdit;
             this.inspectionResultGridColumn.FieldName = "Status";
             this.inspectionResultGridColumn.Name = "inspectionResultGridColumn";
             this.inspectionResultGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionResultGridColumn.Visible = true;
             this.inspectionResultGridColumn.VisibleIndex = 5;
             this.inspectionResultGridColumn.Width = 62;
-            // 
-            // resultStatusLookUpEdit
-            // 
-            this.resultStatusLookUpEdit.AutoHeight = false;
-            this.resultStatusLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.resultStatusLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Статус результата")});
-            this.resultStatusLookUpEdit.DisplayMember = "Text";
-            this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
-            this.resultStatusLookUpEdit.NullText = "";
-            this.resultStatusLookUpEdit.ValueMember = "Value";
             // 
             // inspectorsGridColumn
             // 
@@ -593,6 +580,18 @@
             this.expectedResultGridColumn.Visible = true;
             this.expectedResultGridColumn.VisibleIndex = 3;
             this.expectedResultGridColumn.Width = 68;
+            // 
+            // resultStatusLookUpEdit
+            // 
+            this.resultStatusLookUpEdit.AutoHeight = false;
+            this.resultStatusLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.resultStatusLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Статус результата")});
+            this.resultStatusLookUpEdit.DisplayMember = "Text";
+            this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
+            this.resultStatusLookUpEdit.NullText = "";
+            this.resultStatusLookUpEdit.ValueMember = "Value";
             // 
             // plateThickness
             // 
@@ -1559,9 +1558,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testResultValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateThickness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippedDate.Properties)).EndInit();
