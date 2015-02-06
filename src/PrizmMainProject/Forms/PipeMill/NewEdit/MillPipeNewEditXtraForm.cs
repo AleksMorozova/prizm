@@ -964,7 +964,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 PipeTestResultStatus result;
                 if (Enum.TryParse<PipeTestResultStatus>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == PipeTestResultStatus.Undefined) ? "" :localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
                 }
             }
             if (e.Column.Name == expectedResultGridColumn.Name)

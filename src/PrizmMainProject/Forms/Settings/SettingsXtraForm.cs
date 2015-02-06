@@ -1413,7 +1413,7 @@ namespace Prizm.Main.Forms.Settings
                 PipeTestControlType result;
                 if (Enum.TryParse<PipeTestControlType>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedPipeTestControlTypes[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == PipeTestControlType.Undefined)? "" : localizedPipeTestControlTypes[(int)result - 1]; //-1 because we skip 0
                 }
             }
             if (e.Column.Name == resultTypeGridColumn.Name && e.Value != null)
@@ -1421,7 +1421,7 @@ namespace Prizm.Main.Forms.Settings
                 PipeTestResultType result;
                 if (Enum.TryParse<PipeTestResultType>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedPipeTestResultTypes[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == PipeTestResultType.Undefined) ? "" : localizedPipeTestResultTypes[(int)result - 1]; //-1 because we skip 0
                 }
             }
         }
@@ -1433,7 +1433,7 @@ namespace Prizm.Main.Forms.Settings
                 JointOperationType result;
                 if (Enum.TryParse<JointOperationType>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedJointOperationTypes[(int)result - 1];
+                    e.DisplayText = (result == JointOperationType.Undefined) ? "" : localizedJointOperationTypes[(int)result - 1];
                 }
             }
         }
