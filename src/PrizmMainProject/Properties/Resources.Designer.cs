@@ -810,6 +810,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ремонтная.
+        /// </summary>
+        internal static string JointOperationType_Action {
+            get {
+                return ResourceManager.GetString("JointOperationType_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная.
+        /// </summary>
+        internal static string JointOperationType_Test {
+            get {
+                return ResourceManager.GetString("JointOperationType_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сварка.
+        /// </summary>
+        internal static string JointOperationType_Weld {
+            get {
+                return ResourceManager.GetString("JointOperationType_Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string JointOperationType_Withdraw {
+            get {
+                return ResourceManager.GetString("JointOperationType_Withdraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Активные.
         /// </summary>
         internal static string JointSearch_ActivityCriteria_StatusActive {

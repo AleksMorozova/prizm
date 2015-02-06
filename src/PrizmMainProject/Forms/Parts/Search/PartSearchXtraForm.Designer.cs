@@ -144,6 +144,7 @@
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.partsView.OptionsView.ShowGroupPanel = false;
             this.partsView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.partsView_RowCellStyle);
+            this.partsView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.partsView_CustomColumnDisplayText);
             this.partsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partsView_KeyDown);
             this.partsView.DoubleClick += new System.EventHandler(this.partsView_DoubleClick);
             // 

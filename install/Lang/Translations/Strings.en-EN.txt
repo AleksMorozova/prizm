@@ -2057,3 +2057,15 @@ TestResultTypeString=String
 
 ;Тип отчета.По трассировке
 ConstractionReport_ReportTypeTracingReport= Tracing report
+
+;Настройки - Трубопровод.Тип операции.Контрольная
+JointOperationType_Test=Inspection
+
+;Настройки - Трубопровод.Тип операции.Ремонтная
+JointOperationType_Action= Repair
+
+;Настройки - Трубопровод.Тип операции.Сварка
+JointOperationType_Weld=Weld
+
+;Настройки - Трубопровод.Тип операции.Вырезка стыка
+JointOperationType_Withdraw=Withdraw
