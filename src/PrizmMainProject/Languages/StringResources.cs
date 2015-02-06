@@ -27,7 +27,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource SelectInspectorsForTestResult = new StringResource
         {
-            Id = "SelectInspectorsForTestResult ",
+            Id = "SelectInspectorsForTestResult",
             Description = "Сообщение - Укажите инспектора"
         };
         public static StringResource SelectInspectorsForTestResultHeader = new StringResource
@@ -38,7 +38,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource SelectWeldersForOperation = new StringResource
         {
-            Id = "SelectWeldersForOperation ",
+            Id = "SelectWeldersForOperation",
             Description = "Сообщение - Укажите сварщика"
         };
         public static StringResource SelectWeldersForOperationHeader = new StringResource
@@ -1186,6 +1186,29 @@ namespace Prizm.Main.Languages
             Description = "Настройки - Трубопровод. Активность операции"
         };
 
+        public static StringResource JointOperationType_Test = new StringResource
+        {
+            Id = "JointOperationType_Test",
+            Description = "Настройки - Трубопровод.Тип операции.Контрольная"
+        };
+
+        public static StringResource JointOperationType_Action = new StringResource
+        {
+            Id = "JointOperationType_Action",
+            Description = "Настройки - Трубопровод.Тип операции.Ремонтная"
+        };
+
+        public static StringResource JointOperationType_Weld = new StringResource
+        {
+            Id = "JointOperationType_Weld",
+            Description = "Настройки - Трубопровод.Тип операции.Сварка"
+        };
+
+        public static StringResource JointOperationType_Withdraw = new StringResource
+        {
+            Id = "JointOperationType_Withdraw",
+            Description = "Настройки - Трубопровод.Тип операции.Вырезка стыка"
+        };
         //component page
 
         public static StringResource SettingsComponent_PartsType = new StringResource

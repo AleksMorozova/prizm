@@ -28,7 +28,9 @@ namespace Prizm.Main.Languages
             RadioGroup,
             TextEditOneWayStatus, 
             GridView,
-            FormHeader
+            FormHeader,
+            RepositoryLookupEdit,
+            CheckedListBox
         };
 
         public LocalizedItem(System.Windows.Forms.Control control, string resourceId)
@@ -218,6 +220,39 @@ namespace Prizm.Main.Languages
             }
         }
 
+        public LocalizedItem(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repoLookup,  List<string> list, string[] resourceIds)
+        {
+        this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+            this.obj = (object)new Tuple<DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, List<string>>(repoLookup, list);
+            this.type = ItemType.RepositoryLookupEdit;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.defaultValues[index] = list[index];
+            }
+        }
+
+        public LocalizedItem(DevExpress.XtraEditors.CheckedListBoxControl checkedListBox, string[] resourceIds)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+            this.obj = (object)checkedListBox;
+            this.type = ItemType.CheckedListBox;
+            this.defaultValues = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.defaultValues[index] = (string)checkedListBox.Items[index].Description;
+            }
+        }
+
         public string Text
         {
             set
@@ -324,6 +359,22 @@ namespace Prizm.Main.Languages
                             }
                             break;
 
+                        case ItemType.RepositoryLookupEdit:
+                            {
+                                var list = ((Tuple<DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, List<string>>)obj).Item2;
+                                if (index < list.Count)
+                                {
+                                    list[index] = value;
+                                }
+                                ((Tuple<DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, List<string>>)obj).Item1.DataSource = list;
+                            }
+                            break;
+
+                        case ItemType.CheckedListBox:
+                            {
+                                ((DevExpress.XtraEditors.CheckedListBoxControl)obj).Items[index].Description = value;
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -407,6 +458,9 @@ namespace Prizm.Main.Languages
                     break;
                 case ItemType.FormHeader:
                     ((Tuple<PrizmForm, List<string>>)obj).Item1.UpdateTitle();
+                    break;
+                case ItemType.CheckedListBox:
+                    ((DevExpress.XtraEditors.CheckedListBoxControl)obj).Refresh();
                     break;
                 default:
                     break;

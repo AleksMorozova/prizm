@@ -2063,3 +2063,15 @@ FixedCategoryLengthPassedHeader=Measurement results are not specified
 
 ;Результаты измерения длины должны быть введены.
 FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
+
+;Настройки - Трубопровод.Тип операции.Контрольная
+JointOperationType_Test=Inspection
+
+;Настройки - Трубопровод.Тип операции.Ремонтная
+JointOperationType_Action= Repair
+
+;Настройки - Трубопровод.Тип операции.Сварка
+JointOperationType_Weld=Weld
+
+;Настройки - Трубопровод.Тип операции.Вырезка стыка
+JointOperationType_Withdraw=Withdraw

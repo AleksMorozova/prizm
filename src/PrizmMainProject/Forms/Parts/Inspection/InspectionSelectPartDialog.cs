@@ -12,6 +12,8 @@ using Prizm.Main.Forms.Parts.Search;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using Prizm.Main.Common;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -20,6 +22,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
     {
         BindingList<Part> parts;
         PartInspectionViewModel viewModel;
+        private List<string> localizedPartTypes = new List<string>();
         public InspectionSelectPartDialog(BindingList<Part> parts, PartInspectionViewModel viewModel)
         {
             this.parts = parts;
@@ -32,6 +35,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void NumbersDialog_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
+            {
+                localizedPartTypes.Add(item.Item2);
+            }
             searchResults.DataSource = parts;
         }
 
@@ -47,6 +54,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 // grid column headers
                 new LocalizedItem(numberCol, StringResources.InspectionSelectPartDialog_NumberColumnHeader.Id),
                 new LocalizedItem(typeCol, StringResources.InspectionSelectPartDialog_TypeColumnHeader.Id),
+                //grid column with enum
+                new LocalizedItem(searchResultsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id})
             };
         }
 
@@ -59,6 +68,18 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 viewModel.SelectedElement = selectedElement;
             }
             this.Close();
+        }
+
+        private void searchResultsView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == typeCol.Name && e.Value != null)
+            {
+                PartType result;
+                if (Enum.TryParse<PartType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedPartTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
         }
 
     }

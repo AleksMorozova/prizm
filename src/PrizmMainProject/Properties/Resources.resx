@@ -1102,6 +1102,18 @@
   <data name="SelectWeldersForOperationHeader" xml:space="preserve">
     <value>Ошибка создания сварочной операции</value>
   </data>
+  <data name="JointOperationType_Action" xml:space="preserve">
+    <value>Ремонтная</value>
+  </data>
+  <data name="JointOperationType_Test" xml:space="preserve">
+    <value>Контрольная</value>
+  </data>
+  <data name="JointOperationType_Weld" xml:space="preserve">
+    <value>Сварка</value>
+  </data>
+  <data name="JointOperationType_Withdraw" xml:space="preserve">
+    <value>Вырезка стыка</value>
+  </data>
   <data name="FixedCategoryLengthPassed" xml:space="preserve">
     <value>Результаты измерения длины должны быть введены.</value>
   </data>
