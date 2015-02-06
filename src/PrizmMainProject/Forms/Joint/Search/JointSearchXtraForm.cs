@@ -189,7 +189,7 @@ namespace Prizm.Main.Forms.Joint.Search
                 JointStatus result;
                 if (Enum.TryParse<JointStatus>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = localizedJointStatuses[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == JointStatus.Undefined) ? "" : localizedJointStatuses[(int)result - 1]; //-1 because we skip 0
                 }
             }
         }
