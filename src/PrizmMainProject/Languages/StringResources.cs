@@ -449,6 +449,193 @@ namespace Prizm.Main.Languages
              Description = "Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?"
          };
 
+         public static StringResource Menu_File = new StringResource
+         {
+             Id = "Menu_File",
+             Description = "Главное меню, пункт Файл"
+         };
+
+         public static StringResource Menu_File_Export = new StringResource
+         {
+             Id = "Menu_File_Export",
+             Description = "Главное меню, пункт Экспорт"
+         };
+         public static StringResource Menu_File_Import = new StringResource
+         {
+             Id = "Menu_File_Import",
+             Description = "Главное меню, пункт Импорт"
+         };
+         public static StringResource Menu_File_Exit = new StringResource
+         {
+             Id = "Menu_File_Exit",
+             Description = "Главное меню, пункт Выход"
+         };
+         public static StringResource Menu_Mill = new StringResource
+         {
+             Id = "Menu_Mill",
+             Description = "Главное меню, пункт Завод"
+         };
+         public static StringResource Menu_Mill_NewPipe = new StringResource
+         {
+             Id = "Menu_Mill_NewPipe",
+             Description = "Главное меню, пункт Новая труба"
+         };
+         public static StringResource Menu_Mill_SearchPipes = new StringResource
+         {
+             Id = "Menu_Mill_SearchPipes",
+             Description = "Главное меню, пункт Поиск труб"
+         };
+         public static StringResource Menu_Mill_NewReleaseNote = new StringResource
+         {
+             Id = "Menu_Mill_NewReleaseNote",
+             Description = "Главное меню, пункт Разрешение на отгрузку"
+         };
+         public static StringResource Menu_Mill_SearchReleaseNotes = new StringResource
+         {
+             Id = "Menu_Mill_SearchReleaseNotes",
+             Description = "Главное меню, пункт Поиск разрешений на отгрузку"
+         };
+         public static StringResource Menu_Mill_Reports = new StringResource
+         {
+             Id = "Menu_Mill_Reports",
+             Description = "Главное меню, пункт Отчёты на заводе"
+         };
+         public static StringResource Menu_Construction = new StringResource
+         {
+             Id = "Menu_Construction",
+             Description = "Главное меню, пункт Строительство и входной контроль"
+         };
+         public static StringResource Menu_Construction_NewComponent = new StringResource
+         {
+             Id = "Menu_Construction_NewComponent",
+             Description = "Главное меню, пункт Создать комплектующее"
+         };
+         public static StringResource Menu_Construction_NewJoint = new StringResource
+         {
+             Id = "Menu_Construction_NewJoint",
+             Description = "Главное меню, пункт Создать стык"
+         };
+         public static StringResource Menu_Construction_PartIncomingInspection = new StringResource
+         {
+             Id = "Menu_Construction_PartIncomingInspection",
+             Description = "Главное меню, пункт Входной контроль элементов трубопровода"
+         };
+         public static StringResource Menu_Construction_FindParts = new StringResource
+         {
+             Id = "Menu_Construction_FindParts",
+             Description = "Главное меню, пункт Поиск элементов трубопровода"
+         };
+         public static StringResource Menu_Construction_FindJoints = new StringResource
+         {
+             Id = "Menu_Construction_FindJoints",
+             Description = "Главное меню, пункт Поиск стыков"
+         };
+         public static StringResource Menu_Construction_Spool = new StringResource
+         {
+             Id = "Menu_Construction_Spool",
+             Description = "Главное меню, пункт Катушки"
+         };
+         public static StringResource Menu_Construction_InspectionReports = new StringResource
+         {
+             Id = "Menu_Construction_InspectionReports",
+             Description = "Главное меню, пункт Отчёты на входном контроле"
+         };
+         public static StringResource Menu_Construction_PipeReports = new StringResource
+         {
+             Id = "Menu_Construction_PipeReports",
+             Description = "Главное меню, пункт Отчёты по трубам на стройке"
+         };
+         public static StringResource Menu_Construction_WeldReports = new StringResource
+         {
+             Id = "Menu_Construction_WeldReports",
+             Description = "Главное меню, пункт Отчёты по сварке (по дате)"
+         };
+         public static StringResource Menu_Construction_JointPKReports = new StringResource
+         {
+             Id = "Menu_Construction_JointPKReports",
+             Description = "Главное меню, пункт Отчёты по сварке участка между пикетами"
+         };
+         public static StringResource Menu_Settings = new StringResource
+         {
+             Id = "Menu_Settings",
+             Description = "Главное меню, пункт Настройки"
+         };
+         public static StringResource Menu_Settings_Project = new StringResource
+         {
+             Id = "Menu_Settings_Project",
+             Description = "Главное меню, настройки, пункт Проект"
+         };
+         public static StringResource Menu_Settings_Pipe = new StringResource
+         {
+             Id = "Menu_Settings_Pipe",
+             Description = "Главное меню, настройки, пункт Труба"
+         };
+         public static StringResource Menu_Settings_Pipeline = new StringResource
+         {
+             Id = "Menu_Settings_Pipeline",
+             Description = "Главное меню, настройки, пункт Трубопровод"
+         };
+         public static StringResource Menu_Settings_Componentry = new StringResource
+         {
+             Id = "Menu_Settings_Componentry",
+             Description = "Главное меню, настройки, пункт Комплектующие"
+         };
+         public static StringResource Menu_Settings_Welders = new StringResource
+         {
+             Id = "Menu_Settings_Welders",
+             Description = "Главное меню, настройки, пункт Сварщики"
+         };
+         public static StringResource Menu_Settings_Inspectors = new StringResource
+         {
+             Id = "Menu_Settings_Inspectors",
+             Description = "Главное меню, настройки, пункт Инспекторы"
+         };
+         public static StringResource Menu_Settings_Users = new StringResource
+         {
+             Id = "Menu_Settings_Users",
+             Description = "Главное меню, настройки, пункт Пользователи"
+         };
+         public static StringResource Menu_Settings_Roles = new StringResource
+         {
+             Id = "Menu_Settings_Roles",
+             Description = "Главное меню, настройки, пункт Роли"
+         };
+         public static StringResource Menu_Settings_Language = new StringResource
+         {
+             Id = "Menu_Settings_Language",
+             Description = "Главное меню, настройки, пункт Язык"
+         };
+         public static StringResource Menu_Misc = new StringResource
+         {
+             Id = "Menu_Misc",
+             Description = "Главное меню, настройки, пункт Разное"
+         };
+         public static StringResource Menu_Misc_Audit = new StringResource
+         {
+             Id = "Menu_Misc_Audit",
+             Description = "Главное меню, настройки, пункт Аудит"
+         };
+         public static StringResource Menu_Misc_ImportantMessages = new StringResource
+         {
+             Id = "Menu_Misc_ImportantMessages",
+             Description = "Главное меню, настройки, пункт Важные сообщения"
+         };
+         public static StringResource Menu_Help = new StringResource
+         {
+             Id = "Menu_Help",
+             Description = "Главное меню, настройки, пункт Помощь"
+         };
+         public static StringResource Menu_Help_About = new StringResource
+         {
+             Id = "Menu_Help_About",
+             Description = "Главное меню, настройки, пункт О программе"
+         };
+
+         public static StringResource MainWindow_StatusNotificationsHeader = new StringResource
+         {
+             Id = "MainWindow_StatusNotificationsHeader",
+             Description = "Текст на панели статуса: Важные сообщения "
+         };
          #endregion //--- Main Window ---
 
         #region PurchaseOrderForm
