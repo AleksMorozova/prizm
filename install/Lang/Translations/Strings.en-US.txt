@@ -906,7 +906,7 @@ Export_CreatingArchive=Creating archive
 ;[{0}] Ошибка {1}
 Export_Error=Error {1}
 
-;PRIZM archives|*.prizm
+;PRISM archives
 Export_Filter=PRIZM archives|*.prizm
 
 ;Нет новых данных для экспортирования.
