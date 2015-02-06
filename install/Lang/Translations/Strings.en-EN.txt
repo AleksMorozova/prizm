@@ -2059,10 +2059,10 @@ TestResultTypeString=String
 ConstractionReport_ReportTypeTracingReport= Tracing report
 
 ;Настройки - Трубопровод.Тип операции.Контрольная
-JointOperationType_Test=Control operation
+JointOperationType_Test=Inspection
 
 ;Настройки - Трубопровод.Тип операции.Ремонтная
-JointOperationType_Action= Repair operation
+JointOperationType_Action= Repair
 
 ;Настройки - Трубопровод.Тип операции.Сварка
 JointOperationType_Weld=Weld
