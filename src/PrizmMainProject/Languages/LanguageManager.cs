@@ -66,9 +66,9 @@ namespace Prizm.Main.Languages
             List<string> translationFiles = new List<string>();
             var installedCultures = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
 
-            if (Directory.Exists(Directories.Languages))
+            if (Directory.Exists(Directories.LanguagesResources))
             {
-                IEnumerable<string> directoryFiles = Directory.EnumerateFiles(Directories.Languages, "*.??-??.resources", SearchOption.TopDirectoryOnly);
+                IEnumerable<string> directoryFiles = Directory.EnumerateFiles(Directories.LanguagesResources, "*.??-??.resources", SearchOption.TopDirectoryOnly);
                 foreach (var file in directoryFiles)
                 {
                     string[] tmp = file.Split('.');
