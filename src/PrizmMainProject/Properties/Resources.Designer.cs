@@ -61,7 +61,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRIZM – программа полного цикла управления 
+        ///   Looks up a localized string similar to PRISM – программа полного цикла управления 
         ///процессом производства, транспортировки 
         ///и строительства промышленных труб..
         /// </summary>
@@ -453,7 +453,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRIZM archives|*.prizm.
+        ///   Looks up a localized string similar to PRISM archives|*.prism.
         /// </summary>
         internal static string Export_Filter {
             get {

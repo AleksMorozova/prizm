@@ -173,7 +173,7 @@
     <value>Контольная операция трубы</value>
   </data>
   <data name="Export_Filter" xml:space="preserve">
-    <value>PRIZM archives|*.prizm</value>
+    <value>PRISM archives|*.prism</value>
   </data>
   <data name="SecurityPrivilege_ExportDataFromMill" xml:space="preserve">
     <value>Экспорт данных на заводе</value>

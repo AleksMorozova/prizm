@@ -832,7 +832,7 @@ Audit_RadioPeriod=Period
 Audit_RadioUser=User
 
 ;Текст в окне "О программе "
-AboutForm_TitleLabel=PRIZM is an application for full cycle process management of production, transportation and construction of industrial pipes.
+AboutForm_TitleLabel=PRISM is an application for full cycle process management of production, transportation and construction of industrial pipes.
 
 ;Текст перед версией программы в окне "О программе "
 About_VersionLabel=Version
