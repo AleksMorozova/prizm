@@ -5,8 +5,8 @@
 #include "version.txt"
 #define MyAppPublisher ""
 #define MyAppURL ""
-#define MyAppExeName "Prizm.Program.exe"
-#define MyAppMigratorExeName "Prizm.DatabaseMigrator.exe"
+#define MyAppExeName "Prism.Program.exe"
+#define MyAppMigratorExeName "Prism.DatabaseMigrator.exe"
 #define MyAppExeConfigName MyAppExeName + ".config"
 #define MyAssemblyVersionString StringChange(MyAppVersion, ".", "_")
 #define DevExpressPath GetEnv('DEV_EXPRESS14_PATH')
