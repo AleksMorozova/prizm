@@ -1117,4 +1117,10 @@
   <data name="prizm" xml:space="preserve">
     <value>|*.prism</value>
   </data>
+  <data name="FixedCategoryLengthPassed" xml:space="preserve">
+    <value>Результаты измерения длины должны быть введены.</value>
+  </data>
+  <data name="FixedCategoryLengthPassedHeader" xml:space="preserve">
+    <value>Не заданы результаты измерений</value>
+  </data>
 </root>
