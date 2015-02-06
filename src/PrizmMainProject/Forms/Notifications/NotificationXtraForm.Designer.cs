@@ -41,16 +41,16 @@ namespace PrizmMain.Forms.Notifications
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlNotification = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlMessage = new DevExpress.XtraGrid.GridControl();
-            this.notificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.notificationBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewNotification = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colImage = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNotification = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemNotification = new DevExpress.XtraLayout.LayoutControlItem();
             this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -123,7 +123,8 @@ namespace PrizmMain.Forms.Notifications
             this.gridViewNotification.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colImage,
             this.colName,
-            this.colNotification});
+            this.colNotification,
+            this.colDate});
             this.gridViewNotification.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewNotification.GridControl = this.gridControlMessage;
             this.gridViewNotification.Name = "gridViewNotification";
@@ -150,7 +151,7 @@ namespace PrizmMain.Forms.Notifications
             this.colName.FieldName = "OwnerName";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 1;
+            this.colName.VisibleIndex = 2;
             this.colName.Width = 212;
             // 
             // colNotification
@@ -159,8 +160,16 @@ namespace PrizmMain.Forms.Notifications
             this.colNotification.FieldName = "Message";
             this.colNotification.Name = "colNotification";
             this.colNotification.Visible = true;
-            this.colNotification.VisibleIndex = 2;
+            this.colNotification.VisibleIndex = 3;
             this.colNotification.Width = 574;
+            // 
+            // colDate
+            // 
+            this.colDate.Caption = "Дата";
+            this.colDate.FieldName = "DateToOccur";
+            this.colDate.Name = "colDate";
+            this.colDate.Visible = true;
+            this.colDate.VisibleIndex = 1;
             // 
             // layoutControlGroup4
             // 
@@ -280,5 +289,6 @@ namespace PrizmMain.Forms.Notifications
 
 
         #endregion
+        private GridColumn colDate;
     }
 }

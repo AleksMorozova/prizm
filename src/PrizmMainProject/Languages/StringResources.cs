@@ -12,6 +12,29 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+
+        public static StringResource SelectInspectorsForTestResult = new StringResource
+        {
+            Id = "SelectInspectorsForTestResult",
+            Description = "Сообщение - Укажите инспектора"
+        };
+        public static StringResource SelectInspectorsForTestResultHeader = new StringResource
+        {
+            Id = "SelectInspectorsForTestResultHeader",
+            Description = "Заголовок сообщения - Укажите инспектора"
+        };
+
+        public static StringResource SelectWeldersForOperation = new StringResource
+        {
+            Id = "SelectWeldersForOperation",
+            Description = "Сообщение - Укажите сварщика"
+        };
+        public static StringResource SelectWeldersForOperationHeader = new StringResource
+        {
+            Id = "SelectWeldersForOperationHeader",
+            Description = "Заголовок сообщения - Укажите сварщика"
+        };
+
         public static StringResource FirstEnterDate = new StringResource
         {
             Id = "FirstEnterDate",
@@ -150,13 +173,13 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspectionStatus_Hold = new StringResource
         {
             Id = "PartInspectionStatus_Hold",
-            Description = "Статус на входном контроле. Задержан"
+            Description = "Статус на входном контроле. Задержано"
         };
 
         public static StringResource PartInspectionStatus_Rejected = new StringResource
         {
             Id = "PartInspectionStatus_Rejected",
-            Description = "Статус на входном контроле. Отклонено"
+            Description = "Статус на входном контроле. Брак"
         };
 
         public static StringResource PartInspectionStatus_Accepted = new StringResource
@@ -165,7 +188,6 @@ namespace Prizm.Main.Languages
             Description = "Статус на входном контроле. Принято"
         };
         #endregion
-
 
         #region --- Workstation types ---
         public static StringResource WorkstationType_Undefined = new StringResource
@@ -191,6 +213,34 @@ namespace Prizm.Main.Languages
             Id = "WorkstationType_Construction",
             Description = "Тип рабочей станции. Строительство"
         };
+        #endregion
+
+        #region --- Pipe test result statuses ---
+        public static StringResource PipeTestResultStatus_Scheduled = new StringResource
+        {
+            Id = "PipeTestResultStatus_Scheduled",
+            Description = "Результат контрольной операции. Ожидается"
+        };
+
+        public static StringResource PipeTestResultStatus_Passed = new StringResource
+        {
+            Id = "PipeTestResultStatus_Passed",
+            Description = "Результат контрольной операции. Принят"
+        };
+
+        public static StringResource PipeTestResultStatus_Failed = new StringResource
+        {
+            Id = "PipeTestResultStatus_Failed",
+            Description = "Результат контрольной операции. Брак"
+        };
+
+        public static StringResource PipeTestResultStatus_Repair = new StringResource
+        {
+            Id = "PipeTestResultStatus_Repair",
+            Description = "Результат контрольной операции. Ремонт"
+        };
+
+
         #endregion
 
         //messages 
@@ -252,6 +302,18 @@ namespace Prizm.Main.Languages
         {
             Id = "ExternalFiles_FileDownloadHeader",
             Description = "Загрузка файла"
+        };
+
+        public static StringResource ExternalFiles_NotCopied = new StringResource
+        {
+            Id = "ExternalFiles_NotCopied",
+            Description = "Прикрепленные файлы не сохранены"
+        };
+
+        public static StringResource ExternalFiles_NotCopied_Header = new StringResource
+        {
+            Id = "ExternalFiles_NotCopied_Header",
+            Description = "Ошибка сохранения прикрепленных файлов"
         };
 
         public static StringResource ExternalFiles_FileDownloadSuccess = new StringResource
@@ -1112,6 +1174,29 @@ namespace Prizm.Main.Languages
             Description = "Настройки - Трубопровод. Активность операции"
         };
 
+        public static StringResource JointOperationType_Test = new StringResource
+        {
+            Id = "JointOperationType_Test",
+            Description = "Настройки - Трубопровод.Тип операции.Контрольная"
+        };
+
+        public static StringResource JointOperationType_Action = new StringResource
+        {
+            Id = "JointOperationType_Action",
+            Description = "Настройки - Трубопровод.Тип операции.Ремонтная"
+        };
+
+        public static StringResource JointOperationType_Weld = new StringResource
+        {
+            Id = "JointOperationType_Weld",
+            Description = "Настройки - Трубопровод.Тип операции.Сварка"
+        };
+
+        public static StringResource JointOperationType_Withdraw = new StringResource
+        {
+            Id = "JointOperationType_Withdraw",
+            Description = "Настройки - Трубопровод.Тип операции.Вырезка стыка"
+        };
         //component page
 
         public static StringResource SettingsComponent_PartsType = new StringResource
@@ -2653,6 +2738,7 @@ namespace Prizm.Main.Languages
         #endregion //--- SelectDiameterDialog ---
 
         #region --- MillInspectionXtraForm ---
+
         public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
             Id = "MillInspection_FrequencyMeasureMeters", 
             Description = "Настройка контрольных опрераций завода. Мера измерения метры"};
@@ -3755,6 +3841,13 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об окончании срока: Сертификат просрочен"
         };
 
+        public static StringResource Notification_WelderCertificateExpired_Warning = new StringResource
+        {
+            Id = "Notification_WelderCertificateExpired_Warning",
+            Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
+        };
+ 
+        
         #endregion //--- Notification ---
     }
 } 

@@ -42,7 +42,9 @@ namespace Prizm.Main.Forms.Settings
         private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
-
+        private List<string> localizedPipeTestControlTypes = new List<string>();
+        private List<string> localizedPipeTestResultTypes = new List<string>();
+        private List<string> localizedJointOperationTypes = new List<string>();
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -61,6 +63,18 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0:true))
+            {
+                localizedPipeTestControlTypes.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
+            {
+                localizedPipeTestResultTypes.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0: true))
+            {
+                localizedJointOperationTypes.Add(item.Item2);
+            }
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
@@ -151,6 +165,8 @@ namespace Prizm.Main.Forms.Settings
             rolesBindingSource.ListChanged += (s, e) => IsModified = true;
 
             permissionsBindingSource.DataSource = viewModel.Permissions;
+
+            gridControlPermission.DataSource = viewModel.Permissions;
 
             usersBindingSource.DataSource = viewModel.Users;
 
@@ -331,6 +347,21 @@ namespace Prizm.Main.Forms.Settings
 
                 new LocalizedItem(saveButton, "Settings_SaveButton"),
                 new LocalizedItem(closeButton, "Settings_CloseButton"),
+                
+                //grid columns with enums
+                new LocalizedItem(inspectionView, localizedPipeTestControlTypes, new string [] {StringResources.ControlTypeWitness.Id,
+                                                                                         StringResources.ControlTypeReview.Id,
+                                                                                         StringResources.ControlTypeMonitor.Id,
+                                                                                         StringResources.ControlTypeHold.Id}),
+                new LocalizedItem (inspectionView, localizedPipeTestResultTypes, new string [] {StringResources.TestResultTypeBoolean.Id,
+                                                                                                  StringResources.TestResultTypeRange.Id,
+                                                                                                  StringResources.TestResultTypeString.Id }),
+                //repository lookup edit
+                new LocalizedItem(jointOperationTypeLookUpEdit, localizedJointOperationTypes, new string[] {StringResources.JointOperationType_Test.Id,
+                                                                                                            StringResources.JointOperationType_Action.Id,
+                                                                                                            StringResources.JointOperationType_Weld.Id,
+                                                                                                            StringResources.JointOperationType_Withdraw.Id})
+                                                                                         
             };
         }
 
@@ -721,7 +752,7 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView;
             var role = gridViewRole.GetFocusedRow() as Role;
-
+            
             if(role == null)
                 return;
 
@@ -740,11 +771,11 @@ namespace Prizm.Main.Forms.Settings
                     }
                     break;
                 case CollectionChangeAction.Remove:
-                    viewModel.RemovePermissionFromRole(role, p);
+                        viewModel.RemovePermissionFromRole(role, p);
                     break;
             }
         }
-
+        
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
@@ -829,8 +860,8 @@ namespace Prizm.Main.Forms.Settings
                             viewModel.AddRoleToUser(role, user);
                             break;
                         case CollectionChangeAction.Remove:
-                            viewModel.RemoveRoleFromUser(role, user);
-                            break;
+                                viewModel.RemoveRoleFromUser(role, user);
+                        break;
                     }
                 }
             }
@@ -1059,13 +1090,17 @@ namespace Prizm.Main.Forms.Settings
         {
             bool codeValidate = true;
             bool pipeSizeValidate = true;
+            bool administratorCanEditSettingsValidation = 
+                    AdministatorCanEditSettingsValidation();
 
             if(pipeLayoutControlGroup.Tag != null)
             {
                 codeValidate = CodeValidation();
                 pipeSizeValidate = PipeSizeValidation();
             }
-            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate;
+
+            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate
+                && administratorCanEditSettingsValidation;
         }
 
         private bool PipeSizeValidation()
@@ -1107,6 +1142,32 @@ namespace Prizm.Main.Forms.Settings
             }
             codeValidate = PipeTestsCheck();
             return codeValidate;
+        }
+
+        /// <summary>
+        /// Checks whether user that was created
+        /// in initial settings has edit settings permission
+        /// or not
+        /// </summary>
+        private bool AdministatorCanEditSettingsValidation()
+        {
+            bool administatorCanEditSettings = true;
+            for (int userRowHandle = 0; userRowHandle < gridViewUsers.RowCount; userRowHandle++)
+            {
+                var user = gridViewUsers.GetRow(userRowHandle) as User;
+
+                if (user != null &&
+                    user.Undeletable == true)
+                {
+                    administatorCanEditSettings = user.Roles
+                        .Any(x => x.Permissions
+                            .Any(y => (Privileges)Enum.Parse(typeof(Privileges), y.Name) == Privileges.EditSettings));
+
+                    if (administatorCanEditSettings)
+                        break;
+                }
+            }
+            return administatorCanEditSettings;
         }
 
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1343,6 +1404,47 @@ namespace Prizm.Main.Forms.Settings
         private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             ValidateName(certificateTypesView, certificateNameColumn, e);
+        }
+
+        private void inspectionView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == controlTypeGridColumn.Name && e.Value != null)
+            {
+                PipeTestControlType result;
+                if (Enum.TryParse<PipeTestControlType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedPipeTestControlTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+            if (e.Column.Name == resultTypeGridColumn.Name && e.Value != null)
+            {
+                PipeTestResultType result;
+                if (Enum.TryParse<PipeTestResultType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedPipeTestResultTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+        }
+
+        private void jointOperationTypeLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                JointOperationType result;
+                if (Enum.TryParse<JointOperationType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedJointOperationTypes[(int)result - 1];
+                }
+            }
+        }
+
+        private void jointOperationTypeLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lookup = sender as LookUpEdit;
+            if (lookup.ItemIndex != -1)
+            {
+                lookup.EditValue = (JointOperationType)lookup.ItemIndex + 1;
+            }
         }
 
     }

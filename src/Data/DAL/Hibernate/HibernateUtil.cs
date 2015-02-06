@@ -12,9 +12,12 @@ namespace Prizm.Data.DAL.Hibernate
     public class HibernateUtil
     {
         private static ISessionFactory sessionFactory;
+        private static bool isImport = false;
+        public static bool Import { get { return isImport; } }
         public  static PersonName CurrentUser { get; set; }
-        public static void Initialize(string connectionString)
+        public static void Initialize(string connectionString, bool import)
         {
+            isImport = import;
             try
             {
                 sessionFactory = Fluently.Configure()

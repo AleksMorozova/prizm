@@ -3,6 +3,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,20 +24,32 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
+            this.SetupViewModelState(tests, inspectors, current, statuses);
+        }
+
+        public void SetupViewModelState(
+            IList<PipeTest> tests, 
+            IList<Inspector> inspectors, 
+            PipeTestResult current, 
+            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
             this.availableTests = tests;
             this.inspectors = inspectors;
             this.statuses = statuses;
-            if(current == null)
+            if (current == null)
             {
-                TestResult = new PipeTestResult() { Status = PipeTestResultStatus.Scheduled };
+                TestResult = new PipeTestResult();
                 TestResult.Operation = new PipeTest();
-                //TODO: Check availableTests is null
-                TestResult.Operation = this.availableTests[0];
+                TestResult.Status = PipeTestResultStatus.Scheduled;
+                TestResult.Operation = new PipeTest();
+
+                if (this.availableTests != null && this.availableTests.Count > 0)
+                    TestResult.Operation = this.availableTests[0];
             }
             else
             {
                 TestResult = current;
-                switch(current.Operation.ResultType)
+                switch (current.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
                         factBool = (current.Value != null && current.Value.Equals("True")) ? true : false;
@@ -54,7 +67,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
                 status = current.Status;
             }
-            if(testResult.Value == null)
+            if (testResult.Value == null)
             {
                 testResult.Value = string.Empty;
             }
@@ -147,7 +160,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 switch(testResult.Operation.ResultType)
                 {
                     case PipeTestResultType.Boolean:
-                        expStr = (testResult.Operation.BoolExpected) ? "Да" : "Нет";
+                        expStr = (testResult.Operation.BoolExpected) ? Program.LanguageManager.GetString(StringResources.Yes) : Program.LanguageManager.GetString(StringResources.No);
                         break;
                     case PipeTestResultType.String:
                         expStr = testResult.Operation.StringExpected;
@@ -291,6 +304,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
 
         #endregion
+
+        public int StatusIndex
+        {
+            get { return (int)Status - 1; }
+            set
+            {
+                if (value != (int)Status - 1)
+                {
+                    Status = (PipeTestResultStatus)value + 1;
+                    RaisePropertyChanged("StatusIndex");
+                }
+            }
+        }
 
         internal void ChangeTest(string code)
         {

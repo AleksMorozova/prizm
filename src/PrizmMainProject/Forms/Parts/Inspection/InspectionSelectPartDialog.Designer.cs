@@ -108,6 +108,7 @@
             this.searchResultsView.OptionsNavigation.UseTabKey = false;
             this.searchResultsView.OptionsView.ShowGroupPanel = false;
             this.searchResultsView.OptionsView.ShowIndicator = false;
+            this.searchResultsView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.searchResultsView_CustomColumnDisplayText);
             // 
             // numberCol
             // 

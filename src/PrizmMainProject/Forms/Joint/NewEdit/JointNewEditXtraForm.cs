@@ -43,6 +43,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         BindingList<EnumWrapper<JointTestResultStatus>> availableResults = new BindingList<EnumWrapper<JointTestResultStatus>>();
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+        private ExternalFilesXtraForm filesForm = null;
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private void UpdateTextEdit()
@@ -88,15 +89,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void extraFiles_Click(object sender, System.EventArgs e)
         {
-            ExternalFilesXtraForm filesForm = new ExternalFilesXtraForm(viewModel.Joint.Id,IsEditMode);
-            if (viewModel.FilesFormViewModel == null)
+            if (filesForm == null)
             {
+                filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             }
-            else
-            {
-                filesForm.ViewModel = viewModel.FilesFormViewModel;
-            }
+            filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
 
@@ -528,6 +527,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         bool IValidatable.Validate()
         {
+            // validation for required weld operation
             if (viewModel.JointWeldResults.Count > 0)
             {
                 repairOperationsView_ValidateRow(
@@ -535,15 +535,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                new DevExpress.XtraGrid.Views.Base
                                    .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
             }
-            return dxValidationProvider.Validate() &&
-                   viewModel.JointWeldResults.Where(_ => _.Date == null ||
-                                                    _.Operation == null ||
-                                                    (_.Operation.Type == JointOperationType.Weld
-                                                    && _.Welders.Count == 0)).Count() <= 0 &&
-                   viewModel.JointTestResults.Where(_ => _.Operation == null ||
-                                                    _.Date == null ||
-                                                    _.Inspectors.Count == 0 ||
-                                                    _.Status == 0).Count() <= 0;                    
+            return dxValidationProvider.Validate();
         }
 
         #endregion

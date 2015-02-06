@@ -61,8 +61,8 @@ namespace Prizm.UnitTests.Forms.Parts
            
             command.Execute();
 
-            repoInspectionTestResult.Verify(_ => _.BeginTransaction(), Times.Once);
-            repoInspectionTestResult.Verify(_ => _.SaveOrUpdate(It.IsAny<InspectionTestResult>()), Times.AtLeastOnce);
+            repoInspectionTestResult.Verify(_ => _.BeginTransaction(), Times.Once());
+            repoInspectionTestResult.Verify(_ => _.SaveOrUpdate(It.IsAny<InspectionTestResult>()), Times.AtLeastOnce());
 
         }
     }

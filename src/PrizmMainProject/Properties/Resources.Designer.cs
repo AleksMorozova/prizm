@@ -272,7 +272,7 @@ namespace Prizm.Main.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
-        ///между заданными точками не зависимо от их связности..
+        ///    между заданными точками не зависимо от их связности..
         /// </summary>
         internal static string ConstractionReport_TracingReportInfoLabelText {
             get {
@@ -295,6 +295,42 @@ namespace Prizm.Main.Properties {
         internal static string ControlType {
             get {
                 return ResourceManager.GetString("ControlType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обязательная проверка.
+        /// </summary>
+        internal static string ControlTypeHold {
+            get {
+                return ResourceManager.GetString("ControlTypeHold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Мониторинг.
+        /// </summary>
+        internal static string ControlTypeMonitor {
+            get {
+                return ResourceManager.GetString("ControlTypeMonitor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проверка документов.
+        /// </summary>
+        internal static string ControlTypeReview {
+            get {
+                return ResourceManager.GetString("ControlTypeReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Освидетельствование.
+        /// </summary>
+        internal static string ControlTypeWitness {
+            get {
+                return ResourceManager.GetString("ControlTypeWitness", resourceCulture);
             }
         }
         
@@ -770,6 +806,42 @@ namespace Prizm.Main.Properties {
         internal static string Joint_WithdrawQuestionHeader {
             get {
                 return ResourceManager.GetString("Joint_WithdrawQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ремонтная.
+        /// </summary>
+        internal static string JointOperationType_Action {
+            get {
+                return ResourceManager.GetString("JointOperationType_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная.
+        /// </summary>
+        internal static string JointOperationType_Test {
+            get {
+                return ResourceManager.GetString("JointOperationType_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сварка.
+        /// </summary>
+        internal static string JointOperationType_Weld {
+            get {
+                return ResourceManager.GetString("JointOperationType_Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string JointOperationType_Withdraw {
+            get {
+                return ResourceManager.GetString("JointOperationType_Withdraw", resourceCulture);
             }
         }
         
@@ -1462,7 +1534,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Неопределен.
+        ///   Looks up a localized string similar to Не определен.
         /// </summary>
         internal static string NewEditPipe_PipeStatusUndefined {
             get {
@@ -1485,6 +1557,15 @@ namespace Prizm.Main.Properties {
         internal static string NewOrderCombo {
             get {
                 return ResourceManager.GetString("NewOrderCombo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -1521,6 +1602,15 @@ namespace Prizm.Main.Properties {
         internal static string Notification_WelderCertificateExpired_Critical {
             get {
                 return ResourceManager.GetString("Notification_WelderCertificateExpired_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заканчивается срок сертификата.
+        /// </summary>
+        internal static string Notification_WelderCertificateExpired_Warning {
+            get {
+                return ResourceManager.GetString("Notification_WelderCertificateExpired_Warning", resourceCulture);
             }
         }
         
@@ -1598,7 +1688,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отклонено.
+        ///   Looks up a localized string similar to Брак.
         /// </summary>
         internal static string PartInspectionStatus_Rejected {
             get {
@@ -2459,6 +2549,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Укажите инспектора.
+        /// </summary>
+        internal static string SelectInspectorsForTestResult {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка ввода контрольной операции.
+        /// </summary>
+        internal static string SelectInspectorsForTestResultHeader {
+            get {
+                return ResourceManager.GetString("SelectInspectorsForTestResultHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Укажите сварщика для операции.
+        /// </summary>
+        internal static string SelectWeldersForOperation {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка создания сварочной операции.
+        /// </summary>
+        internal static string SelectWeldersForOperationHeader {
+            get {
+                return ResourceManager.GetString("SelectWeldersForOperationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Проверьте значения.
+        /// </summary>
+        internal static string Settings_CheckValues {
+            get {
+                return ResourceManager.GetString("Settings_CheckValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        internal static string Settings_ErrorHeader {
+            get {
+                return ResourceManager.GetString("Settings_ErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранение настроек.
         /// </summary>
         internal static string Settings_SetupSavedHeader {
@@ -2689,6 +2833,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Логический.
+        /// </summary>
+        internal static string TestResultTypeBoolean {
+            get {
+                return ResourceManager.GetString("TestResultTypeBoolean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Диапазон.
+        /// </summary>
+        internal static string TestResultTypeRange {
+            get {
+                return ResourceManager.GetString("TestResultTypeRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Строка.
+        /// </summary>
+        internal static string TestResultTypeString {
+            get {
+                return ResourceManager.GetString("TestResultTypeString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Объект инспекции.
         /// </summary>
         internal static string TestSubject {
@@ -2852,11 +3023,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Неоперделен.
+        ///   Looks up a localized string similar to Не определен.
         /// </summary>
         internal static string WorkstationType_Undefined {
             get {
                 return ResourceManager.GetString("WorkstationType_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Да.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

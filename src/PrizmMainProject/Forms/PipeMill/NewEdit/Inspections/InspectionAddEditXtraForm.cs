@@ -23,16 +23,44 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     {
         public InspectionAddEditViewModel viewModel;
 
+        private InspectionAddEditViewModel GetInspectionViewModel(
+            IList<PipeTest> tests, 
+            IList<Inspector> inspectors, 
+            PipeTestResult current, 
+            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
+            if (viewModel == null)
+            {
+                viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
+            }
+            else
+            {
+                viewModel.SetupViewModelState(tests, inspectors, current, statuses);
+            }
+
+            return viewModel;
+        }
+
         public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             InitializeComponent();
 
-            viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
+            this.SetupForm(tests, inspectors, current, statuses);
+        }
+
+        public void SetupForm(
+            IList<PipeTest> tests,
+            IList<Inspector> inspectors,
+            PipeTestResult current,
+            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        {
+
+            GetInspectionViewModel(tests, inspectors, current, statuses);
 
             date.Properties.NullDate = DateTime.MinValue;
             date.Properties.NullText = string.Empty;
 
-            if(current != null)
+            if (current != null)
             {
                 ChangeFact();
                 code.Properties.ReadOnly = true;
@@ -41,18 +69,27 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             else
             {
-                foreach(var item in viewModel.Tests)
+                code.Properties.ReadOnly = false;
+                code.Properties.Items.Clear();
+                foreach (var item in viewModel.Tests)
                 {
                     code.Properties.Items.Add(item.Code);
                 }
+
                 this.Text = "Добавление контрольной операции";
             }
-
         }
+
 
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
+            status.Properties.Items.Clear();
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            {
+                status.Properties.Items.Add(item.Item2);
+            }
             BindToViewModel();
+
             status.Text = string.Empty;
             status.EditValue = viewModel.Status;
 
@@ -72,8 +109,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             name.DataBindings.Add("EditValue", bindingSource, "Name");
             expected.DataBindings.Add("EditValue", bindingSource, "Expected");
 
-            status.Properties.DataSource = viewModel.statuses;
-            status.DataBindings.Add("EditValue", bindingSource, "Status");
+            status.DataBindings.Add("SelectedIndex", bindingSource, "StatusIndex");
             date.DataBindings.Add("EditValue", bindingSource, "Date");
 
             factBool.DataBindings.Add("Checked", bindingSource, "FactBool");
@@ -106,7 +142,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(factDiapasonLayoutControlGroup, StringResources.InspectionAddEdit_FactLimitGroup.Id),
 
                 new LocalizedItem(saveButton, StringResources.InspectionAddEdit_SaveButton.Id),
-                new LocalizedItem(cancelButton, StringResources.InspectionAddEdit_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.InspectionAddEdit_CancelButton.Id),
+
+                new LocalizedItem(status, new string [] {StringResources.PipeTestResultStatus_Scheduled.Id, 
+                                                         StringResources.PipeTestResultStatus_Passed.Id,
+                                                         StringResources.PipeTestResultStatus_Failed.Id,
+                                                         StringResources.PipeTestResultStatus_Repair.Id})
             };
         }
 
@@ -124,7 +165,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch(viewModel.TestResult.Operation.ResultType)
+            switch (viewModel.TestResult.Operation.ResultType)
             {
                 case PipeTestResultType.Boolean:
                     factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -144,13 +185,29 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (viewModel.Status != PipeTestResultStatus.Scheduled && inspectors.SelectedInspectors.Count <= 0)
+            {
+                this.DialogResult = DialogResult.None;
+                Program.MainForm.ShowError
+                    (Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader)
+                    );
+            }
+            else
+            {
+                SaveInspection();
+            }
+        }
+
+        private void SaveInspection()
+        {
             viewModel.TestResult.Inspectors = inspectors.SelectedInspectors;
             viewModel.TestResult.Status = viewModel.Status;
-            if(viewModel.Date != DateTime.MinValue)
+            if (viewModel.Date != DateTime.MinValue)
             {
                 viewModel.TestResult.Date = viewModel.Date;
             }
-            switch(viewModel.TestResult.Operation.ResultType)
+            switch (viewModel.TestResult.Operation.ResultType)
             {
                 case PipeTestResultType.Boolean:
                     viewModel.TestResult.Value = viewModel.FactBool.ToString();
@@ -170,14 +227,33 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void factBool_CheckedChanged(object sender, EventArgs e)
         {
-            if(factBool.Checked)
+            if (factBool.Checked)
             {
-                factBool.Text = " [ Да ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + "] ";
             }
             else
             {
-                factBool.Text = " [ Нет ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.No)  + " ] ";
             }
+        }
+
+        private void InspectionAddEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            code.DataBindings.Clear();
+            category.DataBindings.Clear();
+            name.DataBindings.Clear();
+            expected.DataBindings.Clear();
+            status.DataBindings.Clear();
+            date.DataBindings.Clear();
+            factBool.DataBindings.Clear();
+            factString.DataBindings.Clear();
+            factLimit.DataBindings.Clear();
+        }
+
+        private void InspectionAddEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.None)
+                e.Cancel = true;
         }
     }
 }

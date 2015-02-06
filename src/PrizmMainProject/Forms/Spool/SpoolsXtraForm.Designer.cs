@@ -198,6 +198,7 @@
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
+            this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
             // 
             // inspectionDateGridColumn
             // 
@@ -231,9 +232,6 @@
             this.resultLookUpEdit.AutoHeight = false;
             this.resultLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.resultLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Value", "Status")});
-            this.resultLookUpEdit.DisplayMember = "Value";
             this.resultLookUpEdit.Name = "resultLookUpEdit";
             this.resultLookUpEdit.NullText = "";
             this.resultLookUpEdit.EditValueChanged += new System.EventHandler(this.resultLookUpEdit_EditValueChanged);

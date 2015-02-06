@@ -49,7 +49,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var fileRepo = new Mock<IFileRepository>();
-            var fileViewModel = new ExternalFilesViewModel(fileRepo.Object,Guid.Empty, notify.Object);
+            var fileViewModel = new ExternalFilesViewModel(fileRepo.Object, notify.Object);
 
             
             fileViewModel.FilesToAttach.Add("test.txt", "test.txt");
@@ -67,7 +67,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
 
             command.Execute();
             
-            fileRepo.Verify(_ => _.BeginTransaction(), Times.Once);
+            fileRepo.Verify(_ => _.BeginTransaction(), Times.Once());
             fileRepo.Verify(_ => _.Save(It.IsAny<Domain.Entity.File>()), Times.Once());
             fileRepo.Verify(_ => _.Commit(), Times.Once());
             fileRepo.Verify(_ => _.Evict(It.IsAny<Domain.Entity.File>()), Times.Once());

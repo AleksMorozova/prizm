@@ -22,7 +22,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly PartInspectionViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-
+        private int numberOfOperationWithoutInspectors = 0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveInspectionTestResultsCommand(IInspectionTestResultRepository repo, PartInspectionViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
@@ -36,31 +36,48 @@ namespace Prizm.Main.Forms.Parts.Inspection
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            try
+            foreach (InspectionTestResult t in viewModel.InspectionTestResults)
             {
-                viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
-                repo.BeginTransaction();
-                foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
                 {
-                    repo.SaveOrUpdate(itr);
+                    numberOfOperationWithoutInspectors++;
                 }
-                repo.Commit();
-                foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+            }
+            if (numberOfOperationWithoutInspectors==0)
+            {
+                try
                 {
-                    repo.Evict(itr);
-                }
-                notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
+                    viewModel.ConvertedPart.InspectionStatus = viewModel.ConvertedPart.GetPartInspectionStatus();
+                    repo.BeginTransaction();
+                    foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                    {
+                        repo.SaveOrUpdate(itr);
+                    }
+                    repo.Commit();
+                    foreach (InspectionTestResult itr in viewModel.InspectionTestResults)
+                    {
+                        repo.Evict(itr);
+                    }
+                    notify.ShowNotify(string.Concat(Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSaved), viewModel.SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_InspectionsSavedHeader));
 
-                log.Info(string.Format("The Inspection Test Results for entity #{0}, id:{1} has been saved in DB.",
-                    viewModel.SelectedElement.Number,
-                    viewModel.SelectedElement.Id));
+                    log.Info(string.Format("The Inspection Test Results for entity #{0}, id:{1} has been saved in DB.",
+                        viewModel.SelectedElement.Number,
+                        viewModel.SelectedElement.Id));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+                RefreshVisualStateEvent();
             }
-            catch (RepositoryException ex)
+            else 
             {
-                log.Error(ex.Message);
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                notify.ShowError(
+                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                numberOfOperationWithoutInspectors = 0;
             }
-            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()

@@ -48,9 +48,8 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
-        private static uint FramesCanOpen = 20;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PrizmApplicationXtraForm));
-        private readonly Dictionary<string, List<ChildForm>> childForms = new Dictionary<string, List<ChildForm>>();
         private PrizmApplicationViewModel viewModel;
 
         private const string emptyString = "";
@@ -62,195 +61,28 @@ namespace Prizm.Main.Forms.MainChildForm
             InitializeComponent();
             Bitmap bmp = Resources.prizma_appIcon_32;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
+            FormManager.Initialize(this, log);
         }
 
         /// <summary>
-        /// Gives the ChildForm index in corresponding childForms list that contains the element defined by id.
+        /// Old function, will be delete
         /// </summary>
-        /// <param name="formTypeName">string representation of form type name, for example</param>
+        /// <param name="formType"></param>
         /// <param name="id"></param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the
-        /// conditions defined by match, if found; otherwise, –1.</returns>
-        private int GetFormIndex(string formTypeName, Guid id)
-        {
-            int index = 0;
-
-            if (id != Guid.Empty)
-            {
-                index = childForms[formTypeName]
-                    .FindIndex(x => x is INewEditEntityForm && ((INewEditEntityForm)x).IsMatchedByGuid(id));
-            }
-            else
-            {
-                bool isSingleForm =
-                    formTypeName == typeof(SettingsXtraForm).Name ||
-                    formTypeName == typeof(NotificationXtraForm).Name;
-
-                if (!isSingleForm)
-                {
-                    index = -1;
-                }
-            }
-
-            return index;
-        }
-
-        /// <summary>
-        /// Gives any ChildForm index in corresponding childForms list that contains the element having mode equal ReadMode.
-        /// </summary>
-        /// <param name="formTypeName">string representation of form type name</param>
-        /// <param name="ReadMode"></param>
-        /// <returns>The zero-based index of the first occurrence of an element that matches the
-        /// conditions defined by match, if found; otherwise, –1.</returns>
-        private int GetFormIndex(string formTypeName, bool ReadMode)
-        {
-            int index = -1;
-            index = childForms[formTypeName]
-                .FindIndex(x => x.IsEditMode == ReadMode);
-            return index;
-        }
-
-        /// <summary>
-        /// Creates an instance of child form of given form type
-        /// </summary>
-        /// <param name="formType">type of form to be created, for example SettingsXtraForm</param>
-        /// <returns>reference to newly created child form</returns>
-        private ChildForm CreateChildForm(Type formType, Guid id, string number)
-        {
-            ChildForm newlyCreatedForm = null;
-
-            if (FramesCanOpen < 1)
-            {
-                HideProcessing();
-                this.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen), 
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-            }
-            else
-            {
-                if (id == Guid.Empty && number == string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(formType);
-                }
-                else if (id != Guid.Empty && number == string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("id", id));
-                }
-                else if (id == Guid.Empty && number != string.Empty)
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("number", number));
-                }
-                else
-                {
-                    newlyCreatedForm = (ChildForm)Program.Kernel.Get(
-                        formType,
-                        new ConstructorArgument("id", id),
-                        new ConstructorArgument("number", number));
-                }
-
-                childForms[formType.Name].Add(newlyCreatedForm);
-                newlyCreatedForm.MdiParent = this;
-                newlyCreatedForm.FormClosed += ChildClosedEventHandler;
-                FramesCanOpen--;
-            }
-
-            return newlyCreatedForm;
-        }
-
-        /// <summary>
-        /// Cleans child form if it was closed
-        /// </summary>
-        /// <param name="sender">child form expected</param>
-        /// <param name="arguments"></param>
-        public void ChildClosedEventHandler(object sender, EventArgs arguments)
-        {
-            if(typeof(ChildForm).IsAssignableFrom(sender.GetType()))
-            {
-                foreach(var childType in childForms)
-                {
-                    if(childType.Value.Remove((ChildForm)sender))
-                    {
-                        FramesCanOpen++;
-                        break;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Show existing child form.
-        /// </summary>
-        /// <param name="form"></param>
-        private void ShowChildForm(ChildForm form)
-        {
-            try
-            {
-                ShowProcessing();
-                form.Show();
-                form.WindowState = FormWindowState.Normal;
-                form.WindowState = FormWindowState.Maximized;
-            }
-            finally
-            {
-                HideProcessing();
-            }
-        }
-
-        /// <summary>
-        /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
-        /// </summary>
-        /// <param name="formType">exact type of form</param>
-        /// <param name="id">Guid of entity</param>
-        /// <param name="parameters">input parameters passed to the newly created form</param>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public ChildForm OpenChildForm(Type formType, Guid id = default(Guid), string number = emptyString)
         {
-            ChildForm form = null;
-
-            try
+            List<KeyValuePair<string, object>> parametrs = new List<KeyValuePair<string, object>>();
+            if (id != Guid.Empty)
             {
-                ShowProcessing();
-
-                if (typeof(ChildForm).IsAssignableFrom(formType))
-                {
-                    if (!childForms.ContainsKey(formType.Name))
-                    {
-                        childForms.Add(formType.Name, new List<ChildForm>());
-                    }
-
-                    var forms = childForms[formType.Name];
-
-                    int index = GetFormIndex(formType.Name, id);
-
-                    if (index >= 0 && forms.Count > 0)
-                    {
-                        form = forms[index];
-                        form.Activate();
-                    }
-                    else
-                    {
-                        form = CreateChildForm(formType, id, number);
-
-                        if (form != null)
-                        {
-                            ShowChildForm(form);
-                        }
-                    }
-                }
-                else
-                {
-                    var e = new ApplicationException(String.Format("Could not create child form {0} because not of child type.", formType.Name));
-                    log.Error(e.Message);
-                    throw e;
-                }
+                parametrs.Add(new KeyValuePair<string, object>("id", id));
             }
-            finally
+            if (number != string.Empty)
             {
-                HideProcessing();
+                parametrs.Add(new KeyValuePair<string, object>("number", number));
             }
-            return form;
+            return FormManager.Instance.OpenChildForm(formType, parametrs, id);
         }
 
         /// <summary>
@@ -259,109 +91,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="page">number of starting page</param>
         public void CreateSettingsChildForm(int page)
         {
-            try
-            {
-                SettingsXtraForm form = (SettingsXtraForm)OpenChildForm(typeof(SettingsXtraForm));
-
-                if (form != null && form.tabbedControlGroup.TabPages.Count > page)
-                {
-                    form.tabbedControlGroup.SelectedTabPage = form.tabbedControlGroup.TabPages[page];
-                }
-            }
-            finally
-            {
-                HideProcessing();
-            }
+            FormManager.Instance.CreateSettingsChildForm(page);
         }
-
-        public void CreateRailcarForm(Guid id = default(Guid))
-        {
-            ChildForm form = null;
-            try
-            {
-
-                Type formType = typeof(RailcarNewEditXtraForm);
-
-                if (!childForms.ContainsKey(formType.Name))
-                {
-                    childForms.Add(formType.Name, new List<ChildForm>());
-                }
-
-                var forms = childForms[formType.Name];
-
-                if (forms.Count > 0)
-                {
-                    int indexById = GetFormIndex(formType.Name, id);
-
-                    if (indexById >= 0)
-                    {
-                        form = forms[indexById];
-                        form.Activate();
-                    }
-                    else
-                    {
-                        if (id == default(Guid))
-                        {
-                            int indexByEditMode = GetFormIndex(formType.Name, true);
-
-                            if (indexByEditMode >= 0)
-                            {
-                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote); 
-                                ShowWarning(text, "");
-                                form = forms[indexByEditMode];
-                                form.Activate();
-                            }
-                        }
-                        else
-                        {
-                            int indexByEditMode = GetFormIndex(formType.Name, true);
-
-                            if (indexByEditMode >= 0)
-                            {
-                                string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
-                                bool readMode = this.ShowYesNo(text, "");
-                                if (readMode)
-                                {
-                                    ShowProcessing();
-                                    form = CreateChildForm(formType, id, string.Empty);
-                                    if (form != null)
-                                    {
-                                        ((ChildForm)form).IsEditMode = false;
-                                        ShowChildForm(form);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                ShowProcessing();
-                                form = CreateChildForm(formType, id, string.Empty);
-                                if (form != null)
-                                {
-                                    ((ChildForm)form).IsEditMode = true;
-                                    ShowChildForm(form);
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    ShowProcessing();
-                    form = CreateChildForm(formType, id, string.Empty);
-                    if (form != null)
-                    {
-                        ((ChildForm)form).IsEditMode = true;
-                        ShowChildForm(form);
-                    }
-                }
-
-            }
-            finally
-            {
-                HideProcessing();
-            }
-        }
-
 
         #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
@@ -371,7 +102,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateRailcarForm();
+            OpenChildForm(typeof(RailcarNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
@@ -799,15 +530,13 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeChangeLanguage()
         {
             Program.LanguageManager.ChangeLanguage(this);
-            foreach (var childType in childForms)
-            {
-                foreach (var child in childType.Value)
-                {
-                    ILocalizable localizable = child as ILocalizable;
 
-                    Program.LanguageManager.ChangeLanguage(child as ILocalizable);
-                }
+            foreach (var child in FormManager.Instance.ChildForms)
+            {
+                ILocalizable localizable = child as ILocalizable;
+                Program.LanguageManager.ChangeLanguage(child as ILocalizable);
             }
+
         }
 
 
