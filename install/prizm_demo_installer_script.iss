@@ -96,6 +96,8 @@ Source: "{#PrizmExternalPath}\external\Lang\ResGen.exe"; DestDir: "{app}\Languag
 Source: ".\Lang\run.bat"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\Translations\Strings.en-US.resources"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\Translations\Strings.en-US.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
