@@ -15,7 +15,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource SelectInspectorsForTestResult = new StringResource
         {
-            Id = "SelectInspectorsForTestResult ",
+            Id = "SelectInspectorsForTestResult",
             Description = "Сообщение - Укажите инспектора"
         };
         public static StringResource SelectInspectorsForTestResultHeader = new StringResource
@@ -26,7 +26,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource SelectWeldersForOperation = new StringResource
         {
-            Id = "SelectWeldersForOperation ",
+            Id = "SelectWeldersForOperation",
             Description = "Сообщение - Укажите сварщика"
         };
         public static StringResource SelectWeldersForOperationHeader = new StringResource
