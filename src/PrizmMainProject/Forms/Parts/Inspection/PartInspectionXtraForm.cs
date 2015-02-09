@@ -27,10 +27,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private PartInspectionViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
-        private Dictionary<PartInspectionStatus, string> inspectionStatusDict
-            = new Dictionary<PartInspectionStatus, string>();
-        // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPartTypes = new List<string>();
+        private List<string> localizedAllInspectionStatus = new List<string>();
         private PartType originalPart = PartType.Undefined;
         private void UpdateTextEdit()
         {
@@ -52,6 +50,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
             foreach (var item in EnumWrapper<PartType>.EnumerateItems())
             {
                 localizedAllPartTypes.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0:true))
+            {
+                localizedAllInspectionStatus.Add(item.Item2);
             }
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
@@ -86,14 +88,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
             elementType.DataBindings.Add(bind);
 
             inspections.DataBindings.Add("DataSource", bindingSource, "InspectionTestResults");
-
-            inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted, Resources.PartInspectionStatus_Accepted);
-            inspectionStatusDict.Add(PartInspectionStatus.Hold, Resources.PartInspectionStatus_Hold);
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected, Resources.PartInspectionStatus_Rejected);
-            inspectionStatusDict.Add(PartInspectionStatus.Pending, Resources.PartInspectionStatus_Pending);
-            inspectionStatusDict.Add(PartInspectionStatus.Undefined, string.Empty);
-            resultStatusLookUpEdit.DataSource = inspectionStatusDict.Where(x => x.Key != PartInspectionStatus.Undefined);
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
@@ -135,7 +129,13 @@ namespace Prizm.Main.Forms.Parts.Inspection
                     new LocalizedItem(UpdateTextEdit, localizedAllPartTypes,
                         new string [] {StringResources.PartTypeUndefined.Id, StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
 
-                //TODO: Create LocalizedItem for repository lookup item. When created, use StringResources.PartInspectionStatus_
+                new LocalizedItem(resultStatusLookUpEdit, localizedAllInspectionStatus,new string []
+                                                                                      {
+                                                                                        StringResources.PartInspectionStatus_Pending.Id,
+                                                                                        StringResources.PartInspectionStatus_Hold.Id,
+                                                                                        StringResources.PartInspectionStatus_Rejected.Id,
+                                                                                        StringResources.PartInspectionStatus_Accepted.Id
+                                                                                      })
 
             };
         }
@@ -144,21 +144,22 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PartInspectionStatus)
+            if (e.Value != null)
             {
-                e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
+                PartInspectionStatus result;
+                if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result-1];
+                }
             }
         }
 
         private void resultStatusLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
+        {            
             LookUpEdit lookup = sender as LookUpEdit;
-
-            if (!(lookup.EditValue is PartInspectionStatus))
+            if (lookup.ItemIndex != -1)
             {
-                KeyValuePair<PartInspectionStatus, string> val
-                    = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
-                lookup.EditValue = val.Key;
+                lookup.EditValue = (PartInspectionStatus)lookup.ItemIndex + 1;
             }
         }
 
@@ -250,5 +251,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 e.Valid = false;
             }
         }
+
     }
 }

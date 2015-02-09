@@ -71,7 +71,7 @@ namespace Prizm.Main.Forms.Synch
          }
 
          SaveFileDialog dlg = new SaveFileDialog();
-         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter);
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter)+Resources.prizm;
 
          if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             return;

@@ -82,6 +82,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 new LocalizedItem(railcarNumberLayout, StringResources.ReleaseNoteNewEdit_RailcarNumberLabel.Id),
                 new LocalizedItem(certificateNumberLayout, StringResources.ReleaseNoteNewEdit_CertificateLabel.Id),
                 new LocalizedItem(layoutControlDestination, StringResources.ReleaseNoteNewEdit_DestinationLabel.Id),
+                new LocalizedItem(pipeNumberLayout, StringResources.ReleaseNoteNewEdit_PipeNumberLayout.Id),
 
                 //buttons
                 new LocalizedItem(addPipeButton, StringResources.ReleaseNoteNewEdit_AddPipeButton.Id),
@@ -94,7 +95,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 //columns
                 new LocalizedItem(pipeNumberGridColumn, StringResources.ReleaseNoteNewEdit_PipeNumberColumn.Id),
                 new LocalizedItem(pipeSizeGridColumn, StringResources.ReleaseNoteNewEdit_PipeTypeSizeColumn.Id),
-                new LocalizedItem(pipeStatusGridColumn, StringResources.ReleaseNoteNewEdit_PipeStatusColumn.Id)
+                new LocalizedItem(pipeStatusGridColumn, StringResources.ReleaseNoteNewEdit_PipeStatusColumn.Id),
+
+                new LocalizedItem(railcarLayoutControlGroup, StringResources.ReleaseNoteNewEdit_RailcarLayoutControlGroup.Id),
+                new LocalizedItem(addPipeLayoutGroup, StringResources.ReleaseNoteNewEdit_AddPipeLayoutGroup.Id),
+                new LocalizedItem(pipesListLayoutGroup, StringResources.ReleaseNoteNewEdit_PipesListLayoutGroup.Id)
             };
         }
 

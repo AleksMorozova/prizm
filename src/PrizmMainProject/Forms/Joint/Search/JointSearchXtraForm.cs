@@ -24,6 +24,7 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private JointSearchViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
+        private List<string> localizedJointStatuses = new List<string>();
 
         [Inject]
         public JointSearchXtraForm(JointSearchViewModel vm)
@@ -51,6 +52,7 @@ namespace Prizm.Main.Forms.Joint.Search
             foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0:true))
             {
                 controlState.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled: true);
+                localizedJointStatuses.Add(item.Item2);
             }
             activity.SelectedIndex = 0;
             viewModel.Activity = ActivityCriteria.StatusActive;
@@ -120,7 +122,12 @@ namespace Prizm.Main.Forms.Joint.Search
                 new LocalizedItem(loweringDateCol, StringResources.JointSearch_LoweringDateCol.Id),
                 new LocalizedItem(gpsLatCol, StringResources.JointSearch_GpsLatCol.Id),
                 new LocalizedItem(gpsLongCol, StringResources.JointSearch_GpsLongCol.Id),
-                new LocalizedItem(gpsHeightCol, StringResources.JointSearch_GpsHeightCol.Id)
+                new LocalizedItem(gpsHeightCol, StringResources.JointSearch_GpsHeightCol.Id),
+                
+                new LocalizedItem(resultView, localizedJointStatuses,  new string[]{ 
+                    StringResources.JointSearch_JointStatus_Welded.Id, 
+                    StringResources.JointSearch_JointStatus_Lowered.Id, 
+                    StringResources.JointSearch_JointStatus_Withdrawn.Id} )
             };
         }
 
@@ -171,6 +178,18 @@ namespace Prizm.Main.Forms.Joint.Search
                 if (!data.IsActive)
                 {
                     e.Appearance.ForeColor = Color.Gray;
+                }
+            }
+        }
+
+        private void resultView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == statusLocalizedCol.Name && e.Value != null)
+            {
+                JointStatus result;
+                if (Enum.TryParse<JointStatus>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == JointStatus.Undefined) ? "" : localizedJointStatuses[(int)result - 1]; //-1 because we skip 0
                 }
             }
         }

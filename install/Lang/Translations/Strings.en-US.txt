@@ -1,11 +1,18 @@
-﻿;Сообщение - Укажите инспектора
-SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
+﻿;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
 
-;Сообщение - Укажите сварщика
-SelectWeldersForOperation=Please enter welders for appropriate weld operations
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
+
+
+;Сообщение - Укажите инспектора
+SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
 
 ;Заголовок сообщения - Укажите инспектора
 SelectInspectorsForTestResultHeader=Error input of control operation
+
+;Сообщение - Укажите сварщика
+SelectWeldersForOperation=Please enter welders for appropriate weld operations
 
 ;Заголовок сообщения - Укажите сварщика
 SelectWeldersForOperationHeader=Error input of welding operation
@@ -30,6 +37,9 @@ JointSearch_JointStatus_Lowered=Lowered
 
 ;Вырезан
 JointSearch_JointStatus_Withdrawn=Withdrawn
+
+;Неопределен
+JointNewEdit_JointStatus_Undefined=Undefined
 
 ;Текст перед версией программы на всплывающем окне при загрузке программы
 AppSplashScreen_VersionLabel=Version:
@@ -301,7 +311,7 @@ Spool_WrongPipeNumberForCutting=Wrong pipe number
 ;Неверный номер трубы для нарезания на катушки
 Spool_WrongPipeNumberForCuttingHeader=Pipe number
 
-;Катушка. Номер трубы для нарезания на кутушки
+;Катушка. Номер трубы для нарезания на кaтушки
 Spool_PipeNumberLabel=Pipe number
 
 ;Катушка. Номер катушки
@@ -485,7 +495,7 @@ SettingsPipe_DiameterLabel=Pipe's &diameter
 SettingsPipe_WallThicknessLabel=Wall &thickness
 
 ;Настройки-труба. Длина трубы для заданного типоразмера
-SettingsPipe_LengthLabel=Pipe's l&ength
+SettingsPipe_LengthLabel=Pipe l&ength
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
@@ -521,7 +531,7 @@ SettingsPipe_InspectionsControlTypeColumn=Inspection type
 SettingsPipe_InspectionsResultTypeColumn=Result type
 
 ;Настройки-труба. Ожидаемый результат для булевского результата
-SettingsPipe_InspectionsBoolExpectedColumn=Expected bool value
+SettingsPipe_InspectionsBoolExpectedColumn=Expected logic value
 
 ;Настройки-труба. Минимальный результат контрольной операции
 SettingsPipe_InspectionsMinExpectedColumn=Expected min value
@@ -832,7 +842,7 @@ Audit_RadioPeriod=Period
 Audit_RadioUser=User
 
 ;Текст в окне "О программе "
-AboutForm_TitleLabel=PRIZM is an application for full cycle process management of production, transportation and construction of industrial pipes.
+AboutForm_TitleLabel=PRISM is an application for full cycle process management of production, transportation and construction of industrial pipes.
 
 ;Текст перед версией программы в окне "О программе "
 About_VersionLabel=Version
@@ -906,7 +916,7 @@ Export_CreatingArchive=Creating archive
 ;[{0}] Ошибка {1}
 Export_Error=Error {1}
 
-;PRIZM archives|*.prizm
+;PRISM archives
 Export_Filter=PRIZM archives|*.prizm
 
 ;Нет новых данных для экспортирования.
@@ -952,7 +962,7 @@ SaveDialog_DontSaveButton=&Do not save
 SaveDialog_CancelButton=&Cancel
 
 ;Вложения. Кнопка добавления
-ExternalFiles_AddFileButton=Add file
+ExternalFiles_AddFileButton=Add &file
 
 ;Вложения. Надпись колонки имени файла
 ExternalFiles_FileNameColumnHeader=File name
@@ -994,13 +1004,13 @@ InspectionSelectPartDialog_TypeColumnHeader=Type
 ConflictDialog_ConflictLabel=During import a conflict has occurred
 
 ;Диалог конфликта при импорте. Надпись кнопки замены
-ConflictDialog_ReplaceButton=Replace
+ConflictDialog_ReplaceButton=&Replace
 
 ;Диалог конфликта при импорте. Надпись кнопки Пропустить
-ConflictDialog_SkipButton=Skip
+ConflictDialog_SkipButton=&Skip
 
 ;Диалог конфликта при импорте. Надпись кнопки отложения решения
-ConflictDialog_PostponeButton=Postpone
+ConflictDialog_PostponeButton=&Postpone
 
 ;Диалог конфликта при импорте. Надпись чекбокса Применить для всех
 ConflictDialog_ApplyForAllChechbox=Apply for all future conflicts
@@ -1009,7 +1019,7 @@ ConflictDialog_ApplyForAllChechbox=Apply for all future conflicts
 Import_ArchiveLabel=Archive
 
 ;Импорт. Надпись кнопки поиска
-Import_BrowseButton=Browse
+Import_BrowseButton=&Browse
 
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
@@ -1195,7 +1205,7 @@ Joint_Saved=Joint has been successfully saved in database. Joint number
 Joint_SavedHeader=Joint saving
 
 ;Сообщение о дублировании стыка: Уже существует стык с номером:
-Joint_Duplicate=There is already joint with number:
+Joint_Duplicate=Joint already exists, number:
 
 ;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
 Joint_DuplicateHeader=Joint number duplication
@@ -1294,22 +1304,22 @@ ConstructionReport_RadioJoints=Joints
 ConstructionReport_RadioKP=KP
 
 ;Номер трубы
-PipeConstractionReport_PipeNumberLayout=Pipe number
+PipeConstructionReport_PipeNumberLayout=Pipe number
 
 ;Типоразмер
-PipeConstractionReport_PipeTypeCheckedComboLayout=Size type
+PipeConstructionReport_PipeTypeCheckedComboLayout=Size type
 
 ;Параметры отчета по трубам
-PipeConstractionReport_PipeReportParametersLayoutGroup=Pipe report parameters
+PipeConstructionReport_PipeReportParametersLayoutGroup=Pipe report parameters
 
 ;&Предпросмотр
-PipeConstractionReport_PreviewButton=&Preview
+PipeConstructionReport_PreviewButton=&Preview
 
 ;Соз&дать отчет
-PipeConstractionReport_CreateReportButton=Create &report
+PipeConstructionReport_CreateReportButton=Create &report
 
 ;Предварительный просмотр отчёта
-PipeConstractionReport_DocumentViewerLayoutGroup=Report preview
+PipeConstructionReport_DocumentViewerLayoutGroup=Report preview
 
 ;Дата сварки: С
 WeldDateReport_WeldDateFromLayout= From
@@ -1351,13 +1361,13 @@ JointCutDialog_SecondJoinedPartLengthLayout=Length
 JointCutDialog_CutJointButton=Withdraw
 
 ;Отмена
-JointCutDialog_CancelButton=Cancel
+JointCutDialog_CancelButton=&Cancel
 
 ;Выбор диаметра соединения
 SelectDiameterDialog_DiametersIntersectionLayout=Connection diameter choosing
 
 ;Сохранить
-SelectDiameterDialog_SaveChosenDiameter=Save
+SelectDiameterDialog_SaveChosenDiameter=&Save
 
 ;Настройка контрольных опрераций завода. Мера измерения метры
 MillInspection_FrequencyMeasureMeters=Meters
@@ -1369,10 +1379,10 @@ MillInspection_FrequencyMeasureTons=Tons
 MillInspection_FrequencyMeasurePipes=Pipes
 
 ;Настройка контрольных опрераций завода. Надпись кнопки сохранения
-MillInspection_SaveButton=Save
+MillInspection_SaveButton=&Save
 
 ;Настройка контрольных опрераций завода. Надпись кнопки отмены
-MillInspection_CancelButton=Cancel
+MillInspection_CancelButton=&Cancel
 
 ;Настройка контрольных опрераций завода. Надпись чекбокса Обязательна
 MillInspection_IsRequiredCheckbox=Is required
@@ -1474,10 +1484,10 @@ NewEditPipe_HeatsComboLabel=&Heat
 NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
 
 ;Труба. Дата наряд-заказа
-NewEditPipe_PurchaseOrederDateLabel=Purchase order &date
+NewEditPipe_PurchaseOrederDateLabel=Purchase order da&te
 
 ;Труба. Дата создания трубы
-NewEditPipe_PipeCreationLabel=Creation da&te
+NewEditPipe_PipeCreationLabel=Creat&ion date
 
 ;Труба. Статус трубы
 NewEditPipe_PipeStatusLabel=Status on &mill
@@ -1486,7 +1496,7 @@ NewEditPipe_PipeStatusLabel=Status on &mill
 NewEditPipe_PlateNumberLabel=Number
 
 ;Труба. Толщина листа
-NewEditPipe_PlateThicknessLabel=Th&ickness
+NewEditPipe_PlateThicknessLabel=Thic&kness
 
 ;Труба. Производитель листа
 NewEditPipe_PlateManufacturerLabel=Manufacturer
@@ -1531,13 +1541,13 @@ NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
 NewEditPipe_SaveButton=&Save
 
 ;Труба. Кнопка сохранить и создать
-NewEditPipe_SaveAndNewButton=Save\\Cr&eate
+NewEditPipe_SaveAndNewButton=Save\\&Create
 
 ;Труба. Кнопка добавления контрольных операций
-NewEditPipe_InspectionsAddButton=Add
+NewEditPipe_InspectionsAddButton=A&dd
 
 ;Труба. Кнопка редактирования контрольных операций
-NewEditPipe_InspectionsEditsButton=Edit
+NewEditPipe_InspectionsEditsButton=&Edit
 
 ;Труба. Столбец сварщики
 NewEditPipe_WeldersColumnHeader=Welders
@@ -1621,13 +1631,13 @@ MillPipe_CoatExternal=External
 MillPipe_PipeSizeChangeHeader=Changing pipe size type
 
 ;Вопрос о подтверждении изменения типоразмера: Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново
-MillPipe_ChangeTypesizeConfirmation=Do you really want to change pipe size type? All entered inspection results will be deleted and shoult be entered again.
+MillPipe_ChangeTypesizeConfirmation=Do you really want to change pipe size type? All entered inspection results will be deleted and should be entered again.
 
 ;Сообщение о невозможности изменить типоразмер: Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.
 MillPipe_NotAllowedToChangeTypesize=Cannot change size type for pipe with existing inspection operations data. If size type is wrong, please deactivate this pipe and create new one with the same number and corrent size type.
 
 ;Сообщение об ошибке: Значение не соответствует маске
-MillPipe_ValueDoesNotMatchMask=Value does not match mask
+MillPipe_ValueDoesNotMatchMask=Value does not match the mask
 
 ;Вопрос о создании новой плавки: Создать плавку {0}?
 MillPipe_NewHeatQuestion=Do you want to create heat with number {0}?
@@ -1660,10 +1670,10 @@ MillPipe_DeactivatePipeInRailcarError=Cannot deactivate shipped pipe
 MillPipe_DeactivatePipeInRailcarErrorHeader=Pipe is shipped
 
 ;Сообщение об ошибке: Уже существует труба с номером: 
-MillPipe_ExistingNumberError=There is already pipe with number:
+MillPipe_ExistingNumberError=Pipe already exists, number:
 
 ;Заголовок сообщения о дублировании трубы: Дублирование номера трубы
-MillPipe_ExistingNumberErrorHeader=Pipe number duplicating
+MillPipe_ExistingNumberErrorHeader=Pipe number duplication
 
 ;Сообщение об успешном сохранении трубы: Труба успешно сохранена в базе. Труба  # 
 MillPipe_PipeSaved=Pipe was  successfully saved in database. Pipe #
@@ -1822,7 +1832,7 @@ ReleaseNoteNewEdit_SaveSuccess=Release note data are saved
 ReleaseNoteNewEdit_SaveSuccessHeader=Saved successfully
 
 ;Статус разрешения на отгрузку: отгружено
-ReleaseNoteNewEdit_Shipped=Shipped
+ReleaseNoteNewEdit_ShippedStatus=Shipped
 
 ;Статус разрешения на отгрузку: сформировано
 ReleaseNoteNewEdit_Pending=Pending
@@ -1909,10 +1919,10 @@ FirstSetup_FirstNameLabel=First name
 FirstSetup_MiddleNameLabel=Middle name 
 
 ;Начальные установки. Кнопка сохранить
-FirstSetup_SaveButton=Save
+FirstSetup_SaveButton=&Save
 
 ;Начальные установки. Кнопка отмена
-FirstSetup_CancelButton=Cancel
+FirstSetup_CancelButton=&Cancel
 
 ;Плавка. Номер плавки
 Heat_NumberLabel=Heat num&ber
@@ -1945,7 +1955,7 @@ InspectionAddEdit_ExpectedResultLabel=Expected result
 InspectionAddEdit_FactStringResultLabel=Actual string result
 
 ;Контрольная операция. Фактический результат логический
-InspectionAddEdit_FactBoolResultLabel=Actual bool result
+InspectionAddEdit_FactBoolResultLabel=Actual logic result
 
 ;Контрольная операция. Фактический результат диапазон
 InspectionAddEdit_FactLimitResultLabel=Actual range result
@@ -2002,13 +2012,13 @@ PipeTestResultStatus_Failed=Failed
 PipeTestResultStatus_Repair=Repair
 
 ;Тип отчета. По трассировке
-ConstractionReport_ReportTypeTracingReport=Tracing report
+ConstructionReport_ReportTypeTracingReport=Tracing report
 
 ;Тип отчета. По использованным изделиям
-ConstractionReport_ReportTypeUsedProductReport=By used products
+ConstructionReport_ReportTypeUsedProductReport=By used products
 
 ;Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям
-ConstractionReport_TracingReportInfoLabelText = This report type contains all welded elements located between selected points regardless of their connectivity
+ConstructionReport_TracingReportInfoLabelText = This report type contains all welded elements located between selected points regardless of their connectivity
 
 ;Ошибка сохранения прикрепленных файлов
 ExternalFiles_NotCopied_Header=External files saving error
@@ -2028,32 +2038,150 @@ WorkstationType_Mill=Mill
 ;Тип рабочей станции. Строительство
 WorkstationType_Construction=Construction
 
-;Вид контроля. Освидетельствование
-ControlTypeWitness=Witness
+;Настройки - Трубопровод.Тип операции.Контрольная
+JointOperationType_Test=Inspection
 
-;Вид контроля. Проверка документов
-ControlTypeReview=Review
+;Настройки - Трубопровод.Тип операции.Ремонтная
+JointOperationType_Action= Repair
 
-;Вид контроля. Мониторинг
-ControlTypeMonitor=Monitor
+;Настройки - Трубопровод.Тип операции.Сварка
+JointOperationType_Weld=Weld
 
-;Вид контроля. Обязательная проверка
-ControlTypeHold=Hold
+;Настройки - Трубопровод.Тип операции.Вырезка стыка
+JointOperationType_Withdraw=Withdraw
 
-;Необходимо проверить значение
-Settings_CheckValues=Please, check values
+;Разрешение на отгрузку. Группа вагона
+ReleaseNoteNewEdit_RailcarLayoutControlGroup=Railcar
 
-;Заголовок ошибки
-Settings_ErrorHeader=Error
+;Разрешение на отгрузку. Группа добавления трубы
+ReleaseNoteNewEdit_AddPipeLayoutGroup=Adding pipes to current railcar
 
-;Тип результата контрольной операции. Логический
-TestResultTypeBoolean=Boolean
+;Разрешение на отгрузку. Группа труб
+ReleaseNoteNewEdit_PipesListLayoutGroup=Pipe list
 
-;Тип результата контрольной операции. Диапазон
-TestResultTypeRange=Range
+;Разрешение на отгрузку. Надпись номера трубы
+ReleaseNoteNewEdit_PipeNumberLayout=Pipe number
 
-;Тип результата контрольной операции. Строка
-TestResultTypeString=String
+;Настройки-труба. Группа параметров типоразмера
+SettingsPipe_sizeParamsLayoutControlGroup= Size type parameters
 
-;Тип отчета.По трассировке
-ConstractionReport_ReportTypeTracingReport= Tracing report
+;Настройки - Трубопровод. Набор операций - условия приемки стыка для спуска
+SettingsLine_JointOperationLayoutControlItem = Inspections list - conditions for passing
+
+;Настройки - Инспектора. Активен
+SettingsInspectors_IsActive= Is active
+
+;Настройки - Инспектора. Уровень
+SettingsInspectors_InspectorGrade=Grade
+
+;Главное меню, пункт Файл
+Menu_File=&File
+
+;Главное меню, пункт Экспорт
+Menu_File_Export=&Export
+
+;Главное меню, пункт Импорт
+Menu_File_Import=&Import
+
+;Главное меню, пункт Выход
+Menu_File_Exit=E&xit
+
+;Главное меню, пункт Завод
+Menu_Mill=&Mill
+
+;Главное меню, пункт Новая труба
+Menu_Mill_NewPipe=New &pipe
+
+;Главное меню, пункт Поиск труб
+Menu_Mill_SearchPipes=&Find pipes
+
+;Главное меню, пункт Разрешение на отгрузку
+Menu_Mill_NewReleaseNote=New &release note
+
+;Главное меню, пункт Поиск разрешений на отгрузку
+Menu_Mill_SearchReleaseNotes=F&ind release notes
+
+;Главное меню, пункт Отчёты на заводе
+Menu_Mill_Reports=&Reports at mill
+
+;Главное меню, пункт Строительство и входной контроль
+Menu_Construction=Incoming inspection and &Construction
+
+;Главное меню, пункт Создать комплектующее
+Menu_Construction_NewComponent=New &Component
+
+;Главное меню, пункт Создать стык
+Menu_Construction_NewJoint=New &joint
+
+;Главное меню, пункт Входной контроль элементов трубопровода
+Menu_Construction_PartIncomingInspection=&Incoming inspection of elements
+
+;Главное меню, пункт Поиск элементов трубопровода
+Menu_Construction_FindParts=&Find elements
+
+;Главное меню, пункт Поиск стыков
+Menu_Construction_FindJoints=Fin&d joints
+
+;Главное меню, пункт Катушки
+Menu_Construction_Spool=&Spools
+
+;Главное меню, пункт Отчёты на входном контроле
+Menu_Construction_InspectionReports=&Inspection reports
+
+;Главное меню, пункт Отчёты по трубам на стройке
+Menu_Construction_PipeReports=&Pipe reports
+
+;Главное меню, пункт Отчёты по сварке (по дате)
+Menu_Construction_WeldReports=&Weld reports
+
+;Главное меню, пункт Отчёты по сварке участка между пикетами
+Menu_Construction_JointPKReports=&Tracing reports
+
+;Главное меню, пункт Настройки
+Menu_Settings=&Settings
+
+;Главное меню, настройки, пункт Проект
+Menu_Settings_Project=Pro&ject
+
+;Главное меню, настройки, пункт Труба
+Menu_Settings_Pipe=&Pipe
+
+;Главное меню, настройки, пункт Трубопровод
+Menu_Settings_Pipeline=Pipe&line
+
+;Главное меню, настройки, пункт Комплектующие
+Menu_Settings_Componentry=&Componentry
+
+;Главное меню, настройки, пункт Сварщики
+Menu_Settings_Welders=&Welders
+
+;Главное меню, настройки, пункт Инспекторы
+Menu_Settings_Inspectors=&Inspectors
+
+;Главное меню, настройки, пункт Пользователи
+Menu_Settings_Users=&Users
+
+;Главное меню, настройки, пункт Роли
+Menu_Settings_Roles=&Roles
+
+;Главное меню, настройки, пункт Язык
+Menu_Settings_Language=&Language
+
+;Главное меню, настройки, пункт Разное
+Menu_Misc=M&iscellaneous
+
+;Главное меню, настройки, пункт Аудит
+Menu_Misc_Audit=&Audit
+
+;Главное меню, настройки, пункт Важные сообщения
+Menu_Misc_ImportantMessages=&Important messages
+
+;Главное меню, настройки, пункт Помощь
+Menu_Help=&Help
+
+;Главное меню, настройки, пункт О программе
+Menu_Help_About=&About
+
+;Текст на панели статуса: Важные сообщения 
+MainWindow_StatusNotificationsHeader=Important messages 
+

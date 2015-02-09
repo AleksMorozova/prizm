@@ -42,7 +42,10 @@ namespace Prizm.Main.Forms.Settings
         private bool newPipeSizeType = false;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
-
+        private List<string> localizedPipeTestControlTypes = new List<string>();
+        private List<string> localizedPipeTestResultTypes = new List<string>();
+        private List<string> localizedJointOperationTypes = new List<string>();
+        private MillInspectionXtraForm inspectionForm = null;
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -61,6 +64,18 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0:true))
+            {
+                localizedPipeTestControlTypes.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
+            {
+                localizedPipeTestResultTypes.Add(item.Item2);
+            }
+            foreach (var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0: true))
+            {
+                localizedJointOperationTypes.Add(item.Item2);
+            }
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
@@ -255,6 +270,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(maxExpectedGridColumn, StringResources.SettingsPipe_InspectionsMaxExpectedColumn.Id),
                 new LocalizedItem(isRequiredGridColumn, StringResources.SettingsPipe_InspectionsIsReqiredColumn.Id),
                 new LocalizedItem(testIsActiveGridColumn, StringResources.SettingsPipe_InspectionsIsActiveColumn.Id),
+                new LocalizedItem(sizeParamsLayoutControlGroup, StringResources.SettingsPipe_sizeParamsLayoutControlGroup.Id),
 
                 // pipe line page
                 new LocalizedItem(lineLayoutControlGroup, StringResources.SettingsLine_LineGroup.Id),
@@ -267,6 +283,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(testHasToWithdrawGridColumn, StringResources.SettingsLine_WithdrawColumn.Id),
                 new LocalizedItem(testResultRequiredGridColumn, StringResources.SettingsLine_IsReqiredResultColumn.Id),
                 new LocalizedItem(isActiveJointOperationGridColumn, StringResources.SettingsLine_IsActiveColumn.Id),
+                new LocalizedItem(jointOperationLayoutControlItem, StringResources.SettingsLine_JointOperationLayoutControlItem.Id),
 
                 // components page
                 new LocalizedItem(partsTypeLayoutControlItem, StringResources.SettingsComponent_PartsType.Id),
@@ -289,13 +306,14 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(inspectorsLayoutControlItem, StringResources.SettingsInspectors_InspectorsLabel.Id),
                 new LocalizedItem(certificateLayoutControlItem, StringResources.SettingsInspectors_CertificatesLabel.Id),
                 new LocalizedItem(certTypeListLayoutControlItem, StringResources.SettingsInspectors_CertificateTypesLabel.Id),
-
-                new LocalizedItem(inspectorsLayoutControlGroup, StringResources.SettingsInspectors_InspectorsGroup.Id),
+                new LocalizedItem(inspectorLayoutControlGroup, StringResources.SettingsInspectors_InspectorsGroup.Id),
                 new LocalizedItem(certificateTypeLayoutControlGroup, StringResources.SettingsInspectors_CertificatesGroup.Id),
                 // inspectors grid
                 new LocalizedItem(colInspectorLastName, StringResources.SettingsInspectors_LastNameColumn.Id),
                 new LocalizedItem(colInspectorFirstName, StringResources.SettingsInspectors_FirstNameColumn.Id),
                 new LocalizedItem(colInspectorMiddleName, StringResources.SettingsInspectors_MiddleNameColumn.Id),
+                new LocalizedItem(colInspectorActive, StringResources.SettingsInspectors_IsActive.Id),
+                new LocalizedItem(colInspectorGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
                 // certificates grid
                 new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
                 new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),
@@ -333,6 +351,21 @@ namespace Prizm.Main.Forms.Settings
 
                 new LocalizedItem(saveButton, "Settings_SaveButton"),
                 new LocalizedItem(closeButton, "Settings_CloseButton"),
+                
+                //grid columns with enums
+                new LocalizedItem(inspectionView, localizedPipeTestControlTypes, new string [] {StringResources.ControlTypeWitness.Id,
+                                                                                         StringResources.ControlTypeReview.Id,
+                                                                                         StringResources.ControlTypeMonitor.Id,
+                                                                                         StringResources.ControlTypeHold.Id}),
+                new LocalizedItem (inspectionView, localizedPipeTestResultTypes, new string [] {StringResources.TestResultTypeBoolean.Id,
+                                                                                                  StringResources.TestResultTypeRange.Id,
+                                                                                                  StringResources.TestResultTypeString.Id }),
+                //repository lookup edit
+                new LocalizedItem(jointOperationTypeLookUpEdit, localizedJointOperationTypes, new string[] {StringResources.JointOperationType_Test.Id,
+                                                                                                            StringResources.JointOperationType_Action.Id,
+                                                                                                            StringResources.JointOperationType_Weld.Id,
+                                                                                                            StringResources.JointOperationType_Withdraw.Id})
+                                                                                         
             };
         }
 
@@ -1266,50 +1299,75 @@ namespace Prizm.Main.Forms.Settings
                              .ToList();
         }
 
+        private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
+                 BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes)
+        {
+            if (inspectionForm == null)
+            {
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes);
+            }
+            else
+            {
+                inspectionForm.SetupForm(selectedTest, categoryTypes);
+            }
+
+            return inspectionForm;
+        }
+
         private void addTestButton_Click(object sender, EventArgs e)
         {
             if (IsEditMode && IsEditable(IsEditMode))
             {
-                using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
+                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+
+                if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        addForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
-                        viewModel.CurrentPipeMillSizeType.PipeTests.Add(addForm.viewModel.PipeTest);
-                        viewModel.PipeTests.Add(addForm.viewModel.PipeTest);
-                        IsModified = true;
-                        inspectionOperation.RefreshDataSource();
-                    }
+                    inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
+                    viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    IsModified = true;
+                    inspectionOperation.RefreshDataSource();
                 }
+
             }
         }
 
         private void editTestButton_Click(object sender, EventArgs e)
         {
-            if(inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
+            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
             {
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if(selectedTest != null)
+                if (selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
-                    {
-                        editForm.ShowDialog();
-                    }
+                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes);
+
+                    inspectionForm.ShowDialog();
+                    IsModified = true;
+                    inspectionOperation.RefreshDataSource();
+
                 }
             }
         }
 
         private void inspectionOperation_DoubleClick(object sender, EventArgs e)
         {
-            if(inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
+            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
             {
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if(selectedTest != null)
+                if (selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
+                    if (inspectionForm == null)
                     {
-                        editForm.ShowDialog();
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes);
                     }
+                    else
+                    {
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes);
+                    }
+
+                    inspectionForm.ShowDialog();
+                    inspectionOperation.RefreshDataSource();
+
                 }
             }
         }
@@ -1375,6 +1433,47 @@ namespace Prizm.Main.Forms.Settings
         private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             ValidateName(certificateTypesView, certificateNameColumn, e);
+        }
+
+        private void inspectionView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == controlTypeGridColumn.Name && e.Value != null)
+            {
+                PipeTestControlType result;
+                if (Enum.TryParse<PipeTestControlType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == PipeTestControlType.Undefined)? "" : localizedPipeTestControlTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+            if (e.Column.Name == resultTypeGridColumn.Name && e.Value != null)
+            {
+                PipeTestResultType result;
+                if (Enum.TryParse<PipeTestResultType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == PipeTestResultType.Undefined) ? "" : localizedPipeTestResultTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+        }
+
+        private void jointOperationTypeLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                JointOperationType result;
+                if (Enum.TryParse<JointOperationType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == JointOperationType.Undefined) ? "" : localizedJointOperationTypes[(int)result - 1];
+                }
+            }
+        }
+
+        private void jointOperationTypeLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lookup = sender as LookUpEdit;
+            if (lookup.ItemIndex != -1)
+            {
+                lookup.EditValue = (JointOperationType)lookup.ItemIndex + 1;
+            }
         }
 
     }

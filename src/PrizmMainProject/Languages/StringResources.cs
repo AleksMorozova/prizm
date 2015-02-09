@@ -13,9 +13,21 @@ namespace Prizm.Main.Languages
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
 
+        public static StringResource FixedCategoryLengthPassedHeader = new StringResource
+        {
+            Id = "FixedCategoryLengthPassedHeader",
+            Description = "Не заданы результаты измерений"
+        };
+
+        public static StringResource FixedCategoryLengthPassed = new StringResource
+        {
+            Id = "FixedCategoryLengthPassed",
+            Description = "Результаты измерения длины должны быть введены."
+        };
+
         public static StringResource SelectInspectorsForTestResult = new StringResource
         {
-            Id = "SelectInspectorsForTestResult ",
+            Id = "SelectInspectorsForTestResult",
             Description = "Сообщение - Укажите инспектора"
         };
         public static StringResource SelectInspectorsForTestResultHeader = new StringResource
@@ -26,7 +38,7 @@ namespace Prizm.Main.Languages
 
         public static StringResource SelectWeldersForOperation = new StringResource
         {
-            Id = "SelectWeldersForOperation ",
+            Id = "SelectWeldersForOperation",
             Description = "Сообщение - Укажите сварщика"
         };
         public static StringResource SelectWeldersForOperationHeader = new StringResource
@@ -437,6 +449,193 @@ namespace Prizm.Main.Languages
              Description = "Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?"
          };
 
+         public static StringResource Menu_File = new StringResource
+         {
+             Id = "Menu_File",
+             Description = "Главное меню, пункт Файл"
+         };
+
+         public static StringResource Menu_File_Export = new StringResource
+         {
+             Id = "Menu_File_Export",
+             Description = "Главное меню, пункт Экспорт"
+         };
+         public static StringResource Menu_File_Import = new StringResource
+         {
+             Id = "Menu_File_Import",
+             Description = "Главное меню, пункт Импорт"
+         };
+         public static StringResource Menu_File_Exit = new StringResource
+         {
+             Id = "Menu_File_Exit",
+             Description = "Главное меню, пункт Выход"
+         };
+         public static StringResource Menu_Mill = new StringResource
+         {
+             Id = "Menu_Mill",
+             Description = "Главное меню, пункт Завод"
+         };
+         public static StringResource Menu_Mill_NewPipe = new StringResource
+         {
+             Id = "Menu_Mill_NewPipe",
+             Description = "Главное меню, пункт Новая труба"
+         };
+         public static StringResource Menu_Mill_SearchPipes = new StringResource
+         {
+             Id = "Menu_Mill_SearchPipes",
+             Description = "Главное меню, пункт Поиск труб"
+         };
+         public static StringResource Menu_Mill_NewReleaseNote = new StringResource
+         {
+             Id = "Menu_Mill_NewReleaseNote",
+             Description = "Главное меню, пункт Разрешение на отгрузку"
+         };
+         public static StringResource Menu_Mill_SearchReleaseNotes = new StringResource
+         {
+             Id = "Menu_Mill_SearchReleaseNotes",
+             Description = "Главное меню, пункт Поиск разрешений на отгрузку"
+         };
+         public static StringResource Menu_Mill_Reports = new StringResource
+         {
+             Id = "Menu_Mill_Reports",
+             Description = "Главное меню, пункт Отчёты на заводе"
+         };
+         public static StringResource Menu_Construction = new StringResource
+         {
+             Id = "Menu_Construction",
+             Description = "Главное меню, пункт Строительство и входной контроль"
+         };
+         public static StringResource Menu_Construction_NewComponent = new StringResource
+         {
+             Id = "Menu_Construction_NewComponent",
+             Description = "Главное меню, пункт Создать комплектующее"
+         };
+         public static StringResource Menu_Construction_NewJoint = new StringResource
+         {
+             Id = "Menu_Construction_NewJoint",
+             Description = "Главное меню, пункт Создать стык"
+         };
+         public static StringResource Menu_Construction_PartIncomingInspection = new StringResource
+         {
+             Id = "Menu_Construction_PartIncomingInspection",
+             Description = "Главное меню, пункт Входной контроль элементов трубопровода"
+         };
+         public static StringResource Menu_Construction_FindParts = new StringResource
+         {
+             Id = "Menu_Construction_FindParts",
+             Description = "Главное меню, пункт Поиск элементов трубопровода"
+         };
+         public static StringResource Menu_Construction_FindJoints = new StringResource
+         {
+             Id = "Menu_Construction_FindJoints",
+             Description = "Главное меню, пункт Поиск стыков"
+         };
+         public static StringResource Menu_Construction_Spool = new StringResource
+         {
+             Id = "Menu_Construction_Spool",
+             Description = "Главное меню, пункт Катушки"
+         };
+         public static StringResource Menu_Construction_InspectionReports = new StringResource
+         {
+             Id = "Menu_Construction_InspectionReports",
+             Description = "Главное меню, пункт Отчёты на входном контроле"
+         };
+         public static StringResource Menu_Construction_PipeReports = new StringResource
+         {
+             Id = "Menu_Construction_PipeReports",
+             Description = "Главное меню, пункт Отчёты по трубам на стройке"
+         };
+         public static StringResource Menu_Construction_WeldReports = new StringResource
+         {
+             Id = "Menu_Construction_WeldReports",
+             Description = "Главное меню, пункт Отчёты по сварке (по дате)"
+         };
+         public static StringResource Menu_Construction_JointPKReports = new StringResource
+         {
+             Id = "Menu_Construction_JointPKReports",
+             Description = "Главное меню, пункт Отчёты по сварке участка между пикетами"
+         };
+         public static StringResource Menu_Settings = new StringResource
+         {
+             Id = "Menu_Settings",
+             Description = "Главное меню, пункт Настройки"
+         };
+         public static StringResource Menu_Settings_Project = new StringResource
+         {
+             Id = "Menu_Settings_Project",
+             Description = "Главное меню, настройки, пункт Проект"
+         };
+         public static StringResource Menu_Settings_Pipe = new StringResource
+         {
+             Id = "Menu_Settings_Pipe",
+             Description = "Главное меню, настройки, пункт Труба"
+         };
+         public static StringResource Menu_Settings_Pipeline = new StringResource
+         {
+             Id = "Menu_Settings_Pipeline",
+             Description = "Главное меню, настройки, пункт Трубопровод"
+         };
+         public static StringResource Menu_Settings_Componentry = new StringResource
+         {
+             Id = "Menu_Settings_Componentry",
+             Description = "Главное меню, настройки, пункт Комплектующие"
+         };
+         public static StringResource Menu_Settings_Welders = new StringResource
+         {
+             Id = "Menu_Settings_Welders",
+             Description = "Главное меню, настройки, пункт Сварщики"
+         };
+         public static StringResource Menu_Settings_Inspectors = new StringResource
+         {
+             Id = "Menu_Settings_Inspectors",
+             Description = "Главное меню, настройки, пункт Инспекторы"
+         };
+         public static StringResource Menu_Settings_Users = new StringResource
+         {
+             Id = "Menu_Settings_Users",
+             Description = "Главное меню, настройки, пункт Пользователи"
+         };
+         public static StringResource Menu_Settings_Roles = new StringResource
+         {
+             Id = "Menu_Settings_Roles",
+             Description = "Главное меню, настройки, пункт Роли"
+         };
+         public static StringResource Menu_Settings_Language = new StringResource
+         {
+             Id = "Menu_Settings_Language",
+             Description = "Главное меню, настройки, пункт Язык"
+         };
+         public static StringResource Menu_Misc = new StringResource
+         {
+             Id = "Menu_Misc",
+             Description = "Главное меню, настройки, пункт Разное"
+         };
+         public static StringResource Menu_Misc_Audit = new StringResource
+         {
+             Id = "Menu_Misc_Audit",
+             Description = "Главное меню, настройки, пункт Аудит"
+         };
+         public static StringResource Menu_Misc_ImportantMessages = new StringResource
+         {
+             Id = "Menu_Misc_ImportantMessages",
+             Description = "Главное меню, настройки, пункт Важные сообщения"
+         };
+         public static StringResource Menu_Help = new StringResource
+         {
+             Id = "Menu_Help",
+             Description = "Главное меню, настройки, пункт Помощь"
+         };
+         public static StringResource Menu_Help_About = new StringResource
+         {
+             Id = "Menu_Help_About",
+             Description = "Главное меню, настройки, пункт О программе"
+         };
+
+         public static StringResource MainWindow_StatusNotificationsHeader = new StringResource
+         {
+             Id = "MainWindow_StatusNotificationsHeader",
+             Description = "Текст на панели статуса: Важные сообщения "
+         };
          #endregion //--- Main Window ---
 
         #region PurchaseOrderForm
@@ -1118,6 +1317,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsPipe_InspectionsIsActiveColumn",
             Description = "Настройки-труба. Активность контрольной операции"
         };
+
+        public static StringResource SettingsPipe_sizeParamsLayoutControlGroup = new StringResource
+        {
+            Id = "SettingsPipe_sizeParamsLayoutControlGroup",
+            Description = "Настройки-труба. Группа параметров типоразмера"
+        };
+
         
         //pipeline page
         public static StringResource SettingsLine_LineGroup = new StringResource
@@ -1125,6 +1331,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsLine_LineGroup",
             Description = "Настройки - Трубопровод. Список контрольных и ремонтных операций для стыка"
         };
+
+        public static StringResource SettingsLine_JointOperationLayoutControlItem = new StringResource
+        {
+            Id = "SettingsLine_JointOperationLayoutControlItem",
+            Description = "Настройки - Трубопровод. Набор операций - условия приемки стыка для спуска"
+        };
+
 
         public static StringResource SettingsLine_NameColumn = new StringResource
         {
@@ -1173,6 +1386,31 @@ namespace Prizm.Main.Languages
             Id = "SettingsLine_IsActiveColumn",
             Description = "Настройки - Трубопровод. Активность операции"
         };
+
+        public static StringResource JointOperationType_Test = new StringResource
+        {
+            Id = "JointOperationType_Test",
+            Description = "Настройки - Трубопровод.Тип операции.Контрольная"
+        };
+
+        public static StringResource JointOperationType_Action = new StringResource
+        {
+            Id = "JointOperationType_Action",
+            Description = "Настройки - Трубопровод.Тип операции.Ремонтная"
+        };
+
+        public static StringResource JointOperationType_Weld = new StringResource
+        {
+            Id = "JointOperationType_Weld",
+            Description = "Настройки - Трубопровод.Тип операции.Сварка"
+        };
+
+        public static StringResource JointOperationType_Withdraw = new StringResource
+        {
+            Id = "JointOperationType_Withdraw",
+            Description = "Настройки - Трубопровод.Тип операции.Вырезка стыка"
+        };
+
 
         //component page
 
@@ -1248,6 +1486,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsInspectors_InspectorsLabel",
             Description = "Настройки - Инспектора. Список инспекторов"
         };
+
+        public static StringResource SettingsInspectors_InspectorLayoutControlGroup = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorLayoutControlGroup",
+            Description = "Настройки - Инспектора. Группа инспекторов"
+        };
+
         public static StringResource SettingsInspectors_CertificatesLabel = new StringResource
         {
             Id = "SettingsInspectors_CertificatesLabel",
@@ -1283,6 +1528,18 @@ namespace Prizm.Main.Languages
         {
             Id = "SettingsInspectors_MiddleNameColumn",
             Description = "Настройки - Инспектора. Отчество инспектора"
+        };
+
+        public static StringResource SettingsInspectors_IsActive = new StringResource
+        {
+            Id = "SettingsInspectors_IsActive",
+            Description = "Настройки - Инспектора. Активен"
+        };
+
+        public static StringResource SettingsInspectors_InspectorGrade = new StringResource
+        {
+            Id = "SettingsInspectors_InspectorGrade",
+            Description = "Настройки - Инспектора. Уровень"
         };
 
         public static StringResource SettingsInspectors_CertificateNumberColumn = new StringResource
@@ -1803,7 +2060,7 @@ namespace Prizm.Main.Languages
         public static StringResource Export_Filter = new StringResource
         {
             Id = "Export_Filter",
-            Description = "PRIZM archives|*.prizm"
+            Description = "PRISM archives"
         };
 
         public static StringResource Export_NoData = new StringResource
@@ -2561,63 +2818,63 @@ namespace Prizm.Main.Languages
 
         #endregion //--- ConstructionReports ---
 
-        #region --- PipeConstractionReport ---
+        #region --- PipeConstructionReport ---
 
-        public static StringResource PipeConstractionReport_PipeNumberLayout = new StringResource
+        public static StringResource PipeConstructionReport_PipeNumberLayout = new StringResource
         {
-            Id = "PipeConstractionReport_PipeNumberLayout",
+            Id = "PipeConstructionReport_PipeNumberLayout",
             Description = "Номер трубы"
         };
         
-        public static StringResource PipeConstractionReport_PipeTypeCheckedComboLayout = new StringResource
+        public static StringResource PipeConstructionReport_PipeTypeCheckedComboLayout = new StringResource
         {
-            Id = "PipeConstractionReport_PipeTypeCheckedComboLayout",
+            Id = "PipeConstructionReport_PipeTypeCheckedComboLayout",
             Description = "Типоразмер"
         };
         
-        public static StringResource PipeConstractionReport_PipeReportParametersLayoutGroup = new StringResource
+        public static StringResource PipeConstructionReport_PipeReportParametersLayoutGroup = new StringResource
         {
-            Id = "PipeConstractionReport_PipeReportParametersLayoutGroup",
+            Id = "PipeConstructionReport_PipeReportParametersLayoutGroup",
             Description = "Параметры отчета по трубам"
         };
         
-        public static StringResource PipeConstractionReport_PreviewButton = new StringResource
+        public static StringResource PipeConstructionReport_PreviewButton = new StringResource
         {
-            Id = "PipeConstractionReport_PreviewButton",
+            Id = "PipeConstructionReport_PreviewButton",
             Description = "&Предпросмотр"
         };
 
-        public static StringResource PipeConstractionReport_CreateReportButton = new StringResource
+        public static StringResource PipeConstructionReport_CreateReportButton = new StringResource
         {
-            Id = "PipeConstractionReport_CreateReportButton",
+            Id = "PipeConstructionReport_CreateReportButton",
             Description = "Соз&дать отчет"
         };
         
-        public static StringResource PipeConstractionReport_DocumentViewerLayoutGroup = new StringResource
+        public static StringResource PipeConstructionReport_DocumentViewerLayoutGroup = new StringResource
         {
-            Id = "PipeConstractionReport_DocumentViewerLayoutGroup",
+            Id = "PipeConstructionReport_DocumentViewerLayoutGroup",
             Description = "Предварительный просмотр отчёта"
         };
 
-        public static StringResource ConstractionReport_ReportTypeTracingReport = new StringResource
+        public static StringResource ConstructionReport_ReportTypeTracingReport = new StringResource
         {
-            Id = "ConstractionReport_ReportTypeTracingReport",
+            Id = "ConstructionReport_ReportTypeTracingReport",
             Description = "Тип отчета. По трассировке"
         };
 
-        public static StringResource ConstractionReport_ReportTypeUsedProductReport = new StringResource
+        public static StringResource ConstructionReport_ReportTypeUsedProductReport = new StringResource
         {
-            Id = "ConstractionReport_ReportTypeUsedProductReport",
+            Id = "ConstructionReport_ReportTypeUsedProductReport",
             Description = "Тип отчета. По использованным изделиям"
         };
 
-        public static StringResource ConstractionReport_TracingReportInfoLabelText = new StringResource
+        public static StringResource ConstructionReport_TracingReportInfoLabelText = new StringResource
         {
-            Id = "ConstractionReport_TracingReportInfoLabelText",
+            Id = "ConstructionReport_TracingReportInfoLabelText",
             Description = "Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям"
         };
 
-        #endregion //--- PipeConstractionReport ---
+        #endregion //--- PipeConstructionReport ---
 
         #region --- WeldDateReport ---
 
@@ -3515,6 +3772,31 @@ namespace Prizm.Main.Languages
             Id = "ReleaseNoteNewEdit_PendingStatus",
             Description = "Статус разрешения на отгрузку: сформировано"
         };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarLayoutControlGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarLayoutControlGroup",
+            Description = "Разрешение на отгрузку. Группа вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_AddPipeLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_AddPipeLayoutGroup",
+            Description = "Разрешение на отгрузку. Группа добавления трубы"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PipesListLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_PipesListLayoutGroup",
+            Description = "Разрешение на отгрузку. Группа труб"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_PipeNumberLayout = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_PipeNumberLayout",
+            Description = "Разрешение на отгрузку. Надпись номера трубы"
+        };
+        
 
         #endregion //--- Railcar NewEdit ---
 

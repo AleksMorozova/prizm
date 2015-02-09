@@ -951,11 +951,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
 
+            int tmpLength;
+
             //group by category
             foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if(t.Operation.Category.Type==FixedCategory.Length && t.Status == PipeTestResultStatus.Passed)
+                if (t.Operation.Category.Type == FixedCategory.Length
+                    && t.Status == PipeTestResultStatus.Passed
+                    && !string.IsNullOrEmpty(t.Value))
+                {
                     lengthOperation.Add(t);
+                }
             }
 
             //group by date
@@ -966,28 +972,34 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             //group by order
-            if(lengthOperation2.Count() >= 2)
+            if (lengthOperation2.Count() >= 2)
             {
-                foreach(PipeTestResult t in lengthOperation2)
+                foreach (PipeTestResult t in lengthOperation2)
                 {
-                    if(t.Order >= lengthOperation2.Max(d => d.Order))
+                    if (t.Order >= lengthOperation2.Max(d => d.Order))
                         lengthOperation3.Add(t);
                 }
             }
 
             else
             {
-                foreach(PipeTestResult t in lengthOperation2)
+                foreach (PipeTestResult t in lengthOperation2)
                 {
-                    this.PipeLength = Convert.ToInt32(t.Value);
                     //Pipe.Length = Convert.ToInt32(t.Value);
+                    if (int.TryParse(t.Value, out tmpLength))
+                    {
+                        this.PipeLength = tmpLength;
+                    }
                 }
             }
 
-            foreach(PipeTestResult t in lengthOperation3)
+            foreach (PipeTestResult t in lengthOperation3)
             {
-                this.PipeLength = Convert.ToInt32(t.Value);
                 //Pipe.Length = Convert.ToInt32(t.Value);
+                if (int.TryParse(t.Value, out tmpLength))
+                {
+                    this.PipeLength = tmpLength;
+                }
             }
 
             Pipe.RecalculateWeight();

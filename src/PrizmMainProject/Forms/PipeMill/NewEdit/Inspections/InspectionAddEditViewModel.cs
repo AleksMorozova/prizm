@@ -41,7 +41,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 TestResult = new PipeTestResult();
                 TestResult.Operation = new PipeTest();
                 TestResult.Status = PipeTestResultStatus.Scheduled;
-                TestResult.Operation = new PipeTest();
+                this.status = TestResult.Status;
+                this.factBool = false;
 
                 if (this.availableTests != null && this.availableTests.Count > 0)
                     TestResult.Operation = this.availableTests[0];

@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.Parts.Search
     {
         private PartSearchViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
+        private List<string> localizedPartTypes = new List<string>();
 
         public PartSearchXtraForm()
         {
@@ -49,6 +50,7 @@ namespace Prizm.Main.Forms.Parts.Search
             foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
             {
                 type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
+                localizedPartTypes.Add(item.Item2);
             }
             RefreshTypes();
             activity.SelectedIndex = 0;
@@ -90,6 +92,9 @@ namespace Prizm.Main.Forms.Parts.Search
                 // layout control groups
                 new LocalizedItem(searchLayoutControlGroup, StringResources.PartSearch_SearchGroup.Id),
                 new LocalizedItem(searchResultLayoutGroup, StringResources.PartSearch_SearchResultGroup.Id),
+
+                //grid column with enum
+                new LocalizedItem(partsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id})
                 // form
                 //??
             };
@@ -172,6 +177,18 @@ namespace Prizm.Main.Forms.Parts.Search
                 if (!data.IsActive)
                 {
                     e.Appearance.ForeColor = Color.Gray;
+                }
+            }
+        }
+
+        private void partsView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == typeCol.Name && e.Value != null)
+            {
+                PartType result;
+                if (Enum.TryParse<PartType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == PartType.Undefined) ? "" : localizedPartTypes[(int)result - 1]; //-1 because we skip 0
                 }
             }
         }

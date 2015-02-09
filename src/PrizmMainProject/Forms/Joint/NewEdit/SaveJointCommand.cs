@@ -102,6 +102,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         notify.ShowError(
                             Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                             Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                        numberOfControlOperationWithoutInspectors = 0;
                     }
                 }
                 else
@@ -109,6 +110,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     notify.ShowError(
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
+                numberOfWeldOperationWithoutWelders = 0;
                 }
             }
         }

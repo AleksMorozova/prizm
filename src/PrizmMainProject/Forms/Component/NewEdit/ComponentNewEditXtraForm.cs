@@ -28,8 +28,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private Guid id;
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
-        private Dictionary<PartInspectionStatus, string> inspectionStatusDict
-            = new Dictionary<PartInspectionStatus, string>();
+        private List<string> localizedAllInspectionStatus = new List<string>();
         private ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
@@ -94,7 +93,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 new LocalizedItem(reasonColumn, StringResources.ComponentNewEdit_ReasonColumn.Id),
 
                 new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
-                new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id)
+                new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id),
+
+                new LocalizedItem(repositoryInspectionStatus, localizedAllInspectionStatus,new string []
+                                                                                      {
+                                                                                        StringResources.PartInspectionStatus_Pending.Id,
+                                                                                        StringResources.PartInspectionStatus_Hold.Id,
+                                                                                        StringResources.PartInspectionStatus_Rejected.Id,
+                                                                                        StringResources.PartInspectionStatus_Accepted.Id
+                                                                                      })
+
             };
         }
 
@@ -106,8 +114,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
             }
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
             
@@ -115,6 +123,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
+            {
+                localizedAllInspectionStatus.Add(item.Item2);
+            }
             BindCommands();
             BindToViewModel();
 
@@ -160,17 +172,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             componentLength.DataBindings
                 .Add("EditValue", componentBindingSource, "Length");
             #endregion
-
-            inspectionStatusDict.Clear();
-            inspectionStatusDict.Add(PartInspectionStatus.Accepted,
-                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Accepted));
-            inspectionStatusDict.Add(PartInspectionStatus.Hold,
-                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Hold));
-            inspectionStatusDict.Add(PartInspectionStatus.Rejected,
-                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Rejected));
-            inspectionStatusDict.Add(PartInspectionStatus.Pending,
-                Program.LanguageManager.GetString(StringResources.PartInspectionStatus_Pending));
-            repositoryInspectionStatus.DataSource = inspectionStatusDict;
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
@@ -228,21 +229,23 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void repositoryInspectionStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value is PartInspectionStatus)
-            {
-                e.DisplayText = inspectionStatusDict[(PartInspectionStatus)e.Value];
-            }
+           if (e.Value != null)
+           {
+               PartInspectionStatus result;
+               if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
+               {
+                   e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
+               }
+           }
         }
 
         private void repositoryInspectionStatus_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit lookup = sender as LookUpEdit;
 
-            if (!(lookup.EditValue is PartInspectionStatus))
+            if (lookup.ItemIndex != -1)
             {
-                KeyValuePair<PartInspectionStatus, string> val
-                    = (KeyValuePair<PartInspectionStatus, string>)lookup.EditValue;
-                lookup.EditValue = val.Key;
+                lookup.EditValue = (PartInspectionStatus)lookup.ItemIndex + 1;
             }
         }
 

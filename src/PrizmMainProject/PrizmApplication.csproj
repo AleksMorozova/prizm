@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Prizm.Main</RootNamespace>
-    <AssemblyName>Prizm.Program</AssemblyName>
+    <AssemblyName>Prism.Program</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -302,6 +302,7 @@
       <DependentUpon>AppWaitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
+    <Compile Include="Forms\MainChildForm\FormManager.cs" />
     <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
     <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
@@ -887,7 +888,6 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

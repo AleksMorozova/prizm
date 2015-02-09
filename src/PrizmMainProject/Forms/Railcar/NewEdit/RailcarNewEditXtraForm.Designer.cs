@@ -65,7 +65,7 @@
             this.unshipButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.railcarLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.certificateNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDestination = new DevExpress.XtraLayout.LayoutControlItem();
@@ -101,7 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.unshipButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).BeginInit();
@@ -356,7 +356,7 @@
             this.unshipButtonLayout,
             this.saveButtonLayout,
             this.buttonEmptySpace,
-            this.layoutControlGroup1});
+            this.railcarLayoutControlGroup});
             this.railcarLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.railcarLayoutGroup.Name = "Root";
             this.railcarLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -559,18 +559,18 @@
             this.buttonEmptySpace.Text = "buttonEmptySpace";
             this.buttonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlGroup1
+            // railcarLayoutControlGroup
             // 
-            this.layoutControlGroup1.CustomizationFormText = "Вагон";
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.railcarLayoutControlGroup.CustomizationFormText = "Вагон";
+            this.railcarLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.railcarNumberLayout,
             this.certificateNumberLayout,
             this.layoutControlDestination});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 100);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(371, 199);
-            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup1.Text = "Вагон";
+            this.railcarLayoutControlGroup.Location = new System.Drawing.Point(0, 100);
+            this.railcarLayoutControlGroup.Name = "railcarLayoutControlGroup";
+            this.railcarLayoutControlGroup.Size = new System.Drawing.Size(371, 199);
+            this.railcarLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.railcarLayoutControlGroup.Text = "Вагон";
             // 
             // railcarNumberLayout
             // 
@@ -658,7 +658,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.unshipButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.railcarLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlDestination)).EndInit();
@@ -713,6 +713,6 @@
         private DevExpress.XtraLayout.LayoutControlItem railcarNumberLayout;
         private DevExpress.XtraEditors.LookUpEdit pipeNumberLookUp;
         private DevExpress.XtraLayout.LayoutControlItem pipeNumberLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup railcarLayoutControlGroup;
     }
 }

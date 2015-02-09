@@ -6,8 +6,8 @@ namespace Prizm.Domain.Entity
     {
        public Item()
        {
-          if (Id == Guid.Empty)
-             Id = Guid.NewGuid();
+          //if (Id == Guid.Empty)
+          //   Id = Guid.NewGuid();
        }
 
         private bool isActive = true;

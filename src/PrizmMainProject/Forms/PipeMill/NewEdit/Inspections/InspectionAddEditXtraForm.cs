@@ -70,7 +70,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             else
             {
                 code.Properties.ReadOnly = false;
-
+                code.Properties.Items.Clear();
                 foreach (var item in viewModel.Tests)
                 {
                     code.Properties.Items.Add(item.Code);
@@ -78,9 +78,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                 this.Text = "Добавление контрольной операции";
             }
-
-            //TODO: Should be tested if code below is still necessary 
-            this.inspectors.SelectInspectors(viewModel.SelectInspectors());
         }
 
 
@@ -92,9 +89,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 status.Properties.Items.Add(item.Item2);
             }
             BindToViewModel();
-
-            status.Text = string.Empty;
-            status.EditValue = viewModel.Status;
 
             factBool_CheckedChanged(null, null);
         }
@@ -194,6 +188,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 Program.MainForm.ShowError
                     (Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader)
+                    );
+            }
+            else if (viewModel.Status == PipeTestResultStatus.Passed 
+                && viewModel.Operation.Category.Type == FixedCategory.Length
+                && string.IsNullOrEmpty(viewModel.FactLimit))
+            {
+                this.DialogResult = DialogResult.None;
+                Program.MainForm.ShowError
+                    (Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassed),
+                    Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassedHeader)
                     );
             }
             else
