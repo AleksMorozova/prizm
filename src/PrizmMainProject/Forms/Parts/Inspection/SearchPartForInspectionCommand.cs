@@ -23,7 +23,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         PartInspectionViewModel viewModel;
         ISession session;
         ISecurityContext ctx;
-        CreateSpoolComponentDialog dialog = null; 
+        CreateSpoolComponentDialog dialog = null;
+        InspectionSelectPartDialog inspectionDialog = null;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
@@ -51,8 +52,16 @@ namespace Prizm.Main.Forms.Parts.Inspection
             viewModel.Parts = parts;
             if (parts.Count > 0)
             {
-                InspectionSelectPartDialog dialog = new InspectionSelectPartDialog(parts, viewModel);
-                dialog.ShowDialog();
+                if (inspectionDialog == null)
+                {
+                    inspectionDialog = new InspectionSelectPartDialog(parts, viewModel);
+                }
+                else 
+                {
+                    inspectionDialog.SetupForm(parts, viewModel);
+                }
+
+                inspectionDialog.ShowDialog();
             }
             else if (ctx.HasAccess(global::Domain.Entity.Security.Privileges.PartsInspection))
             {
