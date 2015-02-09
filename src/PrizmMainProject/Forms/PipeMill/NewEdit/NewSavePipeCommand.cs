@@ -62,6 +62,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.Heat = previousHeat;
                 viewModel.PipePurchaseOrder = previousPurchaseOrder;
              }
+             viewModel.ModifiableView.IsModified = false;
              RefreshVisualStateEvent();
         }
 
