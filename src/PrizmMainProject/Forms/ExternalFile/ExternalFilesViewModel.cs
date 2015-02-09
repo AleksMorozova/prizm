@@ -23,36 +23,38 @@ namespace Prizm.Main.Forms.ExternalFile
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ExternalFilesViewModel));
 
-        private readonly IFileRepository repo;
+        private readonly IExternalFilesRepositories repos;
         private readonly AddExternalFileCommand addExternalFileCommand;
         private readonly DownloadFileCommand downloadFileCommand;
         private readonly ViewFileCommand viewFileCommand;
         private readonly IUserNotify notify;
         private BindingList<Prizm.Domain.Entity.File> files;
         private Prizm.Domain.Entity.File selectedFile;
+        private int sizeLimit;
         public Dictionary<string, string> FilesToAttach = new Dictionary<string, string>();
         public Guid Item { get; set; }
 
         [Inject]
-        public ExternalFilesViewModel(IFileRepository repo, IUserNotify notify)
+        public ExternalFilesViewModel(IExternalFilesRepositories repos, IUserNotify notify)
         {
-            this.repo = repo;
+            this.repos = repos;
             this.notify = notify;
            
 
             addExternalFileCommand =
-              ViewModelSource.Create(() => new AddExternalFileCommand(repo, this, notify));
+              ViewModelSource.Create(() => new AddExternalFileCommand(repos.FileRepo, this, notify));
             downloadFileCommand =
-              ViewModelSource.Create(() => new DownloadFileCommand(repo, this, notify));
+              ViewModelSource.Create(() => new DownloadFileCommand(repos.FileRepo, this, notify));
             viewFileCommand =
-              ViewModelSource.Create(() => new ViewFileCommand(repo, this, notify));
+              ViewModelSource.Create(() => new ViewFileCommand(repos.FileRepo, this, notify));
+            sizeLimit = repos.ProjectRepo.GetSingle().DocumentSizeLimit;
         }
 
         public void RefreshFiles(Guid item)
         {
             if (item != Guid.Empty)
             {
-                var fileList = repo.GetByItem(item);
+                var fileList = repos.FileRepo.GetByItem(item);
                 if (fileList != null)
                 {
                     files = new BindingList<Prizm.Domain.Entity.File>(fileList);
@@ -117,7 +119,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public void Dispose()
         {
-            repo.Dispose();
+            repos.FileRepo.Dispose();
             if (Directory.Exists(Directories.TargetPathForView))
             {
                 Directory.Delete(Directories.TargetPathForView, true);
@@ -187,6 +189,9 @@ namespace Prizm.Main.Forms.ExternalFile
             notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
                 Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
         }
+        public int SizeLimit
+        { get { return sizeLimit; } }
+       
         
     }
 }

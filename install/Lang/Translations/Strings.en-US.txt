@@ -2026,6 +2026,9 @@ ExternalFiles_NotCopied_Header=External files saving error
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
 
+;Размер вложения больше разрешенного
+ExternalFiles_FileSizeIsTooBig=Attaching file's size is bigger than allowed
+
 ;Тип рабочей станции. Неопределен
 WorkstationType_Undefined=Undefined
 

@@ -1123,4 +1123,7 @@
   <data name="FixedCategoryLengthPassedHeader" xml:space="preserve">
     <value>Не заданы результаты измерений</value>
   </data>
+  <data name="ExternalFiles_FileSizeIsTooBig" xml:space="preserve">
+    <value>Размер вложения больше разрешенного</value>
+  </data>
 </root>

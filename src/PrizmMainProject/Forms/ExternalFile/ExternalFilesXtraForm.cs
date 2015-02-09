@@ -59,18 +59,26 @@ namespace Prizm.Main.Forms.ExternalFile
             if (openFileDlg.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fileInfo = new FileInfo(openFileDlg.FileName);
-                if (!Directory.Exists(Directories.FilesToAttachFolder))
+                if (fileInfo.Length / 1024 < viewModel.SizeLimit)
                 {
-                    Directory.CreateDirectory(Directories.FilesToAttachFolder);
-                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.FilesToAttachFolder);
-                    DirectoryInfo directoryInfoParent = new DirectoryInfo(Directories.TargetPath);
-                    directoryInfo.Attributes |= FileAttributes.Hidden;
-                    directoryInfoParent.Attributes |= FileAttributes.Hidden;
+                    if (!Directory.Exists(Directories.FilesToAttachFolder))
+                    {
+                        Directory.CreateDirectory(Directories.FilesToAttachFolder);
+                        DirectoryInfo directoryInfo = new DirectoryInfo(Directories.FilesToAttachFolder);
+                        DirectoryInfo directoryInfoParent = new DirectoryInfo(Directories.TargetPath);
+                        directoryInfo.Attributes |= FileAttributes.Hidden;
+                        directoryInfoParent.Attributes |= FileAttributes.Hidden;
+                    }
+                    fileInfo.CopyTo(string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension));
+                    viewModel.FilesToAttach.Add(newNameId.ToString() + fileInfo.Extension, fileInfo.Name);
+                    Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() { FileName = fileInfo.Name, UploadDate = DateTime.Now };
+                    viewModel.Files.Add(newFile);
                 }
-                fileInfo.CopyTo(string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension));
-                viewModel.FilesToAttach.Add(newNameId.ToString() + fileInfo.Extension, fileInfo.Name);
-                Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() { FileName = fileInfo.Name, UploadDate = DateTime.Now };
-                viewModel.Files.Add(newFile);
+                else
+                { 
+                    XtraMessageBox.Show(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileSizeIsTooBig),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                }
             }
         }
 

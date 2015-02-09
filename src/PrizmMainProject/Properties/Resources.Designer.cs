@@ -508,6 +508,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Размер вложения больше разрешенного.
+        /// </summary>
+        internal static string ExternalFiles_FileSizeIsTooBig {
+            get {
+                return ResourceManager.GetString("ExternalFiles_FileSizeIsTooBig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Результаты измерения длины должны быть введены..
         /// </summary>
         internal static string FixedCategoryLengthPassed {
