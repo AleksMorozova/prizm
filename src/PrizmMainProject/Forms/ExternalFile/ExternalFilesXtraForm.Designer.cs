@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExternalFilesXtraForm));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.files = new DevExpress.XtraGrid.GridControl();
             this.filesView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,25 +41,28 @@
             this.colDownload = new DevExpress.XtraGrid.Columns.GridColumn();
             this.downloadButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.addFile = new DevExpress.XtraEditors.SimpleButton();
-            this.filesBindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tableLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.addButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.buttonLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.addButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.filesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.files)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // files
@@ -124,7 +128,7 @@
             // 
             this.viewButton.AutoHeight = false;
             this.viewButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("viewButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.viewButton.Name = "viewButton";
             this.viewButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.viewButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.viewButton_ButtonClick);
@@ -142,7 +146,7 @@
             // 
             this.downloadButton.AutoHeight = false;
             this.downloadButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("downloadButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.downloadButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.downloadButton_ButtonClick);
@@ -153,23 +157,24 @@
             this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addFile.Image = ((System.Drawing.Image)(resources.GetObject("addFile.Image")));
             this.addFile.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.addFile.Location = new System.Drawing.Point(20, 265);
+            this.addFile.Location = new System.Drawing.Point(165, 265);
             this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
-            this.addFile.Size = new System.Drawing.Size(135, 22);
+            this.addFile.Size = new System.Drawing.Size(148, 22);
             this.addFile.StyleController = this.layoutControl;
             this.addFile.TabIndex = 1;
-            this.addFile.Text = "Добавить файл";
+            this.addFile.Text = "&Добавить файл";
             this.addFile.Click += new System.EventHandler(this.addFile_Click);
             // 
             // layoutControl
             // 
             this.layoutControl.Controls.Add(this.files);
             this.layoutControl.Controls.Add(this.addFile);
+            this.layoutControl.Controls.Add(this.cancelButton);
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl.Location = new System.Drawing.Point(0, 0);
             this.layoutControl.Name = "layoutControl";
-            this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(785, 166, 396, 463);
+            this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(658, 142, 396, 463);
             this.layoutControl.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
             this.layoutControl.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.layoutControl.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
@@ -184,6 +189,20 @@
             this.layoutControl.Size = new System.Drawing.Size(495, 307);
             this.layoutControl.TabIndex = 2;
             this.layoutControl.Text = "layoutControl1";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
+            this.cancelButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.cancelButton.Location = new System.Drawing.Point(317, 265);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(11);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(158, 22);
+            this.cancelButton.StyleController = this.layoutControl;
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "Закр&ыть";
+            this.cancelButton.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Root
             // 
@@ -212,39 +231,57 @@
             this.tableLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.tableLayoutControlItem.TextVisible = false;
             // 
-            // addButtonLayoutControlItem
-            // 
-            this.addButtonLayoutControlItem.Control = this.addFile;
-            this.addButtonLayoutControlItem.CustomizationFormText = "Кнопка добавить";
-            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
-            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(139, 26);
-            this.addButtonLayoutControlItem.Text = "addButtonLayoutControlItem";
-            this.addButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.addButtonLayoutControlItem.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(139, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(320, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // buttonLayoutControlGroup
             // 
-            this.buttonLayoutControlGroup.CustomizationFormText = "Добавить";
+            this.buttonLayoutControlGroup.CustomizationFormText = "кнопки";
             this.buttonLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.addButtonLayoutControlItem,
-            this.emptySpaceItem1});
+            this.cancelButtonLayoutControlItem,
+            this.emptySpaceItem2});
             this.buttonLayoutControlGroup.Location = new System.Drawing.Point(0, 245);
             this.buttonLayoutControlGroup.Name = "buttonLayoutControlGroup";
             this.buttonLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.buttonLayoutControlGroup.Size = new System.Drawing.Size(475, 42);
             this.buttonLayoutControlGroup.Text = "Добавить";
             this.buttonLayoutControlGroup.TextVisible = false;
+            // 
+            // addButtonLayoutControlItem
+            // 
+            this.addButtonLayoutControlItem.Control = this.addFile;
+            this.addButtonLayoutControlItem.CustomizationFormText = "Кнопка добавить";
+            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(145, 0);
+            this.addButtonLayoutControlItem.MaxSize = new System.Drawing.Size(152, 26);
+            this.addButtonLayoutControlItem.MinSize = new System.Drawing.Size(152, 26);
+            this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
+            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(152, 26);
+            this.addButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.addButtonLayoutControlItem.Text = "addButtonLayoutControlItem";
+            this.addButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.addButtonLayoutControlItem.TextVisible = false;
+            // 
+            // cancelButtonLayoutControlItem
+            // 
+            this.cancelButtonLayoutControlItem.Control = this.cancelButton;
+            this.cancelButtonLayoutControlItem.CustomizationFormText = "Кнопка отмена";
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(297, 0);
+            this.cancelButtonLayoutControlItem.MaxSize = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.MinSize = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.cancelButtonLayoutControlItem.Text = "cancelButtonLayoutControlItem";
+            this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.cancelButtonLayoutControlItem.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(145, 26);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ExternalFilesXtraForm
             // 
@@ -260,14 +297,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.downloadButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,6 +317,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
         private DevExpress.XtraGrid.Columns.GridColumn colUploadDate;
         private DevExpress.XtraEditors.SimpleButton addFile;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraGrid.Columns.GridColumn colView;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit viewButton;
         private DevExpress.XtraGrid.Columns.GridColumn colDownload;
@@ -289,6 +328,7 @@
         private DevExpress.XtraLayout.LayoutControlItem tableLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup buttonLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem addButtonLayoutControlItem;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }
