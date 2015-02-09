@@ -24,7 +24,25 @@ namespace Prizm.Main.Forms.Settings.Inspections
         public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
-            viewModel = new MillInspectionViewModel(current, categoryTypes);
+            this.SetupForm(current, categoryTypes);
+        }
+
+        private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
+        {
+            if (viewModel == null)
+            {
+                viewModel = new MillInspectionViewModel(current, categoryTypes);
+            }
+            else
+            {
+                viewModel.SetupViewModel(current, categoryTypes);
+            }
+
+            return viewModel;
+        }
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes) 
+        {
+            viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
             ChangeFrequency();
@@ -175,5 +193,25 @@ namespace Prizm.Main.Forms.Settings.Inspections
             code.Properties.MaxLength = LengthLimit.MaxPipeTestCode;
             operationName.Properties.MaxLength = LengthLimit.MaxPipeTestName;
         }
+
+        private void MillInspectionXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            code.DataBindings.Clear();
+            operationName.DataBindings.Clear();
+            isRequired.DataBindings.Clear();
+            isActive.DataBindings.Clear();
+
+            controlType.DataBindings.Clear();
+            resultType.DataBindings.Clear();
+            frequencyMeasure.DataBindings.Clear();
+
+            category.DataBindings.Clear();
+
+            boolExpected.DataBindings.Clear();
+            minExpected.DataBindings.Clear();
+            maxExpected.DataBindings.Clear();
+            frequency.DataBindings.Clear();
+        }
+
     }
 }
