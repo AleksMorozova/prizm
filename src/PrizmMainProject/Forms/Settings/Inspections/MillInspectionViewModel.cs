@@ -15,7 +15,13 @@ namespace Prizm.Main.Forms.Settings.Inspections
     {
         private PipeTest pipeTest;
         public BindingList<Category> CategoryTypes;
+
         public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes)
+        {
+            SetupViewModel(current, CategoryTypes);
+        }
+
+        public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes) 
         {
             this.CategoryTypes = CategoryTypes;
 
