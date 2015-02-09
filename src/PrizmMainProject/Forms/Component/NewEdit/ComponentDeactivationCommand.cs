@@ -48,8 +48,25 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 try
                 {
                     viewModel.ComponentIsActive = false;
-                    viewModel.SaveCommand.Execute();
+
+                    repos.BeginTransaction();
+                    repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
+                    repos.Commit();
+
+                    repos.ComponentRepo.Evict(viewModel.Component);
+
+                    viewModel.ModifiableView.IsModified = false;
                     viewModel.ModifiableView.IsEditMode = false;
+                    viewModel.ModifiableView.UpdateState();
+
+                    notify.ShowSuccess(
+                                string.Concat(Program.LanguageManager.GetString(
+                                    StringResources.ComponentNewEdit_DeactivatedAction), viewModel.Number),
+                                Program.LanguageManager.GetString(
+                                    StringResources.ComponentNewEdit_DeactivatedActionHeader));
+
+                    log.Info(string.Format("The entity #{0}, id:{1} has been deactivated.",
+                        viewModel.Component.Number, viewModel.Component.Id));
                 }
                 catch (RepositoryException ex)
                 {

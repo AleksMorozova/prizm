@@ -1123,4 +1123,28 @@
   <data name="FixedCategoryLengthPassedHeader" xml:space="preserve">
     <value>Не заданы результаты измерений</value>
   </data>
+  <data name="ComponentNewEdit_DeactivatedAction" xml:space="preserve">
+    <value>Комплектующее изделие деактивировано. Комплектующее изделие #</value>
+  </data>
+  <data name="ComponentNewEdit_DeactivatedActionHeader" xml:space="preserve">
+    <value>Деактивация элемента</value>
+  </data>
+  <data name="Joint_Deactivated" xml:space="preserve">
+    <value>Стык деактивирован. Стык #</value>
+  </data>
+  <data name="Joint_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация стыка</value>
+  </data>
+  <data name="Pipe_Deactivated" xml:space="preserve">
+    <value>Труба деактивирована. Труба #</value>
+  </data>
+  <data name="Pipe_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="Spool_Deactivated" xml:space="preserve">
+    <value>Катушка деактивирована. Катушка #</value>
+  </data>
+  <data name="Spool_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
 </root>

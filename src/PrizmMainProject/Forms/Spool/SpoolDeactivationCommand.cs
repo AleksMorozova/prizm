@@ -14,6 +14,8 @@ namespace Prizm.Main.Forms.Spool
 {
     public class SpoolDeactivationCommand : ICommand
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SpoolDeactivationCommand));
+
         private readonly ISpoolRepositories repo;
         private readonly SpoolViewModel viewModel;
         private readonly IUserNotify notify;
@@ -36,10 +38,31 @@ namespace Prizm.Main.Forms.Spool
                   Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestion),
                   Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestionHeader)))
             {
-                viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;       
+                viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;    
+   
                 viewModel.Spool.IsActive = false;
-                viewModel.SaveCommand.Execute();
+                
+                repo.BeginTransaction();
+                repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                
+                repo.Commit();
+                
+                repo.PipeRepo.Evict(viewModel.Pipe);
+                repo.SpoolRepo.Evict(viewModel.Spool);
+
                 viewModel.ModifiableView.IsEditMode = false;
+                viewModel.ModifiableView.IsModified = false;
+                viewModel.ModifiableView.UpdateState();
+
+                notify.ShowSuccess(
+                    string.Concat(Program.LanguageManager.GetString(
+                        StringResources.Spool_Deactivated), viewModel.SpoolNumber),
+                    Program.LanguageManager.GetString(
+                        StringResources.Spool_DeactivatedHeader));
+
+                log.Info(string.Format("The Spool #{0}, id:{1} has been deactivated.",
+                    viewModel.Pipe.Number, viewModel.Pipe.Id));
             }
             RefreshVisualStateEvent();
         }

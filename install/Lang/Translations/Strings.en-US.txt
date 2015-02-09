@@ -2185,3 +2185,26 @@ Menu_Help_About=&About
 ;Текст на панели статуса: Важные сообщения 
 MainWindow_StatusNotificationsHeader=Important messages 
 
+;Комплектующее изделие деактивировано. Комплектующее изделие #
+ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
+
+;Деактивация элемента
+ComponentNewEdit_DeactivatedActionHeader=Component deactivation
+
+;Стык деактивирован. Стык #
+Joint_Deactivated=Joint have been deactivated. The joint #
+
+;Деактивация стыка
+Joint_DeactivatedHeader=Joint deactivation
+
+;Труба деактивирована. Труба #
+Pipe_Deactivated=Pipe have been deactivated. The pipe #
+
+;Деактивация трубы
+Pipe_DeactivatedHeader=Pipe deactivation
+
+;Катушка деактивирована. Катушка #
+Spool_Deactivated=Spool have been deactivated. The spool #
+
+;Деактивация катушки
+Spool_DeactivatedHeader=Spool deactivation

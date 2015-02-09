@@ -981,8 +981,19 @@ namespace Prizm.Main.Languages
             Id = "Spool_EditDocumentHeader",
             Description = "Катушка, заголовок окна редактирования: Редактирование катушки"
         };
-        
 
+        public static StringResource Spool_Deactivated = new StringResource
+        {
+            Id = "Spool_Deactivated",
+            Description = "Катушка деактивирована. Катушка #"
+        };
+
+        public static StringResource Spool_DeactivatedHeader = new StringResource
+        {
+            Id = "Spool_DeactivatedHeader",
+            Description = "Деактивация катушки"
+        };
+        
         #endregion Spool
 
         #region MissingPortion
@@ -2386,6 +2397,18 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке: Величина диаметра должна быть больше нуля"
         };
 
+        public static StringResource ComponentNewEdit_DeactivatedAction = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedAction",
+            Description = "Сообщение о деактивации элемента: Комплектующее изделие деактивировано. Комплектующее изделие #"
+        };
+
+        public static StringResource ComponentNewEdit_DeactivatedActionHeader = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedActionHeader",
+            Description = "Заголовок сообщения о деактивации элемента"
+        };
+
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
@@ -2628,6 +2651,18 @@ namespace Prizm.Main.Languages
         {
             Id = "Joint_IncorrectDiameterHeader",
             Description = "Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов"
+        };
+
+        public static StringResource Joint_Deactivated = new StringResource
+        {
+            Id = "Joint_Deactivated",
+            Description = "Стык деактивирован. Стык #"
+        };
+
+        public static StringResource Joint_DeactivatedHeader = new StringResource
+        {
+            Id = "Joint_DeactivatedHeader",
+            Description = "Деактивация стыка"
         };
 
         #endregion //--- JointNew ---
@@ -3502,6 +3537,18 @@ namespace Prizm.Main.Languages
         {
             Id = "MillPipe_ErrorEmptyOrFutureDate",
             Description = "Сообщение об ошибке даты: Дата не может быть пустой или будущей"
+        };
+
+        public static StringResource Pipe_Deactivated = new StringResource
+        {
+            Id = "Pipe_Deactivated",
+            Description = "Труба деактивирована. Труба #"
+        };
+
+        public static StringResource Pipe_DeactivatedHeader = new StringResource
+        {
+            Id = "Pipe_DeactivatedHeader",
+            Description = "Деактивация трубы"
         };
 
         #endregion
