@@ -45,6 +45,7 @@ namespace Prizm.Main.Forms.Settings
         private List<string> localizedPipeTestControlTypes = new List<string>();
         private List<string> localizedPipeTestResultTypes = new List<string>();
         private List<string> localizedJointOperationTypes = new List<string>();
+        private MillInspectionXtraForm inspectionForm = null;
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -1298,50 +1299,75 @@ namespace Prizm.Main.Forms.Settings
                              .ToList();
         }
 
+        private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
+                 BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes)
+        {
+            if (inspectionForm == null)
+            {
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes);
+            }
+            else
+            {
+                inspectionForm.SetupForm(selectedTest, categoryTypes);
+            }
+
+            return inspectionForm;
+        }
+
         private void addTestButton_Click(object sender, EventArgs e)
         {
             if (IsEditMode && IsEditable(IsEditMode))
             {
-                using (var addForm = new MillInspectionXtraForm(null, viewModel.CategoryTypes))
+                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+
+                if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        addForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
-                        viewModel.CurrentPipeMillSizeType.PipeTests.Add(addForm.viewModel.PipeTest);
-                        viewModel.PipeTests.Add(addForm.viewModel.PipeTest);
-                        IsModified = true;
-                        inspectionOperation.RefreshDataSource();
-                    }
+                    inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
+                    viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    IsModified = true;
+                    inspectionOperation.RefreshDataSource();
                 }
+
             }
         }
 
         private void editTestButton_Click(object sender, EventArgs e)
         {
-            if(inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
+            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
             {
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if(selectedTest != null)
+                if (selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
-                    {
-                        editForm.ShowDialog();
-                    }
+                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes);
+
+                    inspectionForm.ShowDialog();
+                    IsModified = true;
+                    inspectionOperation.RefreshDataSource();
+
                 }
             }
         }
 
         private void inspectionOperation_DoubleClick(object sender, EventArgs e)
         {
-            if(inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
+            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
             {
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if(selectedTest != null)
+                if (selectedTest != null)
                 {
-                    using(var editForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes))
+                    if (inspectionForm == null)
                     {
-                        editForm.ShowDialog();
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes);
                     }
+                    else
+                    {
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes);
+                    }
+
+                    inspectionForm.ShowDialog();
+                    inspectionOperation.RefreshDataSource();
+
                 }
             }
         }
