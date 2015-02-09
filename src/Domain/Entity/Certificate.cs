@@ -10,5 +10,6 @@ namespace Prizm.Domain.Entity
     {
         public virtual string Number { get; set; }
         public virtual DateTime ExpirationDate { get; set; }
+        public virtual int Grade { get; set; }
     }
 }

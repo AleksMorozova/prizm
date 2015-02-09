@@ -20,6 +20,7 @@ namespace Prizm.Data.DAL.Mapping
 
             Component<Certificate>(x => x.Certificate, m =>
             {
+                m.Map(x => x.Grade).Column("Grade");
                 m.Map(x => x.Number).Column("Number");
                 m.Map(x => x.ExpirationDate).Column("expirationDate");
             }
