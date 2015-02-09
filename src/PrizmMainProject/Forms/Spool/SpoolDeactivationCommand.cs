@@ -9,6 +9,7 @@ using Ninject;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -38,31 +39,39 @@ namespace Prizm.Main.Forms.Spool
                   Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestion),
                   Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestionHeader)))
             {
-                viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;    
-   
-                viewModel.Spool.IsActive = false;
-                
-                repo.BeginTransaction();
-                repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-                repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-                
-                repo.Commit();
-                
-                repo.PipeRepo.Evict(viewModel.Pipe);
-                repo.SpoolRepo.Evict(viewModel.Spool);
+                try
+                {
+                    viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;
 
-                viewModel.ModifiableView.IsEditMode = false;
-                viewModel.ModifiableView.IsModified = false;
-                viewModel.ModifiableView.UpdateState();
+                    viewModel.Spool.IsActive = false;
 
-                notify.ShowSuccess(
-                    string.Concat(Program.LanguageManager.GetString(
-                        StringResources.Spool_Deactivated), viewModel.SpoolNumber),
-                    Program.LanguageManager.GetString(
-                        StringResources.Spool_DeactivatedHeader));
+                    repo.BeginTransaction();
+                    repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                    repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
 
-                log.Info(string.Format("The Spool #{0}, id:{1} has been deactivated.",
-                    viewModel.Pipe.Number, viewModel.Pipe.Id));
+                    repo.Commit();
+
+                    repo.PipeRepo.Evict(viewModel.Pipe);
+                    repo.SpoolRepo.Evict(viewModel.Spool);
+
+                    viewModel.ModifiableView.IsEditMode = false;
+                    viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.UpdateState();
+
+                    notify.ShowSuccess(
+                        string.Concat(Program.LanguageManager.GetString(
+                            StringResources.Spool_Deactivated), viewModel.SpoolNumber),
+                        Program.LanguageManager.GetString(
+                            StringResources.Spool_DeactivatedHeader));
+
+                    log.Info(string.Format("The Spool #{0}, id:{1} has been deactivated.",
+                        viewModel.Pipe.Number, viewModel.Pipe.Id));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
             }
             RefreshVisualStateEvent();
         }
