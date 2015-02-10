@@ -1126,6 +1126,9 @@
   <data name="ExternalFiles_FileAttachSuccess" xml:space="preserve">
     <value>Вложения успешно добавлены</value>
   </data>
+    <data name="ExternalFiles_FileSizeIsTooBig" xml:space="preserve">
+    <value>Размер вложения больше разрешенного</value>
+  </data>
   <data name="ExternalFiles_FileAttachSuccessHeader" xml:space="preserve">
     <value>Добавление вложений</value>
   </data>

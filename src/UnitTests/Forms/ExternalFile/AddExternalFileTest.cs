@@ -49,8 +49,12 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var fileRepo = new Mock<IFileRepository>();
-            var fileViewModel = new ExternalFilesViewModel(fileRepo.Object, notify.Object);
+            var projectRepo = new Mock<IProjectRepository>();
+            var externalFilesRepo = new Mock<IExternalFilesRepositories>();
+            externalFilesRepo.SetupGet(_ => _.FileRepo).Returns(fileRepo.Object);
+            externalFilesRepo.SetupGet(_ => _.ProjectRepo).Returns(projectRepo.Object);
 
+            var fileViewModel = new ExternalFilesViewModel(externalFilesRepo.Object, notify.Object);
             
             fileViewModel.FilesToAttach.Add("test.txt", "test.txt");
 
