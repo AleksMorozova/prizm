@@ -48,6 +48,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 return;
             }
 
+            foreach(var result in viewModel.InspectionTestResults)
+            {
+                if(result.Date.Value.Year < Prizm.Main.Common.DateEditExtension.MinYear || result.Date.Value.Year > Prizm.Main.Common.DateEditExtension.MinYear)
+                {
+                    return;
+                }
+            }
+
+
+
             var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
             foreach (var component in c)
             {
