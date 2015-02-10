@@ -917,7 +917,7 @@ Export_CreatingArchive=Creating archive
 Export_Error=Error {1}
 
 ;PRISM archives
-Export_Filter=PRIZM archives|*.prizm
+Export_Filter=PRISM archives
 
 ;Нет новых данных для экспортирования.
 Export_NoData=There are no fresh data for export
