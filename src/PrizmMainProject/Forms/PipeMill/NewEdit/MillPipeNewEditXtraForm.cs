@@ -91,7 +91,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
-            SetAlwaysReadOnly(shippedDate);
+            SetAlwaysReadOnly(releaseNoteNumber);
+            SetAlwaysReadOnly(releaseNoteDate);//release note date
             SetAlwaysReadOnly(certificateNumber);
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
@@ -214,10 +215,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
+            releaseNoteNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteDate");
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings
@@ -330,7 +334,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     new LocalizedItem(railcarLayoutControlItem, StringResources.NewEditPipe_RailcarNumber_Label.Id),
                     new LocalizedItem(certificateLayoutControlItem, StringResources.NewEditPipe_RailcarCertificate_Label.Id),
-                    new LocalizedItem(shippedDateLayoutControlItem, StringResources.NewEditPipe_RailcarShippedDate_Label.Id),
+                    new LocalizedItem(releaseNoteDateLayoutControlItem, StringResources.NewEditPipe_ReleaseNoteDate_Label.Id),
+                    new LocalizedItem(releaseNoteNumberLayout, StringResources.NewEditPipe_ReleaseNoteNumber_Label.Id),
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
