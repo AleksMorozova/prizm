@@ -217,7 +217,7 @@
             this.jointStatus.Properties.ReadOnly = true;
             this.jointStatus.Size = new System.Drawing.Size(124, 20);
             this.jointStatus.StyleController = this.newJointLayoutControl;
-            this.jointStatus.TabIndex = 26;
+            this.jointStatus.TabIndex = 2;
             // 
             // saveAndCreateButton
             // 
@@ -226,7 +226,7 @@
             this.saveAndCreateButton.Name = "saveAndCreateButton";
             this.saveAndCreateButton.Size = new System.Drawing.Size(220, 22);
             this.saveAndCreateButton.StyleController = this.newJointLayoutControl;
-            this.saveAndCreateButton.TabIndex = 14;
+            this.saveAndCreateButton.TabIndex = 16;
             this.saveAndCreateButton.Text = "Сох&ранить/Создать";
             // 
             // repairOperations
@@ -241,7 +241,7 @@
             this.repairDateEdit,
             this.weldersPopupContainerEdit});
             this.repairOperations.Size = new System.Drawing.Size(476, 261);
-            this.repairOperations.TabIndex = 9;
+            this.repairOperations.TabIndex = 11;
             this.repairOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.repairOperationsView});
             // 
@@ -351,20 +351,19 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(97, 22);
             this.saveButton.StyleController = this.newJointLayoutControl;
-            this.saveButton.TabIndex = 18;
+            this.saveButton.TabIndex = 15;
             this.saveButton.Text = "Со&хранить";
             // 
             // attachmentsButton
             // 
             this.attachmentsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(22, 506);
             this.attachmentsButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
             this.attachmentsButton.MinimumSize = new System.Drawing.Size(100, 20);
             this.attachmentsButton.Name = "attachmentsButton";
             this.attachmentsButton.Size = new System.Drawing.Size(100, 22);
             this.attachmentsButton.StyleController = this.newJointLayoutControl;
-            this.attachmentsButton.TabIndex = 16;
+            this.attachmentsButton.TabIndex = 13;
             this.attachmentsButton.Text = "&Вложения";
             this.attachmentsButton.Click += new System.EventHandler(this.extraFiles_Click);
             // 
@@ -376,7 +375,7 @@
             this.deactivated.Properties.Caption = "Стык деактивирован";
             this.deactivated.Size = new System.Drawing.Size(131, 19);
             this.deactivated.StyleController = this.newJointLayoutControl;
-            this.deactivated.TabIndex = 12;
+            this.deactivated.TabIndex = 14;
             // 
             // distanceFromPK
             // 
@@ -384,7 +383,7 @@
             this.distanceFromPK.Name = "distanceFromPK";
             this.distanceFromPK.Size = new System.Drawing.Size(178, 20);
             this.distanceFromPK.StyleController = this.newJointLayoutControl;
-            this.distanceFromPK.TabIndex = 8;
+            this.distanceFromPK.TabIndex = 7;
             // 
             // PKNumber
             // 
@@ -394,7 +393,7 @@
             this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.PKNumber.Size = new System.Drawing.Size(176, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
-            this.PKNumber.TabIndex = 7;
+            this.PKNumber.TabIndex = 6;
             // 
             // PKLabel
             // 
@@ -402,7 +401,7 @@
             this.PKLabel.Name = "PKLabel";
             this.PKLabel.Size = new System.Drawing.Size(12, 13);
             this.PKLabel.StyleController = this.newJointLayoutControl;
-            this.PKLabel.TabIndex = 25;
+            this.PKLabel.TabIndex = 1;
             this.PKLabel.Text = "KP";
             // 
             // GPSLabel
@@ -412,7 +411,7 @@
             this.GPSLabel.Name = "GPSLabel";
             this.GPSLabel.Size = new System.Drawing.Size(19, 13);
             this.GPSLabel.StyleController = this.newJointLayoutControl;
-            this.GPSLabel.TabIndex = 13;
+            this.GPSLabel.TabIndex = 1;
             this.GPSLabel.Text = "GPS";
             // 
             // seaLevel
@@ -423,7 +422,7 @@
             this.seaLevel.Name = "seaLevel";
             this.seaLevel.Size = new System.Drawing.Size(178, 20);
             this.seaLevel.StyleController = this.newJointLayoutControl;
-            this.seaLevel.TabIndex = 6;
+            this.seaLevel.TabIndex = 10;
             // 
             // GPSLat
             // 
@@ -434,7 +433,7 @@
             this.GPSLat.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLat.Size = new System.Drawing.Size(176, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
-            this.GPSLat.TabIndex = 4;
+            this.GPSLat.TabIndex = 8;
             // 
             // GPSLong
             // 
@@ -446,7 +445,7 @@
             this.GPSLong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLong.Size = new System.Drawing.Size(176, 20);
             this.GPSLong.StyleController = this.newJointLayoutControl;
-            this.GPSLong.TabIndex = 5;
+            this.GPSLong.TabIndex = 9;
             // 
             // controlOperations
             // 
@@ -465,7 +464,7 @@
             this.resultStatusLookUpEdit,
             this.ResultValueTextEdit});
             this.controlOperations.Size = new System.Drawing.Size(713, 261);
-            this.controlOperations.TabIndex = 10;
+            this.controlOperations.TabIndex = 12;
             this.controlOperations.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.controlOperationsView,
             this.inspectionsGridView});
@@ -612,7 +611,7 @@
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(268, 20);
             this.secondJointElement.StyleController = this.newJointLayoutControl;
-            this.secondJointElement.TabIndex = 3;
+            this.secondJointElement.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
@@ -635,7 +634,7 @@
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(258, 20);
             this.firstJointElement.StyleController = this.newJointLayoutControl;
-            this.firstJointElement.TabIndex = 2;
+            this.firstJointElement.TabIndex = 3;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.firstJointElement, conditionValidationRule2);
@@ -652,7 +651,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.loweringDate.Size = new System.Drawing.Size(108, 20);
             this.loweringDate.StyleController = this.newJointLayoutControl;
-            this.loweringDate.TabIndex = 1;
+            this.loweringDate.TabIndex = 5;
             // 
             // newJointLayoutGroup
             // 
