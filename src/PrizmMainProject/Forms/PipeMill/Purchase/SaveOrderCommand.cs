@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,11 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.Date.IsValid())
+            {
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(viewModel.Order.Number))
             {
                 viewModel.IsSaved = false;
