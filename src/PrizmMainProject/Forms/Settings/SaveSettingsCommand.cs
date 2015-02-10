@@ -104,10 +104,19 @@ namespace Prizm.Main.Forms.Settings
         {
             bool result = true;
 
-            if(viewModel.Welders.All(x => x.CertificateExpiration.IsValid()))
+            if(!viewModel.Welders.All(x => x.CertificateExpiration.IsValid()))
             {
-
+                result = false;
             }
+            if(!viewModel.Inspectors.All(x => x.Certificates.All(y => y.Certificate.ExpirationDate.IsValid())))
+            {
+                result = false;
+            }
+            if(!viewModel.Users.All(x => x.PasswordExpires.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
 
         private void EvictUsers()
