@@ -48,7 +48,7 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrismDatabase");
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail

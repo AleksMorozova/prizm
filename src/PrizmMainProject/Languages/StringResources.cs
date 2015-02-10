@@ -346,6 +346,12 @@ namespace Prizm.Main.Languages
             Description = "Просмотр и загрузка несохрaненных файлов"
         };
 
+        public static StringResource ExternalFiles_FileSizeIsTooBig= new StringResource
+        {
+            Id = "ExternalFiles_FileSizeIsTooBig",
+            Description = "Сообщение: Размер вложения больше разрешенного"
+        };
+
 
         public static StringResource Yes = new StringResource
         {

@@ -917,7 +917,7 @@ Export_CreatingArchive=Creating archive
 Export_Error=Error {1}
 
 ;PRISM archives
-Export_Filter=PRIZM archives|*.prizm
+Export_Filter=PRISM archives
 
 ;Нет новых данных для экспортирования.
 Export_NoData=There are no fresh data for export
@@ -2025,6 +2025,9 @@ ExternalFiles_NotCopied_Header=External files saving error
 
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
+
+;Сообщение: Размер вложения больше разрешенного
+ExternalFiles_FileSizeIsTooBig=Attaching file's size is bigger than allowed
 
 ;Тип рабочей станции. Неопределен
 WorkstationType_Undefined=Undefined

@@ -97,6 +97,7 @@ namespace Prizm.Main
             Bind<IPortionRepository>().To<PortionRepository>();
             Bind<IExportRepository>().To<ExportRepository>();
             Bind<IImportRepository>().To<ImportRepository>();
+            Bind<IExternalFilesRepositories>().To<ExternalFilesRepositories>();
             // TODO: remove TemporaryContext after binding to real context.
             Bind<Prizm.Main.Security.ISecurityContext>().To<SecurityContext>().InSingletonScope();
 
