@@ -381,7 +381,7 @@ MissingPortion_cancelButton=&Cancel
 Settings_ValidateInspectorSertificate=Please select inspector
 
 ;Обязательное значение
-Settings_ValueRequaered=Value is required
+Settings_ValueRequired=Value is required
 
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
