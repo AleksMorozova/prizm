@@ -15,6 +15,7 @@ using Prizm.Main.Forms.MainChildForm;
 
 using Prizm.Main.DummyData;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using System.Collections.Generic;
 using Prizm.Main.Properties;
@@ -46,6 +47,8 @@ namespace Prizm.Main.Forms.Railcar.Search
             viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
             BindCommands();
             BindToViewModel();
+
+            releaseNoteDate.SetLimits();
         }
 
         private void BindToViewModel()

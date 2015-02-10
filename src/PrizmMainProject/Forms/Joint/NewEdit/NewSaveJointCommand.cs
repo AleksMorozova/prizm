@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NewSaveJointCommand));
+
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public NewSaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
@@ -34,6 +37,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public void Execute()
         {
             if (!viewModel.ValidatableView.Validate()) { return; }
+
+            if(!DateCheck())
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
 
             if (viewModel.Joint.LoweringDate == DateTime.MinValue)
             {
@@ -79,6 +88,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return viewModel.SaveOrUpdateJointCommand.CanExecute() 
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
+        }
+
+        private bool DateCheck()
+        {
+            bool result = true;
+            if(!viewModel.Joint.LoweringDate.IsValid())
+            {
+                result = false;
+            }
+            if(!viewModel.JointTestResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.JointWeldResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

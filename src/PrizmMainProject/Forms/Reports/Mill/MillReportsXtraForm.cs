@@ -60,11 +60,11 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<MillReportType>.EnumerateItems())
+            foreach(var item in EnumWrapper<MillReportType>.EnumerateItems())
             {
                 reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
             }
-            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
             {
                 statuses.Items.Add(item.Item2);
             }
@@ -74,6 +74,9 @@ namespace Prizm.Main.Forms.Reports.Mill
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
             reportTypes.SelectedIndex = 3;
+
+            startDate.SetLimits();
+            endDate.SetLimits();
         }
 
         #region --- Localization ---
@@ -127,7 +130,8 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void reportTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (reportTypes.SelectedIndex < 0) return;
+            if(reportTypes.SelectedIndex < 0)
+                return;
             var selected = (MillReportType)reportTypes.Properties.Items[reportTypes.SelectedIndex].Value;
             viewModel.SelectedReportType = selected;
             testCategories.Enabled = true;

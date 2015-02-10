@@ -9,5 +9,7 @@ namespace Prizm.Main.Common
     public class Constants
     {
         public const float WallThicknessPrecision = 0.01f;
+        public const int MinYear = 1950;
+        public const int MaxYear = 2150;
     }
 }

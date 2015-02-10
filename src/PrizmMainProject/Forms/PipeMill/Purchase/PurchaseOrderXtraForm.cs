@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.PipeMill
         {
 
         }
+
         public PurchaseOrderXtraForm(string nmb)
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Prizm.Main.Forms.PipeMill
         private void PurchaseOrderXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();
+            date.SetLimits();
         }
 
         private void BindToViewModel()
@@ -67,7 +69,7 @@ namespace Prizm.Main.Forms.PipeMill
         private void saveButton_Click(object sender, EventArgs e)
         {
             viewModel.SaveCommand.Execute();
-            if (viewModel.IsSaved == true)
+            if(viewModel.IsSaved == true)
             {
                 this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
