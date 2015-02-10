@@ -2702,6 +2702,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Обязательное значение.
+        /// </summary>
+        internal static string Settings_ValueRequaered {
+            get {
+                return ResourceManager.GetString("Settings_ValueRequaered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap shipment_icon {

@@ -1141,4 +1141,7 @@
   <data name="ExternalFiles_FileViewDownloadFailHeader" xml:space="preserve">
     <value>Просмотр и загрузка несохрaненных файлов</value>
   </data>
+  <data name="Settings_ValueRequaered" xml:space="preserve">
+    <value>Обязательное значение</value>
+  </data>
 </root>
