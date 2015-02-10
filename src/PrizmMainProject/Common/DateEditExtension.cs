@@ -13,5 +13,11 @@ namespace Prizm.Main.Common
             edit.Properties.MinValue = new DateTime(1950, 1, 1);
             edit.Properties.MaxValue = new DateTime(2150, 1, 1);
         }
+
+        public static void SetLimits(this DevExpress.XtraEditors.Repository.RepositoryItemDateEdit edit)
+        {
+            edit.MinValue = new DateTime(1950, 1, 1);
+            edit.MaxValue = new DateTime(2150, 1, 1);
+        }
     }
 }
