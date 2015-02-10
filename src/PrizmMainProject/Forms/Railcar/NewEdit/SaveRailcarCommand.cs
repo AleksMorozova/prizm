@@ -4,6 +4,7 @@ using DevExpress.Mvvm.POCO;
 using DevExpress.XtraEditors;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,11 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public void Execute()
         {
             if(!viewModel.validatableView.Validate())
+            {
+                return;
+            }
+
+            if(!viewModel.Date.IsValid())
             {
                 return;
             }
