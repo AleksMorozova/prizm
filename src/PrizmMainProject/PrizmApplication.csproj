@@ -193,6 +193,7 @@
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DateEditExtension.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Controls\BindingHelper.cs" />
@@ -888,6 +889,7 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

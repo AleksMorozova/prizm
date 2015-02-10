@@ -294,6 +294,7 @@
             this.generalAuditLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalAuditLayoutGroup.Name = "Root";
             this.generalAuditLayoutGroup.Size = new System.Drawing.Size(796, 436);
+            this.generalAuditLayoutGroup.Text = "Root";
             this.generalAuditLayoutGroup.TextVisible = false;
             // 
             // searchParametersLayoutGroup
@@ -338,6 +339,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(91, 80);
+            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -409,45 +411,54 @@
             this.searchButtonLayout.Name = "searchButtonLayout";
             this.searchButtonLayout.Size = new System.Drawing.Size(104, 26);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.searchButtonLayout.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(295, 41);
             this.emptySpaceItem3.MaxSize = new System.Drawing.Size(0, 39);
             this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 39);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(260, 39);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(555, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(197, 15);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(555, 41);
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(197, 39);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(197, 39);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(197, 39);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
             this.emptySpaceItem4.Location = new System.Drawing.Point(659, 15);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(93, 26);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // auditResultsLayout
@@ -457,6 +468,7 @@
             this.auditResultsLayout.Location = new System.Drawing.Point(0, 123);
             this.auditResultsLayout.Name = "auditResultsLayout";
             this.auditResultsLayout.Size = new System.Drawing.Size(776, 293);
+            this.auditResultsLayout.Text = "auditResultsLayout";
             this.auditResultsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.auditResultsLayout.TextSize = new System.Drawing.Size(0, 0);
             this.auditResultsLayout.TextVisible = false;
