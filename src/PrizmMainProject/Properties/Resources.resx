@@ -1168,4 +1168,7 @@
   <data name="Spool_DeactivatedHeader" xml:space="preserve">
     <value>Деактивация катушки</value>
   </data>
+  <data name="Settings_ValueRequaered" xml:space="preserve">
+    <value>Обязательное значение</value>
+  </data>
 </root>
