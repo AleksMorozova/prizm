@@ -127,7 +127,7 @@ english.UpdateConfigurationFile=Update Configuration File
 russian.UpdateConfigurationFile=Обновление файлов конфигурации
 english.InstallingNet45=Installing Microsoft Framework 4.5. Please wait...
 russian.InstallingNet45=Идет установка .NET Framework 4.5. Это может занять несколько минут...
-english.ErrorCreateDB=Error while creating Prizma Database. Please, contact system administrator
+english.ErrorCreateDB=Error while creating Prism Database. Please, contact system administrator
 russian.ErrorCreateDB=Ошибка во время создания базы данных. Свяжитесь с администратором
 english.UnInstallingDBSubCaption=Deleting database files
 russian.UnInstallingDBSubCaption=Удаление базы данных
@@ -765,7 +765,7 @@ begin
     begin
       key := Node.getAttribute('name');
       Case key of
-        'PrizmDatabase' : Node.setAttribute('connectionString', 'Data Source=(LocalDb)\v11.0;Initial Catalog=' + GetProjectName('') + ';Integrated Security=true;AttachDBFileName=' + ExpandConstant('{app}') + '\Data\' + GetProjectName('') + '.mdf');
+        'PrismDatabase' : Node.setAttribute('connectionString', 'Data Source=(LocalDb)\v11.0;Initial Catalog=' + GetProjectName('') + ';Integrated Security=true;AttachDBFileName=' + ExpandConstant('{app}') + '\Data\' + GetProjectName('') + '.mdf');
       end;
     end;
   end;

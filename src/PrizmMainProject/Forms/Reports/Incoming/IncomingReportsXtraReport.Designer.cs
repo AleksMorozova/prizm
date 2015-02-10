@@ -38,7 +38,7 @@
             this.length = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
+            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrismDatabase");
             this.pipeWallThicknessLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeTypeLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeNumberLabel = new DevExpress.XtraReports.UI.XRLabel();

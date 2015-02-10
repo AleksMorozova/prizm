@@ -387,7 +387,7 @@ namespace Prizm.Data.DAL.ADO
         {
             if (connection == null)
             {
-                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
                 connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
             }
 
