@@ -146,14 +146,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            if(IsEditMode)
-            {
-                pipeNumber.Validating += pipeNumber_Validating;
-            }
-            else
-            {
-                pipeNumber.Validating -= pipeNumber_Validating;
-            }
 
             IsModified = false;
             pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
@@ -691,7 +683,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void pipeNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase) && IsEditMode)
             {
                 pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
@@ -802,7 +794,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            return dxValidationProvider.Validate() && this.ValidateChildren();
         }
 
         #endregion
