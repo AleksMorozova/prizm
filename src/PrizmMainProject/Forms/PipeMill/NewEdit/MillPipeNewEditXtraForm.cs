@@ -160,6 +160,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 + viewModel.Project.MillPipeNumberMask;
 
             pipeCreationDate.SetLimits();
+            repositoryCoatingDate.SetLimits();
+            repositoryWeldingDate.SetLimits();
         }
 
         private void BindToViewModel()

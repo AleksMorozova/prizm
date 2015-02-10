@@ -8,11 +8,11 @@ namespace Prizm.Main.Common
 {
     public static class DateEditExtension
     {
-        private const int MINYEAR = 1950;
-        private const int MAXYEAR = 2150;
+        private static int MINYEAR = 1950;
+        private static int MAXYEAR = 2150;
 
-        public int MinYear { get { return MINYEAR; } }
-        public int MaxYear { get { return MAXYEAR; } }
+        public static int MinYear { get { return MINYEAR; } }
+        public static int MaxYear { get { return MAXYEAR; } }
 
         public static void SetLimits(this DevExpress.XtraEditors.DateEdit edit)
         {
