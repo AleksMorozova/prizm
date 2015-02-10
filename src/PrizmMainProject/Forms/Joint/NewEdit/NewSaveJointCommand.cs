@@ -35,6 +35,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             if (!viewModel.ValidatableView.Validate()) { return; }
 
+            if(!DateCheck()){ return;}
+
             if (viewModel.Joint.LoweringDate == DateTime.MinValue)
             {
                 viewModel.Joint.LoweringDate = null;
@@ -79,6 +81,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return viewModel.SaveOrUpdateJointCommand.CanExecute() 
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
+        }
+
+        private bool DateCheck()
+        {
+            bool result = true;
+            if(!viewModel.Joint.LoweringDate.IsValid())
+            {
+                result = false;
+            }
+            if(!viewModel.JointTestResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.JointWeldResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

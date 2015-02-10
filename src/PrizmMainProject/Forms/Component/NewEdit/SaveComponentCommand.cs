@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,15 +49,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 return;
             }
 
+            if(true)
+            {
+                
+            }
+
             foreach(var result in viewModel.InspectionTestResults)
             {
-                if(result.Date.Value.Year < Prizm.Main.Common.DateEditExtension.MinYear || result.Date.Value.Year > Prizm.Main.Common.DateEditExtension.MinYear)
+                if(!result.Date.IsValid())
                 {
                     return;
                 }
             }
-
-
 
             var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
             foreach (var component in c)

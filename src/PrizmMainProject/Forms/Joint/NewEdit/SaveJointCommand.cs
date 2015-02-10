@@ -1,6 +1,7 @@
 ﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!DateCheck())
+            {
+                return;
+            }
+
             foreach(JointWeldResult w in viewModel.JointWeldResults)
             {
                 if (w.Welders.Count <= 0)
@@ -113,6 +119,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 numberOfWeldOperationWithoutWelders = 0;
                 }
             }
+        }
+
+        private bool DateCheck()
+        {
+            bool result = true;
+            if(!viewModel.Joint.LoweringDate.IsValid())
+            {
+                result = false;
+            }
+            if(!viewModel.JointTestResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.JointWeldResults.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
 
         public bool CanExecute()

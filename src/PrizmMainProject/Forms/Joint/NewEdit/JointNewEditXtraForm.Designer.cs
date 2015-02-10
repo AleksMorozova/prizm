@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -98,11 +97,11 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
