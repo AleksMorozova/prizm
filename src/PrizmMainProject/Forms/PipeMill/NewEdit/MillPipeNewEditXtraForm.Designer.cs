@@ -1292,7 +1292,7 @@
             this.releaseNoteNumberLayout.Name = "releaseNoteNumberLayout";
             this.releaseNoteNumberLayout.Size = new System.Drawing.Size(172, 50);
             this.releaseNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.releaseNoteNumberLayout.Text = "Номер";
+            this.releaseNoteNumberLayout.Text = "Номер разрешения";
             this.releaseNoteNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releaseNoteNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -1304,7 +1304,7 @@
             this.releaseNoteDateLayoutControlItem.Name = "releaseNoteDateLayoutControlItem";
             this.releaseNoteDateLayoutControlItem.Size = new System.Drawing.Size(188, 50);
             this.releaseNoteDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.releaseNoteDateLayoutControlItem.Text = "Дата";
+            this.releaseNoteDateLayoutControlItem.Text = "Дата разрешения";
             this.releaseNoteDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.releaseNoteDateLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
