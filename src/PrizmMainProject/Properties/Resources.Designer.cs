@@ -180,6 +180,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Комплектующее изделие деактивировано. Комплектующее изделие #.
+        /// </summary>
+        internal static string ComponentNewEdit_DeactivatedAction {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_DeactivatedAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация элемента.
+        /// </summary>
+        internal static string ComponentNewEdit_DeactivatedActionHeader {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_DeactivatedActionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Величина диаметра должна быть больше нуля.
         /// </summary>
         internal static string ComponentNewEdit_DiameterValueValidation {
@@ -517,6 +535,16 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Размер вложения больше разрешенного.
+        /// </summary>
+        internal static string ExternalFiles_FileSizeIsTooBig {
+            get {
+                return ResourceManager.GetString("ExternalFiles_FileSizeIsTooBig", resourceCulture);
+            }
+        }
+        
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавление вложений.
         /// </summary>
         internal static string ExternalFiles_FileAttachSuccessHeader {
@@ -777,6 +805,24 @@ namespace Prizm.Main.Properties {
         internal static string Joint {
             get {
                 return ResourceManager.GetString("Joint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык деактивирован. Стык #.
+        /// </summary>
+        internal static string Joint_Deactivated {
+            get {
+                return ResourceManager.GetString("Joint_Deactivated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация стыка.
+        /// </summary>
+        internal static string Joint_DeactivatedHeader {
+            get {
+                return ResourceManager.GetString("Joint_DeactivatedHeader", resourceCulture);
             }
         }
         
@@ -1915,6 +1961,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Труба деактивирована. Труба #.
+        /// </summary>
+        internal static string Pipe_Deactivated {
+            get {
+                return ResourceManager.GetString("Pipe_Deactivated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация трубы.
+        /// </summary>
+        internal static string Pipe_DeactivatedHeader {
+            get {
+                return ResourceManager.GetString("Pipe_DeactivatedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Протяженность трубопровода.
         /// </summary>
         internal static string PipelineLengthReport {
@@ -2702,6 +2766,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Обязательное значение.
+        /// </summary>
+        internal static string Settings_ValueRequaered {
+            get {
+                return ResourceManager.GetString("Settings_ValueRequaered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap shipment_icon {
@@ -2753,6 +2826,24 @@ namespace Prizm.Main.Properties {
         internal static string Spool_CutSpoolFromPipeHeader {
             get {
                 return ResourceManager.GetString("Spool_CutSpoolFromPipeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка деактивирована. Катушка #.
+        /// </summary>
+        internal static string Spool_Deactivated {
+            get {
+                return ResourceManager.GetString("Spool_Deactivated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Деактивация катушки.
+        /// </summary>
+        internal static string Spool_DeactivatedHeader {
+            get {
+                return ResourceManager.GetString("Spool_DeactivatedHeader", resourceCulture);
             }
         }
         
