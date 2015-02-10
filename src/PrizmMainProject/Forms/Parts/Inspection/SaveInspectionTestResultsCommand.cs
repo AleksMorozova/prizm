@@ -39,6 +39,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
+                log.Warn("Date limits not valid!");
                 return;
             }
 

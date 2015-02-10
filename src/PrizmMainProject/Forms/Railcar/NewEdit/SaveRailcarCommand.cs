@@ -47,6 +47,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if(!viewModel.Date.IsValid())
             {
+                log.Warn("Date limits not valid!");
                 return;
             }
 

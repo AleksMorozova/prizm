@@ -37,6 +37,7 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
         {
             if(!viewModel.Date.IsValid())
             {
+                log.Warn("Date limits not valid!");
                 return;
             }
 

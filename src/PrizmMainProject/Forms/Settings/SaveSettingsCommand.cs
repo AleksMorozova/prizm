@@ -4,6 +4,7 @@ using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,12 @@ namespace Prizm.Main.Forms.Settings
                 return;
             }
 
+            if(!DateCheck())
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
+
             try
             {
                 repos.BeginTransaction();
@@ -91,6 +98,16 @@ namespace Prizm.Main.Forms.Settings
             }
 
             RefreshVisualStateEvent();
+        }
+
+        private bool DateCheck()
+        {
+            bool result = true;
+
+            if(viewModel.Welders.All(x => x.CertificateExpiration.IsValid()))
+            {
+
+            }
         }
 
         private void EvictUsers()

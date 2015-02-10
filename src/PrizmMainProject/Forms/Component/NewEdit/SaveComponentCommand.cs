@@ -49,15 +49,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 return;
             }
 
-            if(true)
-            {
-                
-            }
-
             foreach(var result in viewModel.InspectionTestResults)
             {
                 if(!result.Date.IsValid())
                 {
+                    log.Warn("Date limits not valid!");
                     return;
                 }
             }

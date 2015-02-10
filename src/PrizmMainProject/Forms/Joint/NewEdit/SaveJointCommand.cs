@@ -27,6 +27,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveJointCommand));
+
         public SaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
         {
             this.repo = repo;
@@ -40,6 +42,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             if(!DateCheck())
             {
+                log.Warn("Date limits not valid!");
                 return;
             }
 

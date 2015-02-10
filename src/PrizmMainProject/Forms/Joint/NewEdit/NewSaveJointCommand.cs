@@ -22,6 +22,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NewSaveJointCommand));
+
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public NewSaveJointCommand(IConstructionRepository repo, JointNewEditViewModel viewModel, IUserNotify notify, ISecurityContext ctx)
@@ -36,7 +38,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             if (!viewModel.ValidatableView.Validate()) { return; }
 
-            if(!DateCheck()){ return;}
+            if(!DateCheck())
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
 
             if (viewModel.Joint.LoweringDate == DateTime.MinValue)
             {
