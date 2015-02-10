@@ -975,10 +975,36 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
                 if (pipeTestResult != null)
                 {
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
-                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); }
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
-                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.No); }
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean 
+                        && pipeTestResult.Operation.BoolExpected == true)
+                    { 
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); 
+                    }
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean 
+                        && pipeTestResult.Operation.BoolExpected == false)
+                    { 
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No); 
+                    }
+                }
+            }
+            if (e.Column.Name == valueGridColumn.Name)
+            {
+                bool tmpResult;
+
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
+                
+                if (pipeTestResult != null && bool.TryParse(e.DisplayText, out tmpResult))
+                {
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean
+                        && tmpResult == true)
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
+                    }
+                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean
+                        && tmpResult == false)
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
+                    }
                 }
             }
         }
