@@ -67,10 +67,14 @@ namespace Prizm.Data.DAL.Hibernate
                         NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
 
                     }
+                    else if (currentState[i].ToString().StartsWith("System.Collections.Generic") || currentState[i].ToString().StartsWith("System.ComponentModel.BindingList") || previousState[i].ToString().StartsWith("System.Collections.Generic") || previousState[i].ToString().StartsWith("System.ComponentModel.BindingList"))
+                    {
+                        continue;
+                    }
                     else if (currentState[i] as Item == null && currentState[i].ToString() != previousState[i].ToString())
                     {
                         NewAuditRecord(curentity, propertyNames[i], currentState[i].ToString(), previousState[i].ToString());
-                    }
+                    }                
                     else
                     {
                         var previousStateId = previousState[i] as Item;

@@ -185,7 +185,7 @@ namespace Prizm.Main.Forms.ExternalFile
                 };
                 repos.FileRepo.Save(fileEntity);
             }
-
+            FilesToAttach.Clear();
             notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
                 Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
         }
