@@ -29,6 +29,7 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -37,18 +38,18 @@ namespace Prizm.Main.Forms.Settings
             this.typeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,7 +154,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -235,14 +236,17 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryWelderCertDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.repositoryInspectorCertDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.repositoryPassExpiredDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -387,6 +391,12 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentPipeMillSizeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // pipesSizeList
@@ -601,7 +611,8 @@ namespace Prizm.Main.Forms.Settings
             this.userLoginRepositoryItemTextEdit,
             this.lastNameRepositoryItemTextEdit,
             this.userFirstNameRepositoryItemTextEdit,
-            this.userMiddleNameRepositoryItemTextEdit});
+            this.userMiddleNameRepositoryItemTextEdit,
+            this.repositoryPassExpiredDateEdit});
             this.gridControlUsers.Size = new System.Drawing.Size(886, 428);
             this.gridControlUsers.TabIndex = 4;
             this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -695,6 +706,7 @@ namespace Prizm.Main.Forms.Settings
             // colPasswordExpires
             // 
             this.colPasswordExpires.Caption = "Пароль истекает";
+            this.colPasswordExpires.ColumnEdit = this.repositoryPassExpiredDateEdit;
             this.colPasswordExpires.FieldName = "PasswordExpires";
             this.colPasswordExpires.Name = "colPasswordExpires";
             this.colPasswordExpires.Visible = true;
@@ -797,7 +809,8 @@ namespace Prizm.Main.Forms.Settings
             this.gridControlInspectorsCertificates.Name = "gridControlInspectorsCertificates";
             this.gridControlInspectorsCertificates.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpCertificateType,
-            this.inspectorSertificateNumberRepositoryItemTextEdit});
+            this.inspectorSertificateNumberRepositoryItemTextEdit,
+            this.repositoryInspectorCertDateEdit});
             this.gridControlInspectorsCertificates.Size = new System.Drawing.Size(442, 379);
             this.gridControlInspectorsCertificates.TabIndex = 4;
             this.gridControlInspectorsCertificates.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -876,6 +889,7 @@ namespace Prizm.Main.Forms.Settings
             // inspectorCertificateExpirationCol
             // 
             this.inspectorCertificateExpirationCol.Caption = "Действителен до";
+            this.inspectorCertificateExpirationCol.ColumnEdit = this.repositoryInspectorCertDateEdit;
             this.inspectorCertificateExpirationCol.FieldName = "Certificate.ExpirationDate";
             this.inspectorCertificateExpirationCol.MaxWidth = 120;
             this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
@@ -1016,7 +1030,8 @@ namespace Prizm.Main.Forms.Settings
             this.welderFNRepositoryTextEdit,
             this.welderMNRepositoryTextEdit,
             this.welderCertificateTextEdit,
-            this.stampRepositoryTextEdit});
+            this.stampRepositoryTextEdit,
+            this.repositoryWelderCertDateEdit});
             this.gridControlWelders.Size = new System.Drawing.Size(1227, 454);
             this.gridControlWelders.TabIndex = 0;
             this.gridControlWelders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1110,6 +1125,7 @@ namespace Prizm.Main.Forms.Settings
             // colWelderCertExp
             // 
             this.colWelderCertExp.Caption = "Действительно до";
+            this.colWelderCertExp.ColumnEdit = this.repositoryWelderCertDateEdit;
             this.colWelderCertExp.FieldName = "CertificateExpiration";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
@@ -1964,8 +1980,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 5;
+            this.tabbedControlGroup.SelectedTabPage = this.rolesLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 7;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2608,6 +2624,33 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
+            // repositoryWelderCertDateEdit
+            // 
+            this.repositoryWelderCertDateEdit.AutoHeight = false;
+            this.repositoryWelderCertDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWelderCertDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWelderCertDateEdit.Name = "repositoryWelderCertDateEdit";
+            // 
+            // repositoryInspectorCertDateEdit
+            // 
+            this.repositoryInspectorCertDateEdit.AutoHeight = false;
+            this.repositoryInspectorCertDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectorCertDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectorCertDateEdit.Name = "repositoryInspectorCertDateEdit";
+            // 
+            // repositoryPassExpiredDateEdit
+            // 
+            this.repositoryPassExpiredDateEdit.AutoHeight = false;
+            this.repositoryPassExpiredDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryPassExpiredDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryPassExpiredDateEdit.Name = "repositoryPassExpiredDateEdit";
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2763,6 +2806,12 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentPipeMillSizeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2983,5 +3032,8 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraLayout.LayoutControlItem addTestButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem testButtonsEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem editTestButtonLayout;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectorCertDateEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryWelderCertDateEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryPassExpiredDateEdit;
     }
 }
