@@ -313,11 +313,11 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(colInspectorFirstName, StringResources.SettingsInspectors_FirstNameColumn.Id),
                 new LocalizedItem(colInspectorMiddleName, StringResources.SettingsInspectors_MiddleNameColumn.Id),
                 new LocalizedItem(colInspectorActive, StringResources.SettingsInspectors_IsActive.Id),
+                new LocalizedItem(colInspectorGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
                 // certificates grid
                 new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
                 new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),
                 new LocalizedItem(inspectorCertificateExpirationCol, "SettingsInspectors_CertificateExpirationColumn"),
-                new LocalizedItem(colCertificateGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
                 // types grid
                 new LocalizedItem(certificateNameColumn, "SettingsInspectors_CertificateNameColumn"),
                 new LocalizedItem(certificateIsActiveColumn, "SettingsInspectors_CertificateIsActiveColumn"),

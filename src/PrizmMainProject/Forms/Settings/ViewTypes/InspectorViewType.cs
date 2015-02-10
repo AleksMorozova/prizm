@@ -99,6 +99,19 @@ namespace Prizm.Main.Forms.Settings.ViewTypes
             }
         }
 
+        public int Grade
+        {
+            get { return inspector.Grade; }
+            set 
+            {
+                if(value != inspector.Grade)
+                {
+                    inspector.Grade = value;
+                    FirePropertyChanged("Grade");
+                }
+            }
+        }
+
         public override bool Active
         {
             get
