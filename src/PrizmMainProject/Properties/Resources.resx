@@ -1126,7 +1126,7 @@
   <data name="ExternalFiles_FileAttachSuccess" xml:space="preserve">
     <value>Вложения успешно добавлены</value>
   </data>
-    <data name="ExternalFiles_FileSizeIsTooBig" xml:space="preserve">
+  <data name="ExternalFiles_FileSizeIsTooBig" xml:space="preserve">
     <value>Размер вложения больше разрешенного</value>
   </data>
   <data name="ExternalFiles_FileAttachSuccessHeader" xml:space="preserve">
@@ -1168,7 +1168,7 @@
   <data name="Spool_DeactivatedHeader" xml:space="preserve">
     <value>Деактивация катушки</value>
   </data>
-  <data name="Settings_ValueRequaered" xml:space="preserve">
+  <data name="Settings_ValueRequired" xml:space="preserve">
     <value>Обязательное значение</value>
   </data>
 </root>

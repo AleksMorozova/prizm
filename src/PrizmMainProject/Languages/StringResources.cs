@@ -1037,7 +1037,7 @@ namespace Prizm.Main.Languages
         };
         public static StringResource Settings_ValueRequired = new StringResource
         {
-            Id = "Settings_ValueRequaered",
+            Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
         };
         public static StringResource Settings_UniqueValueRequired = new StringResource

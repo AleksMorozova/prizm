@@ -535,16 +535,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Размер вложения больше разрешенного.
-        /// </summary>
-        internal static string ExternalFiles_FileSizeIsTooBig {
-            get {
-                return ResourceManager.GetString("ExternalFiles_FileSizeIsTooBig", resourceCulture);
-            }
-        }
-        
-        
-        /// <summary>
         ///   Looks up a localized string similar to Добавление вложений.
         /// </summary>
         internal static string ExternalFiles_FileAttachSuccessHeader {
@@ -568,6 +558,15 @@ namespace Prizm.Main.Properties {
         internal static string ExternalFiles_FileDownloadSuccess {
             get {
                 return ResourceManager.GetString("ExternalFiles_FileDownloadSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Размер вложения больше разрешенного.
+        /// </summary>
+        internal static string ExternalFiles_FileSizeIsTooBig {
+            get {
+                return ResourceManager.GetString("ExternalFiles_FileSizeIsTooBig", resourceCulture);
             }
         }
         
@@ -2768,9 +2767,9 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Обязательное значение.
         /// </summary>
-        internal static string Settings_ValueRequaered {
+        internal static string Settings_ValueRequired {
             get {
-                return ResourceManager.GetString("Settings_ValueRequaered", resourceCulture);
+                return ResourceManager.GetString("Settings_ValueRequired", resourceCulture);
             }
         }
         
