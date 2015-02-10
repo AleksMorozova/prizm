@@ -1525,8 +1525,11 @@ NewEditPipe_RailcarNumber_Label=Railcar number
 ;Труба. Сертификат вагона
 NewEditPipe_RailcarCertificate_Label=Certificate number
 
-;Труба. Дата отправки вагона
-NewEditPipe_RailcarShippedDate_Label=Date
+;Труба. Дата разрешения на отгрузку
+NewEditPipe_ReleaseNoteDate_Label = Release note date
+
+;Труба. Номер разрешения на отгрузку
+NewEditPipe_ReleaseNoteNumber_Label = Release note number
 
 ;Труба. Получатель
 NewEditPipe_RailcarDestination_Label=Destination
