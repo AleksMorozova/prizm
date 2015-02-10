@@ -349,7 +349,7 @@ namespace Prizm.Main.Languages
         public static StringResource ExternalFiles_FileSizeIsTooBig= new StringResource
         {
             Id = "ExternalFiles_FileSizeIsTooBig",
-            Description = "Размер вложения больше разрешенного"
+            Description = "Сообщение: Размер вложения больше разрешенного"
         };
 
 
