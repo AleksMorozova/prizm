@@ -423,8 +423,8 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
-    <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\ReleaseNoteProjection.cs" />
+    <Compile Include="Forms\ReleaseNote\IRailcarRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
@@ -569,11 +569,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\ISecurityContext.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
-    <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
-    <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\ShipRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\UnshipRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\RailcarRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\SearchRailcarCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -598,8 +598,8 @@
     <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.Designer.cs">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\SaveRailcarCommand.cs" />
     <Compile Include="Forms\Reports\Mill\CreateReportCommand.cs" />
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
@@ -657,16 +657,16 @@
     <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.Designer.cs">
+    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.Designer.cs">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
+    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.Designer.cs">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.cs">
@@ -858,10 +858,10 @@
     <EmbeddedResource Include="Forms\MainChildForm\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
+    <EmbeddedResource Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.resx">
       <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
+    <EmbeddedResource Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.resx">
       <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.resx">

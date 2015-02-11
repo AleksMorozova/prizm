@@ -3834,7 +3834,7 @@ namespace Prizm.Main.Languages
         public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
         {
             Id = "ReleaseNoteNewEdit_PendingStatus",
-            Description = "Статус разрешения на отгрузку: сформировано"
+            Description = "Статус разрешения на отгрузку: формируется"
         };
 
         public static StringResource ReleaseNoteNewEdit_RailcarLayoutControlGroup = new StringResource

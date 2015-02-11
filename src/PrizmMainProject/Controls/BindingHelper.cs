@@ -9,13 +9,79 @@ namespace Prizm.Main.Controls
 {
     class BindingHelper
     {
+        #region --- Inversion ---
+
         public static Binding CreateCheckEditInverseBinding(string propertyName, object dataSource, string dataMember)
         {
             Binding bind = new Binding(propertyName, dataSource, dataMember);
             bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = !((bool)e.Value); };
-            bind.Parse += (sender, e) => { e.Value = !((bool)e.Value); };
+            bind.Format += new ConvertEventHandler(BindingHelper.Invert);
+            bind.Parse += new ConvertEventHandler(BindingHelper.Invert);
             return bind;
         }
+
+        private static void Invert(object sender, ConvertEventArgs e)
+        {
+            if (e.DesiredType == typeof(bool))
+            {
+                e.Value = !((bool)e.Value);
+            }
+        }
+
+        #endregion // --- Inversion ---
+
+        #region --- OneWay ---
+        /// <summary>
+        /// It seems WinForm doesn't allow simple one-way from model to form control.
+        /// If it is possible, this code should be replaced
+        /// StringByValue should take value. Creator of this binding should control the real type of the value.
+        /// </summary>
+        /// <returns>new binding</returns>
+        public static Binding CreateOneWayReadToString(string propertyName, object dataSource, string dataMember, StringByValue oneWayConverter)
+        {
+            OneWayBindingToString bind = new OneWayBindingToString(propertyName, dataSource, dataMember, oneWayConverter);
+            bind.FormattingEnabled = true;
+            bind.Format += new ConvertEventHandler(BindingHelper.Invert);
+            bind.Parse += new ConvertEventHandler(BindingHelper.Invert);
+            return bind;
+        }
+
+        public delegate string StringByValue(object value);
+
+        private class OneWayBindingToString : Binding
+        {
+            public OneWayBindingToString(string propertyName, object dataSource, string dataMember, StringByValue oneWayConverter)
+                : base (propertyName, dataSource, dataMember)
+            {
+                this.GetStringByValue = oneWayConverter ?? delegate { return ""; };
+                this.FormattingEnabled = true;
+                this.Format += new ConvertEventHandler(FormatAndStoreValue);
+                this.Parse += new ConvertEventHandler(RestoreValue);
+            }
+
+            /// <summary>
+            /// Save original value (to be restored on way back)
+            /// </summary>
+            private object value;
+            private StringByValue GetStringByValue;
+
+            private void FormatAndStoreValue(object sender, ConvertEventArgs e)
+            {
+                if (e.DesiredType == typeof(string))
+                {
+                    this.value = e.Value;
+                    e.Value = GetStringByValue(this.value);
+                }
+            }
+            private void RestoreValue(object sender, ConvertEventArgs e)
+            {
+                if (e.DesiredType == typeof(bool))
+                {
+                    e.Value = this.value;
+                }
+            }
+        }
+
+        #endregion //--- OneWay ---
     }
 }
