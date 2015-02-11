@@ -193,6 +193,8 @@
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DateExtension.cs" />
+    <Compile Include="Controls\DateEditExtension.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Controls\BindingHelper.cs" />

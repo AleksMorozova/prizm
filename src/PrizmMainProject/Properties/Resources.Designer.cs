@@ -816,6 +816,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Импортирование завершено.
+        /// </summary>
+        internal static string ImportMessage_IsFinished {
+            get {
+                return ResourceManager.GetString("ImportMessage_IsFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap inControl_icon {
@@ -3064,9 +3073,9 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Обязательное значение.
         /// </summary>
-        internal static string Settings_ValueRequaered {
+        internal static string Settings_ValueRequired {
             get {
-                return ResourceManager.GetString("Settings_ValueRequaered", resourceCulture);
+                return ResourceManager.GetString("Settings_ValueRequired", resourceCulture);
             }
         }
         

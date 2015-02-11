@@ -2,6 +2,7 @@
 using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,12 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
+
             if (viewModel.Spool.Length != 0)
             {
                 if (viewModel.CanCut)

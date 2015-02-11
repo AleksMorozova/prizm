@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
         {
-            if (viewModel == null)
+            if(viewModel == null)
             {
                 viewModel = new MillInspectionViewModel(current, categoryTypes);
             }
@@ -40,13 +40,13 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             return viewModel;
         }
-        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes) 
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
             ChangeFrequency();
-            if (current != null)
+            if(current != null)
             {
                 this.Text = current.Name;
             }
@@ -54,9 +54,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void boolExpected_CheckedChanged(object sender, EventArgs e)
         {
-            if (boolExpected.Checked)
+            if(boolExpected.Checked)
             {
-                boolExpected.Text = " [ "+ Program.LanguageManager.GetString(StringResources.Yes) +" ] ";
+                boolExpected.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + " ] ";
             }
             else
             {
@@ -66,15 +66,19 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
+            resultType.Properties.Items.Clear();
+            controlType.Properties.Items.Clear();
+            frequencyMeasure.Properties.Items.Clear();
+
+            foreach(var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
             {
                 resultType.Properties.Items.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
             {
                 controlType.Properties.Items.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
             {
                 frequencyMeasure.Properties.Items.Add(item.Item2);
             }
@@ -102,15 +106,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
-      
+
         }
 
         private void ChangeExpected()
         {
-            
+
             boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch ((PipeTestResultType)resultType.SelectedIndex+1)
+            switch((PipeTestResultType)resultType.SelectedIndex + 1)
             {
                 case PipeTestResultType.Boolean:
                     boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -129,10 +133,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
-            if (!viewModel.IsRequired)
+            if(!viewModel.IsRequired)
             {
                 frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                if (viewModel.PipeTest.Frequency == null)
+                if(viewModel.PipeTest.Frequency == null)
                     viewModel.PipeTest.Frequency = new PipeTestFrequency();
             }
             else
@@ -146,7 +150,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             viewModel.IsRequired = isRequired.Checked;
             ChangeFrequency();
         }
-        
+
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()

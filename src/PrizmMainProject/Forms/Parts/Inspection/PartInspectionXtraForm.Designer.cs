@@ -59,6 +59,7 @@
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.repositoryInspectionDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -83,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // inspectionLayoutControl
@@ -131,7 +134,8 @@
             this.inspections.Name = "inspections";
             this.inspections.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.resultStatusLookUpEdit,
-            this.inspectorsPopupContainerEdit});
+            this.inspectorsPopupContainerEdit,
+            this.repositoryInspectionDateEdit});
             this.inspections.Size = new System.Drawing.Size(848, 256);
             this.inspections.TabIndex = 8;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -157,6 +161,7 @@
             // colDate
             // 
             this.colDate.Caption = "Дата";
+            this.colDate.ColumnEdit = this.repositoryInspectionDateEdit;
             this.colDate.FieldName = "Date";
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
@@ -413,6 +418,15 @@
             this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // repositoryInspectionDateEdit
+            // 
+            this.repositoryInspectionDateEdit.AutoHeight = false;
+            this.repositoryInspectionDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectionDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectionDateEdit.Name = "repositoryInspectionDateEdit";
+            // 
             // PartInspectionXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +460,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,5 +498,6 @@
         private DevExpress.XtraEditors.SimpleButton saveAndClearButton;
         private DevExpress.XtraLayout.LayoutControlItem saveAndClearLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectionDateEdit;
     }
 }

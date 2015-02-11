@@ -507,6 +507,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
         }
+        public string ReleaseNoteNumber
+        {
+            get
+            {
+                return (Railcar == null
+                    ? string.Empty
+                    : Railcar.ReleaseNote.Number);
+            }
+        }
+
+        public string ReleaseNoteDate
+        {
+            get
+            {
+                return (Railcar == null || Railcar.ReleaseNote.Date == null
+                    ? string.Empty
+                    : Railcar.ReleaseNote.Date.ToShortDateString());
+            }
+        }
 
         public string RailcarNumber
         {

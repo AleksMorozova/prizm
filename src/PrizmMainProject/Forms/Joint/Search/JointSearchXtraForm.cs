@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointSearchXtraForm : ChildForm
     {
         private JointSearchViewModel viewModel;
@@ -45,11 +45,11 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             BindCommands();
             BindToViewModel();
-            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
+            foreach(var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
             {
                 activity.Properties.Items.Add(item.Item2);
             }
-            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0:true))
+            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0: true))
             {
                 controlState.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled: true);
                 localizedJointStatuses.Add(item.Item2);
@@ -57,8 +57,10 @@ namespace Prizm.Main.Forms.Joint.Search
             activity.SelectedIndex = 0;
             viewModel.Activity = ActivityCriteria.StatusActive;
             controlState_CloseUp(controlState, new DevExpress.XtraEditors.Controls.CloseUpEventArgs(true));
-        }
 
+            weldingDateFrom.SetLimits();
+            weldingDateTo.SetLimits();
+        }
 
         private void BindToViewModel()
         {
@@ -81,9 +83,9 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             viewModel.Statuses.Clear();
 
-            for (int i = 0; i < controlState.Properties.Items.Count; i++)
+            for(int i = 0; i < controlState.Properties.Items.Count; i++)
             {
-                if (controlState.Properties.Items[i].CheckState == CheckState.Checked)
+                if(controlState.Properties.Items[i].CheckState == CheckState.Checked)
                 {
                     viewModel.Statuses.Add((JointStatus)controlState.Properties.Items[i].Value);
                 }
@@ -177,9 +179,9 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as Prizm.Domain.Entity.Construction.Joint;
-            if (data != null)
+            if(data != null)
             {
-                if (!data.IsActive)
+                if(!data.IsActive)
                 {
                     e.Appearance.ForeColor = Color.Gray;
                 }
@@ -188,10 +190,10 @@ namespace Prizm.Main.Forms.Joint.Search
 
         private void resultView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.Name == statusLocalizedCol.Name && e.Value != null)
+            if(e.Column.Name == statusLocalizedCol.Name && e.Value != null)
             {
                 JointStatus result;
-                if (Enum.TryParse<JointStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<JointStatus>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = (result == JointStatus.Undefined) ? "" : localizedJointStatuses[(int)result - 1]; //-1 because we skip 0
                 }

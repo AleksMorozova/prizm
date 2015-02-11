@@ -61,6 +61,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
             BindCommands();
             BindToViewModel();
             IsEditMode = false;
+
+            repositoryInspectionDateEdit.SetLimits();
         }
 
         private void BindCommands()

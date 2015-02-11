@@ -1168,7 +1168,7 @@
   <data name="Spool_DeactivatedHeader" xml:space="preserve">
     <value>Деактивация катушки</value>
   </data>
-  <data name="Settings_ValueRequaered" xml:space="preserve">
+  <data name="Settings_ValueRequired" xml:space="preserve">
     <value>Обязательное значение</value>
   </data>
   <data name="MillPipeNewEditXtraForm_Title" xml:space="preserve">
@@ -1275,5 +1275,8 @@
   </data>
   <data name="WeldDateReport_Title" xml:space="preserve">
     <value>Отчет по сварке (по дате)</value>
+  </data>
+  <data name="ImportMessage_IsFinished" xml:space="preserve">
+    <value>Импортирование завершено</value>
   </data>
 </root>

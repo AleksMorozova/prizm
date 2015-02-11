@@ -282,9 +282,14 @@
             this.weldingHistory.MainView = this.weldingHistoryGridView;
             this.weldingHistory.Name = "weldingHistory";
             this.weldingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+<<<<<<< HEAD
             this.repositoryItemPopupWelders,
             this.repositoryWeldingDate});
+            this.weldingHistory.Size = new System.Drawing.Size(796, 206);
+=======
+            this.repositoryItemPopupWelders});
             this.weldingHistory.Size = new System.Drawing.Size(767, 158);
+>>>>>>> origin/master
             this.weldingHistory.TabIndex = 40;
             this.weldingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.weldingHistoryGridView,
@@ -779,9 +784,14 @@
             this.coatingHistory.MainView = this.coatingHistoryGridView;
             this.coatingHistory.Name = "coatingHistory";
             this.coatingHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+<<<<<<< HEAD
             this.repositoryItemLookUpEditCoatType,
             this.repositoryCoatingDate});
+            this.coatingHistory.Size = new System.Drawing.Size(373, 206);
+=======
+            this.repositoryItemLookUpEditCoatType});
             this.coatingHistory.Size = new System.Drawing.Size(402, 158);
+>>>>>>> origin/master
             this.coatingHistory.TabIndex = 45;
             this.coatingHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.coatingHistoryGridView});
@@ -1818,10 +1828,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraGrid.Columns.GridColumn expectedResultGridColumn;
-         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryCoatingDate;
+<<<<<<< HEAD
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryCoatingDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryWeldingDate;
+=======
         private DevExpress.XtraEditors.TextEdit releaseNoteNumber;
         private DevExpress.XtraLayout.LayoutControlItem releaseNoteNumberLayout;
+>>>>>>> origin/master
 
     }
 }

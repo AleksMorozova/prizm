@@ -2,6 +2,7 @@
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using System;
@@ -36,6 +37,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
+
             foreach (InspectionTestResult t in viewModel.InspectionTestResults)
             {
                 if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)

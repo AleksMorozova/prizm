@@ -10,17 +10,18 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Audit
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class AuditXtraForm : ChildForm
     {
         private AuditViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
-        
+
         public AuditXtraForm()
         {
             InitializeComponent();
@@ -33,11 +34,14 @@ namespace Prizm.Main.Forms.Audit
         {
             BindCommands();
             BindToViewModel();
+
+            startDate.SetLimits();
+            endDate.SetLimits();
         }
 
         private void BindToViewModel()
         {
-            foreach (var u in viewModel.UsersList)
+            foreach(var u in viewModel.UsersList)
             {
                 user.Properties.Items.Add(u);
             }
@@ -107,7 +111,7 @@ namespace Prizm.Main.Forms.Audit
         {
             RadioGroup edit = sender as RadioGroup;
 
-            if (edit.SelectedIndex == 0)
+            if(edit.SelectedIndex == 0)
             {
                 number.Enabled = true;
                 user.Enabled = false;
@@ -123,10 +127,10 @@ namespace Prizm.Main.Forms.Audit
 
         private void auditResultsView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
+            if(e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
             {
                 StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
-                if (resId != null)
+                if(resId != null)
                 {
                     e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
                 }
