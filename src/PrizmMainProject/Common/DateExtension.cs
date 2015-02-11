@@ -15,7 +15,7 @@ namespace Prizm.Main.Common
 
         public static bool IsValid(this DateTime? date)
         {
-            if(date.Value == null)
+            if(date == null)
             {
                 return true;
             }
