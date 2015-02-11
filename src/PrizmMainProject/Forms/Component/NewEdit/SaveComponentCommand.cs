@@ -108,7 +108,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                repos.Rollback();
                            }
                         }
-
+                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
                         repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
                         repos.Commit();
                         repos.ComponentRepo.Evict(viewModel.Component);

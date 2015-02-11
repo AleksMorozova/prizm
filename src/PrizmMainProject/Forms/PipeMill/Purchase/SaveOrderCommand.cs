@@ -53,6 +53,7 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
             {
                 try
                 {
+                    viewModel.Order.Number = viewModel.Order.Number.ToUpper();
                     repo.BeginTransaction();
                     repo.SaveOrUpdate(viewModel.Order);
                     repo.Commit();
