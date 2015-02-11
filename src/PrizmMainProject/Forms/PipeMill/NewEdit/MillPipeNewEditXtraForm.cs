@@ -971,38 +971,39 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     e.DisplayText = (result == PipeTestResultStatus.Undefined) ? "" :localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
                 }
             }
+
             if (e.Column.Name == expectedResultGridColumn.Name)
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
-                if (pipeTestResult != null)
+                if (pipeTestResult != null
+                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
                 {
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean 
-                        && pipeTestResult.Operation.BoolExpected == true)
-                    { 
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); 
+                    if (pipeTestResult.Operation.BoolExpected == true)
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                     }
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean 
-                        && pipeTestResult.Operation.BoolExpected == false)
-                    { 
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No); 
+                    else
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
                     }
                 }
             }
+
             if (e.Column.Name == valueGridColumn.Name)
             {
                 bool tmpResult;
 
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
                 
-                if (pipeTestResult != null && bool.TryParse(e.DisplayText, out tmpResult))
+                if (pipeTestResult != null 
+                    && bool.TryParse(e.DisplayText, out tmpResult)
+                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
                 {
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean
-                        && tmpResult == true)
+                    if (tmpResult == true)
                     {
                         e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                     }
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean
-                        && tmpResult == false)
+                    else
                     {
                         e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
                     }
