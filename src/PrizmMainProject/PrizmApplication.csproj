@@ -207,6 +207,7 @@
     <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GridViewValidation.cs" />
     <Compile Include="Controls\WeldersSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -510,6 +511,7 @@
     <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.Designer.cs">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Settings\DuplicatesList.cs" />
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
@@ -890,6 +892,7 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
