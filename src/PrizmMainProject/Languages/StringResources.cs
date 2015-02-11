@@ -2137,7 +2137,13 @@ namespace Prizm.Main.Languages
         public static StringResource Import_Unzip = new StringResource
         {
             Id = "Import_Unzip",
-            Description = "Распаковкаа"
+            Description = "Распаковка"
+        };
+
+        public static StringResource ImportMessage_IsFinished= new StringResource
+        {
+            Id = "ImportMessage_IsFinished",
+            Description = "Сообщение: Импортирование завершено"
         };
 
         #endregion // --- Export/Import ---

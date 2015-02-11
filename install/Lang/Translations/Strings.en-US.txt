@@ -946,8 +946,11 @@ Import_SamePortion=This portion has already been imported and cannot be imported
 ;Создание временного хранилища
 Import_TempStorage=Creating temporary storage
 
-;Распаковкаа
+;Распаковка
 Import_Unzip=Unzipping
+
+;Сообщение: Импортирование завершено
+ImportMessage_IsFinished=Import is finished
 
 ;Диалог сохранения. Текст
 SaveDialog_SaveLabel=Do you want to save changes?

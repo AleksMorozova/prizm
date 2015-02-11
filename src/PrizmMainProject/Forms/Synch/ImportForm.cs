@@ -137,7 +137,8 @@ namespace Prizm.Main.Forms.Synch
 
       void importer_OnDone()
       {
-         ResetControls();
+          XtraMessageBox.Show(Program.LanguageManager.GetString(StringResources.ImportMessage_IsFinished));
+          ResetControls();
       }
 
       public ImportForm()
