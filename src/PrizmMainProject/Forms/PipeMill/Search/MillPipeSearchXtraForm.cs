@@ -134,6 +134,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                     new string [] { "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
                                     "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
                 // other
+                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
             };
         }
 

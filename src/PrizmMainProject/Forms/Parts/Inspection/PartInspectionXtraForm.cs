@@ -135,7 +135,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
                                                                                         StringResources.PartInspectionStatus_Hold.Id,
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
-                                                                                      })
+                                                                                      }),
+
+                
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.PartInspection_Title.Id} )
 
             };
         }

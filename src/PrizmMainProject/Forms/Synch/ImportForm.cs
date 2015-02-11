@@ -45,6 +45,8 @@ namespace Prizm.Main.Forms.Synch
               new LocalizedItem(archive, StringResources.Import_ArchiveLabel.Id),
               new LocalizedItem(btnBrowse, StringResources.Import_BrowseButton.Id),
               new LocalizedItem(btnImport, StringResources.Import_ImportButton.Id),
+
+              new LocalizedItem(this, localizedHeader, new string[] {StringResources.ImportForm_Title.Id} )
           };
       }
 

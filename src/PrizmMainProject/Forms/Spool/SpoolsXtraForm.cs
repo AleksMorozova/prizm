@@ -171,7 +171,8 @@ namespace Prizm.Main.Forms.Spool
                                                                                         StringResources.PartInspectionStatus_Hold.Id,
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
-                                                                                      })
+                                                                                      }),
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SpoolsXtraForm_Title.Id} )
             };
         }
 

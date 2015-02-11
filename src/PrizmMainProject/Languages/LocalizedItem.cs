@@ -284,7 +284,7 @@ namespace Prizm.Main.Languages
         {
             set
             {
-                if (Count < 2)
+                if (Count < 2 && type != ItemType.FormHeader)
                 {
                     Text = value;
                 }

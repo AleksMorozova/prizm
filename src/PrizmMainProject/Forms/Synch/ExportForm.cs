@@ -54,6 +54,8 @@ namespace Prizm.Main.Forms.Synch
               // other
               new LocalizedItem(logTabPage, StringResources.Export_LogTab.Id),
               new LocalizedItem(historyTabPage,StringResources.Export_HistoryTab.Id),
+
+              new LocalizedItem(this, localizedHeader, new string[] {StringResources.ExportForm_Title.Id} )
           };
       }
 

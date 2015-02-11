@@ -41,6 +41,8 @@ namespace Prizm.Main.Forms.Synch
               new LocalizedItem(btnSkip, StringResources.ConflictDialog_SkipButton.Id),
               new LocalizedItem(btnPostpone, StringResources.ConflictDialog_PostponeButton.Id),
               new LocalizedItem(chkForAll, StringResources.ConflictDialog_ApplyForAllChechbox.Id),
+
+              new LocalizedItem(this, localizedHeader, new string[] {StringResources.ConflictDialog_Title.Id} )
           };
       }
 

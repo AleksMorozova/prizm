@@ -31,6 +31,9 @@ namespace Prizm.Main.Forms.Common
               new LocalizedItem(btnSave, StringResources.SaveDialog_SaveButton.Id),
               new LocalizedItem(btnDontSave, StringResources.SaveDialog_DontSaveButton.Id),
               new LocalizedItem(btnCancel, StringResources.SaveDialog_CancelButton.Id),
+              // header
+              new LocalizedItem(this, localizedHeader, new string[] {
+                  StringResources.SaveDialog_Title.Id} )
           };
       }
 
