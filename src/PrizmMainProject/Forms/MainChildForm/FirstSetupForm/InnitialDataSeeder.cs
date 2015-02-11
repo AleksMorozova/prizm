@@ -657,7 +657,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var insp = new Inspector
                     {
-                        Grade = rnd.Next(6),
                         Name = new PersonName
                         {
                             FirstName = RndName(fNames),
@@ -807,7 +806,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 var iCert = new InspectorCertificate
                 {
                     Inspector = insp,
-                    Certificate = new Certificate { Number = RndString(6), ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)) },
+                    Certificate = new Certificate { Number = RndString(6), Grade = rnd.Next(6), ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)) },
                     Type = item
                 };
                 certs.Add(iCert);
