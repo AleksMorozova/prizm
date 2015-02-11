@@ -10,7 +10,6 @@ namespace Prizm.Domain.Entity
         {
             this.Certificates = new List<InspectorCertificate>();
         }
-        public virtual int Grade { get; set; }
         public virtual PersonName Name { get; set; }
         public virtual IList<InspectorCertificate> Certificates { get; set; }
     }

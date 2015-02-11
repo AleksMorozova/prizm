@@ -146,5 +146,19 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         }
 
+        public int ReportTypeIndex
+        {
+            get { return (int)SelectedReportType; }
+            set
+            {
+                if (value != (int)SelectedReportType)
+                {
+                    SelectedReportType = (MillReportType)value;
+                    RaisePropertyChanged("ReportTypeIndex");
+                }
+            }
+        }
+
+
     }
 }

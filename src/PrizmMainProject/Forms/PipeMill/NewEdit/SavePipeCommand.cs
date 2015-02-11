@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(!viewModel.ValidatableView.Validate())
             {
+                return;
+            }
+
+            if(!DateValidate())
+            {
+                log.Warn("Date limits not valid!");
                 return;
             }
 
@@ -104,6 +111,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             RefreshVisualStateEvent();
+        }
+
+        private bool DateValidate()
+        {
+            bool result = true;
+
+            if(!viewModel.Pipe.ProductionDate.IsValid())
+            {
+                result = false;
+            }
+            if(!viewModel.Pipe.Coats.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.Pipe.Welds.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
 
 

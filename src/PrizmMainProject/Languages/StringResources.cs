@@ -349,7 +349,7 @@ namespace Prizm.Main.Languages
         public static StringResource ExternalFiles_FileSizeIsTooBig= new StringResource
         {
             Id = "ExternalFiles_FileSizeIsTooBig",
-            Description = "Размер вложения больше разрешенного"
+            Description = "Сообщение: Размер вложения больше разрешенного"
         };
 
 
@@ -2137,7 +2137,13 @@ namespace Prizm.Main.Languages
         public static StringResource Import_Unzip = new StringResource
         {
             Id = "Import_Unzip",
-            Description = "Распаковкаа"
+            Description = "Распаковка"
+        };
+
+        public static StringResource ImportMessage_IsFinished= new StringResource
+        {
+            Id = "ImportMessage_IsFinished",
+            Description = "Сообщение: Импортирование завершено"
         };
 
         #endregion // --- Export/Import ---
@@ -3242,6 +3248,11 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_TypeSizeThicknessLabel",
             Description = "Труба. Толщина по типоразмеру"
         };
+        public static StringResource NewEditPipe_ReleaseNoteNumber_Label = new StringResource
+        {
+            Id = "NewEditPipe_ReleaseNoteNumber_Label",
+            Description = "Труба. Номер разрешения на отгрузку"
+        };
         public static StringResource NewEditPipe_RailcarNumber_Label = new StringResource
         {
             Id = "NewEditPipe_RailcarNumber_Label",
@@ -3252,9 +3263,9 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_RailcarCertificate_Label",
             Description = "Труба. Сертификат вагона"
         };
-        public static StringResource NewEditPipe_RailcarShippedDate_Label = new StringResource
+        public static StringResource NewEditPipe_ReleaseNoteDate_Label = new StringResource
         {
-            Id = "NewEditPipe_RailcarShippedDate_Label",
+            Id = "NewEditPipe_ReleaseNoteDate_Label",
             Description = "Труба. Дата отправки вагона"
         };
         public static StringResource NewEditPipe_RailcarDestination_Label = new StringResource
