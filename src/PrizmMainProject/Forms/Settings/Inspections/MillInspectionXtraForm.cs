@@ -66,6 +66,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_Load(object sender, EventArgs e)
         {
+            resultType.Properties.Items.Clear();
+            controlType.Properties.Items.Clear();
+            frequencyMeasure.Properties.Items.Clear();
+
             foreach(var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
             {
                 resultType.Properties.Items.Add(item.Item2);
