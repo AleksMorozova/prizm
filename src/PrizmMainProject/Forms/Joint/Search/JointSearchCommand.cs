@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.Search
             {
                 if(!string.IsNullOrWhiteSpace(viewModel.Number))
                 {
-                    criteria.Add(Restrictions.Like("Number", viewModel.Number, MatchMode.Anywhere));
+                    criteria.Add(Restrictions.Like("Number", viewModel.Number, MatchMode.Anywhere).IgnoreCase());
                 }
                 
                 criteria.Add(Restrictions.Eq("NumberKP", viewModel.PegNumber));

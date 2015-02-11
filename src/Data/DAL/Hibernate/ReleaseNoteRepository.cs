@@ -75,19 +75,19 @@ namespace Prizm.Data.DAL.Hibernate
 
             if(!string.IsNullOrWhiteSpace(railcar))
             {
-                s.WhereRestrictionOn(() => car.Number).IsLike(railcar, MatchMode.Anywhere);
+                s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
             }
             if(!string.IsNullOrWhiteSpace(number))
             {
-                s.WhereRestrictionOn(x => x.Number).IsLike(number, MatchMode.Anywhere);
+                s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
             }
             if(!string.IsNullOrWhiteSpace(certificate))
             {
-                s.WhereRestrictionOn(() => car.Certificate).IsLike(certificate, MatchMode.Anywhere);
+                s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
             }
             if(!string.IsNullOrWhiteSpace(reciver))
             {
-                s.WhereRestrictionOn(() => car.Destination).IsLike(reciver, MatchMode.Anywhere);
+                s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
             }
             if(date != DateTime.MinValue)
             {
