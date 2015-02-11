@@ -17,19 +17,19 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 
-namespace Prizm.Main.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class RailcarViewModel : ViewModelBase, ISupportModifiableView, IDisposable
+    public class ReleaseNoteViewModel : ViewModelBase, ISupportModifiableView, IDisposable
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(RailcarViewModel));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ReleaseNoteViewModel));
 
         public BindingList<Pipe> ReleaseNotePipes { get; set; }
         private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
-        private readonly IRailcarRepositories repos;
+        private readonly IReleaseNoteRepositories repos;
         private readonly IUserNotify notify;
-        private readonly SaveRailcarCommand saveCommand;
-        private readonly ShipRailcarCommand shipCommand;
-        private readonly UnshipRailcarCommand unshipCommand;
+        private readonly SaveReleaseNoteCommand saveCommand;
+        private readonly ShipReleaseNoteCommand shipCommand;
+        private readonly UnshipReleaseNoteCommand unshipCommand;
         private readonly ISecurityContext ctx;
         private List<Pipe> allPipes;
         IModifiable modifiableView;
@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
-        public RailcarViewModel(IRailcarRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
+        public ReleaseNoteViewModel(IReleaseNoteRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
             this.repos = repos;
             this.notify = notify;
@@ -49,9 +49,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             GetStoredPipes();
 
-            saveCommand = ViewModelSource.Create(() => new SaveRailcarCommand(this, repos, notify,ctx));
-            shipCommand = ViewModelSource.Create(() => new ShipRailcarCommand(this, repos, notify));
-            unshipCommand = ViewModelSource.Create(() => new UnshipRailcarCommand(this, repos, notify, ctx));
+            saveCommand = ViewModelSource.Create(() => new SaveReleaseNoteCommand(this, repos, notify,ctx));
+            shipCommand = ViewModelSource.Create(() => new ShipReleaseNoteCommand(this, repos, notify));
+            unshipCommand = ViewModelSource.Create(() => new UnshipReleaseNoteCommand(this, repos, notify, ctx));
 
             if (id == Guid.Empty)
             {
@@ -102,7 +102,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         }
 
         //public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
-        public ReleaseNote ReleaseNote { get; set; }
+        public Prizm.Domain.Entity.Mill.ReleaseNote ReleaseNote { get; set; }
 
         #region Release Note
 
@@ -375,7 +375,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
         {
             if (ReleaseNote == null)
             {
-                ReleaseNote = new ReleaseNote { Shipped = false, IsActive = true };
+                ReleaseNote = new Prizm.Domain.Entity.Mill.ReleaseNote { Shipped = false, IsActive = true };
             }
 
             Number = string.Empty;

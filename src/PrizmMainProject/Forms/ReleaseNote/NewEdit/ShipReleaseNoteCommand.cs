@@ -13,20 +13,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prizm.Main.Languages;
 
-namespace Prizm.Main.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class ShipRailcarCommand : ICommand
+    public class ShipReleaseNoteCommand : ICommand
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ShipRailcarCommand));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ShipReleaseNoteCommand));
 
-        private readonly IRailcarRepositories repos;
-        private readonly RailcarViewModel viewModel;
+        private readonly IReleaseNoteRepositories repos;
+        private readonly ReleaseNoteViewModel viewModel;
         private readonly IUserNotify notify;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public ShipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify)
+        public ShipReleaseNoteCommand(ReleaseNoteViewModel viewModel, IReleaseNoteRepositories repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repos = repo;

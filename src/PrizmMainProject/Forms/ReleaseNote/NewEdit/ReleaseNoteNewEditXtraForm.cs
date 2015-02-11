@@ -21,28 +21,28 @@ using Prizm.Main.Languages;
 using System.Drawing;
 using Prizm.Main.Controls;
 
-namespace Prizm.Main.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class RailcarNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         private Guid id;
         private ICommandManager commandManager = new CommandManager();
-        private RailcarViewModel viewModel;
+        private ReleaseNoteViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;
         private Dictionary<PipeMillStatus, string> statusTypeDict
             = new Dictionary<PipeMillStatus, string>();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
-        public RailcarNewEditXtraForm(Guid id)
+        public ReleaseNoteNewEditXtraForm(Guid id)
         {
             this.id = id;
 
             InitializeComponent();
             Bitmap bmp = Resources.shipment_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
-            viewModel = (RailcarViewModel)Program.Kernel.Get<RailcarViewModel>(new ConstructorArgument("id", id));
+            viewModel = (ReleaseNoteViewModel)Program.Kernel.Get<ReleaseNoteViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, e) => IsModified = true;
@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             attachmentsButton.Enabled = true;
         }
 
-        public RailcarNewEditXtraForm() : this(Guid.Empty) { }
+        public ReleaseNoteNewEditXtraForm() : this(Guid.Empty) { }
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
@@ -127,8 +127,6 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     (bool)value ? StringResources.ReleaseNoteNewEdit_ShippedStatus : StringResources.ReleaseNoteNewEdit_PendingStatus);
                 }));
             
-            //textEditReleaseNoteStatus.DataBindings.Add("EditValue", bindingSource, "Shipped");
-
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             pipeNumberLookUp.Properties.DisplayMember = "Number";
             pipeNumberLookUp.Properties.ValueMember = "Id";

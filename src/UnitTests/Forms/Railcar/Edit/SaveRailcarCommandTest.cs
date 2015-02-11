@@ -4,8 +4,8 @@ using Moq;
 using NUnit.Framework;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms;
-using Prizm.Main.Forms.Railcar;
-using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.ReleaseNote;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using System.Collections.Generic;
 using System;
 using Prizm.Main.Security;
@@ -23,12 +23,12 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             var railcarRepo = new Mock<IRailcarRepository>();
             var pipeRepo = new Mock<IPipeRepository>();
             pipeRepo.Setup(x => x.GetStored()).Returns(new List<Pipe>() { new Pipe() });
-            var repos = new Mock<IRailcarRepositories>();
+            var repos = new Mock<IReleaseNoteRepositories>();
             var ctx = new Mock<ISecurityContext>();
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
-            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object,ctx.Object);
+            var viewModel = new ReleaseNoteViewModel(repos.Object, Guid.Empty, notify.Object,ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
@@ -36,7 +36,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.ModifiableView = view.Object;
             viewModel.Railcar.Pipes.Add(new Pipe());
-            var command = new SaveRailcarCommand(viewModel, repos.Object, notify.Object, ctx.Object);
+            var command = new SaveReleaseNoteCommand(viewModel, repos.Object, notify.Object, ctx.Object);
 
             command.Execute();
 

@@ -15,21 +15,21 @@ using Prizm.Data.DAL;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 
-namespace Prizm.Main.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class SaveRailcarCommand : ICommand
+    public class SaveReleaseNoteCommand : ICommand
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveRailcarCommand));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveReleaseNoteCommand));
 
-        private readonly IRailcarRepositories repos;
-        private readonly RailcarViewModel viewModel;
+        private readonly IReleaseNoteRepositories repos;
+        private readonly ReleaseNoteViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public SaveRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify, ISecurityContext ctx)
+        public SaveReleaseNoteCommand(ReleaseNoteViewModel viewModel, IReleaseNoteRepositories repo, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repo;
