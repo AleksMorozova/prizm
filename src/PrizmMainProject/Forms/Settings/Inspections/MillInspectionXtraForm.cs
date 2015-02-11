@@ -80,6 +80,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
+
+            code.SetAsIdentifier();
+            code.SetRequiredText();
         }
 
         private void BindToViewModel()
