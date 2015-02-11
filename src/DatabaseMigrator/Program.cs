@@ -17,7 +17,7 @@ namespace Prizm.DatabaseMigrator
         private const string ROLLBACK_TASK_NAME = "rollback";
         private const string ROLLBACK_ALL_TASK_NAME = "rollback:all";
         private const string ROLLBACK_TOVERSION_TASK_NAME = "rollback:toversion";
-        private const string CONNECTION_NAME = "PrizmDatabase";
+        private const string CONNECTION_NAME = "PrismDatabase";
         private const string CONFIG_FILE_LOCATION = "PrismConfig";
         
         static void Main(string[] args)

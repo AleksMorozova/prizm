@@ -113,7 +113,7 @@
             // 
             // sqlDataSource1
             // 
-            this.sqlDataSource1.ConnectionName = "PrizmDatabase";
+            this.sqlDataSource1.ConnectionName = "PrismDatabase";
             this.sqlDataSource1.Name = "sqlDataSource1";
             customSqlQuery1.Name = "CustomSqlQuery";
             customSqlQuery1.Sql = "Select Distinct(note.number) Notes, (Select Count(r.number) from Railcar r where " +

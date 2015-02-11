@@ -33,7 +33,7 @@ namespace Prizm.Main.Synch.Import
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
             : base(hasher, encryptor)
         {
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, true);
             this.importRepo = Program.Kernel.Get<IImportRepository>();
         }
@@ -1046,7 +1046,7 @@ namespace Prizm.Main.Synch.Import
         public void Dispose()
         {
             importRepo.Dispose();
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, false);
         }
     }

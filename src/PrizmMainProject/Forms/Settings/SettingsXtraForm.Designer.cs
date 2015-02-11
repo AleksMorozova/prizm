@@ -4,10 +4,9 @@ namespace Prizm.Main.Forms.Settings
     partial class SettingsXtraForm
     {
         /// <summary>
-        /// Required  variable.
+        /// Required variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -20,16 +19,13 @@ namespace Prizm.Main.Forms.Settings
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -38,18 +34,18 @@ namespace Prizm.Main.Forms.Settings
             this.typeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,6 +60,7 @@ namespace Prizm.Main.Forms.Settings
             this.colMiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userMiddleNameRepositoryItemTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colPasswordExpires = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryPassExpiredDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserPass = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonUserPass = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -81,8 +78,8 @@ namespace Prizm.Main.Forms.Settings
             this.repositoryLookUpCertificateType = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryLookUpCertificateTypeView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectorCertificateTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCertificateGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorCertificateExpirationCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryInspectorCertDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridControlInspectors = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectors = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInspectorLastName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,6 +103,7 @@ namespace Prizm.Main.Forms.Settings
             this.colWelderCert = new DevExpress.XtraGrid.Columns.GridColumn();
             this.welderCertificateTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderCertExp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryWelderCertDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colWelderStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.stampRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colWelderGrade = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -154,7 +152,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -182,13 +180,8 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.inspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.inspectorLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.certificateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
+            this.weldersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.weldersLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -221,8 +214,13 @@ namespace Prizm.Main.Forms.Settings
             this.partsTypeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.partsSplitterItem = new DevExpress.XtraLayout.SplitterItem();
-            this.weldersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.weldersLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.inspectorLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certificateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -236,14 +234,15 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.colCertificateGrade = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -264,6 +263,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.lastNameRepositoryItemTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userFirstNameRepositoryItemTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userMiddleNameRepositoryItemTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonUserPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypesView)).BeginInit();
@@ -274,6 +275,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSertificateNumberRepositoryItemTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateTypeView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).BeginInit();
@@ -286,6 +289,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).BeginInit();
@@ -327,13 +332,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
@@ -366,8 +366,13 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
@@ -416,6 +421,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipesSizeListGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSizeListGridView_RowCellStyle);
             this.pipesSizeListGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.pipesSizeListGridView_InitNewRow);
             this.pipesSizeListGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.pipesSizeListGridView_FocusedRowChanged);
+            this.pipesSizeListGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.pipesSizeListGridView_InvalidRowException);
             this.pipesSizeListGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.pipesSizeListGridView_ValidateRow_1);
             this.pipesSizeListGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSizeListGridView_KeyDown);
             // 
@@ -602,7 +608,8 @@ namespace Prizm.Main.Forms.Settings
             this.userLoginRepositoryItemTextEdit,
             this.lastNameRepositoryItemTextEdit,
             this.userFirstNameRepositoryItemTextEdit,
-            this.userMiddleNameRepositoryItemTextEdit});
+            this.userMiddleNameRepositoryItemTextEdit,
+            this.repositoryPassExpiredDateEdit});
             this.gridControlUsers.Size = new System.Drawing.Size(886, 428);
             this.gridControlUsers.TabIndex = 4;
             this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -696,11 +703,21 @@ namespace Prizm.Main.Forms.Settings
             // colPasswordExpires
             // 
             this.colPasswordExpires.Caption = "Пароль истекает";
+            this.colPasswordExpires.ColumnEdit = this.repositoryPassExpiredDateEdit;
             this.colPasswordExpires.FieldName = "PasswordExpires";
             this.colPasswordExpires.Name = "colPasswordExpires";
             this.colPasswordExpires.Visible = true;
             this.colPasswordExpires.VisibleIndex = 4;
             this.colPasswordExpires.Width = 145;
+            // 
+            // repositoryPassExpiredDateEdit
+            // 
+            this.repositoryPassExpiredDateEdit.AutoHeight = false;
+            this.repositoryPassExpiredDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryPassExpiredDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryPassExpiredDateEdit.Name = "repositoryPassExpiredDateEdit";
             // 
             // colActive
             // 
@@ -798,7 +815,8 @@ namespace Prizm.Main.Forms.Settings
             this.gridControlInspectorsCertificates.Name = "gridControlInspectorsCertificates";
             this.gridControlInspectorsCertificates.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpCertificateType,
-            this.inspectorSertificateNumberRepositoryItemTextEdit});
+            this.inspectorSertificateNumberRepositoryItemTextEdit,
+            this.repositoryInspectorCertDateEdit});
             this.gridControlInspectorsCertificates.Size = new System.Drawing.Size(442, 379);
             this.gridControlInspectorsCertificates.TabIndex = 4;
             this.gridControlInspectorsCertificates.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -809,8 +827,8 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.inspectorCertificateNumberCol,
             this.certificateTypeColumn,
-            this.colCertificateGrade,
-            this.inspectorCertificateExpirationCol});
+            this.inspectorCertificateExpirationCol,
+            this.colCertificateGrade});
             this.inspectorCertificateGridView.GridControl = this.gridControlInspectorsCertificates;
             this.inspectorCertificateGridView.Name = "inspectorCertificateGridView";
             this.inspectorCertificateGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -821,6 +839,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.inspectorCertificateGridView_RowCellStyle);
             this.inspectorCertificateGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectorCertificateGridView_InitNewRow);
             this.inspectorCertificateGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.inspectorCertificateGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.inspectorCertificateGridView_InvalidRowException);
             this.inspectorCertificateGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectorCertificateGridView_ValidateRow);
             this.inspectorCertificateGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectorCertificateGridView_KeyDown);
             // 
@@ -832,7 +851,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateNumberCol.Name = "inspectorCertificateNumberCol";
             this.inspectorCertificateNumberCol.Visible = true;
             this.inspectorCertificateNumberCol.VisibleIndex = 0;
-            this.inspectorCertificateNumberCol.Width = 50;
+            this.inspectorCertificateNumberCol.Width = 73;
             // 
             // inspectorSertificateNumberRepositoryItemTextEdit
             // 
@@ -846,7 +865,8 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypeColumn.FieldName = "Type";
             this.certificateTypeColumn.Name = "certificateTypeColumn";
             this.certificateTypeColumn.Visible = true;
-            this.certificateTypeColumn.VisibleIndex = 1;
+            this.certificateTypeColumn.VisibleIndex = 2;
+            this.certificateTypeColumn.Width = 141;
             // 
             // repositoryLookUpCertificateType
             // 
@@ -875,23 +895,25 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateTypeColumn.Visible = true;
             this.inspectorCertificateTypeColumn.VisibleIndex = 0;
             // 
-            // colCertificateGrade
-            // 
-            this.colCertificateGrade.Caption = "Уровень";
-            this.colCertificateGrade.FieldName = "Certificate.Grade";
-            this.colCertificateGrade.Name = "colCertificateGrade";
-            this.colCertificateGrade.Visible = true;
-            this.colCertificateGrade.VisibleIndex = 2;
-            // 
             // inspectorCertificateExpirationCol
             // 
             this.inspectorCertificateExpirationCol.Caption = "Действителен до";
+            this.inspectorCertificateExpirationCol.ColumnEdit = this.repositoryInspectorCertDateEdit;
             this.inspectorCertificateExpirationCol.FieldName = "Certificate.ExpirationDate";
             this.inspectorCertificateExpirationCol.MaxWidth = 120;
             this.inspectorCertificateExpirationCol.Name = "inspectorCertificateExpirationCol";
             this.inspectorCertificateExpirationCol.Visible = true;
             this.inspectorCertificateExpirationCol.VisibleIndex = 3;
-            this.inspectorCertificateExpirationCol.Width = 90;
+            this.inspectorCertificateExpirationCol.Width = 120;
+            // 
+            // repositoryInspectorCertDateEdit
+            // 
+            this.repositoryInspectorCertDateEdit.AutoHeight = false;
+            this.repositoryInspectorCertDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectorCertDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectorCertDateEdit.Name = "repositoryInspectorCertDateEdit";
             // 
             // gridControlInspectors
             // 
@@ -1017,7 +1039,8 @@ namespace Prizm.Main.Forms.Settings
             this.welderFNRepositoryTextEdit,
             this.welderMNRepositoryTextEdit,
             this.welderCertificateTextEdit,
-            this.stampRepositoryTextEdit});
+            this.stampRepositoryTextEdit,
+            this.repositoryWelderCertDateEdit});
             this.gridControlWelders.Size = new System.Drawing.Size(1227, 454);
             this.gridControlWelders.TabIndex = 0;
             this.gridControlWelders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1111,11 +1134,21 @@ namespace Prizm.Main.Forms.Settings
             // colWelderCertExp
             // 
             this.colWelderCertExp.Caption = "Действительно до";
+            this.colWelderCertExp.ColumnEdit = this.repositoryWelderCertDateEdit;
             this.colWelderCertExp.FieldName = "CertificateExpiration";
             this.colWelderCertExp.Name = "colWelderCertExp";
             this.colWelderCertExp.Visible = true;
             this.colWelderCertExp.VisibleIndex = 4;
             this.colWelderCertExp.Width = 82;
+            // 
+            // repositoryWelderCertDateEdit
+            // 
+            this.repositoryWelderCertDateEdit.AutoHeight = false;
+            this.repositoryWelderCertDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWelderCertDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWelderCertDateEdit.Name = "repositoryWelderCertDateEdit";
             // 
             // colWelderStamp
             // 
@@ -1180,6 +1213,7 @@ namespace Prizm.Main.Forms.Settings
             this.componentryTypeGridView.OptionsView.ShowGroupPanel = false;
             this.componentryTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.componentryTypeGridView_InitNewRow);
             this.componentryTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.componentryTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.componentryTypeGridView_InvalidRowException);
             this.componentryTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentryTypeGridView_ValidateRow);
             this.componentryTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.componentryTypeGridView_KeyDown);
             // 
@@ -1502,6 +1536,7 @@ namespace Prizm.Main.Forms.Settings
             this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
             this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
             this.seemTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.seemTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.seemTypeGridView_InvalidRowException);
             this.seemTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.seemTypeGridView_ValidateRow);
             this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
@@ -1565,6 +1600,7 @@ namespace Prizm.Main.Forms.Settings
             this.categoriesGridView.OptionsView.ShowGroupPanel = false;
             this.categoriesGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.categoryGridView_InitNewRow);
             this.categoriesGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.categoriesGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.categoriesGridView_InvalidRowException);
             this.categoriesGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.categoriesGridView_ValidateRow);
             this.categoriesGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.categoryGridView_KeyDown);
             // 
@@ -1888,6 +1924,7 @@ namespace Prizm.Main.Forms.Settings
             this.plateManufacturersListView.OptionsNavigation.UseTabKey = false;
             this.plateManufacturersListView.OptionsView.ShowGroupPanel = false;
             this.plateManufacturersListView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.plateManufacturersListView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.plateManufacturersListView_InvalidRowException);
             this.plateManufacturersListView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.plateManufacturersListView_ValidateRow);
             this.plateManufacturersListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.plateManufacturersList_KeyDown);
             // 
@@ -1979,84 +2016,26 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
             // 
-            // inspectorsLayoutControlGroup
+            // weldersLayoutControlGroup
             // 
-            this.inspectorsLayoutControlGroup.CustomizationFormText = "&Инспекторы";
-            this.inspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.inspectorLayoutControlGroup,
-            this.certificateTypeLayoutControlGroup,
-            this.inspectorSplitterItem});
-            this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
-            this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
+            this.weldersLayoutControlGroup.CustomizationFormText = "С&варщики";
+            this.weldersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.weldersLayoutControlItem});
+            this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
+            this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.weldersLayoutControlGroup.Text = "С&варщики";
             // 
-            // inspectorLayoutControlGroup
+            // weldersLayoutControlItem
             // 
-            this.inspectorLayoutControlGroup.CustomizationFormText = "Инспекторы";
-            this.inspectorLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.certificateLayoutControlItem,
-            this.inspectorsLayoutControlItem});
-            this.inspectorLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.inspectorLayoutControlGroup.Name = "inspectorLayoutControlGroup";
-            this.inspectorLayoutControlGroup.Size = new System.Drawing.Size(870, 458);
-            this.inspectorLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectorLayoutControlGroup.Text = "Инспекторы";
-            // 
-            // certificateLayoutControlItem
-            // 
-            this.certificateLayoutControlItem.Control = this.gridControlInspectorsCertificates;
-            this.certificateLayoutControlItem.CustomizationFormText = "Сертификаты";
-            this.certificateLayoutControlItem.Location = new System.Drawing.Point(384, 0);
-            this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
-            this.certificateLayoutControlItem.Size = new System.Drawing.Size(456, 409);
-            this.certificateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certificateLayoutControlItem.Text = "Сертификаты";
-            this.certificateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certificateLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // inspectorsLayoutControlItem
-            // 
-            this.inspectorsLayoutControlItem.Control = this.gridControlInspectors;
-            this.inspectorsLayoutControlItem.CustomizationFormText = "Инспекторы";
-            this.inspectorsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.inspectorsLayoutControlItem.Name = "inspectorsLayoutControlItem";
-            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(384, 409);
-            this.inspectorsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectorsLayoutControlItem.Text = "Инспекторы";
-            this.inspectorsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectorsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // certificateTypeLayoutControlGroup
-            // 
-            this.certificateTypeLayoutControlGroup.CustomizationFormText = "Типы сертификатов";
-            this.certificateTypeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.certTypeListLayoutControlItem});
-            this.certificateTypeLayoutControlGroup.Location = new System.Drawing.Point(875, 0);
-            this.certificateTypeLayoutControlGroup.Name = "certificateTypeLayoutControlGroup";
-            this.certificateTypeLayoutControlGroup.Size = new System.Drawing.Size(356, 458);
-            this.certificateTypeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certificateTypeLayoutControlGroup.Text = "Типы сертификатов";
-            // 
-            // certTypeListLayoutControlItem
-            // 
-            this.certTypeListLayoutControlItem.Control = this.certificateTypes;
-            this.certTypeListLayoutControlItem.CustomizationFormText = "Список типов";
-            this.certTypeListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.certTypeListLayoutControlItem.Name = "certTypeListLayoutControlItem";
-            this.certTypeListLayoutControlItem.Size = new System.Drawing.Size(326, 409);
-            this.certTypeListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.certTypeListLayoutControlItem.Text = "Список типов";
-            this.certTypeListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.certTypeListLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // inspectorSplitterItem
-            // 
-            this.inspectorSplitterItem.AllowHotTrack = true;
-            this.inspectorSplitterItem.CustomizationFormText = "Разделитель";
-            this.inspectorSplitterItem.Location = new System.Drawing.Point(870, 0);
-            this.inspectorSplitterItem.Name = "inspectorSplitterItem";
-            this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
+            this.weldersLayoutControlItem.Control = this.gridControlWelders;
+            this.weldersLayoutControlItem.CustomizationFormText = "Сварщики";
+            this.weldersLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.weldersLayoutControlItem.Name = "weldersLayoutControlItem";
+            this.weldersLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
+            this.weldersLayoutControlItem.Text = "Сварщики";
+            this.weldersLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.weldersLayoutControlItem.TextVisible = false;
             // 
             // projectLayoutControlGroup
             // 
@@ -2446,26 +2425,84 @@ namespace Prizm.Main.Forms.Settings
             this.partsSplitterItem.Name = "partsSplitterItem";
             this.partsSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
-            // weldersLayoutControlGroup
+            // inspectorsLayoutControlGroup
             // 
-            this.weldersLayoutControlGroup.CustomizationFormText = "С&варщики";
-            this.weldersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.weldersLayoutControlItem});
-            this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
-            this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlGroup.Text = "С&варщики";
+            this.inspectorsLayoutControlGroup.CustomizationFormText = "&Инспекторы";
+            this.inspectorsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.inspectorLayoutControlGroup,
+            this.certificateTypeLayoutControlGroup,
+            this.inspectorSplitterItem});
+            this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
+            this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
             // 
-            // weldersLayoutControlItem
+            // inspectorLayoutControlGroup
             // 
-            this.weldersLayoutControlItem.Control = this.gridControlWelders;
-            this.weldersLayoutControlItem.CustomizationFormText = "Сварщики";
-            this.weldersLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.weldersLayoutControlItem.Name = "weldersLayoutControlItem";
-            this.weldersLayoutControlItem.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlItem.Text = "Сварщики";
-            this.weldersLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.weldersLayoutControlItem.TextVisible = false;
+            this.inspectorLayoutControlGroup.CustomizationFormText = "Инспекторы";
+            this.inspectorLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certificateLayoutControlItem,
+            this.inspectorsLayoutControlItem});
+            this.inspectorLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.inspectorLayoutControlGroup.Name = "inspectorLayoutControlGroup";
+            this.inspectorLayoutControlGroup.Size = new System.Drawing.Size(870, 458);
+            this.inspectorLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectorLayoutControlGroup.Text = "Инспекторы";
+            // 
+            // certificateLayoutControlItem
+            // 
+            this.certificateLayoutControlItem.Control = this.gridControlInspectorsCertificates;
+            this.certificateLayoutControlItem.CustomizationFormText = "Сертификаты";
+            this.certificateLayoutControlItem.Location = new System.Drawing.Point(384, 0);
+            this.certificateLayoutControlItem.Name = "certificateLayoutControlItem";
+            this.certificateLayoutControlItem.Size = new System.Drawing.Size(456, 409);
+            this.certificateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certificateLayoutControlItem.Text = "Сертификаты";
+            this.certificateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certificateLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // inspectorsLayoutControlItem
+            // 
+            this.inspectorsLayoutControlItem.Control = this.gridControlInspectors;
+            this.inspectorsLayoutControlItem.CustomizationFormText = "Инспекторы";
+            this.inspectorsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.inspectorsLayoutControlItem.Name = "inspectorsLayoutControlItem";
+            this.inspectorsLayoutControlItem.Size = new System.Drawing.Size(384, 409);
+            this.inspectorsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectorsLayoutControlItem.Text = "Инспекторы";
+            this.inspectorsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectorsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // certificateTypeLayoutControlGroup
+            // 
+            this.certificateTypeLayoutControlGroup.CustomizationFormText = "Типы сертификатов";
+            this.certificateTypeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.certTypeListLayoutControlItem});
+            this.certificateTypeLayoutControlGroup.Location = new System.Drawing.Point(875, 0);
+            this.certificateTypeLayoutControlGroup.Name = "certificateTypeLayoutControlGroup";
+            this.certificateTypeLayoutControlGroup.Size = new System.Drawing.Size(356, 458);
+            this.certificateTypeLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certificateTypeLayoutControlGroup.Text = "Типы сертификатов";
+            // 
+            // certTypeListLayoutControlItem
+            // 
+            this.certTypeListLayoutControlItem.Control = this.certificateTypes;
+            this.certTypeListLayoutControlItem.CustomizationFormText = "Список типов";
+            this.certTypeListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.certTypeListLayoutControlItem.Name = "certTypeListLayoutControlItem";
+            this.certTypeListLayoutControlItem.Size = new System.Drawing.Size(326, 409);
+            this.certTypeListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.certTypeListLayoutControlItem.Text = "Список типов";
+            this.certTypeListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.certTypeListLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // inspectorSplitterItem
+            // 
+            this.inspectorSplitterItem.AllowHotTrack = true;
+            this.inspectorSplitterItem.CustomizationFormText = "Разделитель";
+            this.inspectorSplitterItem.Location = new System.Drawing.Point(870, 0);
+            this.inspectorSplitterItem.Name = "inspectorSplitterItem";
+            this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
             // usersLayoutControlGroup
             // 
@@ -2609,6 +2646,15 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
             // 
+            // colGrade
+            // 
+            this.colCertificateGrade.Caption = "Уровень";
+            this.colCertificateGrade.FieldName = "Certificate.Grade";
+            this.colCertificateGrade.Name = "colGrade";
+            this.colCertificateGrade.Visible = true;
+            this.colCertificateGrade.VisibleIndex = 1;
+            this.colCertificateGrade.Width = 90;
+            // 
             // SettingsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2640,6 +2686,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.lastNameRepositoryItemTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userFirstNameRepositoryItemTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userMiddleNameRepositoryItemTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryPassExpiredDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonUserPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypesView)).EndInit();
@@ -2650,6 +2698,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSertificateNumberRepositoryItemTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpCertificateTypeView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectorCertDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorLNRepositoryTextEdit)).EndInit();
@@ -2662,6 +2712,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.welderFNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderMNRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welderCertificateTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWelderCertDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stampRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentryTypeGridView)).EndInit();
@@ -2703,13 +2755,8 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
@@ -2742,8 +2789,13 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.partsTypeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsSplitterItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weldersLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorsLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
@@ -2767,11 +2819,7 @@ namespace Prizm.Main.Forms.Settings
             this.ResumeLayout(false);
 
         }
-
-        
-
         #endregion
-
         private DevExpress.XtraGrid.GridControl plateManufacturersList;
         private DevExpress.XtraGrid.Views.Grid.GridView plateManufacturersListView;
         private DevExpress.XtraGrid.Columns.GridColumn plateManufacturerGridColumn;
@@ -2983,6 +3031,9 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraLayout.LayoutControlItem addTestButtonLayout;
         private DevExpress.XtraLayout.EmptySpaceItem testButtonsEmptySpace;
         private DevExpress.XtraLayout.LayoutControlItem editTestButtonLayout;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectorCertDateEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryWelderCertDateEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryPassExpiredDateEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colCertificateGrade;
     }
 }

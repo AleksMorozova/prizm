@@ -381,7 +381,7 @@ MissingPortion_cancelButton=&Cancel
 Settings_ValidateInspectorSertificate=Please select inspector
 
 ;Обязательное значение
-Settings_ValueRequaered=Value is required
+Settings_ValueRequired=Value is required
 
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
@@ -917,7 +917,7 @@ Export_CreatingArchive=Creating archive
 Export_Error=Error {1}
 
 ;PRISM archives
-Export_Filter=PRIZM archives|*.prizm
+Export_Filter=PRISM archives
 
 ;Нет новых данных для экспортирования.
 Export_NoData=There are no fresh data for export
@@ -1525,8 +1525,11 @@ NewEditPipe_RailcarNumber_Label=Railcar number
 ;Труба. Сертификат вагона
 NewEditPipe_RailcarCertificate_Label=Certificate number
 
-;Труба. Дата отправки вагона
-NewEditPipe_RailcarShippedDate_Label=Date
+;Труба. Дата разрешения на отгрузку
+NewEditPipe_ReleaseNoteDate_Label = Release note date
+
+;Труба. Номер разрешения на отгрузку
+NewEditPipe_ReleaseNoteNumber_Label = Release note number
 
 ;Труба. Получатель
 NewEditPipe_RailcarDestination_Label=Destination
@@ -2026,6 +2029,9 @@ ExternalFiles_NotCopied_Header=External files saving error
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
 
+;Сообщение: Размер вложения больше разрешенного
+ExternalFiles_FileSizeIsTooBig=Attaching file's size is bigger than allowed
+
 ;Тип рабочей станции. Неопределен
 WorkstationType_Undefined=Undefined
 
@@ -2185,3 +2191,26 @@ Menu_Help_About=&About
 ;Текст на панели статуса: Важные сообщения 
 MainWindow_StatusNotificationsHeader=Important messages 
 
+;Комплектующее изделие деактивировано. Комплектующее изделие #
+ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
+
+;Деактивация элемента
+ComponentNewEdit_DeactivatedActionHeader=Component deactivation
+
+;Стык деактивирован. Стык #
+Joint_Deactivated=Joint have been deactivated. The joint #
+
+;Деактивация стыка
+Joint_DeactivatedHeader=Joint deactivation
+
+;Труба деактивирована. Труба #
+Pipe_Deactivated=Pipe have been deactivated. The pipe #
+
+;Деактивация трубы
+Pipe_DeactivatedHeader=Pipe deactivation
+
+;Катушка деактивирована. Катушка #
+Spool_Deactivated=Spool have been deactivated. The spool #
+
+;Деактивация катушки
+Spool_DeactivatedHeader=Spool deactivation

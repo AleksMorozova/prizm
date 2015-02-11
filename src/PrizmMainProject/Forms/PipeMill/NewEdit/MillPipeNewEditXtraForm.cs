@@ -50,7 +50,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private ExternalFilesXtraForm filesForm = null;
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
-        private List<string> localizedAllPipeTestResultStatus= new List<string>();
+        private List<string> localizedAllPipeTestResultStatus = new List<string>();
         private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
         private void UpdateTextEdit()
         {
@@ -91,7 +91,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
-            SetAlwaysReadOnly(shippedDate);
+            SetAlwaysReadOnly(releaseNoteNumber);
+            SetAlwaysReadOnly(releaseNoteDate);//release note date
             SetAlwaysReadOnly(certificateNumber);
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
@@ -135,7 +136,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 localizedAllPipeTestResultStatus.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0:true))
+            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -146,18 +147,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            if(IsEditMode)
-            {
-                pipeNumber.Validating += pipeNumber_Validating;
-            }
-            else
-            {
-                pipeNumber.Validating -= pipeNumber_Validating;
-            }
 
             IsModified = false;
             pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
                 + viewModel.Project.MillPipeNumberMask;
+
+            pipeCreationDate.SetLimits();
+            repositoryCoatingDate.SetLimits();
+            repositoryWeldingDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -214,10 +211,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
 
+            releaseNoteNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteDate");
 
             railcarNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarNumber");
-
             certificateNumber.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarCertificate");
             destination.DataBindings
@@ -330,7 +330,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     new LocalizedItem(railcarLayoutControlItem, StringResources.NewEditPipe_RailcarNumber_Label.Id),
                     new LocalizedItem(certificateLayoutControlItem, StringResources.NewEditPipe_RailcarCertificate_Label.Id),
-                    new LocalizedItem(shippedDateLayoutControlItem, StringResources.NewEditPipe_RailcarShippedDate_Label.Id),
+                    new LocalizedItem(releaseNoteDateLayoutControlItem, StringResources.NewEditPipe_ReleaseNoteDate_Label.Id),
+                    new LocalizedItem(releaseNoteNumberLayout, StringResources.NewEditPipe_ReleaseNoteNumber_Label.Id),
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
@@ -438,7 +439,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Weld weld = weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle) as Weld;
             if(weld == null || (weld != null && weld.Date == null))
             {
-                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0], 
+                weldingHistoryGridView.SetColumnError(weldingHistoryGridView.VisibleColumns[0],
                     Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
@@ -666,7 +667,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             var op = (string)gv.GetRowCellValue(e.RowHandle, inspectionCodeGridColumn);
             if(string.IsNullOrWhiteSpace(op))
             {
-                gv.SetColumnError(inspectionCodeGridColumn, 
+                gv.SetColumnError(inspectionCodeGridColumn,
                     Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
@@ -678,7 +679,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 case PipeTestResultStatus.Repair:
                     if(date == null || date > DateTime.Now)
                     {
-                        gv.SetColumnError(controlDateGridColumn, 
+                        gv.SetColumnError(controlDateGridColumn,
                             Program.LanguageManager.GetString(StringResources.MillPipe_ErrorEmptyOrFutureDate));
                         e.Valid = false;
                     }
@@ -691,7 +692,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void pipeNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase) && IsEditMode)
             {
                 pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
@@ -700,7 +701,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void attachmentsButton_Click(object sender, EventArgs e)
         {
-            if (filesForm == null)
+            if(filesForm == null)
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -734,7 +735,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if(MessageBox.Show(
                         string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewHeatQuestion), e.DisplayValue.ToString()),
                         Program.LanguageManager.GetString(StringResources.MillPipe_NewHeadQuestionHeader),
-                        MessageBoxButtons.YesNo) 
+                        MessageBoxButtons.YesNo)
                     == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowHeatDialog(e.DisplayValue.ToString());
@@ -771,8 +772,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if(MessageBox.Show(
                         string.Format(Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestion), e.DisplayValue.ToString()),
-                        Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestionHeader), 
-                        MessageBoxButtons.YesNo) 
+                        Program.LanguageManager.GetString(StringResources.MillPipe_NewPurchaseOrderQuestionHeader),
+                        MessageBoxButtons.YesNo)
                     == System.Windows.Forms.DialogResult.Yes)
                 {
                     ShowOrderDialog(e.DisplayValue.ToString());
@@ -802,7 +803,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            return dxValidationProvider.Validate() && this.ValidateChildren();
         }
 
         #endregion
@@ -812,7 +813,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             PipeTestResult pipeTestResult = inspectionsGridView.GetRow(inspectionsGridView.FocusedRowHandle) as PipeTestResult;
             if(pipeTestResult == null || (pipeTestResult != null && pipeTestResult.Date == null))
             {
-                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6], 
+                inspectionsGridView.SetColumnError(inspectionsGridView.VisibleColumns[6],
                     Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
             }
@@ -834,7 +835,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void plateNumber_EditValueChanged(object sender, EventArgs e)
         {
-            if (plateNumber.IsEditorActive)
+            if(plateNumber.IsEditorActive)
             {
                 viewModel.PlateNumber = plateNumber.Text;
             }
@@ -864,11 +865,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if (IsEditMode)
+            if(IsEditMode)
             {
                 var addForm = GetInspectionForm(tests, inspectors, null, statuses);
 
-                if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
@@ -883,7 +884,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
-            if (IsEditMode)
+            if(IsEditMode)
             {
                 var editForm = GetInspectionForm(tests, insp, row, status);
 
@@ -943,12 +944,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         private InspectionAddEditXtraForm GetInspectionForm(
-            BindingList<PipeTest> tests, 
-            IList<Inspector> inspectors, 
-            PipeTestResult row, 
+            BindingList<PipeTest> tests,
+            IList<Inspector> inspectors,
+            PipeTestResult row,
             IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if (inspectionForm == null)
+            if(inspectionForm == null)
             {
                 inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses);
             }
@@ -962,22 +963,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void inspectionsGridView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.Name == inspectionResultGridColumn.Name && e.Value != null)
+            if(e.Column.Name == inspectionResultGridColumn.Name && e.Value != null)
             {
                 PipeTestResultStatus result;
-                if (Enum.TryParse<PipeTestResultStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<PipeTestResultStatus>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = (result == PipeTestResultStatus.Undefined) ? "" :localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
+                    e.DisplayText = (result == PipeTestResultStatus.Undefined) ? "" : localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
                 }
             }
-            if (e.Column.Name == expectedResultGridColumn.Name)
+            if(e.Column.Name == expectedResultGridColumn.Name)
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
-                if (pipeTestResult != null)
+                if(pipeTestResult != null)
                 {
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
+                    if(pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
                     { e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); }
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
+                    if(pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
                     { e.DisplayText = Program.LanguageManager.GetString(StringResources.No); }
                 }
             }

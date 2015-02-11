@@ -110,7 +110,7 @@
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.heatNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrizmDatabase");
+            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrismDatabase");
             this.GroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.StatusParameter = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();

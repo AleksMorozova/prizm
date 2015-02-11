@@ -346,6 +346,12 @@ namespace Prizm.Main.Languages
             Description = "Просмотр и загрузка несохрaненных файлов"
         };
 
+        public static StringResource ExternalFiles_FileSizeIsTooBig= new StringResource
+        {
+            Id = "ExternalFiles_FileSizeIsTooBig",
+            Description = "Сообщение: Размер вложения больше разрешенного"
+        };
+
 
         public static StringResource Yes = new StringResource
         {
@@ -981,8 +987,19 @@ namespace Prizm.Main.Languages
             Id = "Spool_EditDocumentHeader",
             Description = "Катушка, заголовок окна редактирования: Редактирование катушки"
         };
-        
 
+        public static StringResource Spool_Deactivated = new StringResource
+        {
+            Id = "Spool_Deactivated",
+            Description = "Катушка деактивирована. Катушка #"
+        };
+
+        public static StringResource Spool_DeactivatedHeader = new StringResource
+        {
+            Id = "Spool_DeactivatedHeader",
+            Description = "Деактивация катушки"
+        };
+        
         #endregion Spool
 
         #region MissingPortion
@@ -1020,7 +1037,7 @@ namespace Prizm.Main.Languages
         };
         public static StringResource Settings_ValueRequired = new StringResource
         {
-            Id = "Settings_ValueRequaered",
+            Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
         };
         public static StringResource Settings_UniqueValueRequired = new StringResource
@@ -2386,6 +2403,18 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке: Величина диаметра должна быть больше нуля"
         };
 
+        public static StringResource ComponentNewEdit_DeactivatedAction = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedAction",
+            Description = "Сообщение о деактивации элемента: Комплектующее изделие деактивировано. Комплектующее изделие #"
+        };
+
+        public static StringResource ComponentNewEdit_DeactivatedActionHeader = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedActionHeader",
+            Description = "Заголовок сообщения о деактивации элемента"
+        };
+
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
@@ -2628,6 +2657,18 @@ namespace Prizm.Main.Languages
         {
             Id = "Joint_IncorrectDiameterHeader",
             Description = "Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов"
+        };
+
+        public static StringResource Joint_Deactivated = new StringResource
+        {
+            Id = "Joint_Deactivated",
+            Description = "Стык деактивирован. Стык #"
+        };
+
+        public static StringResource Joint_DeactivatedHeader = new StringResource
+        {
+            Id = "Joint_DeactivatedHeader",
+            Description = "Деактивация стыка"
         };
 
         #endregion //--- JointNew ---
@@ -3201,6 +3242,11 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_TypeSizeThicknessLabel",
             Description = "Труба. Толщина по типоразмеру"
         };
+        public static StringResource NewEditPipe_ReleaseNoteNumber_Label = new StringResource
+        {
+            Id = "NewEditPipe_ReleaseNoteNumber_Label",
+            Description = "Труба. Номер разрешения на отгрузку"
+        };
         public static StringResource NewEditPipe_RailcarNumber_Label = new StringResource
         {
             Id = "NewEditPipe_RailcarNumber_Label",
@@ -3211,9 +3257,9 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_RailcarCertificate_Label",
             Description = "Труба. Сертификат вагона"
         };
-        public static StringResource NewEditPipe_RailcarShippedDate_Label = new StringResource
+        public static StringResource NewEditPipe_ReleaseNoteDate_Label = new StringResource
         {
-            Id = "NewEditPipe_RailcarShippedDate_Label",
+            Id = "NewEditPipe_ReleaseNoteDate_Label",
             Description = "Труба. Дата отправки вагона"
         };
         public static StringResource NewEditPipe_RailcarDestination_Label = new StringResource
@@ -3502,6 +3548,18 @@ namespace Prizm.Main.Languages
         {
             Id = "MillPipe_ErrorEmptyOrFutureDate",
             Description = "Сообщение об ошибке даты: Дата не может быть пустой или будущей"
+        };
+
+        public static StringResource Pipe_Deactivated = new StringResource
+        {
+            Id = "Pipe_Deactivated",
+            Description = "Труба деактивирована. Труба #"
+        };
+
+        public static StringResource Pipe_DeactivatedHeader = new StringResource
+        {
+            Id = "Pipe_DeactivatedHeader",
+            Description = "Деактивация трубы"
         };
 
         #endregion

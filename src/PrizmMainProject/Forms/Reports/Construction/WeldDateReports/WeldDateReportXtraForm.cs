@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class WeldDateReportXtraForm : ChildForm
     {
         private WeldDateReportViewModel viewModel;
@@ -66,6 +67,9 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 
             BindToViewModel();
             BindCommands();
+
+            weldDateFrom.SetLimits();
+            weldDateTo.SetLimits();
         }
 
         #region --- Localization ---

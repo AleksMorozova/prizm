@@ -68,6 +68,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             BindToViewModel();
             IsModified = false;
             IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
+
+            releaseNoteDate.SetLimits();
         }
 
         #region --- Localization ---
@@ -211,7 +213,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if (filesForm == null)
+            if(filesForm == null)
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
