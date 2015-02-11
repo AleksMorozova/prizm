@@ -91,7 +91,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
-            SetAlwaysReadOnly(shippedDate);
+            SetAlwaysReadOnly(releaseNoteNumber);
+            SetAlwaysReadOnly(releaseNoteDate);
             SetAlwaysReadOnly(certificateNumber);
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
@@ -146,18 +147,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            if(IsEditMode)
-            {
-                pipeNumber.Validating += pipeNumber_Validating;
-            }
-            else
-            {
-                pipeNumber.Validating -= pipeNumber_Validating;
-            }
 
             IsModified = false;
             pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
                 + viewModel.Project.MillPipeNumberMask;
+
+            pipeCreationDate.SetLimits();
+            repositoryCoatingDate.SetLimits();
+            repositoryWeldingDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -213,6 +210,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+            
+            
+            releaseNoteNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteDate");
 
 
             railcarNumber.DataBindings
@@ -330,7 +333,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     new LocalizedItem(railcarLayoutControlItem, StringResources.NewEditPipe_RailcarNumber_Label.Id),
                     new LocalizedItem(certificateLayoutControlItem, StringResources.NewEditPipe_RailcarCertificate_Label.Id),
-                    new LocalizedItem(shippedDateLayoutControlItem, StringResources.NewEditPipe_RailcarShippedDate_Label.Id),
+                    new LocalizedItem(releaseNoteDateLayoutControlItem, StringResources.NewEditPipe_ReleaseNoteDate_Label.Id),
+                    new LocalizedItem(releaseNoteNumberLayout, StringResources.NewEditPipe_ReleaseNoteNumber_Label.Id),
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
@@ -803,7 +807,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            return dxValidationProvider.Validate() && this.ValidateChildren();
         }
 
         #endregion
