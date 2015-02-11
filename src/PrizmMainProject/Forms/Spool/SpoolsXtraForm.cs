@@ -137,6 +137,7 @@ namespace Prizm.Main.Forms.Spool
             BindCommands();
 
             inspectionDateEdit.SetLimits();
+            spoolNumber.SetAsIdentifier();
         }
 
         #region --- Localization ---
