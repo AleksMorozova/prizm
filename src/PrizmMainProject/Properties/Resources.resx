@@ -1171,4 +1171,7 @@
   <data name="Settings_ValueRequired" xml:space="preserve">
     <value>Обязательное значение</value>
   </data>
+  <data name="ImportMessage_IsFinished" xml:space="preserve">
+    <value>Импортирование завершено</value>
+  </data>
 </root>
