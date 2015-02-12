@@ -128,8 +128,8 @@ namespace Prizm.Main.Forms.Settings
                     types.Append(s + " ");
                 }
                 notify.ShowError
-                    ("Необходимо проверить следующие типоразмеры: " + types.ToString(),
-                    "Неверные данные для типоразмеров");
+                    (Program.LanguageManager.GetString(StringResources.Settings_PipeControlOperationValidation) + types.ToString(),
+                    Program.LanguageManager.GetString(StringResources.Settings_PipeControlOperationValidationHeader));
             }
         }
 
