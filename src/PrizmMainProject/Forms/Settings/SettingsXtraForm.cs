@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Settings
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class SettingsXtraForm : ChildForm, IValidatable
     {
-        public delegate List<string> FindDuplicates1();
+        private Dictionary<GridView, DuplicatesList> findDuplicateList = new Dictionary<GridView,DuplicatesList>();
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
         private InspectorViewType CurrentInspector;
@@ -133,6 +133,7 @@ namespace Prizm.Main.Forms.Settings
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
+            CreateDuplicateList();
         }
 
         private void BindToViewModel()
@@ -1231,8 +1232,10 @@ namespace Prizm.Main.Forms.Settings
              
             DuplicatesList l = new DuplicatesList();
             l.Duplicates = null;
+            l.Method = delegate(GridView pipesSizeListGridView)
+            { return FindDuplicatesInTypeSizesGrid(); };
 
-           // l.MethodsStore += this.FindDuplicatesInTypeSizesGrid();
+            findDuplicateList.Add(this.pipesSizeListGridView, l);
             
         }
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
