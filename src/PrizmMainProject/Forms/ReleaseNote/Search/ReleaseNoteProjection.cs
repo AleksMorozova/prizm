@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Main.Forms.Railcar.Search
+namespace Prizm.Main.Forms.ReleaseNote.Search
 {
     public class ReleaseNoteProjection
     {

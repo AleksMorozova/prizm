@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prizm.Main.Forms.Railcar
+namespace Prizm.Main.Forms.ReleaseNote
 {
-    public class RailcarRepositories : IRailcarRepositories
+    public class ReleaseNoteRepositories : IReleaseNoteRepositories
     {
         ISession session;
         private readonly IPipeRepository pipeRepo;
@@ -18,7 +18,7 @@ namespace Prizm.Main.Forms.Railcar
         private readonly IReleaseNoteRepository releaseNoteRepo;
 
         [Inject]
-        public RailcarRepositories(ISession session)
+        public ReleaseNoteRepositories(ISession session)
         {
             this.session = session;
             this.pipeRepo = new PipeRepository(session);

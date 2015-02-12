@@ -424,7 +424,7 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
-    <Compile Include="Forms\ReleaseNote\IRailcarRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\IReleaseNoteRepositories.cs" />
     <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
@@ -577,11 +577,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\ISecurityContext.cs" />
-    <Compile Include="Forms\ReleaseNote\NewEdit\ShipRailcarCommand.cs" />
-    <Compile Include="Forms\ReleaseNote\NewEdit\UnshipRailcarCommand.cs" />
-    <Compile Include="Forms\ReleaseNote\RailcarRepositories.cs" />
-    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchViewModel.cs" />
-    <Compile Include="Forms\ReleaseNote\Search\SearchRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\ShipReleaseNoteCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\UnshipReleaseNoteCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\ReleaseNoteRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\SearchReleaseNoteCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -606,8 +606,8 @@
     <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.Designer.cs">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarViewModel.cs" />
-    <Compile Include="Forms\ReleaseNote\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\SaveReleaseNoteCommand.cs" />
     <Compile Include="Forms\Reports\Mill\CreateReportCommand.cs" />
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
@@ -665,17 +665,17 @@
     <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.Designer.cs">
-      <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.Designer.cs">
+      <DependentUpon>ReleaseNoteNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.Designer.cs">
-      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.Designer.cs">
+      <DependentUpon>ReleaseNoteSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.cs">
       <SubType>Form</SubType>
@@ -866,11 +866,11 @@
     <EmbeddedResource Include="Forms\MainChildForm\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReleaseNote\NewEdit\RailcarNewEditXtraForm.resx">
-      <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.resx">
+      <DependentUpon>ReleaseNoteNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReleaseNote\Search\RailcarSearchXtraForm.resx">
-      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.resx">
+      <DependentUpon>ReleaseNoteSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.resx">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>

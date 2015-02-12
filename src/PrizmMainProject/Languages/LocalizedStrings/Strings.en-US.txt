@@ -1802,10 +1802,19 @@ ReleaseNoteNewEdit_SaveButton=&Save
 ReleaseNoteNewEdit_PipeNumberColumn=Pipe number
 
 ;Разрешение на отгрузку. Столбец типоразмер
-ReleaseNoteNewEdit_PipeTypeSizeColumn=Size type
+ReleaseNoteNewEdit_PipeTypeSizeColumn=Pipe size type
 
-;Разрешение на отгрузку. Столбец статус
-ReleaseNoteNewEdit_PipeStatusColumn=Status
+;Разрешение на отгрузку. Столбец статус трубы
+ReleaseNoteNewEdit_PipeStatusColumn=Pipe status
+
+;Разрешение на отгрузку. Столбец номер вагона
+ReleaseNoteNewEdit_RailcarNumberColumn=Railcar number
+
+;Разрешение на отгрузку. Столбец сертификат вагона
+ReleaseNoteNewEdit_RailcarCertificateColumn=Railcar certificate
+
+;Разрешение на отгрузку. Столбец получатель вагона
+ReleaseNoteNewEdit_RailcarDestinationColumn=Destination
 
 ;Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #
 ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar=This pipe already exists in railcar #

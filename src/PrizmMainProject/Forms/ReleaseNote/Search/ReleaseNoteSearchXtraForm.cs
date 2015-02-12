@@ -10,7 +10,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 using System.Windows.Forms;
 
-using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using Prizm.Main.Forms.MainChildForm;
 
 using Prizm.Main.DummyData;
@@ -22,15 +22,15 @@ using Prizm.Main.Properties;
 using System.Drawing;
 
 
-namespace Prizm.Main.Forms.Railcar.Search
+namespace Prizm.Main.Forms.ReleaseNote.Search
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class RailcarSearchXtraForm : ChildForm
+    public partial class ReleaseNoteSearchXtraForm : ChildForm
     {
         private ICommandManager commandManager = new CommandManager();
-        private RailcarSearchViewModel viewModel;
+        private ReleaseNoteSearchViewModel viewModel;
 
-        public RailcarSearchXtraForm()
+        public ReleaseNoteSearchXtraForm()
         {
             InitializeComponent();
             Bitmap bmp = Resources.search_icon;
@@ -44,7 +44,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
         private void RailcarSearchXtraForm_Load(object sender, EventArgs e)
         {
-            viewModel = (RailcarSearchViewModel)Program.Kernel.GetService(typeof(RailcarSearchViewModel));
+            viewModel = (ReleaseNoteSearchViewModel)Program.Kernel.GetService(typeof(ReleaseNoteSearchViewModel));
             BindCommands();
             BindToViewModel();
 
@@ -117,7 +117,7 @@ namespace Prizm.Main.Forms.Railcar.Search
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.OpenChildForm(typeof(RailcarNewEditXtraForm), id);
+                parent.OpenChildForm(typeof(ReleaseNoteNewEditXtraForm), id);
             }
         }
 

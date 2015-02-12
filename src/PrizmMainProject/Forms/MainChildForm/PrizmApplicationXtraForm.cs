@@ -13,8 +13,8 @@ using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Main.Forms.Joint.Search;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.PipeMill.Search;
-using Prizm.Main.Forms.Railcar.NewEdit;
-using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.Search;
 using Prizm.Main.Forms.Reports.Construction;
 using Prizm.Main.Forms.Reports.Incoming;
 using Prizm.Main.Forms.Reports.Mill;
@@ -102,7 +102,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(RailcarNewEditXtraForm));
+            OpenChildForm(typeof(ReleaseNoteNewEditXtraForm));
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
@@ -197,7 +197,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(RailcarSearchXtraForm));
+            OpenChildForm(typeof(ReleaseNoteSearchXtraForm));
         }
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)

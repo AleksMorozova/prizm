@@ -3965,7 +3965,25 @@ namespace Prizm.Main.Languages
         public static StringResource ReleaseNoteNewEdit_PipeStatusColumn = new StringResource
         {
             Id = "ReleaseNoteNewEdit_PipeStatusColumn",
-            Description = "Разрешение на отгрузку. Столбец статус"
+            Description = "Разрешение на отгрузку. Столбец статус трубы"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarNumberColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarNumberColumn",
+            Description = "Разрешение на отгрузку. Столбец номер вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarCertificateColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarCertificateColumn",
+            Description = "Разрешение на отгрузку. Столбец сертификат вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarDestinationColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarDestinationColumn",
+            Description = "Разрешение на отгрузку. Столбец получатель вагона"
         };
 
         public static StringResource ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar = new StringResource
