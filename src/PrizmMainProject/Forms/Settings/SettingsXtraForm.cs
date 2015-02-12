@@ -84,6 +84,8 @@ namespace Prizm.Main.Forms.Settings
             IsModified = false;
             BindCommands();
 
+            IsEditModeChanged += (o, eve) => commandManager.RefreshVisualState();
+
             gridViewWelders.BestFitColumns();
             gridViewInspectors.BestFitColumns();
 
