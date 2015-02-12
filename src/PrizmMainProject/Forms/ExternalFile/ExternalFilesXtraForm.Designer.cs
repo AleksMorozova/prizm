@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExternalFilesXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -41,18 +42,14 @@
             this.downloadButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.addFile = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.acceptButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tableLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.addButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.acceptButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.filesBindingSource = new System.Windows.Forms.BindingSource();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.filesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.files)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewButton)).BeginInit();
@@ -63,11 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +78,7 @@
             this.files.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.viewButton,
             this.downloadButton});
-            this.files.Size = new System.Drawing.Size(465, 234);
+            this.files.Size = new System.Drawing.Size(465, 235);
             this.files.TabIndex = 0;
             this.files.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.filesView});
@@ -163,7 +157,7 @@
             this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addFile.Image = ((System.Drawing.Image)(resources.GetObject("addFile.Image")));
             this.addFile.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.addFile.Location = new System.Drawing.Point(20, 264);
+            this.addFile.Location = new System.Drawing.Point(20, 265);
             this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
             this.addFile.Size = new System.Drawing.Size(148, 22);
@@ -176,7 +170,6 @@
             // 
             this.layoutControl.Controls.Add(this.files);
             this.layoutControl.Controls.Add(this.addFile);
-            this.layoutControl.Controls.Add(this.acceptButton);
             this.layoutControl.Controls.Add(this.cancelButton);
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl.Location = new System.Drawing.Point(0, 0);
@@ -197,27 +190,19 @@
             this.layoutControl.TabIndex = 2;
             this.layoutControl.Text = "layoutControl1";
             // 
-            // acceptButton
-            // 
-            this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.acceptButton.Image = ((System.Drawing.Image)(resources.GetObject("acceptButton.Image")));
-            this.acceptButton.Location = new System.Drawing.Point(295, 264);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(83, 23);
-            this.acceptButton.StyleController = this.layoutControl;
-            this.acceptButton.TabIndex = 5;
-            this.acceptButton.Text = "OK";
-            // 
             // cancelButton
             // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(392, 264);
+            this.cancelButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.cancelButton.Location = new System.Drawing.Point(317, 265);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(11);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(83, 23);
+            this.cancelButton.Size = new System.Drawing.Size(158, 22);
             this.cancelButton.StyleController = this.layoutControl;
-            this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отмена";
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "Закр&ыть";
+            this.cancelButton.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Root
             // 
@@ -240,7 +225,7 @@
             this.tableLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutControlItem.Name = "tableLayoutControlItem";
             this.tableLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.tableLayoutControlItem.Size = new System.Drawing.Size(475, 244);
+            this.tableLayoutControlItem.Size = new System.Drawing.Size(475, 245);
             this.tableLayoutControlItem.Text = "Файлы";
             this.tableLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.tableLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -251,15 +236,12 @@
             this.buttonLayoutControlGroup.CustomizationFormText = "кнопки";
             this.buttonLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.addButtonLayoutControlItem,
-            this.emptySpaceItem2,
-            this.acceptButtonLayoutControlItem,
             this.cancelButtonLayoutControlItem,
-            this.emptySpaceItem1,
-            this.emptySpaceItem3});
-            this.buttonLayoutControlGroup.Location = new System.Drawing.Point(0, 244);
+            this.emptySpaceItem2});
+            this.buttonLayoutControlGroup.Location = new System.Drawing.Point(0, 245);
             this.buttonLayoutControlGroup.Name = "buttonLayoutControlGroup";
             this.buttonLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.buttonLayoutControlGroup.Size = new System.Drawing.Size(475, 43);
+            this.buttonLayoutControlGroup.Size = new System.Drawing.Size(475, 42);
             this.buttonLayoutControlGroup.Text = "Добавить";
             this.buttonLayoutControlGroup.TextVisible = false;
             // 
@@ -271,84 +253,40 @@
             this.addButtonLayoutControlItem.MaxSize = new System.Drawing.Size(152, 26);
             this.addButtonLayoutControlItem.MinSize = new System.Drawing.Size(152, 26);
             this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
-            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(152, 27);
+            this.addButtonLayoutControlItem.Size = new System.Drawing.Size(152, 26);
             this.addButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.addButtonLayoutControlItem.Text = "addButtonLayoutControlItem";
             this.addButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.addButtonLayoutControlItem.TextVisible = false;
+            // 
+            // cancelButtonLayoutControlItem
+            // 
+            this.cancelButtonLayoutControlItem.Control = this.cancelButton;
+            this.cancelButtonLayoutControlItem.CustomizationFormText = "Кнопка отмена";
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(297, 0);
+            this.cancelButtonLayoutControlItem.MaxSize = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.MinSize = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(162, 26);
+            this.cancelButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.cancelButtonLayoutControlItem.Text = "cancelButtonLayoutControlItem";
+            this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.cancelButtonLayoutControlItem.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(152, 0);
-            this.emptySpaceItem2.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(113, 27);
-            this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem2.Size = new System.Drawing.Size(145, 26);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // acceptButtonLayoutControlItem
-            // 
-            this.acceptButtonLayoutControlItem.Control = this.acceptButton;
-            this.acceptButtonLayoutControlItem.CustomizationFormText = "Кнопка ОК";
-            this.acceptButtonLayoutControlItem.Location = new System.Drawing.Point(275, 0);
-            this.acceptButtonLayoutControlItem.MaxSize = new System.Drawing.Size(87, 27);
-            this.acceptButtonLayoutControlItem.MinSize = new System.Drawing.Size(87, 27);
-            this.acceptButtonLayoutControlItem.Name = "acceptButtonLayoutControlItem";
-            this.acceptButtonLayoutControlItem.Size = new System.Drawing.Size(87, 27);
-            this.acceptButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.acceptButtonLayoutControlItem.Text = "acceptButtonLayoutControlItem";
-            this.acceptButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.acceptButtonLayoutControlItem.TextVisible = false;
-            // 
-            // cancelButtonLayoutControlItem
-            // 
-            this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.CustomizationFormText = "Кнопка отмена";
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(372, 0);
-            this.cancelButtonLayoutControlItem.MaxSize = new System.Drawing.Size(87, 27);
-            this.cancelButtonLayoutControlItem.MinSize = new System.Drawing.Size(87, 27);
-            this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(87, 27);
-            this.cancelButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.cancelButtonLayoutControlItem.Text = "acceptButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.cancelButtonLayoutControlItem.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(362, 0);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(265, 0);
-            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(10, 27);
-            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem3.Text = "emptySpaceItem2";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // ExternalFilesXtraForm
             // 
-            this.AcceptButton = this.acceptButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(495, 307);
             this.Controls.Add(this.layoutControl);
             this.Name = "ExternalFilesXtraForm";
@@ -365,11 +303,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addButtonLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -382,6 +317,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
         private DevExpress.XtraGrid.Columns.GridColumn colUploadDate;
         private DevExpress.XtraEditors.SimpleButton addFile;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraGrid.Columns.GridColumn colView;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit viewButton;
         private DevExpress.XtraGrid.Columns.GridColumn colDownload;
@@ -392,12 +328,7 @@
         private DevExpress.XtraLayout.LayoutControlItem tableLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup buttonLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem addButtonLayoutControlItem;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.SimpleButton acceptButton;
-        private DevExpress.XtraEditors.SimpleButton cancelButton;
-        private DevExpress.XtraLayout.LayoutControlItem acceptButtonLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }
