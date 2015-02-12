@@ -408,24 +408,11 @@ namespace Prizm.Main.Forms.Settings
             pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
             pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
-            
-            if (!CodeValidation())
-            {
-                view.SetColumnError(pipeSizeGridColumn,
-                     Program.LanguageManager.GetString(StringResources.Settings_ChekControlOperations)
-                    );
-                e.Valid = false;
-            }
-            else
-            {
-                e.Valid = true;
-                view.ClearColumnErrors();
-            }
         }
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if(e.Column.ToString() == "Типоразмер")
+            if (e.Column.ToString() == pipeSizeGridColumn.Name)
             {
                 if(pipeSizesDuplicates.Count > 0)
                 {
@@ -1097,37 +1084,15 @@ namespace Prizm.Main.Forms.Settings
 
             if(pipeLayoutControlGroup.Tag != null)
             {
-                codeValidate = CodeValidation();
-                pipeSizeValidate = PipeSizeValidation();
+                codeValidate = pipeControlOperationValidation();
+                //pipeSizeValidate = PipeSizeValidation();
             }
 
             return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate
                 && administratorCanEditSettingsValidation;
         }
 
-        private bool PipeSizeValidation()
-        {
-            var pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
-                            pipesSizeListGridView.FocusedRowHandle,
-                            pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
-                       );
-
-            for(int i = 0; i < pipesSizeListGridView.RowCount; i++)
-            {
-                pipesSizeListGridView.FocusedRowHandle = i;
-
-                pipeSizeEventArg = new DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs(
-                                            pipesSizeListGridView.FocusedRowHandle,
-                                            pipesSizeListGridView.GetDataRow(pipesSizeListGridView.FocusedRowHandle)
-                                       );
-
-                pipesSizeListGridView_ValidateRow(pipesSizeListGridView, pipeSizeEventArg);
-            }
-
-            return pipeSizeEventArg.Valid;
-        }
-
-        private bool CodeValidation()
+        private bool pipeControlOperationValidation()
         {
             bool codeValidate = false;
             for(int i = 0; i < inspectionView.RowCount; i++)
@@ -1142,7 +1107,7 @@ namespace Prizm.Main.Forms.Settings
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
                 }
             }
-            codeValidate = PipeTestsCheck();
+            //codeValidate = PipeTestsCheck();
             return codeValidate;
         }
 

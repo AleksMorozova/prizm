@@ -2774,6 +2774,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Введите уникальное значение.
+        /// </summary>
+        internal static string Settings_UniqueValueRequired {
+            get {
+                return ResourceManager.GetString("Settings_UniqueValueRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обязательное значение.
         /// </summary>
         internal static string Settings_ValueRequired {

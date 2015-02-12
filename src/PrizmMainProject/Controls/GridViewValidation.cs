@@ -31,7 +31,7 @@ namespace Prizm.Main.Controls
 
          public static void ValidateDuplicate(this GridView view, GridColumn NameColumn, List<string> duplicates, ValidateRowEventArgs e)
          {
-
+             view.ClearColumnErrors();
              if (duplicates.Count > 0)
              {
                  view.SetColumnError(NameColumn,

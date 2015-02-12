@@ -1174,4 +1174,7 @@
   <data name="ImportMessage_IsFinished" xml:space="preserve">
     <value>Импортирование завершено</value>
   </data>
+  <data name="Settings_UniqueValueRequired" xml:space="preserve">
+    <value>Введите уникальное значение</value>
+  </data>
 </root>
