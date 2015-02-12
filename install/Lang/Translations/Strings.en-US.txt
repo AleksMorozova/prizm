@@ -1841,7 +1841,7 @@ ReleaseNoteNewEdit_SaveSuccessHeader=Saved successfully
 ReleaseNoteNewEdit_ShippedStatus=Shipped
 
 ;Статус разрешения на отгрузку: сформировано
-ReleaseNoteNewEdit_Pending=Pending
+ReleaseNoteNewEdit_PendingStatus=Pending
 
 ;Поиск разрешений на отгрузку. Номер разрешения
 ReleaseSearch_NumberLabel=Release note &number

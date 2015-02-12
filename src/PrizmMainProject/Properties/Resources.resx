@@ -227,7 +227,7 @@
     <value>Стык успешно сохранен в базе. Стык  #</value>
   </data>
   <data name="ReleaseNoteNewEdit_PendingStatus" xml:space="preserve">
-    <value>Сформирован</value>
+    <value>Формируется</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Порядок</value>
@@ -991,7 +991,7 @@
     <value>Неопределённый</value>
   </data>
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
-    <value>Отгружен</value>
+    <value>Отгружено</value>
   </data>
   <data name="Settings_SetupSavedHeader" xml:space="preserve">
     <value>Сохранение настроек</value>
