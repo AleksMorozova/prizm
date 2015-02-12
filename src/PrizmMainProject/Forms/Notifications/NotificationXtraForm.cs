@@ -116,6 +116,10 @@ namespace PrizmMain.Forms.Notifications
                 //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
 
                 // other
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.NotificationXtraForm_Title.Id} )
             };
         }
 

@@ -2217,3 +2217,119 @@ Spool_Deactivated=Spool have been deactivated. The spool #
 
 ;Деактивация катушки
 Spool_DeactivatedHeader=Spool deactivation
+
+;Труба
+MillPipeNewEditXtraForm_Title=Pipe
+
+;Аудит
+AuditXtraForm_Title=Audit
+
+;О программе
+AboutXtraForm_Title=About
+
+;Сохранить изменения?
+SaveDialog_Title=Save changes?
+
+;Комлектующее изделие
+ComponentNewEdit_Title=Component
+
+;Внешние файлы
+ExternalFilesXtraForm_Title=External Files
+
+;Вырезка стыка
+JointCutDialog_Title=Joint Cut
+
+;Стык
+JointNewXtraForm_Title=Joint
+
+;Выбор диаметра
+SelectDiameterDialog_Title=Select diameter
+
+;Поиск стыков
+JointSearchXtraForm_Title=Joint search
+
+;Окно уведомлений
+NotificationXtraForm_Title=Notifications
+
+;Создание компонента
+CreateSpoolComponentDialog_Title=Create component 
+
+;Выбор элемента
+InspectionSelectPartDialog_Title=Select component
+
+;Входной контроль
+PartInspection_Title=Incoming inspection
+
+;Поиск элементов трубопровода
+PartSearch_Title=Search pipeline elements
+
+;Добавление плавки
+HeatNumberXtraForm_Title=Add heat
+
+;Плавка
+Heat_Title=Heat
+
+;Инспекция трубы
+InspectionAddEdit_Title=Pipe inspection
+
+;Наряд-заказ
+PurchaseOrder_Title=Purchase order
+
+;Поиск труб
+SearchPipe_Title=Search pipe
+
+;Разрешение на отгрузку
+ReleaseNoteNewEdit_Title=Release note
+
+;Поиск разрешений на отгрузку
+ReleaseSearch_Title=Release note search
+
+;Отчеты по трубам на стройке
+PipeConstructionReport_Title=Construction pipe report
+
+;Отчет по сварке (по дате)
+WeldDateReport_Title=Welding report (by date)
+
+;Отчет по сварке участка между пикетами
+ConstructionReport_Title=Welding report (by KP)
+
+;Отчет по входному контролю
+InspectionReport_Title=Incoming inspection report
+
+;Отчет
+MillReport_Title=Report
+
+;Добавление контрольной операции
+MillInspection_Title=Add inspection operation
+
+;Смена пароля
+PassChange_Title=Change Password
+
+;Настройки
+Settings_Title=Settings
+
+;Создание катушки
+SpoolsXtraForm_Title=Create spool
+
+;Конфликт
+ConflictDialog_Title=Conflict
+
+;Экспорт
+ExportForm_Title=Export
+
+;Импорт
+ImportForm_Title=Import
+
+;Нарушена последовательность
+MissingPortionsDialog_Title=Missing portions
+
+
+
+
+
+
+
+
+
+
+

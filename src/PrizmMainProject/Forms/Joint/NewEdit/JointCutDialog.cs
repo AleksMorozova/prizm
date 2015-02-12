@@ -65,7 +65,11 @@ namespace Prizm.Main.Forms.Joint
                 new LocalizedItem(secondJoinedPartLengthLayout, StringResources.JointCutDialog_SecondJoinedPartLengthLayout.Id),
 
                 new LocalizedItem(cutJointButton, StringResources.JointCutDialog_CutJointButton.Id),
-                new LocalizedItem(cancelButton, StringResources.JointCutDialog_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.JointCutDialog_CancelButton.Id),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.JointCutDialog_Title.Id} )
             };
         }
 

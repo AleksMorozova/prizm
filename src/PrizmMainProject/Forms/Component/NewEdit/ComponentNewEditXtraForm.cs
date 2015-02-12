@@ -101,7 +101,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                                                                         StringResources.PartInspectionStatus_Hold.Id,
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
-                                                                                      })
+                                                                                      }),
+                
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.ComponentNewEdit_Title.Id} )
 
             };
         }

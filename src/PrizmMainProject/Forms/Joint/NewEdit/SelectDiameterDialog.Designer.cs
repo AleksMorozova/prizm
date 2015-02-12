@@ -149,7 +149,7 @@
             this.Controls.Add(this.diameterChoiceLayout);
             this.Name = "SelectDiameterDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ChoiceDiameterOfConnections";
+            this.Text = "Выбор диаметра";
             ((System.ComponentModel.ISupportInitialize)(this.diameterChoiceLayout)).EndInit();
             this.diameterChoiceLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.diametersIntersection.Properties)).EndInit();

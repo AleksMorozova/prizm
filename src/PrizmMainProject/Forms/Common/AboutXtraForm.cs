@@ -41,7 +41,11 @@ namespace Prizm.Main.Forms.Common
 
                     new LocalizedItem(labelVersion, StringResources.About_VersionLabel.Id),
 
-                    new LocalizedItem(acceptButton, StringResources.About_AcceptButton.Id)
+                    new LocalizedItem(acceptButton, StringResources.About_AcceptButton.Id),
+
+                    // header
+                    new LocalizedItem(this, localizedHeader, new string[] {
+                        StringResources.AboutXtraForm_Title.Id} )
                 };
         }
 
