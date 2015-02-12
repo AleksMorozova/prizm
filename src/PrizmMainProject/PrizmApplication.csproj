@@ -1132,7 +1132,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)..\..\prizm_external\external\Lang\resgen.exe $(ProjectDir)\Languages\LocalizedStrings\Strings.en-US.txt $(SolutionDir)..\install\Lang\Res\Strings.en-US.resources</PostBuildEvent>
+    <PostBuildEvent>DEL $(SolutionDir)..\install\Lang\Res\*.resources
+$(SolutionDir)..\..\prizm_external\external\Lang\resgen.exe $(ProjectDir)\Languages\LocalizedStrings\Strings.en-US.txt $(SolutionDir)..\install\Lang\Res\Strings.en-US.resources</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
