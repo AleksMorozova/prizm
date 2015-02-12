@@ -2243,7 +2243,7 @@ JointCutDialog_Title=Joint Cut
 JointNewXtraForm_Title=Joint
 
 ;Выбор диаметра
-SelectDiameterDialog_Title=Diameter choosing
+SelectDiameterDialog_Title=Select diameter
 
 ;Поиск стыков
 JointSearchXtraForm_Title=Joint search
@@ -2285,7 +2285,7 @@ ReleaseNoteNewEdit_Title=Release note
 ReleaseSearch_Title=Release note search
 
 ;Отчеты по трубам на стройке
-PipeConstructionReport_Title=Construction pipes report
+PipeConstructionReport_Title=Construction pipe report
 
 ;Отчет по сварке (по дате)
 WeldDateReport_Title=Welding report (by date)
@@ -2300,7 +2300,7 @@ InspectionReport_Title=Incoming inspection report
 MillReport_Title=Report
 
 ;Добавление контрольной операции
-MillInspection_Title=Adding the inspection operation
+MillInspection_Title=Add inspection operation
 
 ;Смена пароля
 PassChange_Title=Change Password
