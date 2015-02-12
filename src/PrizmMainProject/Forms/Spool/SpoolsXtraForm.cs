@@ -94,7 +94,7 @@ namespace Prizm.Main.Forms.Spool
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                "EditValue", SpoolBindingSource, "SpoolIsActive"));
+                "Checked", SpoolBindingSource, "SpoolIsActive"));
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
@@ -137,6 +137,7 @@ namespace Prizm.Main.Forms.Spool
             BindCommands();
 
             inspectionDateEdit.SetLimits();
+            spoolNumber.SetAsIdentifier();
         }
 
         #region --- Localization ---

@@ -30,6 +30,8 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             var heat = viewModel.Heat;
             try
             {
+                heat.Number = heat.Number.ToUpper();
+
                 repo.BeginTransaction();
                 repo.HeatRepo.SaveOrUpdate(heat);
                 repo.Commit();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.status = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -64,9 +63,9 @@
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.testsBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
@@ -159,7 +158,12 @@
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.factLimit.Properties.Mask.EditMask = "d10";
+            this.factLimit.Properties.Mask.EditMask = "d";
+            this.factLimit.Properties.MaxValue = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
             this.factLimit.Size = new System.Drawing.Size(311, 20);
             this.factLimit.StyleController = this.rootLayoutControl;
             this.factLimit.TabIndex = 15;

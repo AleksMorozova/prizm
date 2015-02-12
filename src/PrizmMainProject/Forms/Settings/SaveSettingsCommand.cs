@@ -227,6 +227,10 @@ namespace Prizm.Main.Forms.Settings
         {
             foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
             {
+                foreach(var insp in t.PipeTests)
+                {
+                    insp.Code = insp.Code.ToUpper();
+                }
                 repos.PipeSizeTypeRepo.SaveOrUpdate(t);
             }
 

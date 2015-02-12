@@ -166,7 +166,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", componentBindingSource, "ComponentIsActive"));
+                        "Checked", componentBindingSource, "ComponentIsActive"));
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
