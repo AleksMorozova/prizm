@@ -107,6 +107,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 new LocalizedItem(pipeNumberGridColumn, StringResources.ReleaseNoteNewEdit_PipeNumberColumn.Id),
                 new LocalizedItem(pipeSizeGridColumn, StringResources.ReleaseNoteNewEdit_PipeTypeSizeColumn.Id),
                 new LocalizedItem(pipeStatusGridColumn, StringResources.ReleaseNoteNewEdit_PipeStatusColumn.Id),
+                new LocalizedItem(railcarNumberGridColumn, StringResources.ReleaseNoteNewEdit_RailcarNumberColumn.Id),
+                new LocalizedItem(railcarCertificateGridColumn, StringResources.ReleaseNoteNewEdit_RailcarCertificateColumn.Id),
+                new LocalizedItem(railcarDestinationGridColumn, StringResources.ReleaseNoteNewEdit_RailcarDestinationColumn.Id),
 
                 new LocalizedItem(railcarLayoutControlGroup, StringResources.ReleaseNoteNewEdit_RailcarLayoutControlGroup.Id),
                 new LocalizedItem(addPipeLayoutGroup, StringResources.ReleaseNoteNewEdit_AddPipeLayoutGroup.Id),
@@ -235,8 +238,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void railcarNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.Number = railcarNumber.EditValue.ToString(); // ??
-            commandManager.RefreshVisualState(); // ??
             certificateNumber.Refresh();
             destination.Refresh();
         }
