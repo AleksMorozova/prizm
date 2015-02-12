@@ -453,6 +453,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     if (storedPipes != null)
                     {
                         pipesToAdd.AddRange(storedPipes);
+                        pipesToAdd.Sort(new Comparison<Pipe>((p1, p2) => { return string.Compare(p1.Number, p2.Number, true); }));
                     }
                     else
                     {
