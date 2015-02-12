@@ -62,6 +62,7 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "{app}\Languages\Strings*.txt"; DestDir: "{app}\Languages-{code:GetTodaysName}"; Flags: external setntfscompression skipifsourcedoesntexist
 Source: "..\src\bin\Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion; Excludes: "*vshost*"
 Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.config"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "*vshost*"
@@ -211,6 +212,21 @@ var
   InstalledProjectsRead: Boolean;
   NewProductName : TNewEdit;
   NewWorkstationType : TNewCheckListBox;
+  TodaysName : String;
+
+function GetToday : String;
+begin
+  Result := GetDateTimeString ('yyyy/mm/dd hh.nn.ss', '-', #0);
+end;
+
+function GetTodaysName (Param: String): String;
+begin
+  if ('' = TodaysName) then
+  begin
+    TodaysName := GetToday ();
+  end;
+  Result := TodaysName;
+end;
 
 function GetInstalledProjects(): TArrayOfString;
 begin
