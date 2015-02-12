@@ -57,47 +57,80 @@ namespace Prizm.Main.Forms.Settings
                 return;
             }
 
-            try
+            StringBuilder types = new StringBuilder();
+            List<string> typesList = new List<string>();
+            bool controlValidation = true;
+            foreach (PipeMillSizeType s in viewModel.PipeMillSizeType) 
             {
-                repos.BeginTransaction();
-                SaveWelders();
-                SaveInspectors();
-                SaveMillSizeTypes();
-                SavePlateManufacturers();
-                repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
-                SaveRoles();
-                SaveUsers();
-                SaveCategories();
-                SaveJointOperations();
-                SaveComponentryType();
-                SaveInspectorCertificateType();
-                SaveSeamType();
-                repos.Commit();
-                EvictMillSizeTypes();
-                EvictWelders();
-                EvictInspectors();
-                EvictPlateManufacturers();
-                EvictRoles();
-                EvictUsers();
-                EvictJointOperations();
-                repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
-                EvictCategories();
-                EvictComponentryType();
-                EvictInspectorCertificateType();
-                EvictSeamType();
-                viewModel.ModifiableView.IsModified = false;
-
-                notify.ShowNotify(
-                     Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
-                    Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
-            }
-            catch (RepositoryException ex)
-            {
-                log.Error(ex.Message);
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                if (s.Thickness==0 ||s.SeamType==null||s.Length==0 || s.Diameter==0)
+                {
+                    typesList.Add(s.Type);
+                    controlValidation = false;
+                }
+                foreach (PipeTest t in s.PipeTests)
+                {
+                    if (t.Code == string.Empty || t.Name == string.Empty || t.Category == null)
+                    {
+                        typesList.Add(s.Type);
+                        controlValidation = false;
+                    }
+                }
             }
 
-            RefreshVisualStateEvent();
+            if (controlValidation)
+            {
+                try
+                {
+                    repos.BeginTransaction();
+                    SaveWelders();
+                    SaveInspectors();
+                    SaveMillSizeTypes();
+                    SavePlateManufacturers();
+                    repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
+                    SaveRoles();
+                    SaveUsers();
+                    SaveCategories();
+                    SaveJointOperations();
+                    SaveComponentryType();
+                    SaveInspectorCertificateType();
+                    SaveSeamType();
+                    repos.Commit();
+                    EvictMillSizeTypes();
+                    EvictWelders();
+                    EvictInspectors();
+                    EvictPlateManufacturers();
+                    EvictRoles();
+                    EvictUsers();
+                    EvictJointOperations();
+                    repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+                    EvictCategories();
+                    EvictComponentryType();
+                    EvictInspectorCertificateType();
+                    EvictSeamType();
+                    viewModel.ModifiableView.IsModified = false;
+
+                    notify.ShowNotify(
+                         Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
+                        Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+
+                RefreshVisualStateEvent();
+            }
+            else 
+            {
+                foreach (string s in typesList.Distinct())
+                {
+                    types.Append(s + " ");
+                }
+                notify.ShowError
+                    ("Необходимо проверить следующие типоразмеры: " + types.ToString(),
+                    "Неверные данные для типоразмеров");
+            }
         }
 
         private bool DateCheck()

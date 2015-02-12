@@ -320,7 +320,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(inspectorCertificateNumberCol, "SettingsInspectors_CertificateNumberColumn"),
                 new LocalizedItem(certificateTypeColumn, "SettingsInspectors_CertificateTypeColumn"),
                 new LocalizedItem(inspectorCertificateExpirationCol, "SettingsInspectors_CertificateExpirationColumn"),
-                new LocalizedItem(colCertificateGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
+                new LocalizedItem(colGrade, StringResources.SettingsInspectors_InspectorGrade.Id),
                 // types grid
                 new LocalizedItem(certificateNameColumn, "SettingsInspectors_CertificateNameColumn"),
                 new LocalizedItem(certificateIsActiveColumn, "SettingsInspectors_CertificateIsActiveColumn"),
@@ -1077,27 +1077,27 @@ namespace Prizm.Main.Forms.Settings
 
         bool IValidatable.Validate()
         {
-            bool codeValidate = true;
-            bool pipeSizeValidate = true;
+            bool controlOerationValidate = true;
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
 
             if(pipeLayoutControlGroup.Tag != null)
             {
-                codeValidate = pipeControlOperationValidation();
-                //pipeSizeValidate = PipeSizeValidation();
+                controlOerationValidate = pipeControlOperationValidation();
             }
 
-            return dxValidationProvider.Validate() && codeValidate && pipeSizeValidate
+            return dxValidationProvider.Validate() //&& controlOerationValidate //&& pipeSizeValidate
                 && administratorCanEditSettingsValidation;
         }
 
         private bool pipeControlOperationValidation()
         {
-            bool codeValidate = false;
-            for(int i = 0; i < inspectionView.RowCount; i++)
+            bool controlOerationValidate = false;
+            for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
-                if(Convert.ToString(inspectionView.GetRowCellValue(i, "Code")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Name")) == null || Convert.ToString(inspectionView.GetRowCellValue(i, "Category")) == null)
+                if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
+                    Convert.ToString(inspectionView.GetRowCellValue(i, inspectionNameGridColumn.Name)) == string.Empty ||
+                    Convert.ToString(inspectionView.GetRowCellValue(i, categoryColumn.Name)) == null)
                 {
                     inspectionView.FocusedRowHandle = i;
 
@@ -1107,8 +1107,7 @@ namespace Prizm.Main.Forms.Settings
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
                 }
             }
-            //codeValidate = PipeTestsCheck();
-            return codeValidate;
+            return controlOerationValidate;
         }
 
         /// <summary>
@@ -1143,13 +1142,15 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if(pipeTest.Code == null)
             {
-                gv.SetColumnError(inspectionCodeGridColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                gv.SetColumnError(inspectionCodeGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
             if(pipeTest.Name == null)
             {
-                gv.SetColumnError(inspectionNameGridColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                gv.SetColumnError(inspectionNameGridColumn, 
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
@@ -1223,33 +1224,6 @@ namespace Prizm.Main.Forms.Settings
         private void CellModifiedGridView_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             IsModified = true;
-        }
-
-        private bool PipeTestsCheck()
-        {
-            bool codeValidate = true;
-
-            if(viewModel.PipeTests.Count > 0)
-            {
-                foreach(PipeTest t in viewModel.PipeTests)
-                {
-                    if(t.Code == null && t.Name == null)
-                    {
-                        codeValidate = false;
-                        inspectionView.SetColumnError(inspectionView.Columns[0],
-                            Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                codeValidate = false;
-                inspectionView.SetColumnError(inspectionView.Columns[0],
-                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-            }
-
-            return codeValidate;
         }
 
         private List<string> FindDuplicatesInTypeSizesGrid()
