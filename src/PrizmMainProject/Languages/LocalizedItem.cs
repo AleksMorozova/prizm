@@ -274,6 +274,9 @@ namespace Prizm.Main.Languages
                     case ItemType.BarItem:
                         ((DevExpress.XtraBars.BarItem)obj).Caption = value;
                         break;
+                    case ItemType.FormHeader:
+                        ((Tuple<PrizmForm, List<string>>)obj).Item2[this.Count - 1] = value;
+                        break;
                     default:
                         break;
                 }
@@ -284,7 +287,7 @@ namespace Prizm.Main.Languages
         {
             set
             {
-                if (Count < 2 && type != ItemType.FormHeader)
+                if (Count < 2)
                 {
                     Text = value;
                 }
