@@ -1074,6 +1074,16 @@ namespace Prizm.Main.Languages
             Id = "Settings_Title",
             Description = "Настройки"
         };
+        public static StringResource Settings_PipeControlOperationValidation = new StringResource
+        {
+            Id = "Settings_PipeControlOperationValidation",
+            Description = "Необходимо проверить следующие типоразмеры: "
+        };
+        public static StringResource Settings_PipeControlOperationValidationHeader = new StringResource
+        {
+            Id = "Settings_PipeControlOperationValidationHeader",
+            Description = "Неверные данные для типоразмера"
+        };
         public static StringResource  Settings_ValidateInspectorSertificate = new StringResource
         {
             Id = "Settings_ValidateInspectorSertificate",

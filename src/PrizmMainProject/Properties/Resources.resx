@@ -1279,4 +1279,13 @@
   <data name="ImportMessage_IsFinished" xml:space="preserve">
     <value>Импортирование завершено</value>
   </data>
+  <data name="Settings_UniqueValueRequired" xml:space="preserve">
+    <value>Введите уникальное значение</value>
+  </data>
+  <data name="Settings_PipeControlOperationValidation" xml:space="preserve">
+    <value>Необходимо проверить следующие типоразмеры: </value>
+  </data>
+  <data name="Settings_PipeControlOperationValidationHeader" xml:space="preserve">
+    <value>Неверные данные для типоразмера</value>
+  </data>
 </root>

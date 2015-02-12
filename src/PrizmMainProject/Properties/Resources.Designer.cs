@@ -3044,6 +3044,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Необходимо проверить следующие типоразмеры: .
+        /// </summary>
+        internal static string Settings_PipeControlOperationValidation {
+            get {
+                return ResourceManager.GetString("Settings_PipeControlOperationValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверные данные для типоразмера.
+        /// </summary>
+        internal static string Settings_PipeControlOperationValidationHeader {
+            get {
+                return ResourceManager.GetString("Settings_PipeControlOperationValidationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сохранение настроек.
         /// </summary>
         internal static string Settings_SetupSavedHeader {
@@ -3067,6 +3085,15 @@ namespace Prizm.Main.Properties {
         internal static string Settings_Title {
             get {
                 return ResourceManager.GetString("Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите уникальное значение.
+        /// </summary>
+        internal static string Settings_UniqueValueRequired {
+            get {
+                return ResourceManager.GetString("Settings_UniqueValueRequired", resourceCulture);
             }
         }
         
