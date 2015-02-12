@@ -192,7 +192,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", pipeNewEditBindingSource, "PipeIsActive"));
+                        "Checked", pipeNewEditBindingSource, "PipeIsActive"));
 
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");

@@ -107,7 +107,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", jointNewEditBindingSoure, "JointIsActive"));
+                        "Checked", jointNewEditBindingSoure, "JointIsActive"));
 
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");

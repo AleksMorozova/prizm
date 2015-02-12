@@ -19,6 +19,7 @@ using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
 using Prizm.Main.Languages;
 using System.Drawing;
+using Prizm.Main.Controls;
 
 namespace Prizm.Main.Forms.Railcar.NewEdit
 {
@@ -56,6 +57,8 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             this.pipeNumberLookUp.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
+
+            SetAlwaysReadOnly(textEditReleaseNoteStatus);
 
             attachmentsButton.Enabled = true;
         }
@@ -120,6 +123,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             pipesList.DataBindings.Add("DataSource", bindingSource, "ReleaseNotePipes");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "Number");
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
+
+            textEditReleaseNoteStatus.DataBindings.Add(BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Shipped",
+                (value) => { return Program.LanguageManager.GetString(
+                    (bool)value ? StringResources.ReleaseNoteNewEdit_ShippedStatus : StringResources.ReleaseNoteNewEdit_PendingStatus);
+                }));
+            
+            //textEditReleaseNoteStatus.DataBindings.Add("EditValue", bindingSource, "Shipped");
 
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
             pipeNumberLookUp.Properties.DisplayMember = "Number";
@@ -283,4 +293,4 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             destination.Refresh();
         }
     }
-}
+} 
