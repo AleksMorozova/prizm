@@ -41,6 +41,7 @@ namespace Prizm.Main.Forms.Settings
         private PipeMillSizeType CurrentPipeMillSizeType;
         private InspectorViewType CurrentInspector;
         private bool newPipeSizeType = false;
+        bool controlOerationValidate = false;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
         private List<string> localizedPipeTestControlTypes = new List<string>();
@@ -1077,22 +1078,21 @@ namespace Prizm.Main.Forms.Settings
 
         bool IValidatable.Validate()
         {
-            bool controlOerationValidate = true;
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
+            controlOerationValidate = pipeControlOperationValidation();
 
             if(pipeLayoutControlGroup.Tag != null)
             {
                 controlOerationValidate = pipeControlOperationValidation();
             }
 
-            return dxValidationProvider.Validate() //&& controlOerationValidate //&& pipeSizeValidate
+            return dxValidationProvider.Validate() && controlOerationValidate
                 && administratorCanEditSettingsValidation;
         }
 
         private bool pipeControlOperationValidation()
         {
-            bool controlOerationValidate = false;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
@@ -1142,6 +1142,7 @@ namespace Prizm.Main.Forms.Settings
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if(pipeTest.Code == null)
             {
+                controlOerationValidate = false;
                 gv.SetColumnError(inspectionCodeGridColumn, 
                     Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
@@ -1149,6 +1150,7 @@ namespace Prizm.Main.Forms.Settings
 
             if(pipeTest.Name == null)
             {
+                controlOerationValidate = false;
                 gv.SetColumnError(inspectionNameGridColumn, 
                     Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
@@ -1156,6 +1158,7 @@ namespace Prizm.Main.Forms.Settings
 
             if(pipeTest.Category == null)
             {
+                controlOerationValidate = false;
                 gv.SetColumnError(categoryColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
