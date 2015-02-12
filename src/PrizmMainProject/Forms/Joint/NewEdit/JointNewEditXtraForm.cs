@@ -201,7 +201,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             BindCommands();
             BindToViewModel();
-            viewModel.PropertyChanged += (s, eve) => IsModified = true;
+            viewModel.PropertyChanged += (s, eve) => 
+                {
+                    if ( eve.PropertyName != "Pieces")
+                    {
+                        IsModified = true;
+                    }
+                };
             IsEditMode = viewModel.JointIsActive;
             IsModified = false;
 
