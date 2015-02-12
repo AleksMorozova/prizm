@@ -512,6 +512,12 @@
     <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.Designer.cs">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\Mill\SubReportShippingRailCar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\SubReportShippingRailCar.Designer.cs">
+      <DependentUpon>SubReportShippingRailCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
@@ -866,6 +872,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.resx">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\SubReportShippingRailCar.resx">
+      <DependentUpon>SubReportShippingRailCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Inspections\MillInspectionXtraForm.resx">
       <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>

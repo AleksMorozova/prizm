@@ -22,7 +22,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-        private int numberOfWeldOperationWithoutWelders=0;
+        private int numberOfWeldOperationWithoutWelders = 0;
         private int numberOfControlOperationWithoutInspectors = 0;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
@@ -48,35 +48,35 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             foreach(JointWeldResult w in viewModel.JointWeldResults)
             {
-                if (w.Welders.Count <= 0)
+                if(w.Welders.Count <= 0)
                 {
                     numberOfWeldOperationWithoutWelders++;
                 }
             }
 
-            foreach (JointTestResult t in viewModel.JointTestResults)
+            foreach(JointTestResult t in viewModel.JointTestResults)
             {
-                if (t.Inspectors.Count <= 0)
+                if(t.Inspectors.Count <= 0)
                 {
                     numberOfControlOperationWithoutInspectors++;
                 }
             }
-            if (viewModel.ValidatableView.Validate())
+            if(viewModel.ValidatableView.Validate())
             {
-                if (numberOfWeldOperationWithoutWelders == 0)
+                if(numberOfWeldOperationWithoutWelders == 0)
                 {
-                    if (numberOfControlOperationWithoutInspectors == 0)
+                    if(numberOfControlOperationWithoutInspectors == 0)
                     {
-                        if (viewModel.Joint.LoweringDate == DateTime.MinValue)
+                        if(viewModel.Joint.LoweringDate == DateTime.MinValue)
                         {
                             viewModel.Joint.LoweringDate = null;
                         }
                         var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
-                        foreach (var joint in joints)
+                        foreach(var joint in joints)
                         {
                             repo.RepoJoint.Evict(joint);
                         }
-                        if (joints != null && joints.Count > 0)
+                        if(joints != null && joints.Count > 0)
                         {
                             notify.ShowInfo(
                                 string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
@@ -88,12 +88,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             numberOfWeldOperationWithoutWelders = 0;
                             numberOfControlOperationWithoutInspectors = 0;
 
-                            if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                            if(viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
                             {
                                 viewModel.SaveOrUpdateJointCommand.Execute();
 
                             }
-                            else if (viewModel.MakeTheConnection())
+                            else if(viewModel.MakeTheConnection())
                             {
                                 viewModel.SaveOrUpdateJointCommand.Execute();
                             }
@@ -119,7 +119,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     notify.ShowError(
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
-                numberOfWeldOperationWithoutWelders = 0;
+                    numberOfWeldOperationWithoutWelders = 0;
                 }
             }
         }
