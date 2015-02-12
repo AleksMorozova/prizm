@@ -1,0 +1,2219 @@
+﻿;Не заданы результаты измерений
+FixedCategoryLengthPassedHeader=Measurement results are not specified
+
+;Результаты измерения длины должны быть введены.
+FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
+
+
+;Сообщение - Укажите инспектора
+SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
+
+;Заголовок сообщения - Укажите инспектора
+SelectInspectorsForTestResultHeader=Error input of control operation
+
+;Сообщение - Укажите сварщика
+SelectWeldersForOperation=Please enter welders for appropriate weld operations
+
+;Заголовок сообщения - Укажите сварщика
+SelectWeldersForOperationHeader=Error input of welding operation
+
+;Вначале необходимо ввести дату
+FirstEnterDate=Please enter date first
+
+;Активные
+JointSearch_ActivityCriteria_StatusActive=Active
+
+;Неактивные
+JointSearch_ActivityCriteria_StatusUnactive=Not active
+
+;Все
+JointSearch_ActivityCriteria_StatusAll=All
+
+;Сварен
+JointSearch_JointStatus_Welded=Welded
+
+;Уложен
+JointSearch_JointStatus_Lowered=Lowered
+
+;Вырезан
+JointSearch_JointStatus_Withdrawn=Withdrawn
+
+;Неопределен
+JointNewEdit_JointStatus_Undefined=Undefined
+
+;Текст перед версией программы на всплывающем окне при загрузке программы
+AppSplashScreen_VersionLabel=Version:
+
+;Надпись типа элемента Труба
+PartTypePipe=Pipe
+
+;Надпись типа элемента Катушка
+PartTypeSpool=Spool
+
+;Надпись типа элемента Компонент
+PartTypeComponent=Component
+
+;Надпись типа элемента Неопределен
+PartTypeUndefined=Undefined
+
+;Надпись статуса активности элемента Активен
+StatusActive=Active
+
+;Надпись статуса активности элемента Неактивен
+StatusInactive=Not active
+
+;Надпись статуса активности элемента Все
+StatusAll=All
+
+;Значение обязательно
+Value_Required=Value is required
+
+;Тип результата контрольной операции. Логический
+TestResultTypeBoolean=Boolean
+
+;Тип результата контрольной операции. Диапазон
+TestResultTypeRange=Range
+
+;Тип результата контрольной операции. Строка
+TestResultTypeString=String
+
+;Вид контроля. Освидетельствование
+ControlTypeWitness=Witness
+
+;Вид контроля. Проверка документов
+ControlTypeReview=Review
+
+;Вид контроля. Мониторинг
+ControlTypeMonitor=Monitor
+
+;Вид контроля. Обязательная проверка
+ControlTypeHold=Hold
+
+;Статус на входном контроле. Неопределен
+PartInspectionStatus_Undefined=Undefined
+
+;Статус на входном контроле. Ожидается
+PartInspectionStatus_Pending=Pending
+
+;Статус на входном контроле. Задержан
+PartInspectionStatus_Hold=Hold
+
+;Статус на входном контроле. Отклонено
+PartInspectionStatus_Rejected=Rejected
+
+;Статус на входном контроле. Принято
+PartInspectionStatus_Accepted=Accepted
+
+;Универсальный заголовок сообщения об ошибке: Ошибка
+Message_ErrorHeader=Error
+
+;Сообщение при логине: Неверное имя пользователя или пароль.
+Message_AuthentificationFailed=Wrong user name or password
+
+;Сообщение при логине: Вход для пользователя {0} заблокирован
+Message_AuthentificationFailedUserInactive=User {0} is not allowed to log in
+
+;Заголовок вопроса о подтверждении деактивации компонента
+Message_ComponentDeactivationQuestionHeader=Component deactivation
+
+;Вопрос о подтверждении деактивации компонента: Данное действие приведет к деактивации комплектующего элемента.  Параметры комплектующего элемента станут невозможны для редактирования. Деактивировать комплектующий элемент?
+Message_ComponentDeactivationQuestion=Component is about to be deactivated, not able to edit and will become as it was never existed. Deactivate component?
+
+;Результаты контрольных операций успешно сохранены. Номер элемента: 
+PartInspection_InspectionsSaved=Inspection operations saved successfully. Element number:
+
+;Сохранение контрольных операций
+PartInspection_InspectionsSavedHeader=Save inspection operations
+
+;Вложения успешно добавлены
+ExternalFiles_FileAttachSuccess=Files attached successfully
+
+;Добавление вложений
+ExternalFiles_FileAttachSuccessHeader=Attaching files
+
+;Загрузка файла
+ExternalFiles_FileDownloadHeader=Loading file
+
+;Файл успешно загружен
+ExternalFiles_FileDownloadSuccess=File was loaded successfully
+
+;Для просмотра и скачивания вложений необходимо их предварительное сохранение
+ExternalFiles_FileViewDownloadFail=Please save attachments before viewing and downloading.
+
+;Просмотр и загрузка несохрaненных файлов
+ExternalFiles_FileViewDownloadFailHeader=Viewing and loading files
+
+;Да
+Yes=Yes
+
+;Нет
+No=No
+
+;Сообщение об ошибке: Выберите дату
+DateFirst=Please enter date
+
+;Сообщение об ошибке: Значение обязательно
+Validation_ValueRequired=Value is required
+
+;Сообщение об ошибке: Введите уникальное значение
+Validation_UniqueValueRequired=Unique value is required
+
+;Вопрос об удалении записи: Удалить запись?
+Message_DeleteRecord=Delete record?
+
+;Сообщение: Нельзя одновременно открыть больше документов.
+Message_NoMoreDocumentsCanOpen=No more documents can be opened, please close some.
+
+;Заголовок для информационного сообщения: Внимание
+Alert_InfoHeader=Attention
+
+;Сообщение об ошибке запуска отчёта: Начальная дата позже конечной
+Message_FailureReportDate=Start date is later than end date
+
+;Заголовок для ошибки запуска отчёта: Неверный диапазон дат
+Message_FailureReportDateHeader=Wrong dates
+
+;Сокращённое название программы: PRISM v.2
+MainWindowHeader_Title=PRISM v.2
+
+;Название рабочей станции: Строительство
+MainWindowHeader_Construction=Construction
+
+;Название рабочей станции: Главный
+MainWindowHeader_Master=Master
+
+;Название рабочей станции: Завод
+MainWindowHeader_Mill=Mill
+
+;Сообщение: Пожалуйста сначала закройте редактируемое разрешение на отгрузку
+MainWindow_CloseEditingReleaseNote=Please, close release note which is already open for editing.
+
+;Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?
+MainWindow_OpenReleaseNoteReadOnly=Some release note is already opened for editing, do you want to open this release note for viewing?
+
+;Обязательное значение
+PurchaseOrder_ValueRequaered=Value required
+
+;Ошибка создания наряд-заказа
+PurchaseOrder_ErrorHeader=Error
+
+;Наряд-заказ. Надпись над полем номера
+PurchaseOrder_NumberLabel=Number
+
+;Наряд-заказ. Надпись над полем даты
+PurchaseOrder_DateLabel=Date
+
+;Наряд-заказ.Кнопка сохранения
+PurchaseOrder_SaveButton=&Save
+
+;Наряд-заказ.Кнопка отмены
+PurchaseOrder_CancelButton=&Cancel
+
+;Смена пароля. Ввод старого пароля
+PassChange_OldPassLabel=Old password:
+
+;Смена пароля. Ввод нового пароля
+PassChange_PassLabel=New password:
+
+;Смена пароля. Подтверждение пароля
+PassChange_ConfirmPassLabel=Confirm new password:
+
+;Смена пароля. Кнопка подтверждения
+PassChange_OKButton=&OK
+
+;Смена пароля. Кнопка отмены
+PassChange_CancelButton=&Cancel
+
+;Сообщение об ошибке: Текущий пароль введен неверно.
+PassChange_InvalidOldPassword=Wrong old password
+
+;Сообщение об ошибке: Пароли не совпадают.
+PassChange_PasswordsNotMatch=New password and confirmation do not match
+
+;Отчеты на заводе. Выбор типа отчета
+MillReport_ReportTypesLabel=Report type
+
+;Отчеты на заводе. Период формирования отчета
+MillReport_ReportPeriodLabel=Date range
+
+;Отчеты на заводе. Начальная дата
+MillReport_StartDateLabel=From
+
+;Отчеты на заводе. Конечная дата
+MillReport_EndDateLabel=To
+
+;Отчеты на заводе. Категория контрольной операции
+MillReport_CategoriesLabel=Inspection operations categories
+
+;Отчеты на заводе. Статус контрольной операции
+MillReport_StatusesLabel=Inspection operations statuses
+
+;Отчеты на заводе. Создание отчета
+MillReport_CreateGroup=Create report
+
+;Отчеты на заводе. Просмотр отчета
+MillReport_PreviewGroup=Preview
+
+;Отчеты на заводе. Кнопка создания отчета
+MillReport_CreateButton=&Create report
+
+;Отчеты на заводе. Кнопка предпросмотра отчета
+MillReport_PreviewButton=&Preview report
+
+;Отчеты на заводе. Тип отчета - По категориям
+MillReport_TypeByCategories=By categories
+
+;Отчеты на заводе. Тип отчета - По Отгруженным
+MillReport_TypeByShipped=Shipped
+
+;Отчеты на заводе. Тип отчета - ПО произведенным
+MillReport_TypeByProduced=Produced
+
+;Отчеты на заводе. Тип отчета - Общий отчет
+MillReport_TypeGeneral=General
+
+;Период для формирования отчета
+InspectionReport_DateLabel=Date range
+
+;Отчет на входном контроле. Начальная дата
+InspectionReport_StartDateLabel=From
+
+;Отчет на входном контроле. Конечная дата
+InspectionReport_EndDateLabel=To
+
+;Отчет на входном контроле. Создание отчета
+InspectionReport_CreateGroup=Create report
+
+;Отчет на входном контроле. Предпросмотр отчета
+InspectionReport_PreviewGroup=Preview
+
+;Отчет на входном контроле. Кнопка предпросмотра отчета
+InspectionReport_PreviewButton=&Create report
+
+;Отчет на входном контроле. Кнопка создания отчета
+InspectionReport_CreateButton=&Preview report
+
+;Длина трубы меньше длины катушки
+Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
+
+;Катушка успешно отрезана
+Spool_CutSpoolFromPipe=Spool has been cut successfully
+
+;Заголовок орезания катушки
+Spool_CutSpoolFromPipeHeader=Spool cut
+
+;Длина катушки равна 0
+Spool_NullSpoolLength=Spool length is equal to 0
+
+;Неверный номер трубы для нарезания на катушки
+Spool_WrongPipeNumberForCutting=Wrong pipe number
+
+;Неверный номер трубы для нарезания на катушки
+Spool_WrongPipeNumberForCuttingHeader=Pipe number
+
+;Катушка. Номер трубы для нарезания на кaтушки
+Spool_PipeNumberLabel=Pipe number
+
+;Катушка. Номер катушки
+Spool_SpoolNumberLabel=Spool number
+
+;Катушка. Длина трубы
+Spool_PipeLengthLabel=Pipe
+
+;Катушка. Длина катушки
+Spool_SpoolLengthLabel=Spool
+
+;Катушка. Поиск трубы
+Spool_PipeSearchGroup=Pipe search
+
+;Катушка. Данные о катушке
+Spool_SpoolGroup=Spool information
+
+;Катушка. Длины трубы и катушки
+Spool_LenghtGroup=Length
+
+;Катушка. Дата входного контроля
+Spool_InspectionDateColumn=Date
+
+;Катушка. Результат входного контроля
+Spool_InspectionResultColumn=Result
+
+;Катушка. Инспектора
+Spool_InspectionInspectorsColumn=Inspectors
+
+;Катушка. Комментарии по результату входного контроля
+Spool_InspectionReasonColumn=Reason
+
+;Катушка. Кнопка поиска трубы
+Spool_SearchButton=&Edit pipe
+
+;Катушка. Кнопка вложений
+Spool_AttachButton=&Attachments
+
+;Катушка. Кнопка сохранения
+Spool_SaveButton=&Save
+
+;Катушка. Деактивация катушки
+Spool_DeactivatedCheckBox=Spool &deactivated
+
+;Катушка, вопрос о деактивации: Данное действие приведет к деактивации катушки: длина исходной трубы будет пересчитана, параметры катушки станут невозможны для редактирования. Если катушка содержит брак, вместо деактивации рекомендуем присвоить ей соответствующий статус на входном контроле. Деактивировать комплектующий элемент?
+Spool_DeactivationQuestion=Spool will be deactivated as it never existed: length of pipe will be increased back, spool will be not editable. If spool is defective, enter result of inspection instead. Do you still want to deactivate spool?
+
+;Катушка, заголовок вопроса о деактивации: Деактивация катушки
+Spool_DeactivationQuestionHeader=Spool deactivation
+
+;Катушка, заголовок окна редактирования: Редактирование катушки
+Spool_EditDocumentHeader=Edit spool
+
+;Недостающие порции. Номера порций
+MissingPortion_missingNumbers=Missing portions numbers 
+
+;Недостающие порции. Рекомендации
+MissingPortion_recomendation=Recomendations
+
+;Недостающие порции. Кнопка подтверждения импорта
+MissingPortion_acceptButton=&Accept
+
+;Недостающие порции. Кнопка отмены импорта
+MissingPortion_cancelButton=&Cancel
+
+;Для ввода сертификата необходимо выбрать инспектора
+Settings_ValidateInspectorSertificate=Please select inspector
+
+;Обязательное значение
+Settings_ValueRequired=Value is required
+
+;Значение должно быть уникальным
+Settings_UniqueValueRequired=Unique value is required
+
+;Необходимо проверить контрольную операцию
+Settings_ChekControlOperations=Please check inspection operations
+
+;Дата сертификата просрочена
+Settings_DateExpired=Date of certificate is expired
+
+;Заголовок ошибки
+Settings_ErrorHeader=Error
+
+;Необходимо проверить значение
+Settings_CheckValues=Please check values
+
+;Заголовок успешного сохранения настроек
+Settings_SetupSavedHeader=Saved
+
+;Настройки сохранены
+Settings_SetupSaves=Settings are saved
+
+;Настройки. Вкладка - Проект
+Settings_ProjectTab=Project
+
+;Настройки. Вкладка - Труба
+Settings_PipeTab=Pipe
+
+;Настройки. Вкладка - Трубопровод
+Settings_LineTab=Pipeline
+
+;Настройки. Вкладка - Комплектующие
+Settings_PartsTab=Componentry
+
+;Настройки. Вкладка - Сварщики
+Settings_WeldersTab=Welders
+
+;Настройки. Вкладка - Инспектора
+Settings_InspectorsTab=Inspectors
+
+;Настройки. Вкладка - Пользователи
+Settings_UsersTab=Users
+
+;Настройки. Вкладка - Роли
+Settings_RolesTab=Roles
+
+;Настройки. Кнопка - Сохранить
+Settings_SaveButton=&Save
+
+;Настройки. Кнопка - Закрыть
+Settings_CloseButton=&Close
+
+;Настройки-Проект. Название проекта
+SettingsProject_TitleLabel=Title
+
+;Настройки-Проект. Имя заказчика
+SettingsProject_ClientLabel=Client
+
+;Настройки-Проект. Список производителей листов
+SettingsProject_PlateManufacturerLabel=Plate manufacturers
+
+;Настройки-Проект. Максимальный размер документа
+SettingsProject_DocumentSizeLabel=Max size of document to be attached
+
+;Настройки-Проект. Название завода
+SettingsProject_MillLabel=Mill
+
+;Настройки-Проект. Маска номера трубы
+SettingsProject_MaskEditLabel=Pipe number mask
+
+;Текст подсказки формата номера трубы: Формат номера трубы: 
+MillPipeNumber_Mask_Hint=Pipe number format:
+
+;Настройки-Проект. Группы контрольных операций
+SettingsProject_OperationsLabel=Inspection operation groups
+
+;Настройки-Проект. Типы швов
+SettingsProject_SeamsLabel=Seam types
+
+;Настройки-Проект. Общие настройки
+SettingsProject_CommonGroup=Common settings
+
+;Настройки-Проект. Настройки для завода
+SettingsProject_MillGroup=Mill settings
+
+;Настройки-Проект. Производители листов-колонка
+SettingsProject_PlateManColumn=Name
+
+;Настройки-Проект. Название категорий контрольных операций
+SettingsProject_InspectionsCategoryColumn=Name
+
+;Настройки-Проект. Активность категории контрольной операции
+SettingsProject_InspectionsIsActiveColumn=Is active
+
+;Настройки-Проект. Название типов швов
+SettingsProject_SeamTypeColumn=Seam type
+
+;Настройки-Проект. Активность типа шва
+SettingsProject_SeamIsActiveColumn=Is active
+
+;Настройки-труба. Параметры типоразмера
+SettingsPipe_SizesLabel=Pipe size parameters
+
+;Настройки-труба. Контрольные операции для типоразмера
+SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
+
+;Настройки-труба. Диаметр трубы с заданым типоразмером
+SettingsPipe_DiameterLabel=Pipe's &diameter
+
+;Настройки-труба. Толщина стенки для трубы с заданым типоразмером
+SettingsPipe_WallThicknessLabel=Wall &thickness
+
+;Настройки-труба. Длина трубы для заданного типоразмера
+SettingsPipe_LengthLabel=Pipe l&ength
+
+;Настройки-труба. Тип шва для заданого типоразмера
+SettingsPipe_SeamTypeLabel=Seam t&ype
+
+;Настройки-труба. Кнопка клонировать типоразмер
+SettingsPipe_CloneTypeSizeButton=Copy s&ize type
+
+;Настройки-труба. Кнопка добавить контрольную операцию
+SettingsPipe_AddTestButton=&Add
+
+;Настройки-труба. Кнопка редактировать контрольную операцию
+SettingsPipe_EditTestButton=&Edit
+
+;Настройки-труба. Список типоразеров
+SettingsPipe_SizeGridColumn=Size type
+
+;Настройки-труба. Активность типоразмера
+SettingsPipe_SizeIsActiveGridColumn=Is active
+
+;Настройки-труба. Код контрольной операции
+SettingsPipe_InspectionsCodeColumn=Code
+
+;Настройки-труба. Название контрольной операции
+SettingsPipe_InspectionsNameColumn=Inspection name
+
+;Настройки-труба. Категория контрольной операции
+SettingsPipe_InspectionsCategoryColumn=Category
+
+;Настройки-труба. Тип контрольной операции
+SettingsPipe_InspectionsControlTypeColumn=Inspection type
+
+;Настройки-труба. Результат контрольной операции
+SettingsPipe_InspectionsResultTypeColumn=Result type
+
+;Настройки-труба. Ожидаемый результат для булевского результата
+SettingsPipe_InspectionsBoolExpectedColumn=Expected logic value
+
+;Настройки-труба. Минимальный результат контрольной операции
+SettingsPipe_InspectionsMinExpectedColumn=Expected min value
+
+;Настройки-труба. Максимальный результат контрольной операции
+SettingsPipe_InspectionsMaxExpectedColumn=Expected max value
+;Настройки-труба. Обязательная контрольная операция
+SettingsPipe_InspectionsIsReqiredColumn=Is required
+
+;Настройки-труба. Активность контрольной операции
+SettingsPipe_InspectionsIsActiveColumn=Is active
+
+;Настройки - Трубопровод. Список контрольных и ремонтных операций для стыка
+SettingsLine_LineGroup=List of inspection operations for joint
+
+;Настройки - Трубопровод. Название операции
+SettingsLine_NameColumn=Inspection name
+
+;Настройки - Трубопровод. Обязательная операция
+SettingsLine_IsReqiredColumn=Is required
+
+;Настройки - Трубопровод. Тип операции
+SettingsLine_TestTypeColumn=Inspection type
+
+;Настройки - Трубопровод. Результат контроля - Принято
+SettingsLine_HasAcceptedColumn=Accepted
+
+;Настройки - Трубопровод. Результат контроля - Ремонт
+SettingsLine_RepairColumn=Repair
+
+;Настройки - Трубопровод. Результат контроля - Вырезка
+SettingsLine_WithdrawColumn=Withdraw
+
+;Настройки - Трубопровод. Обязательный результат контрольной операции
+SettingsLine_IsReqiredResultColumn=Result is required
+
+;Настройки - Трубопровод. Активность операции
+SettingsLine_IsActiveColumn=Is active
+
+;Настройки - Комплектующие. Список типов комплектующих изделий
+SettingsComponent_PartsType=Componentry types list
+
+;Настройки - Комплектующие. Тип комплектующего
+SettingsComponent_TypeColumn=Component type
+
+;Настройки - Комплектующие. Количество коннекторов у комплектующего
+SettingsComponent_ConnectorsNumberColumn=Number of connectors
+
+;Настройки - Комплектующие. Активность комплектующего элемента
+SettingsComponent_IsActiveTypeColumn=Is active
+
+;Настройки - Сварщики. Фамилия сварщика
+SettingsWelders_LastNameColumn=Last name
+
+;Настройки - Сварщики. Имя сварщика
+SettingsWelders_FirstNameColumn=First name
+
+;Настройки - Сварщики. Отчество сварщика
+SettingsWelders_MiddleNameColumn=Middle name
+
+;Настройки - Сварщики. Сертификат сварщика
+SettingsWelders_CertificateNameColumn=Certificate
+
+;Настройки - Сварщики. Срок действия сертификата
+SettingsWelders_ExpiredColumn=Certificate's expiration date
+
+;Настройки - Сварщики. Клеймо сварщика
+SettingsWelders_StampColumn=Stamp
+
+;Настройки - Сварщики. Уровень сварщика
+SettingsWelders_GradeColumn=Grade
+
+;Настройки - Сварщики. Активность сварщика
+SettingsWelders_IsActiveColumn=Is active
+
+;Настройки - Инспектора. Список инспекторов
+SettingsInspectors_InspectorsLabel=Inspectors
+
+;Настройки - Инспектора. Список сертификатов для конкретного инспектора
+SettingsInspectors_CertificatesLabel=Certificates
+
+;Настройки - Инспектора. Типы сертификатов
+SettingsInspectors_CertificateTypesLabel=Certificate types
+
+;Настройки - Инспектора. Информация по всем инспекторам
+SettingsInspectors_InspectorsGroup=Inspectors
+
+;Настройки - Инспектора. Информация по всем сертификатам
+SettingsInspectors_CertificatesGroup=Certificates
+
+;Настройки - Инспектора. Фамилия инспектора
+SettingsInspectors_LastNameColumn=Last name
+
+;Настройки - Инспектора. Имя инспектора
+SettingsInspectors_FirstNameColumn=First name
+
+;Настройки - Инспектора. Отчество инспектора
+SettingsInspectors_MiddleNameColumn=Middle name
+
+;Настройки - Инспектора. Номер сертификата инспектора
+SettingsInspectors_CertificateNumberColumn=Number
+
+;Настройки - Инспектора. Тип сертификата
+SettingsInspectors_CertificateTypeColumn=Type
+
+;Настройки - Инспектора. Срок дейстия сертификата инспектора
+SettingsInspectors_CertificateExpirationColumn=Expiration date
+
+;Настройки - Инспектора. Активность типа сертификата
+SettingsInspectors_CertificateIsActiveColumn=Is active
+
+;Настройки - Инспектора. Название типа сертификата инспектора
+SettingsInspectors_CertificateNameColumn=Name
+
+;Настройки - Пользователи. Список пользователей
+SettingsUser_UsersLabel=Users
+
+;Настройки - Пользователи. Логин пользователя
+SettingsUser_LoginColumn=Login
+
+;Настройки - Пользователи. Фамилия пользователя
+SettingsUser_LastNameColumn=Last name
+
+;Настройки - Пользователи. Отчество пользователя
+SettingsUser_MiddleNameColumn=Middle name
+
+;Настройки - Пользователи. Имя пользователя
+SettingsUser_FirstNameColumn=First name
+
+;Настройки - Пользователи. Срок истечения пароля
+SettingsUser_PassExpiredColumn=Password expiration date
+
+;Настройки - Пользователи.  Активность пользователя
+SettingsUser_IsActiveColumn=Is active
+
+;Настройки - Пользователи. Пароль пользователя
+SettingsUser_PassColumn=Password
+
+;Настройки - Роли. Список ролей
+SettingsRoles_Label=Roles
+
+;Настройки - Роли. Права для конкретной роли
+SettingsRoles_PermissionLabel=Permissions
+
+;Настройки - Роли. Название роли
+SettingsRole_NameColumn=Name
+
+;Настройки - Роли. Описание роли
+SettingsRole_DescriptionColumn=Description
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_Audit=Audit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_CreateComponent=Component creation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_CreateJoint=Joint creation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_CreatePipe=Pipe creation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_CreateReleaseNote=Release note creation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_CreateSpool=Spool creation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_DeactivateComponent=Component deactivation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_DeactivateJoint=Joint deactivation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_DeactivatePipe=Pipe deactivation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_DeactivateSpool=Spool deactivation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditComponent=Component edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditJoint=Joint edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditPipe=Pipe edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditReleaseNote=Release note edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditSettings=Settings edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_EditSpool=Spool edit
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ExportDataFromConstruction=Export data from construction
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ExportDataFromMaster=Export data from Master
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ExportDataFromMill=Export data from mill
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ImportData=Import data
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ImportDataAtConstruction=Import data at construction
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ImportDataAtMaster=Import data at Master
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_PartsInspection=Incoming inspection
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_PrintConstructionReports=Create reports at construction
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_PrintInspectionReports=Create reports at incoming inspection
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_PrintMillReports=Create reports at mill
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_SearchJoints=Joint search
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_SearchParts=Pipeline element search
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_SearchPipes=Pipe search
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_SearchReleaseNotes=Release note search
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_UnshipAtMill=Release note cancellation
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewComponent=View component
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewJoint=View joint
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewPipe=View pipe
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewReleaseNote=View release note
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewSettings=View settings
+
+;Название соответствующей привилегии доступа
+SecurityPrivilege_ViewSpool=View spool
+
+;Аудит. Надпись номера элемента.
+Audit_ElementNumberLabel=Element number
+
+;Аудит. Надпись периода
+Audit_PeriodLabel=For period
+
+;Аудит. Надпись начальной даты)
+Audit_StartDateLabel=From
+
+;Аудит. Надпись конечной даты)
+Audit_EndDateLabel=To
+
+;Аудит. Надпись пользователя
+Audit_UserLabel=User
+
+;Аудит. Надпись кнопки пользователя
+Audit_SearchButton=&Search
+
+;Аудит. Надпись колонки пользователя
+Audit_UserColumnHeader=User
+
+;Аудит. Надпись колонки даты
+Audit_DateColumnHeader=Date
+
+;Аудит. Надпись колонки изменяемой сущности
+Audit_EntityColumnHeader=Edited entity
+
+;Аудит. Надпись колонки старого значения
+Audit_OldValueColumnHeader=Old value
+
+;Аудит. Надпись колонки нового значения
+Audit_NewValueColumnHeader=New value
+
+;Аудит. Надпись колонки поля
+Audit_FieldColumnHeader=Field
+
+;Аудит. Надпись колонки номера
+Audit_NumberColumnHeader=Number
+
+;Аудит. Надпись панели параметров поиска
+Audit_SearchParametersGroup=Search parameters
+
+;Аудит. Надпись радиокнопки периода
+Audit_RadioPeriod=Period
+
+;Аудит. Надпись радиокнопки пользователя
+Audit_RadioUser=User
+
+;Текст в окне "О программе "
+AboutForm_TitleLabel=PRISM is an application for full cycle process management of production, transportation and construction of industrial pipes.
+
+;Текст перед версией программы в окне "О программе "
+About_VersionLabel=Version
+
+;Кнопка ОК
+About_AcceptButton=OK
+
+;Поиск элементов трубопровода. Надпись номера элемента
+PartSearch_SearchNumberLabel=&Number
+
+;Поиск элементов трубопровода. Надпись типа элемента
+PartSearch_SearchTypeLabel=&Type
+
+;Поиск элементов трубопровода. Надпись активности элемента
+PartSearch_ActivityLabel=Activity status
+
+;Поиск элементов трубопровода. Надпись кнопки поиска
+PartSearch_SearchButton=&Search
+
+;Поиск элементов трубопровода. Надпись колонки номера
+PartSearch_NumberColumnHeader=Number
+
+;Поиск элементов трубопровода. Надпись колонки типа
+PartSearch_TypeColumnHeader=Type
+
+;Поиск элементов трубопровода. Надпись панели поиска
+PartSearch_SearchGroup=Search
+
+;Поиск элементов трубопровода. Надпись панели результатов поиска
+PartSearch_SearchResultGroup=Search results
+
+;Сообщение об успехе экспорта: Экспортирование завершено успешно.
+Export_Ready=Export was finished successfully
+
+;Экспорт. Надпись кнопки экспорта
+Export_ExportButton=&Export
+
+;Экспорт. Надпись панели загрузки Ожидайте
+Export_PleaseWaitPanel=Please wait
+
+;Экспорт. Надпись панели загрузки экспортирование
+Export_ExportingData=Exporting data
+
+;Экспорт. Надпись надписи журнала
+Export_LogLabel=Log
+
+;Экспорт. Надпись кнопки реэкспорта
+Export_ReexportButton=&Reexport
+
+;Экспорт. Надпись колонки Id порции
+Export_PortionIdColumnHeader=Portion Id
+
+;Экспорт. Надпись колонки даты экспорта
+Export_ExportDateColumnHeader=Export date
+
+;Экспорт. Надпись вкладки журнала
+Export_LogTab=Export
+
+;Экспорт. Надпись вкладки истории
+Export_HistoryTab=History
+
+;[{0}] Экспортировано в '{1}'
+Export_ArchiveExported=Exported into '{1}'
+
+;Создание временного хранилища.
+Export_CreateTempStorage=Creating temporary storage
+
+;Создание конечного архива.
+Export_CreatingArchive=Creating archive
+
+;[{0}] Ошибка {1}
+Export_Error=Error {1}
+
+;PRISM archives
+Export_Filter=PRISM archives
+
+;Нет новых данных для экспортирования.
+Export_NoData=There are no fresh data for export
+
+;Чтение данных.
+Export_ReadingData=Reading data
+
+;Экспортирование завершено успешно.
+Export_WritingData=Export was finished successfully
+
+;Проверка контрольной суммы
+Import_Checksum=Cheking control sum 
+
+;Труба с номером '{0}' уже существует в БД.
+Import_Conflict=Pipe with number '{0}' already exists in database.
+
+;Импорт вложений
+Import_CopyAttachments=Importing attachments
+
+;Импорт данных
+Import_Data=Importing data
+
+;Данная порция уже была импортирована и не может быть импортирована снова.
+Import_SamePortion=This portion has already been imported and cannot be imported again.
+
+;Создание временного хранилища
+Import_TempStorage=Creating temporary storage
+
+;Распаковка
+Import_Unzip=Unzipping
+
+;Сообщение: Импортирование завершено
+ImportMessage_IsFinished=Import is finished
+
+;Диалог сохранения. Текст
+SaveDialog_SaveLabel=Do you want to save changes?
+
+;Диалог сохранения. Кнопка сохранения
+SaveDialog_SaveButton=&Save
+
+;Диалог сохранения. Кнопка Не сохранять
+SaveDialog_DontSaveButton=&Do not save
+
+;Диалог сохранения. Кнопка отмены
+SaveDialog_CancelButton=&Cancel
+
+;Вложения. Кнопка добавления
+ExternalFiles_AddFileButton=Add &file
+
+;Вложения. Надпись колонки имени файла
+ExternalFiles_FileNameColumnHeader=File name
+
+;Вложения. Надпись колонки даты загрузки
+ExternalFiles_UploadDateColumnHeader=Upload date
+
+;Диалог создания элемента. Текст вопроса
+CreateSpoolComponentDialog_CreateElementQuestionLabel=Do you want to create an element with number
+
+;Диалог создания элемента. Радиокнопка катушки
+CreateSpoolComponentDialog_RadioSpool=Spool
+
+;Диалог создания элемента. Радиокнопка комплектующего
+CreateSpoolComponentDialog_RadioComponent=Component
+
+;Диалог создания элемента. Кнопка отмены
+CreateSpoolComponentDialog_CancelButton=Ca&ncel
+
+;Диалог создания элемента. Кнопка создания
+CreateSpoolComponentDialog_CreateButton=C&reate
+
+;Диалог выбора элемента инспекции. Надпись результатов поиска
+InspectionSelectPartDialog_SearchResultsLabel=Search results
+
+;Диалог выбора элемента инспекции. Надпись кнопки отмены
+InspectionSelectPartDialog_CancelButton=Ca&ncel
+
+;Диалог выбора элемента инспекции. Надпись кнопки контроля
+InspectionSelectPartDialog_InspectionButton=&Inspection
+
+;Диалог выбора элемента инспекции. Надпись колонки номера
+InspectionSelectPartDialog_NumberColumnHeader=Number
+
+;Диалог выбора элемента инспекции. Надпись колонки типа
+InspectionSelectPartDialog_TypeColumnHeader=Type
+
+;Диалог конфликта при импорте. Текст
+ConflictDialog_ConflictLabel=During import a conflict has occurred
+
+;Диалог конфликта при импорте. Надпись кнопки замены
+ConflictDialog_ReplaceButton=&Replace
+
+;Диалог конфликта при импорте. Надпись кнопки Пропустить
+ConflictDialog_SkipButton=&Skip
+
+;Диалог конфликта при импорте. Надпись кнопки отложения решения
+ConflictDialog_PostponeButton=&Postpone
+
+;Диалог конфликта при импорте. Надпись чекбокса Применить для всех
+ConflictDialog_ApplyForAllChechbox=Apply for all future conflicts
+
+;Импорт. Надпись архива
+Import_ArchiveLabel=Archive
+
+;Импорт. Надпись кнопки поиска
+Import_BrowseButton=&Browse
+
+;Импорт. Надпись кнопки импорта
+Import_ImportButton=&Import
+
+;Номер плавки. Надпись номера
+HeatNumber_HeatNumberLabel=Heat number
+
+;Номер плавки. Надпись кнопки сохранения
+HeatNumber_SaveButton=&Save
+
+;Номер плавки. Надпись кнопки отмены
+HeatNumber_CancelButton=&Cancel
+
+;Комплектующее изделие
+ComponentNewEdit_NewComponentLayoutGroup=Component
+
+;Ном&ер изделия
+ComponentNewEdit_ComponentNumberLayout=N&umber
+
+;&Тип изделия
+ComponentNewEdit_TypeLayoutControl=&Type
+
+;Номер се&ртификата
+ComponentNewEdit_CertificateLayout=Certi&ficate number
+
+;Длина комплектую&щего, мм
+ComponentNewEdit_ComponentLengthLayout=Component &length
+
+;&Вложения
+ComponentNewEdit_AttachmentsButton=&Attachments
+
+;Компонент деактивирован
+ComponentNewEdit_Deactivated=Component is deactivated
+
+;Со&хранить / Создать
+ComponentNewEdit_NewSaveComponentButton=Save/C&reate
+
+;&Сохранить
+ComponentNewEdit_SaveComponentButton=&Save
+
+;Дата инспекции
+ComponentNewEdit_InspectionDateColumn=Inspection date
+
+;Инспекторы
+ComponentNewEdit_InspectorColumn=Inspectors
+
+;Результат
+ComponentNewEdit_ResultColumn=Result
+
+;Причина
+ComponentNewEdit_ReasonColumn=Reason
+
+;Диаметр отверстия
+ComponentNewEdit_DiameterGridColumn=Diameter
+
+;Толщина стенки
+ComponentNewEdit_WallThicknessGridColumn=Wall thickness
+
+;Входно&й контроль
+ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
+
+;Сообщение о существующем номере: Уже существует комплектующий элемент с номером:
+ComponentNewEdit_Duplicate=There is existing component with number:
+
+;Заголовок сообщения о существующем номере: Дублирование номера комплектующего элемента
+ComponentNewEdit_DuplicateHeader=Component number duplicating
+
+;Сообщение о сохранении существующего элемента: Комплектующее изделие успешно сохранено в базе. Комплектующее изделие #
+ComponentNewEdit_Saved=Component has been successfully saved in database. Component number
+
+;Заголовок сообщения о сохранении существующего элемента
+ComponentNewEdit_SavedHeader=Component has been saved
+
+;Сообщение об ошибке: Величина диаметра должна быть больше нуля
+ComponentNewEdit_DiameterValueValidation=Diameter value should be greater than 0
+
+;Ном&ер стыка
+JointNew_JointNumberLayout=Joint &number
+
+;Статус стыка
+JointNew_JointStatusLayout=Joint status
+
+;&Первый элемент стыка
+JointNew_FirstJointElementLayout=&First joint element
+
+;В&торой элемент стыка
+JointNew_SecondJointElementLayout=S&econd joint element
+
+;Параметры стыка
+JointNew_JointParametersLayoutGroup=Joint parameters
+
+;Параметры укладки
+JointNew_LoweringLayoutGroup=Lowering parameters
+
+;Дата &укладки
+JointNew_LoweringDateLayout=&Lowering date
+
+;PK
+JointNew_PKLabelLayout=&KP
+
+;Номер п&икета
+JointNew_PKNumberLayout=K&P Number
+
+;Рассто&яние от пикета
+JointNew_DistanceFromPKLayout=&Distance from KP
+
+;GPSLabelLayout
+JointNew_GPSLabelLayout=GPS
+
+;&Широта
+JointNew_GPSLatLayout=La&t
+
+;До&лгота
+JointNew_GPSLongLayout=Lon&g
+
+;В&ысота
+JointNew_ElevationLayout=Ele&vation
+
+;Операции
+JointNew_InspectionLayoutGroup=Operations
+
+;Сварка и ре&монт
+JointNew_RepairOperationLayout=&Weld and repair
+
+;Контрольные опера&ции
+JointNew_ControlOperationsLayout=&Inspection operations
+
+;Со&хранить
+JointNew_SaveButton=&Save
+
+;Сох&ранить/Создать
+JointNew_SaveAndCreateButton=Save/C&reate
+
+;&Вложения
+JointNew_ExtraFiles=&Attachments
+
+;Стык деактивирован
+JointNew_Deactivated=Joint is deactivated
+
+;Название операции
+JointNew_RepairTypeGridColumn=Operation name
+
+;Дата
+JointNew_RepairDateGridColumn=Date
+
+;Выполнено
+JointNew_CompletedGridColumn=Is completed
+
+;Сварщики
+JointNew_WeldersGridColumn=Welders
+
+;Название операции
+JointNew_ControlTypeGridColumn=Inspection name
+
+;Результат
+JointNew_ResultGridColumn=Result
+
+;Дата контроля
+JointNew_ControlDateGridColumn=Inspection date
+
+;Инспекторы
+JointNew_InspectorsGridColumn=Inspectors
+
+;Значение
+JointNew_ValueGridColumn=Value
+
+;Заголовок вопроса о вырезке стыка: Вырезка стыка
+Joint_WithdrawQuestionHeader=Joint withdrawing
+
+;Текст вопроса о вырезке стыка: Данное действие приведет к разъединению элементов трубопровода. Вы действительно хотите вырезать стык?
+Joint_WithdrawQuestion=This action lead to disengagement of the pipeline elements. Do you really want to withdraw the joint?
+
+;Вопрос о деактивации стыка: Данное действие приведет к деактивации стыка. Параметры стыка станут невозможны для редактирования. Деактивировать стык?
+Joint_DeactivationQuestion=This action lead to joint deactivation. Joint parameters will not be available for editing. Do you really want to deactivate the joint?
+
+;Заголовок вопроса о деактивации стыка: Деактивация стыка
+Joint_DeactivationQuestionHeader=Joint deactivation
+
+;Сообщение о сохранении стыка: Стык успешно сохранен в базе. Стык  #
+Joint_Saved=Joint has been successfully saved in database. Joint number
+
+;Заголовок сообщения о сохранении стыка: Сохранение стыка
+Joint_SavedHeader=Joint saving
+
+;Сообщение о дублировании стыка: Уже существует стык с номером:
+Joint_Duplicate=Joint already exists, number:
+
+;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
+Joint_DuplicateHeader=Joint number duplication
+
+;Сообщение о диаметрах: Отсутствуют подходящие диаметры для формирования стыка.
+Joint_IncorrectDiameter=There are no suitable diameters for the joint formation
+
+;Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов
+Joint_IncorrectDiameterHeader=Diameters of the joint elements do not match
+
+;Ном&ер стыка
+JointSearch_JointNumber=Joint&Number
+
+;С&татус
+JointSearch_ControlStateLayout=S&tatus
+
+;Дата сварки
+JointSearch_WeldingDateLabel=Welding date
+
+;с
+JointSearch_WeldingDateFromLayout=From
+
+;по
+JointSearch_WeldingDateToLayout=To
+
+;Номер п&икета
+JointSearch_KMlayout=&KP
+
+;Состояние стыка
+JointSearch_ActivityLayout=Activity status
+
+;Параметры поиска
+JointSearch_SearchLayoutGroup=Search parameters
+
+;&Поиск
+JointSearch_SearchButton=&Search
+
+;Резул&ьтаты поиска
+JointSearch_SearchResultLayoutGroup=Search results
+
+;Номер стыка
+JointSearch_JointNumberGridColumn=Joint number
+
+;Статус
+JointSearch_JoinStatusGridColumn=Status
+
+;Номер пикета
+JointSearch_NumberKPCol=KP
+
+;Дата укладки
+JointSearch_LoweringDateCol=Lowering date
+
+;Широта
+JointSearch_GpsLatCol=Lat
+
+;Долгота
+JointSearch_GpsLongCol=Long
+
+;Высота
+JointSearch_GpsHeightCol=Elevation
+
+;Тип отчета
+ConstructionReports_ReportTypeLayout=Report type
+
+;Тип изделия
+ConstructionReports_TypeLayout=Type
+
+;Начальный стык
+ConstructionReports_StartJointLayout=Start joint
+
+;Начальный пикет
+ConstructionReports_StartKPComboBoxLayoutControl=Start KP
+
+;Конечный стык
+ConstructionReports_EndJointLayout=End joint
+
+;Конечный пикет
+ConstructionReports_EndKPLayout=End KP
+
+;&Предпросмотр
+ConstructionReports_PreviewButton=&Preview
+
+;Соз&дать отчет
+ConstructionReports_CreateReportButton=Create &report
+
+;Сформировать отчёт
+ConstructionReports_CreateReportaLyoutGroup=Create report
+
+;Предварительный просмотр отчёта
+ConstructionReports_PreviewLayoutGroup=Report preview
+
+;Стыки
+ConstructionReport_RadioJoints=Joints
+
+;Пикеты
+ConstructionReport_RadioKP=KP
+
+;Номер трубы
+PipeConstructionReport_PipeNumberLayout=Pipe number
+
+;Типоразмер
+PipeConstructionReport_PipeTypeCheckedComboLayout=Size type
+
+;Параметры отчета по трубам
+PipeConstructionReport_PipeReportParametersLayoutGroup=Pipe report parameters
+
+;&Предпросмотр
+PipeConstructionReport_PreviewButton=&Preview
+
+;Соз&дать отчет
+PipeConstructionReport_CreateReportButton=Create &report
+
+;Предварительный просмотр отчёта
+PipeConstructionReport_DocumentViewerLayoutGroup=Report preview
+
+;Дата сварки: С
+WeldDateReport_WeldDateFromLayout= From
+
+;Дата сварки: По
+WeldDateReport_WeldDateToLayout=To
+
+;&Предпросмотр
+WeldDateReport_PreviewButton=&Preview
+
+;Соз&дать отчет
+WeldDateReport_CreateReportButton=Create &report
+
+;Сформировать отчёт
+WeldDateReport_WeldReportParameterGroup=Create report
+
+;Предварительный просмотр отчёта
+WeldDateReport_JointReportViewerGroup=Report preview
+
+;Первый элемент
+JointCutDialog_FirstJoinedPartGroup=First element
+
+;Номер
+JointCutDialog_FirstJoinedPartNumberLayout=Number
+
+;Длина, мм
+JointCutDialog_FirstJoinedPartLengthLayout=Length
+
+;Второй элемент
+JointCutDialog_SecondJoinedPartGroup=Second element
+
+;Номер
+JointCutDialog_SecondJoinedPartNumberLayout=Number
+
+;Длина, мм
+JointCutDialog_SecondJoinedPartLengthLayout=Length
+
+;Вырезать
+JointCutDialog_CutJointButton=Withdraw
+
+;Отмена
+JointCutDialog_CancelButton=&Cancel
+
+;Выбор диаметра соединения
+SelectDiameterDialog_DiametersIntersectionLayout=Connection diameter choosing
+
+;Сохранить
+SelectDiameterDialog_SaveChosenDiameter=&Save
+
+;Настройка контрольных опрераций завода. Мера измерения метры
+MillInspection_FrequencyMeasureMeters=Meters
+
+;Настройка контрольных опрераций завода. Мера измерения тонны
+MillInspection_FrequencyMeasureTons=Tons
+
+;Настройка контрольных опрераций завода. Мера измерения трубы
+MillInspection_FrequencyMeasurePipes=Pipes
+
+;Настройка контрольных опрераций завода. Надпись кнопки сохранения
+MillInspection_SaveButton=&Save
+
+;Настройка контрольных опрераций завода. Надпись кнопки отмены
+MillInspection_CancelButton=&Cancel
+
+;Настройка контрольных опрераций завода. Надпись чекбокса Обязательна
+MillInspection_IsRequiredCheckbox=Is required
+
+;Настройка контрольных опрераций завода. Надпись чекбокса Активна
+MillInspection_IsActiveCheckbox=Is active
+
+;Настройка контрольных опрераций завода. Надпись чекбокса булевого значения
+MillInspection_YesNoExpectedCheckbox=Result
+
+;Настройка контрольных опрераций завода. Надпись кода
+MillInspection_CodeLabel=Code
+
+;Настройка контрольных опрераций завода. Надпись названия
+MillInspection_NameLabel=Name
+
+;Настройка контрольных опрераций завода. Надпись категории
+MillInspection_CategoryLabel=Category
+
+;Настройка контрольных опрераций завода. Надпись типа результата
+MillInspection_ResultTypeLabel=Result type
+
+;Настройка контрольных опрераций завода. Надпись типа контроля
+MillInspection_ControlTypeLabel=Control type
+
+;Настройка контрольных опрераций завода. Надпись нижней границы значения
+MillInspection_FromLabel=From
+
+;Настройка контрольных опрераций завода. Надпись верхней границы значения
+MillInspection_ToLabel=To
+
+;Настройка контрольных опрераций завода. Надпись частоты
+MillInspection_FrequencyLabel=Frequency
+
+;Настройка контрольных опрераций завода. Надпись единицы измерения частоты
+MillInspection_FrequencyMeasureLabel=Unit of measure
+
+;Настройка контрольных опрераций завода. Надпись панели контрольного значения диапазон
+MillInspection_RangeControlValueGroup=Control value
+
+;Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения
+MillInspection_BoolControlValueGroup=Control value
+
+;Настройка контрольных опрераций завода. Надпись панели частоты
+MillInspection_FrequencyGroup=Frequency
+
+;Входной контроль элемента. Надпись искомого номера
+PartInspection_SearchNumberLabel=Search &number
+
+;Входной контроль элемента. Надпись номера элемента
+PartInspection_ElementNumberLabel=E&lement number
+
+;Входной контроль элемента. Надпись типа элемента
+PartInspection_ElementTypeLabel=Element &type
+
+;Входной контроль элемента. Надпись кнопки поиска
+PartInspection_SearchButton=Search and &open for editing
+
+;Входной контроль элемента. Надпись кнопки сохранения
+PartInspection_SaveButton=&Save
+
+;Входной контроль элемента. Надпись кнопки сохранения и очистки
+PartInspection_SaveAndClearButton=Save\\C&lear
+
+;Входной контроль элемента. Надпись колонки даты
+PartInspection_DateColumnHeader=Date
+
+;Входной контроль элемента. Надпись колонки результата
+PartInspection_ResultColumnHeader=Result
+
+;Входной контроль элемента. Надпись колонки инспектора
+PartInspection_InspectorColumnHeader=Inspector
+
+;Входной контроль элемента. Надпись колонки причины
+PartInspection_ReasonColumnHeader=Reason
+
+;Входной контроль элемента. Надпись панели поиска
+PartInspection_SearchGroup=Search
+
+;Входной контроль элемента. Надпись инспекций
+PartInspection_IncomingInspectionGroup=Incoming inspection
+
+;Сообщение: Неизвестный тип компонента
+Message_UnknownComponentType=Unknown component type
+
+;Правила задания формата трубы: Правила задания формата : # - цифра, @ - буква, % - цифра или буква, ? - любой печатный символ, все остальные символы принимаются как есть
+Mask_Label=Pipe number format rules: # - number, @ - letter, % - number or letter, ? - any printable character, all other characters are taken as they are
+
+;Труба. Номер трубы
+NewEditPipe_PipeNumberLabel=Pipe &number
+
+;Труба. Типоразмер
+NewEditPipe_PipeSizeLabel=Si&ze type
+
+;Труба. Плавка
+NewEditPipe_HeatsComboLabel=&Heat
+
+;Труба. Номер наряд-заказа
+NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
+
+;Труба. Дата наряд-заказа
+NewEditPipe_PurchaseOrederDateLabel=Purchase order da&te
+
+;Труба. Дата создания трубы
+NewEditPipe_PipeCreationLabel=Creat&ion date
+
+;Труба. Статус трубы
+NewEditPipe_PipeStatusLabel=Status on &mill
+
+;Труба. Номер листа
+NewEditPipe_PlateNumberLabel=Number
+
+;Труба. Толщина листа
+NewEditPipe_PlateThicknessLabel=Thic&kness
+
+;Труба. Производитель листа
+NewEditPipe_PlateManufacturerLabel=Manufacturer
+
+;Труба. Марка стали
+NewEditPipe_PlateSteelGradeLabel=Steel grade
+
+;Труба. Длина трубы
+NewEditPipe_PipeLengthLabel=Length
+
+;Труба. Вес трубы
+NewEditPipe_PipeWeightLabel=Weight
+
+;Труба. Длина по типоразмеру
+NewEditPipe_TypeSizeLengthLabel=Length
+
+;Труба. Диаметр по типоразмеру
+NewEditPipe_TypeSizeDiameterLabel=Diameter
+
+;Труба. Толщина по типоразмеру
+NewEditPipe_TypeSizeThicknessLabel=Thickness
+
+;Труба. Номер вагона
+NewEditPipe_RailcarNumber_Label=Railcar number
+
+;Труба. Сертификат вагона
+NewEditPipe_RailcarCertificate_Label=Certificate number
+
+;Труба. Дата разрешения на отгрузку
+NewEditPipe_ReleaseNoteDate_Label = Release note date
+
+;Труба. Номер разрешения на отгрузку
+NewEditPipe_ReleaseNoteNumber_Label = Release note number
+
+;Труба. Получатель
+NewEditPipe_RailcarDestination_Label=Destination
+
+;Труба. Кнопка добавления файлов
+NewEditPipe_AttachmentsButton=&Attachments
+
+;Труба. Деактивация
+NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
+
+;Труба. Кнопка сохранить
+NewEditPipe_SaveButton=&Save
+
+;Труба. Кнопка сохранить и создать
+NewEditPipe_SaveAndNewButton=Save\\&Create
+
+;Труба. Кнопка добавления контрольных операций
+NewEditPipe_InspectionsAddButton=A&dd
+
+;Труба. Кнопка редактирования контрольных операций
+NewEditPipe_InspectionsEditsButton=&Edit
+
+;Труба. Столбец сварщики
+NewEditPipe_WeldersColumnHeader=Welders
+
+;Труба. Столбец дата сварки
+NewEditPipe_WeldingDateColumnHeader=Date
+
+;Труба. Столбец дата покрытия
+NewEditPipe_CoatingDateColumnHeader=Date
+
+;Труба. Столбец тип покрытия
+NewEditPipe_CoatingTypeColumnHeader=Coating type
+
+;Труба. Столбец код контрольной операции
+NewEditPipe_InspectionCodeColumnHeader=Code
+
+;Труба. Столбец название контрольной операции
+NewEditPipe_InspectionNameColumnHeader=Inspection name
+
+;Труба. Столбец группа контрольной операции
+NewEditPipe_InspectionCategoryColumnHeader=Category
+
+;Труба. Столбец ожидаемого результата контрольной операции
+NewEditPipe_InspectionExpectedResultColumnHeader=Expected result
+
+;Труба. Столбец значения контрольной операции
+NewEditPipe_InspectionValueColumnHeader=Inspection value
+
+;Труба. Столбец результата контрольной операции
+NewEditPipe_InspectionResultColumnHeader=Result
+
+;Труба. Столбец даты контрольной операции
+NewEditPipe_InspectionDateColumnHeader=Inspection date
+
+;Труба. Столбец инспекторы
+NewEditPipe_InspectorsCodeColumnHeader=Inspectors
+
+;Труба. Группа лист
+NewEditPipe_PlateGroup=P&late parameters
+
+;Труба. Группа фактических параметров
+NewEditPipe_FactSizeGroup=Act&ual parameters
+
+;Труба. Группа параметров типоразмера
+NewEditPipe_TypeSizeGroup=Size t&ype parameters
+
+;Труба. Группа отправка
+NewEditPipe_ShippingGroup=Shipping &parameters
+
+;Труба. Группа покрытие
+NewEditPipe_CoverGroup=Coatin&g parameters
+
+;Труба. Группа сварка
+NewEditPipe_WeldsGroup=&Welding history
+
+;Труба. Вкладка трубы
+NewEditPipe_PipeTabGroup=General pipe parameters
+
+;Труба. Вкладка контрольных операций
+NewEditPipe_InspectionsTabGroup=Inspection operations
+
+;Труба. Статус не определен
+NewEditPipe_PipeStatusUndefined=Undefined
+
+;Труба. Статус в производстве
+NewEditPipe_PipeStatusProduced=Produced
+
+;Труба. Статус на складе
+NewEditPipe_PipeStatusStocked=Stocked
+
+;Труба. Статус отгружена
+NewEditPipe_PipeStatusShipped=Shipped
+
+;Труба, тип покрытия: Внутреннее
+MillPipe_CoatInternal=Internal
+
+;Труба, тип покрытия: Внешнее
+MillPipe_CoatExternal=External
+
+;Заголовок сообщения - подтверждения об изменении типоразмера трубы
+MillPipe_PipeSizeChangeHeader=Changing pipe size type
+
+;Вопрос о подтверждении изменения типоразмера: Вы действительно хотите изменить типоразмер трубы? Все введённые результаты контрольных операций будут удалены и необходимо их ввести заново
+MillPipe_ChangeTypesizeConfirmation=Do you really want to change pipe size type? All entered inspection results will be deleted and should be entered again.
+
+;Сообщение о невозможности изменить типоразмер: Нельзя изменить типоразмер для трубы, у которой уже есть данные по контрольным операциям. Если типоразмер ошибочен, деактивируйте эту трубу и создайте новую с таким же номером и правильным типоразмером.
+MillPipe_NotAllowedToChangeTypesize=Cannot change size type for pipe with existing inspection operations data. If size type is wrong, please deactivate this pipe and create new one with the same number and corrent size type.
+
+;Сообщение об ошибке: Значение не соответствует маске
+MillPipe_ValueDoesNotMatchMask=Value does not match the mask
+
+;Вопрос о создании новой плавки: Создать плавку {0}?
+MillPipe_NewHeatQuestion=Do you want to create heat with number {0}?
+
+;Заголовок вопроса о создании новой плавки: Новая плавка
+MillPipe_NewHeadQuestionHeader=New heat
+
+;Вопрос о создании нового наряд-заказа: Создать наряд-заказ {0}?
+MillPipe_NewPurchaseOrderQuestion=Do you want to create purchase order with number {0}?
+
+;Заголовок вопроса о создании нового наряд-заказа: Новый наряд-заказ
+MillPipe_NewPurchaseOrderQuestionHeader=New purchase order
+
+;Вопрос о деактивации: Данное действие приведет к деактивации трубы. Параметры трубы станут невозможны для редактирования. Деактивировать трубу?
+MillPipe_DeactivatePipeQuestion=This action will lead to pipe deactivation. Pipe parameters will not be available for editing. Do you want to deactivate pipe?
+
+;Заголовок вопроса о деактивации: Деактивация трубы
+MillPipe_DeactivatePipeQuestionHeader=Pipe deactivation
+
+;Сообщение: Труба находится в вагоне. Для деактивации необходимо удалить трубу из вагона.
+MillPipe_DeactivatePipeShippedError=Pipe is in the railcar. It should be removed from railcar for deactivation.
+
+;Заголовок сообщения: Деактивация трубы в вагоне невозможна
+MillPipe_DeactivatePipeShippedErrorHeader=Cannot deactivate pipe in railcar
+
+;Сообщение: Невозможно деактивировать отгруженную трубу.
+MillPipe_DeactivatePipeInRailcarError=Cannot deactivate shipped pipe
+
+;Заголовок сообщения: Труба отгружена
+MillPipe_DeactivatePipeInRailcarErrorHeader=Pipe is shipped
+
+;Сообщение об ошибке: Уже существует труба с номером: 
+MillPipe_ExistingNumberError=Pipe already exists, number:
+
+;Заголовок сообщения о дублировании трубы: Дублирование номера трубы
+MillPipe_ExistingNumberErrorHeader=Pipe number duplication
+
+;Сообщение об успешном сохранении трубы: Труба успешно сохранена в базе. Труба  # 
+MillPipe_PipeSaved=Pipe was  successfully saved in database. Pipe #
+
+;Заголовок сообщения об успешном сохранении трубы: Сохранение трубы
+MillPipe_PipeSavedHeader=Pipe saving
+
+;Сообщение: Нельзя добавить неуспешную контрольную операцию для трубы, которая находится в вагоне. Для этого необходимо удалить данную трубу из вагона. 
+MillPipe_ErrorEditingInspectionOperationPipeInRailcar=Cannot add failed inspection operation to pipe, located in railcar. That pipe should be removed from railcar.
+
+;Сообщение об ошибке даты: Дата не может быть пустой или будущей
+MillPipe_ErrorEmptyOrFutureDate=Date cannot be empty or future
+
+;Поиск труб. Статус в производстве
+SearchPipe_MillStatusProduced=Produced
+
+;Поиск труб. статус на складе
+SearchPipe_MillStatusStocked=Stocked
+
+;Поиск труб. статус отгружена
+SearchPipe_MillStatusShipped=Shipped
+
+;Поиск труб. Активность – активна
+SearchPipe_ActivityComboActive=Active
+
+;Поиск труб. Активность – деактивирована
+SearchPipe_ActivityComboNotActive=Not active
+
+;Поиск труб. Активность – все
+SearchPipe_ActivityComboAll=All
+
+;Поиск труб. Номер трубы
+SearchPipe_NumberLabel=Pipe &number
+
+;Поиск труб. Типоразмер
+SearchPipe_TypeSizeLabel=Si&ze type
+
+;Поиск труб. Статус трубы
+SearchPipe_StatusLabel=S&tatus
+
+;Поиск труб. Активность трубы
+SearchPipe_ActivityLabel=&Activity status
+
+;Поиск труб. Дата сварки
+SearchPipe_WeldingDateLabel=Welding &date
+
+;Поиск труб. Дата внешнего покрытия
+SearchPipe_ExternalCoatingDateLabel=&External coating date
+
+;Поиск труб. Дата внутреннего покрытия
+SearchPipe_InternalCoatingDateLabel=&Internal coating date
+
+;Поиск труб. Кнопка поиск
+SearchPipe_SearchButton=&Search
+
+;Поиск труб. Столбец номер трубы
+SearchPipe_PipeNumberColumn=Pipe number
+
+;Поиск труб. Столбец завод
+SearchPipe_PipeMillColumn=Mill
+
+;Поиск труб. Столбец типоразмер
+SearchPipe_PipetypeSizeColumn=Size type
+
+;Поиск труб. Столбец плавка
+SearchPipe_PipeHeatNumberColumn=Heat number
+
+;Поиск труб. Столбец статус
+SearchPipe_PipeStatusColumn=Status
+
+;Поиск труб. Столбец дата сварки
+SearchPipe_PipeWeldingDateColumn=Welding date
+
+;Поиск труб. Столбец дата внешнего покрытия
+SearchPipe_ExternalCoatingDateColumn=External coating date
+
+;Поиск труб. Столбец дата внутреннего покрытия
+SearchPipe_InternalCoatingColumn=Internal coating date
+
+;Поиск труб. Группа поиск
+SearchPipe_SearchGroup=Search parameters
+
+;Поиск труб. Группа результат
+SearchPipe_ResultGroup=Search res&ults
+
+;Разрешение на отгрузку. Номер разрешения
+ReleaseNoteNewEdit_ReleaseNumberLabel=Number
+
+;Разрешение на отгрузку. Дата разрешения
+ReleaseNoteNewEdit_ReleaseDateLabel=Date
+
+;Разрешение на отгрузку. Номер вагона
+ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
+
+;Разрешение на отгрузку. Сертификат вагона
+ReleaseNoteNewEdit_CertificateLabel=Certi&ficate number
+
+;Разрешение на отгрузку. Получатель
+ReleaseNoteNewEdit_DestinationLabel=Des&tination
+
+;Разрешение на отгрузку. Кнопка добавления трубы
+ReleaseNoteNewEdit_AddPipeButton=Add p&ipe
+
+;Разрешение на отгрузку. Кнопка удаления трубы
+ReleaseNoteNewEdit_RemovePipeButton=Re&move pipe
+
+;Разрешение на отгрузку. Кнопка добавления файлов
+ReleaseNoteNewEdit_AttachmentsButton=&Attachments
+
+;Разрешение на отгрузку. Кнопка отгрузки
+ReleaseNoteNewEdit_ShipButton=S&hip
+
+;Разрешение на отгрузку. Кнопка отклонения отгрузки
+ReleaseNoteNewEdit_UnshipButton=&Unship
+
+;Разрешение на отгрузку. Кнопка сохранить
+ReleaseNoteNewEdit_SaveButton=&Save
+
+;Разрешение на отгрузку. Столбец номер трубы
+ReleaseNoteNewEdit_PipeNumberColumn=Pipe number
+
+;Разрешение на отгрузку. Столбец типоразмер
+ReleaseNoteNewEdit_PipeTypeSizeColumn=Size type
+
+;Разрешение на отгрузку. Столбец статус
+ReleaseNoteNewEdit_PipeStatusColumn=Status
+
+;Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #
+ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar=This pipe already exists in railcar #
+
+;Сообщение: сначала расформируйте вагон/разрешение на отгрузку
+ReleaseNoteNewEdit_UnshipFirst=Unship railcar/release note first
+
+;Сообщение об ошибке попытки отмены отгрузки: Отмена отгрузки не актуальна, вагоны сейчас не отгружены
+ReleaseNoteNewEdit_NotShipped=Shipment cancellation is not actual: railcars are not shipped
+
+;Сообщение об успешной отмене отгрузки: Отгрузка отменена. Дата отгрузки аннулирована. Трубы перемещены на склад.
+ReleaseNoteNewEdit_Unshipped=Unshipped. Shipping date is cancelled. Pipes are moved to storage.
+
+;Сообщение об успешной отгрузке: Отгрузка произошла успешно.
+ReleaseNoteNewEdit_Shipped=Shipped successfully.
+
+;Сообщение об ошибке отгрузки: Отправка без труб невозможна.
+ReleaseNoteNewEdit_PipesAbsent=Unable to ship without pipes.
+
+;Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера.
+ReleaseNoteNewEdit_DifferentTypeSizeInRailcar=All pipes in railcar should have the same size type.
+
+;Сообщение об ошибке: Введите номер разрешения на отгрузку.
+ReleaseNoteNewEdit_MissingReleaseNoteNumber=Enter release note number.
+
+;Сообщение: Данные разрешения на отгрузку сохранены
+ReleaseNoteNewEdit_SaveSuccess=Release note data are saved
+
+;Заголовок сообщения об успешном сохранении: Сохранение успешно
+ReleaseNoteNewEdit_SaveSuccessHeader=Saved successfully
+
+;Статус разрешения на отгрузку: отгружено
+ReleaseNoteNewEdit_ShippedStatus=Shipped
+
+;Статус разрешения на отгрузку: сформировано
+ReleaseNoteNewEdit_PendingStatus=Pending
+
+;Поиск разрешений на отгрузку. Номер разрешения
+ReleaseSearch_NumberLabel=Release note &number
+
+;Поиск разрешений на отгрузку. Дата
+ReleaseSearch_DateLabel=&Date
+
+;Поиск разрешений на отгрузку. Получатель
+ReleaseSearch_DestinationLabel=Dest&ination
+
+;Поиск разрешений на отгрузку. Вагон
+ReleaseSearch_RailcarLabel=&Railcar number
+
+;Поиск разрешений на отгрузку. Сертификат вагона
+ReleaseSearch_CertificateLabel=Certificate n&umber
+
+;Поиск разрешений на отгрузку. Кнопка поиск
+NewEditPipe_SearchButton=&Search
+
+;Поиск разрешений на отгрузку. Столбец номер разрешения
+ReleaseSearch_ReleaseNumberColumnHeader=Release note number
+
+;Поиск разрешений на отгрузку. Столбец дата разрешения
+ReleaseSearch_ReleaseDateColumnHeader=Release note date
+
+;Поиск разрешений на отгрузку. Столбец номер вагона
+ReleaseSearch_RailcarNumberColumnHeader=Railcar number
+
+;Поиск разрешений на отгрузку. Столбец получатель
+ReleaseSearch_DestinationColumnHeader=Destination
+
+;Поиск разрешений на отгрузку. Столбец сертификат
+ReleaseSearch_CertificateColumnHeader=Certificate number
+
+;Поиск разрешений на отгрузку. Группа поиск
+ReleaseSearch_SearchGroup=Search parameters
+
+;Поиск разрешений на отгрузку. Группа результат
+ReleaseSearch_ResultGroup=Search resu&lts
+
+;Логин. Логин
+Login_LoginLabel=Login
+
+;Логин. Пароль
+Login_PasswordLabel=Password
+
+;Логин. Кнопка логин
+Login_LoginButton=Enter
+
+;Логин. Кнопка выход
+Login_ExitButton=Exit
+
+;Начальные установки. Название проекта
+FirstSetup_ProjectTitleLabel=Project title
+
+;Начальные установки. Размер файла
+FirstSetup_FileSizeLabel=Maximum external file size(KB)
+
+;Начальные установки. Тип станции
+FirstSetup_TypeLabel=Workstation type
+
+;Начальные установки. Название завода
+FirstSetup_MillLabel=Mill name
+
+;Начальные установки. Логин
+FirstSetup_LoginLabel=Login
+
+;Начальные установки. Пароль
+FirstSetup_PasswordLabel=Password
+
+;Начальные установки. Повторный пароль
+FirstSetup_ReEnterPasswordLabel=Reenter password
+
+;Начальные установки. Фамилия
+FirstSetup_LastNameLabel=Last name
+
+;Начальные установки. имя
+FirstSetup_FirstNameLabel=First name
+
+;Начальные установки. Отчество
+FirstSetup_MiddleNameLabel=Middle name 
+
+;Начальные установки. Кнопка сохранить
+FirstSetup_SaveButton=&Save
+
+;Начальные установки. Кнопка отмена
+FirstSetup_CancelButton=&Cancel
+
+;Плавка. Номер плавки
+Heat_NumberLabel=Heat num&ber
+
+;Плавка. Марка стали
+Heat_SteelLabel=Steel &grade
+
+;Плавка. Производитель листа
+Heat_PlateManufacturerLabel=Plate manu&facturer
+
+;Плавка. Кнопка сохранить
+Heat_SaveButton=&Save
+
+;Плавка. Кнопка отмена
+Heat_CancelButton=C&ancel
+
+;Контрольная операция. Код
+InspectionAddEdit_CodeLabel=Code
+
+;Контрольная операция. Категория
+InspectionAddEdit_CategoryLabel=Category
+
+;Контрольная операция. Название
+InspectionAddEdit_NameLabel=Name
+
+;Контрольная операция. Ожидаемый результат
+InspectionAddEdit_ExpectedResultLabel=Expected result
+
+;Контрольная операция. Фактический результат строка
+InspectionAddEdit_FactStringResultLabel=Actual string result
+
+;Контрольная операция. Фактический результат логический
+InspectionAddEdit_FactBoolResultLabel=Actual logic result
+
+;Контрольная операция. Фактический результат диапазон
+InspectionAddEdit_FactLimitResultLabel=Actual range result
+
+;Контрольная операция. Дата
+InspectionAddEdit_DateLabel=Date
+
+;Контрольная операция. Статус
+InspectionAddEdit_StatusLabel=Status
+
+;Контрольная операция. Инспектора
+InspectionAddEdit_InspectorsLabel=Inspectors
+
+;Контрольная операция. Группа контрольная операция
+InspectionAddEdit_OperationGroup=Inspection operation
+
+;Контрольная операция. Группа результат
+InspectionAddEdit_ResultGroup=Result
+
+;Контрольная операция. Группа фактический строковый
+InspectionAddEdit_FactStringGroup=Actual result
+
+;Контрольная операция. Группа фактический логический
+InspectionAddEdit_FactBoolGroup=Actual result
+
+;Контрольная операция. Группа фактический диапазон
+InspectionAddEdit_FactLimitGroup=Actual result
+
+;Контрольная операция. Кнопка сохранить
+InspectionAddEdit_SaveButton=Save
+
+;Контрольная операция. Кнопка отмена
+InspectionAddEdit_CancelButton=Cancel
+
+;Сообщение о дублировании номеров труб: Дубликат номера труб
+Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
+
+;Сообщение об окончании срока: Сертификат просрочен
+Notification_ExpiredCertificate_Critical=Certificate's date is expired
+
+;Сообщение о приближении окончания срока: Заканчивается срок сертификата
+Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+
+;Результат контрольной операции. Ожидается
+PipeTestResultStatus_Scheduled=Scheduled
+
+;Результат контрольной операции. Принят
+PipeTestResultStatus_Passed=Passed
+
+;Результат контрольной операции. Брак
+PipeTestResultStatus_Failed=Failed
+
+;Результат контрольной операции. Ремонт
+PipeTestResultStatus_Repair=Repair
+
+;Тип отчета. По трассировке
+ConstructionReport_ReportTypeTracingReport=Tracing report
+
+;Тип отчета. По использованным изделиям
+ConstructionReport_ReportTypeUsedProductReport=By used products
+
+;Отчеты на строительстве.Текст информационного поля отчета по использованным изделиям
+ConstructionReport_TracingReportInfoLabelText = This report type contains all welded elements located between selected points regardless of their connectivity
+
+;Ошибка сохранения прикрепленных файлов
+ExternalFiles_NotCopied_Header=External files saving error
+
+;Прикрепленные файлы не сохранены
+ExternalFiles_NotCopied=Attached files weren't saved
+
+;Сообщение: Размер вложения больше разрешенного
+ExternalFiles_FileSizeIsTooBig=Attaching file's size is bigger than allowed
+
+;Тип рабочей станции. Неопределен
+WorkstationType_Undefined=Undefined
+
+;Тип рабочей станции. Главный
+WorkstationType_Master=Master
+
+;Тип рабочей станции. Завод
+WorkstationType_Mill=Mill
+
+;Тип рабочей станции. Строительство
+WorkstationType_Construction=Construction
+
+;Настройки - Трубопровод.Тип операции.Контрольная
+JointOperationType_Test=Inspection
+
+;Настройки - Трубопровод.Тип операции.Ремонтная
+JointOperationType_Action= Repair
+
+;Настройки - Трубопровод.Тип операции.Сварка
+JointOperationType_Weld=Weld
+
+;Настройки - Трубопровод.Тип операции.Вырезка стыка
+JointOperationType_Withdraw=Withdraw
+
+;Разрешение на отгрузку. Группа вагона
+ReleaseNoteNewEdit_RailcarLayoutControlGroup=Railcar
+
+;Разрешение на отгрузку. Группа добавления трубы
+ReleaseNoteNewEdit_AddPipeLayoutGroup=Adding pipes to current railcar
+
+;Разрешение на отгрузку. Группа труб
+ReleaseNoteNewEdit_PipesListLayoutGroup=Pipe list
+
+;Разрешение на отгрузку. Надпись номера трубы
+ReleaseNoteNewEdit_PipeNumberLayout=Pipe number
+
+;Настройки-труба. Группа параметров типоразмера
+SettingsPipe_sizeParamsLayoutControlGroup= Size type parameters
+
+;Настройки - Трубопровод. Набор операций - условия приемки стыка для спуска
+SettingsLine_JointOperationLayoutControlItem = Inspections list - conditions for passing
+
+;Настройки - Инспектора. Активен
+SettingsInspectors_IsActive= Is active
+
+;Настройки - Инспектора. Уровень
+SettingsInspectors_InspectorGrade=Grade
+
+;Главное меню, пункт Файл
+Menu_File=&File
+
+;Главное меню, пункт Экспорт
+Menu_File_Export=&Export
+
+;Главное меню, пункт Импорт
+Menu_File_Import=&Import
+
+;Главное меню, пункт Выход
+Menu_File_Exit=E&xit
+
+;Главное меню, пункт Завод
+Menu_Mill=&Mill
+
+;Главное меню, пункт Новая труба
+Menu_Mill_NewPipe=New &pipe
+
+;Главное меню, пункт Поиск труб
+Menu_Mill_SearchPipes=&Find pipes
+
+;Главное меню, пункт Разрешение на отгрузку
+Menu_Mill_NewReleaseNote=New &release note
+
+;Главное меню, пункт Поиск разрешений на отгрузку
+Menu_Mill_SearchReleaseNotes=F&ind release notes
+
+;Главное меню, пункт Отчёты на заводе
+Menu_Mill_Reports=&Reports at mill
+
+;Главное меню, пункт Строительство и входной контроль
+Menu_Construction=Incoming inspection and &Construction
+
+;Главное меню, пункт Создать комплектующее
+Menu_Construction_NewComponent=New &Component
+
+;Главное меню, пункт Создать стык
+Menu_Construction_NewJoint=New &joint
+
+;Главное меню, пункт Входной контроль элементов трубопровода
+Menu_Construction_PartIncomingInspection=&Incoming inspection of elements
+
+;Главное меню, пункт Поиск элементов трубопровода
+Menu_Construction_FindParts=&Find elements
+
+;Главное меню, пункт Поиск стыков
+Menu_Construction_FindJoints=Fin&d joints
+
+;Главное меню, пункт Катушки
+Menu_Construction_Spool=&Spools
+
+;Главное меню, пункт Отчёты на входном контроле
+Menu_Construction_InspectionReports=&Inspection reports
+
+;Главное меню, пункт Отчёты по трубам на стройке
+Menu_Construction_PipeReports=&Pipe reports
+
+;Главное меню, пункт Отчёты по сварке (по дате)
+Menu_Construction_WeldReports=&Weld reports
+
+;Главное меню, пункт Отчёты по сварке участка между пикетами
+Menu_Construction_JointPKReports=&Tracing reports
+
+;Главное меню, пункт Настройки
+Menu_Settings=&Settings
+
+;Главное меню, настройки, пункт Проект
+Menu_Settings_Project=Pro&ject
+
+;Главное меню, настройки, пункт Труба
+Menu_Settings_Pipe=&Pipe
+
+;Главное меню, настройки, пункт Трубопровод
+Menu_Settings_Pipeline=Pipe&line
+
+;Главное меню, настройки, пункт Комплектующие
+Menu_Settings_Componentry=&Componentry
+
+;Главное меню, настройки, пункт Сварщики
+Menu_Settings_Welders=&Welders
+
+;Главное меню, настройки, пункт Инспекторы
+Menu_Settings_Inspectors=&Inspectors
+
+;Главное меню, настройки, пункт Пользователи
+Menu_Settings_Users=&Users
+
+;Главное меню, настройки, пункт Роли
+Menu_Settings_Roles=&Roles
+
+;Главное меню, настройки, пункт Язык
+Menu_Settings_Language=&Language
+
+;Главное меню, настройки, пункт Разное
+Menu_Misc=M&iscellaneous
+
+;Главное меню, настройки, пункт Аудит
+Menu_Misc_Audit=&Audit
+
+;Главное меню, настройки, пункт Важные сообщения
+Menu_Misc_ImportantMessages=&Important messages
+
+;Главное меню, настройки, пункт Помощь
+Menu_Help=&Help
+
+;Главное меню, настройки, пункт О программе
+Menu_Help_About=&About
+
+;Текст на панели статуса: Важные сообщения 
+MainWindow_StatusNotificationsHeader=Important messages 
+
+;Комплектующее изделие деактивировано. Комплектующее изделие #
+ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
+
+;Деактивация элемента
+ComponentNewEdit_DeactivatedActionHeader=Component deactivation
+
+;Стык деактивирован. Стык #
+Joint_Deactivated=Joint have been deactivated. The joint #
+
+;Деактивация стыка
+Joint_DeactivatedHeader=Joint deactivation
+
+;Труба деактивирована. Труба #
+Pipe_Deactivated=Pipe have been deactivated. The pipe #
+
+;Деактивация трубы
+Pipe_DeactivatedHeader=Pipe deactivation
+
+;Катушка деактивирована. Катушка #
+Spool_Deactivated=Spool have been deactivated. The spool #
+
+;Деактивация катушки
+Spool_DeactivatedHeader=Spool deactivation
