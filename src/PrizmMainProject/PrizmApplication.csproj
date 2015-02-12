@@ -209,6 +209,7 @@
     <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GridViewValidation.cs" />
     <Compile Include="Controls\WeldersSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -512,6 +513,7 @@
     <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.Designer.cs">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Settings\DuplicatesList.cs" />
     <Compile Include="Forms\Reports\Mill\SubReportShippingRailCar.cs">
       <SubType>Component</SubType>
     </Compile>
