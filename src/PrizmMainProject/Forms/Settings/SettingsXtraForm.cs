@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Settings
         private PipeMillSizeType CurrentPipeMillSizeType;
         private InspectorViewType CurrentInspector;
         private bool newPipeSizeType = false;
-        bool controlOerationValidate = false;
+        bool controlOerationValidate = true;
         ICommandManager commandManager = new CommandManager();
         private List<string> pipeSizesDuplicates;
         private List<string> localizedPipeTestControlTypes = new List<string>();
@@ -413,19 +413,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (e.Column.ToString() == pipeSizeGridColumn.Name)
-            {
-                if(pipeSizesDuplicates.Count > 0)
-                {
-                    foreach(var item in pipeSizesDuplicates)
-                    {
-                        if((e.CellValue != null) && (item == e.CellValue.ToString()))
-                        {
-                            e.Appearance.ForeColor = Color.Red;
-                        }
-                    }
-                }
-            }
+            pipesSizeListGridView.ColorGrid(pipeSizeGridColumn, pipeSizesDuplicates, e);
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
