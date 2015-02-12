@@ -143,6 +143,8 @@ namespace Prizm.Main.Forms.MainChildForm
         #region --- Edit mode ---
 
         private bool isEditMode = false;
+        public delegate void IsEditModeChangedEventHandler(object sender, EventArgs e);
+        public event IsEditModeChangedEventHandler IsEditModeChanged = delegate { };
 
         /// <summary>
         /// Set/clear edit mode for the form. It is about all form controls.
@@ -161,6 +163,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 if(isEditMode != previous)
                 {
                     SetEditModeAllChildren(this, isEditMode);
+                    IsEditModeChanged(this, EventArgs.Empty);
                 }
             }
         }
