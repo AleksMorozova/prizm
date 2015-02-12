@@ -443,7 +443,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
         {
-            if(CurrentPipeMillSizeType != null)
+            if(CurrentPipeMillSizeType != null &&
+                IsEditMode)
             {
                 viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
             }
