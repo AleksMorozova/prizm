@@ -74,6 +74,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     r.ReleaseNote = viewModel.ReleaseNote;
                 }
 
+                viewModel.ReleaseNote.Number = viewModel.ReleaseNote.Number.ToUpper();
+
+                foreach(var item in viewModel.Railcars)
+                {
+                    item.Number = item.Number.ToUpper();
+                }
+
                 repos.BeginTransaction();
 
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
