@@ -1081,7 +1081,7 @@ namespace Prizm.Main.Forms.Settings
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
             controlOerationValidate = pipeControlOperationValidation();
-
+            // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             if(pipeLayoutControlGroup.Tag != null)
             {
                 controlOerationValidate = pipeControlOperationValidation();
