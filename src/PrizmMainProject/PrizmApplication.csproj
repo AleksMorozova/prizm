@@ -1108,6 +1108,7 @@
     <None Include="Resources\import.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Languages\LocalizedStrings\Strings.en-US.txt" />
     <Content Include="prizma_appIcon_16.ico" />
     <Content Include="prizma_appIcon_256.ico" />
     <Content Include="prizma_appIcon_32.ico" />
@@ -1126,6 +1127,13 @@
     <None Include="Resources\components_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)..\..\prizm_external\external\Lang\resgen.exe $(ProjectDir)\Languages\LocalizedStrings\Strings.en-US.txt $(SolutionDir)..\install\Lang\Res\Strings.en-US.resources</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
