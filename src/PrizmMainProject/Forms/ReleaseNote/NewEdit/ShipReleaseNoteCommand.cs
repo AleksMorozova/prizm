@@ -41,42 +41,42 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         {
             bool noPipe = false;
             bool difTypeSize = false;
-            foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars) 
+            foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.ReleaseNote.Railcars)
             {
-                if (r.Pipes.Count == 0) 
+                if(r.Pipes.Count == 0)
                 {
                     noPipe = true;
                 }
             }
 
-            if (noPipe)
+            if(noPipe)
             {
-                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PipesAbsent), 
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PipesAbsent),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
 
-            foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+            foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.ReleaseNote.Railcars)
             {
                 int distinctSizes = r.Pipes.Select(p => p.Type).Distinct().Count();
-                if (distinctSizes > 1)
+                if(distinctSizes > 1)
                 {
                     difTypeSize = true;
                 }
             }
 
-            if (difTypeSize)
+            if(difTypeSize)
             {
                 notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcar),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
-            
 
-            if(!noPipe||!difTypeSize)
+
+            if(!noPipe && !difTypeSize)
             {
-                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
+                foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
                 {
-                    foreach (var pipe in r.Pipes)
+                    foreach(var pipe in r.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Shipped;
 
@@ -84,15 +84,16 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     }
                 }
                 viewModel.Shipped = true;
-                viewModel.SaveCommand.Execute();
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Shipped) + " #" + viewModel.ReleaseNote.Number,
                     Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
 
                 log.Info(string.Format("Shipment is successful. Release Note #{0}, id:{1}.",
                     viewModel.ReleaseNote.Number,
                     viewModel.ReleaseNote.Id));
+
+                viewModel.SaveCommand.Execute();
             }
-            
+
             RefreshVisualStateEvent();
         }
 

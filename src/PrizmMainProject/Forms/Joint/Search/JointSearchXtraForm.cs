@@ -129,7 +129,11 @@ namespace Prizm.Main.Forms.Joint.Search
                 new LocalizedItem(resultView, localizedJointStatuses,  new string[]{ 
                     StringResources.JointSearch_JointStatus_Welded.Id, 
                     StringResources.JointSearch_JointStatus_Lowered.Id, 
-                    StringResources.JointSearch_JointStatus_Withdrawn.Id} )
+                    StringResources.JointSearch_JointStatus_Withdrawn.Id} ),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.JointSearchXtraForm_Title.Id} )
             };
         }
 

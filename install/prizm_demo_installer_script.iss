@@ -62,6 +62,7 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "{app}\Languages\Strings*.txt"; DestDir: "{app}\Languages-{code:GetTodaysName}"; Flags: external setntfscompression skipifsourcedoesntexist
 Source: "..\src\bin\Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion; Excludes: "*vshost*"
 Source: "..\src\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\src\bin\Release\*.config"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "*vshost*"
@@ -96,8 +97,8 @@ Source: "{#PrizmExternalPath}\external\Lang\ResGen.exe"; DestDir: "{app}\Languag
 Source: ".\Lang\run.bat"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
-Source: ".\Lang\Translations\Strings.en-US.resources"; DestDir: "{app}\Languages\Resources"; Flags: ignoreversion
-Source: ".\Lang\Translations\Strings.en-US.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
+Source: ".\Lang\Res\*.resources"; DestDir: "{app}\Languages\Resources"; Flags: ignoreversion
+Source: "..\src\PrizmMainProject\Languages\LocalizedStrings\*.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
@@ -211,6 +212,21 @@ var
   InstalledProjectsRead: Boolean;
   NewProductName : TNewEdit;
   NewWorkstationType : TNewCheckListBox;
+  TodaysName : String;
+
+function GetToday : String;
+begin
+  Result := GetDateTimeString ('yyyy/mm/dd hh.nn.ss', '-', #0);
+end;
+
+function GetTodaysName (Param: String): String;
+begin
+  if ('' = TodaysName) then
+  begin
+    TodaysName := GetToday ();
+  end;
+  Result := TodaysName;
+end;
 
 function GetInstalledProjects(): TArrayOfString;
 begin

@@ -145,7 +145,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(status, new string [] {StringResources.PipeTestResultStatus_Scheduled.Id, 
                                                          StringResources.PipeTestResultStatus_Passed.Id,
                                                          StringResources.PipeTestResultStatus_Failed.Id,
-                                                         StringResources.PipeTestResultStatus_Repair.Id})
+                                                         StringResources.PipeTestResultStatus_Repair.Id}),
+
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionAddEdit_Title.Id} )
             };
         }
 

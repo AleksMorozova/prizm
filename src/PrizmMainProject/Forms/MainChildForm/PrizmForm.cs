@@ -53,6 +53,7 @@ namespace Prizm.Main.Forms.MainChildForm
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            localizedHeader.Add(this.Text);
             if (!DesignMode)
             {
                 Program.LanguageManager.ChangeLanguage(this);

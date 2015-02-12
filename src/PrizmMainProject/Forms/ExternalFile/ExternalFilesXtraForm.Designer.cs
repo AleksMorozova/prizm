@@ -157,7 +157,7 @@
             this.addFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addFile.Image = ((System.Drawing.Image)(resources.GetObject("addFile.Image")));
             this.addFile.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.addFile.Location = new System.Drawing.Point(165, 265);
+            this.addFile.Location = new System.Drawing.Point(20, 265);
             this.addFile.Margin = new System.Windows.Forms.Padding(11);
             this.addFile.Name = "addFile";
             this.addFile.Size = new System.Drawing.Size(148, 22);
@@ -193,6 +193,7 @@
             // cancelButton
             // 
             this.cancelButton.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
             this.cancelButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.cancelButton.Location = new System.Drawing.Point(317, 265);
@@ -202,7 +203,6 @@
             this.cancelButton.StyleController = this.layoutControl;
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Закр&ыть";
-            this.cancelButton.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Root
             // 
@@ -249,7 +249,7 @@
             // 
             this.addButtonLayoutControlItem.Control = this.addFile;
             this.addButtonLayoutControlItem.CustomizationFormText = "Кнопка добавить";
-            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(145, 0);
+            this.addButtonLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.addButtonLayoutControlItem.MaxSize = new System.Drawing.Size(152, 26);
             this.addButtonLayoutControlItem.MinSize = new System.Drawing.Size(152, 26);
             this.addButtonLayoutControlItem.Name = "addButtonLayoutControlItem";
@@ -277,7 +277,7 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(152, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(145, 26);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
@@ -285,8 +285,10 @@
             // 
             // ExternalFilesXtraForm
             // 
+            this.AcceptButton = this.cancelButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(495, 307);
             this.Controls.Add(this.layoutControl);
             this.Name = "ExternalFilesXtraForm";

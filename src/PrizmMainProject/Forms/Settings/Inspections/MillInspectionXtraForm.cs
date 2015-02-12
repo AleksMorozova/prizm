@@ -84,6 +84,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
+
+            code.SetAsIdentifier();
+            code.SetRequiredText();
         }
 
         private void BindToViewModel()
@@ -183,6 +186,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
                    new LocalizedItem(rangeExpectedGroup, StringResources.MillInspection_RangeControlValueGroup.Id),
                    new LocalizedItem(boolExpectedGroup, StringResources.MillInspection_BoolControlValueGroup.Id),
                    new LocalizedItem(frequencyGroup, StringResources.MillInspection_FrequencyGroup.Id),
+
+                   new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillInspection_Title.Id} )
             };
         }
         #endregion // --- Localization ---

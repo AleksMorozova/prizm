@@ -94,9 +94,12 @@ namespace Prizm.Main.Forms.Parts.Search
                 new LocalizedItem(searchResultLayoutGroup, StringResources.PartSearch_SearchResultGroup.Id),
 
                 //grid column with enum
-                new LocalizedItem(partsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id})
+                new LocalizedItem(partsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id}),
                 // form
-                //??
+                
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.PartSearch_Title.Id} )
             };
         }
 

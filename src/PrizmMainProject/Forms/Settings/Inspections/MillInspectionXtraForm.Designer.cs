@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.frequencyMeasure = new DevExpress.XtraEditors.ComboBoxEdit();
             this.controlType = new DevExpress.XtraEditors.ComboBoxEdit();

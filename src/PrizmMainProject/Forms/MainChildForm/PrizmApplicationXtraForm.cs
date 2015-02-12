@@ -370,6 +370,8 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             viewModel = (PrizmApplicationViewModel)Program.Kernel.GetService(typeof(PrizmApplicationViewModel));
 
+            localizedHeader.Clear();
+
             localizedHeader.Add(Resources.MainWindowHeader_Title);  // usage of Resources is OK - setting default values here
             localizedHeader.Add(WorkstationType.Mill.ToString());
             localizedHeader.Add(WorkstationType.Master.ToString());

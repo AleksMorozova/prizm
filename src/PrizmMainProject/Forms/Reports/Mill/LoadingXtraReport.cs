@@ -15,7 +15,7 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void xrSubreport1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            ((SubReportForLoadingXtraReport)((XRSubreport)sender).ReportSource).Note.Value =
+            ((SubReportShippingRailCar)((XRSubreport)sender).ReportSource).RNnum.Value =
        Convert.ToString(GetCurrentColumnValue("Notes"));
         }
 

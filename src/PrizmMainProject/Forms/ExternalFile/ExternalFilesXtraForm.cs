@@ -45,6 +45,10 @@ namespace Prizm.Main.Forms.ExternalFile
                  // grid column headers
                 new LocalizedItem(colFileName, StringResources.ExternalFiles_FileNameColumnHeader.Id),
                 new LocalizedItem(colUploadDate, StringResources.ExternalFiles_UploadDateColumnHeader.Id),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.ExternalFilesXtraForm_Title.Id} )
             };
         }
 
@@ -82,11 +86,6 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
-
-        private void cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void downloadButton_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
