@@ -53,7 +53,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
 
             if(string.IsNullOrWhiteSpace(viewModel.Number))
             {
-                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_MissingReleaseNoteNumber), 
+                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_MissingReleaseNoteNumber),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 return;
             }
@@ -62,9 +62,9 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
             try
             {
 
-                var notEmpty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
+                var empty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
 
-                foreach(var item in notEmpty)
+                foreach(var item in empty)
                 {
                     viewModel.Railcars.Remove(item);
                 }
@@ -72,6 +72,13 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                 foreach(var r in viewModel.Railcars)
                 {
                     r.ReleaseNote = viewModel.ReleaseNote;
+                }
+
+                viewModel.ReleaseNote.Number = viewModel.ReleaseNote.Number.ToUpper();
+
+                foreach(var item in viewModel.Railcars)
+                {
+                    item.Number = item.Number.ToUpper();
                 }
 
                 repos.BeginTransaction();
@@ -89,7 +96,7 @@ namespace Prizm.Main.Forms.Railcar.NewEdit
                     viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
                 }
 
-                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), 
+                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess),
                     Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
 
                 log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
