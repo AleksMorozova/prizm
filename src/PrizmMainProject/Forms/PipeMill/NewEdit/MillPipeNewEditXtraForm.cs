@@ -982,7 +982,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (pipeTestResult != null
                     && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
                 {
-                    if (pipeTestResult.Operation.BoolExpected == true)
+                    if (pipeTestResult.Operation.BoolExpected)
                     {
                         e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                     }
@@ -1003,7 +1003,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     && bool.TryParse(e.DisplayText, out tmpResult)
                     && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
                 {
-                    if (tmpResult == true)
+                    if (tmpResult)
                     {
                         e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                     }
