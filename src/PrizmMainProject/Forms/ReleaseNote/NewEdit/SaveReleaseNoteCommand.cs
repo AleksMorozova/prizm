@@ -61,10 +61,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
             try
             {
+                var emptyRailcars = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
 
-                var notEmpty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
-
-                foreach(var item in notEmpty)
+                foreach(var item in emptyRailcars)
                 {
                     viewModel.Railcars.Remove(item);
                 }
@@ -98,7 +97,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
             catch(RepositoryException ex)
             {
-                log.Error(ex.Message);
+                log.Error(String.Format("An error occured on saving release note {0},{1}: {2}", viewModel.ReleaseNote.Id, viewModel.ReleaseNote.Number, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
             RefreshVisualStateEvent();

@@ -23,7 +23,84 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ReleaseNoteViewModel));
 
-        public BindingList<Pipe> ReleaseNotePipes { get; set; }
+        public class PlainPipe
+        {
+            private Pipe pipe;
+
+            public static implicit operator Pipe(PlainPipe p)
+            {
+                return p.pipe;
+            }
+
+            public PlainPipe(Pipe p)
+            {
+                pipe = p;
+            }
+            public virtual Guid Id
+            {
+                get { return pipe.Id; }
+            }
+
+            public virtual string PipeNumber
+            {
+                get { return pipe.Number; }
+                set { pipe.Number = value; }
+            }
+
+            public virtual string PipeType
+            {
+                get { return pipe.Type.Type; }
+                set { pipe.Type.Type = value; }
+            }
+
+            public virtual PipeMillStatus PipeStatus
+            {
+                get { return pipe.Status; }
+                set { pipe.Status = value; }
+            }
+
+            public virtual string RailcarNumber
+            {
+                get { return pipe.Railcar.Number; }
+                set { pipe.Railcar.Number = value; }
+            }
+            public virtual string RailcarCertificate
+            {
+                get { return pipe.Railcar.Certificate; }
+                set { pipe.Railcar.Certificate = value; }
+            }
+            public virtual string RailcarDestination
+            {
+                get { return pipe.Railcar.Destination; }
+                set { pipe.Railcar.Destination = value; }
+            }
+        }
+
+        public class PlainPipeBindingList : BindingList<PlainPipe>
+        {
+            /// <summary>
+            /// special removal method for plain pipes, if there is only reference to pipe
+            /// </summary>
+            /// <param name="p">pipe to remove</param>
+            /// <returns>status if pipe was removed from plain pipes list</returns>
+            public bool Remove(Pipe p)
+            {
+                bool removed = false;
+                for (int index = 0; index < this.Count; index++)
+                {
+                    if (p == (Pipe)this[index])
+                    {
+                        this.RemoveAt(index);
+                        removed = true; 
+                        break;
+                    }
+                }
+                return removed;
+            }
+        }
+
+        public PlainPipeBindingList ReleaseNotePipes { get; set; }
+        
         private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
         private readonly IReleaseNoteRepositories repos;
         private readonly IUserNotify notify;
@@ -31,13 +108,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private readonly ShipReleaseNoteCommand shipCommand;
         private readonly UnshipReleaseNoteCommand unshipCommand;
         private readonly ISecurityContext ctx;
-        private List<Pipe> allPipes;
-        IModifiable modifiableView;
+        private List<Pipe> pipesToAdd = null;
+        IModifiable modifiableView = null;
         public IValidatable validatableView { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
-        public Dictionary<Pipe, Prizm.Domain.Entity.Mill.Railcar> pipesList =
-           new Dictionary<Pipe, Prizm.Domain.Entity.Mill.Railcar>();
-        public Pipe pipeToAdd;
         public bool IsNew { get { return this.Railcar.IsNew(); } }
 
         [Inject]
@@ -47,61 +121,47 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.notify = notify;
             this.ctx = ctx;
 
-            GetStoredPipes();
-
             saveCommand = ViewModelSource.Create(() => new SaveReleaseNoteCommand(this, repos, notify,ctx));
-            shipCommand = ViewModelSource.Create(() => new ShipReleaseNoteCommand(this, repos, notify));
+            shipCommand = ViewModelSource.Create(() => new ShipReleaseNoteCommand(this, repos, notify, ctx));
             unshipCommand = ViewModelSource.Create(() => new UnshipReleaseNoteCommand(this, repos, notify, ctx));
 
+            ReleaseNotePipes = new PlainPipeBindingList();
             if (id == Guid.Empty)
             {
                 NewRailcar();
-                ReleaseNotePipes = new BindingList<Pipe>();
             }
             else
             {
                 ReleaseNote = repos.ReleaseNoteRepo.Get(id);
-                LoadData(id);
+                if (ReleaseNote == null)
+                {
+                    log.Error(string.Format("Release Note (id:{0}) does not exist.", id));
+                    // TODO: user message? close document?
+                }
+                else
+                {
+                    IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
+                    foreach (var p in pipes)
+                    {
+                        ReleaseNotePipes.Add(new PlainPipe(p));
+                    }
+                }
             }
            
         }
 
-        public void LoadData(Guid id)
+        public List<Pipe> AllPipesToAdd
         {
-            ReleaseNotePipes = new BindingList<Pipe>();
-            if (ReleaseNote != null)
+            get
             {
-                GetAllPipes(id);
-            }
-            else
-            {
-                ReleaseNotePipes = new BindingList<Pipe>();
-                log.Warn(string.Format("List of Pipes in Release Note (id:{0}) is NULL.", id));
+                if (pipesToAdd == null)
+                {
+                    GetStoredPipes();
+                }
+                return pipesToAdd;
             }
         }
 
-        private void GetAllPipes(Guid id)
-        {
-            if (ReleaseNotePipes == null)
-            {
-                ReleaseNotePipes = new BindingList<Pipe>();
-                log.Warn(string.Format("List of Pipes in Release Note (id:{0}) is NULL.", id));
-            }
-
-            IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
-            foreach (var p in pipes)
-            {
-                ReleaseNotePipes.Add(p);
-            }
-        }
-
-
-        public List<Pipe> AllPipes
-        {
-            get { return allPipes; }
-        }
-
-        //public Prizm.Domain.Entity.Mill.Railcar Railcar { get; set; }
         public Prizm.Domain.Entity.Mill.ReleaseNote ReleaseNote { get; set; }
 
         #region Release Note
@@ -256,28 +316,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
             }
         }
-        public IList<Pipe> Pipes
-        {
-            get
-            {
-                if (railcar != null)
-                {
-                    return railcar.Pipes;
-                }
-                else
-                {
-                    return new List<Pipe>();
-                }
-            }
-            set
-            {
-                if (value != railcar.Pipes)
-                {
-                    railcar.Pipes = value;
-                    RaisePropertyChanged("Pipes");
-                }
-            }
-        }
 
         # endregion Railcar Note
 
@@ -311,62 +349,74 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         public void AddPipe(Guid id)
         {
-            foreach (var pipe in Pipes)
-	        {
-                if (pipe.Id == id)
-	            {
-		        return;
-	            }
-	        }
-            GetStoredPipes();
-
-            pipeToAdd = allPipes.Find(_ => _.Id.Equals(id));
-
-            if (!(pipeToAdd.Railcar == null))
+            if (modifiableView != null && modifiableView.IsEditMode)
             {
-                notify.ShowError(
-                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
-                        + " " + pipeToAdd.Railcar.Number,
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                var pipeToAdd = pipesToAdd.Find(_ => _.Id.Equals(id));
+                if (pipeToAdd != null)
+                {
+                    if (pipeToAdd.Railcar != null)
+                    {
+                        notify.ShowError(
+                            Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
+                                + " " + pipeToAdd.Railcar.Number,
+                            Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+
+                        log.Error(String.Format("Attempt to add pipe {0},{1} to release note {2},{3} while already in railcar {4},{5}.",
+                            pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                    }
+                    else
+                    {
+                        pipeToAdd.Railcar = this.Railcar;
+                        ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
+                        AllPipesToAdd.Remove(pipeToAdd);
+
+                        log.Info(String.Format("Pipe {0},{1} added to Release note {2},{3} and railcar {4},{5}",
+                            pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                    }
+                }
+                else
+                {
+                    log.Error(String.Format("Attempt to add pipe {0} to release note {1},{2} but pipe is not in list of available pipes.",
+                            id, ReleaseNote.Id, ReleaseNote.Number));
+                    // TODO: user message?
+                }
             }
             else
             {
-                Pipes.Add(pipeToAdd);
-                ReleaseNotePipes.Add(pipeToAdd);
-                AllPipes.Remove(pipeToAdd);
+                log.Warn("Attempt to add pipe to ReleaseNote in Read mode!");
+                // TODO: user message?
             }
-
-            
         }
 
-        public void RemovePipe(string number)
+        public void RemovePipe(PlainPipe pipe)
         {
             if (Railcar.IsShipped)
             {
                 notify.ShowError(
-                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_UnshipFirst), 
+                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_UnshipFirst),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-                return;
-            }
 
-            foreach (var pipe in Pipes)
+                log.Warn("Attempt to remove pipe in already shipped release note!");
+            }
+            else
             {
-                if (pipe.Number == number)
+                try
                 {
-                    try
-                    {
-                        pipesList.Remove(pipe);
-                        Pipes.Remove(pipe);
-                        AllPipes.Add(pipe);
-                        ReleaseNotePipes.Remove(pipe);
-                        pipe.Railcar = null;
-                        repos.PipeRepo.Merge(pipe);
-                        break;
-                    }
-                    catch (RepositoryException ex)
-                    {
-                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
-                    }
+                    AllPipesToAdd.Add(pipe);
+                    ReleaseNotePipes.Remove(pipe);
+                    var tmpRailcar = ((Pipe)pipe).Railcar;
+                    ((Pipe)pipe).Railcar = null;
+                    repos.PipeRepo.Merge(pipe);
+
+                    log.Info(String.Format("Pipe {0},{1} removed from Release note {2},{3} and railcar {4},{5}",
+                        pipe.Id, pipe.PipeNumber, ReleaseNote.Id, ReleaseNote.Number, tmpRailcar.Id, tmpRailcar.Number));
+                }
+                catch (RepositoryException ex)
+                {
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+
+                    log.Error(String.Format("Failure removing pipe {0},{1} from release note {2},{3}",
+                        pipe.Id, pipe.PipeNumber, ReleaseNote.Id, ReleaseNote.Number));
                 }
             }
         }
@@ -382,19 +432,38 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             Railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
         }
 
+        /// <summary>
+        /// Stored pipes are pipes which are ready to ship
+        /// </summary>
         public void GetStoredPipes()
         {
             try
             {
-                var tmp = new List<Pipe>(repos.PipeRepo.GetStored());
-                allPipes = tmp;
-                if (this.allPipes == null || this.allPipes.Count <= 0)
-                    log.Warn( "List of Stored Pipes in Release Note is NULL or empty" );
+                if (pipesToAdd == null)
+                {
+                    pipesToAdd = new List<Pipe>();
+                }
+                else
+                {
+                    pipesToAdd.Clear();
+                }
+                if (modifiableView.IsEditMode)
+                {
+                    var storedPipes = repos.PipeRepo.GetStored();
+                    if (storedPipes != null)
+                    {
+                        pipesToAdd.AddRange(storedPipes);
+                    }
+                    else
+                    {
+                        log.Warn("NULL was returned when retrieving stored pipes ready to ship");
+                    }
+                }
             }
             catch (RepositoryException ex)
             {
-                log.Error(string.Format("Unable to retrieve stored pipe: ", ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                log.Error(string.Format("Unable to retrieve stored pipes: {0} {1}", ex.InnerException.Message, ex.Message));
             }
         }
 

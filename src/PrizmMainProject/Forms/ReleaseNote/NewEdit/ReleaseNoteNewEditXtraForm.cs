@@ -67,6 +67,12 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
+            statusTypeDict.Clear();
+            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
+            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
+            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
+            repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
+
             BindCommands();
             BindToViewModel();
             IsModified = false;
@@ -116,6 +122,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
             railcarNumber.Properties.DataSource = viewModel.Railcars;
             railcarNumber.DataBindings.Add("EditValue", bindingSource, "Railcar");
+
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Destination");
             pipesList.DataBindings.Add("DataSource", bindingSource, "ReleaseNotePipes");
@@ -127,7 +134,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     (bool)value ? StringResources.ReleaseNoteNewEdit_ShippedStatus : StringResources.ReleaseNoteNewEdit_PendingStatus);
                 }));
             
-            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
             pipeNumberLookUp.Properties.DisplayMember = "Number";
             pipeNumberLookUp.Properties.ValueMember = "Id";
         }
@@ -143,12 +150,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
 
-            // TODO(odem): Is BindCommands() a correct method for initializing dictionary for lookup?
-            statusTypeDict.Clear();
-            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
-            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
-            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
-            repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
         }
 
         private void RailcarNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -160,28 +161,27 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void addPipeButton_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
+            if (!string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
             {
-                return;
+                viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
+                pipesList.RefreshDataSource();
+                pipeNumberLookUp.EditValue = null;
+                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
+                IsModified = true;
+                commandManager.RefreshVisualState();
             }
-            viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
-            viewModel.pipesList.Add(viewModel.pipeToAdd, viewModel.Railcar);
-            pipesList.RefreshDataSource();
-            pipeNumberLookUp.EditValue = null;
-            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
-            IsModified = true;
-            commandManager.RefreshVisualState();
 
         }
 
         private void removePipe_Click(object sender, EventArgs e)
         {
-            string number = pipesListView.GetRowCellValue(pipesListView.FocusedRowHandle, "Number") as string;
-            if(!string.IsNullOrEmpty(number))
+            Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe pipe =
+                pipesListView.GetRow(pipesListView.FocusedRowHandle) as Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe;
+            if (pipe != null)
             {
-                viewModel.RemovePipe(number);
+                viewModel.RemovePipe(pipe);
                 pipesList.RefreshDataSource();
-                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
                 IsModified = true;
                 commandManager.RefreshVisualState();
             }
@@ -195,10 +195,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
         }
 
-        private void shippedDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-        {
-        }
-
         private void SetControlsTextLength()
         {
             railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
@@ -207,19 +203,14 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             releaseNoteNumber.Properties.MaxLength = LengthLimit.MaxReleaseNoteNumber;
         }
 
-        private void ButtonRefresh()
-        {
-            commandManager.RefreshVisualState();
-        }
-
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
         {
             viewModel.GetStoredPipes();
-            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipes;
+            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
             pipeNumberLookUp.Refresh();
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void AttachmentsButton_Click(object sender, EventArgs e)
         {
             if(filesForm == null)
             {
@@ -242,13 +233,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void railcarNumber_EditValueChanged(object sender, EventArgs e)
         {
-            viewModel.Number = railcarNumber.EditValue.ToString();
-            commandManager.RefreshVisualState();
-        }
-
-        private void shipButton_Click(object sender, EventArgs e)
-        {
-
+            viewModel.Number = railcarNumber.EditValue.ToString(); // ??
+            commandManager.RefreshVisualState(); // ??
+            certificateNumber.Refresh();
+            destination.Refresh();
         }
 
         private void releaseNoteNumber_EditValueChanged(object sender, EventArgs e)
@@ -275,18 +263,14 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             Prizm.Domain.Entity.Mill.Railcar r = new Prizm.Domain.Entity.Mill.Railcar
             {
                 Number = railcarNumber.Text,
-                Certificate = viewModel.Certificate,
-                Destination = viewModel.Destination
+                Certificate = "",
+                Destination = ""
             };
 
             viewModel.Railcars.Add(r);
-            viewModel.Railcar = r;
+            railcarNumber.EditValue = viewModel.Railcar = r;
+            e.Handled = true;
         }
 
-        private void railcarNumber_EditValueChanged_1(object sender, EventArgs e)
-        {
-            certificateNumber.Refresh();
-            destination.Refresh();
-        }
     }
 } 

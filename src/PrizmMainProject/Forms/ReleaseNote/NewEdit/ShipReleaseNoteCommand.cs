@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prizm.Main.Languages;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -22,15 +23,17 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private readonly IReleaseNoteRepositories repos;
         private readonly ReleaseNoteViewModel viewModel;
         private readonly IUserNotify notify;
+        private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public ShipReleaseNoteCommand(ReleaseNoteViewModel viewModel, IReleaseNoteRepositories repo, IUserNotify notify)
+        public ShipReleaseNoteCommand(ReleaseNoteViewModel viewModel, IReleaseNoteRepositories repo, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repo;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -95,8 +98,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         public bool CanExecute()
         {
-            return (!viewModel.Shipped
-                && !string.IsNullOrWhiteSpace(viewModel.Number)); //&& viewModel.Pipes.Count != 0
+            return !viewModel.Shipped
+                && !string.IsNullOrWhiteSpace(viewModel.Number) 
+                && viewModel.ReleaseNotePipes.Count > 0
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
         }
     }
 }
