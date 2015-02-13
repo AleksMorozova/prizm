@@ -43,15 +43,27 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 try
                 {
+                    viewModel.JointDisconnection();
                     viewModel.JointIsActive = false;
 
                     repo.BeginTransaction();
                     repo.RepoJoint.Save(viewModel.Joint);
                     repo.Commit();
+
                     repo.RepoJoint.Evict(viewModel.Joint);
 
                     viewModel.ModifiableView.IsEditMode = false;
                     viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.UpdateState();
+
+                    notify.ShowSuccess(
+                        string.Concat(Program.LanguageManager.GetString(
+                            StringResources.Joint_Deactivated), viewModel.Number),
+                        Program.LanguageManager.GetString(
+                            StringResources.Joint_DeactivatedHeader));
+
+                    log.Info(string.Format("The Joint #{0}, id:{1} has been deactivated.",
+                        viewModel.Joint.Number, viewModel.Joint.Id));
                 }
                 catch (RepositoryException ex)
                 {

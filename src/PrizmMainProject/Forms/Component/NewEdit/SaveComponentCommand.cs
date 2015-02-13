@@ -2,6 +2,7 @@
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
             if (!viewModel.ValidatableView.Validate())
             {
                 return;
+            }
+
+            foreach(var result in viewModel.InspectionTestResults)
+            {
+                if(!result.Date.IsValid())
+                {
+                    log.Warn("Date limits not valid!");
+                    return;
+                }
             }
 
             var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
@@ -98,7 +108,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                repos.Rollback();
                            }
                         }
-
+                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
                         repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
                         repos.Commit();
                         repos.ComponentRepo.Evict(viewModel.Component);

@@ -24,11 +24,29 @@ namespace Prizm.Main.Forms.Settings.Inspections
         public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
-            viewModel = new MillInspectionViewModel(current, categoryTypes);
+            this.SetupForm(current, categoryTypes);
+        }
+
+        private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
+        {
+            if(viewModel == null)
+            {
+                viewModel = new MillInspectionViewModel(current, categoryTypes);
+            }
+            else
+            {
+                viewModel.SetupViewModel(current, categoryTypes);
+            }
+
+            return viewModel;
+        }
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes)
+        {
+            viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
             ChangeFrequency();
-            if (current != null)
+            if(current != null)
             {
                 this.Text = current.Name;
             }
@@ -36,9 +54,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void boolExpected_CheckedChanged(object sender, EventArgs e)
         {
-            if (boolExpected.Checked)
+            if(boolExpected.Checked)
             {
-                boolExpected.Text = " [ "+ Program.LanguageManager.GetString(StringResources.Yes) +" ] ";
+                boolExpected.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + " ] ";
             }
             else
             {
@@ -48,20 +66,27 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
+            resultType.Properties.Items.Clear();
+            controlType.Properties.Items.Clear();
+            frequencyMeasure.Properties.Items.Clear();
+
+            foreach(var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
             {
                 resultType.Properties.Items.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
             {
                 controlType.Properties.Items.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
             {
                 frequencyMeasure.Properties.Items.Add(item.Item2);
             }
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
+
+            code.SetAsIdentifier();
+            code.SetRequiredText();
         }
 
         private void BindToViewModel()
@@ -84,15 +109,15 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
-      
+
         }
 
         private void ChangeExpected()
         {
-            
+
             boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             rangeExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch ((PipeTestResultType)resultType.SelectedIndex+1)
+            switch((PipeTestResultType)resultType.SelectedIndex + 1)
             {
                 case PipeTestResultType.Boolean:
                     boolExpectedGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -111,10 +136,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
-            if (!viewModel.IsRequired)
+            if(!viewModel.IsRequired)
             {
                 frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                if (viewModel.PipeTest.Frequency == null)
+                if(viewModel.PipeTest.Frequency == null)
                     viewModel.PipeTest.Frequency = new PipeTestFrequency();
             }
             else
@@ -128,7 +153,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             viewModel.IsRequired = isRequired.Checked;
             ChangeFrequency();
         }
-        
+
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()
@@ -161,6 +186,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
                    new LocalizedItem(rangeExpectedGroup, StringResources.MillInspection_RangeControlValueGroup.Id),
                    new LocalizedItem(boolExpectedGroup, StringResources.MillInspection_BoolControlValueGroup.Id),
                    new LocalizedItem(frequencyGroup, StringResources.MillInspection_FrequencyGroup.Id),
+
+                   new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillInspection_Title.Id} )
             };
         }
         #endregion // --- Localization ---
@@ -175,5 +202,25 @@ namespace Prizm.Main.Forms.Settings.Inspections
             code.Properties.MaxLength = LengthLimit.MaxPipeTestCode;
             operationName.Properties.MaxLength = LengthLimit.MaxPipeTestName;
         }
+
+        private void MillInspectionXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            code.DataBindings.Clear();
+            operationName.DataBindings.Clear();
+            isRequired.DataBindings.Clear();
+            isActive.DataBindings.Clear();
+
+            controlType.DataBindings.Clear();
+            resultType.DataBindings.Clear();
+            frequencyMeasure.DataBindings.Clear();
+
+            category.DataBindings.Clear();
+
+            boolExpected.DataBindings.Clear();
+            minExpected.DataBindings.Clear();
+            maxExpected.DataBindings.Clear();
+            frequency.DataBindings.Clear();
+        }
+
     }
 }

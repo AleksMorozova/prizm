@@ -36,7 +36,6 @@ namespace Prizm.Main.Forms.Spool
 
         public bool IsMatchedByGuid(Guid id) { return this.id == id; }
 
-
         public SpoolsXtraForm(Guid id, string number)
         {
             this.id = id;
@@ -95,7 +94,7 @@ namespace Prizm.Main.Forms.Spool
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                "EditValue", SpoolBindingSource, "SpoolIsActive"));
+                "Checked", SpoolBindingSource, "SpoolIsActive"));
 
             inspectorsDataSource.DataSource = viewModel.Inspectors;
             inspectorsDataSource.ListChanged += (s, eve) => IsModified = true;
@@ -124,7 +123,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
-            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllInspectionStatus.Add(item.Item2);
             }
@@ -134,8 +133,11 @@ namespace Prizm.Main.Forms.Spool
                 (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = ((this.id != Guid.Empty|| viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
+            IsEditMode = ((this.id != Guid.Empty || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
+
+            inspectionDateEdit.SetLimits();
+            spoolNumber.SetAsIdentifier();
         }
 
         #region --- Localization ---
@@ -171,7 +173,8 @@ namespace Prizm.Main.Forms.Spool
                                                                                         StringResources.PartInspectionStatus_Hold.Id,
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
-                                                                                      })
+                                                                                      }),
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SpoolsXtraForm_Title.Id} )
             };
         }
 
@@ -179,7 +182,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)
         {
-            if (filesForm == null)
+            if(filesForm == null)
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -203,7 +206,7 @@ namespace Prizm.Main.Forms.Spool
         {
             LookUpEdit lookup = sender as LookUpEdit;
 
-            if (lookup.ItemIndex != -1)
+            if(lookup.ItemIndex != -1)
             {
                 lookup.EditValue = (PartInspectionStatus)lookup.ItemIndex + 1;
             }
@@ -211,10 +214,10 @@ namespace Prizm.Main.Forms.Spool
 
         private void resultLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value != null)
+            if(e.Value != null)
             {
                 PartInspectionStatus result;
-                if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
                 }
@@ -319,7 +322,7 @@ namespace Prizm.Main.Forms.Spool
 
             view.ClearColumnErrors();
 
-            if (String.IsNullOrEmpty(Name))
+            if(String.IsNullOrEmpty(Name))
             {
                 view.SetColumnError(inspectorsGridColumn,
                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult));
@@ -331,7 +334,7 @@ namespace Prizm.Main.Forms.Spool
         {
             GridView view = sender as GridView;
             InspectionTestResult inspection = view.GetRow(view.FocusedRowHandle) as InspectionTestResult;
-            if (inspection.Status != PartInspectionStatus.Pending &&  inspection.Inspectors.Count <= 0)
+            if(inspection.Status != PartInspectionStatus.Pending && inspection.Inspectors.Count <= 0)
             {
                 ValidateInspection(inspectionHistoryGridView, inspectorsGridColumn.Name.ToString(), e);
             }

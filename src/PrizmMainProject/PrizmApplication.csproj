@@ -193,6 +193,8 @@
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DateExtension.cs" />
+    <Compile Include="Controls\DateEditExtension.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Controls\BindingHelper.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Controls\InspectorSelectionControl.Designer.cs">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GridViewValidation.cs" />
     <Compile Include="Controls\WeldersSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,7 +263,9 @@
     <Compile Include="Forms\ControlMaskExtensions.cs" />
     <Compile Include="Forms\ExternalFile\AddExternalFileCommand.cs" />
     <Compile Include="Forms\ExternalFile\DownloadFileCommand.cs" />
+    <Compile Include="Forms\ExternalFile\ExternalFilesRepositories.cs" />
     <Compile Include="Forms\ExternalFile\ExternalFilesViewModel.cs" />
+    <Compile Include="Forms\ExternalFile\IExternalFilesRepositories.cs" />
     <Compile Include="Forms\ExternalFile\ViewFileCommand.cs" />
     <Compile Include="Forms\GridViewExtensions.cs" />
     <Compile Include="Forms\Joint\NewEdit\JointCutCommand.cs" />
@@ -419,8 +424,8 @@
     <Compile Include="Forms\PipeMill\Search\MillPipeSearchViewModel.cs" />
     <Compile Include="Forms\PipeMill\Search\Pipe.cs" />
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
-    <Compile Include="Forms\Railcar\IRailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\ReleaseNoteProjection.cs" />
+    <Compile Include="Forms\ReleaseNote\IReleaseNoteRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
@@ -508,6 +513,13 @@
     <Compile Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.Designer.cs">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Settings\DuplicatesList.cs" />
+    <Compile Include="Forms\Reports\Mill\SubReportShippingRailCar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\Mill\SubReportShippingRailCar.Designer.cs">
+      <DependentUpon>SubReportShippingRailCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Settings\ExtractCategoriesCommand.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionViewModel.cs" />
     <Compile Include="Forms\Settings\Inspections\MillInspectionXtraForm.cs">
@@ -565,11 +577,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\ISecurityContext.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\ShipRailcarCommand.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\UnshipRailcarCommand.cs" />
-    <Compile Include="Forms\Railcar\RailcarRepositories.cs" />
-    <Compile Include="Forms\Railcar\Search\RailcarSearchViewModel.cs" />
-    <Compile Include="Forms\Railcar\Search\SearchRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\ShipReleaseNoteCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\UnshipReleaseNoteCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\ReleaseNoteRepositories.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\Search\SearchReleaseNoteCommand.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportsXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -594,8 +606,8 @@
     <Compile Include="Forms\Reports\Mill\MillReportsXtraReport.Designer.cs">
       <DependentUpon>MillReportsXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarViewModel.cs" />
-    <Compile Include="Forms\Railcar\NewEdit\SaveRailcarCommand.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteViewModel.cs" />
+    <Compile Include="Forms\ReleaseNote\NewEdit\SaveReleaseNoteCommand.cs" />
     <Compile Include="Forms\Reports\Mill\CreateReportCommand.cs" />
     <Compile Include="Forms\Settings\ISettingsRepositories.cs" />
     <Compile Include="Forms\Settings\SaveSettingsCommand.cs" />
@@ -653,17 +665,17 @@
     <Compile Include="Forms\MainChildForm\PrizmApplicationXtraForm.Designer.cs">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.Designer.cs">
-      <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.Designer.cs">
+      <DependentUpon>ReleaseNoteNewEditXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.cs">
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Railcar\Search\RailcarSearchXtraForm.Designer.cs">
-      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.Designer.cs">
+      <DependentUpon>ReleaseNoteSearchXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\SettingsXtraForm.cs">
       <SubType>Form</SubType>
@@ -854,14 +866,17 @@
     <EmbeddedResource Include="Forms\MainChildForm\PrizmApplicationXtraForm.resx">
       <DependentUpon>PrizmApplicationXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Railcar\NewEdit\RailcarNewEditXtraForm.resx">
-      <DependentUpon>RailcarNewEditXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReleaseNote\NewEdit\ReleaseNoteNewEditXtraForm.resx">
+      <DependentUpon>ReleaseNoteNewEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Railcar\Search\RailcarSearchXtraForm.resx">
-      <DependentUpon>RailcarSearchXtraForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReleaseNote\Search\ReleaseNoteSearchXtraForm.resx">
+      <DependentUpon>ReleaseNoteSearchXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\Mill\SubReportForLoadingXtraReport.resx">
       <DependentUpon>SubReportForLoadingXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\Mill\SubReportShippingRailCar.resx">
+      <DependentUpon>SubReportShippingRailCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Inspections\MillInspectionXtraForm.resx">
       <DependentUpon>MillInspectionXtraForm.cs</DependentUpon>
@@ -888,6 +903,7 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -1103,6 +1119,7 @@
     <None Include="Resources\import.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Languages\LocalizedStrings\Strings.en-US.txt" />
     <Content Include="prizma_appIcon_16.ico" />
     <Content Include="prizma_appIcon_256.ico" />
     <Content Include="prizma_appIcon_32.ico" />
@@ -1121,6 +1138,14 @@
     <None Include="Resources\components_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>DEL $(SolutionDir)..\install\Lang\Res\*.resources
+$(SolutionDir)..\..\prizm_external\external\Lang\resgen.exe $(ProjectDir)\Languages\LocalizedStrings\Strings.en-US.txt $(SolutionDir)..\install\Lang\Res\Strings.en-US.resources</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

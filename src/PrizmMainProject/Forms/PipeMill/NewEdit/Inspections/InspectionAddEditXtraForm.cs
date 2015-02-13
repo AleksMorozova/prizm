@@ -24,12 +24,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public InspectionAddEditViewModel viewModel;
 
         private InspectionAddEditViewModel GetInspectionViewModel(
-            IList<PipeTest> tests, 
-            IList<Inspector> inspectors, 
-            PipeTestResult current, 
+            IList<PipeTest> tests,
+            IList<Inspector> inspectors,
+            PipeTestResult current,
             IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if (viewModel == null)
+            if(viewModel == null)
             {
                 viewModel = new InspectionAddEditViewModel(tests, inspectors, current, statuses);
             }
@@ -60,7 +60,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             date.Properties.NullDate = DateTime.MinValue;
             date.Properties.NullText = string.Empty;
 
-            if (current != null)
+            if(current != null)
             {
                 ChangeFact();
                 code.Properties.ReadOnly = true;
@@ -71,7 +71,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 code.Properties.ReadOnly = false;
                 code.Properties.Items.Clear();
-                foreach (var item in viewModel.Tests)
+                foreach(var item in viewModel.Tests)
                 {
                     code.Properties.Items.Add(item.Code);
                 }
@@ -84,13 +84,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
             status.Properties.Items.Clear();
-            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
             {
                 status.Properties.Items.Add(item.Item2);
             }
             BindToViewModel();
 
             factBool_CheckedChanged(null, null);
+
+            date.SetLimits();
         }
 
         private void BindToViewModel()
@@ -113,7 +115,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             factString.DataBindings.Add("EditValue", bindingSource, "FactString");
             factLimit.DataBindings.Add("EditValue", bindingSource, "FactLimit");
         }
-
 
         #region --- Localization ---
 
@@ -144,7 +145,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(status, new string [] {StringResources.PipeTestResultStatus_Scheduled.Id, 
                                                          StringResources.PipeTestResultStatus_Passed.Id,
                                                          StringResources.PipeTestResultStatus_Failed.Id,
-                                                         StringResources.PipeTestResultStatus_Repair.Id})
+                                                         StringResources.PipeTestResultStatus_Repair.Id}),
+
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionAddEdit_Title.Id} )
             };
         }
 
@@ -162,7 +165,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            switch (viewModel.TestResult.Operation.ResultType)
+            switch(viewModel.TestResult.Operation.ResultType)
             {
                 case PipeTestResultType.Boolean:
                     factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -182,7 +185,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (viewModel.Status != PipeTestResultStatus.Scheduled && inspectors.SelectedInspectors.Count <= 0)
+            if(viewModel.Status != PipeTestResultStatus.Scheduled && inspectors.SelectedInspectors.Count <= 0)
             {
                 this.DialogResult = DialogResult.None;
                 Program.MainForm.ShowError
@@ -190,7 +193,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader)
                     );
             }
-            else if (viewModel.Status == PipeTestResultStatus.Passed 
+            else if(viewModel.Status == PipeTestResultStatus.Passed
                 && viewModel.Operation.Category.Type == FixedCategory.Length
                 && string.IsNullOrEmpty(viewModel.FactLimit))
             {
@@ -210,11 +213,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             viewModel.TestResult.Inspectors = inspectors.SelectedInspectors;
             viewModel.TestResult.Status = viewModel.Status;
-            if (viewModel.Date != DateTime.MinValue)
+            if(viewModel.Date != DateTime.MinValue)
             {
                 viewModel.TestResult.Date = viewModel.Date;
             }
-            switch (viewModel.TestResult.Operation.ResultType)
+            switch(viewModel.TestResult.Operation.ResultType)
             {
                 case PipeTestResultType.Boolean:
                     viewModel.TestResult.Value = viewModel.FactBool.ToString();
@@ -234,13 +237,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void factBool_CheckedChanged(object sender, EventArgs e)
         {
-            if (factBool.Checked)
+            if(factBool.Checked)
             {
                 factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.Yes) + "] ";
             }
             else
             {
-                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.No)  + " ] ";
+                factBool.Text = " [ " + Program.LanguageManager.GetString(StringResources.No) + " ] ";
             }
         }
 
@@ -259,7 +262,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void InspectionAddEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.None)
+            if(this.DialogResult == DialogResult.None)
                 e.Cancel = true;
         }
     }

@@ -346,6 +346,12 @@ namespace Prizm.Main.Languages
             Description = "Просмотр и загрузка несохрaненных файлов"
         };
 
+        public static StringResource ExternalFiles_FileSizeIsTooBig= new StringResource
+        {
+            Id = "ExternalFiles_FileSizeIsTooBig",
+            Description = "Сообщение: Размер вложения больше разрешенного"
+        };
+
 
         public static StringResource Yes = new StringResource
         {
@@ -675,6 +681,12 @@ namespace Prizm.Main.Languages
         #endregion PurchaseOrderForm
 
         #region PasswordChange
+
+        public static StringResource PassChange_Title = new StringResource
+        {
+            Id = "PassChange_Title",
+            Description = "Смена пароля"
+        };
         public static StringResource PassChange_OldPassLabel = new StringResource
         {
             Id = "PassChange_OldPassLabel",
@@ -720,6 +732,13 @@ namespace Prizm.Main.Languages
         #endregion PasswordChange
 
         #region MillReport
+
+        public static StringResource MillReport_Title = new StringResource
+        {
+            Id = "MillReport_Title",
+            Description = "Отчет"
+        };
+
         public static StringResource MillReport_ReportTypesLabel = new StringResource
         {
             Id = "MillReport_ReportTypesLabel",
@@ -799,6 +818,13 @@ namespace Prizm.Main.Languages
         #endregion MillReport
 
         #region IncomingInspectionReport
+
+        public static StringResource InspectionReport_Title = new StringResource
+        {
+            Id = "InspectionReport_Title",
+            Description = "Отчет по входному контролю"
+        };
+
         public static StringResource InspectionReport_DateLabel = new StringResource
         {
             Id = "InspectionReport_DateLabel",
@@ -844,6 +870,19 @@ namespace Prizm.Main.Languages
 
         #region Spool
         //message
+
+        public static StringResource SpoolsXtraForm_Title = new StringResource
+        {
+            Id = "SpoolsXtraForm_Title",
+            Description = "Создание катушки"
+        };
+        
+        public static StringResource CreateSpoolComponentDialog_Title = new StringResource
+        {
+            Id = "CreateSpoolComponentDialog_Title",
+            Description = "Создание компонента"
+        };
+        
         public static StringResource Spool_SpoolLengtBigerThenPipeLength = new StringResource
         {
             Id = "Spool_SpoolLengtBigerThenPipeLength",
@@ -981,11 +1020,27 @@ namespace Prizm.Main.Languages
             Id = "Spool_EditDocumentHeader",
             Description = "Катушка, заголовок окна редактирования: Редактирование катушки"
         };
-        
 
+        public static StringResource Spool_Deactivated = new StringResource
+        {
+            Id = "Spool_Deactivated",
+            Description = "Катушка деактивирована. Катушка #"
+        };
+
+        public static StringResource Spool_DeactivatedHeader = new StringResource
+        {
+            Id = "Spool_DeactivatedHeader",
+            Description = "Деактивация катушки"
+        };
+        
         #endregion Spool
 
         #region MissingPortion
+        public static StringResource MissingPortionsDialog_Title = new StringResource
+        {
+            Id = "MissingPortionsDialog_Title",
+            Description = "Нарушена последовательность"
+        };
         public static StringResource MissingPortion_missingNumbers = new StringResource
         {
             Id = "MissingPortion_missingNumbers",
@@ -1013,6 +1068,22 @@ namespace Prizm.Main.Languages
 
         #region Settings
         //message
+
+        public static StringResource Settings_Title = new StringResource
+        {
+            Id = "Settings_Title",
+            Description = "Настройки"
+        };
+        public static StringResource Settings_PipeControlOperationValidation = new StringResource
+        {
+            Id = "Settings_PipeControlOperationValidation",
+            Description = "Необходимо проверить следующие типоразмеры: "
+        };
+        public static StringResource Settings_PipeControlOperationValidationHeader = new StringResource
+        {
+            Id = "Settings_PipeControlOperationValidationHeader",
+            Description = "Неверные данные для типоразмера"
+        };
         public static StringResource  Settings_ValidateInspectorSertificate = new StringResource
         {
             Id = "Settings_ValidateInspectorSertificate",
@@ -1020,7 +1091,7 @@ namespace Prizm.Main.Languages
         };
         public static StringResource Settings_ValueRequired = new StringResource
         {
-            Id = "Settings_ValueRequaered",
+            Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
         };
         public static StringResource Settings_UniqueValueRequired = new StringResource
@@ -1932,6 +2003,12 @@ namespace Prizm.Main.Languages
             Id = "Audit_RadioUser", 
             Description = "Аудит. Надпись радиокнопки пользователя"};
 
+        public static StringResource AuditXtraForm_Title = new StringResource
+        {
+            Id = "AuditXtraForm_Title",
+            Description = "Заголовок: Аудит"
+        };
+
         #endregion //--- Audit --
 
         #region --- About ---
@@ -1950,9 +2027,23 @@ namespace Prizm.Main.Languages
             Id = "About_AcceptButton",
             Description = "Кнопка ОК"
         };
+
+        public static StringResource AboutXtraForm_Title = new StringResource
+        {
+            Id = "AboutXtraForm_Title",
+            Description = "О программе"
+        };
+
+        
         #endregion // --- About ---
 
         #region --- Part Search ---
+
+        public static StringResource PartSearch_Title = new StringResource
+        {
+            Id = "PartSearch_Title",
+            Description = "Поиск элементов трубопровода"
+        };
 
         public static StringResource PartSearch_SearchNumberLabel = new StringResource { 
             Id = "PartSearch_SearchNumberLabel",
@@ -1990,6 +2081,18 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Export/Import ---
+
+
+        public static StringResource ImportForm_Title = new StringResource
+        {
+            Id = "ImportForm_Title",
+            Description = "Импорт"
+        };
+        public static StringResource ExportForm_Title = new StringResource
+        {
+            Id = "ExportForm_Title",
+            Description = "Экспорт"
+        };
 
         public static StringResource Export_Ready = new StringResource
         {
@@ -2120,7 +2223,13 @@ namespace Prizm.Main.Languages
         public static StringResource Import_Unzip = new StringResource
         {
             Id = "Import_Unzip",
-            Description = "Распаковкаа"
+            Description = "Распаковка"
+        };
+
+        public static StringResource ImportMessage_IsFinished= new StringResource
+        {
+            Id = "ImportMessage_IsFinished",
+            Description = "Сообщение: Импортирование завершено"
         };
 
         #endregion // --- Export/Import ---
@@ -2142,6 +2251,11 @@ namespace Prizm.Main.Languages
             Id = "SaveDialog_CancelButton", 
             Description = "Диалог сохранения. Кнопка отмены"};
 
+        public static StringResource SaveDialog_Title = new StringResource
+        {
+            Id = "SaveDialog_Title",
+            Description = "Сохранить изменения?"
+        };
 
         #endregion
 
@@ -2158,6 +2272,13 @@ namespace Prizm.Main.Languages
             Id = "ExternalFiles_UploadDateColumnHeader", 
             Description = "Вложения. Надпись колонки даты загрузки"};
 
+        public static StringResource ExternalFilesXtraForm_Title = new StringResource
+        {
+            Id = "ExternalFilesXtraForm_Title",
+            Description = "Внешние файлы"
+        };
+
+        
         #endregion
 
         #region --- CreateSpoolComponentDialog ---
@@ -2183,6 +2304,21 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- InspectionSelectPartDialog ---
+
+
+
+        public static StringResource PartInspection_Title = new StringResource
+        {
+            Id = "PartInspection_Title",
+            Description = "Входной контроль"
+        };
+
+        public static StringResource InspectionSelectPartDialog_Title = new StringResource
+        {
+            Id = "InspectionSelectPartDialog_Title",
+            Description = "Выбор элемента"
+        };
+
         public static StringResource InspectionSelectPartDialog_SearchResultsLabel = new StringResource { 
             Id = "InspectionSelectPartDialog_SearchResultsLabel", 
             Description = "Диалог выбора элемента инспекции. Надпись результатов поиска"};
@@ -2206,6 +2342,12 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region ---Conflict Dialog
+
+        public static StringResource ConflictDialog_Title = new StringResource
+        {
+            Id = "ConflictDialog_Title",
+            Description = "Конфликт"
+        };
         public static StringResource ConflictDialog_ConflictLabel = new StringResource { 
             Id = "ConflictDialog_ConflictLabel", 
             Description = "Диалог конфликта при импорте. Текст"};
@@ -2384,6 +2526,24 @@ namespace Prizm.Main.Languages
         {
             Id = "ComponentNewEdit_DiameterValueValidation",
             Description = "Сообщение об ошибке: Величина диаметра должна быть больше нуля"
+        };
+
+        public static StringResource ComponentNewEdit_DeactivatedAction = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedAction",
+            Description = "Сообщение о деактивации элемента: Комплектующее изделие деактивировано. Комплектующее изделие #"
+        };
+
+        public static StringResource ComponentNewEdit_DeactivatedActionHeader = new StringResource
+        {
+            Id = "ComponentNewEdit_DeactivatedActionHeader",
+            Description = "Заголовок сообщения о деактивации элемента"
+        };
+
+        public static StringResource ComponentNewEdit_Title = new StringResource
+        {
+            Id = "ComponentNewEdit_Title",
+            Description = "Комплектующее изделие"
         };
 
         #endregion //--- ComponentNewEdit ---
@@ -2630,9 +2790,33 @@ namespace Prizm.Main.Languages
             Description = "Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов"
         };
 
+        public static StringResource Joint_Deactivated = new StringResource
+        {
+            Id = "Joint_Deactivated",
+            Description = "Стык деактивирован. Стык #"
+        };
+
+        public static StringResource Joint_DeactivatedHeader = new StringResource
+        {
+            Id = "Joint_DeactivatedHeader",
+            Description = "Деактивация стыка"
+        };
+
+        public static StringResource JointNewXtraForm_Title = new StringResource
+        {
+            Id = "JointNewXtraForm_Title",
+            Description = "Стык"
+        };
+
         #endregion //--- JointNew ---
 
         #region --- JointSearch ---
+
+        public static StringResource JointSearchXtraForm_Title = new StringResource
+        {
+            Id = "JointSearchXtraForm_Title",
+            Description = "Поиск стыков"
+        };
 
         public static StringResource JointSearch_JointNumber = new StringResource
         {
@@ -2742,6 +2926,11 @@ namespace Prizm.Main.Languages
 
         #region --- ConstructionReports ---
 
+        public static StringResource ConstructionReport_Title = new StringResource
+        {
+            Id = "ConstructionReport_Title",
+            Description = "Отчет по сварке участка между пикетами"
+        };
         public static StringResource ConstructionReports_ReportTypeLayout = new StringResource
         {
             Id = "ConstructionReports_ReportTypeLayout",
@@ -2820,6 +3009,11 @@ namespace Prizm.Main.Languages
 
         #region --- PipeConstructionReport ---
 
+        public static StringResource PipeConstructionReport_Title = new StringResource
+        {
+            Id = "PipeConstructionReport_Title",
+            Description = "Отчеты по трубам на стройке"
+        };
         public static StringResource PipeConstructionReport_PipeNumberLayout = new StringResource
         {
             Id = "PipeConstructionReport_PipeNumberLayout",
@@ -2877,6 +3071,12 @@ namespace Prizm.Main.Languages
         #endregion //--- PipeConstructionReport ---
 
         #region --- WeldDateReport ---
+
+        public static StringResource WeldDateReport_Title = new StringResource
+        {
+            Id = "WeldDateReport_Title",
+            Description = "Отчет по сварке (по дате)"
+        };
 
         public static StringResource WeldDateReport_WeldDateFromLayout = new StringResource {
             Id = "WeldDateReport_WeldDateFromLayout",
@@ -2953,11 +3153,26 @@ namespace Prizm.Main.Languages
             Description = "Отмена"
         };
 
+        public static StringResource JointCutDialog_Title = new StringResource
+        {
+            Id = "JointCutDialog_Title",
+            Description = "Вырезка стыка"
+        };
+
+        
+
 
 
         #endregion //--- JointCutDialog ---
 
         #region --- SelectDiameterDialog ---
+
+
+        public static StringResource SelectDiameterDialog_Title = new StringResource
+        {
+            Id = "SelectDiameterDialog_Title",
+            Description = "Выбор диаметра"
+        };
 
         public static StringResource SelectDiameterDialog_DiametersIntersectionLayout = new StringResource {
             Id = "SelectDiameterDialog_DiametersIntersectionLayout",
@@ -2972,6 +3187,12 @@ namespace Prizm.Main.Languages
         #endregion //--- SelectDiameterDialog ---
 
         #region --- MillInspectionXtraForm ---
+
+        public static StringResource MillInspection_Title = new StringResource
+        {
+            Id = "MillInspection_Title",
+            Description = "Добавление контрольной операции"
+        };
 
         public static StringResource MillInspection_FrequencyMeasureMeters = new StringResource { 
             Id = "MillInspection_FrequencyMeasureMeters", 
@@ -3115,6 +3336,17 @@ namespace Prizm.Main.Languages
 
         #region---NewEdit Pipe---
 
+        public static StringResource PurchaseOrder_Title = new StringResource
+        {
+            Id = "PurchaseOrder_Title",
+            Description = "Инспекция трубы"
+        };
+        public static StringResource InspectionAddEdit_Title = new StringResource
+        {
+            Id = "InspectionAddEdit_Title",
+            Description = "Инспекция трубы"
+        };
+
         public static StringResource Mask_Label = new StringResource
         {
             Id = "Mask_Label",
@@ -3201,6 +3433,11 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_TypeSizeThicknessLabel",
             Description = "Труба. Толщина по типоразмеру"
         };
+        public static StringResource NewEditPipe_ReleaseNoteNumber_Label = new StringResource
+        {
+            Id = "NewEditPipe_ReleaseNoteNumber_Label",
+            Description = "Труба. Номер разрешения на отгрузку"
+        };
         public static StringResource NewEditPipe_RailcarNumber_Label = new StringResource
         {
             Id = "NewEditPipe_RailcarNumber_Label",
@@ -3211,9 +3448,9 @@ namespace Prizm.Main.Languages
             Id = "NewEditPipe_RailcarCertificate_Label",
             Description = "Труба. Сертификат вагона"
         };
-        public static StringResource NewEditPipe_RailcarShippedDate_Label = new StringResource
+        public static StringResource NewEditPipe_ReleaseNoteDate_Label = new StringResource
         {
-            Id = "NewEditPipe_RailcarShippedDate_Label",
+            Id = "NewEditPipe_ReleaseNoteDate_Label",
             Description = "Труба. Дата отправки вагона"
         };
         public static StringResource NewEditPipe_RailcarDestination_Label = new StringResource
@@ -3504,9 +3741,33 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке даты: Дата не может быть пустой или будущей"
         };
 
+        public static StringResource Pipe_Deactivated = new StringResource
+        {
+            Id = "Pipe_Deactivated",
+            Description = "Труба деактивирована. Труба #"
+        };
+
+        public static StringResource Pipe_DeactivatedHeader = new StringResource
+        {
+            Id = "Pipe_DeactivatedHeader",
+            Description = "Деактивация трубы"
+        };
+
+        public static StringResource MillPipeNewEditXtraForm_Title = new StringResource
+        {
+            Id = "MillPipeNewEditXtraForm_Title",
+            Description = "Труба"
+        };
+
         #endregion
 
         #region---Search pipe---
+
+        public static StringResource SearchPipe_Title = new StringResource
+        {
+            Id = "SearchPipe_Title",
+            Description = "Поиск труб"
+        };
         public static StringResource SearchPipe_MillStatusProduced = new StringResource
         {
             Id = "SearchPipe_MillStatusProduced",
@@ -3630,6 +3891,12 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region---Release Note NewEdit---
+
+        public static StringResource ReleaseNoteNewEdit_Title = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_Title",
+            Description = "Разрешение на отгрузку"
+        };
         public static StringResource ReleaseNoteNewEdit_ReleaseNumberLabel = new StringResource
         {
             Id = "ReleaseNoteNewEdit_ReleaseNumberLabel",
@@ -3698,7 +3965,25 @@ namespace Prizm.Main.Languages
         public static StringResource ReleaseNoteNewEdit_PipeStatusColumn = new StringResource
         {
             Id = "ReleaseNoteNewEdit_PipeStatusColumn",
-            Description = "Разрешение на отгрузку. Столбец статус"
+            Description = "Разрешение на отгрузку. Столбец статус трубы"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarNumberColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarNumberColumn",
+            Description = "Разрешение на отгрузку. Столбец номер вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarCertificateColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarCertificateColumn",
+            Description = "Разрешение на отгрузку. Столбец сертификат вагона"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_RailcarDestinationColumn = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_RailcarDestinationColumn",
+            Description = "Разрешение на отгрузку. Столбец получатель вагона"
         };
 
         public static StringResource ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar = new StringResource
@@ -3770,7 +4055,7 @@ namespace Prizm.Main.Languages
         public static StringResource ReleaseNoteNewEdit_PendingStatus = new StringResource
         {
             Id = "ReleaseNoteNewEdit_PendingStatus",
-            Description = "Статус разрешения на отгрузку: сформировано"
+            Description = "Статус разрешения на отгрузку: формируется"
         };
 
         public static StringResource ReleaseNoteNewEdit_RailcarLayoutControlGroup = new StringResource
@@ -3802,6 +4087,12 @@ namespace Prizm.Main.Languages
 
 
         #region---Railcar Search---
+
+        public static StringResource ReleaseSearch_Title = new StringResource
+        {
+            Id = "ReleaseSearch_Title",
+            Description = "Поиск разрешений на отгрузку"
+        };
         public static StringResource ReleaseSearch_NumberLabel = new StringResource
         {
             Id = "ReleaseSearch_NumberLabel",
@@ -3959,6 +4250,17 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region Heat
+
+        public static StringResource Heat_Title = new StringResource
+        {
+            Id = "Heat_Title",
+            Description = "Плавка"
+        };
+        public static StringResource HeatNumberXtraForm_Title = new StringResource
+        {
+            Id = "HeatNumberXtraForm_Title",
+            Description = "Добавление плавки"
+        };
         public static StringResource Heat_NumberLabel = new StringResource
         {
             Id = "Heat_NumberLabel",
@@ -4076,6 +4378,11 @@ namespace Prizm.Main.Languages
 
         #region --- Notification ---
 
+        public static StringResource NotificationXtraForm_Title = new StringResource
+        {
+            Id = "NotificationXtraForm_Title",
+            Description = "Окно уведомлений"
+        };
         public static StringResource Notification_DublicatePipeNumber_Critical = new StringResource
         {
             Id = "Notification_DublicatePipeNumber_Critical",

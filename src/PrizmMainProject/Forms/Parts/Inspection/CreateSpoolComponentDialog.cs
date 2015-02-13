@@ -21,6 +21,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public CreateSpoolComponentDialog(string elementNumber)
         {
             InitializeComponent();
+            this.SetupForm(elementNumber);
+        }
+
+        public void SetupForm(string elementNumber) 
+        {
             Bitmap bmp = Resources.inControl_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
             numberLabelLayout.Text = elementNumber + "?";
@@ -36,6 +41,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(partRadioGroup, new string[]{ StringResources.CreateSpoolComponentDialog_RadioSpool.Id, StringResources.CreateSpoolComponentDialog_RadioComponent.Id}),
                 new LocalizedItem(cancelButton, StringResources.CreateSpoolComponentDialog_CancelButton.Id),
                 new LocalizedItem(acceptButton, StringResources.CreateSpoolComponentDialog_CreateButton.Id),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.CreateSpoolComponentDialog_Title.Id} )
             };
         }
 

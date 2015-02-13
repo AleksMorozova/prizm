@@ -3,7 +3,7 @@ using Moq;
 using NHibernate.Criterion;
 using NUnit.Framework;
 using Prizm.Main.Forms;
-using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.ReleaseNote.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
             };
 
 
-            var viewModel = new RailcarSearchViewModel(repo.Object, notify.Object);
+            var viewModel = new ReleaseNoteSearchViewModel(repo.Object, notify.Object);
             viewModel.RailcarNumber = "Test";
 
             iQuery.Setup(x => x.List<Prizm.Domain.Entity.Mill.Railcar>())
@@ -45,7 +45,7 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
             repo.Setup(x => x.CreateSQLQuery(It.IsAny<string>()))
                 .Returns(iSQLQuery.Object).Verifiable();
 
-            var command = new SearchRailcarCommand(viewModel, repo.Object, notify.Object);
+            var command = new SearchReleaseNoteCommand(viewModel, repo.Object, notify.Object);
 
             command.Execute();
 

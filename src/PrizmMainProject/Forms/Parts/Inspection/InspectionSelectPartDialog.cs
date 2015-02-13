@@ -25,14 +25,16 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private List<string> localizedPartTypes = new List<string>();
         public InspectionSelectPartDialog(BindingList<Part> parts, PartInspectionViewModel viewModel)
         {
+            InitializeComponent();
+            this.SetupForm(parts, viewModel);
+        }
+        public void SetupForm(BindingList<Part> parts, PartInspectionViewModel viewModel)
+        {
             this.parts = parts;
             this.viewModel = viewModel;
-            InitializeComponent();
-
             Bitmap bmp = Resources.inControl_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
-
         private void NumbersDialog_Load(object sender, EventArgs e)
         {
             foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
@@ -55,7 +57,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(numberCol, StringResources.InspectionSelectPartDialog_NumberColumnHeader.Id),
                 new LocalizedItem(typeCol, StringResources.InspectionSelectPartDialog_TypeColumnHeader.Id),
                 //grid column with enum
-                new LocalizedItem(searchResultsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id})
+                new LocalizedItem(searchResultsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id}),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.InspectionSelectPartDialog_Title.Id} )
             };
         }
 

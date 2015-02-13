@@ -274,6 +274,9 @@ namespace Prizm.Main.Languages
                     case ItemType.BarItem:
                         ((DevExpress.XtraBars.BarItem)obj).Caption = value;
                         break;
+                    case ItemType.FormHeader:
+                        ((Tuple<PrizmForm, List<string>>)obj).Item2[this.Count - 1] = value;
+                        break;
                     default:
                         break;
                 }
@@ -323,10 +326,12 @@ namespace Prizm.Main.Languages
 
                         case ItemType.RadioGroup:
                             var radio = (DevExpress.XtraEditors.RadioGroup)obj;
+                            int selectedItem = radio.SelectedIndex;
                             if (index < Count)
                             {
                                 ((DevExpress.XtraEditors.RadioGroup)obj).Properties.Items[index].Description = value;
                             }
+                            radio.SelectedIndex = selectedItem;
                             break;
 
                         case ItemType.TextEditOneWayStatus:
@@ -448,7 +453,12 @@ namespace Prizm.Main.Languages
                         combo.Refresh();
                     break;
                 case ItemType.RadioGroup:
-                    ((DevExpress.XtraEditors.RadioGroup)obj).Refresh();
+                    var radio = (DevExpress.XtraEditors.RadioGroup)obj;
+                    if (radio.SelectedIndex >= 0)
+                    { 
+                        radio.EditValue = radio.Properties.Items[radio.SelectedIndex]; 
+                    }
+                    radio.Refresh();
                     break;
                 case ItemType.TextEditOneWayStatus:
                     ((Tuple<Action, List<string>>)obj).Item1.Invoke();

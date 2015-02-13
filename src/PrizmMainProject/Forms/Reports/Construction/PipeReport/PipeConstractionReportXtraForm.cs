@@ -78,6 +78,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
                 new LocalizedItem(previewButton, StringResources.PipeConstructionReport_PreviewButton.Id),
                 new LocalizedItem(createReportButton, StringResources.PipeConstructionReport_CreateReportButton.Id),
                 new LocalizedItem(documentViewerLayoutGroup, StringResources.PipeConstructionReport_DocumentViewerLayoutGroup.Id),
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.PipeConstructionReport_Title.Id} )
             };
         }
 
