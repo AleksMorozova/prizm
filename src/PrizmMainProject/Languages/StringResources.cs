@@ -19,6 +19,12 @@ namespace Prizm.Main.Languages
             Description = "Не заданы результаты измерений"
         };
 
+        public static StringResource WrongDate = new StringResource
+        {
+            Id = "WrongDate",
+            Description = "Дата задана не верно"
+        };
+
         public static StringResource FixedCategoryLengthPassed = new StringResource
         {
             Id = "FixedCategoryLengthPassed",
