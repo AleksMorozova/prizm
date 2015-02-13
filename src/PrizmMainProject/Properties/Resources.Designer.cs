@@ -3563,6 +3563,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата задана не верно.
+        /// </summary>
+        internal static string WrongDate {
+            get {
+                return ResourceManager.GetString("WrongDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Да.
         /// </summary>
         internal static string Yes {

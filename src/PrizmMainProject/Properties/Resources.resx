@@ -1291,4 +1291,7 @@
   <data name="ReleaseNoteNewEdit_MissingRailcar" xml:space="preserve">
     <value>Укажите вагон</value>
   </data>
+  <data name="WrongDate" xml:space="preserve">
+    <value>Дата задана не верно</value>
+  </data>
 </root>
