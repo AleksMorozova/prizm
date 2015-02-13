@@ -25,15 +25,17 @@ namespace Prizm.Main.Forms.Synch
 
       [Inject]
       public ExportForm(DataExporter exporter)
+          : this()
       {
-         InitializeComponent();
-
-         this.exporter = exporter;
+          this.exporter = exporter;
       }
 
       public ExportForm()
       {
          InitializeComponent();
+
+         Bitmap bmp = Resources.export_16;
+         this.Icon = Icon.FromHandle(bmp.GetHicon());
       }
 
       #region --- Localization ---
