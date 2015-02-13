@@ -351,34 +351,47 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         {
             if (modifiableView != null && modifiableView.IsEditMode)
             {
-                var pipeToAdd = pipesToAdd.Find(_ => _.Id.Equals(id));
-                if (pipeToAdd != null)
+                if (string.IsNullOrWhiteSpace(RailcarNumber))
                 {
-                    if (pipeToAdd.Railcar != null)
-                    {
-                        notify.ShowError(
-                            Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
-                                + " " + pipeToAdd.Railcar.Number,
-                            Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                    notify.ShowError(
+                        Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_MissingRailcar),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
 
-                        log.Error(String.Format("Attempt to add pipe {0},{1} to release note {2},{3} while already in railcar {4},{5}.",
-                            pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
-                    }
-                    else
-                    {
-                        pipeToAdd.Railcar = this.Railcar;
-                        ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
-                        AllPipesToAdd.Remove(pipeToAdd);
-
-                        log.Info(String.Format("Pipe {0},{1} added to Release note {2},{3} and railcar {4},{5}",
-                            pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
-                    }
+                    log.Error(String.Format("Attempt to add pipe to release note {0},{1} without railcar.",
+                        ReleaseNote.Id, ReleaseNote.Number));
                 }
                 else
                 {
-                    log.Error(String.Format("Attempt to add pipe {0} to release note {1},{2} but pipe is not in list of available pipes.",
-                            id, ReleaseNote.Id, ReleaseNote.Number));
-                    // TODO: user message?
+                    var pipeToAdd = pipesToAdd.Find(_ => _.Id.Equals(id));
+                    if (pipeToAdd != null)
+                    {
+                        if (pipeToAdd.Railcar != null)
+                        {
+                            notify.ShowError(
+                                Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar)
+                                    + " " + pipeToAdd.Railcar.Number,
+                                Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+
+                            log.Error(String.Format("Attempt to add pipe {0},{1} to release note {2},{3} while already in railcar {4},{5}.",
+                                pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                        }
+                        else
+                        {
+                            pipeToAdd.Railcar = this.Railcar;
+                            Railcar.Pipes.Add(pipeToAdd);
+                            ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
+                            AllPipesToAdd.Remove(pipeToAdd);
+
+                            log.Info(String.Format("Pipe {0},{1} added to Release note {2},{3} and railcar {4},{5}",
+                                pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                        }
+                    }
+                    else
+                    {
+                        log.Error(String.Format("Attempt to add pipe {0} to release note {1},{2} but pipe is not in list of available pipes.",
+                                id, ReleaseNote.Id, ReleaseNote.Number));
+                        // TODO: user message?
+                    }
                 }
             }
             else
