@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
+            if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
                 notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
