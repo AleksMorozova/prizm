@@ -1124,6 +1124,9 @@
     <Content Include="prizma_appIcon_256.ico" />
     <Content Include="prizma_appIcon_32.ico" />
     <Content Include="prizma_appIcon_48.ico" />
+    <None Include="Resources\inspection_16.png" />
+    <None Include="Resources\attachment_16.png" />
+    <None Include="Resources\export_16x16.png" />
     <None Include="Resources\history_item_16.png" />
     <None Include="Resources\page_setup_16.png" />
     <None Include="Resources\properties_16.png" />
