@@ -28,7 +28,7 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 localizedItems = new List<LocalizedItem>()
                 {
-                    new LocalizedItem(progressPanel, "WaitScreen_Caption", "WaitScreen_Description"),
+                    new LocalizedItem(progressPanel, StringResources.WaitScreen_Caption.Id, StringResources.WaitScreen_Description.Id),
                 };
             }
             return localizedItems.GetEnumerator();

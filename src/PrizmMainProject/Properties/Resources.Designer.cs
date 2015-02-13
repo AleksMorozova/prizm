@@ -3484,6 +3484,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ожидайте.
+        /// </summary>
+        internal static string WaitScreen_Caption {
+            get {
+                return ResourceManager.GetString("WaitScreen_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Идет загрузка ....
+        /// </summary>
+        internal static string WaitScreen_Description {
+            get {
+                return ResourceManager.GetString("WaitScreen_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Толщина стенки.
         /// </summary>
         internal static string WallThickness {
