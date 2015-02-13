@@ -409,7 +409,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            var view = sender as GridView;
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
             DuplicatesList l = findDuplicateList[pipesSizeListGridView];
             List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
@@ -481,6 +482,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void gridViewInspectors_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             ValidatePersonName(gridViewInspectors, colInspectorFirstName, colInspectorLastName, e);
         }
 
@@ -491,7 +494,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectorCertificateGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             if(inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
             {
                 ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
@@ -764,7 +768,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
         {
-            var view = sender as GridView;
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
 
             if(view.IsValidRowHandle(e.RowHandle))
             {
@@ -1135,6 +1140,7 @@ namespace Prizm.Main.Forms.Settings
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
+            gv.ClearColumnErrors();
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if (pipeTest.Code == null || pipeTest.Name == null || pipeTest.Category == null)
             {
@@ -1338,31 +1344,43 @@ namespace Prizm.Main.Forms.Settings
 
         private void plateManufacturersListView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
         }
 
         private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             categoriesGridView.ValidateNotEmpty(categoryNameColumn, e);
         }
 
         private void seemTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             seemTypeGridView.ValidateNotEmpty(seemTypeColumn, e);
         }
 
         private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
         }
 
         private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             jointsOperationsGridView.ValidateNotEmpty(nameGridColumn, e);
         }
 
         private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
+            GridView view = sender as GridView;
+            view.ClearColumnErrors();
             certificateTypesView.ValidateNotEmpty(certificateNameColumn, e);
         }
 
