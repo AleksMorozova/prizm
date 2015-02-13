@@ -61,6 +61,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             SetAlwaysReadOnly(textEditReleaseNoteStatus);
 
             attachmentsButton.Enabled = true;
+
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public ReleaseNoteNewEditXtraForm() : this(Guid.Empty) { }

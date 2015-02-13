@@ -171,6 +171,56 @@ namespace Prizm.Main.Forms.MainChildForm
             return childForms[formType.Name];
         }
 
+        private bool IsAnyFormModified(Func<string, bool> predicate)
+        {
+            bool result = false;
+            foreach (var formType in childForms)
+            {
+                if (predicate(formType.Key))
+                {
+                    result = formType.Value.Any(x => x.IsEditMode);
+
+                    if (result)
+                        break;
+                }
+            }
+            return result;
+        }
+
+        private bool GetEditMode(Type formType)
+        {
+            bool result = false;
+
+            if (formType == typeof(SettingsXtraForm))
+                result = !IsAnyFormModified(x => x != typeof(SettingsXtraForm).Name);
+            else
+                result = !IsAnyFormModified(x => x == typeof(SettingsXtraForm).Name);
+
+            return result;
+        }
+
+        private bool ProceedInReadOnlyMode(Type formType, ChildForm form)
+        {
+            bool result = false;
+            
+            if (!form.CannotOpenForViewing)
+            {
+                if (formType.Name == typeof(SettingsXtraForm).Name)
+                    result = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewingHeader));
+                else
+                    result = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewingHeader));
+            }
+            else
+            {
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewing),
+                    Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewingHeader));
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
         /// </summary>
@@ -236,14 +286,19 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             ChildForm form = CreateChildForm(formType, parameters);
 
+            bool editMode = GetEditMode(formType);
             if (form != null)
             {
-                ShowChildForm(form);
-                if (!IsEditMode)
+                if (form.IsEditMode == false ||
+                    editMode || ProceedInReadOnlyMode(formType, form))
                 {
-                    ((ChildForm)form).IsEditMode = false;
+                    ShowChildForm(form);
+                    if (!(IsEditMode && editMode))
+                    {
+                        ((ChildForm)form).IsEditMode = (IsEditMode && editMode);
+                    }
                 }
-
+                else form.Close();
             }
             return form;
         }

@@ -1291,7 +1291,7 @@
   <data name="ReleaseNoteNewEdit_MissingRailcar" xml:space="preserve">
     <value>Укажите вагон</value>
   </data>
-<data name="WrongDate" xml:space="preserve">
+  <data name="WrongDate" xml:space="preserve">
     <value>Дата задана не верно</value>
   </data>
    <data name="attachment_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -1308,5 +1308,23 @@
   </data>
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
+  </data>
+  <data name="Message_OpenFormForViewing" xml:space="preserve">
+    <value>Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenFormForViewingHeader" xml:space="preserve">
+    <value>Открыть форму в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenSettingsForViewing" xml:space="preserve">
+    <value>Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenSettingsForViewingHeader" xml:space="preserve">
+    <value>Открыть настройки в режиме просмотра?</value>
+  </data>
+  <data name="Message_CannotOpenForViewing" xml:space="preserve">
+    <value>Невозможно открыть форму для просмотра. Для продолжения закройте настройки</value>
+  </data>
+  <data name="Message_CannotOpenForViewingHeader" xml:space="preserve">
+    <value>Невозможно открыть форму для просмотра</value>
   </data>
 </root>
