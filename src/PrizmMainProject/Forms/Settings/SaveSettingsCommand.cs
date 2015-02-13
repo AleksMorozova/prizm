@@ -222,8 +222,7 @@ namespace Prizm.Main.Forms.Settings
 
         public bool CanExecute()
         {
-            return ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings) &&
-                (viewModel.ModifiableView != null ? viewModel.ModifiableView.IsEditMode : false);
+            return ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
         }
 
         void SaveMillSizeTypes()
