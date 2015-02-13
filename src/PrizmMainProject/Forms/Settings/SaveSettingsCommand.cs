@@ -4,6 +4,7 @@ using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Forms.Settings.ViewTypes;
 using System;
 using System.Collections.Generic;
@@ -50,47 +51,105 @@ namespace Prizm.Main.Forms.Settings
                 return;
             }
 
-            try
+            if(!DateCheck())
             {
-                repos.BeginTransaction();
-                SaveWelders();
-                SaveInspectors();
-                SaveMillSizeTypes();
-                SavePlateManufacturers();
-                repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
-                SaveRoles();
-                SaveUsers();
-                SaveCategories();
-                SaveJointOperations();
-                SaveComponentryType();
-                SaveInspectorCertificateType();
-                SaveSeamType();
-                repos.Commit();
-                EvictMillSizeTypes();
-                EvictWelders();
-                EvictInspectors();
-                EvictPlateManufacturers();
-                EvictRoles();
-                EvictUsers();
-                EvictJointOperations();
-                repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
-                EvictCategories();
-                EvictComponentryType();
-                EvictInspectorCertificateType();
-                EvictSeamType();
-                viewModel.ModifiableView.IsModified = false;
-
-                notify.ShowNotify(
-                     Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
-                    Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
-            }
-            catch (RepositoryException ex)
-            {
-                log.Error(ex.Message);
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                log.Warn("Date limits not valid!");
+                return;
             }
 
-            RefreshVisualStateEvent();
+            StringBuilder types = new StringBuilder();
+            List<string> typesList = new List<string>();
+            bool controlValidation = true;
+            foreach (PipeMillSizeType s in viewModel.PipeMillSizeType) 
+            {
+                if (s.Thickness==0 ||s.SeamType==null||s.Length==0 || s.Diameter==0)
+                {
+                    typesList.Add(s.Type);
+                    controlValidation = false;
+                }
+                foreach (PipeTest t in s.PipeTests)
+                {
+                    if (t.Code == string.Empty || t.Name == string.Empty || t.Category == null)
+                    {
+                        typesList.Add(s.Type);
+                        controlValidation = false;
+                    }
+                }
+            }
+
+            if (controlValidation)
+            {
+                try
+                {
+                    repos.BeginTransaction();
+                    SaveWelders();
+                    SaveInspectors();
+                    SaveMillSizeTypes();
+                    SavePlateManufacturers();
+                    repos.ProjectRepo.SaveOrUpdate(viewModel.CurrentProjectSettings);
+                    SaveRoles();
+                    SaveUsers();
+                    SaveCategories();
+                    SaveJointOperations();
+                    SaveComponentryType();
+                    SaveInspectorCertificateType();
+                    SaveSeamType();
+                    repos.Commit();
+                    EvictMillSizeTypes();
+                    EvictWelders();
+                    EvictInspectors();
+                    EvictPlateManufacturers();
+                    EvictRoles();
+                    EvictUsers();
+                    EvictJointOperations();
+                    repos.ProjectRepo.Evict(viewModel.CurrentProjectSettings);
+                    EvictCategories();
+                    EvictComponentryType();
+                    EvictInspectorCertificateType();
+                    EvictSeamType();
+                    viewModel.ModifiableView.IsModified = false;
+
+                    notify.ShowNotify(
+                         Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
+                        Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+
+                RefreshVisualStateEvent();
+            }
+            else 
+            {
+                foreach (string s in typesList.Distinct())
+                {
+                    types.Append(s + " ");
+                }
+                notify.ShowError
+                    (Program.LanguageManager.GetString(StringResources.Settings_PipeControlOperationValidation) + types.ToString(),
+                    Program.LanguageManager.GetString(StringResources.Settings_PipeControlOperationValidationHeader));
+            }
+        }
+
+        private bool DateCheck()
+        {
+            bool result = true;
+
+            if(!viewModel.Welders.All(x => x.CertificateExpiration.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.Inspectors.All(x => x.Certificates.All(y => y.Certificate.ExpirationDate.IsValid())))
+            {
+                result = false;
+            }
+            if(!viewModel.Users.All(x => x.PasswordExpires.IsValid()))
+            {
+                result = false;
+            }
+            return result;
         }
 
         private void EvictUsers()
@@ -168,6 +227,10 @@ namespace Prizm.Main.Forms.Settings
         {
             foreach (PipeMillSizeType t in viewModel.PipeMillSizeType)
             {
+                foreach(var insp in t.PipeTests)
+                {
+                    insp.Code = insp.Code.ToUpper();
+                }
                 repos.PipeSizeTypeRepo.SaveOrUpdate(t);
             }
 

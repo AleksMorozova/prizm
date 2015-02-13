@@ -14,7 +14,6 @@ namespace Prizm.Data.DAL.Mapping
         public InspectorMap()
         {
             Table("Inspector");
-            Map(x => x.Grade).Column("Grade");
             Component<PersonName>(x => x.Name, m =>
                {
                   m.Map(_ => _.FirstName).Column("firstName");

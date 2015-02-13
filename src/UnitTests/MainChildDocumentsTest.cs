@@ -10,8 +10,8 @@ using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Main.Forms.Joint.Search;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.PipeMill.Search;
-using Prizm.Main.Forms.Railcar.NewEdit;
-using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.Search;
 using Prizm.Main.Forms.Reports.Construction;
 using Prizm.Main.Forms.Reports.Incoming;
 using Prizm.Main.Forms.Reports.Mill;
@@ -50,8 +50,8 @@ namespace Prizm.UnitTests
 
         [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildForm))]
         [TestCase(typeof(MillPipeSearchXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(RailcarNewEditXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(RailcarSearchXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ReleaseNoteNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ReleaseNoteSearchXtraForm), typeof(ChildForm))]
         [TestCase(typeof(MillReportsXtraForm), typeof(ChildForm))]
         [TestCase(typeof(PartSearchXtraForm), typeof(ChildForm))]
         [TestCase(typeof(InspectionReportsXtraForm), typeof(ChildForm))]
@@ -122,7 +122,7 @@ namespace Prizm.UnitTests
 
 
         [TestCase(typeof(MillPipeNewEditXtraForm))]
-        [TestCase(typeof(RailcarNewEditXtraForm))]
+        [TestCase(typeof(ReleaseNoteNewEditXtraForm))]
         [TestCase(typeof(ComponentNewEditXtraForm))]
         [TestCase(typeof(JointNewEditXtraForm))]
         [TestCase(typeof(SpoolsXtraForm))]

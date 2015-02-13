@@ -17,44 +17,7 @@ namespace Prizm.Data.DAL.ADO
         [Inject]
         public MillReportsRepository() { }
         private SqlConnection connection = null;
-        public DataSet GetRailcars(DateTime startDate, DateTime finalDate)
-        {
-            CreateConnection();
-            DataSet releaseNoteDataSet = new DataSet();
-
-            try
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter())
-                {
-
-                    using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
-                    {
-                        connection.Open();
-                        adapter.TableMappings.Add("Table", "Railcar");
-                        command.Connection = connection;
-                        command.Parameters.AddWithValue("@startDate", startDate);
-                        command.Parameters.AddWithValue("@finalDate", finalDate);
-                        command.CommandText = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetRailcars).ToString();
-                        adapter.SelectCommand = command;
-                        adapter.Fill(releaseNoteDataSet);
-                    }
-                }
-
-            }
-            catch (SqlException ex)
-            {
-                throw new RepositoryException("GetPipesByStatus", ex);
-            }
-            finally
-            {
-                if (connection.State == System.Data.ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-
-            return releaseNoteDataSet;
-        }
+       
         public DataSet GetReleaseNotes(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
@@ -387,7 +350,7 @@ namespace Prizm.Data.DAL.ADO
         {
             if (connection == null)
             {
-                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
                 connection = new System.Data.SqlClient.SqlConnection(settings.ConnectionString);
             }
 

@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.PipeMill
         {
 
         }
+
         public PurchaseOrderXtraForm(string nmb)
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Prizm.Main.Forms.PipeMill
         private void PurchaseOrderXtraForm_Load(object sender, EventArgs e)
         {
             BindToViewModel();
+            date.SetLimits();
         }
 
         private void BindToViewModel()
@@ -58,7 +60,8 @@ namespace Prizm.Main.Forms.PipeMill
                 new LocalizedItem(purchaseOrderDateLayout, StringResources.PurchaseOrder_DateLabel.Id),
 
                 new LocalizedItem(saveButton, StringResources.PurchaseOrder_SaveButton.Id),
-                new LocalizedItem(cancelButton, StringResources.PurchaseOrder_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.PurchaseOrder_CancelButton.Id),
+                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.PurchaseOrder_Title.Id} )
             };
         }
 
@@ -67,7 +70,7 @@ namespace Prizm.Main.Forms.PipeMill
         private void saveButton_Click(object sender, EventArgs e)
         {
             viewModel.SaveCommand.Execute();
-            if (viewModel.IsSaved == true)
+            if(viewModel.IsSaved == true)
             {
                 this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();

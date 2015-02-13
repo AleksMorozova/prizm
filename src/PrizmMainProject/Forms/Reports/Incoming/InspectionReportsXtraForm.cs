@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
@@ -9,7 +10,7 @@ using System.Drawing;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
-    [System.ComponentModel.DesignerCategory("Form")] 
+    [System.ComponentModel.DesignerCategory("Form")]
     public partial class InspectionReportsXtraForm : ChildForm
     {
         private InspectionReportsViewModel viewModel;
@@ -21,6 +22,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             Bitmap bmp = Resources.reports_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
+
         private void BindToViewModel()
         {
             inspectionReportsBindingSource.DataSource = viewModel;
@@ -31,8 +33,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
 
         private void BindCommands()
         {
-           commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
-           commandManager["PreviewReport"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
+            commandManager["CreateReport"].Executor(viewModel.CreateCommand).AttachTo(createReportButton);
+            commandManager["PreviewReport"].Executor(viewModel.PreviewCommand).AttachTo(previewButton);
         }
 
         private void InspectionReportsXtraForm_Load(object sender, EventArgs e)
@@ -42,6 +44,9 @@ namespace Prizm.Main.Forms.Reports.Incoming
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
+
+            startDate.SetLimits();
+            endDate.SetLimits();
         }
 
         #region --- Localization ---
@@ -59,7 +64,9 @@ namespace Prizm.Main.Forms.Reports.Incoming
                 new LocalizedItem(previewReportLayoutGroup, StringResources.InspectionReport_PreviewGroup.Id),
 
                 new LocalizedItem(previewButton, StringResources.InspectionReport_PreviewButton.Id),
-                new LocalizedItem(createReportButton, StringResources.InspectionReport_CreateButton.Id)
+                new LocalizedItem(createReportButton, StringResources.InspectionReport_CreateButton.Id),
+
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionReport_Title.Id} )
             };
         }
 

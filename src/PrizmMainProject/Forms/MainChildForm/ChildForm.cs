@@ -110,6 +110,15 @@ namespace Prizm.Main.Forms.MainChildForm
                 IsModified ? "*" : string.Empty);
         }
 
+        public override void UpdateTitle()
+        {
+            if (localizedHeader != null && localizedHeader.Count > 0)
+            {
+                this.originalText = localizedHeader[0];
+                SetCaption();
+            }
+        }
+
         /// <summary>
         /// Derived classes should set SaveCommand, to let it be automatically performed at child form closing.
         /// </summary>

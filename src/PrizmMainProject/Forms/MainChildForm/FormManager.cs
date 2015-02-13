@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ninject.Parameters;
-using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Languages;
 using PrizmMain.Forms.Notifications;
@@ -199,7 +199,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 {
                     int index = FindOpenForm(formType.Name, true);
 
-                    if (formType == typeof(RailcarNewEditXtraForm) && index >= 0)// this type form is open in edit mode
+                    if (formType == typeof(ReleaseNoteNewEditXtraForm) && index >= 0)// this type form is open in edit mode
                     {
                         if (id == default(Guid))
                         {

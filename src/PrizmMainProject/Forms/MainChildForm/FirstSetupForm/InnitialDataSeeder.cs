@@ -657,7 +657,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 var insp = new Inspector
                     {
-                        Grade = rnd.Next(6),
                         Name = new PersonName
                         {
                             FirstName = RndName(fNames),
@@ -734,10 +733,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
             #region Release
-            List<ReleaseNote> releases = new List<ReleaseNote>();
+            List<Prizm.Domain.Entity.Mill.ReleaseNote> releases = new List<Prizm.Domain.Entity.Mill.ReleaseNote>();
             for(int i = 0; i < RELEASECOUNT; i++)
             {
-                ReleaseNote release = new ReleaseNote
+                Prizm.Domain.Entity.Mill.ReleaseNote release = new Prizm.Domain.Entity.Mill.ReleaseNote
                 {
                     Number = RndString(10),
                     Shipped = false,
@@ -807,7 +806,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 var iCert = new InspectorCertificate
                 {
                     Inspector = insp,
-                    Certificate = new Certificate { Number = RndString(6), ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)) },
+                    Certificate = new Certificate { Number = RndString(6), Grade = rnd.Next(6), ExpirationDate = DateTime.Now.AddDays(rnd.Next(60)) },
                     Type = item
                 };
                 certs.Add(iCert);

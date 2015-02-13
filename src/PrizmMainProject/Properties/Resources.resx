@@ -227,7 +227,7 @@
     <value>Стык успешно сохранен в базе. Стык  #</value>
   </data>
   <data name="ReleaseNoteNewEdit_PendingStatus" xml:space="preserve">
-    <value>Сформирован</value>
+    <value>Формируется</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Порядок</value>
@@ -991,7 +991,7 @@
     <value>Неопределённый</value>
   </data>
   <data name="ReleaseNoteNewEdit_ShippedStatus" xml:space="preserve">
-    <value>Отгружен</value>
+    <value>Отгружено</value>
   </data>
   <data name="Settings_SetupSavedHeader" xml:space="preserve">
     <value>Сохранение настроек</value>
@@ -1126,6 +1126,9 @@
   <data name="ExternalFiles_FileAttachSuccess" xml:space="preserve">
     <value>Вложения успешно добавлены</value>
   </data>
+  <data name="ExternalFiles_FileSizeIsTooBig" xml:space="preserve">
+    <value>Размер вложения больше разрешенного</value>
+  </data>
   <data name="ExternalFiles_FileAttachSuccessHeader" xml:space="preserve">
     <value>Добавление вложений</value>
   </data>
@@ -1140,5 +1143,149 @@
   </data>
   <data name="ExternalFiles_FileViewDownloadFailHeader" xml:space="preserve">
     <value>Просмотр и загрузка несохрaненных файлов</value>
+  </data>
+  <data name="ComponentNewEdit_DeactivatedAction" xml:space="preserve">
+    <value>Комплектующее изделие деактивировано. Комплектующее изделие #</value>
+  </data>
+  <data name="ComponentNewEdit_DeactivatedActionHeader" xml:space="preserve">
+    <value>Деактивация элемента</value>
+  </data>
+  <data name="Joint_Deactivated" xml:space="preserve">
+    <value>Стык деактивирован. Стык #</value>
+  </data>
+  <data name="Joint_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация стыка</value>
+  </data>
+  <data name="Pipe_Deactivated" xml:space="preserve">
+    <value>Труба деактивирована. Труба #</value>
+  </data>
+  <data name="Pipe_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация трубы</value>
+  </data>
+  <data name="Spool_Deactivated" xml:space="preserve">
+    <value>Катушка деактивирована. Катушка #</value>
+  </data>
+  <data name="Spool_DeactivatedHeader" xml:space="preserve">
+    <value>Деактивация катушки</value>
+  </data>
+  <data name="Settings_ValueRequired" xml:space="preserve">
+    <value>Обязательное значение</value>
+  </data>
+  <data name="MillPipeNewEditXtraForm_Title" xml:space="preserve">
+    <value>Труба</value>
+  </data>
+  <data name="AboutXtraForm_Title" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="AuditXtraForm_Title" xml:space="preserve">
+    <value>Аудит</value>
+  </data>
+  <data name="ComponentNewEdit_Title" xml:space="preserve">
+    <value>Комплектующее изделие</value>
+  </data>
+  <data name="ConflictDialog_Title" xml:space="preserve">
+    <value>Конфликт</value>
+  </data>
+  <data name="ConstructionReport_Title" xml:space="preserve">
+    <value>Отчет по сварке участка между пикетами</value>
+  </data>
+  <data name="CreateSpoolComponentDialog_Title" xml:space="preserve">
+    <value>Создание компонента</value>
+  </data>
+  <data name="ExportForm_Title" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="ExternalFilesXtraForm_Title" xml:space="preserve">
+    <value>Внешние файлы</value>
+  </data>
+  <data name="HeatNumberXtraForm_Title" xml:space="preserve">
+    <value>Добавление плавки</value>
+  </data>
+  <data name="Heat_Title" xml:space="preserve">
+    <value>Плавка</value>
+  </data>
+  <data name="ImportForm_Title" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="InspectionAddEdit_Title" xml:space="preserve">
+    <value>Инспекция трубы</value>
+  </data>
+  <data name="InspectionReport_Title" xml:space="preserve">
+    <value>Отчет по входному контролю</value>
+  </data>
+  <data name="InspectionSelectPartDialog_Title" xml:space="preserve">
+    <value>Выбор элемента</value>
+  </data>
+  <data name="JointCutDialog_Title" xml:space="preserve">
+    <value>Вырезка стыка</value>
+  </data>
+  <data name="JointNewXtraForm_Title" xml:space="preserve">
+    <value>Стык</value>
+  </data>
+  <data name="JointSearchXtraForm_Title" xml:space="preserve">
+    <value>Поиск стыков</value>
+  </data>
+  <data name="MillInspection_Title" xml:space="preserve">
+    <value>Добавление контрольной операции</value>
+  </data>
+  <data name="MillReport_Title" xml:space="preserve">
+    <value>Отчет</value>
+  </data>
+  <data name="MissingPortionsDialog_Title" xml:space="preserve">
+    <value>Нарушена последовательность</value>
+  </data>
+  <data name="NotificationXtraForm_Title" xml:space="preserve">
+    <value>Окно уведомлений</value>
+  </data>
+  <data name="PartInspection_Title" xml:space="preserve">
+    <value>Входной контроль</value>
+  </data>
+  <data name="PartSearch_Title" xml:space="preserve">
+    <value>Поиск элементов трубопровода</value>
+  </data>
+  <data name="PassChange_Title" xml:space="preserve">
+    <value>Смена пароля</value>
+  </data>
+  <data name="PipeConstructionReport_Title" xml:space="preserve">
+    <value>Отчеты по трубам на стройке</value>
+  </data>
+  <data name="PurchaseOrder_Title" xml:space="preserve">
+    <value>Наряд-заказ</value>
+  </data>
+  <data name="ReleaseNoteNewEdit_Title" xml:space="preserve">
+    <value>Разрешение на отгрузку</value>
+  </data>
+  <data name="ReleaseSearch_Title" xml:space="preserve">
+    <value>Поиск разрешений на отгрузку</value>
+  </data>
+  <data name="SaveDialog_Title" xml:space="preserve">
+    <value>Сохранить изменения?</value>
+  </data>
+  <data name="SearchPipe_Title" xml:space="preserve">
+    <value>Поиск труб</value>
+  </data>
+  <data name="SelectDiameterDialog_Title" xml:space="preserve">
+    <value>Выбор диаметра</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SpoolsXtraForm_Title" xml:space="preserve">
+    <value>Создание катушки</value>
+  </data>
+  <data name="WeldDateReport_Title" xml:space="preserve">
+    <value>Отчет по сварке (по дате)</value>
+  </data>
+  <data name="ImportMessage_IsFinished" xml:space="preserve">
+    <value>Импортирование завершено</value>
+  </data>
+  <data name="Settings_UniqueValueRequired" xml:space="preserve">
+    <value>Введите уникальное значение</value>
+  </data>
+  <data name="Settings_PipeControlOperationValidation" xml:space="preserve">
+    <value>Необходимо проверить следующие типоразмеры: </value>
+  </data>
+  <data name="Settings_PipeControlOperationValidationHeader" xml:space="preserve">
+    <value>Неверные данные для типоразмера</value>
   </data>
 </root>

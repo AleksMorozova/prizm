@@ -101,7 +101,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                                                                         StringResources.PartInspectionStatus_Hold.Id,
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
-                                                                                      })
+                                                                                      }),
+                
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.ComponentNewEdit_Title.Id} )
 
             };
         }
@@ -110,7 +114,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void simpleButton1_Click(object sender, System.EventArgs e)
         {
-            if (filesForm==null) 
+            if(filesForm == null)
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
@@ -118,12 +122,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
-            
+
         }
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllInspectionStatus.Add(item.Item2);
             }
@@ -135,15 +139,17 @@ namespace Prizm.Main.Forms.Component.NewEdit
             IsEditMode = viewModel.ComponentIsActive;
 
             IsModified = false;
+
+            repositoryInspectionDate.SetLimits();
         }
 
         private void BindToViewModel()
         {
             componentBindingSource.DataSource = viewModel;
 
-            foreach (var t in viewModel.ComponentTypes)
+            foreach(var t in viewModel.ComponentTypes)
             {
-                if (t.IsActive)
+                if(t.IsActive)
                 {
                     type.Properties.Items.Add(t);
                 }
@@ -164,7 +170,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", componentBindingSource, "ComponentIsActive"));
+                        "Checked", componentBindingSource, "ComponentIsActive"));
 
             inspectionHistoryGrid.DataBindings
                 .Add("DataSource", componentBindingSource, "InspectionTestResults");
@@ -229,21 +235,21 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void repositoryInspectionStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-           if (e.Value != null)
-           {
-               PartInspectionStatus result;
-               if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
-               {
-                   e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
-               }
-           }
+            if(e.Value != null)
+            {
+                PartInspectionStatus result;
+                if(Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
+                }
+            }
         }
 
         private void repositoryInspectionStatus_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit lookup = sender as LookUpEdit;
 
-            if (lookup.ItemIndex != -1)
+            if(lookup.ItemIndex != -1)
             {
                 lookup.EditValue = (PartInspectionStatus)lookup.ItemIndex + 1;
             }
@@ -251,7 +257,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
+            if(e.Value == null)
                 e.DisplayText = string.Empty;
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
@@ -261,12 +267,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
         {
             inspectionHistoryGridView.ClearSelection();
-            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            if(inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
             {
                 InspectionTestResult inspectionTestResult
                     = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectorSelectionControl.SelectInspectors(inspectionTestResult.Inspectors);
                 }
@@ -275,16 +281,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            if (inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
+            if(inspectionHistoryGridView.IsValidRowHandle(inspectionHistoryGridView.FocusedRowHandle))
             {
                 IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
                 InspectionTestResult inspectionTestResult
                     = inspectionHistoryGridView.GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectionTestResult.Inspectors.Clear();
-                    foreach (Inspector i in selectedInspectors)
+                    foreach(Inspector i in selectedInspectors)
                     {
                         inspectionTestResult.Inspectors.Add(i);
                     }
@@ -299,7 +305,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                = inspectionHistoryGridView
                .GetRow(inspectionHistoryGridView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
+            if(inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
                 inspectionHistoryGridView.SetColumnError(inspectionHistoryGridView.VisibleColumns[0],
                     Program.LanguageManager.GetString(StringResources.DateFirst));
@@ -329,9 +335,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         bool IValidatable.Validate()
         {
-            for (int i = 0; i < componentParametersView.RowCount; i++)
+            for(int i = 0; i < componentParametersView.RowCount; i++)
             {
-                if (Convert.ToInt32(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
+                if(Convert.ToInt32(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
                 {
                     componentParametersView.FocusedRowHandle = i;
 
@@ -357,7 +363,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             var diameter = (int)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
 
-            if (diameter <= 0)
+            if(diameter <= 0)
             {
                 gv.SetColumnError(diameterGridColumn,
                     Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DiameterValueValidation));
@@ -380,7 +386,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             view.ClearColumnErrors();
 
-            if (String.IsNullOrEmpty(Name))
+            if(String.IsNullOrEmpty(Name))
             {
                 view.SetColumnError(inspectorColumn,
                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult));
@@ -391,7 +397,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             GridView view = sender as GridView;
             InspectionTestResult inspection = view.GetRow(view.FocusedRowHandle) as InspectionTestResult;
-            if (inspection.Status != PartInspectionStatus.Pending && inspection.Inspectors.Count <= 0)
+            if(inspection.Status != PartInspectionStatus.Pending && inspection.Inspectors.Count <= 0)
             {
                 ValidateInspection(inspectionHistoryGridView, inspectorColumn.Name.ToString(), e);
             }

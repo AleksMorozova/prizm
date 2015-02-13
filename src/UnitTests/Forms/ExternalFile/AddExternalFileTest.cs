@@ -9,8 +9,8 @@ using Prizm.Main.Forms;
 using Prizm.Main.Documents;
 using Prizm.Data.DAL.Mill;
 using Prizm.Domain.Entity.Mill;
-using Prizm.Main.Forms.Railcar;
-using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.ReleaseNote;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using Prizm.Data.DAL;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity;
@@ -44,17 +44,21 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             var pipeRepo = new Mock<IPipeRepository>();
             var ctx = new Mock<ISecurityContext>();
             pipeRepo.Setup(x => x.GetStored()).Returns(new List<Pipe>() { new Pipe() });
-            var repos = new Mock<IRailcarRepositories>();
+            var repos = new Mock<IReleaseNoteRepositories>();
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
 
             var fileRepo = new Mock<IFileRepository>();
-            var fileViewModel = new ExternalFilesViewModel(fileRepo.Object, notify.Object);
+            var projectRepo = new Mock<IProjectRepository>();
+            var externalFilesRepo = new Mock<IExternalFilesRepositories>();
+            externalFilesRepo.SetupGet(_ => _.FileRepo).Returns(fileRepo.Object);
+            externalFilesRepo.SetupGet(_ => _.ProjectRepo).Returns(projectRepo.Object);
 
+            var fileViewModel = new ExternalFilesViewModel(externalFilesRepo.Object, notify.Object);
             
             fileViewModel.FilesToAttach.Add("test.txt", "test.txt");
 
-            var viewModel = new RailcarViewModel(repos.Object, Guid.Empty, notify.Object, ctx.Object);
+            var viewModel = new ReleaseNoteViewModel(repos.Object, Guid.Empty, notify.Object, ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
@@ -63,7 +67,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             viewModel.ModifiableView = view.Object;
             viewModel.FilesFormViewModel = fileViewModel;
             viewModel.Railcar.Pipes.Add(new Pipe());
-            var command = new SaveRailcarCommand(viewModel, repos.Object, notify.Object, ctx.Object);
+            var command = new SaveReleaseNoteCommand(viewModel, repos.Object, notify.Object, ctx.Object);
 
             command.Execute();
             

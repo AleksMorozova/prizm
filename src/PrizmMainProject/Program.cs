@@ -105,7 +105,7 @@ namespace Prizm.Main
                 SplashScreenManager.ShowForm(typeof(AppSplashScreen), true, false);
 
                 // Database
-                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrizmDatabase"];
+                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
 
                 HibernateUtil.Initialize(settings.ConnectionString,false);
 

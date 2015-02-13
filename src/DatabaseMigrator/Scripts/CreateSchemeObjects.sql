@@ -188,7 +188,6 @@ CREATE TABLE [dbo].[Inspector](
 	[firstName] [nvarchar](30) NULL,
 	[lastName] [nvarchar](30) NULL,
 	[middleName] [nvarchar](30) NULL,
-	[grade] [int] NULL,
 	[certificate] [nvarchar](30) NULL,
 	[certificateExpiration] [date] NULL,
 	[certificateId] [uniqueidentifier] NULL,
@@ -208,6 +207,7 @@ SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[InspectorCertificate](
 	[id] [uniqueidentifier] NOT NULL,
 	[number] [nvarchar](50) NOT NULL,
+  [grade] [int] NULL,
 	[expirationDate] [date] NOT NULL,
 	[inspectorId] [uniqueidentifier] NOT NULL,
 	[inspectorCertificateTypeId] [uniqueidentifier] NULL,

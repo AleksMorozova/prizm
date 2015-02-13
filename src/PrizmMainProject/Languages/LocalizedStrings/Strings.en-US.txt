@@ -381,7 +381,7 @@ MissingPortion_cancelButton=&Cancel
 Settings_ValidateInspectorSertificate=Please select inspector
 
 ;Обязательное значение
-Settings_ValueRequaered=Value is required
+Settings_ValueRequired=Value is required
 
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
@@ -917,7 +917,7 @@ Export_CreatingArchive=Creating archive
 Export_Error=Error {1}
 
 ;PRISM archives
-Export_Filter=PRIZM archives|*.prizm
+Export_Filter=PRISM archives
 
 ;Нет новых данных для экспортирования.
 Export_NoData=There are no fresh data for export
@@ -946,8 +946,11 @@ Import_SamePortion=This portion has already been imported and cannot be imported
 ;Создание временного хранилища
 Import_TempStorage=Creating temporary storage
 
-;Распаковкаа
+;Распаковка
 Import_Unzip=Unzipping
+
+;Сообщение: Импортирование завершено
+ImportMessage_IsFinished=Import is finished
 
 ;Диалог сохранения. Текст
 SaveDialog_SaveLabel=Do you want to save changes?
@@ -1525,8 +1528,11 @@ NewEditPipe_RailcarNumber_Label=Railcar number
 ;Труба. Сертификат вагона
 NewEditPipe_RailcarCertificate_Label=Certificate number
 
-;Труба. Дата отправки вагона
-NewEditPipe_RailcarShippedDate_Label=Date
+;Труба. Дата разрешения на отгрузку
+NewEditPipe_ReleaseNoteDate_Label = Release note date
+
+;Труба. Номер разрешения на отгрузку
+NewEditPipe_ReleaseNoteNumber_Label = Release note number
 
 ;Труба. Получатель
 NewEditPipe_RailcarDestination_Label=Destination
@@ -1796,10 +1802,19 @@ ReleaseNoteNewEdit_SaveButton=&Save
 ReleaseNoteNewEdit_PipeNumberColumn=Pipe number
 
 ;Разрешение на отгрузку. Столбец типоразмер
-ReleaseNoteNewEdit_PipeTypeSizeColumn=Size type
+ReleaseNoteNewEdit_PipeTypeSizeColumn=Pipe size type
 
-;Разрешение на отгрузку. Столбец статус
-ReleaseNoteNewEdit_PipeStatusColumn=Status
+;Разрешение на отгрузку. Столбец статус трубы
+ReleaseNoteNewEdit_PipeStatusColumn=Pipe status
+
+;Разрешение на отгрузку. Столбец номер вагона
+ReleaseNoteNewEdit_RailcarNumberColumn=Railcar number
+
+;Разрешение на отгрузку. Столбец сертификат вагона
+ReleaseNoteNewEdit_RailcarCertificateColumn=Railcar certificate
+
+;Разрешение на отгрузку. Столбец получатель вагона
+ReleaseNoteNewEdit_RailcarDestinationColumn=Destination
 
 ;Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #
 ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar=This pipe already exists in railcar #
@@ -1835,7 +1850,7 @@ ReleaseNoteNewEdit_SaveSuccessHeader=Saved successfully
 ReleaseNoteNewEdit_ShippedStatus=Shipped
 
 ;Статус разрешения на отгрузку: сформировано
-ReleaseNoteNewEdit_Pending=Pending
+ReleaseNoteNewEdit_PendingStatus=Pending
 
 ;Поиск разрешений на отгрузку. Номер разрешения
 ReleaseSearch_NumberLabel=Release note &number
@@ -2026,6 +2041,9 @@ ExternalFiles_NotCopied_Header=External files saving error
 ;Прикрепленные файлы не сохранены
 ExternalFiles_NotCopied=Attached files weren't saved
 
+;Сообщение: Размер вложения больше разрешенного
+ExternalFiles_FileSizeIsTooBig=Attaching file's size is bigger than allowed
+
 ;Тип рабочей станции. Неопределен
 WorkstationType_Undefined=Undefined
 
@@ -2184,4 +2202,143 @@ Menu_Help_About=&About
 
 ;Текст на панели статуса: Важные сообщения 
 MainWindow_StatusNotificationsHeader=Important messages 
+
+;Комплектующее изделие деактивировано. Комплектующее изделие #
+ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
+
+;Деактивация элемента
+ComponentNewEdit_DeactivatedActionHeader=Component deactivation
+
+;Стык деактивирован. Стык #
+Joint_Deactivated=Joint have been deactivated. The joint #
+
+;Деактивация стыка
+Joint_DeactivatedHeader=Joint deactivation
+
+;Труба деактивирована. Труба #
+Pipe_Deactivated=Pipe have been deactivated. The pipe #
+
+;Деактивация трубы
+Pipe_DeactivatedHeader=Pipe deactivation
+
+;Катушка деактивирована. Катушка #
+Spool_Deactivated=Spool have been deactivated. The spool #
+
+;Деактивация катушки
+Spool_DeactivatedHeader=Spool deactivation
+
+;Труба
+MillPipeNewEditXtraForm_Title=Pipe
+
+;Аудит
+AuditXtraForm_Title=Audit
+
+;О программе
+AboutXtraForm_Title=About
+
+;Сохранить изменения?
+SaveDialog_Title=Save changes?
+
+;Комлектующее изделие
+ComponentNewEdit_Title=Component
+
+;Внешние файлы
+ExternalFilesXtraForm_Title=External Files
+
+;Вырезка стыка
+JointCutDialog_Title=Joint Cut
+
+;Стык
+JointNewXtraForm_Title=Joint
+
+;Выбор диаметра
+SelectDiameterDialog_Title=Select diameter
+
+;Поиск стыков
+JointSearchXtraForm_Title=Joint search
+
+;Окно уведомлений
+NotificationXtraForm_Title=Notifications
+
+;Создание компонента
+CreateSpoolComponentDialog_Title=Create component 
+
+;Выбор элемента
+InspectionSelectPartDialog_Title=Select component
+
+;Входной контроль
+PartInspection_Title=Incoming inspection
+
+;Поиск элементов трубопровода
+PartSearch_Title=Search pipeline elements
+
+;Добавление плавки
+HeatNumberXtraForm_Title=Add heat
+
+;Плавка
+Heat_Title=Heat
+
+;Инспекция трубы
+InspectionAddEdit_Title=Pipe inspection
+
+;Наряд-заказ
+PurchaseOrder_Title=Purchase order
+
+;Поиск труб
+SearchPipe_Title=Search pipe
+
+;Разрешение на отгрузку
+ReleaseNoteNewEdit_Title=Release note
+
+;Поиск разрешений на отгрузку
+ReleaseSearch_Title=Release note search
+
+;Отчеты по трубам на стройке
+PipeConstructionReport_Title=Construction pipe report
+
+;Отчет по сварке (по дате)
+WeldDateReport_Title=Welding report (by date)
+
+;Отчет по сварке участка между пикетами
+ConstructionReport_Title=Welding report (by KP)
+
+;Отчет по входному контролю
+InspectionReport_Title=Incoming inspection report
+
+;Отчет
+MillReport_Title=Report
+
+;Добавление контрольной операции
+MillInspection_Title=Add inspection operation
+
+;Смена пароля
+PassChange_Title=Change Password
+
+;Настройки
+Settings_Title=Settings
+
+;Создание катушки
+SpoolsXtraForm_Title=Create spool
+
+;Конфликт
+ConflictDialog_Title=Conflict
+
+;Экспорт
+ExportForm_Title=Export
+
+;Импорт
+ImportForm_Title=Import
+
+;Нарушена последовательность
+MissingPortionsDialog_Title=Missing portions
+
+
+
+
+
+
+
+
+
+
 

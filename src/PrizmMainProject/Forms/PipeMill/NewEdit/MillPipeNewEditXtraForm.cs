@@ -91,7 +91,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(plateManufacturer);
             SetAlwaysReadOnly(purchaseOrderDate);
             SetAlwaysReadOnly(railcarNumber);
-            SetAlwaysReadOnly(shippedDate);
+            SetAlwaysReadOnly(releaseNoteNumber);
+            SetAlwaysReadOnly(releaseNoteDate);
             SetAlwaysReadOnly(certificateNumber);
             SetAlwaysReadOnly(destination);
             SetAlwaysReadOnly(steelGrade);
@@ -146,18 +147,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
-            if(IsEditMode)
-            {
-                pipeNumber.Validating += pipeNumber_Validating;
-            }
-            else
-            {
-                pipeNumber.Validating -= pipeNumber_Validating;
-            }
 
             IsModified = false;
             pipeNumber.ToolTip = Program.LanguageManager.GetString(StringResources.MillPipeNumber_Mask_Hint)
                 + viewModel.Project.MillPipeNumberMask;
+
+            pipeCreationDate.SetLimits();
+            repositoryCoatingDate.SetLimits();
+            repositoryWeldingDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -195,7 +192,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
-                        "EditValue", pipeNewEditBindingSource, "PipeIsActive"));
+                        "Checked", pipeNewEditBindingSource, "PipeIsActive"));
 
             plateThickness.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PlateThickness");
@@ -213,6 +210,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             purchaseOrderDate.DataBindings
                 .Add("EditValue", pipeNewEditBindingSource, "PurchaseOrderDate");
+            
+            
+            releaseNoteNumber.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteNumber");
+            releaseNoteDate.DataBindings
+                .Add("EditValue", pipeNewEditBindingSource, "ReleaseNoteDate");
 
 
             railcarNumber.DataBindings
@@ -330,7 +333,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     new LocalizedItem(railcarLayoutControlItem, StringResources.NewEditPipe_RailcarNumber_Label.Id),
                     new LocalizedItem(certificateLayoutControlItem, StringResources.NewEditPipe_RailcarCertificate_Label.Id),
-                    new LocalizedItem(shippedDateLayoutControlItem, StringResources.NewEditPipe_RailcarShippedDate_Label.Id),
+                    new LocalizedItem(releaseNoteDateLayoutControlItem, StringResources.NewEditPipe_ReleaseNoteDate_Label.Id),
+                    new LocalizedItem(releaseNoteNumberLayout, StringResources.NewEditPipe_ReleaseNoteNumber_Label.Id),
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
@@ -380,8 +384,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     new LocalizedItem (inspectionsGridView, localizedAllPipeTestResultStatus, new string [] { StringResources.PipeTestResultStatus_Scheduled.Id,
                                                                                                               StringResources.PipeTestResultStatus_Passed.Id,
                                                                                                               StringResources.PipeTestResultStatus_Failed.Id,
-                                                                                                              StringResources.PipeTestResultStatus_Repair.Id})
-                    // other
+                                                                                                              StringResources.PipeTestResultStatus_Repair.Id}),
+                    // header
+                    new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillPipeNewEditXtraForm_Title.Id} )
                 };
         }
 
@@ -802,7 +807,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate();
+            return dxValidationProvider.Validate() && this.ValidateChildren();
         }
 
         #endregion
@@ -970,15 +975,42 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     e.DisplayText = (result == PipeTestResultStatus.Undefined) ? "" :localizedAllPipeTestResultStatus[(int)result - 1]; //-1 because we skip 0
                 }
             }
+
             if (e.Column.Name == expectedResultGridColumn.Name)
             {
                 PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
-                if (pipeTestResult != null)
+                if (pipeTestResult != null
+                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
                 {
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == true)
-                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes); }
-                    if (pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean && pipeTestResult.Operation.BoolExpected == false)
-                    { e.DisplayText = Program.LanguageManager.GetString(StringResources.No); }
+                    if (pipeTestResult.Operation.BoolExpected)
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
+                    }
+                    else
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
+                    }
+                }
+            }
+
+            if (e.Column.Name == valueGridColumn.Name)
+            {
+                bool tmpResult;
+
+                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
+                
+                if (pipeTestResult != null 
+                    && bool.TryParse(e.DisplayText, out tmpResult)
+                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
+                {
+                    if (tmpResult)
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
+                    }
+                    else
+                    {
+                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
+                    }
                 }
             }
         }

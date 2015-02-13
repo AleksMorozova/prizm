@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class SavePipeCommand: ICommand
+    public class SavePipeCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SavePipeCommand));
 
@@ -24,11 +25,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
-        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate {};
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SavePipeCommand(
-            MillPipeNewEditViewModel viewModel, 
-            IMillRepository repo, 
+            MillPipeNewEditViewModel viewModel,
+            IMillRepository repo,
             IUserNotify notify,
             ISecurityContext ctx)
         {
@@ -46,13 +47,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 return;
             }
 
+            if(!DateValidate())
+            {
+                log.Warn("Date limits not valid!");
+                return;
+            }
+
+            //Uppercase for db
+            viewModel.Pipe.Plate.Number = viewModel.Pipe.Plate.Number.ToUpper();
+            viewModel.Pipe.Number = viewModel.Pipe.Number.ToUpper();
+
+
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
-            foreach (var pipe in p)
+            foreach(var pipe in p)
             {
                 repo.RepoPipe.Evict(pipe);
             }
 
-            if (p != null && p.Count > 0)
+            if(p != null && p.Count > 0)
             {
                 notify.ShowInfo(
                     string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberError), viewModel.Number),
@@ -61,7 +73,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             else
             {
-                if (viewModel.CheckStatus())
+                if(viewModel.CheckStatus())
                 {
                     try
                     {
@@ -73,7 +85,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         repo.RepoPipe.Evict(viewModel.Pipe);
 
                         //saving attached documents
-                        if (viewModel.FilesFormViewModel != null)
+                        if(viewModel.FilesFormViewModel != null)
                         {
                             viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
                             viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
@@ -89,13 +101,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             viewModel.Pipe.Number,
                             viewModel.Pipe.Id));
                     }
-                    catch (RepositoryException ex)
+                    catch(RepositoryException ex)
                     {
                         log.Error(ex.Message);
                         notify.ShowFailure(ex.InnerException.Message, ex.Message);
                     }
                 }
-                else 
+                else
                 {
                     notify.ShowInfo(
                         Program.LanguageManager.GetString(StringResources.MillPipe_ErrorEditingInspectionOperationPipeInRailcar),
@@ -106,10 +118,29 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             RefreshVisualStateEvent();
         }
 
+        private bool DateValidate()
+        {
+            bool result = true;
+
+            if(!viewModel.Pipe.ProductionDate.IsValid())
+            {
+                result = false;
+            }
+            if(!viewModel.Pipe.Coats.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            if(!viewModel.Pipe.Welds.All(x => x.Date.IsValid()))
+            {
+                result = false;
+            }
+            return result;
+        }
+
 
         public bool CanExecute()
         {
-            return  viewModel.Heat != null &&
+            return viewModel.Heat != null &&
                     viewModel.PipeMillSizeType != null &&
                     viewModel.PipePurchaseOrder != null &&
                     !string.IsNullOrEmpty(viewModel.Number) &&
@@ -121,6 +152,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         ? global::Domain.Entity.Security.Privileges.CreatePipe
                         : global::Domain.Entity.Security.Privileges.EditPipe);
         }
-    
+
     }
 }

@@ -66,13 +66,17 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             viewModel = (MillPipeSearchViewModel)Program.Kernel.GetService(typeof(MillPipeSearchViewModel));
 
-            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
 
             BindCommands();
             BindToViewModel();
+
+            weldingDate.SetLimits();
+            externalCoatingDate.SetLimits();
+            internalCoatingDate.SetLimits();
         }
 
         #region --- Localization ---
@@ -134,6 +138,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                     new string [] { "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
                                     "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
                 // other
+                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
             };
         }
 
@@ -213,10 +218,10 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
         private void pipesSearchResultView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.Name == statusSearchGridColumn.Name)
+            if(e.Column.Name == statusSearchGridColumn.Name)
             {
                 PipeMillStatus result;
-                if (Enum.TryParse<PipeMillStatus>((string)e.Value, out result))
+                if(Enum.TryParse<PipeMillStatus>((string)e.Value, out result))
                 {
                     e.DisplayText = localizedAllPipeMillStatus[(int)result];
                 }
