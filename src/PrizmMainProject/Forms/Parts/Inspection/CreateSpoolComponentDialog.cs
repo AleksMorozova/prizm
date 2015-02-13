@@ -41,6 +41,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(partRadioGroup, new string[]{ StringResources.CreateSpoolComponentDialog_RadioSpool.Id, StringResources.CreateSpoolComponentDialog_RadioComponent.Id}),
                 new LocalizedItem(cancelButton, StringResources.CreateSpoolComponentDialog_CancelButton.Id),
                 new LocalizedItem(acceptButton, StringResources.CreateSpoolComponentDialog_CreateButton.Id),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.CreateSpoolComponentDialog_Title.Id} )
             };
         }
 

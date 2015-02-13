@@ -13,21 +13,21 @@ using System.Threading.Tasks;
 using Prizm.Domain.Entity.Mill;
 
 
-namespace Prizm.Main.Forms.Railcar.Search
+namespace Prizm.Main.Forms.ReleaseNote.Search
 {
-    public class RailcarSearchViewModel : ViewModelBase, IDisposable
+    public class ReleaseNoteSearchViewModel : ViewModelBase, IDisposable
     {
         private readonly IReleaseNoteRepository repo;
-        private readonly SearchRailcarCommand searchCommand;
+        private readonly SearchReleaseNoteCommand searchCommand;
         private readonly IUserNotify notify;
 
 
         [Inject]
-        public RailcarSearchViewModel(IReleaseNoteRepository repo, IUserNotify notify)
+        public ReleaseNoteSearchViewModel(IReleaseNoteRepository repo, IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;
-            searchCommand = ViewModelSource.Create(() => new SearchRailcarCommand(this, repo, notify));
+            searchCommand = ViewModelSource.Create(() => new SearchReleaseNoteCommand(this, repo, notify));
         }
 
         private BindingList<ReleaseNoteProjection> projection = new BindingList<ReleaseNoteProjection>();

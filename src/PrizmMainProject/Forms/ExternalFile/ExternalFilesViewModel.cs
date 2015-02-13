@@ -126,9 +126,9 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
-        public bool TrySaveFiles()
+        public bool TrySaveFiles(IFileRepository fileRepo, Domain.Entity.Item component)
         {
-            bool result = true;
+            bool successCopy = true;
             if (FilesToAttach.Count > 0)
             {
                 if (!Directory.Exists(Directories.TargetPath))
@@ -143,19 +143,25 @@ namespace Prizm.Main.Forms.ExternalFile
                     try
                     {
                         System.IO.File.Copy(
-                        Directories.FilesToAttachFolder + newFileName,
-                        Directories.TargetPath + newFileName
+                          Directories.FilesToAttachFolder + newFileName,
+                          Directories.TargetPath + newFileName
                         );
                     }
                     catch (Exception e)
                     {
-                        result = false;
+                        successCopy = false;
                         RemoveCopiedFilesIfError();
                         break;
                     }
                 }
             }
-            return result;
+
+            if (successCopy)
+            {
+                PersistFiles(fileRepo, component);
+            }
+
+            return successCopy;
         }
         private void RemoveCopiedFilesIfError()
         {
@@ -171,10 +177,10 @@ namespace Prizm.Main.Forms.ExternalFile
                 }
             }
         }
-        public void PersistFiles(IComponentRepositories repos)
+        public void PersistFiles(IFileRepository fileRepo, Domain.Entity.Item component)
         {
-            foreach (KeyValuePair<string, string> kvp in FilesToAttach)
-            {
+           foreach (KeyValuePair<string, string> kvp in FilesToAttach)
+           {
                 Prizm.Domain.Entity.File fileEntity = new Domain.Entity.File()
                 {
                     FileName = kvp.Value,
@@ -183,11 +189,13 @@ namespace Prizm.Main.Forms.ExternalFile
                     IsActive = true,
                     NewName = kvp.Key
                 };
-                repos.FileRepo.Save(fileEntity);
-            }
-            FilesToAttach.Clear();
-            notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
-                Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
+                fileRepo.Save(fileEntity);
+           }
+            
+           FilesToAttach.Clear();
+
+           notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
+               Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
         }
         public int SizeLimit
         { get { return sizeLimit; } }

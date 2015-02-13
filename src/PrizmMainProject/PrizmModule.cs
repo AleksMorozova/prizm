@@ -9,8 +9,8 @@ using Prizm.Main.Forms.Component.NewEdit;
 using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Main.Forms.Joint.Search;
 using Prizm.Main.Forms.PipeMill.NewEdit;
-using Prizm.Main.Forms.Railcar.NewEdit;
-using Prizm.Main.Forms.Railcar.Search;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.Search;
 using Prizm.Main.Forms.Reports.Construction;
 using Prizm.Main.Forms.Reports.Incoming;
 using Prizm.Main.Forms.Reports.Mill;
@@ -18,7 +18,7 @@ using Prizm.Main.Forms.Settings;
 using Prizm.Main.Forms.Spool;
 using Prizm.Main.Forms;
 using Prizm.Main.Forms.PipeMill.Heat;
-using Prizm.Main.Forms.Railcar;
+using Prizm.Main.Forms.ReleaseNote;
 using Prizm.Main.Forms.PipeMill;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.PipeMill.Purchase;
@@ -69,7 +69,7 @@ namespace Prizm.Main
             Bind<IJointOperationRepository>().To<JointOperationRepository>();
 
             Bind<ISettingsRepositories>().To<SettingsRepositories>();
-            Bind<IRailcarRepositories>().To<RailcarRepositories>();
+            Bind<IReleaseNoteRepositories>().To<ReleaseNoteRepositories>();
             Bind<IHeatRepositories>().To<HeatRepositories>();
             Bind<IProjectRepository>().To<ProjectRepository>();
             Bind<ICategoryRepository>().To<CategoryRepository>();
@@ -106,10 +106,10 @@ namespace Prizm.Main
             #region ViewModel
             Bind<HeatViewModel>().ToSelf();
             Bind<PurchaseOrderViewModel>().ToSelf();
-            Bind<RailcarViewModel>().ToSelf();
+            Bind<ReleaseNoteViewModel>().ToSelf();
             Bind<MillPipeSearchViewModel>().ToSelf();
             Bind<MillPipeNewEditViewModel>().ToSelf();
-            Bind<RailcarSearchViewModel>().ToSelf();
+            Bind<ReleaseNoteSearchViewModel>().ToSelf();
             Bind<SettingsViewModel>().ToSelf();
             Bind<MillReportsViewModel>().ToSelf();
             Bind<PrizmApplicationViewModel>().ToSelf();
@@ -125,7 +125,7 @@ namespace Prizm.Main
 
             #region Forms Binding
             Bind<MillPipeNewEditXtraForm>().ToSelf();
-            Bind<RailcarNewEditXtraForm>().ToSelf();
+            Bind<ReleaseNoteNewEditXtraForm>().ToSelf();
             Bind<MillPipeSearchXtraForm>().ToSelf();
             Bind<MillReportsXtraForm>().ToSelf();
             Bind<ComponentNewEditXtraForm>().ToSelf();
@@ -134,7 +134,7 @@ namespace Prizm.Main
             Bind<JointSearchXtraForm>().ToSelf();
             Bind<ConstructionReportsXtraForm>().ToSelf();
             Bind<SettingsXtraForm>().ToSelf();
-            Bind<RailcarSearchXtraForm>().ToSelf();
+            Bind<ReleaseNoteSearchXtraForm>().ToSelf();
             Bind<SpoolsXtraForm>().ToSelf();
             Bind<HeatXtraForm>().ToSelf();
             Bind<PurchaseOrderXtraForm>().ToSelf();

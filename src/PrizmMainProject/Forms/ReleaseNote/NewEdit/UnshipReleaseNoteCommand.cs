@@ -14,19 +14,19 @@ using System.Windows.Forms;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 
-namespace Prizm.Main.Forms.Railcar.NewEdit
+namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class UnshipRailcarCommand : ICommand
+    public class UnshipReleaseNoteCommand : ICommand
     {
-        private readonly IRailcarRepositories repos;
-        private readonly RailcarViewModel viewModel;
+        private readonly IReleaseNoteRepositories repos;
+        private readonly ReleaseNoteViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public UnshipRailcarCommand(RailcarViewModel viewModel, IRailcarRepositories repo, IUserNotify notify, ISecurityContext ctx)
+        public UnshipReleaseNoteCommand(ReleaseNoteViewModel viewModel, IReleaseNoteRepositories repo, IUserNotify notify, ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repo;

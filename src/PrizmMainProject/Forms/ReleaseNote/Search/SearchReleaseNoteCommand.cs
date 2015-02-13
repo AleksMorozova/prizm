@@ -12,21 +12,21 @@ using System.ComponentModel;
 using System.Linq;
 using Prizm.Main.Languages;
 
-namespace Prizm.Main.Forms.Railcar.Search
+namespace Prizm.Main.Forms.ReleaseNote.Search
 {
-    public class SearchRailcarCommand : ICommand
+    public class SearchReleaseNoteCommand : ICommand
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SearchRailcarCommand));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SearchReleaseNoteCommand));
 
-        private readonly RailcarSearchViewModel viewModel;
+        private readonly ReleaseNoteSearchViewModel viewModel;
         private readonly IReleaseNoteRepository repo;
         private readonly IUserNotify notify;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
-        public SearchRailcarCommand(
-            RailcarSearchViewModel viewmodel,
+        public SearchReleaseNoteCommand(
+            ReleaseNoteSearchViewModel viewmodel,
             IReleaseNoteRepository repo,
             IUserNotify notify)
         {

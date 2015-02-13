@@ -47,6 +47,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 new LocalizedItem(diametersIntersectionLayout, StringResources.SelectDiameterDialog_DiametersIntersectionLayout.Id),
                 new LocalizedItem(saveChosenDiameter, StringResources.SelectDiameterDialog_SaveChosenDiameter.Id),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.SelectDiameterDialog_Title.Id} )
             };
         }
 

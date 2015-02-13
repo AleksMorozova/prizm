@@ -33,6 +33,10 @@ namespace Prizm.Main.Forms.PipeMill.Heat
                 new LocalizedItem(numberLayoutControl, StringResources.HeatNumber_HeatNumberLabel.Id),
                 new LocalizedItem(saveButton, StringResources.HeatNumber_SaveButton.Id),
                 new LocalizedItem(cancelButton, StringResources.HeatNumber_CancelButton.Id),
+                
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.HeatNumberXtraForm_Title.Id} )
             };
         }
 
