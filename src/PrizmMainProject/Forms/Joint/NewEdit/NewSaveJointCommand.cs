@@ -40,6 +40,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if(!DateCheck())
             {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 log.Warn("Date limits not valid!");
                 return;
             }

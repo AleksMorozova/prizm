@@ -689,6 +689,7 @@ CREATE TABLE [dbo].[User] (
   [middleName] [nvarchar](30) NULL,
   [isActive] [bit] NOT NULL,
   [undeletable] [bit] NOT NULL,
+  [uiLanguage] [nvarchar](7) NULL,
   PRIMARY KEY(id)
 ) ON [PRIMARY]
 

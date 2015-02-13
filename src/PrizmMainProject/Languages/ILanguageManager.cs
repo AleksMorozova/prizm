@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Resources;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.Main.Languages
 {
@@ -14,8 +15,10 @@ namespace Prizm.Main.Languages
         bool LoadTranslation(CultureInfo culture);
         void ChangeLanguage(ILocalizable localizable);
         CultureInfo DefaultCultureInfo { get; }
+        CultureInfo CurrentCulture { get; }
         string GetString(StringResource resourceDescription);
         IEnumerable<StringResource> EnumerateStringResources(System.Type stringResourcesStaticClassType);
         StringResource? FindById(System.Type stringResourcesStaticClassType, string resourceId);
+        bool ApplyUsersLanguage(User user);
     }
 }
