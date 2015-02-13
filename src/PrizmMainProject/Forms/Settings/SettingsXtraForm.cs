@@ -868,6 +868,7 @@ namespace Prizm.Main.Forms.Settings
             view.RemoveSelectedItem(e, viewModel.Users, (_) => _.IsNew());
         }
 
+        private bool handleGridViewRolesSelectionChanged = true;
         private void gridViewRoles_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             var view = sender as GridView;
@@ -878,15 +879,33 @@ namespace Prizm.Main.Forms.Settings
                 var role = view.GetRow(e.ControllerRow) as Role;
                 if(role != null)
                 {
-                    switch(e.Action)
+                    if (!view.IsFocusedView || IsEditMode)
                     {
-                        case CollectionChangeAction.Add:
-                            viewModel.AddRoleToUser(role, user);
-                            break;
-                        case CollectionChangeAction.Remove:
+                        switch (e.Action)
+                        {
+                            case CollectionChangeAction.Add:
+                                viewModel.AddRoleToUser(role, user);
+                                break;
+                            case CollectionChangeAction.Remove:
                                 viewModel.RemoveRoleFromUser(role, user);
-                        break;
+                                break;
+                        }
                     }
+                    else if(handleGridViewRolesSelectionChanged)
+                    {
+                        handleGridViewRolesSelectionChanged = false;
+                        switch (e.Action)
+                        {
+                            case CollectionChangeAction.Add:
+                                view.UnselectRow(e.ControllerRow);
+                                break;
+                            case CollectionChangeAction.Remove:
+                                view.SelectRow(e.ControllerRow);
+                                break;
+                        }
+                    }
+
+                    handleGridViewRolesSelectionChanged = true;
                 }
             }
         }
