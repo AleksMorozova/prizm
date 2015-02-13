@@ -42,6 +42,8 @@ namespace Prizm.Main.Forms.Spool
         {
             if(viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 log.Warn("Date limits not valid!");
                 return;
             }

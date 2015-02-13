@@ -4,6 +4,8 @@ FixedCategoryLengthPassedHeader=Measurement results are not specified
 ;Результаты измерения длины должны быть введены.
 FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
 
+;Дата задана не верно
+WrongDate=Wrong date
 
 ;Сообщение - Укажите инспектора
 SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
@@ -1839,6 +1841,9 @@ ReleaseNoteNewEdit_DifferentTypeSizeInRailcar=All pipes in railcar should have t
 
 ;Сообщение об ошибке: Введите номер разрешения на отгрузку.
 ReleaseNoteNewEdit_MissingReleaseNoteNumber=Enter release note number.
+
+;Сообщение об ошибке: Укажите вагон.
+ReleaseNoteNewEdit_MissingRailcar=Please enter railcar.
 
 ;Сообщение: Данные разрешения на отгрузку сохранены
 ReleaseNoteNewEdit_SaveSuccess=Release note data are saved

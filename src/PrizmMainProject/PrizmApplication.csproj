@@ -1124,6 +1124,9 @@
     <Content Include="prizma_appIcon_256.ico" />
     <Content Include="prizma_appIcon_32.ico" />
     <Content Include="prizma_appIcon_48.ico" />
+    <None Include="Resources\inspection_16.png" />
+    <None Include="Resources\attachment_16.png" />
+    <None Include="Resources\export_16.png" />
     <None Include="Resources\history_item_16.png" />
     <None Include="Resources\page_setup_16.png" />
     <None Include="Resources\properties_16.png" />
@@ -1143,7 +1146,9 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>DEL $(SolutionDir)..\install\Lang\Res\*.resources
+    <PostBuildEvent>if not exist $(SolutionDir)..\install\Lang\Res\ mkdir $(SolutionDir)..\install\Lang\Res\
+
+DEL $(SolutionDir)..\install\Lang\Res\*.resources
 $(SolutionDir)..\..\prizm_external\external\Lang\resgen.exe $(ProjectDir)\Languages\LocalizedStrings\Strings.en-US.txt $(SolutionDir)..\install\Lang\Res\Strings.en-US.resources</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
