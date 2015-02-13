@@ -382,6 +382,10 @@ namespace Prizm.Main.Forms.MainChildForm
 
             NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
+
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
+            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser))
+                this.CascadeChangeLanguage();
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
