@@ -7,7 +7,7 @@ using Prizm.Data.DAL.Setup;
 using Prizm.Data.DAL.Mill;
 using Moq;
 using NUnit.Framework;
-using Prizm.Main.Forms.Railcar.NewEdit;
+using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.PipeMill.Search;
 using Prizm.Main.Forms.PipeMill;

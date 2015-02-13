@@ -60,7 +60,8 @@ namespace Prizm.Main.Forms.PipeMill
                 new LocalizedItem(purchaseOrderDateLayout, StringResources.PurchaseOrder_DateLabel.Id),
 
                 new LocalizedItem(saveButton, StringResources.PurchaseOrder_SaveButton.Id),
-                new LocalizedItem(cancelButton, StringResources.PurchaseOrder_CancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.PurchaseOrder_CancelButton.Id),
+                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.PurchaseOrder_Title.Id} )
             };
         }
 

@@ -72,6 +72,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to О программе.
+        /// </summary>
+        internal static string AboutXtraForm_Title {
+            get {
+                return ResourceManager.GetString("AboutXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ремонтная операция.
         /// </summary>
         internal static string Action {
@@ -104,6 +113,15 @@ namespace Prizm.Main.Properties {
         internal static string AlertFailureHeader {
             get {
                 return ResourceManager.GetString("AlertFailureHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Аудит.
+        /// </summary>
+        internal static string AuditXtraForm_Title {
+            get {
+                return ResourceManager.GetString("AuditXtraForm_Title", resourceCulture);
             }
         }
         
@@ -243,12 +261,30 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Комплектующее изделие.
+        /// </summary>
+        internal static string ComponentNewEdit_Title {
+            get {
+                return ResourceManager.GetString("ComponentNewEdit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap components_icon {
             get {
                 object obj = ResourceManager.GetObject("components_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Конфликт.
+        /// </summary>
+        internal static string ConflictDialog_Title {
+            get {
+                return ResourceManager.GetString("ConflictDialog_Title", resourceCulture);
             }
         }
         
@@ -295,6 +331,15 @@ namespace Prizm.Main.Properties {
         internal static string Construction_UsedProductReport_label {
             get {
                 return ResourceManager.GetString("Construction_UsedProductReport_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по сварке участка между пикетами.
+        /// </summary>
+        internal static string ConstructionReport_Title {
+            get {
+                return ResourceManager.GetString("ConstructionReport_Title", resourceCulture);
             }
         }
         
@@ -349,6 +394,15 @@ namespace Prizm.Main.Properties {
         internal static string ControlTypeWitness {
             get {
                 return ResourceManager.GetString("ControlTypeWitness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание компонента.
+        /// </summary>
+        internal static string CreateSpoolComponentDialog_Title {
+            get {
+                return ResourceManager.GetString("CreateSpoolComponentDialog_Title", resourceCulture);
             }
         }
         
@@ -526,6 +580,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Экспорт.
+        /// </summary>
+        internal static string ExportForm_Title {
+            get {
+                return ResourceManager.GetString("ExportForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вложения успешно добавлены.
         /// </summary>
         internal static string ExternalFiles_FileAttachSuccess {
@@ -589,6 +652,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Внешние файлы.
+        /// </summary>
+        internal static string ExternalFilesXtraForm_Title {
+            get {
+                return ResourceManager.GetString("ExternalFilesXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Результаты измерения длины должны быть введены..
         /// </summary>
         internal static string FixedCategoryLengthPassed {
@@ -621,6 +693,24 @@ namespace Prizm.Main.Properties {
         internal static string Heat {
             get {
                 return ResourceManager.GetString("Heat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Плавка.
+        /// </summary>
+        internal static string Heat_Title {
+            get {
+                return ResourceManager.GetString("Heat_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавление плавки.
+        /// </summary>
+        internal static string HeatNumberXtraForm_Title {
+            get {
+                return ResourceManager.GetString("HeatNumberXtraForm_Title", resourceCulture);
             }
         }
         
@@ -717,6 +807,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Импорт.
+        /// </summary>
+        internal static string ImportForm_Title {
+            get {
+                return ResourceManager.GetString("ImportForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Импортирование завершено.
         /// </summary>
         internal static string ImportMessage_IsFinished {
@@ -741,6 +840,33 @@ namespace Prizm.Main.Properties {
         internal static string Inspection {
             get {
                 return ResourceManager.GetString("Inspection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Инспекция трубы.
+        /// </summary>
+        internal static string InspectionAddEdit_Title {
+            get {
+                return ResourceManager.GetString("InspectionAddEdit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по входному контролю.
+        /// </summary>
+        internal static string InspectionReport_Title {
+            get {
+                return ResourceManager.GetString("InspectionReport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выбор элемента.
+        /// </summary>
+        internal static string InspectionSelectPartDialog_Title {
+            get {
+                return ResourceManager.GetString("InspectionSelectPartDialog_Title", resourceCulture);
             }
         }
         
@@ -936,6 +1062,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вырезка стыка.
+        /// </summary>
+        internal static string JointCutDialog_Title {
+            get {
+                return ResourceManager.GetString("JointCutDialog_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык.
+        /// </summary>
+        internal static string JointNewXtraForm_Title {
+            get {
+                return ResourceManager.GetString("JointNewXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ремонтная.
         /// </summary>
         internal static string JointOperationType_Action {
@@ -1022,6 +1166,15 @@ namespace Prizm.Main.Properties {
         internal static string JointSearch_JointStatus_Withdrawn {
             get {
                 return ResourceManager.GetString("JointSearch_JointStatus_Withdrawn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поиск стыков.
+        /// </summary>
+        internal static string JointSearchXtraForm_Title {
+            get {
+                return ResourceManager.GetString("JointSearchXtraForm_Title", resourceCulture);
             }
         }
         
@@ -1345,6 +1498,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление контрольной операции.
+        /// </summary>
+        internal static string MillInspection_Title {
+            get {
+                return ResourceManager.GetString("MillInspection_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Название завода.
         /// </summary>
         internal static string MillName {
@@ -1552,6 +1714,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Труба.
+        /// </summary>
+        internal static string MillPipeNewEditXtraForm_Title {
+            get {
+                return ResourceManager.GetString("MillPipeNewEditXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Формат номера трубы: .
         /// </summary>
         internal static string MillPipeNumber_Mask_Hint {
@@ -1575,6 +1746,15 @@ namespace Prizm.Main.Properties {
         internal static string MillPipeNumberMaskRegexp {
             get {
                 return ResourceManager.GetString("MillPipeNumberMaskRegexp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет.
+        /// </summary>
+        internal static string MillReport_Title {
+            get {
+                return ResourceManager.GetString("MillReport_Title", resourceCulture);
             }
         }
         
@@ -1620,6 +1800,15 @@ namespace Prizm.Main.Properties {
         internal static string MinExpected {
             get {
                 return ResourceManager.GetString("MinExpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нарушена последовательность.
+        /// </summary>
+        internal static string MissingPortionsDialog_Title {
+            get {
+                return ResourceManager.GetString("MissingPortionsDialog_Title", resourceCulture);
             }
         }
         
@@ -1741,6 +1930,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Окно уведомлений.
+        /// </summary>
+        internal static string NotificationXtraForm_Title {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер.
         /// </summary>
         internal static string Number {
@@ -1783,6 +1981,15 @@ namespace Prizm.Main.Properties {
         internal static string PartInspection_InspectionsSaved {
             get {
                 return ResourceManager.GetString("PartInspection_InspectionsSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Входной контроль.
+        /// </summary>
+        internal static string PartInspection_Title {
+            get {
+                return ResourceManager.GetString("PartInspection_Title", resourceCulture);
             }
         }
         
@@ -1886,6 +2093,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Поиск элементов трубопровода.
+        /// </summary>
+        internal static string PartSearch_Title {
+            get {
+                return ResourceManager.GetString("PartSearch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Комплектующее.
         /// </summary>
         internal static string PartTypeComponent {
@@ -1940,6 +2156,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Смена пароля.
+        /// </summary>
+        internal static string PassChange_Title {
+            get {
+                return ResourceManager.GetString("PassChange_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap password {
@@ -1983,6 +2208,15 @@ namespace Prizm.Main.Properties {
         internal static string Pipe_DeactivatedHeader {
             get {
                 return ResourceManager.GetString("Pipe_DeactivatedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчеты по трубам на стройке.
+        /// </summary>
+        internal static string PipeConstructionReport_Title {
+            get {
+                return ResourceManager.GetString("PipeConstructionReport_Title", resourceCulture);
             }
         }
         
@@ -2141,6 +2375,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Наряд-заказ.
+        /// </summary>
+        internal static string PurchaseOrder_Title {
+            get {
+                return ResourceManager.GetString("PurchaseOrder_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Question {
@@ -2174,6 +2417,15 @@ namespace Prizm.Main.Properties {
         internal static string ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar {
             get {
                 return ResourceManager.GetString("ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Укажите вагон.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_MissingRailcar {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_MissingRailcar", resourceCulture);
             }
         }
         
@@ -2250,6 +2502,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Разрешение на отгрузку.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_Title {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сначала расформируйте вагон/разрешение на отгрузку..
         /// </summary>
         internal static string ReleaseNoteNewEdit_UnshipFirst {
@@ -2264,6 +2525,15 @@ namespace Prizm.Main.Properties {
         internal static string ReleaseNoteNewEdit_Unshipped {
             get {
                 return ResourceManager.GetString("ReleaseNoteNewEdit_Unshipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поиск разрешений на отгрузку.
+        /// </summary>
+        internal static string ReleaseSearch_Title {
+            get {
+                return ResourceManager.GetString("ReleaseSearch_Title", resourceCulture);
             }
         }
         
@@ -2292,6 +2562,15 @@ namespace Prizm.Main.Properties {
         internal static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранить изменения?.
+        /// </summary>
+        internal static string SaveDialog_Title {
+            get {
+                return ResourceManager.GetString("SaveDialog_Title", resourceCulture);
             }
         }
         
@@ -2356,6 +2635,15 @@ namespace Prizm.Main.Properties {
         internal static string SearchPipe_MillStatusStocked {
             get {
                 return ResourceManager.GetString("SearchPipe_MillStatusStocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поиск труб.
+        /// </summary>
+        internal static string SearchPipe_Title {
+            get {
+                return ResourceManager.GetString("SearchPipe_Title", resourceCulture);
             }
         }
         
@@ -2702,6 +2990,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выбор диаметра.
+        /// </summary>
+        internal static string SelectDiameterDialog_Title {
+            get {
+                return ResourceManager.GetString("SelectDiameterDialog_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Укажите инспектора.
         /// </summary>
         internal static string SelectInspectorsForTestResult {
@@ -2788,6 +3085,15 @@ namespace Prizm.Main.Properties {
         internal static string Settings_SetupSaves {
             get {
                 return ResourceManager.GetString("Settings_SetupSaves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки.
+        /// </summary>
+        internal static string Settings_Title {
+            get {
+                return ResourceManager.GetString("Settings_Title", resourceCulture);
             }
         }
         
@@ -2955,6 +3261,15 @@ namespace Prizm.Main.Properties {
         internal static string Spool_WrongPipeNumberForCuttingHeader {
             get {
                 return ResourceManager.GetString("Spool_WrongPipeNumberForCuttingHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Создание катушки.
+        /// </summary>
+        internal static string SpoolsXtraForm_Title {
+            get {
+                return ResourceManager.GetString("SpoolsXtraForm_Title", resourceCulture);
             }
         }
         
@@ -3172,6 +3487,15 @@ namespace Prizm.Main.Properties {
         internal static string Weld {
             get {
                 return ResourceManager.GetString("Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по сварке (по дате).
+        /// </summary>
+        internal static string WeldDateReport_Title {
+            get {
+                return ResourceManager.GetString("WeldDateReport_Title", resourceCulture);
             }
         }
         

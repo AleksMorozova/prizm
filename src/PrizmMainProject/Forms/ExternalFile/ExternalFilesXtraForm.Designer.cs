@@ -193,6 +193,7 @@
             // cancelButton
             // 
             this.cancelButton.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
             this.cancelButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.cancelButton.Location = new System.Drawing.Point(317, 265);
@@ -202,7 +203,6 @@
             this.cancelButton.StyleController = this.layoutControl;
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Закр&ыть";
-            this.cancelButton.Click += new System.EventHandler(this.cancel_Click);
             // 
             // Root
             // 
@@ -285,8 +285,10 @@
             // 
             // ExternalFilesXtraForm
             // 
+            this.AcceptButton = this.cancelButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(495, 307);
             this.Controls.Add(this.layoutControl);
             this.Name = "ExternalFilesXtraForm";
