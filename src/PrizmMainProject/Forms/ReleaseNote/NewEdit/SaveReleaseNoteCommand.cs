@@ -47,6 +47,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
             if(!viewModel.Date.IsValid())
             {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 log.Warn("Date limits not valid!");
                 return;
             }
