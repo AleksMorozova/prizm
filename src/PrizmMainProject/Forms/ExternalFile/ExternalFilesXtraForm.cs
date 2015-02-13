@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
+using System.Drawing;
+using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
@@ -22,6 +24,8 @@ namespace Prizm.Main.Forms.ExternalFile
         public ExternalFilesXtraForm()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.attachment_16;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (ExternalFilesViewModel)Program
                 .Kernel
                 .Get<ExternalFilesViewModel>();

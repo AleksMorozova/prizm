@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
+using Prizm.Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace Prizm.Main.Forms.Common
       public LoginForm()
       {
          InitializeComponent();
+         Bitmap bmp = Resources.password;
+         this.Icon = Icon.FromHandle(bmp.GetHicon());
       }
 
       public string Login
