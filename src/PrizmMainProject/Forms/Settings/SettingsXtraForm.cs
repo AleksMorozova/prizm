@@ -134,6 +134,9 @@ namespace Prizm.Main.Forms.Settings
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
+            // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
+            findDuplicateList = new Dictionary<GridView, DuplicatesList>();
+            CreateDuplicateList();
         }
 
         private void BindToViewModel()
@@ -1261,6 +1264,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 UpdateSeamTypesComboBox();
             }
+            // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             findDuplicateList = new Dictionary<GridView, DuplicatesList>();
             CreateDuplicateList();
         }
@@ -1430,6 +1434,7 @@ namespace Prizm.Main.Forms.Settings
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
             DuplicatesList l = findDuplicateList[plateManufacturersListView];
             List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
+            plateManufacturersListView.ValidateDuplicate(plateManufacturerGridColumn, plateManufacturersDuplicates, e);
         }
 
         private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1439,6 +1444,8 @@ namespace Prizm.Main.Forms.Settings
             categoriesGridView.ValidateNotEmpty(categoryNameColumn, e);
             DuplicatesList l = findDuplicateList[categoriesGridView];
             List<string> categoriesDuplicates = l.Method(categoriesGridView);
+
+            categoriesGridView.ValidateDuplicate(categoryNameColumn, categoriesDuplicates, e);
         }
 
         private void seemTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1448,6 +1455,7 @@ namespace Prizm.Main.Forms.Settings
             seemTypeGridView.ValidateNotEmpty(seemTypeColumn, e);
             DuplicatesList l = findDuplicateList[seemTypeGridView];
             List<string> seemTypeDuplicates = l.Method(seemTypeGridView);
+            seemTypeGridView.ValidateDuplicate(seemTypeColumn, seemTypeDuplicates, e);
         }
 
         private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1457,6 +1465,7 @@ namespace Prizm.Main.Forms.Settings
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
             DuplicatesList l = findDuplicateList[componentryTypeGridView];
             List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
+            componentryTypeGridView.ValidateDuplicate(typeColumn, componentryTypeDuplicates, e);
         }
 
         private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1542,6 +1551,34 @@ namespace Prizm.Main.Forms.Settings
         private void inspectorCertificateGridView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void componentryTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            DuplicatesList l = findDuplicateList[componentryTypeGridView];
+            List<string> componentryDuplicate = l.Method(componentryTypeGridView);
+            componentryTypeGridView.ColorGrid(typeColumn, componentryDuplicate, e);
+        }
+
+        private void plateManufacturersListView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            DuplicatesList l = findDuplicateList[plateManufacturersListView];
+            List<string> plateManufacturersDuplicate = l.Method(plateManufacturersListView);
+            plateManufacturersListView.ColorGrid(plateManufacturerGridColumn, plateManufacturersDuplicate, e);
+        }
+
+        private void categoriesGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            DuplicatesList l = findDuplicateList[categoriesGridView];
+            List<string> categoriesDuplicate = l.Method(categoriesGridView);
+            categoriesGridView.ColorGrid(categoryNameColumn, categoriesDuplicate, e);
+        }
+
+        private void seemTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            DuplicatesList l = findDuplicateList[seemTypeGridView];
+            List<string> seemTypeDuplicate = l.Method(seemTypeGridView);
+            seemTypeGridView.ColorGrid(seemTypeColumn, seemTypeDuplicate, e);
         }
 
     }
