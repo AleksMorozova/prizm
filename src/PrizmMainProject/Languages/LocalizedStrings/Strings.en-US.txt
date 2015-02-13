@@ -1840,6 +1840,9 @@ ReleaseNoteNewEdit_DifferentTypeSizeInRailcar=All pipes in railcar should have t
 ;Сообщение об ошибке: Введите номер разрешения на отгрузку.
 ReleaseNoteNewEdit_MissingReleaseNoteNumber=Enter release note number.
 
+;Сообщение об ошибке: Укажите вагон.
+ReleaseNoteNewEdit_MissingRailcar=Please enter railcar.
+
 ;Сообщение: Данные разрешения на отгрузку сохранены
 ReleaseNoteNewEdit_SaveSuccess=Release note data are saved
 
