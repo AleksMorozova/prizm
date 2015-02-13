@@ -62,7 +62,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
             attachmentsButton.Enabled = true;
 
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             CannotOpenForViewing = id == Guid.Empty;
         }
 

@@ -49,7 +49,6 @@ namespace Prizm.Main.Forms.Settings
         private List<string> localizedPipeTestResultTypes = new List<string>();
         private List<string> localizedJointOperationTypes = new List<string>();
         private MillInspectionXtraForm inspectionForm = null;
-        private ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
 
         public SettingsXtraForm()
         {
@@ -64,7 +63,6 @@ namespace Prizm.Main.Forms.Settings
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             viewModel.ModifiableView = this;
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
         }
 
 
@@ -131,6 +129,7 @@ namespace Prizm.Main.Forms.Settings
             );
 
             UpdateSeamTypesComboBox();
+            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
 
             repositoryWelderCertDateEdit.SetLimits();
