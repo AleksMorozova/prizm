@@ -2337,7 +2337,11 @@ ImportForm_Title=Import
 ;Нарушена последовательность
 MissingPortionsDialog_Title=Missing portions
 
+;Ожидайте
+WaitScreen_Caption=Please wait
 
+;Идет загрузка ...
+WaitScreen_Description=Loading...
 
 
 
