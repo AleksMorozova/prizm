@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -97,11 +98,11 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveAndCreateLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -178,6 +179,7 @@
             conditionValidationRule3.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.jointNumber, conditionValidationRule3);
             this.jointNumber.EditValueChanged += new System.EventHandler(this.jointNumber_EditValueChanged);
+            this.jointNumber.TextChanged += new System.EventHandler(this.jointNumber_TextChanged);
             // 
             // newJointLayoutControl
             // 
@@ -614,7 +616,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
-            this.secondJointElement.EditValueChanged += new System.EventHandler(this.secondJointElement_EditValueChanged);
+            this.secondJointElement.TextChanged += new System.EventHandler(this.secondJointElement_TextChanged);
             // 
             // firstJointElement
             // 
@@ -637,7 +639,7 @@
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.firstJointElement, conditionValidationRule2);
-            this.firstJointElement.EditValueChanged += new System.EventHandler(this.firstJointElement_EditValueChanged);
+            this.firstJointElement.TextChanged += new System.EventHandler(this.firstJointElement_TextChanged);
             // 
             // loweringDate
             // 
