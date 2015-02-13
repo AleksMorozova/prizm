@@ -57,7 +57,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(numberCol, StringResources.InspectionSelectPartDialog_NumberColumnHeader.Id),
                 new LocalizedItem(typeCol, StringResources.InspectionSelectPartDialog_TypeColumnHeader.Id),
                 //grid column with enum
-                new LocalizedItem(searchResultsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id})
+                new LocalizedItem(searchResultsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id}),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.InspectionSelectPartDialog_Title.Id} )
             };
         }
 

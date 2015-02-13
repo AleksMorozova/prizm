@@ -201,7 +201,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             BindCommands();
             BindToViewModel();
-            viewModel.PropertyChanged += (s, eve) => IsModified = true;
+            viewModel.PropertyChanged += (s, eve) => 
+                {
+                    if ( eve.PropertyName != "Pieces")
+                    {
+                        IsModified = true;
+                    }
+                };
             IsEditMode = viewModel.JointIsActive;
             IsModified = false;
 
@@ -261,7 +267,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         new string [] { StringResources.JointNewEdit_JointStatus_Undefined.Id,
                             StringResources.JointSearch_JointStatus_Welded.Id, 
                             StringResources.JointSearch_JointStatus_Lowered.Id, 
-                            StringResources.JointSearch_JointStatus_Withdrawn.Id} )
+                            StringResources.JointSearch_JointStatus_Withdrawn.Id} ),
+
+                // header
+                new LocalizedItem(this, localizedHeader, new string[] {
+                    StringResources.JointNewXtraForm_Title.Id} )
             };
         }
 

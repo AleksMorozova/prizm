@@ -50,6 +50,8 @@ namespace Prizm.Main.Forms.Settings
 
               new LocalizedItem(btnOk, StringResources.PassChange_OKButton.Id),
               new LocalizedItem(btnCancel, StringResources.PassChange_CancelButton.Id),
+
+              new LocalizedItem(this, localizedHeader, new string[] {StringResources.PassChange_Title.Id} )
           };
         }
 

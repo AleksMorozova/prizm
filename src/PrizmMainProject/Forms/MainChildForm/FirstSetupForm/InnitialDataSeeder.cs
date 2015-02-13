@@ -733,10 +733,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             firstSetupRepo.Commit();
             firstSetupRepo.BeginTransaction();
             #region Release
-            List<ReleaseNote> releases = new List<ReleaseNote>();
+            List<Prizm.Domain.Entity.Mill.ReleaseNote> releases = new List<Prizm.Domain.Entity.Mill.ReleaseNote>();
             for(int i = 0; i < RELEASECOUNT; i++)
             {
-                ReleaseNote release = new ReleaseNote
+                Prizm.Domain.Entity.Mill.ReleaseNote release = new Prizm.Domain.Entity.Mill.ReleaseNote
                 {
                     Number = RndString(10),
                     Shipped = false,

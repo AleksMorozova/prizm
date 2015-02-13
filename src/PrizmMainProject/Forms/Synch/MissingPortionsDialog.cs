@@ -62,7 +62,9 @@ namespace Prizm.Main.Forms.Synch
                 new LocalizedItem(missingNumbers, StringResources.MissingPortion_missingNumbers.Id),
                 new LocalizedItem(recomendation, StringResources.MissingPortion_recomendation.Id),
                 new LocalizedItem(acceptButton, StringResources.MissingPortion_acceptButton.Id),
-                new LocalizedItem(cancelButton, StringResources.MissingPortion_cancelButton.Id)
+                new LocalizedItem(cancelButton, StringResources.MissingPortion_cancelButton.Id),
+
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.MissingPortionsDialog_Title.Id} )
             };
         }
 

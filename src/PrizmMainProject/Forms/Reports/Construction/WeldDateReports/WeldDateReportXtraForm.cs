@@ -84,6 +84,8 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
                 new LocalizedItem(createReportButton, StringResources.WeldDateReport_CreateReportButton.Id),
                 new LocalizedItem(weldReportParameterGroup, StringResources.WeldDateReport_WeldReportParameterGroup.Id),
                 new LocalizedItem(jointReportViewerGroup, StringResources.WeldDateReport_JointReportViewerGroup.Id),
+
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.WeldDateReport_Title.Id} )
             };
         }
 

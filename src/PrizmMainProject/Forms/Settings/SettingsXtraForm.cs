@@ -369,7 +369,9 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(jointOperationTypeLookUpEdit, localizedJointOperationTypes, new string[] {StringResources.JointOperationType_Test.Id,
                                                                                                             StringResources.JointOperationType_Action.Id,
                                                                                                             StringResources.JointOperationType_Weld.Id,
-                                                                                                            StringResources.JointOperationType_Withdraw.Id})
+                                                                                                            StringResources.JointOperationType_Withdraw.Id}),
+                
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.Settings_Title.Id} )
                                                                                          
             };
         }

@@ -90,6 +90,10 @@ namespace Prizm.Main.Forms.Audit
 
                     // radiogroup
                     new LocalizedItem(radioPeriodUser, new string [] {StringResources.Audit_RadioPeriod.Id, StringResources.Audit_RadioUser.Id}),
+
+                    // header
+                    new LocalizedItem(this, localizedHeader, new string[] {
+                        StringResources.AuditXtraForm_Title.Id} )
                 };
         }
 
