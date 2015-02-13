@@ -425,7 +425,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
         {
-            if(CurrentPipeMillSizeType != null)
+            if(CurrentPipeMillSizeType != null &&
+                IsEditMode)
             {
                 viewModel.PipeMillSizeType.Add(CurrentPipeMillSizeType.Clone());
             }
@@ -736,6 +737,7 @@ namespace Prizm.Main.Forms.Settings
             RefreshRolePermissions(e.FocusedRowHandle);
         }
 
+        private bool handleGridViewPermissionsSelectionChanged = true;
         private void gridViewPermissions_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             var view = sender as GridView;
@@ -745,23 +747,40 @@ namespace Prizm.Main.Forms.Settings
                 return;
 
             Permission p = view.GetRow(e.ControllerRow) as Permission;
-
-            switch(e.Action)
+            if (!view.IsFocusedView || IsEditMode)
             {
-                case CollectionChangeAction.Add:
-                    if(!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
-                    {
-                        view.UnselectRow(e.ControllerRow);
-                    }
-                    else
-                    {
-                        viewModel.AddPermissionToRole(role, p);
-                    }
-                    break;
-                case CollectionChangeAction.Remove:
+                switch (e.Action)
+                {
+                    case CollectionChangeAction.Add:
+                        if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+                        {
+                            view.UnselectRow(e.ControllerRow);
+                        }
+                        else
+                        {
+                            viewModel.AddPermissionToRole(role, p);
+                        }
+                        break;
+                    case CollectionChangeAction.Remove:
                     viewModel.RemovePermissionFromRole(role, p);
-                    break;
+                        break;
+                }
             }
+            else if (handleGridViewPermissionsSelectionChanged)
+            {
+                handleGridViewPermissionsSelectionChanged = false;
+                switch (e.Action)
+                {
+                    case CollectionChangeAction.Add:
+                        view.UnselectRow(e.ControllerRow);
+                        break;
+                    case CollectionChangeAction.Remove:
+                        view.SelectRow(e.ControllerRow);
+                        break;
+                }
+            }
+
+            handleGridViewPermissionsSelectionChanged = true;
         }
 
         private void gridViewUsers_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -833,6 +852,7 @@ namespace Prizm.Main.Forms.Settings
             view.RemoveSelectedItem(e, viewModel.Users, (_) => _.IsNew());
         }
 
+        private bool handleGridViewRolesSelectionChanged = true;
         private void gridViewRoles_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             var view = sender as GridView;
@@ -843,15 +863,33 @@ namespace Prizm.Main.Forms.Settings
                 var role = view.GetRow(e.ControllerRow) as Role;
                 if(role != null)
                 {
-                    switch(e.Action)
+                    if (!view.IsFocusedView || IsEditMode)
                     {
-                        case CollectionChangeAction.Add:
-                            viewModel.AddRoleToUser(role, user);
-                            break;
-                        case CollectionChangeAction.Remove:
-                            viewModel.RemoveRoleFromUser(role, user);
-                            break;
+                        switch (e.Action)
+                        {
+                            case CollectionChangeAction.Add:
+                                viewModel.AddRoleToUser(role, user);
+                                break;
+                            case CollectionChangeAction.Remove:
+                                viewModel.RemoveRoleFromUser(role, user);
+                                break;
+                        }
                     }
+                    else if(handleGridViewRolesSelectionChanged)
+                    {
+                        handleGridViewRolesSelectionChanged = false;
+                        switch (e.Action)
+                        {
+                            case CollectionChangeAction.Add:
+                                view.UnselectRow(e.ControllerRow);
+                                break;
+                            case CollectionChangeAction.Remove:
+                                view.SelectRow(e.ControllerRow);
+                                break;
+                        }
+                    }
+
+                    handleGridViewRolesSelectionChanged = true;
                 }
             }
         }
