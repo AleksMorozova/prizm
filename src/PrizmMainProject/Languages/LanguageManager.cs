@@ -9,6 +9,9 @@ using System.Globalization;
 using System.Resources;
 using Prizm.Main.Properties;
 using System.Reflection;
+using Prizm.Main.Security;
+using Ninject;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.Main.Languages
 {
@@ -162,7 +165,7 @@ namespace Prizm.Main.Languages
             }
         }
 
-        private CultureInfo CurrentCulture
+        public CultureInfo CurrentCulture
         {
             get 
             {
@@ -320,5 +323,9 @@ namespace Prizm.Main.Languages
             return ret;
         }
 
+        public bool ApplyUsersLanguage(User user)
+        {
+            return (user.UILanguage == null) ? false : (user.UILanguage != CurrentCulture.Name && LoadTranslation(new CultureInfo(user.UILanguage)));
+        }
     }
 }
