@@ -171,56 +171,6 @@ namespace Prizm.Main.Forms.MainChildForm
             return childForms[formType.Name];
         }
 
-        private bool IsAnyFormModified(Func<string, bool> predicate)
-        {
-            bool result = false;
-            foreach (var formType in childForms)
-            {
-                if (predicate(formType.Key))
-                {
-                    result = formType.Value.Any(x => x.IsEditMode);
-
-                    if (result)
-                        break;
-                }
-            }
-            return result;
-        }
-
-        private bool GetEditMode(Type formType)
-        {
-            bool result = false;
-
-            if (formType == typeof(SettingsXtraForm))
-                result = !IsAnyFormModified(x => x != typeof(SettingsXtraForm).Name);
-            else
-                result = !IsAnyFormModified(x => x == typeof(SettingsXtraForm).Name);
-
-            return result;
-        }
-
-        private bool ProceedInReadOnlyMode(Type formType, ChildForm form)
-        {
-            bool result = false;
-            
-            if (!form.CannotOpenForViewing)
-            {
-                if (formType.Name == typeof(SettingsXtraForm).Name)
-                    result = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewing),
-                        Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewingHeader));
-                else
-                    result = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewing),
-                        Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewingHeader));
-            }
-            else
-            {
-                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewing),
-                    Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewingHeader));
-            }
-
-            return result;
-        }
-
         /// <summary>
         /// Creation of child form. Can be used from outside to pass some Guid of entity and number to newly created forms.
         /// </summary>
@@ -282,22 +232,78 @@ namespace Prizm.Main.Forms.MainChildForm
             return form;
         }
 
+        /// <summary>
+        /// Based on @formType returns 
+        /// whether form can be opened for editing
+        /// </summary>
+        private bool CanOpenFormForEditing(Type formType)
+        {
+            bool cannotOpenFormForEditing = false;
+
+            foreach (var form in childForms)
+            {
+                if (formType.Name == typeof(SettingsXtraForm).Name ?
+                    form.Key != typeof(SettingsXtraForm).Name : form.Key == typeof(SettingsXtraForm).Name)
+                {
+                    cannotOpenFormForEditing = form.Value.Any(x => x.IsEditMode);
+
+                    if (cannotOpenFormForEditing)
+                        break;
+                }
+            }
+            return !cannotOpenFormForEditing;
+        }
+
+        /// <summary>
+        /// If form can be opened for viewing, asks user if we
+        /// should open form for viewing only.
+        /// If form cannot be opened for viewing (ex. New pipe creation),
+        /// shown warning
+        /// </summary>
+        /// <param name="formType">Type of form to be opened</param>
+        /// <param name="form">Shown child form</param>
+        /// <returns>If it is OK to open form for viewing</returns>
+        private bool CanOpenFormForViewing(Type formType, ChildForm form)
+        {
+            bool canOpenFormForViewing = false;
+
+            if (!form.CannotOpenForViewing)
+            {
+                if (formType.Name == typeof(SettingsXtraForm).Name)
+                    canOpenFormForViewing = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewingHeader));
+                else
+                    canOpenFormForViewing = notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewingHeader));
+            }
+            else
+            {
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewing),
+                    Program.LanguageManager.GetString(StringResources.Message_CannotOpenForViewingHeader));
+            }
+
+            return canOpenFormForViewing;
+        }
+
         private ChildForm ShowChildForm(Type formType, List<KeyValuePair<string, object>> parameters, bool IsEditMode = true)
         {
             ChildForm form = CreateChildForm(formType, parameters);
 
-            bool editMode = GetEditMode(formType);
             if (form != null)
             {
                 ShowChildForm(form);
-                if (form.IsEditMode &&
-                    !editMode && !ProceedInReadOnlyMode(formType, form))
+
+                bool canOpenFormForEditing = CanOpenFormForEditing(formType); 
+
+                // If form.IsEditMode == false -- form is always opened for viewing
+                if (IsEditMode && form.IsEditMode &&
+                    !canOpenFormForEditing && !CanOpenFormForViewing(formType, form))
                 {
                     form.Close();
                 }
-                else if (!(IsEditMode && editMode))
+                else if (!(IsEditMode && canOpenFormForEditing))
                 {
-                    ((ChildForm)form).IsEditMode = (IsEditMode && editMode);
+                    ((ChildForm)form).IsEditMode = IsEditMode && canOpenFormForEditing;
                 }
             }
             return form;
