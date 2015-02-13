@@ -2421,6 +2421,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Укажите вагон.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_MissingRailcar {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_MissingRailcar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите номер разрешения на отгрузку.
         /// </summary>
         internal static string ReleaseNoteNewEdit_MissingReleaseNoteNumber {
