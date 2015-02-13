@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.Settings
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class SettingsXtraForm : ChildForm, IValidatable
     {
-        private Dictionary<GridView, DuplicatesList> findDuplicateList = new Dictionary<GridView,DuplicatesList>();
+        private Dictionary<GridView, DuplicatesList> findDuplicateList;
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
         private InspectorViewType CurrentInspector;
@@ -1223,6 +1223,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 UpdateSeamTypesComboBox();
             }
+            findDuplicateList = new Dictionary<GridView, DuplicatesList>();
             CreateDuplicateList();
         }
         /// <summary>
