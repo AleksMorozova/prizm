@@ -4040,6 +4040,12 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке: Введите номер разрешения на отгрузку."
         };
 
+        public static StringResource ReleaseNoteNewEdit_MissingRailcar = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_MissingRailcar",
+            Description = "Сообщение об ошибке: Укажите вагон."
+        };
+
         public static StringResource ReleaseNoteNewEdit_SaveSuccess = new StringResource
         {
             Id = "ReleaseNoteNewEdit_SaveSuccess",

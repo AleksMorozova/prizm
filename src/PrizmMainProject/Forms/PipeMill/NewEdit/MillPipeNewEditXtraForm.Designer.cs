@@ -38,6 +38,7 @@
             this.weldBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weldingHistoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryWeldingDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.weldersGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPopupWelders = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
@@ -149,11 +150,12 @@
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.repositoryWeldingDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupWelders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
@@ -246,8 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -319,6 +319,15 @@
             this.weldingDateGridColumn.Visible = true;
             this.weldingDateGridColumn.VisibleIndex = 0;
             this.weldingDateGridColumn.Width = 200;
+            // 
+            // repositoryWeldingDate
+            // 
+            this.repositoryWeldingDate.AutoHeight = false;
+            this.repositoryWeldingDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWeldingDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryWeldingDate.Name = "repositoryWeldingDate";
             // 
             // weldersGridColumn
             // 
@@ -1240,6 +1249,7 @@
             this.plateThicknessLayoutControlItem.Text = "Тол&щина";
             this.plateThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.plateThicknessLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
+            this.plateThicknessLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // steelGradeLayoutControlItem
             // 
@@ -1578,15 +1588,6 @@
             // 
             this.openFileDialog.Filter = "Layouts|*.xml";
             // 
-            // repositoryWeldingDate
-            // 
-            this.repositoryWeldingDate.AutoHeight = false;
-            this.repositoryWeldingDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryWeldingDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryWeldingDate.Name = "repositoryWeldingDate";
-            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1603,6 +1604,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupWelders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldersDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).EndInit();
@@ -1695,8 +1698,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryWeldingDate)).EndInit();
             this.ResumeLayout(false);
 
         }

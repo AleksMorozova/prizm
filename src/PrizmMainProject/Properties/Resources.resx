@@ -1288,4 +1288,7 @@
   <data name="Settings_PipeControlOperationValidationHeader" xml:space="preserve">
     <value>Неверные данные для типоразмера</value>
   </data>
+  <data name="ReleaseNoteNewEdit_MissingRailcar" xml:space="preserve">
+    <value>Укажите вагон</value>
+  </data>
 </root>
