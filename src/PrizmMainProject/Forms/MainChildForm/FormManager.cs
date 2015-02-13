@@ -289,16 +289,16 @@ namespace Prizm.Main.Forms.MainChildForm
             bool editMode = GetEditMode(formType);
             if (form != null)
             {
-                if (form.IsEditMode == false ||
-                    editMode || ProceedInReadOnlyMode(formType, form))
+                ShowChildForm(form);
+                if (form.IsEditMode &&
+                    !editMode && !ProceedInReadOnlyMode(formType, form))
                 {
-                    ShowChildForm(form);
-                    if (!(IsEditMode && editMode))
-                    {
-                        ((ChildForm)form).IsEditMode = (IsEditMode && editMode);
-                    }
+                    form.Close();
                 }
-                else form.Close();
+                else if (!(IsEditMode && editMode))
+                {
+                    ((ChildForm)form).IsEditMode = (IsEditMode && editMode);
+                }
             }
             return form;
         }
