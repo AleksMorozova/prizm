@@ -30,6 +30,7 @@ using Prizm.Main.Languages;
 using Prizm.Main.Forms.Settings.Inspections;
 using Domain.Entity.Security;
 using Prizm.Main.Security;
+using DevExpress.XtraEditors.Controls;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -133,7 +134,7 @@ namespace Prizm.Main.Forms.Settings
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
-            CreateDuplicateList();
+            //CreateDuplicateList();
         }
 
         private void BindToViewModel()
@@ -407,13 +408,17 @@ namespace Prizm.Main.Forms.Settings
         private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             var view = sender as GridView;
-            pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
+            DuplicatesList l = findDuplicateList[pipesSizeListGridView];
+            List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
+            pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
             pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
         }
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
+            DuplicatesList l = findDuplicateList[pipesSizeListGridView];
+            List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
             pipesSizeListGridView.ColorGrid(pipeSizeGridColumn, pipeSizesDuplicates, e);
         }
 
@@ -1129,28 +1134,33 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView gv = sender as GridView;
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
-            if(pipeTest.Code == null)
+            if (pipeTest.Code == null || pipeTest.Name == null || pipeTest.Category == null)
             {
                 controlOerationValidate = false;
-                gv.SetColumnError(inspectionCodeGridColumn, 
-                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
+
+                if (pipeTest.Code == null) 
+                {
+                    gv.SetColumnError(inspectionCodeGridColumn,
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired)); 
+                }
+                else if (pipeTest.Name == null)
+                {
+                    gv.SetColumnError(inspectionNameGridColumn, 
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
+                else if (pipeTest.Category == null)
+                {
+                    gv.SetColumnError(categoryColumn, 
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
             }
 
-            if(pipeTest.Name == null)
+            else 
             {
-                controlOerationValidate = false;
-                gv.SetColumnError(inspectionNameGridColumn, 
-                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                e.Valid = false;
+                controlOerationValidate = true;
             }
 
-            if(pipeTest.Category == null)
-            {
-                controlOerationValidate = false;
-                gv.SetColumnError(categoryColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                e.Valid = false;
-            }
         }
 
         private bool IsEditable(bool editMode)
@@ -1207,6 +1217,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 UpdateSeamTypesComboBox();
             }
+            CreateDuplicateList();
         }
         /// <summary>
         /// Set IsModified for settings after grid data changed. Used not for most grid in settings.

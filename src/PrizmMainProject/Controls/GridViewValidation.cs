@@ -35,7 +35,6 @@ namespace Prizm.Main.Controls
             {
                 if (duplicates.Count > 0)
                 {
-
                     foreach (var item in duplicates)
                     {
                         if ((e.CellValue != null) && (item == e.CellValue.ToString()))
@@ -43,8 +42,6 @@ namespace Prizm.Main.Controls
                             e.Appearance.ForeColor = Color.Red;
                         }
                     }
-
-
                 }
             }
         }
@@ -55,7 +52,6 @@ namespace Prizm.Main.Controls
             if (duplicates.Count > 0)
             {
                 view.SetColumnError(NameColumn,
-
                     Program.LanguageManager.GetString(StringResources.Settings_UniqueValueRequired));
                 e.Valid = false;
             }
