@@ -134,7 +134,6 @@ namespace Prizm.Main.Forms.Settings
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
-            //CreateDuplicateList();
         }
 
         private void BindToViewModel()
@@ -414,7 +413,6 @@ namespace Prizm.Main.Forms.Settings
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
             DuplicatesList l = findDuplicateList[pipesSizeListGridView];
             List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
-            pipeSizesDuplicates = FindDuplicatesInTypeSizesGrid();
             pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
         }
 
@@ -1237,24 +1235,68 @@ namespace Prizm.Main.Forms.Settings
             IsModified = true;
         }
 
-        private List<string> FindDuplicatesInTypeSizesGrid()
-        {
-            var pipeSizes = viewModel.PipeMillSizeType;
-
-            return pipeSizes.GroupBy(x => x.Type)
-                             .Where(g => g.Count() > 1)
-                             .Select(g => g.Key)
-                             .ToList();
-        }
         private void CreateDuplicateList() 
         {
-             
-            DuplicatesList l = new DuplicatesList();
-            l.Duplicates = null;
-            l.Method = delegate(GridView pipesSizeListGridView)
-            { return FindDuplicatesInTypeSizesGrid(); };
+            DuplicatesList pipeSize = new DuplicatesList();
+            pipeSize.Duplicates = null;
+            pipeSize.Method = delegate(GridView pipesSizeListGridView)
+            {
+                var pipeSizes = viewModel.PipeMillSizeType;
+                return pipeSizes.GroupBy(x => x.Type)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
 
-            findDuplicateList.Add(this.pipesSizeListGridView, l);
+            DuplicatesList plateManufacturer = new DuplicatesList();
+            plateManufacturer.Duplicates = null;
+            plateManufacturer.Method = delegate(GridView plateManufacturersListView)
+            {
+                var plateManufacturers = viewModel.PlateManufacturers;
+                return plateManufacturers.GroupBy(x => x.Name)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
+            DuplicatesList category = new DuplicatesList();
+            category.Duplicates = null;
+            category.Method = delegate(GridView categoriesGridView)
+            {
+                var categories = viewModel.CategoryTypes;
+                return categories.GroupBy(x => x.Name)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
+            DuplicatesList componentType = new DuplicatesList();
+            componentType.Duplicates = null;
+            componentType.Method = delegate(GridView componentryTypeGridView)
+            {
+                var componentTypes = viewModel.ComponentryTypes;
+                return componentTypes.GroupBy(x => x.Name)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
+            DuplicatesList seamType = new DuplicatesList();
+            seamType.Duplicates = null;
+            seamType.Method = delegate(GridView seemTypeGridView)
+            {
+                var seamTypes = viewModel.SeamTypes;
+                return seamTypes.GroupBy(x => x.Name)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
+            findDuplicateList.Add(this.pipesSizeListGridView, pipeSize);
+            findDuplicateList.Add(this.plateManufacturersListView, plateManufacturer);
+            findDuplicateList.Add(this.categoriesGridView, category);
+            findDuplicateList.Add(this.componentryTypeGridView, componentType);
+            findDuplicateList.Add(this.seemTypeGridView, seamType);
             
         }
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
@@ -1347,6 +1389,8 @@ namespace Prizm.Main.Forms.Settings
             GridView view = sender as GridView;
             view.ClearColumnErrors();
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
+            DuplicatesList l = findDuplicateList[plateManufacturersListView];
+            List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
         }
 
         private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
