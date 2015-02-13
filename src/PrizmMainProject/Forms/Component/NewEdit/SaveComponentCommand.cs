@@ -1,14 +1,15 @@
 ﻿using Prizm.Data.DAL;
 using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
+using Prizm.Domain.Entity;
 using Prizm.Main.Commands;
-using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
+using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
@@ -88,28 +89,22 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         repos.BeginTransaction();
 
                         var filesViewModel = viewModel.FilesFormViewModel;
-                        
+
+                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
+                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);                      
+
                         //saving attached documents
-                        if (filesViewModel != null)
+                        bool fileCopySuccess = true;
+                        if (null != filesViewModel)
                         {
                             viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
-                        }
-
-                        bool fileCopySuccess = true;
-                        if ((null != filesViewModel) && (filesViewModel.FilesToAttach.Count != 0))
-                        {
-                           if (viewModel.FilesFormViewModel.TrySaveFiles())
-                           {
-                               viewModel.FilesFormViewModel.PersistFiles(repos);
-                           }
-                           else
-                           {
+                            if (!viewModel.FilesFormViewModel.TrySaveFiles(repos.FileRepo, viewModel.Component))
+                            {
                                fileCopySuccess = false;
                                repos.Rollback();
-                           }
+                            }
                         }
-                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
-                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
+
                         repos.Commit();
                         repos.ComponentRepo.Evict(viewModel.Component);
                         viewModel.ModifiableView.IsModified = false;
