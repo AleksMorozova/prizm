@@ -1436,6 +1436,8 @@ namespace Prizm.Main.Forms.Settings
             GridView view = sender as GridView;
             view.ClearColumnErrors();
             categoriesGridView.ValidateNotEmpty(categoryNameColumn, e);
+            DuplicatesList l = findDuplicateList[categoriesGridView];
+            List<string> categoriesDuplicates = l.Method(categoriesGridView);
         }
 
         private void seemTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1443,6 +1445,8 @@ namespace Prizm.Main.Forms.Settings
             GridView view = sender as GridView;
             view.ClearColumnErrors();
             seemTypeGridView.ValidateNotEmpty(seemTypeColumn, e);
+            DuplicatesList l = findDuplicateList[seemTypeGridView];
+            List<string> seemTypeDuplicates = l.Method(seemTypeGridView);
         }
 
         private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1450,6 +1454,8 @@ namespace Prizm.Main.Forms.Settings
             GridView view = sender as GridView;
             view.ClearColumnErrors();
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
+            DuplicatesList l = findDuplicateList[componentryTypeGridView];
+            List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
         }
 
         private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
