@@ -13,10 +13,28 @@ namespace Prizm.Main.Languages
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
 
+        public static StringResource WaitScreen_Caption = new StringResource
+        {
+            Id = "WaitScreen_Caption",
+            Description = "Ожидайте"
+        };
+
+        public static StringResource WaitScreen_Description = new StringResource
+        {
+            Id = "WaitScreen_Description",
+            Description = "Идет загрузка ..."
+        };
+
         public static StringResource FixedCategoryLengthPassedHeader = new StringResource
         {
             Id = "FixedCategoryLengthPassedHeader",
             Description = "Не заданы результаты измерений"
+        };
+
+        public static StringResource WrongDate = new StringResource
+        {
+            Id = "WrongDate",
+            Description = "Дата задана не верно"
         };
 
         public static StringResource FixedCategoryLengthPassed = new StringResource

@@ -4,6 +4,8 @@ FixedCategoryLengthPassedHeader=Measurement results are not specified
 ;Результаты измерения длины должны быть введены.
 FixedCategoryLengthPassed=Please, enter the results of pipe length measuring.
 
+;Дата задана не верно
+WrongDate=Wrong date
 
 ;Сообщение - Укажите инспектора
 SelectInspectorsForTestResult=Please enter inspectors for appropriate control operations
@@ -2335,7 +2337,11 @@ ImportForm_Title=Import
 ;Нарушена последовательность
 MissingPortionsDialog_Title=Missing portions
 
+;Ожидайте
+WaitScreen_Caption=Please wait
 
+;Идет загрузка ...
+WaitScreen_Description=Loading...
 
 
 

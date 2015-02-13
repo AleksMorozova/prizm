@@ -24,6 +24,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
         public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
         {
             InitializeComponent();
+            Bitmap bmp = Resources.inspection_16;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
             this.SetupForm(current, categoryTypes);
         }
 
