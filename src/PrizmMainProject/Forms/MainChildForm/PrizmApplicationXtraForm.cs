@@ -396,7 +396,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Application.Exit();
+            this.Close(); //Application.Exit() causes  iteration the Application.OpenForms collection which is modified 
+                          //similar problem: http://stackoverflow.com/questions/1312885/application-exit-vs-application-exitthread-vs-environment-exit
         }
 
         public void UpdateStatusBar(string text)
