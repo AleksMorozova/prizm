@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PipeConstractionReportXtraForm));
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pipeReportLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeTypeCheckedCombo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
@@ -48,7 +49,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeTypeCheckedComboLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeReportLayoutControl)).BeginInit();
             this.pipeReportLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTypeCheckedCombo.Properties)).BeginInit();
@@ -65,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTypeCheckedComboLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pipeReportLayoutControl
@@ -95,13 +95,14 @@
             // 
             // pipeTypeCheckedCombo
             // 
+            this.pipeTypeCheckedCombo.EditValue = "";
             this.pipeTypeCheckedCombo.Location = new System.Drawing.Point(216, 59);
             this.pipeTypeCheckedCombo.Name = "pipeTypeCheckedCombo";
             this.pipeTypeCheckedCombo.Properties.AllowMultiSelect = true;
             this.pipeTypeCheckedCombo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.pipeTypeCheckedCombo.Properties.SelectAllItemCaption = "(Выбрать все)";
-            this.pipeTypeCheckedCombo.Size = new System.Drawing.Size(152, 20);
+            this.pipeTypeCheckedCombo.Size = new System.Drawing.Size(367, 20);
             this.pipeTypeCheckedCombo.StyleController = this.pipeReportLayoutControl;
             this.pipeTypeCheckedCombo.TabIndex = 13;
             this.pipeTypeCheckedCombo.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.pipeTypeCheckedCombo_CloseUp);
@@ -276,10 +277,9 @@
             this.pipeTypeCheckedComboLayout.Control = this.pipeTypeCheckedCombo;
             this.pipeTypeCheckedComboLayout.CustomizationFormText = "Типоразмер";
             this.pipeTypeCheckedComboLayout.Location = new System.Drawing.Point(180, 0);
-            this.pipeTypeCheckedComboLayout.MaxSize = new System.Drawing.Size(180, 0);
-            this.pipeTypeCheckedComboLayout.MinSize = new System.Drawing.Size(180, 45);
+            this.pipeTypeCheckedComboLayout.MinSize = new System.Drawing.Size(368, 45);
             this.pipeTypeCheckedComboLayout.Name = "pipeTypeCheckedComboLayout";
-            this.pipeTypeCheckedComboLayout.Size = new System.Drawing.Size(180, 45);
+            this.pipeTypeCheckedComboLayout.Size = new System.Drawing.Size(395, 45);
             this.pipeTypeCheckedComboLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipeTypeCheckedComboLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.pipeTypeCheckedComboLayout.Text = "Типоразмер";
@@ -290,9 +290,9 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(360, 0);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(575, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(229, 45);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(14, 45);
             this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -306,6 +306,7 @@
             this.Name = "PipeConstractionReportXtraForm";
             this.Text = "Отчеты по трубам на стройке";
             this.Load += new System.EventHandler(this.PipeConstractionReportXtraForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeReportLayoutControl)).EndInit();
             this.pipeReportLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pipeTypeCheckedCombo.Properties)).EndInit();
@@ -322,7 +323,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTypeCheckedComboLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
