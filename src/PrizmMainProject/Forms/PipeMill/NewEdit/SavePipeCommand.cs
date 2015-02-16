@@ -49,6 +49,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if(!DateValidate())
             {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 log.Warn("Date limits not valid!");
                 return;
             }

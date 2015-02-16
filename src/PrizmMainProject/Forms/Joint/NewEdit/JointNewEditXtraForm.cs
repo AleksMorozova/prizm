@@ -103,7 +103,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointNewEditBindingSoure.DataSource = viewModel;
 
             jointNumber.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "Number");
+                .Add("EditValue", jointNewEditBindingSoure, "Number",true, DataSourceUpdateMode.OnPropertyChanged);
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
@@ -139,9 +139,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             SetLookup(secondJointElement);
 
             firstJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId");
+                .Add("EditValue", jointNewEditBindingSoure, "FirstElementId", true, DataSourceUpdateMode.OnPropertyChanged);
             secondJointElement.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId");
+                .Add("EditValue", jointNewEditBindingSoure, "SecondElementId", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
 
@@ -280,9 +280,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void jointNumber_EditValueChanged(object sender, EventArgs e)
         {
             this.headerNumberPart = jointNumber.Text;
-            viewModel.Number = jointNumber.Text;
-            commandManager["Save"].RefreshState();
-            commandManager["SaveAndNew"].RefreshState();
         }
 
         private void controlOperationsView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -466,20 +463,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             ResultValueTextEdit.MaxLength = LengthLimit.MaxJointTestResultValue;
         }
 
-        private void firstJointElement_EditValueChanged(object sender, EventArgs e)
-        {
-            viewModel.FirstElementId = (Guid)firstJointElement.EditValue;
-            commandManager["Save"].RefreshState();
-            commandManager["SaveAndNew"].RefreshState();
-        }
-
-        private void secondJointElement_EditValueChanged(object sender, EventArgs e)
-        {
-            viewModel.SecondElementId = (Guid)secondJointElement.EditValue;
-            commandManager["Save"].RefreshState();
-            commandManager["SaveAndNew"].RefreshState();
-        }
-
         private void JointNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             commandManager.Dispose();
@@ -640,6 +623,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     }
                 }
             }
+        }
+
+        private void jointNumber_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
+        }
+
+        private void firstJointElement_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
+        }
+
+        private void secondJointElement_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
         }
     }
 }

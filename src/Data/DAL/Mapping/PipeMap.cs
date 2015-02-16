@@ -27,7 +27,7 @@ namespace Prizm.Data.DAL.Mapping
             #endregion
 
             #region --- References ---
-            References<Railcar>(x => x.Railcar).Column("railcarId");
+            References<Railcar>(x => x.Railcar).Column("railcarId").Cascade.SaveUpdate();
 	        References<PipeMillSizeType>(x => x.Type).Column("typeId");
             References<PurchaseOrder>(x => x.PurchaseOrder).Column("purchaseOrderId");
             References<Plate>(x => x.Plate).Column("plateId").Cascade.All();
