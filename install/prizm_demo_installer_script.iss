@@ -365,6 +365,7 @@ var n : Integer;
     b : String;
 begin
   Result := True;
+  If ((name = 'Tempdb') or(name = 'tempdb') or (name = 'Msdb') or(name = 'msdb') or (name = 'Model') or(name = 'model') or(name = 'Master') or (name = 'master')) then Result := False;      
   for n := 1 to Length(name) do
   begin
     b := Copy(name,n,1);
