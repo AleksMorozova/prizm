@@ -227,7 +227,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             plateNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
             inspections.DataBindings
@@ -837,15 +837,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
-        private void plateNumber_EditValueChanged(object sender, EventArgs e)
-        {
-            if (plateNumber.IsEditorActive)
-            {
-                viewModel.PlateNumber = plateNumber.Text;
-            }
-            commandManager.RefreshVisualState();
-        }
-
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
             if(viewModel.AvailableTests.Count > 0)
@@ -1013,6 +1004,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     }
                 }
             }
+        }
+
+        private void plateNumber_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
         }
     }
 }
