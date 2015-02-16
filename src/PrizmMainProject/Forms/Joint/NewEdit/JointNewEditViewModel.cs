@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private PartData secondElement;
 
         private SelectDiameterDialog selectDiameterDialog = null;
+        private JointCutDialog jointCutDialog = null;
 
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
@@ -850,13 +851,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if (jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
             {
-                var jointCutDialog = new JointCutDialog(jointElements.First(), jointElements.Last());
+                this.SetJointCutDialog(jointElements.First(), jointElements.Last());
 
                 if (jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
                     this.JointCutCommand.Execute();
                 }
             }
+        }
+
+        private void SetJointCutDialog(Part part1, Part part2)
+        {
+            if (jointCutDialog == null)
+            {
+                jointCutDialog = new JointCutDialog();
+            }
+            jointCutDialog.InitializeJointCut(part1, part2);
         }
 
     }
