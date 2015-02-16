@@ -48,6 +48,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private PartData firstElement;
         private PartData secondElement;
 
+        private SelectDiameterDialog selectDiameterDialog = null;
+
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
         public BindingList<JointOperation> ControlOperations;
@@ -617,11 +619,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                var choiceDiameter = new SelectDiameterDialog(duplicates);
+                this.SetSelectDiameterDialog(duplicates);
 
-                if (choiceDiameter.ShowDialog() == DialogResult.OK)
+                if (selectDiameterDialog.ShowDialog() == DialogResult.OK)
                 {
-                    commonDiameter = choiceDiameter.Diameter;
+                    commonDiameter = selectDiameterDialog.Diameter;
                 }
                 else
                 {
@@ -630,6 +632,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
 
             return commonDiameter;
+        }
+
+        private void SetSelectDiameterDialog(List<Connector> duplicates)
+        {
+            if (selectDiameterDialog == null)
+            {
+                selectDiameterDialog = new SelectDiameterDialog();
+            }
+            selectDiameterDialog.InitializeSelectDiameter(duplicates);
         }
 
         /// <summary>
