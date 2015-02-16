@@ -2010,6 +2010,9 @@ InspectionAddEdit_SaveButton=Save
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
 
+;Сообщение о дублировании логинов: Дубликат номера труб
+Notification_DublicateLogin_Critical = User logins duplicating
+
 ;Сообщение о дублировании номеров труб: Дубликат номера труб
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
 

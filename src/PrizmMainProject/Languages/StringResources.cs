@@ -4440,7 +4440,7 @@ namespace Prizm.Main.Languages
         public static StringResource Notification_DublicateLogin_Critical = new StringResource
         {
             Id = "Notification_DublicateLogin_Critical",
-            Description = "Сообщение о дублировании логина"
+            Description = "Сообщение о дублировании логинов"
         };
         #endregion //--- Notification ---
     }
