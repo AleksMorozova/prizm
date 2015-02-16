@@ -1960,6 +1960,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        internal static string NotificationXtraForm_ColDate {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистратор.
+        /// </summary>
+        internal static string NotificationXtraForm_ColName {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщение.
+        /// </summary>
+        internal static string NotificationXtraForm_ColNotification {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщения.
+        /// </summary>
+        internal static string NotificationXtraForm_LayoutControlItemNotification {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_LayoutControlItemNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Окно уведомлений.
         /// </summary>
         internal static string NotificationXtraForm_Title {
