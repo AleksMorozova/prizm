@@ -290,10 +290,10 @@ InspectionReport_CreateGroup=Create report
 InspectionReport_PreviewGroup=Preview
 
 ;Отчет на входном контроле. Кнопка предпросмотра отчета
-InspectionReport_PreviewButton=&Create report
+InspectionReport_PreviewButton=&Preview report
 
 ;Отчет на входном контроле. Кнопка создания отчета
-InspectionReport_CreateButton=&Preview report
+InspectionReport_CreateButton=&Create report
 
 ;Длина трубы меньше длины катушки
 Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
