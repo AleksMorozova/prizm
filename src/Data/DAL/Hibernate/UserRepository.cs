@@ -19,7 +19,9 @@ namespace Prizm.Data.DAL.Hibernate
 
       public User FindByLogin(string login)
       {
-         return session.CreateQuery("from User where login = :login").SetString("login", login).UniqueResult<User>();
+          return session.QueryOver<User>().Where(_ => _.Login == login).List().FirstOrDefault();
+
+         //return session.CreateQuery("from User where login = :login").SetString("login", login).UniqueResult<User>();
       }
    }
 }

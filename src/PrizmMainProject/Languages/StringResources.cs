@@ -4401,7 +4401,7 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
-
+        
         public static StringResource NotificationXtraForm_Title = new StringResource
         {
             Id = "NotificationXtraForm_Title",
@@ -4436,8 +4436,12 @@ namespace Prizm.Main.Languages
             Id = "Notification_WelderCertificateExpired_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
- 
-        
+
+        public static StringResource Notification_DublicateLogin_Critical = new StringResource
+        {
+            Id = "Notification_DublicateLogin_Critical",
+            Description = "Сообщение о дублировании логина"
+        };
         #endregion //--- Notification ---
     }
 } 
