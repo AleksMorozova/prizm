@@ -51,7 +51,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     try
                     {
                         viewModel.Pipe.IsActive = false;
-                        
                         viewModel.CheckStatus();
                         viewModel.UpdatePipeSubStatus();
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
@@ -80,6 +79,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         log.Error(ex.Message);
                         notify.ShowFailure(ex.InnerException.Message, ex.Message);
                     }
+                }
+                else
+                {
+                    //Refresh property so that binded control become unchecked
+                    viewModel.PipeIsActive = false;
+                    viewModel.PipeIsActive = true;
                 }
             }
             else if (viewModel.PipeStatus == PipeMillStatus.Shipped)
