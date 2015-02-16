@@ -323,8 +323,9 @@ namespace Prizm.Main.Languages
             return ret;
         }
 
-        public bool ApplyUsersLanguage(User user)
+        public bool ApplyUsersLanguage(User user, out int userLangIndex)
         {
+            userLangIndex = (user.UILanguage == null) ? indexDefault : cultures.FindIndex((lp) => { return lp.Culture.Name == user.UILanguage; });
             return (user.UILanguage == null) ? false : (user.UILanguage != CurrentCulture.Name && LoadTranslation(new CultureInfo(user.UILanguage)));
         }
     }
