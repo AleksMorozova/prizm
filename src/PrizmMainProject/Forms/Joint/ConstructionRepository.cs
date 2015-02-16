@@ -1,4 +1,6 @@
-﻿using Prizm.Data.DAL.Construction;
+﻿using Prizm.DAL.Hibernate;
+using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
@@ -24,6 +26,7 @@ namespace Prizm.Main.Forms.Joint
         private readonly IPipeRepository repoPipe;
         private readonly ISpoolRepository repoSpool;
         private readonly IComponentRepository repoComponent;
+        private readonly IFileRepository fileRepo;
 
         private readonly ISession session;
 
@@ -41,7 +44,11 @@ namespace Prizm.Main.Forms.Joint
             this.repoPipe = new PipeRepository(session);
             this.repoSpool = new SpoolRepository(session);
             this.repoComponent = new ComponentRepository(session);
+            this.fileRepo = new FileRepository(session);
         }
+
+        public IFileRepository FileRepo { get { return fileRepo; } }
+
         public void Commit()
         {
             session.Transaction.Commit();
@@ -50,6 +57,11 @@ namespace Prizm.Main.Forms.Joint
         public void BeginTransaction()
         {
             session.BeginTransaction();
+        }
+
+        public void Rollback()
+        {
+            session.Transaction.Rollback();
         }
 
         public void Dispose()

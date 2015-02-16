@@ -89,18 +89,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     {
                         viewModel.Component.InspectionStatus = viewModel.Component.GetPartInspectionStatus();
                         repos.BeginTransaction();
+                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
+                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
 
                         var filesViewModel = viewModel.FilesFormViewModel;
-
-                        viewModel.Component.Number = viewModel.Component.Number.ToUpper();
-                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);                      
+                        filesViewModel.DetachFileEntities();
 
                         //saving attached documents
                         bool fileCopySuccess = true;
                         if (null != filesViewModel)
                         {
                             viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
-                            if (!viewModel.FilesFormViewModel.TrySaveFiles(repos.FileRepo, viewModel.Component))
+                            if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Component))
                             {
                                fileCopySuccess = false;
                                repos.Rollback();
@@ -114,13 +114,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
                         if (fileCopySuccess)
                         {
-                           if ((null != filesViewModel) && (filesViewModel.Files.Count > 0))
-                           {
-                              foreach (var file in viewModel.FilesFormViewModel.Files)
-                              {
-                                 repos.FileRepo.Evict(file);
-                              }
-                           }
+                           filesViewModel.DetachFileEntities();
 
                            notify.ShowSuccess(
                                 string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),

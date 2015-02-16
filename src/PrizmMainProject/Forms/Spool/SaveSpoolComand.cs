@@ -71,16 +71,40 @@ namespace Prizm.Main.Forms.Spool
                             repos.BeginTransaction();
                             repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                             repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+
+                            var filesViewModel = viewModel.FilesFormViewModel;
+                            filesViewModel.FileRepo = repos.FileRepo;
+
+                            //saving attached documents
+                            bool fileCopySuccess = true;
+                            if (null != filesViewModel)
+                            {
+                                viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
+                                if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
+                                {
+                                    fileCopySuccess = false;
+                                    repos.Rollback();
+                                }
+                            }
+
                             repos.Commit();
                             repos.PipeRepo.Evict(viewModel.Pipe);
                             repos.SpoolRepo.Evict(viewModel.Spool);
 
-                            //saving attached documents
-                            if (viewModel.FilesFormViewModel != null)
+                            if (fileCopySuccess)
                             {
-                                viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
-                                viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                                filesViewModel.DetachFileEntities();
+
+                                notify.ShowSuccess(
+                                     string.Concat(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe), viewModel.Spool.Id),
+                                     Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                             }
+                            else
+                            {
+                                notify.ShowError(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail),
+                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail_Header));
+                            }
+
                             viewModel.ModifiableView.IsModified = false;
 
                             notify.ShowNotify(

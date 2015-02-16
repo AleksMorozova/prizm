@@ -14,7 +14,7 @@ namespace Prizm.Main.Forms.ExternalFile
     public class ExternalFilesRepositories : IExternalFilesRepositories
     {
         ISession session;
-        private readonly IFileRepository fileRepo;
+        private IFileRepository fileRepo;
         private readonly IProjectRepository projectRepo;
 
         [Inject]
@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.ExternalFile
         public IFileRepository FileRepo
         {
             get { return fileRepo; }
+            set { fileRepo = value; }
         }
 
         public IProjectRepository ProjectRepo
