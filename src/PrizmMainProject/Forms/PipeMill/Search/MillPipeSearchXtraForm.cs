@@ -55,6 +55,12 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings
                 .Add("SelectedIndex", MillPipeSearchBindingSource, "ActivityIndex");
+            weldingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "WeldingDate");
+            externalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "ExternalCoatingDate");
+            internalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "InternalCoatingDate");
         }
 
         private void BindCommands()

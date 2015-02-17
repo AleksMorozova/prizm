@@ -140,6 +140,29 @@ using Prizm.Main.Properties;
             }
         }
 
+        private DateTime externalCoatingDate;
+
+        public DateTime ExternalCoatingDate
+        {
+            get { return externalCoatingDate; }
+            set { externalCoatingDate = value; }
+        }
+
+        private DateTime internalCoatingDate;
+
+        public DateTime InternalCoatingDate
+        {
+            get { return internalCoatingDate; }
+            set { internalCoatingDate = value; }
+        }
+
+        private DateTime weldingDate;
+
+        public DateTime WeldingDate
+        {
+            get { return weldingDate; }
+            set { weldingDate = value; }
+        }
         #endregion
 
         public ICommand SearchCommand
