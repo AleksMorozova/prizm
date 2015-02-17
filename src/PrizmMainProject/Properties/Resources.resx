@@ -589,9 +589,7 @@
     <value>Плавка</value>
   </data>
   <data name="AboutForm_TitleLabel" xml:space="preserve">
-    <value>PRISM – программа полного цикла управления 
-процессом производства, транспортировки 
-и строительства промышленных труб.</value>
+    <value>PRISM – программа полного цикла управления процессом производства, транспортировки и строительства промышленных труб.</value>
   </data>
   <data name="MainWindowHeader_Construction" xml:space="preserve">
     <value>Строительство</value>
@@ -1291,10 +1289,10 @@
   <data name="ReleaseNoteNewEdit_MissingRailcar" xml:space="preserve">
     <value>Укажите вагон</value>
   </data>
-<data name="WrongDate" xml:space="preserve">
+  <data name="WrongDate" xml:space="preserve">
     <value>Дата задана не верно</value>
   </data>
-   <data name="attachment_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="attachment_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\attachment_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="export_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -1308,5 +1306,17 @@
   </data>
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
+  </data>
+  <data name="NotificationXtraForm_ColDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="NotificationXtraForm_ColName" xml:space="preserve">
+    <value>Регистратор</value>
+  </data>
+  <data name="NotificationXtraForm_ColNotification" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="NotificationXtraForm_LayoutControlItemNotification" xml:space="preserve">
+    <value>Сообщения</value>
   </data>
 </root>

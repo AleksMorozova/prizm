@@ -4402,6 +4402,31 @@ namespace Prizm.Main.Languages
 
         #region --- Notification ---
 
+        public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_LayoutControlItemNotification",
+            Description = "Сообщения"
+        };
+
+        public static StringResource NotificationXtraForm_ColDate = new StringResource
+        {
+            Id = "NotificationXtraForm_ColDate",
+            Description = "Дата"
+        };
+
+        public static StringResource NotificationXtraForm_ColNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_ColNotification",
+            Description = "Сообщение"
+        };
+
+        public static StringResource NotificationXtraForm_ColName = new StringResource
+        {
+            Id = "NotificationXtraForm_ColName",
+            Description = "Регистратор"
+        };
+        
+        
         public static StringResource NotificationXtraForm_Title = new StringResource
         {
             Id = "NotificationXtraForm_Title",
