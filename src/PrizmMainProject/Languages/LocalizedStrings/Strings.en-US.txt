@@ -290,10 +290,10 @@ InspectionReport_CreateGroup=Create report
 InspectionReport_PreviewGroup=Preview
 
 ;Отчет на входном контроле. Кнопка предпросмотра отчета
-InspectionReport_PreviewButton=&Create report
+InspectionReport_PreviewButton=&Preview report
 
 ;Отчет на входном контроле. Кнопка создания отчета
-InspectionReport_CreateButton=&Preview report
+InspectionReport_CreateButton=&Create report
 
 ;Длина трубы меньше длины катушки
 Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
@@ -2349,11 +2349,16 @@ WaitScreen_Caption=Please wait
 ;Идет загрузка ...
 WaitScreen_Description=Loading...
 
+;Сообщения
+NotificationXtraForm_LayoutControlItemNotification=Notifications
 
+;Дата
+NotificationXtraForm_ColDate=Date
 
+;Сообщение
+NotificationXtraForm_ColNotification=Message
 
-
-
-
+;Регистратор
+NotificationXtraForm_ColName=Registrar
 
 

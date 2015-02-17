@@ -103,20 +103,11 @@ namespace PrizmMain.Forms.Notifications
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
-
+                new LocalizedItem(layoutControlItemNotification, StringResources.NotificationXtraForm_LayoutControlItemNotification.Id),
+                new LocalizedItem(colDate, StringResources.NotificationXtraForm_ColDate.Id),
+                new LocalizedItem(colNotification, StringResources.NotificationXtraForm_ColNotification.Id),
+                new LocalizedItem(colName, StringResources.NotificationXtraForm_ColName.Id),
+                
                 // header
                 new LocalizedItem(this, localizedHeader, new string[] {
                     StringResources.NotificationXtraForm_Title.Id} )
