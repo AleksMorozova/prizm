@@ -3137,6 +3137,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Логин должен быть уникальным.
+        /// </summary>
+        internal static string Settings_UniqueLogin {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите уникальное значение.
         /// </summary>
         internal static string Settings_UniqueValueRequired {

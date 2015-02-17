@@ -1606,7 +1606,7 @@ namespace Prizm.Main.Forms.Settings
                     if (user.Login == e.Value.ToString())
                     {
                         e.Valid = false;
-                        e.ErrorText = "Login must be unique";
+                        e.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_UniqueLogin);
                     }
                 }
             }

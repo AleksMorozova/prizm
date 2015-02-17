@@ -1312,4 +1312,7 @@
   <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
     <value>Дублирование логина</value>
   </data>
+  <data name="Settings_UniqueLogin" xml:space="preserve">
+    <value>Логин должен быть уникальным</value>
+  </data>
 </root>

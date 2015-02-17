@@ -385,6 +385,9 @@ Settings_ValidateInspectorSertificate=Please select inspector
 ;Обязательное значение
 Settings_ValueRequired=Value is required
 
+;Логин должен быть уникальным
+Settings_UniqueLogin = Login must be unique
+
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
 
