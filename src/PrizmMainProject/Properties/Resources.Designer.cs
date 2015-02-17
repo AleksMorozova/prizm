@@ -61,9 +61,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRISM – программа полного цикла управления 
-        ///процессом производства, транспортировки 
-        ///и строительства промышленных труб..
+        ///   Looks up a localized string similar to PRISM – программа полного цикла управления процессом производства, транспортировки и строительства промышленных труб..
         /// </summary>
         internal static string AboutForm_TitleLabel {
             get {
