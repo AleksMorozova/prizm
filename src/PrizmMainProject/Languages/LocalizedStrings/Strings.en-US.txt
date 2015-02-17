@@ -2343,11 +2343,16 @@ WaitScreen_Caption=Please wait
 ;Идет загрузка ...
 WaitScreen_Description=Loading...
 
+;Сообщения
+NotificationXtraForm_LayoutControlItemNotification=Notifications
 
+;Дата
+NotificationXtraForm_ColDate=Date
 
+;Сообщение
+NotificationXtraForm_ColNotification=Message
 
-
-
-
+;Регистратор
+NotificationXtraForm_ColName=Registrar
 
 
