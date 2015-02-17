@@ -1120,6 +1120,7 @@ namespace Prizm.Main.Forms.Settings
         {
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
+            controlOerationValidate = true;
             controlOerationValidate = pipeControlOperationValidation();
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             if(pipeLayoutControlGroup.Tag != null)
@@ -1145,9 +1146,13 @@ namespace Prizm.Main.Forms.Settings
                         inspectionView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                    if(!controlOerationValidate)
+                    {
+                        return false;
+                    }
                 }
             }
-            return controlOerationValidate;
+            return true;
         }
 
         /// <summary>
