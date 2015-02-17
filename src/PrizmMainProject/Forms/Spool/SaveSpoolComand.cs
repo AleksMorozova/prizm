@@ -101,16 +101,15 @@ namespace Prizm.Main.Forms.Spool
                             }
                             else
                             {
-                                notify.ShowError(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail),
-                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail_Header));
+                                notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                             }
 
                             viewModel.ModifiableView.IsModified = false;
 
                             notify.ShowNotify(
                                 Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
-                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
-                                );
+                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
 
                             log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
                                 viewModel.Spool.Number,

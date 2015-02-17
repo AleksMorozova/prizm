@@ -116,8 +116,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
                 else
                 {
-                    notify.ShowError(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail),
-                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe_Fail_Header));
+                    notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                 }
 
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess),

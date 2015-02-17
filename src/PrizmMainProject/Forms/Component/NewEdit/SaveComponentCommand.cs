@@ -93,7 +93,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
 
                         var filesViewModel = viewModel.FilesFormViewModel;
-                        filesViewModel.DetachFileEntities();
+                        filesViewModel.FileRepo = repos.FileRepo;
 
                         //saving attached documents
                         bool fileCopySuccess = true;

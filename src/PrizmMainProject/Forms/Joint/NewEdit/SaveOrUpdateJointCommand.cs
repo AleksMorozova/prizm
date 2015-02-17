@@ -80,7 +80,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     }
                     else
                     {
-                        notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                        notify.ShowError(
+                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                             Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                     }
 
