@@ -472,7 +472,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
@@ -552,7 +551,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -562,6 +560,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 Weld weld = view.GetRow(e.RowHandle) as Weld;
                 weld.Pipe = viewModel.Pipe;
+                weld.Date = DateTime.Now;
             }
         }
 
