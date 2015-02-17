@@ -27,6 +27,13 @@ namespace Prizm.Main.Forms.PipeMill.Search
             pipeNumber.SetAsIdentifier();
             Bitmap bmp = Resources.search_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            externalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            externalCoatingDate.Properties.NullText = string.Empty;
+            internalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            internalCoatingDate.Properties.NullText = string.Empty;
+            weldingDate.Properties.NullDate = DateTime.MinValue;
+            weldingDate.Properties.NullText = string.Empty;
         }
 
         private void BindToViewModel()

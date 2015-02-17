@@ -140,7 +140,7 @@ using Prizm.Main.Properties;
             }
         }
 
-        private DateTime externalCoatingDate;
+        private DateTime externalCoatingDate = DateTime.MinValue;
 
         public DateTime ExternalCoatingDate
         {
@@ -148,7 +148,7 @@ using Prizm.Main.Properties;
             set { externalCoatingDate = value; }
         }
 
-        private DateTime internalCoatingDate;
+        private DateTime internalCoatingDate = DateTime.MinValue;
 
         public DateTime InternalCoatingDate
         {
@@ -156,7 +156,7 @@ using Prizm.Main.Properties;
             set { internalCoatingDate = value; }
         }
 
-        private DateTime weldingDate;
+        private DateTime weldingDate = DateTime.MinValue;
 
         public DateTime WeldingDate
         {
