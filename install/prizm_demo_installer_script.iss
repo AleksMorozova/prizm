@@ -360,7 +360,7 @@ begin
     Result := GetUpdateProductName()
 end;
 
-function ValidateStringIsAlphaNum(name : String) : Boolean;
+function ValidateProjectName(name : String) : Boolean;
 var n : Integer;
     b : String;
 begin
@@ -562,7 +562,7 @@ begin
       end
       else
       begin
-        if ValidateStringIsAlphaNum(NewProductName.Text) = False then
+        if ValidateProjectName(NewProductName.Text) = False then
         begin
           MsgBox(CustomMessage('ProjectNameValidation'), mbError, MB_OK);
           Result := False;
