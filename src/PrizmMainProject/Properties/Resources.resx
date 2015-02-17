@@ -589,9 +589,7 @@
     <value>Плавка</value>
   </data>
   <data name="AboutForm_TitleLabel" xml:space="preserve">
-    <value>PRISM – программа полного цикла управления 
-процессом производства, транспортировки 
-и строительства промышленных труб.</value>
+    <value>PRISM – программа полного цикла управления процессом производства, транспортировки и строительства промышленных труб.</value>
   </data>
   <data name="MainWindowHeader_Construction" xml:space="preserve">
     <value>Строительство</value>
