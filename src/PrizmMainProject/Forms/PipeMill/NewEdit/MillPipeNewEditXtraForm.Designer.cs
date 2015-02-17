@@ -641,7 +641,7 @@
             this.plateNumber.Size = new System.Drawing.Size(231, 20);
             this.plateNumber.StyleController = this.generalPipeLayout;
             this.plateNumber.TabIndex = 25;
-            this.plateNumber.EditValueChanged += new System.EventHandler(this.plateNumber_EditValueChanged);
+            this.plateNumber.TextChanged += new System.EventHandler(this.plateNumber_TextChanged);
             // 
             // releaseNoteDate
             // 
