@@ -709,8 +709,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             }
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
