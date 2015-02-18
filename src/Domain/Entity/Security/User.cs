@@ -20,6 +20,5 @@ namespace Prizm.Domain.Entity.Security
       public virtual DateTime? PasswordExpires { get; set; }
       public virtual IList<Role> Roles { get; set; }
       public virtual bool Undeletable { get; set; }
-      public virtual string UILanguage { get; set; }
    }
 }
