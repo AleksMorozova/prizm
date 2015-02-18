@@ -1130,6 +1130,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
+            controlOerationValidate = true;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
@@ -1142,6 +1143,11 @@ namespace Prizm.Main.Forms.Settings
                         inspectionView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                    if(!controlOerationValidate)
+                    {
+                        controlOerationValidate = false;
+                        break;
+                    }
                 }
             }
             return controlOerationValidate;
