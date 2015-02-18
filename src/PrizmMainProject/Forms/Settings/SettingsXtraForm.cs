@@ -517,13 +517,6 @@ namespace Prizm.Main.Forms.Settings
                 view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
-
-            if(certExpDate < DateTime.Now)
-            {
-                view.SetColumnError(expDateColumn,
-                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
-                e.Valid = false;
-            }
         }
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
