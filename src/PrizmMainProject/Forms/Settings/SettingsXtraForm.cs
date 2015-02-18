@@ -581,7 +581,10 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView view = sender as GridView;
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
-            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
+            if (insp != null)
+            {
+                view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew()); 
+            }
             inspectorCertificateGridView.RefreshData();
         }
 
@@ -651,8 +654,10 @@ namespace Prizm.Main.Forms.Settings
             }
             else
             {
+
                 inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0],
                     Program.LanguageManager.GetString(StringResources.Settings_ValidateInspectorSertificate));
+
             }
         }
 
@@ -1600,7 +1605,19 @@ namespace Prizm.Main.Forms.Settings
             List<string> seemTypeDuplicate = l.Method(seemTypeGridView);
             seemTypeGridView.ColorGrid(seemTypeColumn, seemTypeDuplicate, e);
         }
-
+        private void inspectorCertificateGridView_GotFocus(object sender, EventArgs e)
+        {
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
+            var view = sender as GridView; //cert Grid
+            if (inspc == null)
+            {
+                inspectorCertificateGridView.OptionsBehavior.Editable = false;
+            }
+            else 
+            {
+                inspectorCertificateGridView.OptionsBehavior.Editable = true;
+            }
+        }
         private void gridViewUsers_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
         {
             if (gridViewUsers.FocusedColumn.Name == colLogin.Name)
