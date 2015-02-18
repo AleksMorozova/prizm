@@ -100,7 +100,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 sb.Remove(sb.Length - 1, 1);
                 sb.Append(" )");
             }
-
+            sb.AppendLine("ORDER BY [Pipe].[number] ASC");
             return sb.ToString();
         }
     }
