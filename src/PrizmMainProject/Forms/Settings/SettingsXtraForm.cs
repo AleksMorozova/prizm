@@ -1430,11 +1430,11 @@ namespace Prizm.Main.Forms.Settings
             }
         }
         /// <summary>
-        /// 
+        /// Function to check Code uniqueness
         /// </summary>
-        /// <param name="code"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="code">code TestPipe</param>
+        /// <param name="id">id TestPipe</param>
+        /// <returns>true if uniqueness</returns>
         private bool CheckCodeForTestPipe(string code, Guid id)
         {
             bool retValue = true;
