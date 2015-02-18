@@ -77,6 +77,7 @@ Source: "{#DevExpressPath}DevExpress.RichEdit.v14.2.Core.dll"; DestDir: "{app}";
 Source: "{#DevExpressPath}DevExpress.Sparkline.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Xpo.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraBars.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -360,11 +361,12 @@ begin
     Result := GetUpdateProductName()
 end;
 
-function ValidateStringIsAlphaNum(name : String) : Boolean;
+function ValidateProjectName(name : String) : Boolean;
 var n : Integer;
     b : String;
 begin
   Result := True;
+  If ((name = 'Tempdb') or(name = 'tempdb') or (name = 'Msdb') or(name = 'msdb') or (name = 'Model') or(name = 'model') or(name = 'Master') or (name = 'master')) then Result := False;      
   for n := 1 to Length(name) do
   begin
     b := Copy(name,n,1);
@@ -561,7 +563,7 @@ begin
       end
       else
       begin
-        if ValidateStringIsAlphaNum(NewProductName.Text) = False then
+        if ValidateProjectName(NewProductName.Text) = False then
         begin
           MsgBox(CustomMessage('ProjectNameValidation'), mbError, MB_OK);
           Result := False;

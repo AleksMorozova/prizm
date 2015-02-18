@@ -84,18 +84,40 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
 
                 repos.BeginTransaction();
-
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
+
+                var filesViewModel = viewModel.FilesFormViewModel;
+                filesViewModel.FileRepo = repos.FileRepo;
+
+                //saving attached documents
+                bool fileCopySuccess = true;
+                if (null != filesViewModel)
+                {
+                    viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
+                    if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.ReleaseNote))
+                    {
+                        fileCopySuccess = false;
+                        repos.Rollback();
+                    }
+                }
+
                 repos.Commit();
 
                 repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
 
-                //saving attached documents
-                if(viewModel.FilesFormViewModel != null)
+                if (fileCopySuccess)
                 {
-                    viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
-                    viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                    filesViewModel.DetachFileEntities();
+
+                    notify.ShowSuccess(
+                         string.Concat(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), viewModel.ReleaseNote.Id),
+                         Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
+                }
+                else
+                {
+                    notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                 }
 
                 notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess),

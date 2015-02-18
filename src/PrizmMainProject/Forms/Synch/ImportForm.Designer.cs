@@ -51,6 +51,7 @@
             // 
             this.txtArchive.Location = new System.Drawing.Point(60, 26);
             this.txtArchive.Name = "txtArchive";
+            this.txtArchive.Properties.ReadOnly = true;
             this.txtArchive.Size = new System.Drawing.Size(476, 20);
             this.txtArchive.TabIndex = 1;
             // 

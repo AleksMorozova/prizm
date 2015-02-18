@@ -48,6 +48,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private PartData firstElement;
         private PartData secondElement;
 
+        private SelectDiameterDialog selectDiameterDialog = null;
+        private JointCutDialog jointCutDialog = null;
+
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
         public BindingList<JointOperation> ControlOperations;
@@ -458,29 +461,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            if (this.Joint.FirstElement.Id == firstElement.Id && this.Joint.SecondElement.Id == secondElement.Id)
-            { 
-                return true; 
+            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
+
+            if (commonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
+            {
+                return false;
             }
 
-            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null) 
-            { 
-                this.JointDisconnection(); 
+            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null)
+            {
+                this.JointDisconnection();
             }
 
             Joint.FirstElement = firstElement;
             Joint.SecondElement = secondElement;
 
             var jointElements = new List<Part> { GetPart(firstElement), GetPart(secondElement) };
-
-            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
-
-            if (FirstElement.Id == Guid.Empty ||
-                SecondElement.Id == Guid.Empty ||
-                commonDiameter == -1)
-            {
-                return false;
-            }
 
             foreach (var part in jointElements)
             {
@@ -490,8 +486,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (var con in component.Connectors)
                     {
-                        if (con.Diameter == commonDiameter &&
-                            (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        if (con.Diameter == commonDiameter && (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
                             con.Joint = Joint;
                             break;
@@ -622,11 +617,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
-                var choiceDiameter = new SelectDiameterDialog(duplicates);
+                this.SetSelectDiameterDialog(duplicates);
 
-                if (choiceDiameter.ShowDialog() == DialogResult.OK)
+                if (selectDiameterDialog.ShowDialog() == DialogResult.OK)
                 {
-                    commonDiameter = choiceDiameter.Diameter;
+                    commonDiameter = selectDiameterDialog.Diameter;
                 }
                 else
                 {
@@ -635,6 +630,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
 
             return commonDiameter;
+        }
+
+        private void SetSelectDiameterDialog(List<Connector> duplicates)
+        {
+            if (selectDiameterDialog == null)
+            {
+                selectDiameterDialog = new SelectDiameterDialog();
+            }
+            selectDiameterDialog.InitializeSelectDiameter(duplicates);
         }
 
         /// <summary>
@@ -844,7 +848,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             if (jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
             {
-                var jointCutDialog = new JointCutDialog(jointElements.First(), jointElements.Last());
+                this.SetJointCutDialog(jointElements.First(), jointElements.Last());
 
                 if (jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -853,7 +857,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-
+        private void SetJointCutDialog(Part part1, Part part2)
+        {
+            if (jointCutDialog == null)
+            {
+                jointCutDialog = new JointCutDialog();
+            }
+            jointCutDialog.InitializeJointCut(part1, part2);
+        }
 
     }
 }

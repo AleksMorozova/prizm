@@ -33,6 +33,11 @@ namespace Prizm.Main.Forms.ExternalFile
         private int sizeLimit;
         public Dictionary<string, string> FilesToAttach = new Dictionary<string, string>();
         public Guid Item { get; set; }
+        public IFileRepository FileRepo  
+        {
+            get { return repos.FileRepo; }
+            set { repos.FileRepo = value; }
+        }
 
         [Inject]
         public ExternalFilesViewModel(IExternalFilesRepositories repos, IUserNotify notify)
@@ -40,7 +45,6 @@ namespace Prizm.Main.Forms.ExternalFile
             this.repos = repos;
             this.notify = notify;
            
-
             addExternalFileCommand =
               ViewModelSource.Create(() => new AddExternalFileCommand(repos.FileRepo, this, notify));
             downloadFileCommand =
@@ -126,7 +130,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
-        public bool TrySaveFiles(IFileRepository fileRepo, Domain.Entity.Item component)
+        public bool TrySaveFiles(Domain.Entity.Item item)
         {
             bool successCopy = true;
             if (FilesToAttach.Count > 0)
@@ -158,11 +162,12 @@ namespace Prizm.Main.Forms.ExternalFile
 
             if (successCopy)
             {
-                PersistFiles(fileRepo, component);
+                PersistFiles(item);
             }
 
             return successCopy;
         }
+
         private void RemoveCopiedFilesIfError()
         {
             foreach (KeyValuePair<string, string> kvp in FilesToAttach)
@@ -177,7 +182,8 @@ namespace Prizm.Main.Forms.ExternalFile
                 }
             }
         }
-        public void PersistFiles(IFileRepository fileRepo, Domain.Entity.Item component)
+
+        public void PersistFiles(Domain.Entity.Item item)
         {
            foreach (KeyValuePair<string, string> kvp in FilesToAttach)
            {
@@ -189,7 +195,7 @@ namespace Prizm.Main.Forms.ExternalFile
                     IsActive = true,
                     NewName = kvp.Key
                 };
-                fileRepo.Save(fileEntity);
+                repos.FileRepo.Save(fileEntity);
            }
             
            FilesToAttach.Clear();
@@ -197,6 +203,19 @@ namespace Prizm.Main.Forms.ExternalFile
            notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
                Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
         }
+
+        public void DetachFileEntities()
+        {
+            if (Files.Count > 0)
+            {
+                foreach (var file in Files)
+                {
+                    repos.FileRepo.Evict(file);
+                }
+            }
+
+        }
+
         public int SizeLimit
         { get { return sizeLimit; } }
        
