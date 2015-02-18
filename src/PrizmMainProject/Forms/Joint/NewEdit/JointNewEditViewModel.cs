@@ -456,29 +456,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            if (this.Joint.FirstElement.Id == firstElement.Id && this.Joint.SecondElement.Id == secondElement.Id)
-            { 
-                return true; 
+            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
+
+            if (commonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
+            {
+                return false;
             }
 
-            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null) 
-            { 
-                this.JointDisconnection(); 
+            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null)
+            {
+                this.JointDisconnection();
             }
 
             Joint.FirstElement = firstElement;
             Joint.SecondElement = secondElement;
 
             var jointElements = new List<Part> { GetPart(firstElement), GetPart(secondElement) };
-
-            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
-
-            if (FirstElement.Id == Guid.Empty ||
-                SecondElement.Id == Guid.Empty ||
-                commonDiameter == -1)
-            {
-                return false;
-            }
 
             foreach (var part in jointElements)
             {
@@ -488,8 +481,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (var con in component.Connectors)
                     {
-                        if (con.Diameter == commonDiameter &&
-                            (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        if (con.Diameter == commonDiameter && (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
                             con.Joint = Joint;
                             break;
