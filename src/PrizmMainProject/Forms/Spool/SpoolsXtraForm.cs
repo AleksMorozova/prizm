@@ -186,8 +186,8 @@ namespace Prizm.Main.Forms.Spool
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

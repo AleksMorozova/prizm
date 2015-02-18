@@ -93,12 +93,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
 
                         var filesViewModel = viewModel.FilesFormViewModel;
-                        filesViewModel.FileRepo = repos.FileRepo;
 
                         //saving attached documents
                         bool fileCopySuccess = true;
                         if (null != filesViewModel)
                         {
+                            filesViewModel.FileRepo = repos.FileRepo;
                             viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
                             if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Component))
                             {
@@ -114,8 +114,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
                         if (fileCopySuccess)
                         {
-                           filesViewModel.DetachFileEntities();
-
+                            if (null != filesViewModel) 
+                            {
+                                filesViewModel.DetachFileEntities();
+                            }
+                           
                            notify.ShowSuccess(
                                 string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
                                 Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));

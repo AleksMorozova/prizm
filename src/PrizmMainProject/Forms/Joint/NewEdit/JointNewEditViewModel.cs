@@ -43,7 +43,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private DataTable pieces;
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
-        private JointStatus jointStatus = JointStatus.Welded;
+        private JointStatus jointStatus;
 
         private PartData firstElement;
         private PartData secondElement;
@@ -435,7 +435,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
 
                 jointStatus = Joint.Status;
-
                 return jointStatus; 
             }
             set 
@@ -445,8 +444,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     jointStatus = value;
                     Joint.Status = value;
                     RaisePropertyChanged("JointConstructionStatus");
+                    RaisePropertyChanged("IsNotWithdrawn");
                 }
             }
+        }
+
+        public bool IsNotWithdrawn
+        {
+            get { return JointConstructionStatus != JointStatus.Withdrawn; }
         }
 
         #region ===== Makeing The Connection =====
@@ -805,7 +810,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Joint.FirstElement = new PartData();
             Joint.SecondElement = new PartData();
             this.Joint.IsActive = true;
-            this.Joint.Status = jointStatus;
+            this.Joint.Status = JointStatus.Welded;
             this.JointTestResults = new BindingList<JointTestResult>();
             if (this.FilesFormViewModel != null)
             {
