@@ -222,8 +222,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
-            }
+            }         
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

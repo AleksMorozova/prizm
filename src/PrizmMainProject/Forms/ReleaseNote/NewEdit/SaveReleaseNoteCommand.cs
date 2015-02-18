@@ -87,12 +87,13 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
 
                 var filesViewModel = viewModel.FilesFormViewModel;
-                filesViewModel.FileRepo = repos.FileRepo;
+
 
                 //saving attached documents
                 bool fileCopySuccess = true;
                 if (null != filesViewModel)
-                {
+                {            
+                    filesViewModel.FileRepo = repos.FileRepo;
                     viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
                     if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.ReleaseNote))
                     {
@@ -108,7 +109,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
                 if (fileCopySuccess)
                 {
-                    filesViewModel.DetachFileEntities();
+                    if (null != filesViewModel)
+                    {
+                        filesViewModel.DetachFileEntities(); 
+                    }
 
                     notify.ShowSuccess(
                          string.Concat(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), viewModel.ReleaseNote.Id),
