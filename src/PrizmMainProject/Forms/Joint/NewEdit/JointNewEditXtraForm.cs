@@ -92,8 +92,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
