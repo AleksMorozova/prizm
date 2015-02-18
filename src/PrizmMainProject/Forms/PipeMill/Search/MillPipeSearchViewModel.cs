@@ -145,7 +145,14 @@ using Prizm.Main.Properties;
         public DateTime ExternalCoatingDate
         {
             get { return externalCoatingDate; }
-            set { externalCoatingDate = value; }
+            set
+            {
+                if (value != externalCoatingDate)
+                {
+                    externalCoatingDate = value;
+                    RaisePropertyChanged("ExternalCoatingDate");
+                }
+            }
         }
 
         private DateTime internalCoatingDate = DateTime.MinValue;
@@ -153,7 +160,14 @@ using Prizm.Main.Properties;
         public DateTime InternalCoatingDate
         {
             get { return internalCoatingDate; }
-            set { internalCoatingDate = value; }
+            set
+            {
+                if (value != internalCoatingDate)
+                {
+                    internalCoatingDate = value;
+                    RaisePropertyChanged("InternalCoatingDate");
+                }
+            }
         }
 
         private DateTime weldingDate = DateTime.MinValue;
@@ -161,7 +175,14 @@ using Prizm.Main.Properties;
         public DateTime WeldingDate
         {
             get { return weldingDate; }
-            set { weldingDate = value; }
+            set
+            {
+                if (value != weldingDate)
+                {
+                    weldingDate = value;
+                    RaisePropertyChanged("WeldingDate");
+                }
+            }
         }
         #endregion
 
