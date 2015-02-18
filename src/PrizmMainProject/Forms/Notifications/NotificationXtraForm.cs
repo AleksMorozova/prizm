@@ -51,13 +51,14 @@ namespace PrizmMain.Forms.Notifications
         private void gridControlMessage_DoubleClick(object sender, EventArgs e)
         {
             int selectedItem = gridViewNotification.GetFocusedDataSourceRowIndex();
+            if (selectedItem >= 0)
+            {
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
+                var id = viewModel.Notification[selectedItem].Id;
 
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-            var id = viewModel.Notification[selectedItem].Id;
 
-           
-            OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
-            
+                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
+            }
     
         }
 

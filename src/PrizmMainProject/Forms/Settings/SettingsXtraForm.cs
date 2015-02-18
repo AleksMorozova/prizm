@@ -520,13 +520,6 @@ namespace Prizm.Main.Forms.Settings
                 view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
-
-            if(certExpDate < DateTime.Now)
-            {
-                view.SetColumnError(expDateColumn,
-                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
-                e.Valid = false;
-            }
         }
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
@@ -1140,6 +1133,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
+            controlOerationValidate = true;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
@@ -1152,6 +1146,11 @@ namespace Prizm.Main.Forms.Settings
                         inspectionView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                    if(!controlOerationValidate)
+                    {
+                        controlOerationValidate = false;
+                        break;
+                    }
                 }
             }
             return controlOerationValidate;

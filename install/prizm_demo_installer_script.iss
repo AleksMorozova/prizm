@@ -77,6 +77,7 @@ Source: "{#DevExpressPath}DevExpress.RichEdit.v14.2.Core.dll"; DestDir: "{app}";
 Source: "{#DevExpressPath}DevExpress.Sparkline.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Xpo.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraBars.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion

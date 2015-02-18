@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL.Construction;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
 using System;
@@ -21,8 +22,10 @@ namespace Prizm.Main.Forms.Joint
         IPipeRepository RepoPipe { get; }
         ISpoolRepository RepoSpool { get; }
         IComponentRepository RepoComponent { get; }
+        IFileRepository FileRepo { get; }
 
         void Commit();
         void BeginTransaction();
+        void Rollback();
     }
 }
