@@ -1120,7 +1120,6 @@ namespace Prizm.Main.Forms.Settings
         {
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
-            controlOerationValidate = true;
             controlOerationValidate = pipeControlOperationValidation();
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             if(pipeLayoutControlGroup.Tag != null)
@@ -1134,6 +1133,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
+            controlOerationValidate = true;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
@@ -1148,11 +1148,12 @@ namespace Prizm.Main.Forms.Settings
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
                     if(!controlOerationValidate)
                     {
-                        return false;
+                        controlOerationValidate = false;
+                        break;
                     }
                 }
             }
-            return true;
+            return controlOerationValidate;
         }
 
         /// <summary>
