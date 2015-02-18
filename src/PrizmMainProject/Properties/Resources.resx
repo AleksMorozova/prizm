@@ -1326,6 +1326,6 @@
     <value>Сообщения</value>
   </data>
   <data name="Inspection_ExistingCodeError" xml:space="preserve">
-    <value>Сообщение об ошибке: Уже существует операция с номером: </value>
+    <value>Сообщение об ошибке: Уже существует операция с номером:</value>
   </data>
 </root>

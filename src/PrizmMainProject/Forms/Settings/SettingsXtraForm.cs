@@ -1362,11 +1362,11 @@ namespace Prizm.Main.Forms.Settings
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, CheckCodeForTestPipe);
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes, CheckCodeForTestPipe);
+                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
             }
 
             return inspectionForm;
@@ -1416,11 +1416,11 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if(inspectionForm == null)
                     {
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, CheckCodeForTestPipe);
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
                     }
                     else
                     {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, CheckCodeForTestPipe);
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
                     }
 
                     inspectionForm.ShowDialog();
@@ -1429,27 +1429,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-        /// <summary>
-        /// Function to check Code uniqueness
-        /// </summary>
-        /// <param name="code">code TestPipe</param>
-        /// <param name="id">id TestPipe</param>
-        /// <returns>true if uniqueness</returns>
-        private bool CheckCodeForTestPipe(string code, Guid id)
-        {
-            bool retValue = true;
-            foreach (var item in viewModel.CurrentPipeMillSizeType.PipeTests)
-            {
-                if (item.Code == code && item.Id != id)
-                {
-                    retValue = false;
-                    break;
-                }
-            }
-            return retValue;
-        }
-
-
+        
         private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             var view = sender as GridView;

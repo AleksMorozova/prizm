@@ -4421,8 +4421,15 @@ namespace Prizm.Main.Languages
         public static StringResource Inspection_ExistingCodeError = new StringResource
         {
             Id = "Inspection_ExistingCodeError",
-            Description = "Сообщение об ошибке: Уже существует операция с номером: "
+            Description = "Сообщение об ошибке: Уже существует операция с номером:"
         };
+
+        public static StringResource Inspection_ExistingCodeErrorHeader = new StringResource
+        {
+            Id = "Inspection_ExistingCodeErrorHeader",
+            Description = "Заголовок сообщения о дублировании кода: Дублирование кода контрольной операции"
+        };
+
         #endregion
 
         #region --- Notification ---
