@@ -331,6 +331,7 @@
             this.Name = "JointCutDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Вырезка стыка";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointCutDialog_FormClosed);
             this.Load += new System.EventHandler(this.JointCutDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointCutDialogLayout)).EndInit();
             this.jointCutDialogLayout.ResumeLayout(false);

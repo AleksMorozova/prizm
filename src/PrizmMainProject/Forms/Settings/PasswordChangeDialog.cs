@@ -23,6 +23,8 @@ namespace Prizm.Main.Forms.Settings
         public PasswordChangeDialog()
         {
             InitializeComponent();
+            Bitmap bmp = Resources.password;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         public DialogResult ShowPasswordDialog(string passwordHash)
@@ -44,9 +46,9 @@ namespace Prizm.Main.Forms.Settings
         {
             return new List<LocalizedItem>()
           {
-              new LocalizedItem(lblOldPass, StringResources.PassChange_OldPassLabel.Id),
-              new LocalizedItem(lblPass, StringResources.PassChange_PassLabel.Id),
-              new LocalizedItem(lblConfirm, StringResources.PassChange_ConfirmPassLabel.Id),
+              new LocalizedItem(lblOldPassLayout, StringResources.PassChange_OldPassLabel.Id),
+              new LocalizedItem(lblPassLayout, StringResources.PassChange_PassLabel.Id),
+              new LocalizedItem(lblConfirmLayout, StringResources.PassChange_ConfirmPassLabel.Id),
 
               new LocalizedItem(btnOk, StringResources.PassChange_OKButton.Id),
               new LocalizedItem(btnCancel, StringResources.PassChange_CancelButton.Id),

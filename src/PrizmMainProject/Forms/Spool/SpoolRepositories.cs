@@ -1,4 +1,6 @@
-﻿using Prizm.Data.DAL.Construction;
+﻿using Prizm.DAL.Hibernate;
+using Prizm.Data.DAL;
+using Prizm.Data.DAL.Construction;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using NHibernate;
@@ -17,6 +19,7 @@ namespace Prizm.Main.Forms.Spool
         private readonly ISpoolRepository spoolRepo;
         private readonly IPipeRepository pipeRepo;
         private readonly IInspectorRepository inspectorRepo;
+        private readonly IFileRepository fileRepo;
 
         [Inject]
         public SpoolRepositories(ISession session)
@@ -25,6 +28,7 @@ namespace Prizm.Main.Forms.Spool
             this.spoolRepo = new SpoolRepository(session);
             this.pipeRepo = new PipeRepository(session);
             this.inspectorRepo = new InspectorRepository(session);
+            this.fileRepo = new FileRepository(session);
         }
 
         public ISpoolRepository SpoolRepo
@@ -42,6 +46,11 @@ namespace Prizm.Main.Forms.Spool
             get { return inspectorRepo; }
         }
 
+        public IFileRepository FileRepo
+        {
+            get { return fileRepo; } 
+        }
+
         public void Commit()
         {
             session.Transaction.Commit();
@@ -50,6 +59,11 @@ namespace Prizm.Main.Forms.Spool
         public void BeginTransaction()
         {
             session.BeginTransaction();
+        }
+
+        public void Rollback()
+        {
+            session.Transaction.Rollback();
         }
 
         public void Dispose()

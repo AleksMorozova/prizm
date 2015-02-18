@@ -61,9 +61,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRISM – программа полного цикла управления 
-        ///процессом производства, транспортировки 
-        ///и строительства промышленных труб..
+        ///   Looks up a localized string similar to PRISM – программа полного цикла управления процессом производства, транспортировки и строительства промышленных труб..
         /// </summary>
         internal static string AboutForm_TitleLabel {
             get {
@@ -1915,6 +1913,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дублирование логина.
+        /// </summary>
+        internal static string Notification_DublicateLogin_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DublicateLogin_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дубликат номера труб.
         /// </summary>
         internal static string Notification_DublicatePipeNumber_Critical {
@@ -1956,6 +1963,42 @@ namespace Prizm.Main.Properties {
         internal static string Notification_WelderCertificateExpired_Warning {
             get {
                 return ResourceManager.GetString("Notification_WelderCertificateExpired_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        internal static string NotificationXtraForm_ColDate {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистратор.
+        /// </summary>
+        internal static string NotificationXtraForm_ColName {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщение.
+        /// </summary>
+        internal static string NotificationXtraForm_ColNotification {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_ColNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщения.
+        /// </summary>
+        internal static string NotificationXtraForm_LayoutControlItemNotification {
+            get {
+                return ResourceManager.GetString("NotificationXtraForm_LayoutControlItemNotification", resourceCulture);
             }
         }
         
@@ -3124,6 +3167,15 @@ namespace Prizm.Main.Properties {
         internal static string Settings_Title {
             get {
                 return ResourceManager.GetString("Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логин должен быть уникальным.
+        /// </summary>
+        internal static string Settings_UniqueLogin {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLogin", resourceCulture);
             }
         }
         

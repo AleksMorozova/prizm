@@ -33,6 +33,10 @@ namespace Prizm.Main.Forms.Notifications
                     strategyFill = new WelderCertificateFill();
                     loader = new WelderCertificateLoader(this);
                     break;
+                case TypeNotification.DublicateLogin:
+                    strategyFill = new DublicateLoginFill();
+                    loader = new DuplicateLoginLoader(this);
+                    break;
                 default:
                     var ex = new NotImplementedException();
                     log.Error(ex.Message);

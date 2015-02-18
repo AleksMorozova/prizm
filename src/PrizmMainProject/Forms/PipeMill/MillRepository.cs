@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL;
+﻿using Prizm.DAL.Hibernate;
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using Prizm.Data.DAL.Setup;
@@ -26,6 +27,7 @@ namespace Prizm.Main.Forms.PipeMill
         private readonly IInspectorRepository repoInspector;
         private readonly IPipeTestRepository repoPipeTest;
         private readonly IProjectRepository repoProject;
+        private readonly IFileRepository fileRepo;
 
         private readonly ISession session;
 
@@ -44,7 +46,10 @@ namespace Prizm.Main.Forms.PipeMill
             this.repoPipeTest = new PipeTestRepository(session);
             this.welderRepo = new WelderRepository(session);
             this.repoProject = new ProjectRepository(session);
+            this.fileRepo = new FileRepository(session);
         }
+
+        public IFileRepository FileRepo { get { return fileRepo; } }
 
         public void Commit()
         {
@@ -54,6 +59,11 @@ namespace Prizm.Main.Forms.PipeMill
         public void BeginTransaction()
         {
             session.BeginTransaction();
+        }
+
+        public void Rollback()
+        {
+            session.Transaction.Rollback();
         }
 
         public void Dispose()

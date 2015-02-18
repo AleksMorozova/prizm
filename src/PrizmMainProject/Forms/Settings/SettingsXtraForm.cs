@@ -517,13 +517,6 @@ namespace Prizm.Main.Forms.Settings
                 view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
-
-            if(certExpDate < DateTime.Now)
-            {
-                view.SetColumnError(expDateColumn,
-                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
-                e.Valid = false;
-            }
         }
 
         void ValidatePersonName(GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
@@ -815,6 +808,10 @@ namespace Prizm.Main.Forms.Settings
                     return;
                 }
             }
+
+            DuplicatesList l = findDuplicateList[gridViewUsers];
+            List<string> loginDuplicates = l.Method(gridViewUsers);
+            gridViewUsers.ValidateDuplicate(colLogin, loginDuplicates, e);
         }
 
         private void gridViewUsers_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
@@ -1340,11 +1337,23 @@ namespace Prizm.Main.Forms.Settings
                                  .ToList();
             };
 
+            DuplicatesList login = new DuplicatesList();
+            login.Duplicates = null;
+            login.Method = delegate(GridView gridViewUsers)
+            {
+                var logins = viewModel.Users;
+                return logins.GroupBy(x => x.Login)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
             findDuplicateList.Add(this.pipesSizeListGridView, pipeSize);
             findDuplicateList.Add(this.plateManufacturersListView, plateManufacturer);
             findDuplicateList.Add(this.categoriesGridView, category);
             findDuplicateList.Add(this.componentryTypeGridView, componentType);
             findDuplicateList.Add(this.seemTypeGridView, seamType);
+            findDuplicateList.Add(this.gridViewUsers, login);
             
         }
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
@@ -1585,7 +1594,6 @@ namespace Prizm.Main.Forms.Settings
             List<string> seemTypeDuplicate = l.Method(seemTypeGridView);
             seemTypeGridView.ColorGrid(seemTypeColumn, seemTypeDuplicate, e);
         }
-
         private void inspectorCertificateGridView_GotFocus(object sender, EventArgs e)
         {
             var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
@@ -1599,6 +1607,19 @@ namespace Prizm.Main.Forms.Settings
                 inspectorCertificateGridView.OptionsBehavior.Editable = true;
             }
         }
+        private void gridViewUsers_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
+       {
+            if (gridViewUsers.FocusedColumn.Name == colLogin.Name)
+            {
+                foreach (User user in viewModel.Users)
+                {
+                    if (user.Login == e.Value.ToString())
+                    {
+                        e.Valid = false;
+                        e.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_UniqueLogin);
+                    }
+                }
+       }
 
     }
 }

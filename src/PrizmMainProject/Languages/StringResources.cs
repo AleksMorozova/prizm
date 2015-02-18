@@ -1050,6 +1050,20 @@ namespace Prizm.Main.Languages
             Id = "Spool_DeactivatedHeader",
             Description = "Деактивация катушки"
         };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail_Header = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipeFail_Header",
+            Description = "Ошибка при сохранении катушки"
+        };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipe_Fail",
+            Description = "Катушка не сохранена"
+        };
+
+
         
         #endregion Spool
 
@@ -1111,6 +1125,11 @@ namespace Prizm.Main.Languages
         {
             Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
+        };
+        public static StringResource Settings_UniqueLogin = new StringResource
+        {
+            Id = "Settings_UniqueLogin",
+            Description = "Значение должно быть уникальным"
         };
         public static StringResource Settings_UniqueValueRequired = new StringResource
         {
@@ -4401,7 +4420,32 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
+        
+        public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_LayoutControlItemNotification",
+            Description = "Сообщения"
+        };
 
+        public static StringResource NotificationXtraForm_ColDate = new StringResource
+        {
+            Id = "NotificationXtraForm_ColDate",
+            Description = "Дата"
+        };
+
+        public static StringResource NotificationXtraForm_ColNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_ColNotification",
+            Description = "Сообщение"
+        };
+
+        public static StringResource NotificationXtraForm_ColName = new StringResource
+        {
+            Id = "NotificationXtraForm_ColName",
+            Description = "Регистратор"
+        };
+        
+        
         public static StringResource NotificationXtraForm_Title = new StringResource
         {
             Id = "NotificationXtraForm_Title",
@@ -4436,8 +4480,12 @@ namespace Prizm.Main.Languages
             Id = "Notification_WelderCertificateExpired_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
- 
-        
+
+        public static StringResource Notification_DublicateLogin_Critical = new StringResource
+        {
+            Id = "Notification_DublicateLogin_Critical",
+            Description = "Сообщение о дублировании логинов"
+        };
         #endregion //--- Notification ---
     }
 } 

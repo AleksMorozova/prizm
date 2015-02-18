@@ -24,8 +24,10 @@ namespace Prizm.Main.Forms.PipeMill
         IPipeTestRepository RepoPipeTest { get; }
         IInspectorRepository RepoInspector { get; }
         IProjectRepository RepoProject { get; }
+        IFileRepository FileRepo { get; }
 
         void Commit();
         void BeginTransaction();
+        void Rollback();
     }
 }

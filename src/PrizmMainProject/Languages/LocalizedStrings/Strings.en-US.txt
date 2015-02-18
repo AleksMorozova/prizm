@@ -290,10 +290,10 @@ InspectionReport_CreateGroup=Create report
 InspectionReport_PreviewGroup=Preview
 
 ;Отчет на входном контроле. Кнопка предпросмотра отчета
-InspectionReport_PreviewButton=&Create report
+InspectionReport_PreviewButton=&Preview report
 
 ;Отчет на входном контроле. Кнопка создания отчета
-InspectionReport_CreateButton=&Preview report
+InspectionReport_CreateButton=&Create report
 
 ;Длина трубы меньше длины катушки
 Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
@@ -384,6 +384,9 @@ Settings_ValidateInspectorSertificate=Please select inspector
 
 ;Обязательное значение
 Settings_ValueRequired=Value is required
+
+;Логин должен быть уникальным
+Settings_UniqueLogin = Login must be unique
 
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
@@ -2010,6 +2013,9 @@ InspectionAddEdit_SaveButton=Save
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
 
+;Сообщение о дублировании логинов: Дубликат номера труб
+Notification_DublicateLogin_Critical = User logins duplicating
+
 ;Сообщение о дублировании номеров труб: Дубликат номера труб
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
 
@@ -2343,11 +2349,16 @@ WaitScreen_Caption=Please wait
 ;Идет загрузка ...
 WaitScreen_Description=Loading...
 
+;Сообщения
+NotificationXtraForm_LayoutControlItemNotification=Notifications
 
+;Дата
+NotificationXtraForm_ColDate=Date
 
+;Сообщение
+NotificationXtraForm_ColNotification=Message
 
-
-
-
+;Регистратор
+NotificationXtraForm_ColName=Registrar
 
 

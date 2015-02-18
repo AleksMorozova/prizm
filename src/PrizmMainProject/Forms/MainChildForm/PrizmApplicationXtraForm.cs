@@ -384,8 +384,13 @@ namespace Prizm.Main.Forms.MainChildForm
             NotificationService.Instance.RequestAllNotification();
 
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser))
+            int userLangIndex = 0;
+            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser, out userLangIndex))
+            {
                 this.CascadeChangeLanguage();
+                languageBarListItem.DataIndex = userLangIndex;
+            }
+
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
@@ -396,7 +401,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Application.Exit();
+            this.Close(); //Application.Exit() causes  iteration the Application.OpenForms collection which is modified 
+                          //similar problem: http://stackoverflow.com/questions/1312885/application-exit-vs-application-exitthread-vs-environment-exit
         }
 
         public void UpdateStatusBar(string text)

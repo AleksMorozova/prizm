@@ -31,6 +31,11 @@ namespace Prizm.Main.Forms.Joint
         public JointCutDialog(Part part1, Part part2) 
             :this()
         {
+            this.InitializeJointCut(part1, part2);
+        }
+
+        public void InitializeJointCut(Part part1, Part part2)
+        {
             this.part1 = part1;
             this.part2 = part2;
         }
@@ -74,6 +79,14 @@ namespace Prizm.Main.Forms.Joint
         }
 
         #endregion // --- Localization ---
+
+        private void JointCutDialog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            firstJoinedPartNumber.DataBindings.Clear();
+            secondJoinedPartNumber.DataBindings.Clear();
+            firstJoinedPartLength.DataBindings.Clear();
+            secondJoinedPartLength.DataBindings.Clear();
+        }
     
     }
 }

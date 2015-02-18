@@ -9,7 +9,7 @@ namespace Prizm.Main.Forms.ExternalFile
 {
     public interface IExternalFilesRepositories : IDisposable
     {
-        IFileRepository FileRepo {get;}
+        IFileRepository FileRepo { get; set; }
         IProjectRepository ProjectRepo { get; }
 
         void Commit();
