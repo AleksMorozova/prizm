@@ -466,6 +466,9 @@ MillPipeNumber_Mask_Hint=Pipe number format:
 ;Настройки-Проект. Группы контрольных операций
 SettingsProject_OperationsLabel=Inspection operation groups
 
+;Настройки-Проект. Надпись группы техничекских параметров
+SettingsProject_TechParametersGroup=Technical parameters
+
 ;Настройки-Проект. Типы швов
 SettingsProject_SeamsLabel=Seam types
 
@@ -656,6 +659,9 @@ SettingsInspectors_CertificateNameColumn=Name
 
 ;Настройки - Пользователи. Список пользователей
 SettingsUser_UsersLabel=Users
+
+;Настройки - Пользователи. Список ролей
+SettingsUser_RolesLabel=Roles
 
 ;Настройки - Пользователи. Логин пользователя
 SettingsUser_LoginColumn=Login
@@ -1826,6 +1832,12 @@ ReleaseNoteNewEdit_RailcarCertificateColumn=Railcar certificate
 
 ;Разрешение на отгрузку. Столбец получатель вагона
 ReleaseNoteNewEdit_RailcarDestinationColumn=Destination
+
+;Разрешение на отгрузку. Надпись параметров разрешения
+ReleaseNoteNewEdit_ReleaseNoteLayoutGroup=Release note parameters
+
+;Разрешение на отгрузку. Надпись статуса
+ReleaseNoteNewEdit_StatusLayout=Status
 
 ;Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #
 ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar=This pipe already exists in railcar #
