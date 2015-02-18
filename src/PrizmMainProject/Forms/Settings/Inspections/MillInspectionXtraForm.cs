@@ -21,12 +21,14 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
-        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
+        public Func<string, Guid, bool> validateCode;
+
+        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes, Func<string, Guid, bool> validateCode)
         {
             InitializeComponent();
             Bitmap bmp = Resources.inspection_16;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
-            this.SetupForm(current, categoryTypes);
+            this.SetupForm(current, categoryTypes, validateCode);
         }
 
         private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
@@ -42,8 +44,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             return viewModel;
         }
-        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes)
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes, Func<string, Guid, bool> validateCode)
         {
+            this.validateCode = validateCode;
             viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
@@ -222,6 +225,20 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Clear();
             maxExpected.DataBindings.Clear();
             frequency.DataBindings.Clear();
+        }
+
+        private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                if (!validateCode(viewModel.Code, viewModel.PipeTest.Id))
+                {
+                   string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError),viewModel.Code);
+                   MessageBox.Show(msg,Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   e.Cancel = true;
+                }
+            }
+
         }
 
     }

@@ -1307,11 +1307,12 @@
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
   </data>
-    <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
+  <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
     <value>Дублирование логина</value>
   </data>
   <data name="Settings_UniqueLogin" xml:space="preserve">
     <value>Логин должен быть уникальным</value>
+  </data>
   <data name="NotificationXtraForm_ColDate" xml:space="preserve">
     <value>Дата</value>
   </data>
@@ -1323,5 +1324,8 @@
   </data>
   <data name="NotificationXtraForm_LayoutControlItemNotification" xml:space="preserve">
     <value>Сообщения</value>
+  </data>
+  <data name="Inspection_ExistingCodeError" xml:space="preserve">
+    <value>Сообщение об ошибке: Уже существует операция с номером: </value>
   </data>
 </root>

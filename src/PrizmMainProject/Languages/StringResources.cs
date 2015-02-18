@@ -4417,6 +4417,12 @@ namespace Prizm.Main.Languages
             Id = "InspectionAddEdit_CancelButton",
             Description = "Контрольная операция. Кнопка отмена"
         };
+
+        public static StringResource Inspection_ExistingCodeError = new StringResource
+        {
+            Id = "Inspection_ExistingCodeError",
+            Description = "Сообщение об ошибке: Уже существует операция с номером: "
+        };
         #endregion
 
         #region --- Notification ---

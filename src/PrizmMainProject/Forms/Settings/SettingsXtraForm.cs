@@ -1362,11 +1362,11 @@ namespace Prizm.Main.Forms.Settings
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes);
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, CheckCodeForTestPipe);
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes);
+                inspectionForm.SetupForm(selectedTest, categoryTypes, CheckCodeForTestPipe);
             }
 
             return inspectionForm;
@@ -1377,10 +1377,10 @@ namespace Prizm.Main.Forms.Settings
             if(IsEditMode && IsEditable(IsEditMode))
             {
                 var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+                inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
 
                 if(inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
                     viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     IsModified = true;
@@ -1416,11 +1416,11 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if(inspectionForm == null)
                     {
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes);
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, CheckCodeForTestPipe);
                     }
                     else
                     {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes);
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, CheckCodeForTestPipe);
                     }
 
                     inspectionForm.ShowDialog();
@@ -1429,6 +1429,26 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private bool CheckCodeForTestPipe(string code, Guid id)
+        {
+            bool retValue = true;
+            foreach (var item in viewModel.CurrentPipeMillSizeType.PipeTests)
+            {
+                if (item.Code == code && item.Id != id)
+                {
+                    retValue = false;
+                    break;
+                }
+            }
+            return retValue;
+        }
+
 
         private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
