@@ -170,6 +170,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выбрать все.
+        /// </summary>
+        internal static string ChechedCombobox_SelectAll {
+            get {
+                return ResourceManager.GetString("ChechedCombobox_SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Клиент.
         /// </summary>
         internal static string Client {
@@ -297,34 +306,6 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to По трассировке.
-        /// </summary>
-        internal static string ConstractionReport_ReportTypeTracingReport {
-            get {
-                return ResourceManager.GetString("ConstractionReport_ReportTypeTracingReport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to По использованным изделиям.
-        /// </summary>
-        internal static string ConstractionReport_ReportTypeUsedProductReport {
-            get {
-                return ResourceManager.GetString("ConstractionReport_ReportTypeUsedProductReport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
-        ///    между заданными точками не зависимо от их связности..
-        /// </summary>
-        internal static string ConstractionReport_TracingReportInfoLabelText {
-            get {
-                return ResourceManager.GetString("ConstractionReport_TracingReportInfoLabelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Точки отсчета.
         /// </summary>
         internal static string Construction_Report_label {
@@ -343,11 +324,39 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По трассировке.
+        /// </summary>
+        internal static string ConstructionReport_ReportTypeTracingReport {
+            get {
+                return ResourceManager.GetString("ConstructionReport_ReportTypeTracingReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По использованным изделиям.
+        /// </summary>
+        internal static string ConstructionReport_ReportTypeUsedProductReport {
+            get {
+                return ResourceManager.GetString("ConstructionReport_ReportTypeUsedProductReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отчет по сварке участка между пикетами.
         /// </summary>
         internal static string ConstructionReport_Title {
             get {
                 return ResourceManager.GetString("ConstructionReport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
+        ///    между заданными точками не зависимо от их связности..
+        /// </summary>
+        internal static string ConstructionReport_TracingReportInfoLabelText {
+            get {
+                return ResourceManager.GetString("ConstructionReport_TracingReportInfoLabelText", resourceCulture);
             }
         }
         

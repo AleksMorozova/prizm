@@ -25,6 +25,12 @@ namespace Prizm.Main.Languages
             Description = "Идет загрузка ..."
         };
 
+        public static StringResource ChechedCombobox_SelectAll = new StringResource
+        {
+            Id = "ChechedCombobox_SelectAll",
+            Description = "Выпадающий список. Выбрать все"
+        };
+
         public static StringResource FixedCategoryLengthPassedHeader = new StringResource
         {
             Id = "FixedCategoryLengthPassedHeader",
@@ -971,6 +977,12 @@ namespace Prizm.Main.Languages
         {
             Id = "Spool_LenghtGroup",
             Description = "Катушка. Длины трубы и катушки"
+        };
+
+        public static StringResource Spool_IncomingInspectionGroup = new StringResource
+        {
+            Id = "Spool_IncomingInspectionGroup",
+            Description = "Катушка. Входной контроль"
         };
 
         public static StringResource Spool_InspectionDateColumn = new StringResource
@@ -2296,7 +2308,11 @@ namespace Prizm.Main.Languages
             Description = "Внешние файлы"
         };
 
-        
+        public static StringResource ExternalFiles_CloseButton = new StringResource
+        {
+            Id = "ExternalFiles_CloseButton",
+            Description = "Вложения. Кнопка закрытия"
+        };
         #endregion
 
         #region --- CreateSpoolComponentDialog ---

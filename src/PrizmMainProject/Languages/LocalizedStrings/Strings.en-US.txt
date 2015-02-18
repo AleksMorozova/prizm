@@ -334,6 +334,9 @@ Spool_SpoolGroup=Spool information
 ;Катушка. Длины трубы и катушки
 Spool_LenghtGroup=Length
 
+;Катушка. Входной контроль
+Spool_IncomingInspectionGroup=Incoming inspection
+
 ;Катушка. Дата входного контроля
 Spool_InspectionDateColumn=Date
 
@@ -968,6 +971,9 @@ SaveDialog_CancelButton=&Cancel
 
 ;Вложения. Кнопка добавления
 ExternalFiles_AddFileButton=Add &file
+
+;Вложения. Кнопка закрытия
+ExternalFiles_CloseButton=C&lose
 
 ;Вложения. Надпись колонки имени файла
 ExternalFiles_FileNameColumnHeader=File name
@@ -2355,4 +2361,5 @@ NotificationXtraForm_ColNotification=Message
 ;Регистратор
 NotificationXtraForm_ColName=Registrar
 
-
+;Выпадающий список. Выбрать все
+ChechedCombobox_SelectAll=Select all
