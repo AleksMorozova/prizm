@@ -1124,6 +1124,11 @@ namespace Prizm.Main.Languages
             Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
         };
+        public static StringResource Settings_UniqueLogin = new StringResource
+        {
+            Id = "Settings_UniqueLogin",
+            Description = "Значение должно быть уникальным"
+        };
         public static StringResource Settings_UniqueValueRequired = new StringResource
         {
             Id = "Settings_UniqueValueRequired",
@@ -4417,7 +4422,7 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
-
+        
         public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
         {
             Id = "NotificationXtraForm_LayoutControlItemNotification",
@@ -4477,8 +4482,12 @@ namespace Prizm.Main.Languages
             Id = "Notification_WelderCertificateExpired_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
- 
-        
+
+        public static StringResource Notification_DublicateLogin_Critical = new StringResource
+        {
+            Id = "Notification_DublicateLogin_Critical",
+            Description = "Сообщение о дублировании логинов"
+        };
         #endregion //--- Notification ---
     }
 } 
