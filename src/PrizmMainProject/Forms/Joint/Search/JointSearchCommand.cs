@@ -61,6 +61,7 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     criteria.Add(Restrictions.Eq("IsActive", false));
                 }
+                criteria.AddOrder(Order.Asc("Number"));
 
                 var list = repo.GetByCriteria(criteria);
                 viewModel.Joints.Clear();
