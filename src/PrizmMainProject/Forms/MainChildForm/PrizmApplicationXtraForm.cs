@@ -384,8 +384,13 @@ namespace Prizm.Main.Forms.MainChildForm
             NotificationService.Instance.RequestAllNotification();
 
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser))
+            int userLangIndex = 0;
+            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser, out userLangIndex))
+            {
                 this.CascadeChangeLanguage();
+                languageBarListItem.DataIndex = userLangIndex;
+            }
+
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
