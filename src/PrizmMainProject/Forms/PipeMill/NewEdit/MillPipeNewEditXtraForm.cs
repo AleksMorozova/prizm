@@ -126,6 +126,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
 
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }

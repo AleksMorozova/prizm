@@ -1324,4 +1324,22 @@
   <data name="NotificationXtraForm_LayoutControlItemNotification" xml:space="preserve">
     <value>Сообщения</value>
   </data>
+  <data name="Message_OpenFormForViewing" xml:space="preserve">
+    <value>Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenFormForViewingHeader" xml:space="preserve">
+    <value>Открыть форму в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenSettingsForViewing" xml:space="preserve">
+    <value>Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?</value>
+  </data>
+  <data name="Message_OpenSettingsForViewingHeader" xml:space="preserve">
+    <value>Открыть настройки в режиме просмотра?</value>
+  </data>
+  <data name="Message_CannotOpenForViewing" xml:space="preserve">
+    <value>Невозможно открыть форму для просмотра. Для продолжения закройте настройки</value>
+  </data>
+  <data name="Message_CannotOpenForViewingHeader" xml:space="preserve">
+    <value>Невозможно открыть форму для просмотра</value>
+  </data>
 </root>

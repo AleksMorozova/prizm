@@ -62,6 +62,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             IsEditMode = true; //do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             attachmentsButton.Enabled = true;
+
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public ReleaseNoteNewEditXtraForm() : this(Guid.Empty) { }

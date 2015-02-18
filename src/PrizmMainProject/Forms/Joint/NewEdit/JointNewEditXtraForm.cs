@@ -70,6 +70,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.ValidatableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
+            CannotOpenForViewing = id == Guid.Empty;
 
             #region --- Colouring of required controls, IsEditMode, uppercasing ---
             jointNumber.SetRequiredText();

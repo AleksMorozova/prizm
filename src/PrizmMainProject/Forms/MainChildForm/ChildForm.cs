@@ -317,6 +317,8 @@ namespace Prizm.Main.Forms.MainChildForm
             log.Error(e.Message);
             throw e;
         }
+
+        public bool CannotOpenForViewing { get; set; }
     }
 
 

@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.Settings
         private List<string> localizedPipeTestResultTypes = new List<string>();
         private List<string> localizedJointOperationTypes = new List<string>();
         private MillInspectionXtraForm inspectionForm = null;
+
         public SettingsXtraForm()
         {
             InitializeComponent();
