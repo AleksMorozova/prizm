@@ -127,10 +127,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
 
-            Binding bind = new Binding("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = (string)localizedAllJointStatus[(int)e.Value]; };
-            jointStatus.DataBindings.Add(bind);
+
+            jointStatus.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", jointNewEditBindingSoure, "JointConstructionStatus",
+                (value) =>
+                {
+                    return (string)localizedAllJointStatus[(int)value];
+                }));
 
 
 
