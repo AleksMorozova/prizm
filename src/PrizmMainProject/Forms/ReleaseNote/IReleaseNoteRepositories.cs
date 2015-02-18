@@ -1,4 +1,5 @@
-﻿using Prizm.Data.DAL.Mill;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.Mill;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,10 @@ namespace Prizm.Main.Forms.ReleaseNote
         IPipeRepository PipeRepo { get; }
         IRailcarRepository RailcarRepo { get; }
         IReleaseNoteRepository ReleaseNoteRepo { get; }
+        IFileRepository FileRepo { get; }
 
         void Commit();
         void BeginTransaction();
+        void Rollback();
     }
 }

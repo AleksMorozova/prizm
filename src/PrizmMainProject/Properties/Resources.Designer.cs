@@ -1913,6 +1913,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дублирование логина.
+        /// </summary>
+        internal static string Notification_DublicateLogin_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DublicateLogin_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дубликат номера труб.
         /// </summary>
         internal static string Notification_DublicatePipeNumber_Critical {
@@ -3158,6 +3167,15 @@ namespace Prizm.Main.Properties {
         internal static string Settings_Title {
             get {
                 return ResourceManager.GetString("Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логин должен быть уникальным.
+        /// </summary>
+        internal static string Settings_UniqueLogin {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLogin", resourceCulture);
             }
         }
         

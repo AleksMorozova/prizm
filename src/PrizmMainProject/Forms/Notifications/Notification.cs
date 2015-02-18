@@ -120,7 +120,8 @@ namespace Prizm.Main.Forms.Notifications
     {
         DublicatePipeNumber,
         ExpiredCertificate,
-        WelderCertificateExpired
+        WelderCertificateExpired,
+        DublicateLogin
     }
 
 }

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
 using Prizm.Main.Languages;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace Prizm.Main.Forms.PipeMill.Search
 {
@@ -146,12 +147,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
         {
-            int selectedPipe = pipesSearchResultView.GetFocusedDataSourceRowIndex();
-            var id = viewModel.Pipes[selectedPipe].Id;
-            if(selectedPipe >= 0)
-            {
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
+            GridView view = (GridView)sender;
+            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
 
+            if (info.InRow || info.InRowCell)
+            {
+
+                Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
                 parent.OpenChildForm(typeof(MillPipeNewEditXtraForm), id);
             }
         }

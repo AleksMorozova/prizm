@@ -63,7 +63,7 @@
          this.btnCancel.Location = new System.Drawing.Point(274, 106);
          this.btnCancel.Name = "btnCancel";
          this.btnCancel.Size = new System.Drawing.Size(104, 26);
-         this.btnCancel.TabIndex = 2;
+         this.btnCancel.TabIndex = 3;
          this.btnCancel.Text = "&Отмена";
          // 
          // btnDontSave
@@ -72,7 +72,7 @@
          this.btnDontSave.Location = new System.Drawing.Point(164, 106);
          this.btnDontSave.Name = "btnDontSave";
          this.btnDontSave.Size = new System.Drawing.Size(104, 26);
-         this.btnDontSave.TabIndex = 3;
+         this.btnDontSave.TabIndex = 2;
          this.btnDontSave.Text = "&Не сохранять";
          // 
          // panel
