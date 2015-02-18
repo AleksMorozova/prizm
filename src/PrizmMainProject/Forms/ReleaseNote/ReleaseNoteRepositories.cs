@@ -1,4 +1,6 @@
-﻿using Prizm.Data.DAL.Hibernate;
+﻿using Prizm.DAL.Hibernate;
+using Prizm.Data.DAL;
+using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL.Mill;
 using NHibernate;
 using Ninject;
@@ -16,6 +18,7 @@ namespace Prizm.Main.Forms.ReleaseNote
         private readonly IPipeRepository pipeRepo;
         private readonly IRailcarRepository railcarRepo;
         private readonly IReleaseNoteRepository releaseNoteRepo;
+        private readonly IFileRepository fileRepo;
 
         [Inject]
         public ReleaseNoteRepositories(ISession session)
@@ -24,6 +27,7 @@ namespace Prizm.Main.Forms.ReleaseNote
             this.pipeRepo = new PipeRepository(session);
             this.railcarRepo = new RailcarRepository(session);
             this.releaseNoteRepo = new ReleaseNoteRepository(session);
+            this.fileRepo = new FileRepository(session);
         }
 
         public IPipeRepository PipeRepo
@@ -36,6 +40,11 @@ namespace Prizm.Main.Forms.ReleaseNote
             get { return railcarRepo; }
         }
 
+        public IFileRepository FileRepo
+        {
+            get { return fileRepo; }
+        }
+
         public void Commit()
         {
             session.Transaction.Commit();
@@ -44,6 +53,11 @@ namespace Prizm.Main.Forms.ReleaseNote
         public void BeginTransaction()
         {
             session.BeginTransaction();
+        }
+
+        public void Rollback()
+        {
+            session.Transaction.Rollback();
         }
 
         public void Dispose()

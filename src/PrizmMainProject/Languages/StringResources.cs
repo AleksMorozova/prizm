@@ -1050,6 +1050,20 @@ namespace Prizm.Main.Languages
             Id = "Spool_DeactivatedHeader",
             Description = "Деактивация катушки"
         };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail_Header = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipeFail_Header",
+            Description = "Ошибка при сохранении катушки"
+        };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipe_Fail",
+            Description = "Катушка не сохранена"
+        };
+
+
         
         #endregion Spool
 
