@@ -161,8 +161,11 @@ namespace Prizm.Main.Forms.Synch
 
       private void btnImport_Click(object sender, EventArgs e)
       {
-         EnableImportButton(false);
-         new Task(() => importer.Import(txtArchive.Text)).Start();
+          if (txtArchive.Text != string.Empty)
+          {
+              EnableImportButton(false);
+              new Task(() => importer.Import(txtArchive.Text)).Start();
+          }
       }
 
       private void ImportForm_FormClosing(object sender, FormClosingEventArgs e)
