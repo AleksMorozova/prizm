@@ -390,6 +390,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            //save previous IsModified state
+            bool wasModified = IsModified;
             GridView view = sender as GridView;
             object sizeType = view.GetRow(view.FocusedRowHandle);
 
@@ -407,6 +409,8 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
             viewModel.ModifiableView.UpdateState();
+            // IsModified state depends on previous state despite all properties were changed (prevent *)
+            IsModified = (wasModified) ? true : false;
         }
 
         private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
