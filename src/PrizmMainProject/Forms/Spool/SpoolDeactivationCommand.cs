@@ -73,6 +73,12 @@ namespace Prizm.Main.Forms.Spool
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
             }
+            else
+            {
+                //Refresh property so that binded control become unchecked
+                viewModel.SpoolIsActive = false;
+                viewModel.SpoolIsActive = true;
+            }
             RefreshVisualStateEvent();
         }
 
