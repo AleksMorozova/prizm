@@ -1608,7 +1608,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
         private void gridViewUsers_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
-       {
+        {
             if (gridViewUsers.FocusedColumn.Name == colLogin.Name)
             {
                 foreach (User user in viewModel.Users)
@@ -1619,7 +1619,8 @@ namespace Prizm.Main.Forms.Settings
                         e.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_UniqueLogin);
                     }
                 }
-       }
+            }
+        }
 
     }
 }
