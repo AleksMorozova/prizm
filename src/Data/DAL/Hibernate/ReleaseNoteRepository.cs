@@ -93,8 +93,7 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 s.Where(x => x.Date == date);
             }
-
-            var list = new List<ReleaseNote>(s.List<ReleaseNote>());
+            var list = new List<ReleaseNote>(s.List<ReleaseNote>().OrderBy(x => x.Number));
 
             return list;
         }
