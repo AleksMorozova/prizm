@@ -1312,6 +1312,7 @@
   </data>
   <data name="Settings_UniqueLogin" xml:space="preserve">
     <value>Логин должен быть уникальным</value>
+    </data>
   <data name="NotificationXtraForm_ColDate" xml:space="preserve">
     <value>Дата</value>
   </data>
