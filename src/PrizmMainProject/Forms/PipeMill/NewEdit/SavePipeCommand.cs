@@ -83,14 +83,37 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                         repo.BeginTransaction();
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
+
+                        var filesViewModel = viewModel.FilesFormViewModel;
+                        filesViewModel.FileRepo = repo.FileRepo;
+
+                        //saving attached documents
+                        bool fileCopySuccess = true;
+                        if (null != filesViewModel)
+                        {
+                            viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
+                            if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
+                            {
+                                fileCopySuccess = false;
+                                repo.Rollback();
+                            }
+                        }
+
                         repo.Commit();
                         repo.RepoPipe.Evict(viewModel.Pipe);
 
-                        //saving attached documents
-                        if(viewModel.FilesFormViewModel != null)
+                        if (fileCopySuccess)
                         {
-                            viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
-                            viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                            filesViewModel.DetachFileEntities();
+
+                            notify.ShowSuccess(
+                                 string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
+                                 Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
+                        }
+                        else
+                        {
+                            notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                         }
 
                         viewModel.ModifiableView.IsModified = false;

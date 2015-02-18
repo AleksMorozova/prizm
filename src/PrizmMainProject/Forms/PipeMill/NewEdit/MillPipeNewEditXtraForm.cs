@@ -228,7 +228,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             plateNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
             inspections.DataBindings
@@ -473,7 +473,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
@@ -553,7 +552,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -563,6 +561,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 Weld weld = view.GetRow(e.RowHandle) as Weld;
                 weld.Pipe = viewModel.Pipe;
+                weld.Date = DateTime.Now;
             }
         }
 
@@ -838,15 +837,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
-        private void plateNumber_EditValueChanged(object sender, EventArgs e)
-        {
-            if (plateNumber.IsEditorActive)
-            {
-                viewModel.PlateNumber = plateNumber.Text;
-            }
-            commandManager.RefreshVisualState();
-        }
-
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
             if(viewModel.AvailableTests.Count > 0)
@@ -1014,6 +1004,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     }
                 }
             }
+        }
+
+        private void plateNumber_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
         }
     }
 }

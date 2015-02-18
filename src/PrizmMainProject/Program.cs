@@ -314,21 +314,30 @@ namespace Prizm.Main
         {
             ISecurityContext ctx = Kernel.Get<ISecurityContext>();
             User currentUser = ctx.LoggedUser;
-            try
+            bool rewriteLanguage = true;
+            if (currentUser.UILanguage != null)
             {
-                currentUser.UILanguage = LanguageManager.CurrentCulture.Name;
-                IUserRepository userRepo;
-                using (userRepo = Kernel.Get<IUserRepository>())
-                {
-                    userRepo.BeginTransaction();
-                    userRepo.Merge(currentUser);
-                    userRepo.Commit();
-                    userRepo.Evict(currentUser);
-                }
+                rewriteLanguage = (currentUser.UILanguage 
+                                    == LanguageManager.CurrentCulture.Name) ? false : true;
             }
-            catch (Exception userEx)
+            if (rewriteLanguage)
             {
-                log.Error(userEx.Message);
+                try
+                {
+                    currentUser.UILanguage = LanguageManager.CurrentCulture.Name;
+                    IUserRepository userRepo;
+                    using (userRepo = Kernel.Get<IUserRepository>())
+                    {
+                        userRepo.BeginTransaction();
+                        userRepo.Merge(currentUser);
+                        userRepo.Commit();
+                        userRepo.Evict(currentUser);
+                    }
+                }
+                catch (Exception userEx)
+                {
+                    log.Error(userEx.Message);
+                }
             }
         }
 

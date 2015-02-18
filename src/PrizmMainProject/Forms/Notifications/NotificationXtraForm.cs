@@ -51,13 +51,14 @@ namespace PrizmMain.Forms.Notifications
         private void gridControlMessage_DoubleClick(object sender, EventArgs e)
         {
             int selectedItem = gridViewNotification.GetFocusedDataSourceRowIndex();
+            if (selectedItem >= 0)
+            {
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
+                var id = viewModel.Notification[selectedItem].Id;
 
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-            var id = viewModel.Notification[selectedItem].Id;
 
-           
-            OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
-            
+                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
+            }
     
         }
 
@@ -103,20 +104,11 @@ namespace PrizmMain.Forms.Notifications
         {
             return new List<LocalizedItem>()
             {
-                // layout items
-                //new LocalizedItem(pipeNumberLayout, "NewEditPipe_PipeNumberLabel"),
-
-                // controls
-                //new LocalizedItem(attachmentsButton, "NewEditPipe_AttachmentsButton"),
-
-                // grid column headers
-                //new LocalizedItem(weldersGridColumn, "NewEditPipe_WeldersColumnHeader"),
-
-                // layout control groups
-                //new LocalizedItem(plateLayoutControlGroup, "NewEditPipe_PlateGroup"),
-
-                // other
-
+                new LocalizedItem(layoutControlItemNotification, StringResources.NotificationXtraForm_LayoutControlItemNotification.Id),
+                new LocalizedItem(colDate, StringResources.NotificationXtraForm_ColDate.Id),
+                new LocalizedItem(colNotification, StringResources.NotificationXtraForm_ColNotification.Id),
+                new LocalizedItem(colName, StringResources.NotificationXtraForm_ColName.Id),
+                
                 // header
                 new LocalizedItem(this, localizedHeader, new string[] {
                     StringResources.NotificationXtraForm_Title.Id} )

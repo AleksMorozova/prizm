@@ -391,6 +391,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            //save previous IsModified state
+            bool wasModified = IsModified;
             GridView view = sender as GridView;
             object sizeType = view.GetRow(view.FocusedRowHandle);
 
@@ -408,6 +410,8 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
             viewModel.ModifiableView.UpdateState();
+            // IsModified state depends on previous state despite all properties were changed (prevent *)
+            IsModified = (wasModified) ? true : false;
         }
 
         private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -516,13 +520,6 @@ namespace Prizm.Main.Forms.Settings
             if(string.IsNullOrWhiteSpace(certName))
             {
                 view.SetColumnError(certNameColumn, Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                e.Valid = false;
-            }
-
-            if(certExpDate < DateTime.Now)
-            {
-                view.SetColumnError(expDateColumn,
-                    Program.LanguageManager.GetString(StringResources.Settings_DateExpired));
                 e.Valid = false;
             }
         }
@@ -811,6 +808,10 @@ namespace Prizm.Main.Forms.Settings
                     return;
                 }
             }
+
+            DuplicatesList l = findDuplicateList[gridViewUsers];
+            List<string> loginDuplicates = l.Method(gridViewUsers);
+            gridViewUsers.ValidateDuplicate(colLogin, loginDuplicates, e);
         }
 
         private void gridViewUsers_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
@@ -1134,6 +1135,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
+            controlOerationValidate = true;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
@@ -1146,6 +1148,11 @@ namespace Prizm.Main.Forms.Settings
                         inspectionView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+                    if(!controlOerationValidate)
+                    {
+                        controlOerationValidate = false;
+                        break;
+                    }
                 }
             }
             return controlOerationValidate;
@@ -1336,11 +1343,23 @@ namespace Prizm.Main.Forms.Settings
                                  .ToList();
             };
 
+            DuplicatesList login = new DuplicatesList();
+            login.Duplicates = null;
+            login.Method = delegate(GridView gridViewUsers)
+            {
+                var logins = viewModel.Users;
+                return logins.GroupBy(x => x.Login)
+                                 .Where(g => g.Count() > 1)
+                                 .Select(g => g.Key)
+                                 .ToList();
+            };
+
             findDuplicateList.Add(this.pipesSizeListGridView, pipeSize);
             findDuplicateList.Add(this.plateManufacturersListView, plateManufacturer);
             findDuplicateList.Add(this.categoriesGridView, category);
             findDuplicateList.Add(this.componentryTypeGridView, componentType);
             findDuplicateList.Add(this.seemTypeGridView, seamType);
+            findDuplicateList.Add(this.gridViewUsers, login);
             
         }
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
@@ -1580,6 +1599,21 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[seemTypeGridView];
             List<string> seemTypeDuplicate = l.Method(seemTypeGridView);
             seemTypeGridView.ColorGrid(seemTypeColumn, seemTypeDuplicate, e);
+        }
+
+        private void gridViewUsers_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
+        {
+            if (gridViewUsers.FocusedColumn.Name == colLogin.Name)
+            {
+                foreach (User user in viewModel.Users)
+                {
+                    if (user.Login == e.Value.ToString())
+                    {
+                        e.Valid = false;
+                        e.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_UniqueLogin);
+                    }
+                }
+            }
         }
 
     }

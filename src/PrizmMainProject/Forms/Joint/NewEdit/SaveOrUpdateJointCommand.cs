@@ -52,18 +52,40 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
                     repo.BeginTransaction();
                     repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
+
+                    var filesViewModel = viewModel.FilesFormViewModel;
+                    filesViewModel.FileRepo = repo.FileRepo;
+
+                    bool fileCopySuccess = true;
+                    if (null != filesViewModel)
+                    {
+                        viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
+                        if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Joint))
+                        {
+                            fileCopySuccess = false;
+                            repo.Rollback();
+                        }
+                    }
+
                     repo.Commit();
                     repo.RepoJoint.Evict(viewModel.Joint);
 
-                    viewModel.ModifiableView.IsModified = false;
-
-                    //saving attached documents
-                    if (viewModel.FilesFormViewModel != null)
+                    if (fileCopySuccess)
                     {
-                        viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
-                        viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                        filesViewModel.DetachFileEntities();
+
+                        notify.ShowSuccess(
+                             string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
+                             Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
+                    }
+                    else
+                    {
+                        notify.ShowError(
+                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                     }
 
+                    viewModel.ModifiableView.IsModified = false;
                     viewModel.ModifiableView.UpdateState();
 
                     notify.ShowNotify(
