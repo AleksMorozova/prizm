@@ -157,6 +157,7 @@ namespace Prizm.Main.Forms.Spool
                 new LocalizedItem(pipeSearchayoutGroup, "Spool_PipeSearchGroup"),
                 new LocalizedItem(spoolLayoutGroup, "Spool_SpoolGroup"),
                 new LocalizedItem(layoutlengthGroup, "Spool_LenghtGroup"),
+                new LocalizedItem(incomingInspectionLayoutGroup, "Spool_IncomingInspectionGroup"),
 
                 new LocalizedItem(inspectionDateGridColumn, "Spool_InspectionDateColumn"),
                 new LocalizedItem(inspectionResultGridColumn, "Spool_InspectionResultColumn"),

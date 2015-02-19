@@ -25,6 +25,12 @@ namespace Prizm.Main.Languages
             Description = "Идет загрузка ..."
         };
 
+        public static StringResource ChechedCombobox_SelectAll = new StringResource
+        {
+            Id = "ChechedCombobox_SelectAll",
+            Description = "Выпадающий список. Выбрать все"
+        };
+
         public static StringResource FixedCategoryLengthPassedHeader = new StringResource
         {
             Id = "FixedCategoryLengthPassedHeader",
@@ -1007,6 +1013,12 @@ namespace Prizm.Main.Languages
             Description = "Катушка. Длины трубы и катушки"
         };
 
+        public static StringResource Spool_IncomingInspectionGroup = new StringResource
+        {
+            Id = "Spool_IncomingInspectionGroup",
+            Description = "Катушка. Входной контроль"
+        };
+
         public static StringResource Spool_InspectionDateColumn = new StringResource
         {
             Id = "Spool_InspectionDateColumn",
@@ -1308,6 +1320,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsProject_CommonGroup",
             Description = "Настройки-Проект. Общие настройки"
         };
+
+        public static StringResource SettingsProject_TechParametersGroup = new StringResource
+        {
+            Id = "SettingsProject_TechParametersGroup",
+            Description = "Настройки-Проект. Надпись группы техничекских параметров"
+        };
+
         public static StringResource SettingsProject_MillGroup = new StringResource
         {
             Id = "SettingsProject_MillGroup",
@@ -1718,6 +1737,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsUser_UsersLabel",
             Description = "Настройки - Пользователи. Список пользователей"
         };
+
+        public static StringResource SettingsUser_RolesLabel = new StringResource
+        {
+            Id = "SettingsUser_RolesLabel",
+            Description = "Настройки - Пользователи. Список ролей"
+        };
+
         public static StringResource SettingsUser_LoginColumn = new StringResource
         {
             Id = "SettingsUser_LoginColumn",
@@ -2349,7 +2375,11 @@ namespace Prizm.Main.Languages
             Description = "Внешние файлы"
         };
 
-        
+        public static StringResource ExternalFiles_CloseButton = new StringResource
+        {
+            Id = "ExternalFiles_CloseButton",
+            Description = "Вложения. Кнопка закрытия"
+        };
         #endregion
 
         #region --- CreateSpoolComponentDialog ---
@@ -4158,7 +4188,18 @@ namespace Prizm.Main.Languages
             Id = "ReleaseNoteNewEdit_PipeNumberLayout",
             Description = "Разрешение на отгрузку. Надпись номера трубы"
         };
-        
+
+        public static StringResource ReleaseNoteNewEdit_ReleaseNoteLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_ReleaseNoteLayoutGroup",
+            Description = "Разрешение на отгрузку. Надпись параметров разрешения"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_StatusLayout= new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_StatusLayout",
+            Description = "Разрешение на отгрузку. Надпись статуса"
+        };
 
         #endregion //--- Railcar NewEdit ---
 

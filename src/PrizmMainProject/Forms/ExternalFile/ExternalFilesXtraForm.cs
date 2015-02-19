@@ -45,6 +45,7 @@ namespace Prizm.Main.Forms.ExternalFile
             {
                 //controls
                 new LocalizedItem(addFile, StringResources.ExternalFiles_AddFileButton.Id),
+                new LocalizedItem(cancelButton, StringResources.ExternalFiles_CloseButton.Id),
                 
                  // grid column headers
                 new LocalizedItem(colFileName, StringResources.ExternalFiles_FileNameColumnHeader.Id),
