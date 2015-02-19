@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 {                 
                     foreach(var pipe in r.Pipes)
                     {
-                    pipe.Status = PipeMillStatus.Stocked;
+                    pipe.Status = PipeMillStatus.ReadyToShip;
                     pipe.ToExport = false;
                     }
                 }

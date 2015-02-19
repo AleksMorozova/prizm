@@ -133,11 +133,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllPipeTestResultStatus.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0:true))
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -380,7 +380,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         new string [] {StringResources.NewEditPipe_PipeStatusUndefined.Id, 
                             StringResources.NewEditPipe_PipeStatusProduced.Id, 
                             StringResources.NewEditPipe_PipeStatusStocked.Id, 
-                            StringResources.NewEditPipe_PipeStatusShipped.Id} ),
+                            StringResources.NewEditPipe_PipeStatusShipped.Id,
+                            StringResources.NewEditPipe_ReadyToShip.Id} ),
 
                     //grid enums
                     new LocalizedItem (inspectionsGridView, localizedAllPipeTestResultStatus, new string [] { StringResources.PipeTestResultStatus_Scheduled.Id,

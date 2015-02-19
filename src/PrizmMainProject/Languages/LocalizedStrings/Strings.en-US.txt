@@ -2400,3 +2400,11 @@ NotificationXtraForm_ColName=Registrar
 
 ;Выпадающий список. Выбрать все
 ChechedCombobox_SelectAll=Select all
+;Готова к отгрузке
+NewEditPipe_ReadyToShip=Ready to ship
+
+;Не определен
+SearchPipe_MillStatusUndefined=Undefined
+
+;Готова к отгрузке
+SearchPipe_ReadyToShip=Ready to ship

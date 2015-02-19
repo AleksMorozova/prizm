@@ -1352,4 +1352,16 @@
   <data name="Inspection_ExistingCodeErrorHeader" xml:space="preserve">
     <value>Дублирование кода контрольной операции</value>
   </data>
+  <data name="ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
+  </data>
+  <data name="SearchPipe_MillStatusUndefined" xml:space="preserve">
+    <value>Не определен</value>
+  </data>
+  <data name="SearchPipe_ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
+  </data>
+  <data name="NewEditPipe_ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
+  </data>
 </root>
