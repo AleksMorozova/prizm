@@ -138,7 +138,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                     CAST([Weld].[date] AS DATE) = CAST(N'{0}' AS DATE))",
                     weldingDate.Date.ToString(sqlDateTimeFormat));
             }
-
+            sb.AppendLine("ORDER BY [Pipe].[number] ASC");
             return sb.ToString();
         }
     }

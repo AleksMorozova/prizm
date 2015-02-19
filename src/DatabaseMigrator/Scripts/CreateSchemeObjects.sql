@@ -662,7 +662,7 @@ CREATE TABLE [dbo].[AuditLog](
 	[id] [uniqueidentifier] NOT NULL,
 	[entityID] [uniqueidentifier] NOT NULL,
 	[auditDate] [datetime] NOT NULL,
-	[user] [nvarchar](50) NULL,
+	[userName] [nvarchar](50) NULL,
 	[tableName] [nvarchar](200) NULL,
 	[fieldName] [nvarchar](50) NULL,
 	[oldValue] [nvarchar](100) NULL,
@@ -675,7 +675,7 @@ IF EXISTS (SELECT name FROM sys.indexes
     DROP INDEX IX_Audit_Date_User ON [dbo].[AuditLog]
 GO
 CREATE NONCLUSTERED INDEX IX_Audit_Date_User
-    ON [dbo].[AuditLog] ([auditDate], [user])
+    ON [dbo].[AuditLog] ([auditDate], [userName])
 GO
 /*************** Security **********************************/
 

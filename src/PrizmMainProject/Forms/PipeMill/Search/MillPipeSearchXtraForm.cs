@@ -107,7 +107,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 { 
                     StringResources.SearchPipe_MillStatusProduced.Id, 
                     StringResources.SearchPipe_MillStatusStocked.Id, 
-                    StringResources.SearchPipe_MillStatusShipped.Id
+                    StringResources.SearchPipe_MillStatusShipped.Id,
+                    StringResources.SearchPipe_ReadyToShip.Id
                 }),
 
                 // combo boxes
@@ -149,10 +150,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 // the same ...CustomColumnDisplayText method must be used for all columns,
                 // but private localized list (f.e. localizedAllPipeMillStatus) is different for each column. 
                 new LocalizedItem(pipesSearchResultView, localizedAllPipeMillStatus,
-                    new string [] { "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
-                                    "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
+                    new string [] { 
+                        StringResources.SearchPipe_MillStatusUndefined.Id, 
+                        StringResources.SearchPipe_MillStatusProduced.Id, 
+                        StringResources.SearchPipe_MillStatusStocked.Id, 
+                        StringResources.SearchPipe_MillStatusShipped.Id, 
+                        StringResources.SearchPipe_ReadyToShip.Id }),
                 // other
-                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
             };
         }
 

@@ -258,6 +258,7 @@ namespace Prizm.Main.Forms.Settings
 
                 new LocalizedItem(commonParamsLayoutControlGroup, StringResources.SettingsProject_CommonGroup.Id),
                 new LocalizedItem(millLayoutControlGroup, StringResources.SettingsProject_MillGroup.Id),
+                new LocalizedItem(techParamsLayoutControlGroup, StringResources.SettingsProject_TechParametersGroup.Id),
 
                 // plate manufacturer grid
                 new LocalizedItem(plateManufacturerGridColumn, StringResources.SettingsProject_PlateManColumn.Id),
@@ -283,7 +284,8 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(pipeSizeGridColumn, StringResources.SettingsPipe_SizeGridColumn.Id),
                 new LocalizedItem(isActiveGridColumn, StringResources.SettingsPipe_SizeIsActiveGridColumn.Id),
                 
-                new LocalizedItem(pipeSizeGridColumn, StringResources.SettingsPipe_InspectionsCodeColumn.Id),
+
+                new LocalizedItem(inspectionCodeGridColumn, StringResources.SettingsPipe_InspectionsCodeColumn.Id),
                 new LocalizedItem(inspectionNameGridColumn, StringResources.SettingsPipe_InspectionsNameColumn.Id),
                 new LocalizedItem(categoryColumn,StringResources.SettingsPipe_InspectionsCategoryColumn.Id),
                 new LocalizedItem(controlTypeGridColumn, StringResources.SettingsPipe_InspectionsControlTypeColumn.Id),
@@ -347,6 +349,7 @@ namespace Prizm.Main.Forms.Settings
 
                 // users page
                 new LocalizedItem(userLayoutControlItem, "SettingsUser_UsersLabel"),
+                new LocalizedItem(roleLayoutControlItem, StringResources.SettingsUser_RolesLabel.Id),
 
                 new LocalizedItem(colLogin, "SettingsUser_LoginColumn"),
                 new LocalizedItem(colLastName, "SettingsUser_LastNameColumn"),
@@ -1435,11 +1438,11 @@ namespace Prizm.Main.Forms.Settings
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes);
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes);
+                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
 
             return inspectionForm;
@@ -1450,10 +1453,10 @@ namespace Prizm.Main.Forms.Settings
             if(IsEditMode && IsEditable(IsEditMode))
             {
                 var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+                inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
 
                 if(inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
                     viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     IsModified = true;
@@ -1489,11 +1492,12 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if(inspectionForm == null)
                     {
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes);
+
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
                     else
                     {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes);
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
 
                     inspectionForm.ShowDialog();
@@ -1502,7 +1506,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-
+        
         private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             var view = sender as GridView;
