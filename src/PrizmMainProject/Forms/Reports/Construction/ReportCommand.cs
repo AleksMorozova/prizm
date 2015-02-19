@@ -87,33 +87,41 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             try
             {
-                StringBuilder GetAllUsedProducts = new StringBuilder();
-                foreach (var item in viewModel.Types)
+                if (viewModel.Types.Count > 0)
                 {
-                    switch (item)
+                    StringBuilder GetAllUsedProducts = new StringBuilder();
+                    foreach (var item in viewModel.Types)
                     {
-                        case PartType.Undefined:
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Pipe:
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe));
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Spool:
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool));
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                        case PartType.Component:
-                            GetAllUsedProducts.Append(" ");
-                            GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent));
-                            break;
-                        default:
-                            GetAllUsedProducts.Append(" ");
-                            break;
-                    }
-                }
+                        if (!string.IsNullOrWhiteSpace(GetAllUsedProducts.ToString()))
+                        {
+                            GetAllUsedProducts.Append(" UNION ");
+                        }
 
-                data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                        switch (item)
+                        {
+                            case PartType.Undefined:
+                                GetAllUsedProducts.Append(" ");
+                                break;
+                            case PartType.Pipe:
+                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe));
+                                GetAllUsedProducts.Append(" ");
+                                break;
+                            case PartType.Spool:
+                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool));
+                                GetAllUsedProducts.Append(" ");
+                                break;
+                            case PartType.Component:
+                                GetAllUsedProducts.Append(" ");
+                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent));
+                                break;
+                            default:
+                                GetAllUsedProducts.Append(" ");
+                                break;
+                        }
+                    }
+
+                    data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                }
             }
             catch (RepositoryException ex)
             {

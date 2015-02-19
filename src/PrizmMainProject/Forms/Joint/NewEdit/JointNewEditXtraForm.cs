@@ -70,6 +70,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.ValidatableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
+            CannotOpenForViewing = id == Guid.Empty;
 
             #region --- Colouring of required controls, IsEditMode, uppercasing ---
             jointNumber.SetRequiredText();
@@ -92,8 +93,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
@@ -126,10 +127,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
 
-            Binding bind = new Binding("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = (string)localizedAllJointStatus[(int)e.Value]; };
-            jointStatus.DataBindings.Add(bind);
+
+            jointStatus.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", jointNewEditBindingSoure, "JointConstructionStatus",
+                (value) =>
+                {
+                    return (string)localizedAllJointStatus[(int)value];
+                }));
 
 
 

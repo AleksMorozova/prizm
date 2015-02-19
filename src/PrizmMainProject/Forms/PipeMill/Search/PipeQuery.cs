@@ -47,7 +47,10 @@ namespace Prizm.Main.Forms.PipeMill.Search
             string Number,
             IList<PipeMillSizeType> CheckedPipeTypes,
             ActivityCriteria Activity,
-            HashSet<PipeMillStatus> CheckedStatusTypes)
+            HashSet<PipeMillStatus> CheckedStatusTypes,
+            DateTime externalCoatingDate,
+            DateTime internalCoatingDate,
+            DateTime weldingDate)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -99,6 +102,41 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 }
                 sb.Remove(sb.Length - 1, 1);
                 sb.Append(" )");
+            }
+
+            string coatingDateQuery = @" AND EXISTS(
+                SELECT 1
+                FROM
+                    [Coat]
+                WHERE
+                    [Coat].[pipeId] = [Pipe].[id] AND
+                    [Coat].[type] = N'{0}' AND
+                    CAST([Coat].[date] AS DATE) = CAST(N'{1}' AS DATE))";
+            string sqlDateTimeFormat = "yyyy-MM-dd HH:mm:ss";
+            if (externalCoatingDate != DateTime.MinValue)
+            {
+                sb.AppendFormat(coatingDateQuery,
+                    CoatingType.External,
+                    externalCoatingDate.Date.ToString(sqlDateTimeFormat));
+            }
+
+            if(internalCoatingDate != DateTime.MinValue)
+            {
+                sb.AppendFormat(coatingDateQuery,
+                    CoatingType.Internal,
+                    internalCoatingDate.Date.ToString(sqlDateTimeFormat));
+            }
+
+            if (weldingDate != DateTime.MinValue)
+            {
+                sb.AppendFormat(@" AND EXISTS(
+                SELECT 1
+                FROM
+                    [Weld]
+                WHERE
+                    [Weld].[pipeId] = [Pipe].[id] AND
+                    CAST([Weld].[date] AS DATE) = CAST(N'{0}' AS DATE))",
+                    weldingDate.Date.ToString(sqlDateTimeFormat));
             }
 
             return sb.ToString();

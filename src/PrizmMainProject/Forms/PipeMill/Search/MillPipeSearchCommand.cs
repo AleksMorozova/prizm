@@ -49,7 +49,10 @@ namespace Prizm.Main.Forms.PipeMill.Search
                     viewModel.PipeNumber,
                     viewModel.CheckedPipeTypes,
                     viewModel.Activity,
-                    viewModel.CheckedStatusTypes))
+                    viewModel.CheckedStatusTypes,
+                    viewModel.ExternalCoatingDate,
+                    viewModel.InternalCoatingDate,
+                    viewModel.WeldingDate))
                     .SetResultTransformer(PipeQuery.Transformer);
 
                 var qpipes = query.List<Pipe>();

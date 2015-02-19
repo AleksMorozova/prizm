@@ -140,6 +140,50 @@ using Prizm.Main.Properties;
             }
         }
 
+        private DateTime externalCoatingDate = DateTime.MinValue;
+
+        public DateTime ExternalCoatingDate
+        {
+            get { return externalCoatingDate; }
+            set
+            {
+                if (value != externalCoatingDate)
+                {
+                    externalCoatingDate = value;
+                    RaisePropertyChanged("ExternalCoatingDate");
+                }
+            }
+        }
+
+        private DateTime internalCoatingDate = DateTime.MinValue;
+
+        public DateTime InternalCoatingDate
+        {
+            get { return internalCoatingDate; }
+            set
+            {
+                if (value != internalCoatingDate)
+                {
+                    internalCoatingDate = value;
+                    RaisePropertyChanged("InternalCoatingDate");
+                }
+            }
+        }
+
+        private DateTime weldingDate = DateTime.MinValue;
+
+        public DateTime WeldingDate
+        {
+            get { return weldingDate; }
+            set
+            {
+                if (value != weldingDate)
+                {
+                    weldingDate = value;
+                    RaisePropertyChanged("WeldingDate");
+                }
+            }
+        }
         #endregion
 
         public ICommand SearchCommand

@@ -73,12 +73,12 @@ namespace Prizm.Main.Forms.Spool
                             repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
 
                             var filesViewModel = viewModel.FilesFormViewModel;
-                            filesViewModel.FileRepo = repos.FileRepo;
 
                             //saving attached documents
                             bool fileCopySuccess = true;
                             if (null != filesViewModel)
                             {
+                                filesViewModel.FileRepo = repos.FileRepo;
                                 viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
                                 if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
                                 {
@@ -93,7 +93,10 @@ namespace Prizm.Main.Forms.Spool
 
                             if (fileCopySuccess)
                             {
-                                filesViewModel.DetachFileEntities();
+                                if (null != filesViewModel)
+                                { 
+                                    filesViewModel.DetachFileEntities(); 
+                                }
 
                                 notify.ShowSuccess(
                                      string.Concat(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe), viewModel.Spool.Id),

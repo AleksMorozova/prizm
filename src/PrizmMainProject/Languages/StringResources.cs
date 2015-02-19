@@ -437,7 +437,41 @@ namespace Prizm.Main.Languages
              Description = "Заголовок для ошибки запуска отчёта: Неверный диапазон дат"
          };
 
+         public static StringResource Message_OpenSettingsForViewing = new StringResource
+         {
+             Id = "Message_OpenSettingsForViewing",
+             Description = "Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?"
+         };
 
+         public static StringResource Message_OpenSettingsForViewingHeader = new StringResource
+         {
+             Id = "Message_OpenSettingsForViewingHeader",
+             Description = "Заголовок для сообщения об открытии настроек: Открыть настройки в режиме просмотра?"
+         };
+
+         public static StringResource Message_OpenFormForViewing = new StringResource
+         {
+             Id = "Message_OpenFormForViewing",
+             Description = "Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?"
+         };
+
+         public static StringResource Message_OpenFormForViewingHeader = new StringResource
+         {
+             Id = "Message_OpenFormForViewingHeader",
+             Description = "Заголовок для сообщения об открытии формы: Открыть форму в режиме просмотра?"
+         };
+
+         public static StringResource Message_CannotOpenForViewing = new StringResource
+         {
+             Id = "Message_CannotOpenForViewing",
+             Description = "Сообщение о невозможности открыть форму: Невозможно открыть форму для просмотра. Для продолжения закройте настройки"
+         };
+
+         public static StringResource Message_CannotOpenForViewingHeader = new StringResource
+         {
+             Id = "Message_CannotOpenForViewingHeader",
+             Description = "Заголок для сообщения о невозмости открытия формы в режиме просмотра: Невозможно открыть форму для просмотра"
+         };
 
         #endregion // --- Common
 

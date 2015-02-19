@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.Settings
         private List<string> localizedPipeTestResultTypes = new List<string>();
         private List<string> localizedJointOperationTypes = new List<string>();
         private MillInspectionXtraForm inspectionForm = null;
+
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -393,6 +394,8 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            //save previous IsModified state
+            bool wasModified = IsModified;
             GridView view = sender as GridView;
             object sizeType = view.GetRow(view.FocusedRowHandle);
 
@@ -410,6 +413,8 @@ namespace Prizm.Main.Forms.Settings
             CurrentPipeMillSizeType = sizeType as PipeMillSizeType;
             viewModel.CurrentPipeMillSizeType = CurrentPipeMillSizeType;
             viewModel.ModifiableView.UpdateState();
+            // IsModified state depends on previous state despite all properties were changed (prevent *)
+            IsModified = (wasModified) ? true : false;
         }
 
         private void pipesSizeListGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -579,7 +584,10 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView view = sender as GridView;
             var insp = gridViewInspectors.GetFocusedRow() as InspectorViewType; // inspector from InspectorGrid
-            view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
+            if (insp != null)
+            {
+                view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew()); 
+            }
             inspectorCertificateGridView.RefreshData();
         }
 
@@ -649,8 +657,10 @@ namespace Prizm.Main.Forms.Settings
             }
             else
             {
+
                 inspectorCertificateGridView.SetColumnError(inspectorCertificateGridView.Columns[0],
                     Program.LanguageManager.GetString(StringResources.Settings_ValidateInspectorSertificate));
+
             }
         }
 
@@ -1598,7 +1608,19 @@ namespace Prizm.Main.Forms.Settings
             List<string> seemTypeDuplicate = l.Method(seemTypeGridView);
             seemTypeGridView.ColorGrid(seemTypeColumn, seemTypeDuplicate, e);
         }
-
+        private void inspectorCertificateGridView_GotFocus(object sender, EventArgs e)
+        {
+            var inspc = gridViewInspectors.GetFocusedRow() as InspectorViewType;
+            var view = sender as GridView; //cert Grid
+            if (inspc == null)
+            {
+                inspectorCertificateGridView.OptionsBehavior.Editable = false;
+            }
+            else 
+            {
+                inspectorCertificateGridView.OptionsBehavior.Editable = true;
+            }
+        }
         private void gridViewUsers_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
         {
             if (gridViewUsers.FocusedColumn.Name == colLogin.Name)

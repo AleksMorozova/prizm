@@ -1361,6 +1361,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Невозможно открыть форму для просмотра. Для продолжения закройте настройки.
+        /// </summary>
+        internal static string Message_CannotOpenForViewing {
+            get {
+                return ResourceManager.GetString("Message_CannotOpenForViewing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невозможно открыть форму для просмотра.
+        /// </summary>
+        internal static string Message_CannotOpenForViewingHeader {
+            get {
+                return ResourceManager.GetString("Message_CannotOpenForViewingHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данное действие приведет к деактивации комплектующего элемента. 
         ///Параметры комплектующего элемента станут невозможны для редактирования. 
         ///Деактивировать комплектующий элемент?.
@@ -1422,6 +1440,42 @@ namespace Prizm.Main.Properties {
         internal static string Message_NoMoreDocumentsCanOpen {
             get {
                 return ResourceManager.GetString("Message_NoMoreDocumentsCanOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?.
+        /// </summary>
+        internal static string Message_OpenFormForViewing {
+            get {
+                return ResourceManager.GetString("Message_OpenFormForViewing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Открыть форму в режиме просмотра?.
+        /// </summary>
+        internal static string Message_OpenFormForViewingHeader {
+            get {
+                return ResourceManager.GetString("Message_OpenFormForViewingHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?.
+        /// </summary>
+        internal static string Message_OpenSettingsForViewing {
+            get {
+                return ResourceManager.GetString("Message_OpenSettingsForViewing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Открыть настройки в режиме просмотра?.
+        /// </summary>
+        internal static string Message_OpenSettingsForViewingHeader {
+            get {
+                return ResourceManager.GetString("Message_OpenSettingsForViewingHeader", resourceCulture);
             }
         }
         
