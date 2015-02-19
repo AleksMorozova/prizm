@@ -2380,4 +2380,11 @@ NotificationXtraForm_ColNotification=Message
 ;Регистратор
 NotificationXtraForm_ColName=Registrar
 
+;Готова к отгрузке
+NewEditPipe_ReadyToShip=Ready to ship
 
+;Не определен
+SearchPipe_MillStatusUndefined=Undefined
+
+;Готова к отгрузке
+SearchPipe_ReadyToShip=Ready to ship

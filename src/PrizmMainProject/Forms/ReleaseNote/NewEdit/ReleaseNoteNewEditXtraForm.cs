@@ -74,6 +74,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
+            statusTypeDict.Add(PipeMillStatus.ReadyToShip, Resources.ReadyToShip);
             repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
 
             BindCommands();

@@ -1940,6 +1940,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Готова к отгрузке.
+        /// </summary>
+        internal static string NewEditPipe_ReadyToShip {
+            get {
+                return ResourceManager.GetString("NewEditPipe_ReadyToShip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt; Создать плавку &gt;.
         /// </summary>
         internal static string NewHeatCombo {
@@ -2530,6 +2539,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Готова к отгрузке.
+        /// </summary>
+        internal static string ReadyToShip {
+            get {
+                return ResourceManager.GetString("ReadyToShip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Все трубы в в вагоне должны быть одного типоразмера.
         /// </summary>
         internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcar {
@@ -2762,6 +2780,24 @@ namespace Prizm.Main.Properties {
         internal static string SearchPipe_MillStatusStocked {
             get {
                 return ResourceManager.GetString("SearchPipe_MillStatusStocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не определен.
+        /// </summary>
+        internal static string SearchPipe_MillStatusUndefined {
+            get {
+                return ResourceManager.GetString("SearchPipe_MillStatusUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Готова к отгрузке.
+        /// </summary>
+        internal static string SearchPipe_ReadyToShip {
+            get {
+                return ResourceManager.GetString("SearchPipe_ReadyToShip", resourceCulture);
             }
         }
         

@@ -13,6 +13,12 @@ namespace Prizm.Main.Languages
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
 
+        public static StringResource NewEditPipe_ReadyToShip = new StringResource
+        {
+            Id = "NewEditPipe_ReadyToShip",
+            Description = "Готова к отгрузке"
+        };
+
         public static StringResource WaitScreen_Caption = new StringResource
         {
             Id = "WaitScreen_Caption",
@@ -3839,6 +3845,12 @@ namespace Prizm.Main.Languages
             Id = "SearchPipe_Title",
             Description = "Поиск труб"
         };
+
+        public static StringResource SearchPipe_MillStatusUndefined = new StringResource
+        {
+            Id = "SearchPipe_MillStatusUndefined",
+            Description = "Не определен"
+        };
         public static StringResource SearchPipe_MillStatusProduced = new StringResource
         {
             Id = "SearchPipe_MillStatusProduced",
@@ -3853,6 +3865,11 @@ namespace Prizm.Main.Languages
         {
             Id = "SearchPipe_MillStatusShipped",
             Description = "Поиск труб. статус отгружена"
+        };
+        public static StringResource SearchPipe_ReadyToShip = new StringResource
+        {
+            Id = "SearchPipe_ReadyToShip",
+            Description = "Готова к отгрузке"
         };
         public static StringResource SearchPipe_ActivityComboActive = new StringResource
         {

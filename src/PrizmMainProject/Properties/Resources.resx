@@ -1307,12 +1307,12 @@
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
   </data>
-    <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
+  <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
     <value>Дублирование логина</value>
   </data>
   <data name="Settings_UniqueLogin" xml:space="preserve">
     <value>Логин должен быть уникальным</value>
- </data>
+  </data>
   <data name="NotificationXtraForm_ColDate" xml:space="preserve">
     <value>Дата</value>
   </data>
@@ -1342,5 +1342,17 @@
   </data>
   <data name="Message_CannotOpenForViewingHeader" xml:space="preserve">
     <value>Невозможно открыть форму для просмотра</value>
+  </data>
+  <data name="ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
+  </data>
+  <data name="SearchPipe_MillStatusUndefined" xml:space="preserve">
+    <value>Не определен</value>
+  </data>
+  <data name="SearchPipe_ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
+  </data>
+  <data name="NewEditPipe_ReadyToShip" xml:space="preserve">
+    <value>Готова к отгрузке</value>
   </data>
 </root>
