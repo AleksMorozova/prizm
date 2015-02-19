@@ -28,6 +28,13 @@ namespace Prizm.Main.Forms.PipeMill.Search
             pipeNumber.SetAsIdentifier();
             Bitmap bmp = Resources.search_icon;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            externalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            externalCoatingDate.Properties.NullText = string.Empty;
+            internalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            internalCoatingDate.Properties.NullText = string.Empty;
+            weldingDate.Properties.NullDate = DateTime.MinValue;
+            weldingDate.Properties.NullText = string.Empty;
         }
 
         private void BindToViewModel()
@@ -56,6 +63,12 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings
                 .Add("SelectedIndex", MillPipeSearchBindingSource, "ActivityIndex");
+            weldingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "WeldingDate");
+            externalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "ExternalCoatingDate");
+            internalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "InternalCoatingDate");
         }
 
         private void BindCommands()

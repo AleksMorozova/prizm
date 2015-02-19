@@ -65,6 +65,7 @@ namespace Prizm.Main.Forms.Spool
             IsEditMode = true;//do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }
@@ -186,8 +187,8 @@ namespace Prizm.Main.Forms.Spool
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

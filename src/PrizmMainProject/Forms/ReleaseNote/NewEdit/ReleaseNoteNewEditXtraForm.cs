@@ -62,6 +62,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             IsEditMode = true; //do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             attachmentsButton.Enabled = true;
+
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public ReleaseNoteNewEditXtraForm() : this(Guid.Empty) { }
@@ -222,8 +224,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
-            }
+            }         
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

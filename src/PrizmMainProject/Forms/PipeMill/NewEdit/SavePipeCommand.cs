@@ -85,12 +85,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
 
                         var filesViewModel = viewModel.FilesFormViewModel;
-                        filesViewModel.FileRepo = repo.FileRepo;
 
                         //saving attached documents
                         bool fileCopySuccess = true;
                         if (null != filesViewModel)
                         {
+                            filesViewModel.FileRepo = repo.FileRepo;
                             viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
                             if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
                             {
@@ -104,7 +104,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                         if (fileCopySuccess)
                         {
-                            filesViewModel.DetachFileEntities();
+                            if (null != filesViewModel) 
+                            {
+                                filesViewModel.DetachFileEntities(); 
+                            }
+                            
 
                             notify.ShowSuccess(
                                  string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),

@@ -13,6 +13,7 @@ using Prizm.Main.Common;
 using Ninject;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
+using Prizm.Main.Controls;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -49,10 +50,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             bindingSource.DataSource = viewModel;
 
-            Binding bind = new Binding("EditValue", bindingSource, "Type");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = (string)localizedAllWorkstations[(int)e.Value]; };
-            type.DataBindings.Add(bind);
+            type.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Type",
+                (value) =>
+                {
+                    return (string)localizedAllWorkstations[(int)value];
+                }));
+
             projectName.DataBindings.Add("EditValue", bindingSource, "ProjectTitle");
             fileSize.DataBindings.Add("EditValue", bindingSource, "Size");
             mill.DataBindings.Add("EditValue", bindingSource, "MillName");

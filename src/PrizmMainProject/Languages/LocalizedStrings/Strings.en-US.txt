@@ -193,6 +193,25 @@ MainWindow_CloseEditingReleaseNote=Please, close release note which is already o
 ;Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?
 MainWindow_OpenReleaseNoteReadOnly=Some release note is already opened for editing, do you want to open this release note for viewing?
 
+;Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?
+Message_OpenSettingsForViewing=Unable to open settings in edit mode, when other forms are opened. Do you want to open setting for viewing?
+
+;Заголовок для сообщения об открытии настроек: Открыть настройки в режиме просмотра?
+Message_OpenSettingsForViewingHeader=Open settings for viewing?
+
+;Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?
+Message_OpenFormForViewing=Unable to open form in edit mode, when settings are opened. Do you want to open form for viewing?
+
+;Заголовок для сообщения об открытии формы: Открыть форму в режиме просмотра?
+Message_OpenFormForViewingHeader=Open form for viewing?
+
+;Сообщение о невозможности открыть форму: Невозможно открыть форму для просмотра. Для продолжения закройте настройки
+Message_CannotOpenForViewing=Cannot open form for viewing. Close settings to continue
+
+;Заголок для сообщения о невозмости открытия формы в режиме просмотра: Невозможно открыть форму для просмотра
+Message_CannotOpenForViewingHeader=Cannot open form for viewing
+
+
 ;Обязательное значение
 PurchaseOrder_ValueRequaered=Value required
 

@@ -54,11 +54,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
 
                     var filesViewModel = viewModel.FilesFormViewModel;
-                    filesViewModel.FileRepo = repo.FileRepo;
+                    
 
                     bool fileCopySuccess = true;
                     if (null != filesViewModel)
                     {
+                        filesViewModel.FileRepo = repo.FileRepo;
                         viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
                         if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Joint))
                         {
@@ -72,7 +73,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     if (fileCopySuccess)
                     {
-                        filesViewModel.DetachFileEntities();
+                        if (null != filesViewModel)
+                        {
+                            filesViewModel.DetachFileEntities(); 
+                        }
 
                         notify.ShowSuccess(
                              string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
