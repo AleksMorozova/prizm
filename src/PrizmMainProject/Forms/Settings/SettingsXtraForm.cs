@@ -1362,11 +1362,11 @@ namespace Prizm.Main.Forms.Settings
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
+                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
 
             return inspectionForm;
@@ -1416,11 +1416,12 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if(inspectionForm == null)
                     {
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
+
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
                     else
                     {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.CurrentPipeMillSizeType.PipeTests.ToList());
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
 
                     inspectionForm.ShowDialog();
