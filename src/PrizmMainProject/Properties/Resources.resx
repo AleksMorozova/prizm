@@ -1307,12 +1307,12 @@
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
   </data>
-    <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
+  <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
     <value>Дублирование логина</value>
   </data>
   <data name="Settings_UniqueLogin" xml:space="preserve">
     <value>Логин должен быть уникальным</value>
- </data>
+  </data>
   <data name="NotificationXtraForm_ColDate" xml:space="preserve">
     <value>Дата</value>
   </data>
@@ -1345,5 +1345,11 @@
   </data>
   <data name="Message_CannotOpenForViewingHeader" xml:space="preserve">
     <value>Невозможно открыть форму для просмотра</value>
+  </data>
+  <data name="Inspection_ExistingCodeError" xml:space="preserve">
+    <value>Уже существует операция с номером:</value>
+  </data>
+  <data name="Inspection_ExistingCodeErrorHeader" xml:space="preserve">
+    <value>Дублирование кода контрольной операции</value>
   </data>
 </root>

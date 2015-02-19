@@ -1375,11 +1375,11 @@ namespace Prizm.Main.Forms.Settings
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes);
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes);
+                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.PipeTests);
             }
 
             return inspectionForm;
@@ -1390,10 +1390,10 @@ namespace Prizm.Main.Forms.Settings
             if(IsEditMode && IsEditable(IsEditMode))
             {
                 var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+                inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
 
                 if(inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
                     viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     IsModified = true;
@@ -1429,11 +1429,12 @@ namespace Prizm.Main.Forms.Settings
                 {
                     if(inspectionForm == null)
                     {
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes);
+
+                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
                     else
                     {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes);
+                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
 
                     inspectionForm.ShowDialog();
@@ -1442,7 +1443,7 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
-
+        
         private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             var view = sender as GridView;
