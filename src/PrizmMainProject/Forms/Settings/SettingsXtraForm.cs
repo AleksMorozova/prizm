@@ -438,6 +438,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[pipesSizeListGridView];
             List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
             pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
+
+            pipesSizeValidate = false;
         }
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -499,6 +501,8 @@ namespace Prizm.Main.Forms.Settings
             gridViewWelders.ValidatePersonName(colWelderFirstName, colWelderLastName, e);
 
             gridViewWelders.ValidateNotEmpty(colWelderCert, e);
+
+            weldersValidate = e.Valid;
         }
 
         private void gridViewInspectors_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
@@ -507,6 +511,8 @@ namespace Prizm.Main.Forms.Settings
             view.ClearColumnErrors();
 
             gridViewInspectors.ValidatePersonName(colInspectorFirstName, colInspectorLastName, e);
+
+            inspectorsValidate = e.Valid;
         }
 
         private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
@@ -1169,9 +1175,13 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
+            List<string> l = new List<string>();
+            List<int> l1 = new List<int>();
             controlOerationValidate = true;
             for(int i = 0; i < inspectionView.RowCount-1; i++)
             {
+                string test = Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name));
+                l.Add(test);
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
                     Convert.ToString(inspectionView.GetRowCellValue(i, inspectionNameGridColumn.Name)) == string.Empty ||
                     Convert.ToString(inspectionView.GetRowCellValue(i, categoryColumn.Name)) == null)
@@ -1515,6 +1525,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[plateManufacturersListView];
             List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
             plateManufacturersListView.ValidateDuplicate(plateManufacturerGridColumn, plateManufacturersDuplicates, e);
+
+            plateManufacturersValidate = e.Valid;
         }
 
         private void categoriesGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1527,6 +1539,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[categoriesGridView];
             List<string> categoriesDuplicates = l.Method(categoriesGridView);
             categoriesGridView.ValidateDuplicate(categoryNameColumn, categoriesDuplicates, e);
+
+            categoriesValidate = e.Valid;
         }
 
         private void seamTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1539,6 +1553,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[seamTypeGridView];
             List<string> seemTypeDuplicates = l.Method(seamTypeGridView);
             seamTypeGridView.ValidateDuplicate(seamTypeColumn, seemTypeDuplicates, e);
+
+            seamTypesValidate = e.Valid;
         }
 
         private void componentryTypeGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1551,6 +1567,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[componentryTypeGridView];
             List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
             componentryTypeGridView.ValidateDuplicate(typeColumn, componentryTypeDuplicates, e);
+
+            componentryTypeValidate = e.Valid;
         }
 
         private void jointsOperationsGridView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1570,6 +1588,8 @@ namespace Prizm.Main.Forms.Settings
             DuplicatesList l = findDuplicateList[certificateTypesView];
             List<string> certificateDuplicate = l.Method(certificateTypesView);
             certificateTypesView.ValidateDuplicate(certificateNameColumn, certificateDuplicate, e);
+
+            inspectorsCertificateTypeValidate = e.Valid;
         }
 
         private void inspectionView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
@@ -1695,9 +1715,11 @@ namespace Prizm.Main.Forms.Settings
         }
         private bool plateManufacturersValidation()
         {
+            plateManufacturersValidate = true;
             for (int i = 0; i < plateManufacturersListView.RowCount - 1; i++)
             {
-                if (Convert.ToString(inspectionView.GetRowCellValue(i, plateManufacturerGridColumn.Name)) == string.Empty )
+   
+                if (Convert.ToString(inspectionView.GetRowCellValue(i, plateManufacturerGridColumn.Name)) == "" )
                 {
                     plateManufacturersListView.FocusedRowHandle = i;
 
@@ -1719,7 +1741,7 @@ namespace Prizm.Main.Forms.Settings
         {
             for (int i = 0; i < seamTypeGridView.RowCount - 1; i++)
             {
-                if (Convert.ToString(seamTypeGridView.GetRowCellValue(i, seamTypeColumn.Name)) == string.Empty)
+                if (Convert.ToString(seamTypeGridView.GetRowCellValue(i, seamTypeColumn)) == string.Empty)
                 {
                     seamTypeGridView.FocusedRowHandle = i;
 
