@@ -1066,13 +1066,13 @@
   <data name="TestResultTypeString" xml:space="preserve">
     <value>Строка</value>
   </data>
-  <data name="ConstractionReport_ReportTypeTracingReport" xml:space="preserve">
+  <data name="ConstructionReport_ReportTypeTracingReport" xml:space="preserve">
     <value>По трассировке</value>
   </data>
-  <data name="ConstractionReport_ReportTypeUsedProductReport" xml:space="preserve">
+  <data name="ConstructionReport_ReportTypeUsedProductReport" xml:space="preserve">
     <value>По использованным изделиям</value>
   </data>
-  <data name="ConstractionReport_TracingReportInfoLabelText" xml:space="preserve">
+  <data name="ConstructionReport_TracingReportInfoLabelText" xml:space="preserve">
     <value>Данный тип отчета содержит все сваренные элементы расположенные 
     между заданными точками не зависимо от их связности.</value>
   </data>
@@ -1325,6 +1325,9 @@
   <data name="NotificationXtraForm_LayoutControlItemNotification" xml:space="preserve">
     <value>Сообщения</value>
   </data>
+  <data name="ChechedCombobox_SelectAll" xml:space="preserve">
+    <value>Выбрать все</value>
+  </data>
   <data name="Message_OpenFormForViewing" xml:space="preserve">
     <value>Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?</value>
   </data>
@@ -1342,6 +1345,12 @@
   </data>
   <data name="Message_CannotOpenForViewingHeader" xml:space="preserve">
     <value>Невозможно открыть форму для просмотра</value>
+  </data>
+  <data name="Inspection_ExistingCodeError" xml:space="preserve">
+    <value>Уже существует операция с номером:</value>
+  </data>
+  <data name="Inspection_ExistingCodeErrorHeader" xml:space="preserve">
+    <value>Дублирование кода контрольной операции</value>
   </data>
   <data name="ReadyToShip" xml:space="preserve">
     <value>Готова к отгрузке</value>
