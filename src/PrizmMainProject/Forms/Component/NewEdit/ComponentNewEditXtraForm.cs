@@ -57,6 +57,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.Number = number;
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent);
             attachmentsButton.Enabled = true;
+            CannotOpenForViewing = id == Guid.Empty;
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();

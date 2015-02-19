@@ -126,6 +126,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
 
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -242,11 +243,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
-            Binding bind = new Binding("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { originalStatus = (PipeMillStatus)e.Value; e.Value = (string)localizedAllPipeMillStatus[(int)e.Value]; };
-            bind.Parse += (sender, e) => { e.Value = originalStatus; };
-            millStatus.DataBindings.Add(bind);
+            millStatus.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", pipeNewEditBindingSource, "PipeStatus",
+                (value) =>
+                {
+                    return (string)localizedAllPipeMillStatus[(int)value];
+                }));
 
             ordersLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
 

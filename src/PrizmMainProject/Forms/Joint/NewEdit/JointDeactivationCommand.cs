@@ -73,6 +73,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
+                //Refresh property so that binded control become unchecked
+                viewModel.JointIsActive = false;
                 viewModel.JointIsActive = true;
             }
             RefreshVisualStateEvent();
