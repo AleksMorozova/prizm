@@ -101,6 +101,8 @@ namespace Prizm.Main.Forms.Parts.Search
             //delete last UNION
             queries.RemoveAt(queries.Count - 1);
 
+            queries.Add(" ORDER BY number ASC ");
+
             queries.ForEach(x => sb.Append(x));
 
             return sb.ToString();
