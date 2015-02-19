@@ -25,6 +25,28 @@ namespace Prizm.Main.Controls
             }
 
         }
+        
+        public static void ValidatePersonName(this GridView view, GridColumn firstNameColumn, GridColumn lastNameColumn, ValidateRowEventArgs e)
+        {
+            string firstName = (string)view.GetRowCellValue(e.RowHandle, firstNameColumn);
+            string lastName = (string)view.GetRowCellValue(e.RowHandle, lastNameColumn);
+
+            view.ClearColumnErrors();
+
+            if (String.IsNullOrEmpty(firstName))
+            {
+                view.SetColumnError(firstNameColumn,
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                e.Valid = false;
+            }
+
+            if (String.IsNullOrEmpty(lastName))
+            {
+                view.SetColumnError(lastNameColumn,
+                   Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                e.Valid = false;
+            }
+        }
 
         public static void ColorGrid(this GridView view, GridColumn NameColumn, List<string> duplicates, RowCellStyleEventArgs e)
         {
