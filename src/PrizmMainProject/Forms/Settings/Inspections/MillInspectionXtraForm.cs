@@ -235,7 +235,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
                 {
                     string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
-                    string header = Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberErrorHeader);
+                    string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
                     Program.MainForm.ShowInfo(msg, header);
                     e.Cancel = true;
                 }

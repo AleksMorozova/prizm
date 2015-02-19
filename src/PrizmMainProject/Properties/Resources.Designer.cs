@@ -872,11 +872,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Сообщение об ошибке: Уже существует операция с номером:.
+        ///   Looks up a localized string similar to Уже существует операция с номером:.
         /// </summary>
         internal static string Inspection_ExistingCodeError {
             get {
                 return ResourceManager.GetString("Inspection_ExistingCodeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование кода контрольной операции.
+        /// </summary>
+        internal static string Inspection_ExistingCodeErrorHeader {
+            get {
+                return ResourceManager.GetString("Inspection_ExistingCodeErrorHeader", resourceCulture);
             }
         }
         
