@@ -180,6 +180,10 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.userSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -221,10 +225,6 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
-            this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.userSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.rolesLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.rolesTabLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.permissionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -331,6 +331,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
@@ -372,10 +376,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).BeginInit();
@@ -2002,8 +2002,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 5;
+            this.tabbedControlGroup.SelectedTabPage = this.lineLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 2;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2015,6 +2015,50 @@ namespace Prizm.Main.Forms.Settings
             this.usersLayoutControlGroup,
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
+            // 
+            // usersLayoutControlGroup
+            // 
+            this.usersLayoutControlGroup.CustomizationFormText = "Пользователи";
+            this.usersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.userLayoutControlItem,
+            this.roleLayoutControlItem,
+            this.userSplitterItem});
+            this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
+            this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.usersLayoutControlGroup.Text = "По&льзователи";
+            // 
+            // userLayoutControlItem
+            // 
+            this.userLayoutControlItem.Control = this.gridControlUsers;
+            this.userLayoutControlItem.CustomizationFormText = "Пользователи";
+            this.userLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.userLayoutControlItem.Name = "userLayoutControlItem";
+            this.userLayoutControlItem.Size = new System.Drawing.Size(900, 458);
+            this.userLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.userLayoutControlItem.Text = "Пользователи";
+            this.userLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.userLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // roleLayoutControlItem
+            // 
+            this.roleLayoutControlItem.Control = this.gridControlRoles;
+            this.roleLayoutControlItem.CustomizationFormText = "Роли";
+            this.roleLayoutControlItem.Location = new System.Drawing.Point(905, 0);
+            this.roleLayoutControlItem.Name = "roleLayoutControlItem";
+            this.roleLayoutControlItem.Size = new System.Drawing.Size(326, 458);
+            this.roleLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.roleLayoutControlItem.Text = "Роли";
+            this.roleLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.roleLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // userSplitterItem
+            // 
+            this.userSplitterItem.AllowHotTrack = true;
+            this.userSplitterItem.CustomizationFormText = "Разделитель";
+            this.userSplitterItem.Location = new System.Drawing.Point(900, 0);
+            this.userSplitterItem.Name = "userSplitterItem";
+            this.userSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
             // projectLayoutControlGroup
             // 
@@ -2504,50 +2548,6 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorSplitterItem.Name = "inspectorSplitterItem";
             this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
-            // usersLayoutControlGroup
-            // 
-            this.usersLayoutControlGroup.CustomizationFormText = "Пользователи";
-            this.usersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.userLayoutControlItem,
-            this.roleLayoutControlItem,
-            this.userSplitterItem});
-            this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
-            this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.usersLayoutControlGroup.Text = "По&льзователи";
-            // 
-            // userLayoutControlItem
-            // 
-            this.userLayoutControlItem.Control = this.gridControlUsers;
-            this.userLayoutControlItem.CustomizationFormText = "Пользователи";
-            this.userLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.userLayoutControlItem.Name = "userLayoutControlItem";
-            this.userLayoutControlItem.Size = new System.Drawing.Size(900, 458);
-            this.userLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.userLayoutControlItem.Text = "Пользователи";
-            this.userLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.userLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // roleLayoutControlItem
-            // 
-            this.roleLayoutControlItem.Control = this.gridControlRoles;
-            this.roleLayoutControlItem.CustomizationFormText = "Роли";
-            this.roleLayoutControlItem.Location = new System.Drawing.Point(905, 0);
-            this.roleLayoutControlItem.Name = "roleLayoutControlItem";
-            this.roleLayoutControlItem.Size = new System.Drawing.Size(326, 458);
-            this.roleLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.roleLayoutControlItem.Text = "Роли";
-            this.roleLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.roleLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // userSplitterItem
-            // 
-            this.userSplitterItem.AllowHotTrack = true;
-            this.userSplitterItem.CustomizationFormText = "Разделитель";
-            this.userSplitterItem.Location = new System.Drawing.Point(900, 0);
-            this.userSplitterItem.Name = "userSplitterItem";
-            this.userSplitterItem.Size = new System.Drawing.Size(5, 458);
-            // 
             // rolesLayoutControlGroup
             // 
             this.rolesLayoutControlGroup.CustomizationFormText = "Роли";
@@ -2746,6 +2746,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
@@ -2787,10 +2791,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).EndInit();

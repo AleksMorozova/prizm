@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.Settings
         private bool seamTypesValidate = true;
         private bool pipesSizeValidate = true;
         private bool componentryTypeValidate = true;
-
+        private bool jointsOperationsValidate = true;
         private bool weldersValidate = true;
         private bool inspectorsValidate = true;
         private bool inspectorsCertificateValidate = true;
@@ -135,7 +135,7 @@ namespace Prizm.Main.Forms.Settings
                 return IsEditable(IsEditMode);
             }
             );
-
+            // TODO: rewrite switch Editable for inspectors certificate grid
             //SetConditional(gridControlInspectorsCertificates, delegate(bool editMode)
             //{
             //    return IsEditableCrtificate(IsEditMode);
@@ -503,7 +503,7 @@ namespace Prizm.Main.Forms.Settings
 
             gridViewWelders.ValidatePersonName(colWelderFirstName, colWelderLastName, e);
 
-            gridViewWelders.ValidateNotEmpty(colWelderCert, e);
+            gridViewWelders.ValidateCertificate(colWelderCert, colWelderCertExp, e);
 
             weldersValidate = e.Valid;
         }
@@ -527,10 +527,9 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView view = sender as GridView;
             view.ClearColumnErrors();
-            if (inspectorCertificateGridView.IsValidRowHandle(inspectorCertificateGridView.FocusedRowHandle))
-            {
-                ValidateCertificate(inspectorCertificateGridView, inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
-            }
+
+            inspectorCertificateGridView.ValidateCertificate(inspectorCertificateNumberCol, inspectorCertificateExpirationCol, e);
+
             inspectorsCertificateValidate = e.Valid;
         }
 
@@ -722,16 +721,10 @@ namespace Prizm.Main.Forms.Settings
         {
             var view = sender as GridView;
             view.ClearColumnErrors();
-            Role role = e.Row as Role;
-            if (role != null)
-            {
-                if (String.IsNullOrEmpty(role.Name))
-                {
-                    e.Valid = false;
-                    view.SetColumnError(colRoleSetupName,
-                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                }
-            }
+
+            gridViewRole.ValidateNotEmpty(colRoleSetupName, e);
+
+            roleValidate = e.Valid;
         }
 
         private void gridViewRole_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
@@ -817,19 +810,21 @@ namespace Prizm.Main.Forms.Settings
         {
             GridView view = sender as GridView;
             view.ClearColumnErrors();
+            gridViewUsers.ValidatePersonName(colFirstName, colLastName, e);
+
 
             if (view.IsValidRowHandle(e.RowHandle))
             {
                 view.ClearColumnErrors();
                 User user = view.GetRow(e.RowHandle) as User;
-                if (String.IsNullOrEmpty(user.Login))
+                if (String.IsNullOrWhiteSpace(user.Login))
                 {
                     view.SetColumnError(colLogin,
                         Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                     e.Valid = false;
                     return;
                 }
-                if (String.IsNullOrEmpty(user.PasswordHash))
+                if (String.IsNullOrWhiteSpace(user.PasswordHash))
                 {
                     view.SetColumnError(colUserPass,
                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
@@ -1152,15 +1147,19 @@ namespace Prizm.Main.Forms.Settings
             bool administratorCanEditSettingsValidation =
                     AdministatorCanEditSettingsValidation();
             // gridValidation
-            controlOerationValidate = pipeControlOperationValidation();
-            plateManufacturersValidate = plateManufacturersValidation();
-            seamTypesValidate = seamTypeValidation();
+            plateManufacturersValidate = plateManufacturersValidation(); 
             categoriesValidate = categoriesValidation();
+            seamTypesValidate = seamTypeValidation();
             pipesSizeValidate = pipesSizeValidation();
+            controlOerationValidate = pipeControlOperationValidation();
+            jointsOperationsValidate = jointsOperationValidation();
             componentryTypeValidate = componentryTypeValidation();
             weldersValidate = weldersValidation();
             inspectorsValidate = inspectorsValidation();
+            inspectorsCertificateValidate = certificateValidation();
             inspectorsCertificateTypeValidate = certificateTypeValidation();
+            usersValidate = userValidation();
+            roleValidate = roleValidation();
 
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             if (pipeLayoutControlGroup.Tag != null)
@@ -1171,9 +1170,11 @@ namespace Prizm.Main.Forms.Settings
             return dxValidationProvider.Validate() && controlOerationValidate && pipesSizeValidate
                 && administratorCanEditSettingsValidation
                 && plateManufacturersValidate && seamTypesValidate && categoriesValidate
+                && jointsOperationsValidate
                 && componentryTypeValidate
-                && inspectorsValidate && inspectorsCertificateTypeValidate
-                && weldersValidate;
+                && inspectorsValidate && inspectorsCertificateTypeValidate && inspectorsCertificateValidate 
+                && weldersValidate
+                && usersValidate && roleValidate;
         }
 
         private bool pipeControlOperationValidation()
@@ -1576,6 +1577,8 @@ namespace Prizm.Main.Forms.Settings
             GridView view = sender as GridView;
             view.ClearColumnErrors();
             jointsOperationsGridView.ValidateNotEmpty(nameGridColumn, e);
+
+            jointsOperationsValidate = e.Valid;
         }
 
         private void certificateTypesView_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -1899,6 +1902,96 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
             return inspectorsCertificateTypeValidate;
+        }
+
+        private bool certificateValidation()
+        {
+            for (int i = 0; i < inspectorCertificateGridView.RowCount - 1; i++)
+            {
+                if (String.IsNullOrWhiteSpace(Convert.ToString(certificateTypesView.GetRowCellValue(i, inspectorCertificateNumberCol.Name)))
+                    || String.IsNullOrWhiteSpace(Convert.ToString(certificateTypesView.GetRowCellValue(i, inspectorCertificateExpirationCol.Name))))
+                {
+                    inspectorCertificateGridView.FocusedRowHandle = i;
+
+                    inspectorCertificateGridView_ValidateRow(
+                        inspectorCertificateGridView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, certificateTypesView.GetDataRow(i)));
+                    if (!inspectorsCertificateValidate)
+                    {
+                        inspectorsCertificateValidate = false;
+                        break;
+                    }
+                }
+            }
+            return inspectorsCertificateValidate;
+        }
+
+        private bool roleValidation()
+        {
+            for (int i = 0; i < gridViewRole.RowCount - 1; i++)
+            {
+                if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewRole.GetRowCellValue(i, colRoleSetupName.Name))))
+                {
+                    gridViewRole.FocusedRowHandle = i;
+
+                    gridViewRole_ValidateRow(
+                        gridViewRole,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, gridViewRole.GetDataRow(i)));
+                    if (!roleValidate)
+                    {
+                        roleValidate = false;
+                        break;
+                    }
+                }
+            }
+            return roleValidate;
+        }
+        private bool userValidation()
+        {
+            for (int i = 0; i < gridViewUsers.RowCount - 1; i++)
+            {
+                if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colFirstName.Name)))
+                    || String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colLastName.Name)))
+                    || String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colLogin.Name))))
+                {
+                    gridViewRole.FocusedRowHandle = i;
+
+                    gridViewUsers_ValidateRow(
+                        gridViewUsers,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, gridViewUsers.GetDataRow(i)));
+                    if (!usersValidate)
+                    {
+                        usersValidate = false;
+                        break;
+                    }
+                }
+            }
+            return usersValidate;
+        }
+
+        private bool jointsOperationValidation()
+        {
+            for (int i = 0; i < jointsOperationsGridView.RowCount - 1; i++)
+            {
+                if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, nameGridColumn.Name))))
+                {
+                    jointsOperationsGridView.FocusedRowHandle = i;
+
+                    jointsOperationsGridView_ValidateRow(
+                        jointsOperationsGridView,
+                        new DevExpress.XtraGrid.Views.Base
+                            .ValidateRowEventArgs(i, jointsOperationsGridView.GetDataRow(i)));
+                    if (!jointsOperationsValidate)
+                    {
+                        jointsOperationsValidate = false;
+                        break;
+                    }
+                }
+            }
+            return jointsOperationsValidate;
         }
 
         private void certificateTypesView_RowCellStyle(object sender, RowCellStyleEventArgs e)
