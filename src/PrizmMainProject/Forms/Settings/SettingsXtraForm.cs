@@ -442,7 +442,7 @@ namespace Prizm.Main.Forms.Settings
             List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
             pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
 
-            pipesSizeValidate = false;
+            pipesSizeValidate = e.Valid;
         }
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -812,10 +812,8 @@ namespace Prizm.Main.Forms.Settings
             view.ClearColumnErrors();
             gridViewUsers.ValidatePersonName(colFirstName, colLastName, e);
 
-
             if (view.IsValidRowHandle(e.RowHandle))
             {
-                view.ClearColumnErrors();
                 User user = view.GetRow(e.RowHandle) as User;
                 if (String.IsNullOrWhiteSpace(user.Login))
                 {
