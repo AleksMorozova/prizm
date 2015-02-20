@@ -110,6 +110,7 @@ namespace Prizm.Data.DAL.Hibernate
             LogRepo.BeginTransaction();
             LogRepo.Save(record);
             LogRepo.Commit();
+            LogRepo.Evict(record);
         }
 
         /// <summary>
