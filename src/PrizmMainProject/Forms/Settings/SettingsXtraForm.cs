@@ -1178,13 +1178,9 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
-            List<string> l = new List<string>();
-            List<int> l1 = new List<int>();
             controlOerationValidate = true;
             for (int i = 0; i < inspectionView.RowCount - 1; i++)
             {
-                string test = Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name));
-                l.Add(test);
                 if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
                     Convert.ToString(inspectionView.GetRowCellValue(i, inspectionNameGridColumn.Name)) == string.Empty ||
                     Convert.ToString(inspectionView.GetRowCellValue(i, categoryColumn.Name)) == null)
@@ -1743,6 +1739,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool seamTypeValidation()
         {
+            seamTypesValidate = true;
             for (int i = 0; i < seamTypeGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(seamTypeGridView.GetRowCellValue(i, seamTypeColumn))))
@@ -1765,6 +1762,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool categoriesValidation()
         {
+            categoriesValidate = true;
             for (int i = 0; i < categoriesGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(categoriesGridView.GetRowCellValue(i, categoryNameColumn.Name))))
@@ -1787,6 +1785,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipesSizeValidation()
         {
+            pipesSizeValidate = true;
             for (int i = 0; i < pipesSizeListGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(pipesSizeListGridView.GetRowCellValue(i, pipeSizeGridColumn.Name))))
@@ -1809,6 +1808,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool componentryTypeValidation()
         {
+            componentryTypeValidate = true;
             for (int i = 0; i < componentryTypeGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(componentryTypeGridView.GetRowCellValue(i, typeColumn.Name))))
@@ -1831,6 +1831,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool weldersValidation()
         {
+            weldersValidate = true;
             for (int i = 0; i < gridViewWelders.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewWelders.GetRowCellValue(i, colWelderLastName.Name))) ||
@@ -1855,6 +1856,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool inspectorsValidation()
         {
+            inspectorsValidate = true;
             for (int i = 0; i < gridViewInspectors.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewInspectors.GetRowCellValue(i, colInspectorLastName.Name))) ||
@@ -1878,6 +1880,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool certificateTypeValidation()
         {
+            inspectorsCertificateTypeValidate = true;
             for (int i = 0; i < certificateTypesView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(certificateTypesView.GetRowCellValue(i, certificateNameColumn.Name))))//(Convert.ToString(certificateTypesView.GetRowCellValue(i, certificateNameColumn.Name)) == string.Empty)
