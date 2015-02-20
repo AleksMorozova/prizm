@@ -139,8 +139,6 @@
             this.partsView.OptionsBehavior.FocusLeaveOnTab = true;
             this.partsView.OptionsCustomization.AllowFilter = false;
             this.partsView.OptionsNavigation.UseTabKey = false;
-            this.partsView.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
-            this.partsView.OptionsView.ShowAutoFilterRow = true;
             this.partsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.partsView.OptionsView.ShowGroupPanel = false;
             this.partsView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.partsView_RowCellStyle);

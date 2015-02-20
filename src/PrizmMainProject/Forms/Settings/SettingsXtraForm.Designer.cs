@@ -26,6 +26,7 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -34,18 +35,18 @@ namespace Prizm.Main.Forms.Settings
             this.typeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,8 +135,8 @@ namespace Prizm.Main.Forms.Settings
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.seamTypes = new DevExpress.XtraGrid.GridControl();
-            this.seemTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.seemTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seamTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.seamTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seamTypeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.seemTypeIsActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -151,7 +152,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -233,14 +234,14 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -303,7 +304,7 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
@@ -575,6 +576,7 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewRoles.OptionsView.ShowColumnHeaders = false;
             this.gridViewRoles.OptionsView.ShowGroupPanel = false;
             this.gridViewRoles.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewRoles_SelectionChanged);
+            this.gridViewRoles.GotFocus += new System.EventHandler(this.gridViewRoles_GotFocus);
             // 
             // colRoleName
             // 
@@ -771,8 +773,10 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypesView.OptionsNavigation.UseTabKey = false;
             this.certificateTypesView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.certificateTypesView.OptionsView.ShowGroupPanel = false;
+            this.certificateTypesView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.certificateTypesView_RowCellStyle);
             this.certificateTypesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.certificateTypesView_InitNewRow);
             this.certificateTypesView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.certificateTypesView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.certificateTypesView_InvalidRowException);
             this.certificateTypesView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.certificateTypesView_ValidateRow);
             this.certificateTypesView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.certificateTypesView_KeyDown);
             // 
@@ -1507,41 +1511,41 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.seamTypes.Cursor = System.Windows.Forms.Cursors.Default;
             this.seamTypes.Location = new System.Drawing.Point(832, 201);
-            this.seamTypes.MainView = this.seemTypeGridView;
+            this.seamTypes.MainView = this.seamTypeGridView;
             this.seamTypes.Name = "seamTypes";
             this.seamTypes.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.seamTypeRepositoryTextEdit});
             this.seamTypes.Size = new System.Drawing.Size(399, 279);
             this.seamTypes.TabIndex = 17;
             this.seamTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.seemTypeGridView});
+            this.seamTypeGridView});
             // 
-            // seemTypeGridView
+            // seamTypeGridView
             // 
-            this.seemTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.seemTypeColumn,
+            this.seamTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.seamTypeColumn,
             this.seemTypeIsActiveColumn});
-            this.seemTypeGridView.GridControl = this.seamTypes;
-            this.seemTypeGridView.Name = "seemTypeGridView";
-            this.seemTypeGridView.OptionsBehavior.FocusLeaveOnTab = true;
-            this.seemTypeGridView.OptionsNavigation.UseTabKey = false;
-            this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
-            this.seemTypeGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.seemTypeGridView_RowCellStyle);
-            this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
-            this.seemTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
-            this.seemTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.seemTypeGridView_InvalidRowException);
-            this.seemTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.seemTypeGridView_ValidateRow);
-            this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
+            this.seamTypeGridView.GridControl = this.seamTypes;
+            this.seamTypeGridView.Name = "seamTypeGridView";
+            this.seamTypeGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.seamTypeGridView.OptionsNavigation.UseTabKey = false;
+            this.seamTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.seamTypeGridView.OptionsView.ShowGroupPanel = false;
+            this.seamTypeGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.seemTypeGridView_RowCellStyle);
+            this.seamTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
+            this.seamTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.seamTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.seemTypeGridView_InvalidRowException);
+            this.seamTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.seamTypeGridView_ValidateRow);
+            this.seamTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
-            // seemTypeColumn
+            // seamTypeColumn
             // 
-            this.seemTypeColumn.Caption = "Тип шва";
-            this.seemTypeColumn.ColumnEdit = this.seamTypeRepositoryTextEdit;
-            this.seemTypeColumn.FieldName = "Name";
-            this.seemTypeColumn.Name = "seemTypeColumn";
-            this.seemTypeColumn.Visible = true;
-            this.seemTypeColumn.VisibleIndex = 0;
+            this.seamTypeColumn.Caption = "Тип шва";
+            this.seamTypeColumn.ColumnEdit = this.seamTypeRepositoryTextEdit;
+            this.seamTypeColumn.FieldName = "Name";
+            this.seamTypeColumn.Name = "seamTypeColumn";
+            this.seamTypeColumn.Visible = true;
+            this.seamTypeColumn.VisibleIndex = 0;
             // 
             // seamTypeRepositoryTextEdit
             // 
@@ -1998,8 +2002,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.usersLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 6;
+            this.tabbedControlGroup.SelectedTabPage = this.lineLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 2;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2716,7 +2720,7 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
@@ -2944,8 +2948,8 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraEditors.TextEdit pipeDiameter;
         private DevExpress.XtraEditors.TextEdit wallThickness;
         private DevExpress.XtraGrid.GridControl seamTypes;
-        private DevExpress.XtraGrid.Views.Grid.GridView seemTypeGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn seemTypeColumn;
+        private DevExpress.XtraGrid.Views.Grid.GridView seamTypeGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn seamTypeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
         private System.Windows.Forms.BindingSource CurrentPipeMillSizeTypeBindingSource;
         private DevExpress.XtraLayout.LayoutControl rootLayoutControl;
