@@ -35,6 +35,7 @@
             this.inspections = new DevExpress.XtraGrid.GridControl();
             this.inspectionsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryInspectionDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colResult = new DevExpress.XtraGrid.Columns.GridColumn();
             this.resultStatusLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,11 +60,12 @@
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.repositoryInspectionDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).BeginInit();
@@ -84,8 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // inspectionLayoutControl
@@ -167,6 +167,15 @@
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 0;
             this.colDate.Width = 107;
+            // 
+            // repositoryInspectionDateEdit
+            // 
+            this.repositoryInspectionDateEdit.AutoHeight = false;
+            this.repositoryInspectionDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectionDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryInspectionDateEdit.Name = "repositoryInspectionDateEdit";
             // 
             // colResult
             // 
@@ -418,21 +427,13 @@
             this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // repositoryInspectionDateEdit
-            // 
-            this.repositoryInspectionDateEdit.AutoHeight = false;
-            this.repositoryInspectionDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryInspectionDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryInspectionDateEdit.Name = "repositoryInspectionDateEdit";
-            // 
             // PartInspectionXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 493);
             this.Controls.Add(this.inspectionLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PartInspectionXtraForm";
             this.Text = "Входной контроль";
             this.Load += new System.EventHandler(this.PartInspectionXtraForm_Load);
@@ -440,6 +441,8 @@
             this.inspectionLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultStatusLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsPopupContainerEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementType.Properties)).EndInit();
@@ -460,8 +463,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonsEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionDateEdit)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionSelectPartDialog));
             this.dialogLayout = new DevExpress.XtraLayout.LayoutControl();
             this.acceptButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -184,6 +185,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(417, 261);
             this.Controls.Add(this.dialogLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InspectionSelectPartDialog";
             this.Text = "Выбор элемента";
             this.Load += new System.EventHandler(this.NumbersDialog_Load);

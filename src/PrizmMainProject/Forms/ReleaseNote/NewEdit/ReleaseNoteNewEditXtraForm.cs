@@ -40,8 +40,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.id = id;
 
             InitializeComponent();
-            Bitmap bmp = Resources.shipment_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (ReleaseNoteViewModel)Program.Kernel.Get<ReleaseNoteViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;

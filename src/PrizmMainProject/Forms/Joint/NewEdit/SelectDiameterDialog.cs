@@ -25,9 +25,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             InitializeComponent();
 
-            Bitmap bmp = Resources.joint_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
             saveChosenDiameter.Enabled = false;
         }
 

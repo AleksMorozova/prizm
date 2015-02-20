@@ -23,8 +23,6 @@ namespace Prizm.Main.Forms.Settings
         public PasswordChangeDialog()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.password;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         public DialogResult ShowPasswordDialog(string passwordHash)

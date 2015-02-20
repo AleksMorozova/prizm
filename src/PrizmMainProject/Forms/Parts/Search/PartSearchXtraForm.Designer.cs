@@ -294,6 +294,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1259, 511);
             this.Controls.Add(this.mainLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PartSearchXtraForm";
             this.Text = "Поиск элементов трубопровода";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PartSearchXtraForm_FormClosed);

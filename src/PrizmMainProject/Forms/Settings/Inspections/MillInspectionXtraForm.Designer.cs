@@ -536,10 +536,11 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(686, 471);
             this.Controls.Add(this.mainLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MillInspectionXtraForm";
             this.Text = "Добавление контрольной операции";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillInspectionXtraForm_FormClosed);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MillInspectionXtraForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillInspectionXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.MillInspectionXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();

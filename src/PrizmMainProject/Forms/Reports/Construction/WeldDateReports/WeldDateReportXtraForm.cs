@@ -26,9 +26,6 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
         {
             InitializeComponent();
 
-            Bitmap bmp = Resources.reports_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
             weldDateFrom.Properties.NullDate = DateTime.MinValue;
             weldDateFrom.Properties.NullText = string.Empty;
             weldDateTo.Properties.NullDate = DateTime.MinValue;

@@ -53,8 +53,6 @@ namespace Prizm.Main.Forms.Settings
         public SettingsXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.page_setup_16;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetControlsTextLength();
             viewModel = (SettingsViewModel)Program.Kernel.GetService(typeof(SettingsViewModel));
             pipesSizeListGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;

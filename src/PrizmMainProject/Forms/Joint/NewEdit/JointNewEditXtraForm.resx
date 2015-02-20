@@ -173,4 +173,28 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>54</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AGkk
+        AABpJAD/////AP///wD///8A////AP///wD///8A////AP///wBpJABmaSQApWkkANVpJAD/aSQA/2kk
+        AP9pJAD/aSQA/////wD///8A////AP///wD///8A////AGkkAAxpJAC3aSQA/2kkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP////8A////AP///wD///8A////AP///wBpJAB4aSQA/2kkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP9pJAD/////AP///wD///8A////AP///wD///8AaSQA3mkkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP9pJAD/aSQA/////wD///8A////AP///wD///8A////AGkkAP9pJAD/aSQA/2kk
+        AP9pJABd////AP///wD///8AaSQAAGkkAP////8A////AP///wD///8A////AP///wBpJAD/aSQA/2kk
+        AP9pJAD/aSQAA////wD///8A////AGkkAABpJAAA////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wBpJAAAaSQAAP///wD///8A////AP///wD///8A////AFew
+        ADNXsAAzV7AAM1ewADP///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wBXsAD/V7AA/1ewAP9XsAD/////AP///wD///8A////AP///wD///8AV7AA/////wD///8A////AP//
+        /wBXsAA2V7AA/1ewAP9XsAD/V7AA/P///wD///8A////AP///wD///8A////AFewAP9XsAD/V7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewANv///8A////AP///wD///8A////AP///wBXsAD/V7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewAP9XsAB4////AP///wD///8A////AP///wD///8AV7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewAP9XsAC3V7AACf///wD///8A////AP///wD///8A////AFew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA0lewAKJXsABm////AP///wD///8A////AP///wD///8A////AP//
+        /wBXsAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A//4AAP+AAAD+AAAA/gAAAPwAAAD8PgAA/D8AAP//AAD//wAA/D8AAHw/AAAAPwAAAH8AAAB/
+        AAAB/wAAf/8AAA==
+</value>
+  </data>
 </root>

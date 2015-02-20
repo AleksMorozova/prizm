@@ -33,8 +33,6 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         public ReleaseNoteSearchXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.search_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             releaseNoteDate.Properties.NullDate = DateTime.MinValue;
             releaseNoteDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();

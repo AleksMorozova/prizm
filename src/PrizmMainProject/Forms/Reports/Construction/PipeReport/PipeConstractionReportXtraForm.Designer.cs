@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PipeConstractionReportXtraForm));
             this.pipeReportLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.pipeTypeCheckedCombo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -48,7 +47,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.pipeTypeCheckedComboLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipeReportLayoutControl)).BeginInit();
             this.pipeReportLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTypeCheckedCombo.Properties)).BeginInit();
@@ -302,6 +301,7 @@
             this.ClientSize = new System.Drawing.Size(924, 411);
             this.Controls.Add(this.pipeReportLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PipeConstractionReportXtraForm";
             this.Text = "Отчеты по трубам на стройке";
             this.Load += new System.EventHandler(this.PipeConstractionReportXtraForm_Load);
