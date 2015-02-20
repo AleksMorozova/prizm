@@ -64,6 +64,7 @@
     <Compile Include="DAL\Hibernate\AbstractHibernateRepository.cs" />
     <Compile Include="DAL\Hibernate\AuditInterceptor.cs" />
     <Compile Include="DAL\Hibernate\AuditLogRepository.cs" />
+    <Compile Include="DAL\Hibernate\CannedMessageRepository.cs" />
     <Compile Include="DAL\Hibernate\CategoryRepository.cs" />
     <Compile Include="DAL\Hibernate\ComponentTypeRepository.cs" />
     <Compile Include="DAL\Hibernate\ComponentRepository.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\ISQLFlexible.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
+    <Compile Include="DAL\Mapping\CannedMessageMap.cs" />
     <Compile Include="DAL\Mapping\CategoryMap.cs" />
     <Compile Include="DAL\Mapping\CoatMap.cs" />
     <Compile Include="DAL\Mapping\ComponentMap.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="DAL\Mapping\UserMap.cs" />
     <Compile Include="DAL\Mapping\WelderMap.cs" />
     <Compile Include="DAL\Mapping\WeldMap.cs" />
+    <Compile Include="DAL\Mill\ICannedMessageRepository.cs" />
     <Compile Include="DAL\Mill\IHeatRepository.cs" />
     <Compile Include="DAL\Mill\IInspectorRepository.cs" />
     <Compile Include="DAL\Mill\IPipeRepository.cs" />
