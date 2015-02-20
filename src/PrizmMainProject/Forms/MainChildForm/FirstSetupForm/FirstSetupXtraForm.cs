@@ -30,6 +30,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public FirstSetupXtraForm(FirstSetupViewModel vm)
         {
             InitializeComponent();
+            SetControlsTextLength();
             Bitmap bmp = Resources.prizma_appIcon_32;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = vm;
@@ -115,6 +116,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private void FirstSetupXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             viewModel.Dispose();
+        }
+
+        private void SetControlsTextLength() 
+        {
+            projectName.Properties.MaxLength = LengthLimit.MaxProjectTitle; 
+            mill.Properties.MaxLength = LengthLimit.MaxProjectMillName;
+            pipeMask.Properties.MaxLength = LengthLimit.MaxPipeNumber;
+            login.Properties.MaxLength = LengthLimit.UserLogin;
+            lastName.Properties.MaxLength = LengthLimit.UserLastName;
+            firstName.Properties.MaxLength = LengthLimit.UserFirstName;
+            middleName.Properties.MaxLength = LengthLimit.UserMiddleName;
         }
     }
 }
