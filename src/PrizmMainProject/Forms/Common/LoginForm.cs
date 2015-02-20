@@ -20,8 +20,6 @@ namespace Prizm.Main.Forms.Common
       public LoginForm()
       {
          InitializeComponent();
-         Bitmap bmp = Resources.password;
-         this.Icon = Icon.FromHandle(bmp.GetHicon());
       }
 
       public string Login

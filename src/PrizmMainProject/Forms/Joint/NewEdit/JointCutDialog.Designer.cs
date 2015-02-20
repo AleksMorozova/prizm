@@ -328,6 +328,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(352, 226);
             this.Controls.Add(this.jointCutDialogLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JointCutDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Вырезка стыка";

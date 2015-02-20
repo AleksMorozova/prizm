@@ -31,8 +31,6 @@ namespace PrizmMain.Forms.Notifications
         {
             this.components = null;
             this.InitializeComponent();
-            Bitmap bmp = Resources.warning;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void NotificationXtraForm_Load(object sender, EventArgs e)

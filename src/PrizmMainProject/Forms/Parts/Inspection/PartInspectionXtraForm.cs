@@ -38,8 +38,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public PartInspectionXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.inControl_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetAlwaysEditable(searchNumber);
             searchNumber.SetAsIdentifier();
             IsEditMode = true;

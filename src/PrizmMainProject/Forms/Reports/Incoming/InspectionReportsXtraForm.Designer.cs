@@ -292,6 +292,7 @@
             this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InspectionReportsXtraForm";
             this.Text = "Отчет по входному контролю";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionReportsXtraForm_FormClosed);

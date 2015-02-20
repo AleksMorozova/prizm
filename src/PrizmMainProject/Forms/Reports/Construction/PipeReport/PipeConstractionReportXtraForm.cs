@@ -25,8 +25,6 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public PipeConstractionReportXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.reports_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             pipeNumber.SetAsIdentifier();
         }
 

@@ -26,8 +26,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         public void SetupForm(string elementNumber) 
         {
-            Bitmap bmp = Resources.inControl_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             numberLabelLayout.Text = elementNumber + "?";
         }
 

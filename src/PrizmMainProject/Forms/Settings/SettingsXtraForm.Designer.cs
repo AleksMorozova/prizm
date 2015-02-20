@@ -2653,6 +2653,7 @@ namespace Prizm.Main.Forms.Settings
             this.ClientSize = new System.Drawing.Size(1275, 550);
             this.Controls.Add(this.rootLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsXtraForm";
             this.Text = "Настройки";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsXtraForm_FormClosed);

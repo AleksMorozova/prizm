@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutXtraForm));
             this.labelVersion = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.titleLabel = new DevExpress.XtraEditors.LabelControl();
@@ -92,6 +93,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelVersion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";

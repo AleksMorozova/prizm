@@ -234,4 +234,28 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>97</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AAAAAAA+JR0AOiMbADcgGQA0HhcAMRwVAG5RSAAiGRYAAAAAAQAAAAoYEg9jX0Q67F5C
+        OexHMSxaAAAAAgAAAAkAAAAOAAAADwAAABAAAAAQAAAAEQAAABEAAAARAAAAEwAAABoeFhR0XUxE/sip
+        lf/JqZb/XUI56QAAAAird2jAs35s/7N9av+zfmz/sn1r/7J8af+xfWr/vpCB/9G2rf+Ufnf/bVlP/9a2
+        of/UtqH/28e5/19FO+wAAAAMtYFv//37+f/79fL/+fTw//Xv6//x6+f/7ufj/+zk4P+top3/eWRa/9i7
+        qv/Yu6j/5tTH/412bP5QOTFdAAAADLiEcf/9+/r/9evk/+vh2v+ikIn/alNL/0szK/9XQjn/hW9k/9zB
+        sv/cwrD/6tfM/5eBd/9POjNvAAAACAAAAAu4hnX//Pr6/+rh2/+BamH/k3pv/7+pnP/eyLr/x7Ci/+DI
+        uP/fx7f/6drP/5uFe/+oj4f/AAAAGAAAAAEAAAAKuol4//r49/+smpL/oIqA/+7h2f/17ef/8OTb/+nW
+        yP/izL3/4s6//6CKgP++sav/1ruz/wAAABFrTkUAAAAACb2Mev/49/b/jnNo/8i2rf+0oJj/j3Zq/7Cc
+        k//YyL//5c6//9G5q/+CZ13/7+nl/8SZiv8AAAAPbVFIAAAAAAnAj3//+Pf2/4xxZf+3opn/v6+n/+7m
+        4f+7qqH/r5uS/+bRw//m0sf/fmRZ//Lt6f+7inf/AAAADnBUSgAAAAAIw5SE//r6+f+dhnv/x7iw//bw
+        6v/48ez/6uHc/3FXTf/n1Mb/0sC4/4xzaf/18O3/vI16/wAAAA1zV04AAAAAB8WXh//9/fz/+PPu//nz
+        7//69O//9/Ds/6iXkf+TfHL/7uDY/7Cckv+5qKD/+fTx/8CPfv8AAAANdlpRAAAAAAbHmoz//v7+//r2
+        8//69fP/+fTw/6ubk/+PenL/yrqy/7ail/+jjIH/9Ozo//z49v/DkoL/AAAADHleUwAAAAAGyp6O///+
+        /v/79/T/+/b0//n08v+slYn/mH1v/6WOhf/Gtq//9u/q//n07//9+vj/xJaH/wAAAAt9YVcAAAAABcyj
+        kf///v7//Pj3//z49v/89/X/+vXz//jz8f/48/H/+vTx//z28v/79vH//fv5/8eai/8AAAAKAAAAAAAA
+        AATOpJX////+/////v///v7///7+//7+/v/+/v7//v79//7+/f/+/f3//v39//79/P/Jno7/AAAACf//
+        /wAAAAACzaSUwM+mlv/Pppb/zqaV/86llf/OpZX/z6SU/82klP/Oo5P/zKKT/82ikv/LopL/xpyNwgAA
+        AAb///8A//kAAP/wAACAAAAAgAEAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIAD
+        AACAAwAAgAMAAA==
+</value>
+  </data>
 </root>

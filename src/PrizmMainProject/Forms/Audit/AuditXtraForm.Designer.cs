@@ -481,6 +481,7 @@
             this.ClientSize = new System.Drawing.Size(796, 436);
             this.Controls.Add(this.searchGroupLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AuditXtraForm";
             this.Text = "Аудит";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuditXtraForm_FormClosed);

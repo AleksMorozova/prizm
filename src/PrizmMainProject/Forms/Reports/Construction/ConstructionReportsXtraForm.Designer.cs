@@ -486,6 +486,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 450);
             this.Controls.Add(this.generalLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConstructionReportsXtraForm";
             this.Text = "Отчет по сварке участка между пикетами";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConstructionReportsXtraForm_FormClosed);

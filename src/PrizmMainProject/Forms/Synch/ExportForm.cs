@@ -33,9 +33,6 @@ namespace Prizm.Main.Forms.Synch
       public ExportForm()
       {
          InitializeComponent();
-
-         Bitmap bmp = Resources.export_16;
-         this.Icon = Icon.FromHandle(bmp.GetHicon());
       }
 
       #region --- Localization ---

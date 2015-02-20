@@ -24,8 +24,6 @@ namespace Prizm.Main.Forms.Joint
         public JointCutDialog()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.joint_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         public JointCutDialog(Part part1, Part part2) 

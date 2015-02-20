@@ -45,8 +45,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
             InitializeComponent();
-            Bitmap bmp = Resources.inspection_16;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             
             this.SetupForm(tests, inspectors, current, statuses);
         }

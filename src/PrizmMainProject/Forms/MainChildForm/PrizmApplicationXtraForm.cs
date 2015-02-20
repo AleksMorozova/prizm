@@ -59,8 +59,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.prizma_appIcon_32;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             FormManager.Initialize(this, log);
         }
 

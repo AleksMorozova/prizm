@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportForm));
             this.exportTabs = new DevExpress.XtraTab.XtraTabControl();
             this.logTabPage = new DevExpress.XtraTab.XtraTabPage();
             this.progressPanel = new DevExpress.XtraWaitForm.ProgressPanel();
@@ -215,6 +216,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 528);
             this.Controls.Add(this.exportTabs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExportForm";
             this.ShowIcon = false;
             this.Text = "Экспорт";

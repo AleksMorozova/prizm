@@ -535,6 +535,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 586);
             this.Controls.Add(this.rootLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InspectionAddEditXtraForm";
             this.Text = "InspectionAddEditXtraForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InspectionAddEditXtraForm_FormClosing);

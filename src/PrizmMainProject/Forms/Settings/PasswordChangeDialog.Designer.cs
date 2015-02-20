@@ -28,12 +28,13 @@
       /// </summary>
       private void InitializeComponent()
       {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordChangeDialog));
             this.txtOldPass = new DevExpress.XtraEditors.TextEdit();
-            this.txtNewPass = new DevExpress.XtraEditors.TextEdit();
-            this.txtConfirm = new DevExpress.XtraEditors.TextEdit();
-            this.btnOk = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.passwordChangeLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.txtConfirm = new DevExpress.XtraEditors.TextEdit();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOk = new DevExpress.XtraEditors.SimpleButton();
+            this.txtNewPass = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lblOldPassLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.lblPassLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -43,10 +44,10 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConfirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordChangeLayout)).BeginInit();
             this.passwordChangeLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtConfirm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblOldPassLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPassLayout)).BeginInit();
@@ -65,44 +66,6 @@
             this.txtOldPass.Size = new System.Drawing.Size(338, 20);
             this.txtOldPass.StyleController = this.passwordChangeLayout;
             this.txtOldPass.TabIndex = 3;
-            // 
-            // txtNewPass
-            // 
-            this.txtNewPass.Location = new System.Drawing.Point(12, 68);
-            this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Properties.PasswordChar = '*';
-            this.txtNewPass.Size = new System.Drawing.Size(338, 20);
-            this.txtNewPass.StyleController = this.passwordChangeLayout;
-            this.txtNewPass.TabIndex = 4;
-            // 
-            // txtConfirm
-            // 
-            this.txtConfirm.Location = new System.Drawing.Point(12, 108);
-            this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Properties.PasswordChar = '*';
-            this.txtConfirm.Size = new System.Drawing.Size(338, 20);
-            this.txtConfirm.StyleController = this.passwordChangeLayout;
-            this.txtConfirm.TabIndex = 5;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(155, 146);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(96, 22);
-            this.btnOk.StyleController = this.passwordChangeLayout;
-            this.btnOk.TabIndex = 6;
-            this.btnOk.Text = "&OK";
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(255, 146);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 22);
-            this.btnCancel.StyleController = this.passwordChangeLayout;
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "&Отмена";
             // 
             // passwordChangeLayout
             // 
@@ -127,6 +90,44 @@
             this.passwordChangeLayout.Size = new System.Drawing.Size(362, 180);
             this.passwordChangeLayout.TabIndex = 8;
             this.passwordChangeLayout.Text = "layoutControl1";
+            // 
+            // txtConfirm
+            // 
+            this.txtConfirm.Location = new System.Drawing.Point(12, 108);
+            this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.Properties.PasswordChar = '*';
+            this.txtConfirm.Size = new System.Drawing.Size(338, 20);
+            this.txtConfirm.StyleController = this.passwordChangeLayout;
+            this.txtConfirm.TabIndex = 5;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(255, 146);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(95, 22);
+            this.btnCancel.StyleController = this.passwordChangeLayout;
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "&Отмена";
+            // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(155, 146);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(96, 22);
+            this.btnOk.StyleController = this.passwordChangeLayout;
+            this.btnOk.TabIndex = 6;
+            this.btnOk.Text = "&OK";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Location = new System.Drawing.Point(12, 68);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Properties.PasswordChar = '*';
+            this.txtNewPass.Size = new System.Drawing.Size(338, 20);
+            this.txtNewPass.StyleController = this.passwordChangeLayout;
+            this.txtNewPass.TabIndex = 4;
             // 
             // Root
             // 
@@ -229,14 +230,15 @@
             this.ClientSize = new System.Drawing.Size(387, 201);
             this.Controls.Add(this.passwordChangeLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PasswordChangeDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Смена пароля";
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConfirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordChangeLayout)).EndInit();
             this.passwordChangeLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtConfirm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblOldPassLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPassLayout)).EndInit();

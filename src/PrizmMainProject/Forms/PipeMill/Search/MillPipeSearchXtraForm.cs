@@ -26,8 +26,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             InitializeComponent();
             pipeNumber.SetAsIdentifier();
-            Bitmap bmp = Resources.search_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
 
             externalCoatingDate.Properties.NullDate = DateTime.MinValue;
             externalCoatingDate.Properties.NullText = string.Empty;
