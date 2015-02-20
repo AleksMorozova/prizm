@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
 
                         repo.BeginTransaction();
-                        repo.RepoPipe.Save(viewModel.Pipe);
+                        repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
                         repo.Commit();
 
                         repo.RepoPipe.Evict(viewModel.Pipe);
