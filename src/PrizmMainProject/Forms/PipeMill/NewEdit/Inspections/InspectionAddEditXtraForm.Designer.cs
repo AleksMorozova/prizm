@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.status = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -36,7 +37,6 @@
             this.code = new DevExpress.XtraEditors.ComboBoxEdit();
             this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
             this.date = new DevExpress.XtraEditors.DateEdit();
-            this.factString = new DevExpress.XtraEditors.TextEdit();
             this.expected = new DevExpress.XtraEditors.TextEdit();
             this.name = new DevExpress.XtraEditors.TextEdit();
             this.category = new DevExpress.XtraEditors.TextEdit();
@@ -59,13 +59,14 @@
             this.factBoolLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.factBoolLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factStringLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.factStringLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.testsBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.factString = new DevExpress.XtraEditors.LookUpEdit();
+            this.factStringLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
@@ -74,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).BeginInit();
@@ -95,24 +95,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
             // 
+            this.rootLayoutControl.Controls.Add(this.factString);
             this.rootLayoutControl.Controls.Add(this.status);
             this.rootLayoutControl.Controls.Add(this.factLimit);
             this.rootLayoutControl.Controls.Add(this.factBool);
             this.rootLayoutControl.Controls.Add(this.code);
             this.rootLayoutControl.Controls.Add(this.inspectors);
             this.rootLayoutControl.Controls.Add(this.date);
-            this.rootLayoutControl.Controls.Add(this.factString);
             this.rootLayoutControl.Controls.Add(this.expected);
             this.rootLayoutControl.Controls.Add(this.name);
             this.rootLayoutControl.Controls.Add(this.category);
@@ -139,11 +140,11 @@
             // 
             // status
             // 
-            this.status.Location = new System.Drawing.Point(27, 471);
+            this.status.Location = new System.Drawing.Point(32, 466);
             this.status.Name = "status";
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.status.Size = new System.Drawing.Size(335, 20);
+            this.status.Size = new System.Drawing.Size(325, 20);
             this.status.StyleController = this.rootLayoutControl;
             this.status.TabIndex = 16;
             // 
@@ -154,7 +155,7 @@
             0,
             0,
             0});
-            this.factLimit.Location = new System.Drawing.Point(39, 369);
+            this.factLimit.Location = new System.Drawing.Point(39, 359);
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -170,7 +171,7 @@
             // 
             // factBool
             // 
-            this.factBool.Location = new System.Drawing.Point(39, 303);
+            this.factBool.Location = new System.Drawing.Point(39, 293);
             this.factBool.Name = "factBool";
             this.factBool.Properties.Caption = "Результат";
             this.factBool.Size = new System.Drawing.Size(311, 19);
@@ -201,7 +202,7 @@
             // date
             // 
             this.date.EditValue = null;
-            this.date.Location = new System.Drawing.Point(32, 426);
+            this.date.Location = new System.Drawing.Point(32, 416);
             this.date.Name = "date";
             this.date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -210,14 +211,6 @@
             this.date.Size = new System.Drawing.Size(325, 20);
             this.date.StyleController = this.rootLayoutControl;
             this.date.TabIndex = 10;
-            // 
-            // factString
-            // 
-            this.factString.Location = new System.Drawing.Point(44, 231);
-            this.factString.Name = "factString";
-            this.factString.Size = new System.Drawing.Size(301, 20);
-            this.factString.StyleController = this.rootLayoutControl;
-            this.factString.TabIndex = 8;
             // 
             // expected
             // 
@@ -430,7 +423,7 @@
             this.factDiapasonLayoutControlGroup.CustomizationFormText = "Фактический";
             this.factDiapasonLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.factLimitLayout});
-            this.factDiapasonLayoutControlGroup.Location = new System.Drawing.Point(0, 193);
+            this.factDiapasonLayoutControlGroup.Location = new System.Drawing.Point(0, 183);
             this.factDiapasonLayoutControlGroup.Name = "factDiapasonLayoutControlGroup";
             this.factDiapasonLayoutControlGroup.Size = new System.Drawing.Size(339, 67);
             this.factDiapasonLayoutControlGroup.Text = "Фактический";
@@ -454,7 +447,7 @@
             this.factBoolLayoutControlGroup.CustomizationFormText = "Фактический";
             this.factBoolLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.factBoolLayoutControlItem});
-            this.factBoolLayoutControlGroup.Location = new System.Drawing.Point(0, 127);
+            this.factBoolLayoutControlGroup.Location = new System.Drawing.Point(0, 117);
             this.factBoolLayoutControlGroup.Name = "factBoolLayoutControlGroup";
             this.factBoolLayoutControlGroup.Size = new System.Drawing.Size(339, 66);
             this.factBoolLayoutControlGroup.Text = "Фактический";
@@ -475,31 +468,18 @@
             // 
             this.factStringLayoutControlGroup.CustomizationFormText = "Фактический";
             this.factStringLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.factStringLayoutControlItem});
+            this.factStringLayout});
             this.factStringLayoutControlGroup.Location = new System.Drawing.Point(0, 50);
             this.factStringLayoutControlGroup.Name = "factStringLayoutControlGroup";
-            this.factStringLayoutControlGroup.Size = new System.Drawing.Size(339, 77);
+            this.factStringLayoutControlGroup.Size = new System.Drawing.Size(339, 67);
             this.factStringLayoutControlGroup.Text = "Фактический";
             this.factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
-            // factStringLayoutControlItem
-            // 
-            this.factStringLayoutControlItem.Control = this.factString;
-            this.factStringLayoutControlItem.CustomizationFormText = "Фактический";
-            this.factStringLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.factStringLayoutControlItem.Name = "factStringLayoutControlItem";
-            this.factStringLayoutControlItem.Size = new System.Drawing.Size(315, 34);
-            this.factStringLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.factStringLayoutControlItem.Text = "Фактический";
-            this.factStringLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.factStringLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.factStringLayoutControlItem.TextVisible = false;
             // 
             // dateLayoutControlItem
             // 
             this.dateLayoutControlItem.Control = this.date;
             this.dateLayoutControlItem.CustomizationFormText = "Дата";
-            this.dateLayoutControlItem.Location = new System.Drawing.Point(0, 260);
+            this.dateLayoutControlItem.Location = new System.Drawing.Point(0, 250);
             this.dateLayoutControlItem.Name = "dateLayoutControlItem";
             this.dateLayoutControlItem.Size = new System.Drawing.Size(339, 50);
             this.dateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -511,9 +491,10 @@
             // 
             this.statusLayoutControlItem.Control = this.status;
             this.statusLayoutControlItem.CustomizationFormText = "Статус";
-            this.statusLayoutControlItem.Location = new System.Drawing.Point(0, 310);
+            this.statusLayoutControlItem.Location = new System.Drawing.Point(0, 300);
             this.statusLayoutControlItem.Name = "statusLayoutControlItem";
-            this.statusLayoutControlItem.Size = new System.Drawing.Size(339, 40);
+            this.statusLayoutControlItem.Size = new System.Drawing.Size(339, 50);
+            this.statusLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.statusLayoutControlItem.Text = "Статус";
             this.statusLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.statusLayoutControlItem.TextSize = new System.Drawing.Size(62, 13);
@@ -527,6 +508,30 @@
             this.footerEmptySpaceItem.Size = new System.Drawing.Size(540, 27);
             this.footerEmptySpaceItem.Text = "footerEmptySpaceItem";
             this.footerEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // factString
+            // 
+            this.factString.Location = new System.Drawing.Point(39, 226);
+            this.factString.Name = "factString";
+            this.factString.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.factString.Properties.NullText = "";
+            this.factString.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.factString.Size = new System.Drawing.Size(311, 20);
+            this.factString.StyleController = this.rootLayoutControl;
+            this.factString.TabIndex = 17;
+            this.factString.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.factString_ProcessNewValue);
+            // 
+            // factStringLayout
+            // 
+            this.factStringLayout.Control = this.factString;
+            this.factStringLayout.CustomizationFormText = "factStringLayout";
+            this.factStringLayout.Location = new System.Drawing.Point(0, 0);
+            this.factStringLayout.Name = "factStringLayout";
+            this.factStringLayout.Size = new System.Drawing.Size(315, 24);
+            this.factStringLayout.Text = "factStringLayout";
+            this.factStringLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.factStringLayout.TextVisible = false;
             // 
             // InspectionAddEditXtraForm
             // 
@@ -548,7 +553,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).EndInit();
@@ -569,13 +573,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,7 +591,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup rootLayoutGroup;
         private Controls.InspectorSelectionControl inspectors;
         private DevExpress.XtraEditors.DateEdit date;
-        private DevExpress.XtraEditors.TextEdit factString;
         private DevExpress.XtraEditors.TextEdit expected;
         private DevExpress.XtraEditors.TextEdit name;
         private DevExpress.XtraEditors.TextEdit category;
@@ -597,7 +601,6 @@
         private DevExpress.XtraLayout.LayoutControlItem nameLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup resultLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem expectedLayoutControlItem;
-        private DevExpress.XtraLayout.LayoutControlItem factStringLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem dateLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem inspectorsLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem saveLayoutControlItem;
@@ -619,5 +622,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup factStringLayoutControlGroup;
         private DevExpress.XtraEditors.ComboBoxEdit status;
         private DevExpress.XtraLayout.LayoutControlItem statusLayoutControlItem;
+        private DevExpress.XtraEditors.LookUpEdit factString;
+        private DevExpress.XtraLayout.LayoutControlItem factStringLayout;
     }
 }

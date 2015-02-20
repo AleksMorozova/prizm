@@ -106,6 +106,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             inspectors.DataSource = inspectorsBindingSource;
             inspectors.SelectInspectors(viewModel.SelectInspectors());
 
+            factString.Properties.DataSource = viewModel.CannedMessages;
+
             code.DataBindings.Add("EditValue", bindingSource, "Code");
             category.DataBindings.Add("EditValue", bindingSource, "Category");
             name.DataBindings.Add("EditValue", bindingSource, "Name");
@@ -129,7 +131,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(categoryLayoutControlItem, StringResources.InspectionAddEdit_CategoryLabel.Id),
                 new LocalizedItem(nameLayoutControlItem, StringResources.InspectionAddEdit_NameLabel.Id),
                 new LocalizedItem(expectedLayoutControlItem, StringResources.InspectionAddEdit_ExpectedResultLabel.Id),
-                new LocalizedItem(factStringLayoutControlItem, StringResources.InspectionAddEdit_FactStringResultLabel.Id),
+                new LocalizedItem(factStringLayout, StringResources.InspectionAddEdit_FactStringResultLabel.Id),
                 new LocalizedItem(factBool, StringResources.InspectionAddEdit_FactBoolResultLabel.Id),
                 new LocalizedItem(factLimitLayout, StringResources.InspectionAddEdit_FactLimitResultLabel.Id),
                 new LocalizedItem(dateLayoutControlItem, StringResources.InspectionAddEdit_DateLabel.Id),
@@ -267,6 +269,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(this.DialogResult == DialogResult.None)
                 e.Cancel = true;
+        }
+
+        private void factString_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+            var newFactString = factString.Text;
+            viewModel.CannedMessages.Add(newFactString);
+            factString.EditValue = viewModel.FactString = newFactString;
+            e.Handled = true;
         }
     }
 }

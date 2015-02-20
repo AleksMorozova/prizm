@@ -2,8 +2,10 @@
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -534,6 +536,35 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             #endregion
             firstSetupRepo.Commit();
+
+            #region --- CannedMessage ---
+
+            try
+            {
+                string fileName = Path.Combine(Directories.Seeding, "defectList.txt");
+                string[] lines = System.IO.File.ReadAllLines(fileName, Encoding.Default);
+
+                var cannedMessageList = new List<CannedMessage>(lines.Length);
+
+                for (int i = 0; i < lines.LongLength; ++i)
+                {
+                    string[] tmp = lines[i].Split('\t');
+
+                    cannedMessageList.Add(new CannedMessage {Language = tmp[0], IdDefect = tmp[1], Text = tmp[2]});
+                }
+
+                firstSetupRepo.BeginTransaction();
+                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Save(s));
+                firstSetupRepo.Commit();
+                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Evict(s));
+            }
+            catch(Exception e)
+            {
+                log.Warn(string.Format("The file specified in path was not found or path is in an invalid format: {0}", e.Message));
+            }
+
+            #endregion // --- CannedMessage ---
+            
 
             return false;
         }

@@ -47,8 +47,8 @@ CREATE TABLE [dbo].[CannedMessage](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 
-	[language] [nvarchar] NULL,
-	[text] [nvarchar] (20) NULL,
+	[language] [nvarchar] (10) NULL,
+	[text] [nvarchar] (100) NULL,
 	[idDefect] [nvarchar](10) NULL,
 
  CONSTRAINT [PK_CannedMessage] PRIMARY KEY CLUSTERED 
@@ -368,7 +368,7 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[date] [date] NULL,
 	[order][int] NULL,
 	[status] [nvarchar] (25) NULL,
-	[value] [nvarchar] (20) NULL,
+	[value] [nvarchar] (100) NULL,
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeTestResult] PRIMARY KEY CLUSTERED 
 (
