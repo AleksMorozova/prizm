@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             this.cannedMessageRepo = Program.Kernel.Get<ICannedMessageRepository>();
 
             this.cannedMessageStrings = cannedMessageRepo.GetAll()
-                .Where<CannedMessage>(x => x.Language == Prizm.Main.Properties.Settings.Default.UsersLanguage)
+                .Where<CannedMessage>(x => x.Language == Program.LanguageManager.CurrentCulture.Name)
                 .Select<CannedMessage, string>(y => y.Text).ToList<string>();
 
 
