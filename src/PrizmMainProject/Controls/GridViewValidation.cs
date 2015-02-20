@@ -17,7 +17,7 @@ namespace Prizm.Main.Controls
         {
             string Name = (string)view.GetRowCellValue(e.RowHandle, NameColumn);
 
-            if (String.IsNullOrEmpty(Name))
+            if (String.IsNullOrWhiteSpace(Name))
             {
                 view.SetColumnError(NameColumn,
                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
@@ -33,14 +33,14 @@ namespace Prizm.Main.Controls
 
             view.ClearColumnErrors();
 
-            if (String.IsNullOrEmpty(firstName))
+            if (String.IsNullOrWhiteSpace(firstName))
             {
                 view.SetColumnError(firstNameColumn,
                     Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 e.Valid = false;
             }
 
-            if (String.IsNullOrEmpty(lastName))
+            if (String.IsNullOrWhiteSpace(lastName))
             {
                 view.SetColumnError(lastNameColumn,
                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
