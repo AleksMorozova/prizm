@@ -1906,6 +1906,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool certificateValidation()
         {
+            inspectorsCertificateValidate = true;
             for (int i = 0; i < inspectorCertificateGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(certificateTypesView.GetRowCellValue(i, inspectorCertificateNumberCol.Name)))
@@ -1929,6 +1930,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool roleValidation()
         {
+            roleValidate = true;
             for (int i = 0; i < gridViewRole.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewRole.GetRowCellValue(i, colRoleSetupName.Name))))
@@ -1950,6 +1952,7 @@ namespace Prizm.Main.Forms.Settings
         }
         private bool userValidation()
         {
+            usersValidate = true;
             for (int i = 0; i < gridViewUsers.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colFirstName.Name)))
@@ -1974,6 +1977,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool jointsOperationValidation()
         {
+            jointsOperationsValidate = true;
             for (int i = 0; i < jointsOperationsGridView.RowCount - 1; i++)
             {
                 if (String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, nameGridColumn.Name))))
