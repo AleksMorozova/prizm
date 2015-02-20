@@ -100,6 +100,7 @@ Source: ".\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\Res\*.resources"; DestDir: "{app}\Languages\Resources"; Flags: ignoreversion
 Source: "..\src\PrizmMainProject\Languages\LocalizedStrings\*.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ".\Seeding\defectList.txt"; DestDir: "{app}\Seeding"; DestName: "defectList.txt"; Flags: ignoreversion; Attribs: hidden; Permissions: everyone-full
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
@@ -119,6 +120,7 @@ Name: "{app}\Data"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Languages"; Permissions: everyone-full
 Name: "{app}\Languages\Resources"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Logs"; Attribs: hidden; Permissions: everyone-full
+Name: "{app}\Seeding"; Attribs: hidden; Permissions: everyone-full
 
 [CustomMessages]
 english.InstallingSQLLocalDb=Installing SQL LocalDb

@@ -1,4 +1,7 @@
 ﻿using DevExpress.Mvvm;
+using Ninject;
+using Prizm.Data.DAL.Hibernate;
+using Prizm.Data.DAL.Mill;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
@@ -15,15 +18,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 {
     public class InspectionAddEditViewModel : ViewModelBase
     {
+        private readonly ICannedMessageRepository cannedMessageRepo;
+
         private IList<PipeTest> availableTests = new BindingList<PipeTest>();
         private IList<Inspector> inspectors = new BindingList<Inspector>();
+        private IList<string> cannedMessageStrings = new BindingList<string>();
         private PipeTestResult testResult;
         public IList<EnumWrapper<PipeTestResultStatus>> statuses;
-
 
         public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
+            this.cannedMessageRepo = Program.Kernel.Get<ICannedMessageRepository>();
+
+            this.cannedMessageStrings = cannedMessageRepo.GetAll()
+                .Where<CannedMessage>(x => x.Language == Program.LanguageManager.CurrentCulture.Name)
+                .Select<CannedMessage, string>(y => y.Text).ToList<string>();
+
+
             this.SetupViewModelState(tests, inspectors, current, statuses);
         }
 
@@ -318,6 +330,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 }
             }
         }
+
+
+        public IList<string> CannedMessages
+        {
+            get { return cannedMessageStrings; }
+        }
+
 
         internal void ChangeTest(string code)
         {

@@ -37,6 +37,29 @@ CREATE TABLE [dbo].[InspectorCertificateType](
 
 SET ANSI_PADDING OFF
 
+
+/****** Object:  Table [dbo].[CannedMessage]    Script Date: 11/4/2014 4:35:49 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+CREATE TABLE [dbo].[CannedMessage](
+
+	[id] [uniqueidentifier] NOT NULL,
+	[isActive] [bit] NULL,
+
+	[language] [nvarchar] (10) NULL,
+	[text] [nvarchar] (100) NULL,
+	[idDefect] [nvarchar](10) NULL,
+
+ CONSTRAINT [PK_CannedMessage] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+SET ANSI_PADDING OFF
+
+
 /****** Object:  Table [dbo].[SeamType]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -345,7 +368,7 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[date] [date] NULL,
 	[order][int] NULL,
 	[status] [nvarchar] (25) NULL,
-	[value] [nvarchar] (20) NULL,
+	[value] [nvarchar] (100) NULL,
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeTestResult] PRIMARY KEY CLUSTERED 
 (

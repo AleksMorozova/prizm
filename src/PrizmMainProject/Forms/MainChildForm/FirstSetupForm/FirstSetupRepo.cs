@@ -39,6 +39,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private readonly IComponentTypeRepository componentTypeRepo;
         private readonly IComponentRepository componentRepo;
         private readonly IReleaseNoteRepository releaseRepo;
+        private readonly ICannedMessageRepository cannedMessageRepo;
 
         public FirstSetupRepo()
         {
@@ -65,6 +66,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             componentTypeRepo = new ComponentTypeRepository(session);
             componentRepo = new ComponentRepository(session);
             releaseRepo = new ReleaseNoteRepository(session);
+            this.cannedMessageRepo = new CannedMessageRepository(session);
         }
         public IReleaseNoteRepository ReleaseRepo { get { return releaseRepo; } }
 
@@ -158,6 +160,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public IMillPipeSizeTypeRepository SizeTypeRepo
         {
             get { return sizeTypeRepo; }
+        }
+
+        public ICannedMessageRepository CannedMessageRepo
+        {
+            get { return cannedMessageRepo; }
         }
 
         #endregion

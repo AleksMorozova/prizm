@@ -35,6 +35,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         IComponentTypeRepository ComponentTypeRepo { get; }
         IComponentRepository ComponentRepo { get; }
         IReleaseNoteRepository ReleaseRepo { get; }
+        ICannedMessageRepository CannedMessageRepo { get; }
 
         void Commit();
         void BeginTransaction();
