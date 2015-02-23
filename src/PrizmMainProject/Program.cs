@@ -76,6 +76,12 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
+            if(!SingleInstance.Start())
+            {
+                SingleInstance.ShowFirstInstance();
+                return;
+            }
+
             Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
             Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
           
@@ -322,4 +328,6 @@ namespace Prizm.Main
         }
 
     }
+
+
 }

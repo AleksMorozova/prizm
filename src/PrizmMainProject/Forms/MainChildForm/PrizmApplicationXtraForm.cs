@@ -623,5 +623,20 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         #endregion // --- Localization ---
+
+        protected override void WndProc(ref Message message)
+        {
+            if(message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
+            {
+                ShowWindow();
+            }
+            base.WndProc(ref message);
+        }
+
+        public void ShowWindow()
+        {
+            // Insert code here to make your form show itself.
+            WinApi.ShowToFront(this.Handle);
+        }
     }
 }
