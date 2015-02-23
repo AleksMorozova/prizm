@@ -4268,6 +4268,11 @@ namespace Prizm.Main.Languages
             Id = "ReleaseSearch_ReleaseDateColumnHeader",
             Description = "Поиск разрешений на отгрузку. Столбец дата разрешения"
         };
+        public static StringResource ReleaseSearch_ReleaseStatusColumnHeader = new StringResource
+        {
+            Id = "ReleaseSearch_ReleaseStatusColumnHeader",
+            Description = "Поиск разрешений на отгрузку. Столбец статуса разрешения"
+        };
         public static StringResource ReleaseSearch_RailcarNumberColumnHeader = new StringResource
         {
             Id = "ReleaseSearch_RailcarNumberColumnHeader",

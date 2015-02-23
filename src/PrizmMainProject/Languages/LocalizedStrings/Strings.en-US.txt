@@ -1921,6 +1921,9 @@ ReleaseSearch_ReleaseNumberColumnHeader=Release note number
 ;Поиск разрешений на отгрузку. Столбец дата разрешения
 ReleaseSearch_ReleaseDateColumnHeader=Release note date
 
+;Поиск разрешений на отгрузку. Столбец статуса разрешения
+ReleaseSearch_ReleaseStatusColumnHeader= Release note status
+
 ;Поиск разрешений на отгрузку. Столбец номер вагона
 ReleaseSearch_RailcarNumberColumnHeader=Railcar number
 

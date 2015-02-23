@@ -76,6 +76,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
                 {
+                    r.IsShipped = true;
                     foreach(var pipe in r.Pipes)
                     {
                         pipe.Status = PipeMillStatus.Shipped;
