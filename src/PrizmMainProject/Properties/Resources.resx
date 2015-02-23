@@ -1365,6 +1365,6 @@
     <value>Готова к отгрузке</value>
   </data>
   <data name="ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended" xml:space="preserve">
-    <value>В вагоне {0}:</value>
+    <value>В вагоне</value>
   </data>
 </root>

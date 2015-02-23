@@ -82,7 +82,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 foreach (var item in distinctSizeDict)
                 {
                     messageBuilder.AppendLine(
-                        String.Format(distintTypesMessage, item.Key.Number, item.Value.Count()));
+                        String.Format("{0} {1}:", distintTypesMessage, item.Key.Number));
 
                     foreach (var pipes in item.Value)
                         messageBuilder.AppendLine(String.Format("\t{0}", pipes.Type));

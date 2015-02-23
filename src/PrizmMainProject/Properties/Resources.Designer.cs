@@ -2584,7 +2584,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to В вагоне {0}:.
+        ///   Looks up a localized string similar to В вагоне.
         /// </summary>
         internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended {
             get {
