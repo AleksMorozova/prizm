@@ -34,10 +34,10 @@
             this.pipeNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeSizeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeStatusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.railcarNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.railcarCertificateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.railcarDestinationGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryGridLookUpEditStatus = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.unshipButton = new DevExpress.XtraEditors.SimpleButton();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.textEditReleaseNoteStatus = new DevExpress.XtraEditors.TextEdit();
@@ -151,6 +151,7 @@
             this.pipesListView.OptionsBehavior.ReadOnly = true;
             this.pipesListView.OptionsNavigation.UseTabKey = false;
             this.pipesListView.OptionsView.ShowGroupPanel = false;
+            this.pipesListView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.pipesListView_CustomColumnDisplayText);
             // 
             // pipeNumberGridColumn
             // 
@@ -172,18 +173,11 @@
             // pipeStatusGridColumn
             // 
             this.pipeStatusGridColumn.Caption = "Статус трубы";
-            this.pipeStatusGridColumn.ColumnEdit = this.repositoryGridLookUpEditStatus;
             this.pipeStatusGridColumn.FieldName = "PipeStatus";
             this.pipeStatusGridColumn.Name = "pipeStatusGridColumn";
             this.pipeStatusGridColumn.OptionsColumn.AllowEdit = false;
             this.pipeStatusGridColumn.Visible = true;
             this.pipeStatusGridColumn.VisibleIndex = 2;
-            // 
-            // repositoryGridLookUpEditStatus
-            // 
-            this.repositoryGridLookUpEditStatus.AutoHeight = false;
-            this.repositoryGridLookUpEditStatus.Name = "repositoryGridLookUpEditStatus";
-            this.repositoryGridLookUpEditStatus.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repositoryGridLookUpEditStatus_CustomDisplayText);
             // 
             // railcarNumberGridColumn
             // 
@@ -208,6 +202,11 @@
             this.railcarDestinationGridColumn.Name = "railcarDestinationGridColumn";
             this.railcarDestinationGridColumn.Visible = true;
             this.railcarDestinationGridColumn.VisibleIndex = 5;
+            // 
+            // repositoryGridLookUpEditStatus
+            // 
+            this.repositoryGridLookUpEditStatus.AutoHeight = false;
+            this.repositoryGridLookUpEditStatus.Name = "repositoryGridLookUpEditStatus";
             // 
             // unshipButton
             // 
