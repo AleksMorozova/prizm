@@ -670,7 +670,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     foreach(var item in pipe.PipeTestResult)
                     {
                         item.Status = PipeTestResultStatus.Passed;
+                        if(item.Operation.Category.Type == FixedCategory.Length)
+                        {
+                            item.Value = "9500";
+                        }
                     }
+                    pipe.Length = 9500;
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ConstructionStatus = PartConstructionStatus.Pending;
                     pipe.IsAvailableToJoint = true;
