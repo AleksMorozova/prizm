@@ -241,7 +241,7 @@
             this.xrLabel1,
             this.xrLabel9,
             this.xrLabel10});
-            this.GroupHeader1.HeightF = 36.875F;
+            this.GroupHeader1.HeightF = 36F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
             // xrLabel8
@@ -284,10 +284,10 @@
             // 
             this.xrLabel9.BorderColor = System.Drawing.Color.Black;
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(465.4999F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(463.5904F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(94.13361F, 36F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(96.04306F, 36F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseBorderColor = false;
             this.xrLabel9.StylePriority.UseForeColor = false;

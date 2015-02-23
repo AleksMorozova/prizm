@@ -115,7 +115,7 @@
             this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 0F);
             this.xrLabel28.Name = "xrLabel28";
             this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel28.SizeF = new System.Drawing.SizeF(71.02338F, 23F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(72.06506F, 23F);
             this.xrLabel28.Text = "xrLabel28";
             // 
             // xrLabel24
