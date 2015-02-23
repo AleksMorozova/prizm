@@ -13,6 +13,6 @@ namespace Prizm.Main.Common
         public const int MinYear = 1950;
         public const int MaxYear = 2150;
 
-        public const string PositiveDigitMask = @"\\d+";
+        public const string PositiveDigitMask = "\\d+";
     }
 }
