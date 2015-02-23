@@ -247,11 +247,11 @@
             // xrLabel8
             // 
             this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(375.5575F, 0F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(365.1408F, 0F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(88.03299F, 36F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(98.44965F, 36F);
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.Text = "Сертификат";
@@ -263,7 +263,7 @@
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(111.9914F, 36F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(101.5748F, 36F);
             this.xrLabel7.StyleName = "FieldCaption";
             this.xrLabel7.StylePriority.UseForeColor = false;
             this.xrLabel7.Text = "Станция назначения";
@@ -284,7 +284,7 @@
             // 
             this.xrLabel9.BorderColor = System.Drawing.Color.Black;
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(463.5905F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(465.4999F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(94.13361F, 36F);
