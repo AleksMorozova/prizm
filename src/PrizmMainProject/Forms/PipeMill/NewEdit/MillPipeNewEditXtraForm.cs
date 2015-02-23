@@ -39,7 +39,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
         private InspectionAddEditXtraForm inspectionForm;
-        private Guid id;
         ICommandManager commandManager = new CommandManager();
         MillPipeNewEditViewModel viewModel;
         WeldersSelectionControl weldersSelectionControl = new WeldersSelectionControl();
@@ -57,11 +56,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
         }
 
-        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+        public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
 
         public MillPipeNewEditXtraForm(Guid id)
         {
-            this.id = id;
+            this.Id = id;
 
             InitializeComponent();
             SetControlsTextLength();
