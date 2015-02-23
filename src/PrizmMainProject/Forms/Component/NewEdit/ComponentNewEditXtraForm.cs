@@ -44,6 +44,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.id = id;
 
             InitializeComponent();
+            
+            SetControlsTextLength();
 
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
@@ -65,6 +67,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
             componentNumber.SetAsIdentifier();
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
+        }
+
+        private void SetControlsTextLength()
+        {
+            componentNumber.Properties.MaxLength = LengthLimit.ComponentNumber;
+            certificateNumber.Properties.MaxLength = LengthLimit.ComponentCertificate;
         }
 
         #region --- Localization ---
