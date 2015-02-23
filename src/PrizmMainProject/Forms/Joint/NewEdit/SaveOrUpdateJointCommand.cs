@@ -50,6 +50,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 try
                 {
                     viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
+                    viewModel.Joint.ToExport = true;
                     repo.BeginTransaction();
                     repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
 
