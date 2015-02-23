@@ -38,7 +38,7 @@
             this.length = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource("PrismDatabase");
+            this.sqlDataSourceForReport = new DevExpress.DataAccess.Sql.SqlDataSource();
             this.pipeWallThicknessLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeTypeLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
@@ -66,7 +66,7 @@
             this.pipeType,
             this.heatNumber,
             this.length});
-            this.Detail.HeightF = 27F;
+            this.Detail.HeightF = 26.00001F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.StyleName = "DataField";
@@ -76,10 +76,10 @@
             // 
             this.pipeNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.number")});
-            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
+            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeNumber.SizeF = new System.Drawing.SizeF(179.2191F, 26F);
+            this.pipeNumber.SizeF = new System.Drawing.SizeF(202.5148F, 26F);
             this.pipeNumber.StyleName = "DataField";
             this.pipeNumber.Text = "pipeNumber";
             // 
@@ -87,7 +87,7 @@
             // 
             this.wallThickness.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.wallThickness")});
-            this.wallThickness.LocationFloat = new DevExpress.Utils.PointFloat(483.2177F, 0.9999911F);
+            this.wallThickness.LocationFloat = new DevExpress.Utils.PointFloat(508.387F, 9.536743E-06F);
             this.wallThickness.Name = "wallThickness";
             this.wallThickness.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.wallThickness.SizeF = new System.Drawing.SizeF(119.2714F, 26F);
@@ -101,7 +101,7 @@
             this.pipeType.LocationFloat = new DevExpress.Utils.PointFloat(202.5148F, 0F);
             this.pipeType.Name = "pipeType";
             this.pipeType.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeType.SizeF = new System.Drawing.SizeF(173.5793F, 26F);
+            this.pipeType.SizeF = new System.Drawing.SizeF(201.3816F, 26F);
             this.pipeType.StyleName = "DataField";
             this.pipeType.Text = "pipeType";
             // 
@@ -109,10 +109,10 @@
             // 
             this.heatNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.Heat_number")});
-            this.heatNumber.LocationFloat = new DevExpress.Utils.PointFloat(602.4892F, 0F);
+            this.heatNumber.LocationFloat = new DevExpress.Utils.PointFloat(627.6585F, 0F);
             this.heatNumber.Name = "heatNumber";
             this.heatNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.heatNumber.SizeF = new System.Drawing.SizeF(110.3415F, 26.00001F);
+            this.heatNumber.SizeF = new System.Drawing.SizeF(120.3413F, 26.00001F);
             this.heatNumber.StyleName = "DataField";
             this.heatNumber.Text = "heatNumber";
             // 
@@ -120,10 +120,10 @@
             // 
             this.length.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.length")});
-            this.length.LocationFloat = new DevExpress.Utils.PointFloat(393.3105F, 0.9999911F);
+            this.length.LocationFloat = new DevExpress.Utils.PointFloat(403.8965F, 9.536743E-06F);
             this.length.Name = "length";
             this.length.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.length.SizeF = new System.Drawing.SizeF(89.90726F, 26F);
+            this.length.SizeF = new System.Drawing.SizeF(104.4906F, 26F);
             this.length.StyleName = "DataField";
             this.length.Text = "length";
             // 
@@ -143,6 +143,8 @@
             // 
             // sqlDataSourceForReport
             // 
+            this.sqlDataSourceForReport.ConnectionName = "PrismDatabase";
+            this.sqlDataSourceForReport.Name = "sqlDataSourceForReport";
             customSqlQuery1.Name = "CustomSqlQuery";
             customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
             this.sqlDataSourceForReport.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
@@ -152,7 +154,7 @@
             // pipeWallThicknessLabel
             // 
             this.pipeWallThicknessLabel.ForeColor = System.Drawing.Color.Black;
-            this.pipeWallThicknessLabel.LocationFloat = new DevExpress.Utils.PointFloat(483.2177F, 0F);
+            this.pipeWallThicknessLabel.LocationFloat = new DevExpress.Utils.PointFloat(508.387F, 0F);
             this.pipeWallThicknessLabel.Name = "pipeWallThicknessLabel";
             this.pipeWallThicknessLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.pipeWallThicknessLabel.SizeF = new System.Drawing.SizeF(119.2715F, 36F);
@@ -166,7 +168,7 @@
             this.pipeTypeLabel.LocationFloat = new DevExpress.Utils.PointFloat(202.5148F, 0F);
             this.pipeTypeLabel.Name = "pipeTypeLabel";
             this.pipeTypeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeTypeLabel.SizeF = new System.Drawing.SizeF(178.7876F, 36F);
+            this.pipeTypeLabel.SizeF = new System.Drawing.SizeF(201.3816F, 36F);
             this.pipeTypeLabel.StyleName = "FieldCaption";
             this.pipeTypeLabel.StylePriority.UseForeColor = false;
             this.pipeTypeLabel.Text = "Тип трубы";
@@ -177,7 +179,7 @@
             this.pipeNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pipeNumberLabel.Name = "pipeNumberLabel";
             this.pipeNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeNumberLabel.SizeF = new System.Drawing.SizeF(179.2191F, 36F);
+            this.pipeNumberLabel.SizeF = new System.Drawing.SizeF(202.5148F, 36F);
             this.pipeNumberLabel.StyleName = "FieldCaption";
             this.pipeNumberLabel.StylePriority.UseForeColor = false;
             this.pipeNumberLabel.Text = "Заводской номер трубы";
@@ -185,10 +187,10 @@
             // pipeLengthLabel
             // 
             this.pipeLengthLabel.ForeColor = System.Drawing.Color.Black;
-            this.pipeLengthLabel.LocationFloat = new DevExpress.Utils.PointFloat(393.3105F, 0F);
+            this.pipeLengthLabel.LocationFloat = new DevExpress.Utils.PointFloat(403.8964F, 0F);
             this.pipeLengthLabel.Name = "pipeLengthLabel";
             this.pipeLengthLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeLengthLabel.SizeF = new System.Drawing.SizeF(89.90726F, 36F);
+            this.pipeLengthLabel.SizeF = new System.Drawing.SizeF(104.4906F, 36F);
             this.pipeLengthLabel.StyleName = "FieldCaption";
             this.pipeLengthLabel.StylePriority.UseForeColor = false;
             this.pipeLengthLabel.Text = "Длина";
@@ -196,10 +198,10 @@
             // heatNumberLabel
             // 
             this.heatNumberLabel.ForeColor = System.Drawing.Color.Black;
-            this.heatNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(602.4892F, 0F);
+            this.heatNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(627.6585F, 0F);
             this.heatNumberLabel.Name = "heatNumberLabel";
             this.heatNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.heatNumberLabel.SizeF = new System.Drawing.SizeF(110.3415F, 36F);
+            this.heatNumberLabel.SizeF = new System.Drawing.SizeF(120.3414F, 36F);
             this.heatNumberLabel.StyleName = "FieldCaption";
             this.heatNumberLabel.StylePriority.UseForeColor = false;
             this.heatNumberLabel.Text = "Номер плавки";
@@ -212,7 +214,7 @@
             this.heatNumberLabel,
             this.pipeWallThicknessLabel,
             this.pipeLengthLabel});
-            this.groupHeader.HeightF = 40F;
+            this.groupHeader.HeightF = 36F;
             this.groupHeader.Name = "groupHeader";
             this.groupHeader.StyleName = "FieldCaption";
             // 
@@ -221,25 +223,25 @@
             this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.datePageInfo,
             this.numberOfPageInfo});
-            this.pageFooter.HeightF = 49.8333F;
+            this.pageFooter.HeightF = 23F;
             this.pageFooter.Name = "pageFooter";
             // 
             // datePageInfo
             // 
-            this.datePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(6F, 16.8333F);
+            this.datePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.datePageInfo.Name = "datePageInfo";
             this.datePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.datePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.datePageInfo.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.datePageInfo.SizeF = new System.Drawing.SizeF(202.5148F, 23F);
             this.datePageInfo.StyleName = "PageInfo";
             // 
             // numberOfPageInfo
             // 
             this.numberOfPageInfo.Format = "Page {0} of {1}";
-            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(425F, 16.8333F);
+            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(627.6585F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
             this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(120.3415F, 23F);
             this.numberOfPageInfo.StyleName = "PageInfo";
             this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -247,16 +249,16 @@
             // 
             this.reportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.reportHeaderLabel});
-            this.reportHeader.HeightF = 51F;
+            this.reportHeader.HeightF = 33F;
             this.reportHeader.Name = "reportHeader";
             // 
             // reportHeaderLabel
             // 
             this.reportHeaderLabel.ForeColor = System.Drawing.Color.Black;
-            this.reportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 6.00001F);
+            this.reportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.reportHeaderLabel.Name = "reportHeaderLabel";
             this.reportHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(732F, 33F);
+            this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(748F, 33F);
             this.reportHeaderLabel.StyleName = "Title";
             this.reportHeaderLabel.StylePriority.UseForeColor = false;
             this.reportHeaderLabel.Text = "IncomingInspection";
@@ -306,17 +308,17 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageHeaderLabel});
-            this.PageHeader.HeightF = 75F;
+            this.PageHeader.HeightF = 33.33333F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
             // 
             // pageHeaderLabel
             // 
             this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
-            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(10F, 25F);
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pageHeaderLabel.Name = "pageHeaderLabel";
             this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(732F, 33F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(747.9999F, 33F);
             this.pageHeaderLabel.StyleName = "Title";
             this.pageHeaderLabel.StylePriority.UseForeColor = false;
             this.pageHeaderLabel.Text = "IncomingInspection";
@@ -339,7 +341,7 @@
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
-            this.Version = "14.1";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

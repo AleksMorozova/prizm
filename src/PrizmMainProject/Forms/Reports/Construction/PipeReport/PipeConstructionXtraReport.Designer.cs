@@ -45,15 +45,12 @@
             this.secondJointHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.firstJointHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.gradeHeader = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.seamTypeHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.thicknessHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.lengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.diameterHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -69,7 +66,7 @@
             this.diameter,
             this.pipeNumber,
             this.seamType});
-            this.Detail.HeightF = 32.29168F;
+            this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -78,7 +75,7 @@
             // 
             this.secondJoint.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondJointNumber")});
-            this.secondJoint.LocationFloat = new DevExpress.Utils.PointFloat(589.5833F, 9.29168F);
+            this.secondJoint.LocationFloat = new DevExpress.Utils.PointFloat(589.5831F, 0F);
             this.secondJoint.Name = "secondJoint";
             this.secondJoint.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.secondJoint.SizeF = new System.Drawing.SizeF(60.41669F, 23F);
@@ -87,70 +84,70 @@
             // 
             this.firstJoint.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "FirstJointNumber")});
-            this.firstJoint.LocationFloat = new DevExpress.Utils.PointFloat(505.0596F, 9.29168F);
+            this.firstJoint.LocationFloat = new DevExpress.Utils.PointFloat(505.0596F, 0F);
             this.firstJoint.Name = "firstJoint";
             this.firstJoint.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.firstJoint.SizeF = new System.Drawing.SizeF(60.41663F, 23F);
+            this.firstJoint.SizeF = new System.Drawing.SizeF(84.52368F, 23F);
             // 
             // grade
             // 
             this.grade.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "GradeType")});
-            this.grade.LocationFloat = new DevExpress.Utils.PointFloat(420.5358F, 9.29168F);
+            this.grade.LocationFloat = new DevExpress.Utils.PointFloat(420.5358F, 0F);
             this.grade.Name = "grade";
             this.grade.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.grade.SizeF = new System.Drawing.SizeF(60.41663F, 23F);
+            this.grade.SizeF = new System.Drawing.SizeF(84.52383F, 23F);
             // 
             // thickness
             // 
             this.thickness.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Thickness")});
-            this.thickness.LocationFloat = new DevExpress.Utils.PointFloat(251.4882F, 9.29168F);
+            this.thickness.LocationFloat = new DevExpress.Utils.PointFloat(251.4882F, 0F);
             this.thickness.Name = "thickness";
             this.thickness.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.thickness.SizeF = new System.Drawing.SizeF(60.41664F, 23F);
+            this.thickness.SizeF = new System.Drawing.SizeF(84.52379F, 23F);
             // 
             // length
             // 
             this.length.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Length")});
-            this.length.LocationFloat = new DevExpress.Utils.PointFloat(166.9644F, 9.29168F);
+            this.length.LocationFloat = new DevExpress.Utils.PointFloat(166.9644F, 0F);
             this.length.Name = "length";
             this.length.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.length.SizeF = new System.Drawing.SizeF(60.41667F, 23F);
+            this.length.SizeF = new System.Drawing.SizeF(84.5238F, 23F);
             // 
             // diameter
             // 
             this.diameter.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Diameter")});
-            this.diameter.LocationFloat = new DevExpress.Utils.PointFloat(82.44057F, 9.29168F);
+            this.diameter.LocationFloat = new DevExpress.Utils.PointFloat(82.44057F, 0F);
             this.diameter.Name = "diameter";
             this.diameter.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.diameter.SizeF = new System.Drawing.SizeF(60.41667F, 23F);
+            this.diameter.SizeF = new System.Drawing.SizeF(84.5238F, 23F);
             // 
             // pipeNumber
             // 
             this.pipeNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "PipeNumber")});
-            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.29168F);
+            this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeNumber.SizeF = new System.Drawing.SizeF(60.41667F, 23F);
+            this.pipeNumber.SizeF = new System.Drawing.SizeF(82.44055F, 23F);
             // 
             // seamType
             // 
             this.seamType.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "SeamType")});
-            this.seamType.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 9.29168F);
+            this.seamType.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 0F);
             this.seamType.Name = "seamType";
             this.seamType.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.seamType.SizeF = new System.Drawing.SizeF(60.41663F, 23F);
+            this.seamType.SizeF = new System.Drawing.SizeF(84.52377F, 23F);
             // 
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pipeConstructionReportHeader});
-            this.TopMargin.HeightF = 100F;
+            this.TopMargin.HeightF = 90.00002F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -178,19 +175,17 @@
             this.secondJointHeader,
             this.firstJointHeader,
             this.gradeHeader,
-            this.xrLine2,
-            this.xrLine1,
             this.seamTypeHeader,
             this.thicknessHeader,
             this.lengthHeader,
             this.diameterHeader,
             this.pipeNumberHeader});
-            this.ReportHeader.HeightF = 61.45833F;
+            this.ReportHeader.HeightF = 38.37497F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // secondJointHeader
             // 
-            this.secondJointHeader.LocationFloat = new DevExpress.Utils.PointFloat(589.5833F, 11.54165F);
+            this.secondJointHeader.LocationFloat = new DevExpress.Utils.PointFloat(589.5833F, 0F);
             this.secondJointHeader.Name = "secondJointHeader";
             this.secondJointHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.secondJointHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
@@ -198,84 +193,64 @@
             // 
             // firstJointHeader
             // 
-            this.firstJointHeader.LocationFloat = new DevExpress.Utils.PointFloat(505.0596F, 11.54165F);
+            this.firstJointHeader.LocationFloat = new DevExpress.Utils.PointFloat(505.0596F, 0F);
             this.firstJointHeader.Name = "firstJointHeader";
             this.firstJointHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.firstJointHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.firstJointHeader.SizeF = new System.Drawing.SizeF(84.52368F, 38.37497F);
             this.firstJointHeader.Text = "Первый стык";
             // 
             // gradeHeader
             // 
-            this.gradeHeader.LocationFloat = new DevExpress.Utils.PointFloat(420.5358F, 11.54165F);
+            this.gradeHeader.LocationFloat = new DevExpress.Utils.PointFloat(420.5358F, 0F);
             this.gradeHeader.Name = "gradeHeader";
             this.gradeHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.gradeHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.gradeHeader.SizeF = new System.Drawing.SizeF(84.5238F, 38.37497F);
             this.gradeHeader.Text = "Марка стали";
-            // 
-            // xrLine2
-            // 
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 49.91665F);
-            this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(650F, 11.54167F);
-            // 
-            // xrLine1
-            // 
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(650F, 11.54167F);
             // 
             // seamTypeHeader
             // 
-            this.seamTypeHeader.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 11.54165F);
+            this.seamTypeHeader.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 0F);
             this.seamTypeHeader.Name = "seamTypeHeader";
             this.seamTypeHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.seamTypeHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.seamTypeHeader.SizeF = new System.Drawing.SizeF(84.5238F, 38.37497F);
             this.seamTypeHeader.Text = "Тип шва";
             // 
             // thicknessHeader
             // 
-            this.thicknessHeader.LocationFloat = new DevExpress.Utils.PointFloat(251.4882F, 11.54165F);
+            this.thicknessHeader.LocationFloat = new DevExpress.Utils.PointFloat(251.4882F, 0F);
             this.thicknessHeader.Name = "thicknessHeader";
             this.thicknessHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.thicknessHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.thicknessHeader.SizeF = new System.Drawing.SizeF(84.52379F, 38.37497F);
             this.thicknessHeader.Text = "Толщина, мм";
             // 
             // lengthHeader
             // 
-            this.lengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(166.9644F, 11.54165F);
+            this.lengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(166.9644F, 0F);
             this.lengthHeader.Name = "lengthHeader";
             this.lengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lengthHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.lengthHeader.SizeF = new System.Drawing.SizeF(84.5238F, 38.37497F);
             this.lengthHeader.Text = "Длина, мм";
             // 
             // diameterHeader
             // 
-            this.diameterHeader.LocationFloat = new DevExpress.Utils.PointFloat(82.44057F, 11.54165F);
+            this.diameterHeader.LocationFloat = new DevExpress.Utils.PointFloat(82.44057F, 0F);
             this.diameterHeader.Name = "diameterHeader";
             this.diameterHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.diameterHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.diameterHeader.SizeF = new System.Drawing.SizeF(84.52382F, 38.37497F);
             this.diameterHeader.Text = "Диаметр, мм";
             // 
             // pipeNumberHeader
             // 
-            this.pipeNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 11.54168F);
+            this.pipeNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pipeNumberHeader.Name = "pipeNumberHeader";
             this.pipeNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeNumberHeader.SizeF = new System.Drawing.SizeF(60.41667F, 38.37497F);
+            this.pipeNumberHeader.SizeF = new System.Drawing.SizeF(82.44056F, 38.37497F);
             this.pipeNumberHeader.Text = "Номер трубы";
             // 
             // ReportFooter
             // 
-            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLine3});
-            this.ReportFooter.HeightF = 29.16667F;
+            this.ReportFooter.HeightF = 12.5F;
             this.ReportFooter.Name = "ReportFooter";
-            // 
-            // xrLine3
-            // 
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLine3.Name = "xrLine3";
-            this.xrLine3.SizeF = new System.Drawing.SizeF(650F, 11.54167F);
             // 
             // bindingSource
             // 
@@ -290,6 +265,7 @@
             this.ReportHeader,
             this.ReportFooter});
             this.DataSource = this.bindingSource;
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 90, 100);
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -318,11 +294,8 @@
         private DevExpress.XtraReports.UI.XRLabel secondJointHeader;
         private DevExpress.XtraReports.UI.XRLabel firstJointHeader;
         private DevExpress.XtraReports.UI.XRLabel gradeHeader;
-        private DevExpress.XtraReports.UI.XRLine xrLine2;
-        private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLabel seamTypeHeader;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
-        private DevExpress.XtraReports.UI.XRLine xrLine3;
         private DevExpress.XtraReports.UI.XRLabel pipeConstructionReportHeader;
     }
 }
