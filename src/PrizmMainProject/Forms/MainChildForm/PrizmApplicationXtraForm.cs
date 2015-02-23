@@ -42,6 +42,7 @@ using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Setup;
 using System.Drawing;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -399,6 +400,10 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             notifyBarStaticItem.Caption = text;
             notifyHistory.Items.Add(text);
+            while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
+            {
+                notifyHistory.Items.RemoveAt(0);
+            }
         }
 
         private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)
