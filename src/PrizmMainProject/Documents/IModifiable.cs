@@ -12,5 +12,7 @@ namespace Prizm.Main.Documents
 
         bool IsEditMode { get; set; }
         void UpdateState();
+
+        Guid Id { get; set; }
     }
 }
