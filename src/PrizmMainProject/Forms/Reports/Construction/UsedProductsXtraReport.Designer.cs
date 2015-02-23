@@ -48,7 +48,7 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource("PrismDatabase");
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -56,7 +56,7 @@
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel2,
             this.xrLabel1});
-            this.Detail.HeightF = 30F;
+            this.Detail.HeightF = 23.74999F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -65,10 +65,10 @@
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.type")});
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(275F, 0F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(318.7499F, 23F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(324.9999F, 23F);
             this.xrLabel2.Text = "xrLabel2";
             // 
             // xrLabel1
@@ -78,7 +78,7 @@
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(275F, 23F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(325F, 23F);
             this.xrLabel1.Text = "xrLabel1";
             // 
             // GroupHeader
@@ -86,41 +86,41 @@
             this.GroupHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.productTypeLabel,
             this.productNumberLabel});
-            this.GroupHeader.HeightF = 42.79166F;
+            this.GroupHeader.HeightF = 23F;
             this.GroupHeader.KeepTogether = true;
             this.GroupHeader.Name = "GroupHeader";
             this.GroupHeader.RepeatEveryPage = true;
             // 
             // productTypeLabel
             // 
-            this.productTypeLabel.LocationFloat = new DevExpress.Utils.PointFloat(275F, 6.66666F);
+            this.productTypeLabel.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
             this.productTypeLabel.Name = "productTypeLabel";
             this.productTypeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.productTypeLabel.SizeF = new System.Drawing.SizeF(318.75F, 23F);
+            this.productTypeLabel.SizeF = new System.Drawing.SizeF(325F, 23F);
             this.productTypeLabel.Text = "Тип изделия";
             // 
             // productNumberLabel
             // 
-            this.productNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 6.66666F);
+            this.productNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.productNumberLabel.Name = "productNumberLabel";
             this.productNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.productNumberLabel.SizeF = new System.Drawing.SizeF(275F, 23F);
+            this.productNumberLabel.SizeF = new System.Drawing.SizeF(325F, 23F);
             this.productNumberLabel.Text = "Номер изделия";
             // 
             // PageFooter
             // 
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.numberOfPageInfo});
-            this.PageFooter.HeightF = 100F;
+            this.PageFooter.HeightF = 25F;
             this.PageFooter.Name = "PageFooter";
             // 
             // numberOfPageInfo
             // 
             this.numberOfPageInfo.Format = "Page {0} of {1}";
-            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(584.3959F, 76.99998F);
+            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
             this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(65.60406F, 23F);
+            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(325.0001F, 23F);
             this.numberOfPageInfo.StyleName = "EvenStyle";
             // 
             // TableHeader
@@ -136,7 +136,7 @@
             this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.groupHeaderLabel.Name = "groupHeaderLabel";
             this.groupHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(459.375F, 40.70836F);
+            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.groupHeaderLabel.StyleName = "Header";
             this.groupHeaderLabel.StylePriority.UseFont = false;
             this.groupHeaderLabel.Text = "Отчет по использованным изделиям";
@@ -181,37 +181,39 @@
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.groupHeaderLabel});
-            this.ReportHeader.HeightF = 48.00002F;
+            this.ReportHeader.HeightF = 40.70836F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageHeaderLabel});
-            this.PageHeader.HeightF = 62.5F;
+            this.PageHeader.HeightF = 41.66667F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
             // 
             // pageHeaderLabel
             // 
             this.pageHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 20F);
-            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pageHeaderLabel.Name = "pageHeaderLabel";
             this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(459.375F, 40.70836F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.pageHeaderLabel.StyleName = "Header";
             this.pageHeaderLabel.StylePriority.UseFont = false;
             this.pageHeaderLabel.Text = "Отчет по использованным изделиям";
             // 
             // sqlDataSource1
             // 
+            this.sqlDataSource1.ConnectionName = "PrismDatabase";
+            this.sqlDataSource1.Name = "sqlDataSource1";
             customSqlQuery1.Name = "CustomSqlQuery";
             customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = "PERhdGFTZXQ+PFZpZXcgTmFtZT0iQ3VzdG9tU3FsUXVlcnkiPjxGaWVsZCBOYW1lPSJudW1iZXIiIFR5c" +
-    "GU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0idHlwZSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0Rhd" +
-    "GFTZXQ+";
+            this.sqlDataSource1.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48R" +
+    "mllbGQgTmFtZT0ibnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InR5cGUiIFR5cGU9I" +
+    "lN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==";
             // 
             // UsedProductsXtraReport
             // 
@@ -231,7 +233,7 @@
             this.TableHeader,
             this.OddStyle,
             this.EvenStyle});
-            this.Version = "14.1";
+            this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
