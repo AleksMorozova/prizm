@@ -71,22 +71,48 @@ namespace Prizm.Main.Forms.Spool
                             repos.BeginTransaction();
                             repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
                             repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+
+                            var filesViewModel = viewModel.FilesFormViewModel;
+
+                            //saving attached documents
+                            bool fileCopySuccess = true;
+                            if (null != filesViewModel)
+                            {
+                                filesViewModel.FileRepo = repos.FileRepo;
+                                viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
+                                if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
+                                {
+                                    fileCopySuccess = false;
+                                    repos.Rollback();
+                                }
+                            }
+
                             repos.Commit();
                             repos.PipeRepo.Evict(viewModel.Pipe);
                             repos.SpoolRepo.Evict(viewModel.Spool);
 
-                            //saving attached documents
-                            if (viewModel.FilesFormViewModel != null)
+                            if (fileCopySuccess)
                             {
-                                viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
-                                viewModel.FilesFormViewModel.AddExternalFileCommand.Execute();
+                                if (null != filesViewModel)
+                                { 
+                                    filesViewModel.DetachFileEntities(); 
+                                }
+
+                                notify.ShowSuccess(
+                                     string.Concat(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe), viewModel.Spool.Id),
+                                     Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                             }
+                            else
+                            {
+                                notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                            }
+
                             viewModel.ModifiableView.IsModified = false;
 
                             notify.ShowNotify(
                                 Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
-                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader)
-                                );
+                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
 
                             log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
                                 viewModel.Spool.Number,

@@ -38,8 +38,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public PartInspectionXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.inControl_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetAlwaysEditable(searchNumber);
             searchNumber.SetAsIdentifier();
             IsEditMode = true;
@@ -83,11 +81,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
             searchNumber.DataBindings.Add("Editvalue", bindingSource, "SearchNumber");
             elementNumber.DataBindings.Add("Text", bindingSource, "ElementNumber");
 
-            Binding bind = new Binding("EditValue", bindingSource, "ElementType");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { originalPart = (PartType)e.Value; e.Value = (string)localizedAllPartTypes[(int)e.Value]; };
-            bind.Parse += (sender, e) => { e.Value = originalPart; };
-            elementType.DataBindings.Add(bind);
+            elementType.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", bindingSource, "ElementType",
+                (value) =>
+                {
+                    return (string)localizedAllPartTypes[(int)value];
+                }));
 
             inspections.DataBindings.Add("DataSource", bindingSource, "InspectionTestResults");
 

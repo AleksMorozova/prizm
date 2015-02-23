@@ -41,6 +41,7 @@ namespace PrizmMain.Forms.Notifications
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationXtraForm));
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlNotification = new DevExpress.XtraLayout.LayoutControl();
@@ -251,6 +252,7 @@ namespace PrizmMain.Forms.Notifications
             // 
             this.ClientSize = new System.Drawing.Size(859, 548);
             this.Controls.Add(this.layoutControlNotification);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NotificationXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Окно уведомлений";

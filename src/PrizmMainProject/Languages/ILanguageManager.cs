@@ -19,6 +19,5 @@ namespace Prizm.Main.Languages
         string GetString(StringResource resourceDescription);
         IEnumerable<StringResource> EnumerateStringResources(System.Type stringResourcesStaticClassType);
         StringResource? FindById(System.Type stringResourcesStaticClassType, string resourceId);
-        bool ApplyUsersLanguage(User user);
     }
 }

@@ -64,8 +64,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.id = id;
 
             InitializeComponent();
-            Bitmap bmp = Resources.mill_pipe_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetControlsTextLength();
             viewModel = (MillPipeNewEditViewModel)Program
                 .Kernel
@@ -126,17 +124,18 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
 
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllPipeTestResultStatus.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0:true))
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -227,7 +226,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 .Add("EditValue", pipeNewEditBindingSource, "RailcarDestination");
 
             plateNumber.DataBindings
-                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber");
+                .Add("EditValue", pipeNewEditBindingSource, "PlateNumber", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
             inspections.DataBindings
@@ -242,11 +241,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             resultStatusLookUpEdit.DataSource = viewModel.TestResultStatuses;
 
-            Binding bind = new Binding("EditValue", pipeNewEditBindingSource, "PipeStatus");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { originalStatus = (PipeMillStatus)e.Value; e.Value = (string)localizedAllPipeMillStatus[(int)e.Value]; };
-            bind.Parse += (sender, e) => { e.Value = originalStatus; };
-            millStatus.DataBindings.Add(bind);
+            millStatus.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", pipeNewEditBindingSource, "PipeStatus",
+                (value) =>
+                {
+                    return (string)localizedAllPipeMillStatus[(int)value];
+                }));
 
             ordersLookUp.DataBindings.Add("EditValue", pipeNewEditBindingSource, "PipePurchaseOrder");
 
@@ -378,7 +378,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         new string [] {StringResources.NewEditPipe_PipeStatusUndefined.Id, 
                             StringResources.NewEditPipe_PipeStatusProduced.Id, 
                             StringResources.NewEditPipe_PipeStatusStocked.Id, 
-                            StringResources.NewEditPipe_PipeStatusShipped.Id} ),
+                            StringResources.NewEditPipe_PipeStatusShipped.Id,
+                            StringResources.NewEditPipe_ReadyToShip.Id} ),
 
                     //grid enums
                     new LocalizedItem (inspectionsGridView, localizedAllPipeTestResultStatus, new string [] { StringResources.PipeTestResultStatus_Scheduled.Id,
@@ -472,7 +473,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
@@ -552,7 +552,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             GridView view = sender as GridView;
             view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
-            view.RefreshData();
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -562,6 +561,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 Weld weld = view.GetRow(e.RowHandle) as Weld;
                 weld.Pipe = viewModel.Pipe;
+                weld.Date = DateTime.Now;
             }
         }
 
@@ -709,8 +709,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             }
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
@@ -834,15 +834,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void ordersLookUp_Validated(object sender, EventArgs e)
         {
-            commandManager.RefreshVisualState();
-        }
-
-        private void plateNumber_EditValueChanged(object sender, EventArgs e)
-        {
-            if (plateNumber.IsEditorActive)
-            {
-                viewModel.PlateNumber = plateNumber.Text;
-            }
             commandManager.RefreshVisualState();
         }
 
@@ -1013,6 +1004,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     }
                 }
             }
+        }
+
+        private void plateNumber_TextChanged(object sender, EventArgs e)
+        {
+            commandManager.RefreshVisualState();
         }
     }
 }

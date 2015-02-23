@@ -74,6 +74,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
             }
+            else
+            {
+                //Refresh property so that binded control become unchecked
+                viewModel.ComponentIsActive = false;
+                viewModel.ComponentIsActive = true;
+            }
             RefreshVisualStateEvent();
         }
 

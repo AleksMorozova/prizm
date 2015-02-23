@@ -31,8 +31,6 @@ namespace Prizm.Main.Forms.Reports.Mill
         public MillReportsXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.reports_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void BindToViewModel()

@@ -312,6 +312,7 @@
     <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\DuplicateLoginLoader.cs" />
     <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
     <Compile Include="Forms\Notifications\Data\WelderCertificateLoader.cs" />
     <Compile Include="Forms\Notifications\INotificationManager.cs" />
@@ -325,6 +326,7 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Notifications\Strategy\DublicateLoginFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\DublicateNumberFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />

@@ -41,8 +41,6 @@ namespace Prizm.Main.Forms.Spool
             this.id = id;
 
             InitializeComponent();
-            Bitmap bmp = Resources.spool_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             SetControlsTextLength();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
@@ -65,6 +63,7 @@ namespace Prizm.Main.Forms.Spool
             IsEditMode = true;//do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }
@@ -156,6 +155,7 @@ namespace Prizm.Main.Forms.Spool
                 new LocalizedItem(pipeSearchayoutGroup, "Spool_PipeSearchGroup"),
                 new LocalizedItem(spoolLayoutGroup, "Spool_SpoolGroup"),
                 new LocalizedItem(layoutlengthGroup, "Spool_LenghtGroup"),
+                new LocalizedItem(incomingInspectionLayoutGroup, "Spool_IncomingInspectionGroup"),
 
                 new LocalizedItem(inspectionDateGridColumn, "Spool_InspectionDateColumn"),
                 new LocalizedItem(inspectionResultGridColumn, "Spool_InspectionResultColumn"),
@@ -186,8 +186,8 @@ namespace Prizm.Main.Forms.Spool
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

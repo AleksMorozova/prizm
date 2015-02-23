@@ -19,8 +19,6 @@ namespace Prizm.Main.Forms.Reports.Incoming
         public InspectionReportsXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.reports_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void BindToViewModel()

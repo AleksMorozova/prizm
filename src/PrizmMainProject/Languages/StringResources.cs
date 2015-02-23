@@ -13,6 +13,12 @@ namespace Prizm.Main.Languages
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
 
+        public static StringResource NewEditPipe_ReadyToShip = new StringResource
+        {
+            Id = "NewEditPipe_ReadyToShip",
+            Description = "Готова к отгрузке"
+        };
+
         public static StringResource WaitScreen_Caption = new StringResource
         {
             Id = "WaitScreen_Caption",
@@ -23,6 +29,12 @@ namespace Prizm.Main.Languages
         {
             Id = "WaitScreen_Description",
             Description = "Идет загрузка ..."
+        };
+
+        public static StringResource ChechedCombobox_SelectAll = new StringResource
+        {
+            Id = "ChechedCombobox_SelectAll",
+            Description = "Выпадающий список. Выбрать все"
         };
 
         public static StringResource FixedCategoryLengthPassedHeader = new StringResource
@@ -431,7 +443,41 @@ namespace Prizm.Main.Languages
              Description = "Заголовок для ошибки запуска отчёта: Неверный диапазон дат"
          };
 
+         public static StringResource Message_OpenSettingsForViewing = new StringResource
+         {
+             Id = "Message_OpenSettingsForViewing",
+             Description = "Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?"
+         };
 
+         public static StringResource Message_OpenSettingsForViewingHeader = new StringResource
+         {
+             Id = "Message_OpenSettingsForViewingHeader",
+             Description = "Заголовок для сообщения об открытии настроек: Открыть настройки в режиме просмотра?"
+         };
+
+         public static StringResource Message_OpenFormForViewing = new StringResource
+         {
+             Id = "Message_OpenFormForViewing",
+             Description = "Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?"
+         };
+
+         public static StringResource Message_OpenFormForViewingHeader = new StringResource
+         {
+             Id = "Message_OpenFormForViewingHeader",
+             Description = "Заголовок для сообщения об открытии формы: Открыть форму в режиме просмотра?"
+         };
+
+         public static StringResource Message_CannotOpenForViewing = new StringResource
+         {
+             Id = "Message_CannotOpenForViewing",
+             Description = "Сообщение о невозможности открыть форму: Невозможно открыть форму для просмотра. Для продолжения закройте настройки"
+         };
+
+         public static StringResource Message_CannotOpenForViewingHeader = new StringResource
+         {
+             Id = "Message_CannotOpenForViewingHeader",
+             Description = "Заголок для сообщения о невозмости открытия формы в режиме просмотра: Невозможно открыть форму для просмотра"
+         };
 
         #endregion // --- Common
 
@@ -973,6 +1019,12 @@ namespace Prizm.Main.Languages
             Description = "Катушка. Длины трубы и катушки"
         };
 
+        public static StringResource Spool_IncomingInspectionGroup = new StringResource
+        {
+            Id = "Spool_IncomingInspectionGroup",
+            Description = "Катушка. Входной контроль"
+        };
+
         public static StringResource Spool_InspectionDateColumn = new StringResource
         {
             Id = "Spool_InspectionDateColumn",
@@ -1050,6 +1102,20 @@ namespace Prizm.Main.Languages
             Id = "Spool_DeactivatedHeader",
             Description = "Деактивация катушки"
         };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail_Header = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipeFail_Header",
+            Description = "Ошибка при сохранении катушки"
+        };
+
+        public static StringResource Spool_CutSpoolFromPipe_Fail = new StringResource
+        {
+            Id = "Spool_CutSpoolFromPipe_Fail",
+            Description = "Катушка не сохранена"
+        };
+
+
         
         #endregion Spool
 
@@ -1111,6 +1177,11 @@ namespace Prizm.Main.Languages
         {
             Id = "Settings_ValueRequired",
             Description = "Обязательное значение"
+        };
+        public static StringResource Settings_UniqueLogin = new StringResource
+        {
+            Id = "Settings_UniqueLogin",
+            Description = "Значение должно быть уникальным"
         };
         public static StringResource Settings_UniqueValueRequired = new StringResource
         {
@@ -1255,6 +1326,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsProject_CommonGroup",
             Description = "Настройки-Проект. Общие настройки"
         };
+
+        public static StringResource SettingsProject_TechParametersGroup = new StringResource
+        {
+            Id = "SettingsProject_TechParametersGroup",
+            Description = "Настройки-Проект. Надпись группы техничекских параметров"
+        };
+
         public static StringResource SettingsProject_MillGroup = new StringResource
         {
             Id = "SettingsProject_MillGroup",
@@ -1665,6 +1743,13 @@ namespace Prizm.Main.Languages
             Id = "SettingsUser_UsersLabel",
             Description = "Настройки - Пользователи. Список пользователей"
         };
+
+        public static StringResource SettingsUser_RolesLabel = new StringResource
+        {
+            Id = "SettingsUser_RolesLabel",
+            Description = "Настройки - Пользователи. Список ролей"
+        };
+
         public static StringResource SettingsUser_LoginColumn = new StringResource
         {
             Id = "SettingsUser_LoginColumn",
@@ -2296,7 +2381,11 @@ namespace Prizm.Main.Languages
             Description = "Внешние файлы"
         };
 
-        
+        public static StringResource ExternalFiles_CloseButton = new StringResource
+        {
+            Id = "ExternalFiles_CloseButton",
+            Description = "Вложения. Кнопка закрытия"
+        };
         #endregion
 
         #region --- CreateSpoolComponentDialog ---
@@ -3786,6 +3875,12 @@ namespace Prizm.Main.Languages
             Id = "SearchPipe_Title",
             Description = "Поиск труб"
         };
+
+        public static StringResource SearchPipe_MillStatusUndefined = new StringResource
+        {
+            Id = "SearchPipe_MillStatusUndefined",
+            Description = "Не определен"
+        };
         public static StringResource SearchPipe_MillStatusProduced = new StringResource
         {
             Id = "SearchPipe_MillStatusProduced",
@@ -3800,6 +3895,11 @@ namespace Prizm.Main.Languages
         {
             Id = "SearchPipe_MillStatusShipped",
             Description = "Поиск труб. статус отгружена"
+        };
+        public static StringResource SearchPipe_ReadyToShip = new StringResource
+        {
+            Id = "SearchPipe_ReadyToShip",
+            Description = "Готова к отгрузке"
         };
         public static StringResource SearchPipe_ActivityComboActive = new StringResource
         {
@@ -4105,7 +4205,18 @@ namespace Prizm.Main.Languages
             Id = "ReleaseNoteNewEdit_PipeNumberLayout",
             Description = "Разрешение на отгрузку. Надпись номера трубы"
         };
-        
+
+        public static StringResource ReleaseNoteNewEdit_ReleaseNoteLayoutGroup = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_ReleaseNoteLayoutGroup",
+            Description = "Разрешение на отгрузку. Надпись параметров разрешения"
+        };
+
+        public static StringResource ReleaseNoteNewEdit_StatusLayout= new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_StatusLayout",
+            Description = "Разрешение на отгрузку. Надпись статуса"
+        };
 
         #endregion //--- Railcar NewEdit ---
 
@@ -4398,10 +4509,48 @@ namespace Prizm.Main.Languages
             Id = "InspectionAddEdit_CancelButton",
             Description = "Контрольная операция. Кнопка отмена"
         };
+
+        public static StringResource Inspection_ExistingCodeError = new StringResource
+        {
+            Id = "Inspection_ExistingCodeError",
+            Description = "Сообщение об ошибке: Уже существует операция с номером:"
+        };
+
+        public static StringResource Inspection_ExistingCodeErrorHeader = new StringResource
+        {
+            Id = "Inspection_ExistingCodeErrorHeader",
+            Description = "Заголовок сообщения о дублировании кода: Дублирование кода контрольной операции"
+        };
+
         #endregion
 
         #region --- Notification ---
+        
+        public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_LayoutControlItemNotification",
+            Description = "Сообщения"
+        };
 
+        public static StringResource NotificationXtraForm_ColDate = new StringResource
+        {
+            Id = "NotificationXtraForm_ColDate",
+            Description = "Дата"
+        };
+
+        public static StringResource NotificationXtraForm_ColNotification = new StringResource
+        {
+            Id = "NotificationXtraForm_ColNotification",
+            Description = "Сообщение"
+        };
+
+        public static StringResource NotificationXtraForm_ColName = new StringResource
+        {
+            Id = "NotificationXtraForm_ColName",
+            Description = "Регистратор"
+        };
+        
+        
         public static StringResource NotificationXtraForm_Title = new StringResource
         {
             Id = "NotificationXtraForm_Title",
@@ -4436,8 +4585,12 @@ namespace Prizm.Main.Languages
             Id = "Notification_WelderCertificateExpired_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
- 
-        
+
+        public static StringResource Notification_DublicateLogin_Critical = new StringResource
+        {
+            Id = "Notification_DublicateLogin_Critical",
+            Description = "Сообщение о дублировании логинов"
+        };
         #endregion //--- Notification ---
     }
 } 

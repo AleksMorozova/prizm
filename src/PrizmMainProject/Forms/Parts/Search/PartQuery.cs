@@ -52,9 +52,13 @@ namespace Prizm.Main.Forms.Parts.Search
                 {
                     number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
                 }
-                else if ( Activity == ActivityCriteria.StatusUnactive)
+                else if (Activity == ActivityCriteria.StatusUnactive)
                 {
-                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters()); 
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters());
+                }
+                else
+                {
+                    number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ", number.EscapeCharacters());
                 }
             }
 
@@ -96,6 +100,8 @@ namespace Prizm.Main.Forms.Parts.Search
             }
             //delete last UNION
             queries.RemoveAt(queries.Count - 1);
+
+            queries.Add(" ORDER BY number ASC ");
 
             queries.ForEach(x => sb.Append(x));
 

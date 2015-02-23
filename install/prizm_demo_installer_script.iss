@@ -77,6 +77,7 @@ Source: "{#DevExpressPath}DevExpress.RichEdit.v14.2.Core.dll"; DestDir: "{app}";
 Source: "{#DevExpressPath}DevExpress.Sparkline.v14.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.Utils.v14.2.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#DevExpressPath}DevExpress.Xpo.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraBars.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraCharts.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#DevExpressPath}DevExpress.XtraEditors.v14.2.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -99,6 +100,7 @@ Source: ".\Lang\cultures.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\!ReadMe.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion
 Source: ".\Lang\Res\*.resources"; DestDir: "{app}\Languages\Resources"; Flags: ignoreversion
 Source: "..\src\PrizmMainProject\Languages\LocalizedStrings\*.txt"; DestDir: "{app}\Languages"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ".\Seeding\defectList.txt"; DestDir: "{app}\Seeding"; DestName: "defectList.txt"; Flags: ignoreversion; Attribs: hidden; Permissions: everyone-full
 
 [Icons]
 Name: "{group}\{#MyAppName}-{code:GetProjectName}"; Filename: "{app}\{#MyAppExeName}"
@@ -118,6 +120,7 @@ Name: "{app}\Data"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Languages"; Permissions: everyone-full
 Name: "{app}\Languages\Resources"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Logs"; Attribs: hidden; Permissions: everyone-full
+Name: "{app}\Seeding"; Attribs: hidden; Permissions: everyone-full
 
 [CustomMessages]
 english.InstallingSQLLocalDb=Installing SQL LocalDb
@@ -150,7 +153,7 @@ english.NewProductPageCaption=Installing New Project
 russian.NewProductPageCaption=Установка Нового Проекта
 english.NewProductPageDescription=Specify new Project settings
 russian.NewProductPageDescription=Укажите настройки нового Проекта
-english.NewProductPageSubCaption=Please, specify the name of new Project. Name should be unique on this PC. If name is already registered, you will be notified.
+english.NewProductPageSubCaption=Please, specify the name of new Project. Name should be unique on this PC. If name is already registered, you will be notified. 
 russian.NewProductPageSubCaption=Пожалуйста, введите название нового Проекта. Название Проекта должно быть уникальным на этом компьютере. Если введенное имя уже зарегистрировано, система сообщит Вам об этом.
 english.NewProductPageProjectName=Project Name:
 russian.NewProductPageProjectName=Название Проекта:
@@ -182,8 +185,8 @@ english.UpdateProductPageSubCaption=Please, select the name of existing Project 
 russian.UpdateProductPageSubCaption=Пожалуйста, укажите название установленного Проекта, который необходимо обновить до версии %1:
 english.SpecifyExistingProjectName=Please, select the name of existing Project
 russian.SpecifyExistingProjectName=Выберите название существующего Проекта
-english.ProjectNameValidation=Please, use English letters or digits. Don't start with digit
-russian.ProjectNameValidation=Пожайлуста, используйте английские буквы и цифры. Не начинайте с цифры
+english.ProjectNameValidation=Please, use English letters or digits. Don't start with digit. Dont use system name master, model.
+russian.ProjectNameValidation=Пожайлуста, используйте английские буквы и цифры. Не начинайте с цифры. Не используйте зарезервированные имена master, model. 
 english.ConfirmDowngrade=Version of current installation (%1) is lower or the same as installed version (%2). Do you really want to continue update?
 russian.ConfirmDowngrade=Версия текущей инсталяции (%1) меньше либо равна уже установленной версии (%2). Вы действительно хотите продолжить?
 english.InstallingMsOdbcSql=Installing Microsoft ODBC Driver for SQL Server
@@ -360,11 +363,12 @@ begin
     Result := GetUpdateProductName()
 end;
 
-function ValidateStringIsAlphaNum(name : String) : Boolean;
+function ValidateProjectName(name : String) : Boolean;
 var n : Integer;
     b : String;
 begin
   Result := True;
+  If ((name = 'Tempdb') or(name = 'tempdb') or (name = 'Msdb') or(name = 'msdb') or (name = 'Model') or(name = 'model') or(name = 'Master') or (name = 'master')) then Result := False;      
   for n := 1 to Length(name) do
   begin
     b := Copy(name,n,1);
@@ -561,7 +565,7 @@ begin
       end
       else
       begin
-        if ValidateStringIsAlphaNum(NewProductName.Text) = False then
+        if ValidateProjectName(NewProductName.Text) = False then
         begin
           MsgBox(CustomMessage('ProjectNameValidation'), mbError, MB_OK);
           Result := False;

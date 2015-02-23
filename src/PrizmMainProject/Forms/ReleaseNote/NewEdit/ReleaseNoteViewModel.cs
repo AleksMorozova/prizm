@@ -378,6 +378,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         else
                         {
                             pipeToAdd.Railcar = this.Railcar;
+                            pipeToAdd.Status = PipeMillStatus.ReadyToShip;
                             Railcar.Pipes.Add(pipeToAdd);
                             ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
                             AllPipesToAdd.Remove(pipeToAdd);
@@ -419,6 +420,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     ReleaseNotePipes.Remove(pipe);
                     var tmpRailcar = ((Pipe)pipe).Railcar;
                     ((Pipe)pipe).Railcar = null;
+                    ((Pipe)pipe).Status = PipeMillStatus.Stocked;
                     repos.PipeRepo.Merge(pipe);
 
                     log.Info(String.Format("Pipe {0},{1} removed from Release note {2},{3} and railcar {4},{5}",

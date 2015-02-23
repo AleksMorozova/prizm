@@ -183,4 +183,28 @@
   <metadata name="inspectorsDataSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>210, 17</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AGkkACJpJABRaSQAl2kkAJdpJABRaSQAImkkAAD///8A////AP//
+        /wD///8A////AP///wD///8A////AGkkAH5pJAD7aSQA8GkkAPZpJAD2aSQA8GkkAPtpJAB+////AP//
+        /wD///8A////AP///wBpJAAAaSQAAGkkAJtpJADvaSQAomkkAC////8A////AGkkAC9pJACiaSQA72kk
+        AJv///8AaSQAAP///wD///8AaSQAAGkkAIZpJADwaSQAhP///wBXsAAkV7AAe1ewAIFXsAAw////AGkk
+        AIRpJADwaSQAhmkkAAD///8A////AGkkACVpJAD6aSQAmv///wBXsACHV7AA/1ewAP9XsAD/V7AA/1ew
+        AJD///8AaSQAmmkkAPppJAA/////AP///wBpJABpaSQA9mkkABdXsAAzV7AA/1ewAP9XsACEV7AAflew
+        AP9XsAD/V7AAV2kkABdpJAD2aSQAif///wD///8AaSQAr2kkAOn///8AV7AAnFewAP9XsABy////AP//
+        /wBXsABdV7AA/1ewAMD///8AaSQA6WkkAMD///8A////AP///wD///8A////AFewAKVXsAD/V7AAWv//
+        /wD///8AV7AAM1ewAP9XsADM////AGkkAOlpJADA////AP///wD///8A////AP///wBXsABRV7AA/1ew
+        AK5XsAAwV7AAHlewAJNXsAD/V7AAdf///wBpJADpaSQAwP///wD///8AaSQAAGkkAABpJAAA////AFew
+        AJZXsAD/V7AA/1ewAP9XsAD/V7AA/1ewAAxpJAAXaSQA9mkkAIn///8A////AGkkAP9pJAD/aSQAAP//
+        /wD///8AV7AAclewANtXsADhV7AAh1ewAB7///8AaSQAmmkkAPppJAA/////AP///wBpJAD/aSQA/2kk
+        AABpJAAAaSQAAGkkAABpJAAA////AP///wD///8AaSQAhGkkAPBpJACGaSQAGv///wD///8AaSQA/2kk
+        AP9pJAAAaSQAAGkkAABpJAAAaSQAAP///wBpJAAvaSQAomkkAO9pJACbaSQAGmkkAAD///8A////AGkk
+        AP9pJAD/aSQA/2kkAP9pJAD/aSQA/2kkAABpJAD2aSQA8GkkAPtpJAB+aSQAGmkkAAD///8A////AP//
+        /wBpJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP9pJAAAaSQAl2kkAFFpJAAiaSQAAP///wD///8A////AP//
+        /wD///8AaSQA/2kkAP9pJAAAaSQAAGkkAABpJAAAaSQAAP///wD///8A////AP///wD///8A////AP//
+        /wD///8A/n8AAPgfAADjxwAAx2MAAMgTAADYmQAAk8kAAPPJAAD5mQAA+BkAAJ4zAACf4wAAn8cAAIEf
+        AACBfwAAn/8AAA==
+</value>
+  </data>
 </root>

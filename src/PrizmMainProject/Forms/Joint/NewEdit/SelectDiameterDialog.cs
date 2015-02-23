@@ -25,18 +25,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             InitializeComponent();
 
-            Bitmap bmp = Resources.joint_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
             saveChosenDiameter.Enabled = false;
         }
 
         public SelectDiameterDialog(List<Connector> duplicates): this()
         {
+            InitializeSelectDiameter(duplicates);
+        }
+
+        public void InitializeSelectDiameter(List<Connector> duplicates)
+        {
+            diametersIntersection.Properties.Items.Clear();
             foreach (var t in duplicates)
             {
                 diametersIntersection.Properties.Items.Add(t);
             }
+            diametersIntersection.SelectedIndex = -1;
         }
 
         #region --- Localization ---
@@ -58,7 +62,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void diametersIntersection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Diameter = ((Connector)diametersIntersection.EditValue).Diameter;
+            var cntr = diametersIntersection.EditValue as Connector;
+
+            if (cntr != null) Diameter = cntr.Diameter;
+
             saveChosenDiameter.Enabled = (diametersIntersection.EditValue != null);
         }
     }

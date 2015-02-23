@@ -193,6 +193,25 @@ MainWindow_CloseEditingReleaseNote=Please, close release note which is already o
 ;Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?
 MainWindow_OpenReleaseNoteReadOnly=Some release note is already opened for editing, do you want to open this release note for viewing?
 
+;Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть настройки в режиме редактирования, когда открыты другие формы. Хотите открыть настройки в режиме просмотра?
+Message_OpenSettingsForViewing=Unable to open settings in edit mode, when other forms are opened. Do you want to open setting for viewing?
+
+;Заголовок для сообщения об открытии настроек: Открыть настройки в режиме просмотра?
+Message_OpenSettingsForViewingHeader=Open settings for viewing?
+
+;Сообщение об открытии настроек в режиме просмотра (да/нет): Невозможно открыть форму в режиме редактирования, когда открыты настройки. Хотите открыть форму в режиме просмотра?
+Message_OpenFormForViewing=Unable to open form in edit mode, when settings are opened. Do you want to open form for viewing?
+
+;Заголовок для сообщения об открытии формы: Открыть форму в режиме просмотра?
+Message_OpenFormForViewingHeader=Open form for viewing?
+
+;Сообщение о невозможности открыть форму: Невозможно открыть форму для просмотра. Для продолжения закройте настройки
+Message_CannotOpenForViewing=Cannot open form for viewing. Close settings to continue
+
+;Заголок для сообщения о невозмости открытия формы в режиме просмотра: Невозможно открыть форму для просмотра
+Message_CannotOpenForViewingHeader=Cannot open form for viewing
+
+
 ;Обязательное значение
 PurchaseOrder_ValueRequaered=Value required
 
@@ -290,10 +309,10 @@ InspectionReport_CreateGroup=Create report
 InspectionReport_PreviewGroup=Preview
 
 ;Отчет на входном контроле. Кнопка предпросмотра отчета
-InspectionReport_PreviewButton=&Create report
+InspectionReport_PreviewButton=&Preview report
 
 ;Отчет на входном контроле. Кнопка создания отчета
-InspectionReport_CreateButton=&Preview report
+InspectionReport_CreateButton=&Create report
 
 ;Длина трубы меньше длины катушки
 Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
@@ -333,6 +352,9 @@ Spool_SpoolGroup=Spool information
 
 ;Катушка. Длины трубы и катушки
 Spool_LenghtGroup=Length
+
+;Катушка. Входной контроль
+Spool_IncomingInspectionGroup=Incoming inspection
 
 ;Катушка. Дата входного контроля
 Spool_InspectionDateColumn=Date
@@ -384,6 +406,9 @@ Settings_ValidateInspectorSertificate=Please select inspector
 
 ;Обязательное значение
 Settings_ValueRequired=Value is required
+
+;Логин должен быть уникальным
+Settings_UniqueLogin = Login must be unique
 
 ;Значение должно быть уникальным
 Settings_UniqueValueRequired=Unique value is required
@@ -459,6 +484,9 @@ MillPipeNumber_Mask_Hint=Pipe number format:
 
 ;Настройки-Проект. Группы контрольных операций
 SettingsProject_OperationsLabel=Inspection operation groups
+
+;Настройки-Проект. Надпись группы техничекских параметров
+SettingsProject_TechParametersGroup=Technical parameters
 
 ;Настройки-Проект. Типы швов
 SettingsProject_SeamsLabel=Seam types
@@ -650,6 +678,9 @@ SettingsInspectors_CertificateNameColumn=Name
 
 ;Настройки - Пользователи. Список пользователей
 SettingsUser_UsersLabel=Users
+
+;Настройки - Пользователи. Список ролей
+SettingsUser_RolesLabel=Roles
 
 ;Настройки - Пользователи. Логин пользователя
 SettingsUser_LoginColumn=Login
@@ -968,6 +999,9 @@ SaveDialog_CancelButton=&Cancel
 
 ;Вложения. Кнопка добавления
 ExternalFiles_AddFileButton=Add &file
+
+;Вложения. Кнопка закрытия
+ExternalFiles_CloseButton=C&lose
 
 ;Вложения. Надпись колонки имени файла
 ExternalFiles_FileNameColumnHeader=File name
@@ -1818,6 +1852,12 @@ ReleaseNoteNewEdit_RailcarCertificateColumn=Railcar certificate
 ;Разрешение на отгрузку. Столбец получатель вагона
 ReleaseNoteNewEdit_RailcarDestinationColumn=Destination
 
+;Разрешение на отгрузку. Надпись параметров разрешения
+ReleaseNoteNewEdit_ReleaseNoteLayoutGroup=Release note parameters
+
+;Разрешение на отгрузку. Надпись статуса
+ReleaseNoteNewEdit_StatusLayout=Status
+
 ;Сообщение о том, что труба уже в вагоне: Данная труба находится в вагоне #
 ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar=This pipe already exists in railcar #
 
@@ -2009,6 +2049,9 @@ InspectionAddEdit_SaveButton=Save
 
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
+
+;Сообщение о дублировании логинов: Дубликат номера труб
+Notification_DublicateLogin_Critical = User logins duplicating
 
 ;Сообщение о дублировании номеров труб: Дубликат номера труб
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
@@ -2343,11 +2386,25 @@ WaitScreen_Caption=Please wait
 ;Идет загрузка ...
 WaitScreen_Description=Loading...
 
+;Сообщения
+NotificationXtraForm_LayoutControlItemNotification=Notifications
 
+;Дата
+NotificationXtraForm_ColDate=Date
 
+;Сообщение
+NotificationXtraForm_ColNotification=Message
 
+;Регистратор
+NotificationXtraForm_ColName=Registrar
 
+;Выпадающий список. Выбрать все
+ChechedCombobox_SelectAll=Select all
+;Готова к отгрузке
+NewEditPipe_ReadyToShip=Ready to ship
 
+;Не определен
+SearchPipe_MillStatusUndefined=Undefined
 
-
-
+;Готова к отгрузке
+SearchPipe_ReadyToShip=Ready to ship

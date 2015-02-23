@@ -58,9 +58,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             InitializeComponent();
 
-            Bitmap bmp = Resources.joint_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
             SetControlsTextLength();
             viewModel = (JointNewEditViewModel)Program
                .Kernel
@@ -70,6 +67,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.ValidatableView = this;
             loweringDate.Properties.NullText = String.Empty;
             loweringDate.Properties.NullDate = DateTime.MinValue;
+            CannotOpenForViewing = id == Guid.Empty;
 
             #region --- Colouring of required controls, IsEditMode, uppercasing ---
             jointNumber.SetRequiredText();
@@ -92,8 +90,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
-            }
+            }                
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }
@@ -126,10 +124,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
 
-            Binding bind = new Binding("EditValue", jointNewEditBindingSoure, "JointConstructionStatus");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = (string)localizedAllJointStatus[(int)e.Value]; };
-            jointStatus.DataBindings.Add(bind);
+
+            jointStatus.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", jointNewEditBindingSoure, "JointConstructionStatus",
+                (value) =>
+                {
+                    return (string)localizedAllJointStatus[(int)value];
+                }));
 
 
 
@@ -144,6 +145,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("EditValue", jointNewEditBindingSoure, "SecondElementId", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
+            firstJointElement.DataBindings
+                .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
+            secondJointElement.DataBindings
+                .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
+            
 
             ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
@@ -210,11 +216,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 };
             IsEditMode = viewModel.JointIsActive;
             IsModified = false;
-
-            if(viewModel.Joint.Status == JointStatus.Withdrawn)
-            {
-                DisableControlUnderWithdrawn();
-            }
 
             loweringDate.SetLimits();
             repairDateEdit.SetLimits();
@@ -451,7 +452,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if(selectedOperation != null
                 && selectedOperation.Type != JointOperationType.Weld
                 && selectedOperation.Type != JointOperationType.Withdraw
-                && view.FocusedColumn.Name == weldersGridColumn.Name)
+                && view.FocusedColumn.Name == weldersGridColumn.Name
+                || !viewModel.IsNotWithdrawn)
             {
                 e.Cancel = true;
             }
@@ -586,16 +588,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
-
-
-        private void DisableControlUnderWithdrawn()
-        {
-            repairOperationsView.OptionsBehavior.Editable = false;
-            SetAlwaysReadOnly(repairOperations);
-            firstJointElement.Enabled = false;
-            secondJointElement.Enabled = false;
-        }
-
         private void CompletedCheckEdit_CheckedChanged(object sender, EventArgs e)
         {
             CheckEdit checkEdit = sender as CheckEdit;
@@ -613,7 +605,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     if(viewModel.Joint.Status == JointStatus.Withdrawn)
                     {
-                        DisableControlUnderWithdrawn();
                         checkEdit.Checked = true;
                     }
                     else

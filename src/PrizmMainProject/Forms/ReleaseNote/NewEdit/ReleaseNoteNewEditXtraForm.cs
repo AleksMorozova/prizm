@@ -40,8 +40,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.id = id;
 
             InitializeComponent();
-            Bitmap bmp = Resources.shipment_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (ReleaseNoteViewModel)Program.Kernel.Get<ReleaseNoteViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
@@ -59,8 +57,11 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.railcarNumber.SetAsIdentifier();
 
             SetAlwaysReadOnly(textEditReleaseNoteStatus);
-
+            IsEditMode = true; //do not remove until IsEditMode logic is changed
+            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             attachmentsButton.Enabled = true;
+
+            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public ReleaseNoteNewEditXtraForm() : this(Guid.Empty) { }
@@ -71,6 +72,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
             statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
             statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
+            statusTypeDict.Add(PipeMillStatus.ReadyToShip, Resources.ReadyToShip);
             repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
 
             BindCommands();
@@ -94,6 +96,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 new LocalizedItem(certificateNumberLayout, StringResources.ReleaseNoteNewEdit_CertificateLabel.Id),
                 new LocalizedItem(layoutControlDestination, StringResources.ReleaseNoteNewEdit_DestinationLabel.Id),
                 new LocalizedItem(pipeNumberLayout, StringResources.ReleaseNoteNewEdit_PipeNumberLayout.Id),
+                new LocalizedItem(layoutReleaseNoteStatus, StringResources.ReleaseNoteNewEdit_StatusLayout.Id),
 
                 //buttons
                 new LocalizedItem(addPipeButton, StringResources.ReleaseNoteNewEdit_AddPipeButton.Id),
@@ -114,6 +117,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 new LocalizedItem(railcarLayoutControlGroup, StringResources.ReleaseNoteNewEdit_RailcarLayoutControlGroup.Id),
                 new LocalizedItem(addPipeLayoutGroup, StringResources.ReleaseNoteNewEdit_AddPipeLayoutGroup.Id),
                 new LocalizedItem(pipesListLayoutGroup, StringResources.ReleaseNoteNewEdit_PipesListLayoutGroup.Id),
+                new LocalizedItem(releaseNoteLayoutGroup, StringResources.ReleaseNoteNewEdit_ReleaseNoteLayoutGroup.Id),
 
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} )
             };
@@ -221,8 +225,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-                viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
-            }
+            }         
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
         }

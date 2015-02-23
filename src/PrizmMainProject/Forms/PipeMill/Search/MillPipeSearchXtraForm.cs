@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
 using Prizm.Main.Languages;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace Prizm.Main.Forms.PipeMill.Search
 {
@@ -25,8 +26,13 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             InitializeComponent();
             pipeNumber.SetAsIdentifier();
-            Bitmap bmp = Resources.search_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            externalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            externalCoatingDate.Properties.NullText = string.Empty;
+            internalCoatingDate.Properties.NullDate = DateTime.MinValue;
+            internalCoatingDate.Properties.NullText = string.Empty;
+            weldingDate.Properties.NullDate = DateTime.MinValue;
+            weldingDate.Properties.NullText = string.Empty;
         }
 
         private void BindToViewModel()
@@ -55,6 +61,12 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 .Add("EditValue", MillPipeSearchBindingSource, "PipeNumber");
             pipeActivity.DataBindings
                 .Add("SelectedIndex", MillPipeSearchBindingSource, "ActivityIndex");
+            weldingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "WeldingDate");
+            externalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "ExternalCoatingDate");
+            internalCoatingDate.DataBindings
+                .Add("DateTime", MillPipeSearchBindingSource, "InternalCoatingDate");
         }
 
         private void BindCommands()
@@ -93,7 +105,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 { 
                     StringResources.SearchPipe_MillStatusProduced.Id, 
                     StringResources.SearchPipe_MillStatusStocked.Id, 
-                    StringResources.SearchPipe_MillStatusShipped.Id
+                    StringResources.SearchPipe_MillStatusShipped.Id,
+                    StringResources.SearchPipe_ReadyToShip.Id
                 }),
 
                 // combo boxes
@@ -135,10 +148,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 // the same ...CustomColumnDisplayText method must be used for all columns,
                 // but private localized list (f.e. localizedAllPipeMillStatus) is different for each column. 
                 new LocalizedItem(pipesSearchResultView, localizedAllPipeMillStatus,
-                    new string [] { "SearchPipe_MillStatusUndefined", "SearchPipe_MillStatusProduced", 
-                                    "SearchPipe_MillStatusStocked", "SearchPipe_MillStatusShipped" }),
+                    new string [] { 
+                        StringResources.SearchPipe_MillStatusUndefined.Id, 
+                        StringResources.SearchPipe_MillStatusProduced.Id, 
+                        StringResources.SearchPipe_MillStatusStocked.Id, 
+                        StringResources.SearchPipe_MillStatusShipped.Id, 
+                        StringResources.SearchPipe_ReadyToShip.Id }),
                 // other
-                                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.SearchPipe_Title.Id} )
             };
         }
 
@@ -146,12 +163,14 @@ namespace Prizm.Main.Forms.PipeMill.Search
 
         private void pipeRepositoryButtonEdit_Click(object sender, System.EventArgs e)
         {
-            int selectedPipe = pipesSearchResultView.GetFocusedDataSourceRowIndex();
-            var id = viewModel.Pipes[selectedPipe].Id;
-            if(selectedPipe >= 0)
-            {
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
+            GridView view = (GridView)sender;
+            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
 
+            if (info.InRow || info.InRowCell)
+            {
+
+                Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
                 parent.OpenChildForm(typeof(MillPipeNewEditXtraForm), id);
             }
         }

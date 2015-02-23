@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutXtraForm));
             this.labelVersion = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.titleLabel = new DevExpress.XtraEditors.LabelControl();
@@ -57,10 +58,12 @@
             // 
             // titleLabel
             // 
-            this.titleLabel.Location = new System.Drawing.Point(290, 30);
+            this.titleLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.titleLabel.Location = new System.Drawing.Point(287, 28);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(0, 13);
+            this.titleLabel.Size = new System.Drawing.Size(231, 13);
             this.titleLabel.TabIndex = 5;
+            this.titleLabel.Text = "   ";
             // 
             // acceptButton
             // 
@@ -90,6 +93,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelVersion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";

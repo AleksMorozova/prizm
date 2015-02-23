@@ -18,6 +18,7 @@ namespace Prizm.Domain.Entity.Mill
         Undefined = 0,
         Produced = 1,
         Stocked = 2,
-        Shipped = 3
+        Shipped = 3,
+        ReadyToShip = 4
     }
 }

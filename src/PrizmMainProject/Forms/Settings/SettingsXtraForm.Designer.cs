@@ -135,8 +135,8 @@ namespace Prizm.Main.Forms.Settings
             this.closeButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.seamTypes = new DevExpress.XtraGrid.GridControl();
-            this.seemTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.seemTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seamTypeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.seamTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seamTypeRepositoryTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.seemTypeIsActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cloneTypeSizeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -180,6 +180,10 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.userSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -221,10 +225,6 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.certTypeListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectorSplitterItem = new DevExpress.XtraLayout.SplitterItem();
-            this.usersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.userSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.rolesLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.rolesTabLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.permissionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -304,7 +304,7 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeRepositoryTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
@@ -331,6 +331,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
@@ -372,10 +376,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).BeginInit();
@@ -576,6 +576,7 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewRoles.OptionsView.ShowColumnHeaders = false;
             this.gridViewRoles.OptionsView.ShowGroupPanel = false;
             this.gridViewRoles.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewRoles_SelectionChanged);
+            this.gridViewRoles.GotFocus += new System.EventHandler(this.gridViewRoles_GotFocus);
             // 
             // colRoleName
             // 
@@ -638,6 +639,7 @@ namespace Prizm.Main.Forms.Settings
             this.gridViewUsers.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridViewUsers_InvalidRowException);
             this.gridViewUsers.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewUsers_ValidateRow);
             this.gridViewUsers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewUsers_KeyDown);
+            this.gridViewUsers.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridViewUsers_ValidatingEditor);
             // 
             // colLogin
             // 
@@ -771,8 +773,10 @@ namespace Prizm.Main.Forms.Settings
             this.certificateTypesView.OptionsNavigation.UseTabKey = false;
             this.certificateTypesView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.certificateTypesView.OptionsView.ShowGroupPanel = false;
+            this.certificateTypesView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.certificateTypesView_RowCellStyle);
             this.certificateTypesView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.certificateTypesView_InitNewRow);
             this.certificateTypesView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.certificateTypesView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.certificateTypesView_InvalidRowException);
             this.certificateTypesView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.certificateTypesView_ValidateRow);
             this.certificateTypesView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.certificateTypesView_KeyDown);
             // 
@@ -841,6 +845,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorCertificateGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.inspectorCertificateGridView_InvalidRowException);
             this.inspectorCertificateGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectorCertificateGridView_ValidateRow);
             this.inspectorCertificateGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectorCertificateGridView_KeyDown);
+            this.inspectorCertificateGridView.GotFocus += new System.EventHandler(this.inspectorCertificateGridView_GotFocus);
             // 
             // inspectorCertificateNumberCol
             // 
@@ -1506,41 +1511,41 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.seamTypes.Cursor = System.Windows.Forms.Cursors.Default;
             this.seamTypes.Location = new System.Drawing.Point(832, 201);
-            this.seamTypes.MainView = this.seemTypeGridView;
+            this.seamTypes.MainView = this.seamTypeGridView;
             this.seamTypes.Name = "seamTypes";
             this.seamTypes.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.seamTypeRepositoryTextEdit});
             this.seamTypes.Size = new System.Drawing.Size(399, 279);
             this.seamTypes.TabIndex = 17;
             this.seamTypes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.seemTypeGridView});
+            this.seamTypeGridView});
             // 
-            // seemTypeGridView
+            // seamTypeGridView
             // 
-            this.seemTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.seemTypeColumn,
+            this.seamTypeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.seamTypeColumn,
             this.seemTypeIsActiveColumn});
-            this.seemTypeGridView.GridControl = this.seamTypes;
-            this.seemTypeGridView.Name = "seemTypeGridView";
-            this.seemTypeGridView.OptionsBehavior.FocusLeaveOnTab = true;
-            this.seemTypeGridView.OptionsNavigation.UseTabKey = false;
-            this.seemTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.seemTypeGridView.OptionsView.ShowGroupPanel = false;
-            this.seemTypeGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.seemTypeGridView_RowCellStyle);
-            this.seemTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
-            this.seemTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
-            this.seemTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.seemTypeGridView_InvalidRowException);
-            this.seemTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.seemTypeGridView_ValidateRow);
-            this.seemTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
+            this.seamTypeGridView.GridControl = this.seamTypes;
+            this.seamTypeGridView.Name = "seamTypeGridView";
+            this.seamTypeGridView.OptionsBehavior.FocusLeaveOnTab = true;
+            this.seamTypeGridView.OptionsNavigation.UseTabKey = false;
+            this.seamTypeGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.seamTypeGridView.OptionsView.ShowGroupPanel = false;
+            this.seamTypeGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.seemTypeGridView_RowCellStyle);
+            this.seamTypeGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.seemTypeGridView_InitNewRow);
+            this.seamTypeGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
+            this.seamTypeGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.seemTypeGridView_InvalidRowException);
+            this.seamTypeGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.seamTypeGridView_ValidateRow);
+            this.seamTypeGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seemTypeGridView_KeyDown);
             // 
-            // seemTypeColumn
+            // seamTypeColumn
             // 
-            this.seemTypeColumn.Caption = "Тип шва";
-            this.seemTypeColumn.ColumnEdit = this.seamTypeRepositoryTextEdit;
-            this.seemTypeColumn.FieldName = "Name";
-            this.seemTypeColumn.Name = "seemTypeColumn";
-            this.seemTypeColumn.Visible = true;
-            this.seemTypeColumn.VisibleIndex = 0;
+            this.seamTypeColumn.Caption = "Тип шва";
+            this.seamTypeColumn.ColumnEdit = this.seamTypeRepositoryTextEdit;
+            this.seamTypeColumn.FieldName = "Name";
+            this.seamTypeColumn.Name = "seamTypeColumn";
+            this.seamTypeColumn.Visible = true;
+            this.seamTypeColumn.VisibleIndex = 0;
             // 
             // seamTypeRepositoryTextEdit
             // 
@@ -1997,8 +2002,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.projectLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup.SelectedTabPage = this.lineLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 2;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2010,6 +2015,50 @@ namespace Prizm.Main.Forms.Settings
             this.usersLayoutControlGroup,
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
+            // 
+            // usersLayoutControlGroup
+            // 
+            this.usersLayoutControlGroup.CustomizationFormText = "Пользователи";
+            this.usersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.userLayoutControlItem,
+            this.roleLayoutControlItem,
+            this.userSplitterItem});
+            this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
+            this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.usersLayoutControlGroup.Text = "По&льзователи";
+            // 
+            // userLayoutControlItem
+            // 
+            this.userLayoutControlItem.Control = this.gridControlUsers;
+            this.userLayoutControlItem.CustomizationFormText = "Пользователи";
+            this.userLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.userLayoutControlItem.Name = "userLayoutControlItem";
+            this.userLayoutControlItem.Size = new System.Drawing.Size(900, 458);
+            this.userLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.userLayoutControlItem.Text = "Пользователи";
+            this.userLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.userLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // roleLayoutControlItem
+            // 
+            this.roleLayoutControlItem.Control = this.gridControlRoles;
+            this.roleLayoutControlItem.CustomizationFormText = "Роли";
+            this.roleLayoutControlItem.Location = new System.Drawing.Point(905, 0);
+            this.roleLayoutControlItem.Name = "roleLayoutControlItem";
+            this.roleLayoutControlItem.Size = new System.Drawing.Size(326, 458);
+            this.roleLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.roleLayoutControlItem.Text = "Роли";
+            this.roleLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.roleLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // userSplitterItem
+            // 
+            this.userSplitterItem.AllowHotTrack = true;
+            this.userSplitterItem.CustomizationFormText = "Разделитель";
+            this.userSplitterItem.Location = new System.Drawing.Point(900, 0);
+            this.userSplitterItem.Name = "userSplitterItem";
+            this.userSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
             // projectLayoutControlGroup
             // 
@@ -2499,50 +2548,6 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorSplitterItem.Name = "inspectorSplitterItem";
             this.inspectorSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
-            // usersLayoutControlGroup
-            // 
-            this.usersLayoutControlGroup.CustomizationFormText = "Пользователи";
-            this.usersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.userLayoutControlItem,
-            this.roleLayoutControlItem,
-            this.userSplitterItem});
-            this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
-            this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.usersLayoutControlGroup.Text = "По&льзователи";
-            // 
-            // userLayoutControlItem
-            // 
-            this.userLayoutControlItem.Control = this.gridControlUsers;
-            this.userLayoutControlItem.CustomizationFormText = "Пользователи";
-            this.userLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.userLayoutControlItem.Name = "userLayoutControlItem";
-            this.userLayoutControlItem.Size = new System.Drawing.Size(900, 458);
-            this.userLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.userLayoutControlItem.Text = "Пользователи";
-            this.userLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.userLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // roleLayoutControlItem
-            // 
-            this.roleLayoutControlItem.Control = this.gridControlRoles;
-            this.roleLayoutControlItem.CustomizationFormText = "Роли";
-            this.roleLayoutControlItem.Location = new System.Drawing.Point(905, 0);
-            this.roleLayoutControlItem.Name = "roleLayoutControlItem";
-            this.roleLayoutControlItem.Size = new System.Drawing.Size(326, 458);
-            this.roleLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.roleLayoutControlItem.Text = "Роли";
-            this.roleLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.roleLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // userSplitterItem
-            // 
-            this.userSplitterItem.AllowHotTrack = true;
-            this.userSplitterItem.CustomizationFormText = "Разделитель";
-            this.userSplitterItem.Location = new System.Drawing.Point(900, 0);
-            this.userSplitterItem.Name = "userSplitterItem";
-            this.userSplitterItem.Size = new System.Drawing.Size(5, 458);
-            // 
             // rolesLayoutControlGroup
             // 
             this.rolesLayoutControlGroup.CustomizationFormText = "Роли";
@@ -2648,6 +2653,7 @@ namespace Prizm.Main.Forms.Settings
             this.ClientSize = new System.Drawing.Size(1275, 550);
             this.Controls.Add(this.rootLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsXtraForm";
             this.Text = "Настройки";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsXtraForm_FormClosed);
@@ -2714,7 +2720,7 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.seamTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seemTypeGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamTypeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seamTypeRepositoryTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
@@ -2741,6 +2747,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
@@ -2782,10 +2792,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.certificateTypeLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certTypeListLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorSplitterItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).EndInit();
@@ -2942,8 +2948,8 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraEditors.TextEdit pipeDiameter;
         private DevExpress.XtraEditors.TextEdit wallThickness;
         private DevExpress.XtraGrid.GridControl seamTypes;
-        private DevExpress.XtraGrid.Views.Grid.GridView seemTypeGridView;
-        private DevExpress.XtraGrid.Columns.GridColumn seemTypeColumn;
+        private DevExpress.XtraGrid.Views.Grid.GridView seamTypeGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn seamTypeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn seemTypeIsActiveColumn;
         private System.Windows.Forms.BindingSource CurrentPipeMillSizeTypeBindingSource;
         private DevExpress.XtraLayout.LayoutControl rootLayoutControl;

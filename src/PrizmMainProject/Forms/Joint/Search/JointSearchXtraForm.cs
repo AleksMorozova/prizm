@@ -31,8 +31,6 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             viewModel = vm;
             InitializeComponent();
-            Bitmap bmp = Resources.search_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             weldingDateFrom.Properties.NullDate = DateTime.MinValue;
             weldingDateFrom.Properties.NullText = string.Empty;
             weldingDateTo.Properties.NullDate = DateTime.MinValue;
@@ -119,7 +117,7 @@ namespace Prizm.Main.Forms.Joint.Search
                 new LocalizedItem(searchButton, StringResources.JointSearch_SearchButton.Id),
                 new LocalizedItem(searchResultLayoutGroup, StringResources.JointSearch_SearchResultLayoutGroup.Id),
                 new LocalizedItem(jointNumberGridColumn, StringResources.JointSearch_JointNumberGridColumn.Id),
-                new LocalizedItem(joinStatusGridColumn, StringResources.JointSearch_JoinStatusGridColumn.Id),
+                new LocalizedItem(statusLocalizedCol, StringResources.JointSearch_JoinStatusGridColumn.Id),
                 new LocalizedItem(numberKPCol, StringResources.JointSearch_NumberKPCol.Id),
                 new LocalizedItem(loweringDateCol, StringResources.JointSearch_LoweringDateCol.Id),
                 new LocalizedItem(gpsLatCol, StringResources.JointSearch_GpsLatCol.Id),

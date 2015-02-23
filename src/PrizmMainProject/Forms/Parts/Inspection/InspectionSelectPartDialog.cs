@@ -32,8 +32,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             this.parts = parts;
             this.viewModel = viewModel;
-            Bitmap bmp = Resources.inControl_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
         private void NumbersDialog_Load(object sender, EventArgs e)
         {

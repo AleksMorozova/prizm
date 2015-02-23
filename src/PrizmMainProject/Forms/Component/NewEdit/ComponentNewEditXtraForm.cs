@@ -45,9 +45,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             InitializeComponent();
 
-            Bitmap bmp = Resources.components_icon;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-
             viewModel = (ComponentNewEditViewModel)Program
                .Kernel
                .Get<ComponentNewEditViewModel>(new ConstructorArgument("id", id));
@@ -57,6 +54,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.Number = number;
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent);
             attachmentsButton.Enabled = true;
+            CannotOpenForViewing = id == Guid.Empty;
 
             #region --- Colouring of required controls ---
             componentNumber.SetRequiredText();

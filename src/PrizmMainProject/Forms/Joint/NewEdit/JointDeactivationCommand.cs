@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.JointIsActive = false;
 
                     repo.BeginTransaction();
-                    repo.RepoJoint.Save(viewModel.Joint);
+                    repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
                     repo.Commit();
 
                     repo.RepoJoint.Evict(viewModel.Joint);
@@ -73,6 +73,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             else
             {
+                //Refresh property so that binded control become unchecked
+                viewModel.JointIsActive = false;
                 viewModel.JointIsActive = true;
             }
             RefreshVisualStateEvent();

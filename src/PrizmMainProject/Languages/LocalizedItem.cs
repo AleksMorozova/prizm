@@ -442,7 +442,9 @@ namespace Prizm.Main.Languages
                         ((DevExpress.XtraWaitForm.ProgressPanel)obj).Refresh();
                     break;
                 case ItemType.CheckedComboBoxEdit:
-                        ((DevExpress.XtraEditors.CheckedComboBoxEdit)obj).Refresh();
+                    var checkedCombo = ((DevExpress.XtraEditors.CheckedComboBoxEdit)obj);
+                        checkedCombo.Properties.SelectAllItemCaption = Program.LanguageManager.GetString(StringResources.ChechedCombobox_SelectAll);
+                        checkedCombo.Refresh();
                     break;
                 case ItemType.ComboBoxEdit:
                         var combo = (DevExpress.XtraEditors.ComboBoxEdit)obj;

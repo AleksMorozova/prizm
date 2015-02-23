@@ -21,12 +21,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public partial class MillInspectionXtraForm : PrizmForm
     {
         public MillInspectionViewModel viewModel;
-        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes)
+        IReadOnlyList<PipeTest> pipeTestList;
+
+        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList)
         {
             InitializeComponent();
-            Bitmap bmp = Resources.inspection_16;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
-            this.SetupForm(current, categoryTypes);
+            this.SetupForm(current, categoryTypes, pipeTestList);
         }
 
         private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
@@ -42,8 +42,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             return viewModel;
         }
-        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes)
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList)
         {
+            this.pipeTestList = pipeTestList;
             viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
@@ -223,6 +224,42 @@ namespace Prizm.Main.Forms.Settings.Inspections
             maxExpected.DataBindings.Clear();
             frequency.DataBindings.Clear();
         }
+
+
+        private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
+                {
+                    string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
+                    string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
+                    Program.MainForm.ShowInfo(msg, header);
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Function to check Code uniqueness
+        /// </summary>
+        /// <param name="code">code TestPipe</param>
+        /// <param name="id">id TestPipe</param>
+        /// <returns>true if uniqueness</returns>
+        private bool ValidateCode(string code, Guid id)
+        {
+            bool retValue = true;
+            foreach (var item in pipeTestList)
+            {
+                if (item.Code == code && item.Id != id)
+                {
+                    retValue = false;
+                    break;
+                }
+            }
+            return retValue;
+        }
+
 
     }
 }

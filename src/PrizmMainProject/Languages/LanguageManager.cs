@@ -121,7 +121,7 @@ namespace Prizm.Main.Languages
                 {
                     FindAvailableTranslations();
                 }
-                indexDefault = this.indexDefault;
+                indexDefault = (CurrentCulture.Name == DefaultCulture.Name) ? this.indexDefault : indexCurrent;
                 List<CultureInfo> list = cultures.ConvertAll(new Converter<LanguagePack, CultureInfo>((lp) => { return (CultureInfo)lp; }));
                 return list;
         }
@@ -321,11 +321,6 @@ namespace Prizm.Main.Languages
                 }
             }
             return ret;
-        }
-
-        public bool ApplyUsersLanguage(User user)
-        {
-            return (user.UILanguage == null) ? false : (user.UILanguage != CurrentCulture.Name && LoadTranslation(new CultureInfo(user.UILanguage)));
         }
     }
 }

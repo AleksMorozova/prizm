@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeldDateReportXtraForm));
             this.weldReportLayout = new DevExpress.XtraLayout.LayoutControl();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
@@ -47,7 +46,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.jointReportViewerGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointReportViewerLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.weldReportLayout)).BeginInit();
             this.weldReportLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties.CalendarTimeProperties)).BeginInit();
@@ -297,6 +296,7 @@
             this.ClientSize = new System.Drawing.Size(924, 411);
             this.Controls.Add(this.weldReportLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WeldDateReportXtraForm";
             this.Text = "Отчет по сварке (по дате)";
             this.Load += new System.EventHandler(this.WeldDateReportXtraForm_Load);

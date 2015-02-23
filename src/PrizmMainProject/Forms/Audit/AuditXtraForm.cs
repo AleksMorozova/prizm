@@ -25,8 +25,6 @@ namespace Prizm.Main.Forms.Audit
         public AuditXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.history_item_16;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (AuditViewModel)Program.Kernel.GetService(typeof(AuditViewModel));
         }
 

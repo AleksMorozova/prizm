@@ -42,6 +42,7 @@ using Prizm.Main.Forms.Reports.Construction.WeldDateReports;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Setup;
 using System.Drawing;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -59,8 +60,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.prizma_appIcon_32;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             FormManager.Initialize(this, log);
         }
 
@@ -383,9 +382,6 @@ namespace Prizm.Main.Forms.MainChildForm
             NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
 
-            ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            if (Program.LanguageManager.ApplyUsersLanguage(ctx.LoggedUser))
-                this.CascadeChangeLanguage();
         }
 
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
@@ -396,13 +392,18 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Application.Exit();
+            this.Close(); //Application.Exit() causes  iteration the Application.OpenForms collection which is modified 
+                          //similar problem: http://stackoverflow.com/questions/1312885/application-exit-vs-application-exitthread-vs-environment-exit
         }
 
         public void UpdateStatusBar(string text)
         {
             notifyBarStaticItem.Caption = text;
             notifyHistory.Items.Add(text);
+            while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
+            {
+                notifyHistory.Items.RemoveAt(0);
+            }
         }
 
         private void notifyBarStaticItem_ItemClick(object sender, ItemClickEventArgs e)

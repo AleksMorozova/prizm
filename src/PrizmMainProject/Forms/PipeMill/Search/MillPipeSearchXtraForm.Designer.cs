@@ -563,6 +563,7 @@
             this.ClientSize = new System.Drawing.Size(1214, 471);
             this.Controls.Add(this.PipeSearchLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MillPipeSearchXtraForm";
             this.Text = "Поиск труб";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillPipeSearchXtraForm_FormClosed);

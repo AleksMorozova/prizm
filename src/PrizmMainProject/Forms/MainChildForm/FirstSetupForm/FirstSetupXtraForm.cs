@@ -13,6 +13,7 @@ using Prizm.Main.Common;
 using Ninject;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
+using Prizm.Main.Controls;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
@@ -29,8 +30,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         public FirstSetupXtraForm(FirstSetupViewModel vm)
         {
             InitializeComponent();
-            Bitmap bmp = Resources.prizma_appIcon_32;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
+            SetControlsTextLength();
             viewModel = vm;
             this.Text += ": [" + viewModel.Type + "]";
         }
@@ -49,10 +49,13 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             bindingSource.DataSource = viewModel;
 
-            Binding bind = new Binding("EditValue", bindingSource, "Type");
-            bind.FormattingEnabled = true;
-            bind.Format += (sender, e) => { e.Value = (string)localizedAllWorkstations[(int)e.Value]; };
-            type.DataBindings.Add(bind);
+            type.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Type",
+                (value) =>
+                {
+                    return (string)localizedAllWorkstations[(int)value];
+                }));
+
             projectName.DataBindings.Add("EditValue", bindingSource, "ProjectTitle");
             fileSize.DataBindings.Add("EditValue", bindingSource, "Size");
             mill.DataBindings.Add("EditValue", bindingSource, "MillName");
@@ -111,6 +114,17 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private void FirstSetupXtraForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             viewModel.Dispose();
+        }
+
+        private void SetControlsTextLength() 
+        {
+            projectName.Properties.MaxLength = LengthLimit.MaxProjectTitle; 
+            mill.Properties.MaxLength = LengthLimit.MaxProjectMillName;
+            pipeMask.Properties.MaxLength = LengthLimit.MaxPipeNumber;
+            login.Properties.MaxLength = LengthLimit.UserLogin;
+            lastName.Properties.MaxLength = LengthLimit.UserLastName;
+            firstName.Properties.MaxLength = LengthLimit.UserFirstName;
+            middleName.Properties.MaxLength = LengthLimit.UserMiddleName;
         }
     }
 }

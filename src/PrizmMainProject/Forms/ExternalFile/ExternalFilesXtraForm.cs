@@ -24,8 +24,6 @@ namespace Prizm.Main.Forms.ExternalFile
         public ExternalFilesXtraForm()
         {
             InitializeComponent();
-            Bitmap bmp = Resources.attachment_16;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
             viewModel = (ExternalFilesViewModel)Program
                 .Kernel
                 .Get<ExternalFilesViewModel>();
@@ -45,6 +43,7 @@ namespace Prizm.Main.Forms.ExternalFile
             {
                 //controls
                 new LocalizedItem(addFile, StringResources.ExternalFiles_AddFileButton.Id),
+                new LocalizedItem(cancelButton, StringResources.ExternalFiles_CloseButton.Id),
                 
                  // grid column headers
                 new LocalizedItem(colFileName, StringResources.ExternalFiles_FileNameColumnHeader.Id),

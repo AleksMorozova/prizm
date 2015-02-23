@@ -9,6 +9,8 @@ using Prizm.Domain.Entity;
 using NHibernate.Criterion;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Construction;
+using NHibernate.Transform;
+using System.Collections;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -51,73 +53,27 @@ namespace Prizm.Data.DAL.Hibernate
 
         public IList<AuditLog> GetRecordsByNumber(string number, DateTime startDate, DateTime endDate)
         {
+          var query = session.CreateSQLQuery(
+                  @"select a.id, a.entityID, a.auditDate, a.userName, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
+                  " from AuditLog a " +
+                  " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  " union all" +
+                  " select id, number from Spool WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  " union all" +
+                  " select id, number from Joint WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
+                  " select id, number from Heat WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
+                  " select id, number from PurchaseOrder WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
+                  " select id,number from Component WHERE number LIKE CONCAT(:entityNumber, '%')) b on a.entityID = b.id" +
+                  " where a.auditDate >= :startDate  AND a.auditDate <= :endDate").SetResultTransformer(AuditLogQuery.Transformer);
 
-            //source for EntityID and Number matching
-            Dictionary<Guid, string> DNumberLookup = new Dictionary<Guid, string>();
-
-            //creating DB-wide list of EntityIDs with Number matching mask
-            string[] tablesToLook = new string[] { "Spool", "Pipe", "Component", "Joint", "Heat", "PurchaseOrder" };
-            object[] tablesToLookAsObjects = (object[])tablesToLook;
-
-            IEnumerable<Guid> list1 = session.QueryOver<Prizm.Domain.Entity.Construction.Component>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            IEnumerable<string> listNumbers = session.QueryOver<Prizm.Domain.Entity.Construction.Component>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list1, listNumbers);
-
-            IEnumerable<Guid> list2 = session.QueryOver<Spool>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            listNumbers = session.QueryOver<Spool>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list2, listNumbers);
-
-
-            IEnumerable<Guid> list3 = session.QueryOver<Pipe>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            listNumbers = session.QueryOver<Pipe>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list3, listNumbers);
-
-            IEnumerable<Guid> list4 = session.QueryOver<Joint>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            listNumbers = session.QueryOver<Joint>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list4, listNumbers);
-
-            IEnumerable<Guid> list5 = session.QueryOver<PurchaseOrder>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            listNumbers = session.QueryOver<PurchaseOrder>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list5, listNumbers);
-
-            IEnumerable<Guid> list6 = session.QueryOver<Heat>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Id).List<Guid>();
-            listNumbers = session.QueryOver<Heat>().Where(_ => _.Number.IsLike(number, MatchMode.Start)).Select(_ => _.Number).List<string>();
-            DNumberLookup = DNumberLookupUpdate(DNumberLookup, list6, listNumbers);
-
-            IEnumerable<Guid> list7 = session.QueryOver<AuditLog>().
-                Where(_ => _.FieldName.IsLike("number")
-                    && _.TableName.IsIn(tablesToLookAsObjects)
-                    && _.OldValue.IsLike(number, MatchMode.Start)).
-                Select(_ => _.EntityID).
-                List<Guid>().
-                Distinct();
-
-            //unique DB-wide Guids values list with Numbers mask match
-            var listOfGuids = list1.
-                Concat<Guid>(list2).
-                Concat<Guid>(list3).
-                Concat<Guid>(list4).
-                Concat<Guid>(list5).
-                Concat<Guid>(list6).
-                Concat<Guid>(list7).
-                Distinct().
-                ToArray();
-
-            // getting values with Guids related to matching names
-            var retVal = session.QueryOver<AuditLog>().
-                Where(_ => _.AuditDate <= endDate && _.AuditDate >= startDate && _.EntityID.IsIn(listOfGuids)).
-                List<AuditLog>();
-
-            //updating retVal with actual Numbers
-            foreach (var item in retVal)
-            {
-                if (DNumberLookup.ContainsKey(item.EntityID))
-                {
-                    item.Number = DNumberLookup[item.EntityID];
-                }
-            }
-
-            return retVal ?? new List<AuditLog>();
+            query.SetString("entityNumber", number.ToString());
+            query.SetDateTime("startDate", startDate);
+            query.SetDateTime("endDate", endDate);
+            var results = query.List<AuditLog>();
+            return results;
         }
 
         /// <summary>
@@ -136,5 +92,38 @@ namespace Prizm.Data.DAL.Hibernate
 
             return retVal ?? new List<AuditLog>();
         }
+    }
+
+    public class AuditLogQuery : IResultTransformer
+    {
+
+        public static readonly AuditLogQuery Transformer = new AuditLogQuery();
+
+        private AuditLogQuery()
+        { }
+
+        #region IResultTransformer Members
+
+        public IList TransformList(IList collection)
+        {
+            return collection;
+        }
+
+        public object TransformTuple(object[] tuple, string[] aliases)
+        {
+            return new AuditLog()
+            {
+                AuditID = (Guid)tuple[0],
+                EntityID = (Guid)tuple[1],
+                AuditDate = (DateTime)tuple[2],
+                User = tuple[3].ToString(),
+                TableName = tuple[4].ToString(),
+                FieldName = tuple[5].ToString(),
+                OldValue = tuple[6].ToString(),
+                NewValue = tuple[7].ToString(),
+                Number = tuple[8].ToString(),
+            };
+        }
+        #endregion
     }
 }

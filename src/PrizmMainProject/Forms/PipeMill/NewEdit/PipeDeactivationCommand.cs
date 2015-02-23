@@ -51,13 +51,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     try
                     {
                         viewModel.Pipe.IsActive = false;
-                        
                         viewModel.CheckStatus();
                         viewModel.UpdatePipeSubStatus();
                         viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
 
                         repo.BeginTransaction();
-                        repo.RepoPipe.Save(viewModel.Pipe);
+                        repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
                         repo.Commit();
 
                         repo.RepoPipe.Evict(viewModel.Pipe);
@@ -80,6 +79,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         log.Error(ex.Message);
                         notify.ShowFailure(ex.InnerException.Message, ex.Message);
                     }
+                }
+                else
+                {
+                    //Refresh property so that binded control become unchecked
+                    viewModel.PipeIsActive = false;
+                    viewModel.PipeIsActive = true;
                 }
             }
             else if (viewModel.PipeStatus == PipeMillStatus.Shipped)

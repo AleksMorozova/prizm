@@ -223,6 +223,30 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>137</value>
   </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABpJADwaSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/////AFewAP9XsADw////AFew
+        APBXsAD/aSQA8GkkAP9pJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/aSQA/////wBXsAD/V7AA8P//
+        /wBXsADwV7AA/2kkAPBpJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP////8AV7AA/1ew
+        APD///8AV7AA8FewAP9pJADwaSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/aSQA/2kkAP9pJAD/////AFew
+        AP9XsADw////AFewAPBXsAD/aSQA4WkkAP9pJAD/aSQA/2kkAP9pJAD8aSQA/2kkAP9pJAD/aSQA////
+        /wBXsAD/V7AA8P///wBXsADwV7AA/2kkAA9pJACZaSQA/2kkAP9pJAD/aSQAnGkkAIppJAD/aSQA/2kk
+        AP////8AV7AA/1ewAPD///8AV7AA8FewAP////8A////AGkkADlpJADVaSQA/2kkAJb///8AaSQAS2kk
+        AO1pJAD/////AFewAP9XsADw////AFewAPBXsAD/////AP///wD///8AaSQABmkkAHhpJACN////AP//
+        /wBpJAAbaSQAw////wBXsAD/V7AA8P///wBXsADwV7AA/////wD///8A////AP///wD///8AaSQAA///
+        /wD///8A////AGkkAAP///8AV7AA/1ewAPD///8AV7AA8FewAP////8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AFewAP9XsADw////AFewAPBXsAD/////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wBXsAD/V7AA8P///wBXsADwV7AA/////wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8AV7AA/1ewAPD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AFewAP9XsADw////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wBXsAD/V7AA8P///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AV7AA/1ewAPD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8AACQAAAAkAAAAJAAAACQAAAAkAACAJAAA4yQAAPukAAD/5AAA/+QAAP/kAAD/5wAA/+cAAP/n
+        AAD/5wAA//8AAA==
+</value>
+  </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>175, 55</value>
   </metadata>

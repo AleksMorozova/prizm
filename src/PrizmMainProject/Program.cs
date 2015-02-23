@@ -24,6 +24,7 @@ using Prizm.Domain.Entity.Setup;
 using System.Threading;
 using System.Text;
 using System.IO;
+using System.Globalization;
 
 
 namespace Prizm.Main
@@ -77,7 +78,7 @@ namespace Prizm.Main
         {
             Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
             Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
-
+          
             foreach (var arg in args)
             {
                 if (arg.Equals("seed"))
@@ -99,6 +100,7 @@ namespace Prizm.Main
             }
 
             bool cmdLineMode = false;
+            LanguageManager.LoadTranslation(new CultureInfo(Settings.Default.UsersLanguage));
             try
             {
                 // Splash screen
@@ -312,23 +314,10 @@ namespace Prizm.Main
 
         private static void OnProcessExit(object sender, EventArgs e)
         {
-            ISecurityContext ctx = Kernel.Get<ISecurityContext>();
-            User currentUser = ctx.LoggedUser;
-            try
+            if (Settings.Default.UsersLanguage != LanguageManager.CurrentCulture.Name)
             {
-                currentUser.UILanguage = LanguageManager.CurrentCulture.Name;
-                IUserRepository userRepo;
-                using (userRepo = Kernel.Get<IUserRepository>())
-                {
-                    userRepo.BeginTransaction();
-                    userRepo.Merge(currentUser);
-                    userRepo.Commit();
-                    userRepo.Evict(currentUser);
-                }
-            }
-            catch (Exception userEx)
-            {
-                log.Error(userEx.Message);
+                Settings.Default.UsersLanguage = LanguageManager.CurrentCulture.Name;
+                Settings.Default.Save();
             }
         }
 

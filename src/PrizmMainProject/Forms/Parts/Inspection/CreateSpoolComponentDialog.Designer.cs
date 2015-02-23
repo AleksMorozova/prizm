@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateSpoolComponentDialog));
             this.generalLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.numberLabel = new DevExpress.XtraEditors.LabelControl();
             this.questionLabel = new DevExpress.XtraEditors.LabelControl();
@@ -196,6 +197,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(321, 151);
             this.Controls.Add(this.generalLayoutControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateSpoolComponentDialog";
             this.Text = "Создание компонента";
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutControl)).EndInit();
