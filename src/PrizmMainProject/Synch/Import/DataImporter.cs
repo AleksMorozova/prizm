@@ -207,7 +207,7 @@ namespace Prizm.Main.Synch.Import
             pipe.Railcar = ImportRailcar(pipeObj.Railcar);
             if (pipeObj.Railcar != null)
             {
-                pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
+                pipe.Railcar.ReleaseNote = ImportReleaseNote(tempDir ,pipeObj.Railcar.ReleaseNote);
             }
             pipe.PurchaseOrder = ImportPurchaseOrder(pipeObj.PurchaseOrder);
             pipe.Status = pipeObj.Status;
@@ -923,7 +923,7 @@ namespace Prizm.Main.Synch.Import
 
             return railcar;
         }
-        private ReleaseNote ImportReleaseNote(ReleaseNoteObject releaseNoteObj)
+        private ReleaseNote ImportReleaseNote(string tempDir, ReleaseNoteObject releaseNoteObj)
         {
             if (releaseNoteObj == null)
                 return null;
@@ -942,6 +942,21 @@ namespace Prizm.Main.Synch.Import
             releaseNote.Shipped = releaseNoteObj.Shipped;
             releaseNote.Date = releaseNoteObj.Date;
 
+            if (releaseNoteObj.Attachments != null)
+            {
+                if (!Directory.Exists(Directories.TargetPath))
+                {
+                    Directory.CreateDirectory(Directories.TargetPath);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+                releaseNote.Attachments = new List<Prizm.Domain.Entity.File>();
+                foreach (var fileObject in releaseNoteObj.Attachments)
+                {
+                    Prizm.Domain.Entity.File f = ImportFile(fileObject, releaseNote.Id);
+                    CopyAttachment(tempDir, f);
+                }
+            }
 
             if (isNew)
                 importRepo.ReleaseNoteRepo.Save(releaseNote);

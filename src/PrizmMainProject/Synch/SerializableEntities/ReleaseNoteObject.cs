@@ -22,6 +22,15 @@ namespace Prizm.Main.Synch.SerializableEntities
           this.Number = releaseNote.Number;
           this.Date = releaseNote.Date;
           this.Shipped = releaseNote.Shipped;
+
+          if (releaseNote.Attachments != null)
+          {
+              this.Attachments = new List<FileObject>();
+              foreach (var attach in releaseNote.Attachments)
+              {
+                  this.Attachments.Add(new FileObject(attach));
+              }
+          }
         }
         public static implicit operator ReleaseNoteObject(ReleaseNote releaseNote)
         {
@@ -43,5 +52,7 @@ namespace Prizm.Main.Synch.SerializableEntities
         [XmlAttribute("Shipped")]
         public bool Shipped { get; set; }
 
+        [XmlArray("Attachments")]
+        public List<FileObject> Attachments { get; set; }
     }
 }
