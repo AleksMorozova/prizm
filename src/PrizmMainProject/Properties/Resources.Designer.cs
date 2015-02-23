@@ -2584,6 +2584,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to В вагоне {0}:.
+        /// </summary>
+        internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended {
+            get {
+                return ResourceManager.GetString("ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данная труба находится в вагоне #.
         /// </summary>
         internal static string ReleaseNoteNewEdit_ErrorAddingPipeAlreadyInRailcar {

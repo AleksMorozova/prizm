@@ -1364,4 +1364,7 @@
   <data name="NewEditPipe_ReadyToShip" xml:space="preserve">
     <value>Готова к отгрузке</value>
   </data>
+  <data name="ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended" xml:space="preserve">
+    <value>В вагоне {0}:</value>
+  </data>
 </root>

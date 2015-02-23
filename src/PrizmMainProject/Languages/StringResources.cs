@@ -4146,6 +4146,12 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера."
         };
 
+        public static StringResource ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended = new StringResource
+        {
+            Id = "ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended",
+            Description = "Для расширенного сообщения об ошибке отгрузки: В вагоне [Имя вагона]:"
+        };
+
         public static StringResource ReleaseNoteNewEdit_MissingReleaseNoteNumber = new StringResource
         {
             Id = "ReleaseNoteNewEdit_MissingReleaseNoteNumber",
