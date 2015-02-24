@@ -843,7 +843,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if(gridView != null)
             {
-                if(String.IsNullOrEmpty(gridView.GetRow(e.RowHandle) as string))
+                var weld = gridView.GetRow(e.RowHandle) as Weld;
+                if(weld != null && weld.Welders.Count == 0)
                 {
                     gridView.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                     e.Valid = false;
