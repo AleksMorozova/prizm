@@ -10,7 +10,7 @@ namespace Prizm.Domain.Entity
         public virtual string MiddleName { get; set; }
         public virtual string GetFullName()
         {
-            return FirstName + " " + LastName + " " + MiddleName;
+            return LastName + " " + FirstName + " " + MiddleName;
         }
     }
 }
