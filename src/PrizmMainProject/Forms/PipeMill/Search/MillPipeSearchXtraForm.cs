@@ -134,9 +134,6 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 new LocalizedItem(pipeTypeSizeGridColumn, StringResources.SearchPipe_PipetypeSizeColumn.Id),
                 new LocalizedItem(heatNumberGridColumn, StringResources.SearchPipe_PipeHeatNumberColumn.Id),
                 new LocalizedItem(statusSearchGridColumn, StringResources.SearchPipe_PipeStatusColumn.Id),
-                new LocalizedItem(weldingDateGridColumn, StringResources.SearchPipe_PipeWeldingDateColumn.Id),
-                new LocalizedItem(externalCoatingDateGridColumn, StringResources.SearchPipe_ExternalCoatingDateColumn.Id),
-                new LocalizedItem(internalCoatingDateGridColumn, StringResources.SearchPipe_InternalCoatingColumn.Id),
 
                 // layout control groups
                 new LocalizedItem(searchLayoutGroup, StringResources.SearchPipe_SearchGroup.Id),
