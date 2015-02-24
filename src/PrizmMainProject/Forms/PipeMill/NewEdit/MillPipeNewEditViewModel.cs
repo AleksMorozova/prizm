@@ -913,14 +913,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if(CurrentType != null) { return CurrentType.Length; } else { return 0; }
-
+                if (PipeMillSizeType != null) { return PipeMillSizeType.Length; } else { return 0; }
             }
             set
             {
-                if(value != CurrentType.Length)
+                if (PipeMillSizeType != null && value != PipeMillSizeType.Length)
                 {
-                    CurrentType.Length = value;
+                    this.Pipe.Type.Length = value;
                     RaisePropertyChanged("Length");
                 }
             }
@@ -930,13 +929,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if(CurrentType != null) { return CurrentType.Diameter; } else { return 0; }
+                if (PipeMillSizeType != null) { return PipeMillSizeType.Diameter; } else { return 0; }
             }
             set
             {
-                if(value != CurrentType.Diameter)
+                if (PipeMillSizeType != null && value != PipeMillSizeType.Diameter)
                 {
-                    CurrentType.Diameter = value;
+                    PipeMillSizeType.Diameter = value;
                     RaisePropertyChanged("Diameter");
                 }
             }
@@ -946,17 +945,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if(CurrentType != null)
-                {
-                    return CurrentType.Thickness;
-                }
-                else { return 0; }
+                if (PipeMillSizeType != null ) { return PipeMillSizeType.Thickness; } else { return 0; }
             }
             set
             {
-                if(value != CurrentType.Thickness)
+                if (PipeMillSizeType != null && value != PipeMillSizeType.Thickness)
                 {
-                    CurrentType.Thickness = value;
+                    PipeMillSizeType.Thickness = value;
                     RaisePropertyChanged("WallThickness");
                 }
             }
