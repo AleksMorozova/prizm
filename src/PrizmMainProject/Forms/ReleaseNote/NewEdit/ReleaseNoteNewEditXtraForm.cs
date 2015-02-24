@@ -26,6 +26,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private bool formLeave = false;
         private ICommandManager commandManager = new CommandManager();
         private ReleaseNoteViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;
@@ -224,9 +225,12 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
         {
-            viewModel.GetStoredPipes();
-            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
-            pipeNumberLookUp.Refresh();
+            if (formLeave)
+            {
+                viewModel.GetStoredPipes();
+               // pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
+                pipeNumberLookUp.Refresh();
+            }
         }
 
         private void AttachmentsButton_Click(object sender, EventArgs e)
@@ -299,6 +303,11 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     e.DisplayText = localizedAllPipeMillStatus[(int)result];
                 }
             }
+        }
+
+        private void ReleaseNoteNewEditXtraForm_Leave(object sender, EventArgs e)
+        {
+            formLeave = true;
         }
 
     }
