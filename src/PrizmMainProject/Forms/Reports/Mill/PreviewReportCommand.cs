@@ -64,9 +64,6 @@ namespace Prizm.Main.Forms.Reports.Mill
                 {
                     LoadingXtraReport report = new LoadingXtraReport();
                     report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
-                    SubReportShippingRailCar report2 = new SubReportShippingRailCar();
-                    report.RequestParameters = false;
-                    report.xrSubreport1.ReportSource = report2;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
