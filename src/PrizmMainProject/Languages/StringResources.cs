@@ -3981,21 +3981,7 @@ namespace Prizm.Main.Languages
             Id = "SearchPipe_PipeStatusColumn",
             Description = "Поиск труб. Столбец статус"
         };
-        public static StringResource SearchPipe_PipeWeldingDateColumn = new StringResource
-        {
-            Id = "SearchPipe_PipeWeldingDateColumn",
-            Description = "Поиск труб. Столбец дата сварки"
-        };
-        public static StringResource SearchPipe_ExternalCoatingDateColumn = new StringResource
-        {
-            Id = "SearchPipe_ExternalCoatingDateColumn",
-            Description = "Поиск труб. Столбец дата внешнего покрытия"
-        };
-        public static StringResource SearchPipe_InternalCoatingColumn = new StringResource
-        {
-            Id = "SearchPipe_InternalCoatingColumn",
-            Description = "Поиск труб. Столбец дата внутреннего покрытия"
-        };
+
         public static StringResource SearchPipe_SearchGroup = new StringResource
         {
             Id = "SearchPipe_SearchGroup",

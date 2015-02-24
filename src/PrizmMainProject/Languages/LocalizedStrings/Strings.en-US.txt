@@ -1786,15 +1786,6 @@ SearchPipe_PipeHeatNumberColumn=Heat number
 ;Поиск труб. Столбец статус
 SearchPipe_PipeStatusColumn=Status
 
-;Поиск труб. Столбец дата сварки
-SearchPipe_PipeWeldingDateColumn=Welding date
-
-;Поиск труб. Столбец дата внешнего покрытия
-SearchPipe_ExternalCoatingDateColumn=External coating date
-
-;Поиск труб. Столбец дата внутреннего покрытия
-SearchPipe_InternalCoatingColumn=Internal coating date
-
 ;Поиск труб. Группа поиск
 SearchPipe_SearchGroup=Search parameters
 
