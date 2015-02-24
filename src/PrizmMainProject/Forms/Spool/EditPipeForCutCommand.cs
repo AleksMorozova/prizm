@@ -38,6 +38,8 @@ namespace Prizm.Main.Forms.Spool
                 int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(viewModel.Spool.PipeNumber).Count + 1;
                 number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
                 viewModel.SpoolNumber = number.ToString();
+                viewModel.InitPipeLenght = viewModel.Pipe.Length;
+                viewModel.editableForm.spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
             }
 
             else
