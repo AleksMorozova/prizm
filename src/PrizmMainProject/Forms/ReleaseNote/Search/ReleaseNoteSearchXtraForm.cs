@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
     {
         private ICommandManager commandManager = new CommandManager();
         private ReleaseNoteSearchViewModel viewModel;
-
+        private List<string> localizedAllShipStatus = new List<string>() { "unshipped", "shipped" };
         public ReleaseNoteSearchXtraForm()
         {
             InitializeComponent();
@@ -97,6 +97,9 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 new LocalizedItem(searchParametersLayoutGroup, StringResources.ReleaseSearch_SearchGroup.Id),
                 new LocalizedItem(resultParametersLayoutGroup, StringResources.ReleaseSearch_ResultGroup.Id),
 
+                new LocalizedItem( railcarListView, localizedAllShipStatus,
+                        new string [] {StringResources.ReleaseNoteNewEdit_PendingStatus.Id, StringResources.ReleaseNoteNewEdit_ShippedStatus.Id }),
+
                 // other
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseSearch_Title.Id} )
             };
@@ -136,5 +139,18 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 viewModel = null;
             }
         }
+
+        private void railcarListView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == statusColumn.Name)
+            {
+                {
+                    e.DisplayText = ((bool)e.Value) ? localizedAllShipStatus[1].ToString() : localizedAllShipStatus[0].ToString();
+                    
+                }
+            }
+        }
+
+
     }
 }
