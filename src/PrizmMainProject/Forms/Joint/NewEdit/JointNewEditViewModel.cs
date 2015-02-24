@@ -814,7 +814,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.JointTestResults = new BindingList<JointTestResult>();
             if (this.FilesFormViewModel != null)
             {
-                this.FilesFormViewModel.RefreshFiles(this.Joint.Id);
+                this.FilesFormViewModel.Files = null;
             }
             //required operation
             if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)

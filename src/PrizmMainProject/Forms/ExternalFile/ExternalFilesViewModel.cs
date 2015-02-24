@@ -70,7 +70,10 @@ namespace Prizm.Main.Forms.ExternalFile
             }
             else
             {
-                files = new BindingList<Prizm.Domain.Entity.File>();
+                if (files == null)
+                {
+                    files = new BindingList<Prizm.Domain.Entity.File>();
+                }
             }
            
         }
