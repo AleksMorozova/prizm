@@ -75,21 +75,21 @@ namespace Prizm.Main.Controls
             {
                 GridView v = sender as GridView;
                 int t = v.SelectedRowsCount;
-                if(t== v.DataRowCount)
+                if (t == v.DataRowCount)
                 {
                     for (int i = 0; i < v.SelectedRowsCount; i++)
-                {
-                    var data = v.GetRow(i) as Inspector;
-                    if (!data.IsActive)
                     {
-                        v.UnselectRow(i);
+                        var data = v.GetRow(i) as Inspector;
+                        if (!data.IsActive)
+                        {
+                            v.UnselectRow(i);
+                        }
                     }
-                }
                 }
                 else
                 {
                     var data = v.GetRow(e.ControllerRow) as Inspector;
-                    if (!data.IsActive)
+                    if (data != null && !data.IsActive)
                     {
                         v.UnselectRow(e.ControllerRow);
                     }

@@ -31,44 +31,40 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.firstPartTypeXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.firstPartNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.weldingDateXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartTypeXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondPartNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.secondLenghtXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.jointNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.firstLenghtXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstPartNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.firstPartTypeXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.TracingPageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.tracingPageHeaderXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.TracingGroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.jointNumberHeder = new DevExpress.XtraReports.UI.XRLabel();
             this.lengthHeder = new DevExpress.XtraReports.UI.XRLabel();
             this.partTypeHeder = new DevExpress.XtraReports.UI.XRLabel();
             this.partNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.pipelineJointCountHeader = new DevExpress.XtraReports.UI.XRLabel();
-            this.pipelinePipeCountHeader = new DevExpress.XtraReports.UI.XRLabel();
-            this.pipelineSpoolCountHeader = new DevExpress.XtraReports.UI.XRLabel();
-            this.pipelineLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelineComponentCount = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelineComponentHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.pipelineJointCountXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipelinePipeCountXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipelineSpoolCountXrLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pipelineLengthXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
-            this.secondPartTypeXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.secondPartNumberXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.secondLenghtXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.weldingDateXrLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.pipelineComponentCount = new DevExpress.XtraReports.UI.XRLabel();
-            this.pipelineComponentHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelineLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelineSpoolCountHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelinePipeCountHeader = new DevExpress.XtraReports.UI.XRLabel();
+            this.pipelineJointCountHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
             this.tracingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrLine4 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.tracingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -83,28 +79,46 @@
             this.firstLenghtXrLabel,
             this.firstPartNumberXrLabel,
             this.firstPartTypeXrLabel});
-            this.Detail.HeightF = 28.20836F;
+            this.Detail.HeightF = 26.125F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // firstPartTypeXrLabel
+            // weldingDateXrLabel
             // 
-            this.firstPartTypeXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FirstPartTypeDescription")});
-            this.firstPartTypeXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(292.4108F, 0F);
-            this.firstPartTypeXrLabel.Name = "firstPartTypeXrLabel";
-            this.firstPartTypeXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.firstPartTypeXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
+            this.weldingDateXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "WeldingDate")});
+            this.weldingDateXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(97.47025F, 0F);
+            this.weldingDateXrLabel.Name = "weldingDateXrLabel";
+            this.weldingDateXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.weldingDateXrLabel.SizeF = new System.Drawing.SizeF(97.47027F, 26.125F);
             // 
-            // firstPartNumberXrLabel
+            // secondPartTypeXrLabel
             // 
-            this.firstPartNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FirstPartNumber")});
-            this.firstPartNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(194.9405F, 0F);
-            this.firstPartNumberXrLabel.Name = "firstPartNumberXrLabel";
-            this.firstPartNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.firstPartNumberXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
+            this.secondPartTypeXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartTypeDescription")});
+            this.secondPartTypeXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(584.8215F, 0F);
+            this.secondPartTypeXrLabel.Name = "secondPartTypeXrLabel";
+            this.secondPartTypeXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartTypeXrLabel.SizeF = new System.Drawing.SizeF(97.47034F, 26.125F);
+            // 
+            // secondPartNumberXrLabel
+            // 
+            this.secondPartNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartNumber")});
+            this.secondPartNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(487.3513F, 0F);
+            this.secondPartNumberXrLabel.Name = "secondPartNumberXrLabel";
+            this.secondPartNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondPartNumberXrLabel.SizeF = new System.Drawing.SizeF(97.47018F, 26.125F);
+            // 
+            // secondLenghtXrLabel
+            // 
+            this.secondLenghtXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartLength")});
+            this.secondLenghtXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(682.2918F, 0F);
+            this.secondLenghtXrLabel.Name = "secondLenghtXrLabel";
+            this.secondLenghtXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.secondLenghtXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
             // 
             // jointNumberXrLabel
             // 
@@ -113,7 +127,7 @@
             this.jointNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.jointNumberXrLabel.Name = "jointNumberXrLabel";
             this.jointNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.jointNumberXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
+            this.jointNumberXrLabel.SizeF = new System.Drawing.SizeF(97.0238F, 26.125F);
             // 
             // firstLenghtXrLabel
             // 
@@ -122,7 +136,25 @@
             this.firstLenghtXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(389.881F, 0F);
             this.firstLenghtXrLabel.Name = "firstLenghtXrLabel";
             this.firstLenghtXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.firstLenghtXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
+            this.firstLenghtXrLabel.SizeF = new System.Drawing.SizeF(97.47028F, 26.125F);
+            // 
+            // firstPartNumberXrLabel
+            // 
+            this.firstPartNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FirstPartNumber")});
+            this.firstPartNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(194.9405F, 0F);
+            this.firstPartNumberXrLabel.Name = "firstPartNumberXrLabel";
+            this.firstPartNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstPartNumberXrLabel.SizeF = new System.Drawing.SizeF(97.47029F, 26.125F);
+            // 
+            // firstPartTypeXrLabel
+            // 
+            this.firstPartTypeXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "FirstPartTypeDescription")});
+            this.firstPartTypeXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(292.4108F, 0F);
+            this.firstPartTypeXrLabel.Name = "firstPartTypeXrLabel";
+            this.firstPartTypeXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.firstPartTypeXrLabel.SizeF = new System.Drawing.SizeF(97.47021F, 26.125F);
             // 
             // TopMargin
             // 
@@ -148,18 +180,16 @@
             // tracingPageHeaderXrLabel
             // 
             this.tracingPageHeaderXrLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tracingPageHeaderXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.tracingPageHeaderXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(3.178914E-05F, 0F);
             this.tracingPageHeaderXrLabel.Name = "tracingPageHeaderXrLabel";
             this.tracingPageHeaderXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(647.5001F, 50F);
+            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(749.3748F, 50F);
             this.tracingPageHeaderXrLabel.StylePriority.UseFont = false;
             this.tracingPageHeaderXrLabel.Text = "Трассировка трубопровода";
             // 
             // TracingGroupHeader
             // 
             this.TracingGroupHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLine2,
-            this.xrLine1,
             this.xrLabel12,
             this.xrLabel9,
             this.xrLabel10,
@@ -168,47 +198,80 @@
             this.lengthHeder,
             this.partTypeHeder,
             this.partNumberHeader});
-            this.TracingGroupHeader.HeightF = 67.70834F;
+            this.TracingGroupHeader.HeightF = 35.41667F;
             this.TracingGroupHeader.Name = "TracingGroupHeader";
+            // 
+            // xrLabel12
+            // 
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(97.0238F, 0F);
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(97.0238F, 34.45833F);
+            this.xrLabel12.Text = "Дата сварки";
+            // 
+            // xrLabel9
+            // 
+            this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(485.119F, 0F);
+            this.xrLabel9.Name = "xrLabel9";
+            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(97.02383F, 34.45833F);
+            this.xrLabel9.StylePriority.UseFont = false;
+            this.xrLabel9.Text = "Номер элемента 2";
+            // 
+            // xrLabel10
+            // 
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(582.1428F, 0F);
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(97.02386F, 34.45833F);
+            this.xrLabel10.Text = "Тип элемента 2";
+            // 
+            // xrLabel11
+            // 
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(679.1666F, 0F);
+            this.xrLabel11.Name = "xrLabel11";
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
+            this.xrLabel11.Text = "Длина, мм";
             // 
             // jointNumberHeder
             // 
-            this.jointNumberHeder.LocationFloat = new DevExpress.Utils.PointFloat(0F, 14.91667F);
+            this.jointNumberHeder.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.jointNumberHeder.Name = "jointNumberHeder";
             this.jointNumberHeder.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.jointNumberHeder.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
+            this.jointNumberHeder.SizeF = new System.Drawing.SizeF(97.0238F, 34.45833F);
             this.jointNumberHeder.Text = "Номер стыка";
             // 
             // lengthHeder
             // 
-            this.lengthHeder.LocationFloat = new DevExpress.Utils.PointFloat(388.0952F, 14.91667F);
+            this.lengthHeder.LocationFloat = new DevExpress.Utils.PointFloat(388.0952F, 0F);
             this.lengthHeder.Name = "lengthHeder";
             this.lengthHeder.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lengthHeder.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
+            this.lengthHeder.SizeF = new System.Drawing.SizeF(97.02377F, 34.45833F);
             this.lengthHeder.Text = "Длина, мм";
             // 
             // partTypeHeder
             // 
-            this.partTypeHeder.LocationFloat = new DevExpress.Utils.PointFloat(291.0714F, 14.91667F);
+            this.partTypeHeder.LocationFloat = new DevExpress.Utils.PointFloat(291.0714F, 0F);
             this.partTypeHeder.Name = "partTypeHeder";
             this.partTypeHeder.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.partTypeHeder.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
+            this.partTypeHeder.SizeF = new System.Drawing.SizeF(97.02377F, 34.45833F);
             this.partTypeHeder.Text = "Тип элемента 1";
             // 
             // partNumberHeader
             // 
             this.partNumberHeader.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.partNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(194.0476F, 14.91667F);
+            this.partNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(194.0476F, 0F);
             this.partNumberHeader.Name = "partNumberHeader";
             this.partNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.partNumberHeader.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
+            this.partNumberHeader.SizeF = new System.Drawing.SizeF(97.0238F, 34.45833F);
             this.partNumberHeader.StylePriority.UseFont = false;
             this.partNumberHeader.Text = "Номер элемента 1";
             // 
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLine4,
             this.pipelineComponentCount,
             this.pipelineComponentHeader,
             this.pipelineJointCountXrLabel,
@@ -218,157 +281,86 @@
             this.pipelineLengthHeader,
             this.pipelineSpoolCountHeader,
             this.pipelinePipeCountHeader,
-            this.pipelineJointCountHeader,
-            this.xrLine3});
-            this.ReportFooter.HeightF = 111.4583F;
+            this.pipelineJointCountHeader});
+            this.ReportFooter.HeightF = 56.70836F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // pipelineJointCountHeader
+            // pipelineComponentCount
             // 
-            this.pipelineJointCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 14.91667F);
-            this.pipelineJointCountHeader.Name = "pipelineJointCountHeader";
-            this.pipelineJointCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineJointCountHeader.SizeF = new System.Drawing.SizeF(83.75003F, 33.70835F);
-            this.pipelineJointCountHeader.Text = "Количество стыков";
+            this.pipelineComponentCount.LocationFloat = new DevExpress.Utils.PointFloat(292.4109F, 33.70836F);
+            this.pipelineComponentCount.Name = "pipelineComponentCount";
+            this.pipelineComponentCount.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelineComponentCount.SizeF = new System.Drawing.SizeF(97.47015F, 23F);
             // 
-            // pipelinePipeCountHeader
+            // pipelineComponentHeader
             // 
-            this.pipelinePipeCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(166.5625F, 14.91667F);
-            this.pipelinePipeCountHeader.Name = "pipelinePipeCountHeader";
-            this.pipelinePipeCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelinePipeCountHeader.SizeF = new System.Drawing.SizeF(83.75003F, 33.70835F);
-            this.pipelinePipeCountHeader.Text = "Количество труб";
-            // 
-            // pipelineSpoolCountHeader
-            // 
-            this.pipelineSpoolCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(333.125F, 14.91667F);
-            this.pipelineSpoolCountHeader.Name = "pipelineSpoolCountHeader";
-            this.pipelineSpoolCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineSpoolCountHeader.SizeF = new System.Drawing.SizeF(83.75003F, 33.70835F);
-            this.pipelineSpoolCountHeader.Text = "Количество катушек";
-            // 
-            // pipelineLengthHeader
-            // 
-            this.pipelineLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(666.25F, 14.91667F);
-            this.pipelineLengthHeader.Name = "pipelineLengthHeader";
-            this.pipelineLengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineLengthHeader.SizeF = new System.Drawing.SizeF(83.75003F, 33.70835F);
-            this.pipelineLengthHeader.Text = "Общая длина, мм";
+            this.pipelineComponentHeader.LocationFloat = new DevExpress.Utils.PointFloat(292.4109F, 0F);
+            this.pipelineComponentHeader.Name = "pipelineComponentHeader";
+            this.pipelineComponentHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelineComponentHeader.SizeF = new System.Drawing.SizeF(97.47018F, 33.70835F);
+            this.pipelineComponentHeader.Text = "Количество компонентов";
             // 
             // pipelineJointCountXrLabel
             // 
-            this.pipelineJointCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 64.91667F);
+            this.pipelineJointCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 33.70835F);
             this.pipelineJointCountXrLabel.Name = "pipelineJointCountXrLabel";
             this.pipelineJointCountXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineJointCountXrLabel.SizeF = new System.Drawing.SizeF(83.75004F, 23F);
+            this.pipelineJointCountXrLabel.SizeF = new System.Drawing.SizeF(97.0238F, 23.00001F);
             xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
             this.pipelineJointCountXrLabel.Summary = xrSummary1;
             // 
             // pipelinePipeCountXrLabel
             // 
-            this.pipelinePipeCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(166.5625F, 64.91667F);
+            this.pipelinePipeCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(97.0238F, 33.70835F);
             this.pipelinePipeCountXrLabel.Name = "pipelinePipeCountXrLabel";
             this.pipelinePipeCountXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelinePipeCountXrLabel.SizeF = new System.Drawing.SizeF(83.75003F, 23F);
+            this.pipelinePipeCountXrLabel.SizeF = new System.Drawing.SizeF(97.91672F, 23.00001F);
             // 
             // pipelineSpoolCountXrLabel
             // 
-            this.pipelineSpoolCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(333.125F, 64.91667F);
+            this.pipelineSpoolCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(194.9405F, 33.70835F);
             this.pipelineSpoolCountXrLabel.Name = "pipelineSpoolCountXrLabel";
             this.pipelineSpoolCountXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineSpoolCountXrLabel.SizeF = new System.Drawing.SizeF(83.75003F, 23F);
+            this.pipelineSpoolCountXrLabel.SizeF = new System.Drawing.SizeF(97.47029F, 23F);
             // 
             // pipelineLengthXrLabel
             // 
-            this.pipelineLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(665.6249F, 64.91667F);
+            this.pipelineLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(389.881F, 33.70835F);
             this.pipelineLengthXrLabel.Name = "pipelineLengthXrLabel";
             this.pipelineLengthXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineLengthXrLabel.SizeF = new System.Drawing.SizeF(83.75003F, 23F);
+            this.pipelineLengthXrLabel.SizeF = new System.Drawing.SizeF(97.47028F, 23F);
             // 
-            // xrLabel9
+            // pipelineLengthHeader
             // 
-            this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(485.119F, 14.91667F);
-            this.xrLabel9.Name = "xrLabel9";
-            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
-            this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "Номер элемента 2";
+            this.pipelineLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(389.881F, 0F);
+            this.pipelineLengthHeader.Name = "pipelineLengthHeader";
+            this.pipelineLengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelineLengthHeader.SizeF = new System.Drawing.SizeF(97.47028F, 33.70835F);
+            this.pipelineLengthHeader.Text = "Общая длина, мм";
             // 
-            // xrLabel10
+            // pipelineSpoolCountHeader
             // 
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(582.1428F, 14.91667F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
-            this.xrLabel10.Text = "Тип элемента 2";
+            this.pipelineSpoolCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(194.9405F, 0F);
+            this.pipelineSpoolCountHeader.Name = "pipelineSpoolCountHeader";
+            this.pipelineSpoolCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelineSpoolCountHeader.SizeF = new System.Drawing.SizeF(97.47032F, 33.70835F);
+            this.pipelineSpoolCountHeader.Text = "Количество катушек";
             // 
-            // xrLabel11
+            // pipelinePipeCountHeader
             // 
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(679.1666F, 14.91667F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
-            this.xrLabel11.Text = "Длина, мм";
+            this.pipelinePipeCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(97.0238F, 0F);
+            this.pipelinePipeCountHeader.Name = "pipelinePipeCountHeader";
+            this.pipelinePipeCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelinePipeCountHeader.SizeF = new System.Drawing.SizeF(97.91673F, 33.70835F);
+            this.pipelinePipeCountHeader.Text = "Количество труб";
             // 
-            // xrLabel12
+            // pipelineJointCountHeader
             // 
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(97.0238F, 14.91667F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(70.20836F, 34.45833F);
-            this.xrLabel12.Text = "Дата сварки";
-            // 
-            // secondPartTypeXrLabel
-            // 
-            this.secondPartTypeXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartTypeDescription")});
-            this.secondPartTypeXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(584.8215F, 0F);
-            this.secondPartTypeXrLabel.Name = "secondPartTypeXrLabel";
-            this.secondPartTypeXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.secondPartTypeXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
-            // 
-            // secondPartNumberXrLabel
-            // 
-            this.secondPartNumberXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartNumber")});
-            this.secondPartNumberXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(487.3513F, 0F);
-            this.secondPartNumberXrLabel.Name = "secondPartNumberXrLabel";
-            this.secondPartNumberXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.secondPartNumberXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
-            // 
-            // secondLenghtXrLabel
-            // 
-            this.secondLenghtXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SecondPartLength")});
-            this.secondLenghtXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(682.2918F, 0F);
-            this.secondLenghtXrLabel.Name = "secondLenghtXrLabel";
-            this.secondLenghtXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.secondLenghtXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
-            // 
-            // weldingDateXrLabel
-            // 
-            this.weldingDateXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "WeldingDate")});
-            this.weldingDateXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(97.47026F, 0F);
-            this.weldingDateXrLabel.Name = "weldingDateXrLabel";
-            this.weldingDateXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.weldingDateXrLabel.SizeF = new System.Drawing.SizeF(67.70833F, 26.125F);
-            // 
-            // pipelineComponentCount
-            // 
-            this.pipelineComponentCount.LocationFloat = new DevExpress.Utils.PointFloat(499.6875F, 64.91667F);
-            this.pipelineComponentCount.Name = "pipelineComponentCount";
-            this.pipelineComponentCount.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineComponentCount.SizeF = new System.Drawing.SizeF(83.75003F, 23F);
-            // 
-            // pipelineComponentHeader
-            // 
-            this.pipelineComponentHeader.LocationFloat = new DevExpress.Utils.PointFloat(499.6875F, 14.91667F);
-            this.pipelineComponentHeader.Name = "pipelineComponentHeader";
-            this.pipelineComponentHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipelineComponentHeader.SizeF = new System.Drawing.SizeF(83.75003F, 33.70835F);
-            this.pipelineComponentHeader.Text = "Количество компонентов";
+            this.pipelineJointCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pipelineJointCountHeader.Name = "pipelineJointCountHeader";
+            this.pipelineJointCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pipelineJointCountHeader.SizeF = new System.Drawing.SizeF(97.0238F, 33.70835F);
+            this.pipelineJointCountHeader.Text = "Количество стыков";
             // 
             // calculatedField1
             // 
@@ -378,31 +370,7 @@
             // 
             this.tracingBindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.TracingData);
             // 
-            // xrLine1
-            // 
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(750F, 14.91667F);
-            // 
-            // xrLine2
-            // 
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 52.79166F);
-            this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(750F, 14.91667F);
-            // 
-            // xrLine3
-            // 
-            this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(3.178914E-05F, 0F);
-            this.xrLine3.Name = "xrLine3";
-            this.xrLine3.SizeF = new System.Drawing.SizeF(750F, 14.91667F);
-            // 
-            // xrLine4
-            // 
-            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 50F);
-            this.xrLine4.Name = "xrLine4";
-            this.xrLine4.SizeF = new System.Drawing.SizeF(750F, 14.91667F);
-            // 
-            // TracingReporn
+            // TracingReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -458,9 +426,5 @@
         private DevExpress.XtraReports.UI.XRLabel pipelineComponentCount;
         private DevExpress.XtraReports.UI.XRLabel pipelineComponentHeader;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField1;
-        private DevExpress.XtraReports.UI.XRLine xrLine2;
-        private DevExpress.XtraReports.UI.XRLine xrLine1;
-        private DevExpress.XtraReports.UI.XRLine xrLine4;
-        private DevExpress.XtraReports.UI.XRLine xrLine3;
     }
 }

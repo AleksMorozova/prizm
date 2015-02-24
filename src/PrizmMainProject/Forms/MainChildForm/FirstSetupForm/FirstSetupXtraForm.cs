@@ -33,6 +33,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             SetControlsTextLength();
             viewModel = vm;
             this.Text += ": [" + viewModel.Type + "]";
+
+            this.AcceptButton = saveButton;
+            this.CancelButton = cancelButton;
         }
 
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)

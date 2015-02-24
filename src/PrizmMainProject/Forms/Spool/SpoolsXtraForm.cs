@@ -26,7 +26,6 @@ namespace Prizm.Main.Forms.Spool
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class SpoolsXtraForm : ChildForm, INewEditEntityForm
     {
-        private Guid id;
         private SpoolViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;
         ICommandManager commandManager = new CommandManager();
@@ -34,11 +33,11 @@ namespace Prizm.Main.Forms.Spool
         private List<string> localizedAllInspectionStatus = new List<string>();
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
 
-        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+        public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
 
         public SpoolsXtraForm(Guid id, string number)
         {
-            this.id = id;
+            this.Id = id;
 
             InitializeComponent();
             SetControlsTextLength();
@@ -132,7 +131,7 @@ namespace Prizm.Main.Forms.Spool
                 (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
-            IsEditMode = ((this.id != Guid.Empty || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
+            IsEditMode = ((this.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
 
             inspectionDateEdit.SetLimits();
@@ -186,7 +185,7 @@ namespace Prizm.Main.Forms.Spool
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-            }                
+            }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
@@ -289,7 +288,14 @@ namespace Prizm.Main.Forms.Spool
         {
             spoolLength.Properties.MinValue = 1;
             spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
-            spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
+            if(viewModel.Pipe.Length.ToString().Length == 0)
+            {
+                spoolLength.Properties.MaxLength = int.MaxValue;
+            }
+            else
+            {
+                spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)

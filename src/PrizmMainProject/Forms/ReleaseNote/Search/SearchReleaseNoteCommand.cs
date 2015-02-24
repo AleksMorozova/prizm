@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                             CarNumber = car.Number,
                             CarCertificate = car.Certificate,
                             CarDestination = car.Destination,
-                            Status = car.IsShipped
+                            Status = release.Shipped
                                 ? Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_ShippedStatus) 
                                 : Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PendingStatus)
                         });

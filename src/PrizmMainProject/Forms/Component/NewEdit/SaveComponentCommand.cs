@@ -111,6 +111,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         repos.Commit();
                         repos.ComponentRepo.Evict(viewModel.Component);
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.Id = viewModel.Component.Id;
                         viewModel.ModifiableView.UpdateState();
 
                         if (fileCopySuccess)

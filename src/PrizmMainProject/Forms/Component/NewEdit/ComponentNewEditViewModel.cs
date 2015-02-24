@@ -274,7 +274,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Component.ToExport = false;
             if (this.FilesFormViewModel != null)
             {
-                this.FilesFormViewModel.RefreshFiles(this.Component.Id);
+                this.FilesFormViewModel.Files = null;
             }
         }
 

@@ -91,7 +91,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 new LocalizedItem(number, StringResources.ReleaseSearch_RailcarNumberColumnHeader.Id),
                 new LocalizedItem(dest, StringResources.ReleaseSearch_DestinationColumnHeader.Id),
                 new LocalizedItem(certificate, StringResources.ReleaseSearch_CertificateColumnHeader.Id),
-                new LocalizedItem(statusColumn, StringResources.ReleaseSearch_RailcarNumberColumnHeader.Id),
+                new LocalizedItem(statusColumn, StringResources.ReleaseSearch_ReleaseStatusColumnHeader.Id),
 
                 // layout control groups
                 new LocalizedItem(searchParametersLayoutGroup, StringResources.ReleaseSearch_SearchGroup.Id),

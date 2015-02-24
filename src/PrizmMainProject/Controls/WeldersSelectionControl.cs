@@ -109,7 +109,7 @@ namespace Prizm.Main.Controls
               else
               {
                   var data = v.GetRow(e.ControllerRow) as Welder;
-                  if (!data.IsActive)
+                  if (data != null && !data.IsActive)
                   {
                       v.UnselectRow(e.ControllerRow);
                   }

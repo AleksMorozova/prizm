@@ -1019,7 +1019,7 @@
     <value>В производстве</value>
   </data>
   <data name="NewEditPipe_PipeStatusShipped" xml:space="preserve">
-    <value>Отправлена</value>
+    <value>Отгружена</value>
   </data>
   <data name="NewEditPipe_PipeStatusStocked" xml:space="preserve">
     <value>На складе</value>
@@ -1363,5 +1363,8 @@
   </data>
   <data name="NewEditPipe_ReadyToShip" xml:space="preserve">
     <value>Готова к отгрузке</value>
+  </data>
+  <data name="ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended" xml:space="preserve">
+    <value>В вагоне</value>
   </data>
 </root>

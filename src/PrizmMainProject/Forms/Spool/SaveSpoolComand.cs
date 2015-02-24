@@ -109,6 +109,7 @@ namespace Prizm.Main.Forms.Spool
                             }
 
                             viewModel.ModifiableView.IsModified = false;
+                            viewModel.ModifiableView.Id = viewModel.Spool.Id;
 
                             notify.ShowNotify(
                                 Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),

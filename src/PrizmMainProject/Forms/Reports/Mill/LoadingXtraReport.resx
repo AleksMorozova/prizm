@@ -120,4 +120,15 @@
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="customSqlQuery2.Sql" xml:space="preserve">
+    <value>Select n.number releaseNote, r.number railcarNumber, r.certificate railcarCertificate, r.destination railcarDestination,
+Count(p.number) pipes, Sum(p.length) length, Sum(p.weight) weight from ReleaseNote n, Railcar r , Pipe p
+where n.id=r.releaseNoteId and r.id=p.railcarId group by r.number, n.number, r.certificate, r.destination</value>
+  </data>
+  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0icmVsZWFzZU5vdGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icmFpbGNhck51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJyYWlsY2FyQ2VydGlmaWNhdGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icmFpbGNhckRlc3RpbmF0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InBpcGVzIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0ibGVuZ3RoIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0id2VpZ2h0IiBUeXBlPSJEb3VibGUiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+  </data>
 </root>

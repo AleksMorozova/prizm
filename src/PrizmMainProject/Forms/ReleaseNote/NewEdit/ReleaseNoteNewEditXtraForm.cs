@@ -26,18 +26,15 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
-        private Guid id;
         private ICommandManager commandManager = new CommandManager();
         private ReleaseNoteViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;
-        private Dictionary<PipeMillStatus, string> statusTypeDict
-            = new Dictionary<PipeMillStatus, string>();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+        public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
 
         public ReleaseNoteNewEditXtraForm(Guid id)
         {
-            this.id = id;
+            this.Id = id;
 
             InitializeComponent();
             viewModel = (ReleaseNoteViewModel)Program.Kernel.Get<ReleaseNoteViewModel>(new ConstructorArgument("id", id));
@@ -68,12 +65,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            statusTypeDict.Clear();
-            statusTypeDict.Add(PipeMillStatus.Produced, Resources.Produced);
-            statusTypeDict.Add(PipeMillStatus.Shipped, Resources.Shipped);
-            statusTypeDict.Add(PipeMillStatus.Stocked, Resources.Stocked);
-            statusTypeDict.Add(PipeMillStatus.ReadyToShip, Resources.ReadyToShip);
-            repositoryGridLookUpEditStatus.DataSource = statusTypeDict;
+            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            {
+                localizedAllPipeMillStatus.Add(item.Item2);
+            }
 
             BindCommands();
             BindToViewModel();
@@ -85,9 +80,11 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         #region --- Localization ---
 
+        private List<string> localizedAllPipeMillStatus = new List<string>();
+
         protected override List<LocalizedItem> CreateLocalizedItems()
         {
-            return new List<LocalizedItem>()
+                        return new List<LocalizedItem>()
             {
                 // layout items
                 new LocalizedItem(releasedNoteNumberLayout, StringResources.ReleaseNoteNewEdit_ReleaseNumberLabel.Id),
@@ -118,6 +115,19 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 new LocalizedItem(addPipeLayoutGroup, StringResources.ReleaseNoteNewEdit_AddPipeLayoutGroup.Id),
                 new LocalizedItem(pipesListLayoutGroup, StringResources.ReleaseNoteNewEdit_PipesListLayoutGroup.Id),
                 new LocalizedItem(releaseNoteLayoutGroup, StringResources.ReleaseNoteNewEdit_ReleaseNoteLayoutGroup.Id),
+
+                 // one-way by-column transformation statuses.
+                // See grid's CustomColumnDisplayText for all grid's columns, to understand the connection.
+                // one localized item per column. 
+                // the same ...CustomColumnDisplayText method must be used for all columns,
+                // but private localized list (f.e. localizedAllPipeMillStatus) is different for each column. 
+                new LocalizedItem(pipesListView, localizedAllPipeMillStatus,
+                    new string [] { 
+                        StringResources.SearchPipe_MillStatusUndefined.Id, 
+                        StringResources.SearchPipe_MillStatusProduced.Id, 
+                        StringResources.SearchPipe_MillStatusStocked.Id, 
+                        StringResources.SearchPipe_MillStatusShipped.Id, 
+                        StringResources.SearchPipe_ReadyToShip.Id }),
 
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} )
             };
@@ -196,14 +206,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
         }
 
-        private void repositoryGridLookUpEditStatus_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
-        {
-            if(e.Value is PipeMillStatus)
-            {
-                e.DisplayText = statusTypeDict[(PipeMillStatus)e.Value];
-            }
-        }
-
         private void SetControlsTextLength()
         {
             railcarNumber.Properties.MaxLength = LengthLimit.MaxRailcarNumber;
@@ -277,6 +279,18 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             viewModel.Railcars.Add(r);
             railcarNumber.EditValue = viewModel.Railcar = r;
             e.Handled = true;
+        }
+
+        private void pipesListView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == pipeStatusGridColumn.Name)
+            {
+                PipeMillStatus result;
+                if (Enum.TryParse<PipeMillStatus>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedAllPipeMillStatus[(int)result];
+                }
+            }
         }
 
     }

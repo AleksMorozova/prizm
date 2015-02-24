@@ -106,6 +106,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
                 repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
+                viewModel.ModifiableView.Id = viewModel.ReleaseNote.Id;
 
                 if (fileCopySuccess)
                 {

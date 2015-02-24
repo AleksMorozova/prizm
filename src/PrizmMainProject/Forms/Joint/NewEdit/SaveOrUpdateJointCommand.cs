@@ -91,6 +91,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     }
 
                     viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.Id = viewModel.Joint.Id;
                     viewModel.ModifiableView.UpdateState();
 
                     notify.ShowNotify(

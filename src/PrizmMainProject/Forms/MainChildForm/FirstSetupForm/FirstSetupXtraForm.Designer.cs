@@ -111,7 +111,6 @@
             // 
             // pass
             // 
-            this.pass.EnterMoveNextControl = true;
             this.pass.Location = new System.Drawing.Point(29, 265);
             this.pass.Name = "pass";
             this.pass.Properties.PasswordChar = '*';
@@ -200,7 +199,6 @@
             // 
             // reEnterPass
             // 
-            this.reEnterPass.EnterMoveNextControl = true;
             this.reEnterPass.Location = new System.Drawing.Point(29, 315);
             this.reEnterPass.Name = "reEnterPass";
             this.reEnterPass.Properties.PasswordChar = '*';
@@ -214,7 +212,6 @@
             // 
             // middleName
             // 
-            this.middleName.EnterMoveNextControl = true;
             this.middleName.Location = new System.Drawing.Point(439, 315);
             this.middleName.Name = "middleName";
             this.middleName.Size = new System.Drawing.Size(411, 20);
@@ -223,7 +220,6 @@
             // 
             // firstName
             // 
-            this.firstName.EnterMoveNextControl = true;
             this.firstName.Location = new System.Drawing.Point(439, 265);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(411, 20);
@@ -235,7 +231,6 @@
             // 
             // lastName
             // 
-            this.lastName.EnterMoveNextControl = true;
             this.lastName.Location = new System.Drawing.Point(439, 215);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(411, 20);
@@ -247,7 +242,6 @@
             // 
             // login
             // 
-            this.login.EnterMoveNextControl = true;
             this.login.Location = new System.Drawing.Point(29, 215);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(376, 20);

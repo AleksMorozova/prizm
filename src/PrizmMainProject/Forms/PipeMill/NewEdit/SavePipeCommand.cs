@@ -121,6 +121,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         }
 
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.Id = viewModel.Pipe.Id;
                         viewModel.ModifiableView.UpdateState();
                         notify.ShowNotify(
                             string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),

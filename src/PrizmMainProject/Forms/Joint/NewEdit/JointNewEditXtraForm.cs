@@ -35,7 +35,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class JointNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
-        private Guid id;
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
         private JointWeldResult currentJointWeldResult;
@@ -45,7 +44,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         ICommandManager commandManager = new CommandManager();
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         private ExternalFilesXtraForm filesForm = null;
-        public bool IsMatchedByGuid(Guid id) { return this.id == id; }
+        public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private void UpdateTextEdit()
         {
@@ -54,7 +53,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public JointNewEditXtraForm(Guid id)
         {
-            this.id = id;
+            this.Id = id;
 
             InitializeComponent();
 
@@ -90,7 +89,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-            }                
+            }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
@@ -101,7 +100,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointNewEditBindingSoure.DataSource = viewModel;
 
             jointNumber.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "Number",true, DataSourceUpdateMode.OnPropertyChanged);
+                .Add("EditValue", jointNewEditBindingSoure, "Number", true, DataSourceUpdateMode.OnPropertyChanged);
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
@@ -149,7 +148,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
             secondJointElement.DataBindings
                 .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
-            
+
 
             ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
@@ -207,9 +206,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             BindCommands();
             BindToViewModel();
-            viewModel.PropertyChanged += (s, eve) => 
+            viewModel.PropertyChanged += (s, eve) =>
                 {
-                    if ( eve.PropertyName != "Pieces")
+                    if(eve.PropertyName != "Pieces")
                     {
                         IsModified = true;
                     }
@@ -220,6 +219,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             loweringDate.SetLimits();
             repairDateEdit.SetLimits();
             operationDateEdit.SetLimits();
+
+            PKNumber.SetMask(Constants.PositiveDigitMask);
+            distanceFromPK.SetMask(Constants.PositiveDigitMask);
         }
 
         #region --- Localization ---

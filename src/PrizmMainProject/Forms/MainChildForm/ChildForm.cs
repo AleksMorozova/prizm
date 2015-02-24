@@ -319,6 +319,8 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         public bool CannotOpenForViewing { get; set; }
+
+        public Guid Id { get; set; }
     }
 
 

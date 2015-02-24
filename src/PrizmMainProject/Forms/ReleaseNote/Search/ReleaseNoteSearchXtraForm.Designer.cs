@@ -192,7 +192,7 @@
             this.number.Name = "number";
             this.number.OptionsColumn.AllowEdit = false;
             this.number.Visible = true;
-            this.number.VisibleIndex = 2;
+            this.number.VisibleIndex = 3;
             this.number.Width = 141;
             // 
             // dest
@@ -202,7 +202,7 @@
             this.dest.Name = "dest";
             this.dest.OptionsColumn.AllowEdit = false;
             this.dest.Visible = true;
-            this.dest.VisibleIndex = 3;
+            this.dest.VisibleIndex = 4;
             this.dest.Width = 146;
             // 
             // certificate
@@ -212,16 +212,16 @@
             this.certificate.Name = "certificate";
             this.certificate.OptionsColumn.AllowEdit = false;
             this.certificate.Visible = true;
-            this.certificate.VisibleIndex = 4;
+            this.certificate.VisibleIndex = 5;
             this.certificate.Width = 124;
             // 
             // statusColumn
             // 
-            this.statusColumn.Caption = "Статус";
+            this.statusColumn.Caption = "Статус разрешения";
             this.statusColumn.FieldName = "Status";
             this.statusColumn.Name = "statusColumn";
             this.statusColumn.Visible = true;
-            this.statusColumn.VisibleIndex = 5;
+            this.statusColumn.VisibleIndex = 2;
             this.statusColumn.Width = 133;
             // 
             // shipGridButton
