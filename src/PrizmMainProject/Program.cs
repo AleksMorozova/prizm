@@ -76,11 +76,13 @@ namespace Prizm.Main
         [STAThread]
         private static void Main(string[] args)
         {
+            #region SingleInstance
             if(!SingleInstance.Start())
             {
                 SingleInstance.ShowFirstInstance();
                 return;
-            }
+            } 
+            #endregion
 
             Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
             Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;

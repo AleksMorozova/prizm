@@ -633,10 +633,12 @@ namespace Prizm.Main.Forms.MainChildForm
             base.WndProc(ref message);
         }
 
+        #region SingleInstance
         public void ShowWindow()
         {
             // Insert code here to make your form show itself.
             WinApi.ShowToFront(this.Handle);
-        }
+        } 
+        #endregion
     }
 }
