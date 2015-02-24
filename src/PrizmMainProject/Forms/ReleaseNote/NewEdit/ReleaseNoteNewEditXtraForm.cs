@@ -31,7 +31,11 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private ExternalFilesXtraForm filesForm = null;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
-
+        private List<string> localizedAllShipStatus = new List<string>(2) { "unshipped", "shipped"};
+        private void UpdateTextEdit()
+        {
+            bindingSource.CancelEdit(); 
+        }
         public ReleaseNoteNewEditXtraForm(Guid id)
         {
             this.Id = id;
@@ -129,7 +133,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         StringResources.SearchPipe_MillStatusShipped.Id, 
                         StringResources.SearchPipe_ReadyToShip.Id }),
 
-                new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} )
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} ),
+
+                new LocalizedItem(UpdateTextEdit, localizedAllShipStatus,
+                        new string [] {StringResources.ReleaseNoteNewEdit_PendingStatus.Id, StringResources.ReleaseNoteNewEdit_ShippedStatus.Id })
             };
         }
 
@@ -149,8 +156,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
 
             textEditReleaseNoteStatus.DataBindings.Add(BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Shipped",
-                (value) => { return Program.LanguageManager.GetString(
-                    (bool)value ? StringResources.ReleaseNoteNewEdit_ShippedStatus : StringResources.ReleaseNoteNewEdit_PendingStatus);
+                (value) =>
+                {
+                    return (bool)value ? localizedAllShipStatus[1] : localizedAllShipStatus[0];
                 }));
             
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;

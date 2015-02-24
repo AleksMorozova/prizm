@@ -67,6 +67,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.resultParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.railcarsListLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repositoryShippedStatus = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.openRailcarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unshipButton)).BeginInit();
@@ -96,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryShippedStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // openRailcarButton
@@ -135,7 +137,8 @@
             this.releasesGrid.Name = "releasesGrid";
             this.releasesGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.shipGridButton,
-            this.unshipGridButton});
+            this.unshipGridButton,
+            this.repositoryShippedStatus});
             this.releasesGrid.Size = new System.Drawing.Size(1211, 308);
             this.releasesGrid.TabIndex = 9;
             this.releasesGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -158,6 +161,7 @@
             this.railcarListView.OptionsBehavior.ReadOnly = true;
             this.railcarListView.OptionsNavigation.UseTabKey = false;
             this.railcarListView.OptionsView.ShowGroupPanel = false;
+            this.railcarListView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.railcarListView_CustomColumnDisplayText);
             this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
@@ -218,8 +222,10 @@
             // statusColumn
             // 
             this.statusColumn.Caption = "Статус разрешения";
+            this.statusColumn.ColumnEdit = this.repositoryShippedStatus;
             this.statusColumn.FieldName = "Status";
             this.statusColumn.Name = "statusColumn";
+            this.statusColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.statusColumn.Visible = true;
             this.statusColumn.VisibleIndex = 2;
             this.statusColumn.Width = 133;
@@ -474,6 +480,11 @@
             this.railcarsListLayout.TextSize = new System.Drawing.Size(0, 0);
             this.railcarsListLayout.TextVisible = false;
             // 
+            // repositoryShippedStatus
+            // 
+            this.repositoryShippedStatus.AutoHeight = false;
+            this.repositoryShippedStatus.Name = "repositoryShippedStatus";
+            // 
             // ReleaseNoteSearchXtraForm
             // 
             this.AcceptButton = this.searchButton;
@@ -517,6 +528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultParametersLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.railcarsListLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryShippedStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,7 +559,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn dest;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit shipGridButton;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit unshipGridButton;
-        private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
         private DevExpress.XtraEditors.TextEdit releaseNoteNumber;
         private DevExpress.XtraLayout.LayoutControlItem releaseNoteNumberayout;
         private DevExpress.XtraGrid.Columns.GridColumn releaseNoteNumberGridColumn;
@@ -558,5 +569,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonRightEmptySpace;
         private DevExpress.XtraGrid.Columns.GridColumn Id;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryShippedStatus;
     }
 }
