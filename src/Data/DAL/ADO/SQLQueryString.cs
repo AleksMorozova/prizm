@@ -39,8 +39,10 @@ namespace Prizm.Data.DAL.ADO
         /// <summary>
         /// string constants keeping SQL-query templates
         /// </summary>
-        private const string GetReleaseNotes = @"Select Distinct(note.number) Notes, (Select Count(r.number) from Railcar r where r.releaseNoteId=note.id) as railcars
-from ReleaseNote note where note.date>=  @startDate and note.date <= @finalDate ";
+        private const string GetReleaseNotes = @"Select n.number releaseNote, r.number railcarNumber, r.certificate railcarCertificate, r.destination railcarDestination,
+Count(p.number) pipes, Sum(p.length) length, Sum(p.weight) weight from ReleaseNote n, Railcar r , Pipe p
+where n.id=r.releaseNoteId and r.id=p.railcarId and n.date>=  @startDate and n.date <= @finalDate 
+group by r.number, n.number, r.certificate, r.destination";
  
         private const string GettAllKP = @"Select distinct(numberKP) From Joint";
 
