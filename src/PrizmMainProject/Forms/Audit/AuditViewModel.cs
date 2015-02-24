@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Audit
         {
             get
             {
-                return endDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+                return endDate;
             }
             set
             {
