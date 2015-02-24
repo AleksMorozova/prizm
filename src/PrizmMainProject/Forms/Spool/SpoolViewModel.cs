@@ -257,7 +257,7 @@ namespace Prizm.Main.Forms.Spool
             Pipe = new Pipe();
             if (this.FilesFormViewModel != null)
             {
-                this.FilesFormViewModel.RefreshFiles(this.Spool.Id);
+                this.FilesFormViewModel.Files = null;
             }
         }
         #region ---- Commands ----

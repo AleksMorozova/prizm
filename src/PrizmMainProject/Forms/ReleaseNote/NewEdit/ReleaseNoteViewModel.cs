@@ -442,7 +442,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 ReleaseNote = new Prizm.Domain.Entity.Mill.ReleaseNote { Shipped = false, IsActive = true };
             }
-
+            if (this.FilesFormViewModel != null)
+            {
+                this.FilesFormViewModel.Files = null;
+            }
             Number = string.Empty;
             Railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
         }
