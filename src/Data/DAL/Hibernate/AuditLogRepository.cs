@@ -67,11 +67,11 @@ namespace Prizm.Data.DAL.Hibernate
                   " select id, number from PurchaseOrder WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
                   " select id,number from Component WHERE number LIKE CONCAT(:entityNumber, '%')) b on a.entityID = b.id" +
-                  " where a.auditDate >= :startDate  AND a.auditDate <= :endDate").SetResultTransformer(AuditLogQuery.Transformer);
+                  " where a.auditDate >= :startDate AND a.auditDate <= :endDate").SetResultTransformer(AuditLogQuery.Transformer);
 
             query.SetString("entityNumber", number.ToString());
             query.SetDateTime("startDate", startDate);
-            query.SetDateTime("endDate", endDate);
+            query.SetDateTime("endDate", endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
             var results = query.List<AuditLog>();
             return results;
         }
@@ -85,9 +85,8 @@ namespace Prizm.Data.DAL.Hibernate
         /// <returns></returns>
         public IList<AuditLog> GetRecordsByUser(string user, DateTime startDate, DateTime endDate)
         {
-
             var retVal = session.QueryOver<AuditLog>()
-                .Where(_ => _.AuditDate <= endDate && _.AuditDate >= startDate)
+                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) && _.AuditDate >= startDate)
                 .WhereRestrictionOn(x => x.User).IsLike(user).List<AuditLog>();
 
             return retVal ?? new List<AuditLog>();
