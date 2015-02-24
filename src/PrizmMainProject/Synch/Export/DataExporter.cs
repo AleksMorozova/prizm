@@ -131,6 +131,16 @@ namespace Prizm.Main.Synch.Export
                        }
                    }
                }
+               if (pipe.Spools.Count != 0)
+               {
+                   foreach (SpoolObject spoolObj in pipe.Spools)
+                   {
+                       if (spoolObj.Attachments != null)
+                       {
+                           WriteAttachments(tempDir, spoolObj.Attachments);
+                       }
+                   }
+               }
             }
          }
 

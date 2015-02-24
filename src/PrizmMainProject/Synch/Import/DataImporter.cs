@@ -216,7 +216,7 @@ namespace Prizm.Main.Synch.Import
             {
                 foreach (SpoolObject so in pipeObj.Spools)
                 {
-                    pipe.Spools.Add(ImportSpool(so, pipe));
+                    pipe.Spools.Add(ImportSpool(tempDir, so, pipe));
                 }
             }
 
@@ -237,7 +237,7 @@ namespace Prizm.Main.Synch.Import
             }
         }
 
-        private Spool ImportSpool(SpoolObject so, Pipe pipe)
+        private Spool ImportSpool(string tempDir, SpoolObject so, Pipe pipe)
         {
             Spool spool = importRepo.SpoolRepo.Get(so.Id);
 
@@ -249,7 +249,7 @@ namespace Prizm.Main.Synch.Import
                 isNew = true;
             }
 
-            MapSerializableEntityToSpool(so, spool);
+            MapSerializableEntityToSpool(tempDir, so, spool);
             spool.Pipe = pipe;
 
             if (isNew)
@@ -260,7 +260,7 @@ namespace Prizm.Main.Synch.Import
             return spool;
         }
 
-        void MapSerializableEntityToSpool(SpoolObject spoolObj, Spool spool)
+        void MapSerializableEntityToSpool(string tempDir,SpoolObject spoolObj, Spool spool)
         {
             spool.Id = spoolObj.Id;
             spool.IsActive = spoolObj.IsActive;
@@ -270,6 +270,22 @@ namespace Prizm.Main.Synch.Import
             spool.IsAvailableToJoint = spoolObj.IsAvailableToJoint;
             spool.ConstructionStatus = spoolObj.ConstructionStatus;
             spool.InspectionStatus = spoolObj.InspectionStatus;
+
+            if (spoolObj.Attachments != null)
+            {
+                if (!Directory.Exists(Directories.TargetPath))
+                {
+                    Directory.CreateDirectory(Directories.TargetPath);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+                spool.Attachments = new List<Prizm.Domain.Entity.File>();
+                foreach (var fileObject in spoolObj.Attachments)
+                {
+                    Prizm.Domain.Entity.File f = ImportFile(fileObject, spool.Id);
+                    CopyAttachment(tempDir, f);
+                }
+            }
         }
 
         private Project ImportProject(ProjectObject projectObj)
@@ -503,7 +519,7 @@ namespace Prizm.Main.Synch.Import
                         if (spoolObj != null)
                         {
                             spool = new Spool();
-                            MapSerializableEntityToSpool(spoolObj, spool);
+                            MapSerializableEntityToSpool(tempDir, spoolObj, spool);
                             isNewSpool = true;
                         }
                     }
@@ -543,32 +559,22 @@ namespace Prizm.Main.Synch.Import
                     break;
             }
 
-            if (partDataObj.Connectors != null)
-            {
-                foreach (ConnectorObject co in partDataObj.Connectors)
-                {
-                    ImportConnector(tempDir, co, joint);
-                }
-            }
-
             PartData pd = new PartData();
             pd.Id = partId;
             pd.PartType = type;
             return pd;
         }
 
-        void ImportConnector(string tempDir, ConnectorObject co, Joint joint)
+        Connector ImportConnector(string tempDir, ConnectorObject co, Component component)
         {
-            Component component = ImportComponent(tempDir, co.Component);
 
             Connector connector = new Connector();
-            connector.Component = component;
-            connector.Joint = joint;
+            connector.Id = co.Id;
             connector.IsActive = co.IsActive;
             connector.WallThickness = co.WallThickness;
             connector.Diameter = co.Diameter;
-
-            importRepo.ComponentRepo.SaveOrUpdate(component);
+            connector.Component = component;
+            return connector;
         }
 
         Component ImportComponent(string tempDir, ComponentObject compObj)
@@ -610,6 +616,15 @@ namespace Prizm.Main.Synch.Import
                 foreach (var file in compObj.Attachments)
                 {
                     component.Attachments.Add(ImportFile(file, component.Id));
+                }
+            }
+
+            if (compObj.Connectors != null)
+            {
+                component.Connectors = new List<Connector>();
+                foreach (var connector in compObj.Connectors)
+                {
+                    component.Connectors.Add(ImportConnector(tempDir, connector, component));
                 }
             }
         }
