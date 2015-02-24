@@ -209,7 +209,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
         public void DetachFileEntities()
         {
-            if (Files.Count > 0)
+            if (Files!= null)
             {
                 foreach (var file in Files)
                 {
