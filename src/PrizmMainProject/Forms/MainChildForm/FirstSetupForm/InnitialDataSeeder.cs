@@ -22,6 +22,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private const int WELDERCOUNT = 25;
         private const int COMPONENTCOUNT = 300;
         private const int RELEASECOUNT = 48;
+        private const int PIPELENGHT = 9550;
 
         IFirstSetupRepo firstSetupRepo;
         FirstSetupViewModel viewModel;
@@ -670,7 +671,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     foreach(var item in pipe.PipeTestResult)
                     {
                         item.Status = PipeTestResultStatus.Passed;
+                        if(item.Operation.Category.Type == FixedCategory.Length)
+                        {
+                            item.Value = PIPELENGHT.ToString();
+                        }
                     }
+                    pipe.Length = PIPELENGHT;
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ConstructionStatus = PartConstructionStatus.Pending;
                     pipe.IsAvailableToJoint = true;

@@ -89,7 +89,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-            }                
+            }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
@@ -100,7 +100,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointNewEditBindingSoure.DataSource = viewModel;
 
             jointNumber.DataBindings
-                .Add("EditValue", jointNewEditBindingSoure, "Number",true, DataSourceUpdateMode.OnPropertyChanged);
+                .Add("EditValue", jointNewEditBindingSoure, "Number", true, DataSourceUpdateMode.OnPropertyChanged);
 
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
@@ -148,7 +148,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
             secondJointElement.DataBindings
                 .Add("Enabled", jointNewEditBindingSoure, "IsNotWithdrawn", true, DataSourceUpdateMode.OnPropertyChanged);
-            
+
 
             ControlOperationLookUpEdit.DataSource = viewModel.ControlOperations;
             repairOperationsLookUpEdit.DataSource = viewModel.RepairOperations;
@@ -206,9 +206,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             BindCommands();
             BindToViewModel();
-            viewModel.PropertyChanged += (s, eve) => 
+            viewModel.PropertyChanged += (s, eve) =>
                 {
-                    if ( eve.PropertyName != "Pieces")
+                    if(eve.PropertyName != "Pieces")
                     {
                         IsModified = true;
                     }
@@ -219,6 +219,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             loweringDate.SetLimits();
             repairDateEdit.SetLimits();
             operationDateEdit.SetLimits();
+
+            PKNumber.SetMask(Constants.PositiveDigitMask);
+            distanceFromPK.SetMask(Constants.PositiveDigitMask);
         }
 
         #region --- Localization ---

@@ -185,7 +185,7 @@ namespace Prizm.Main.Forms.Spool
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-            }                
+            }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
@@ -288,7 +288,14 @@ namespace Prizm.Main.Forms.Spool
         {
             spoolLength.Properties.MinValue = 1;
             spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
-            spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
+            if(viewModel.Pipe.Length.ToString().Length == 0)
+            {
+                spoolLength.Properties.MaxLength = int.MaxValue;
+            }
+            else
+            {
+                spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)

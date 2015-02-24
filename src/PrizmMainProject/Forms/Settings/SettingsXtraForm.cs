@@ -150,6 +150,10 @@ namespace Prizm.Main.Forms.Settings
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             findDuplicateList = new Dictionary<GridView, DuplicatesList>();
             CreateDuplicateList();
+
+            externalDocumentSize.SetMask(Constants.PositiveDigitMask);
+            pipeDiameter.SetMask(Constants.PositiveDigitMask);
+            pipeLength.SetMask(Constants.PositiveDigitMask);
         }
 
         private void BindToViewModel()

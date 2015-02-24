@@ -146,6 +146,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             IsModified = false;
 
             repositoryInspectionDate.SetLimits();
+            componentLength.SetMask(Constants.PositiveDigitMask);
         }
 
         private void BindToViewModel()
