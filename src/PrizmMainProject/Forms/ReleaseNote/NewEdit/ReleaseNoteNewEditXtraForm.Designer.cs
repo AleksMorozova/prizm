@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseNoteNewEditXtraForm));
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -75,9 +76,9 @@
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.addPipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.addButtonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -693,6 +694,7 @@
             this.Activated += new System.EventHandler(this.RailcarNewEditXtraForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RailcarNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.RailcarNewEditXtraForm_Load);
+            this.Leave += new System.EventHandler(this.ReleaseNoteNewEditXtraForm_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).EndInit();
