@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main
 {
+    /// <summary>
+    /// Win32 Api for activate the window and bring it to the foreground
+    /// </summary>
     public static class WinApi
     {
         [DllImport("user32")]
@@ -39,6 +42,9 @@ namespace Prizm.Main
         }
     }
 
+    /// <summary>
+    /// Mutex operator for add & control single instance state
+    /// </summary>
     public static class SingleInstance
     {
         public static readonly int WM_SHOWFIRSTINSTANCE =
@@ -70,6 +76,9 @@ namespace Prizm.Main
         }
     }
 
+    /// <summary>
+    /// Get program information to create mutex
+    /// </summary>
     static public class ProgramInfo
     {
         static public string AssemblyGuid
