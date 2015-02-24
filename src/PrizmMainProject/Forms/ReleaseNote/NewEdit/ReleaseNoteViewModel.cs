@@ -418,6 +418,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 {
                     AllPipesToAdd.Add(pipe);
                     ReleaseNotePipes.Remove(pipe);
+                    //
+                    Railcar.Pipes.Remove(pipe);
                     var tmpRailcar = ((Pipe)pipe).Railcar;
                     ((Pipe)pipe).Railcar = null;
                     ((Pipe)pipe).Status = PipeMillStatus.Stocked;
