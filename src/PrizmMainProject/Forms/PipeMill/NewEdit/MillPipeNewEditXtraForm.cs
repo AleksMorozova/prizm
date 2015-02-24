@@ -836,6 +836,21 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             commandManager.RefreshVisualState();
         }
 
+        void weldingHistoryGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+
+            if(gridView != null)
+            {
+                var weld = gridView.GetRow(e.RowHandle) as Weld;
+                if(weld != null && weld.Welders.Count == 0)
+                {
+                    gridView.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
+                    e.Valid = false;
+                }
+            }
+        }
+
         private void addInspectionButton_Click(object sender, EventArgs e)
         {
             if(viewModel.AvailableTests.Count > 0)

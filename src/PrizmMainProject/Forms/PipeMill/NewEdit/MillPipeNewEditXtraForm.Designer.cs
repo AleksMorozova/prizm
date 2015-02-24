@@ -310,6 +310,7 @@
             this.weldingHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.weldingHistoryGridView_InitNewRow);
             this.weldingHistoryGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.weldingHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.weldingHistoryGridView_KeyDown);
+            this.weldingHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.weldingHistoryGridView_ValidateRow);
             // 
             // weldingDateGridColumn
             // 
