@@ -732,6 +732,7 @@
     <Compile Include="Synch\SerializableEntities\SizeTypeObject.cs" />
     <Compile Include="Synch\SerializableEntities\SpoolObject.cs" />
     <Compile Include="Synch\SerializableEntities\UserObject.cs" />
+    <Compile Include="WinApi.cs" />
     <EmbeddedResource Include="Controls\InspectorSelectionControl.resx">
       <DependentUpon>InspectorSelectionControl.cs</DependentUpon>
       <SubType>Designer</SubType>

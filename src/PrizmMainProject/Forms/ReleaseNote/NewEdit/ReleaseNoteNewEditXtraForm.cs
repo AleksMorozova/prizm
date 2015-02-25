@@ -26,12 +26,17 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
     {
+        private bool formLeave = false;
         private ICommandManager commandManager = new CommandManager();
         private ReleaseNoteViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
-
+        private List<string> localizedAllShipStatus = new List<string>(2) { "unshipped", "shipped"};
+        private void UpdateTextEdit()
+        {
+            bindingSource.CancelEdit(); 
+        }
         public ReleaseNoteNewEditXtraForm(Guid id)
         {
             this.Id = id;
@@ -129,7 +134,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         StringResources.SearchPipe_MillStatusShipped.Id, 
                         StringResources.SearchPipe_ReadyToShip.Id }),
 
-                new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} )
+                new LocalizedItem(this, localizedHeader, new string[] {StringResources.ReleaseNoteNewEdit_Title.Id} ),
+
+                new LocalizedItem(UpdateTextEdit, localizedAllShipStatus,
+                        new string [] {StringResources.ReleaseNoteNewEdit_PendingStatus.Id, StringResources.ReleaseNoteNewEdit_ShippedStatus.Id })
             };
         }
 
@@ -149,8 +157,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "Date");
 
             textEditReleaseNoteStatus.DataBindings.Add(BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Shipped",
-                (value) => { return Program.LanguageManager.GetString(
-                    (bool)value ? StringResources.ReleaseNoteNewEdit_ShippedStatus : StringResources.ReleaseNoteNewEdit_PendingStatus);
+                (value) =>
+                {
+                    return (bool)value ? localizedAllShipStatus[1] : localizedAllShipStatus[0];
                 }));
             
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
@@ -164,7 +173,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             commandManager["Ship"].Executor(viewModel.ShipCommand).AttachTo(shipButton);
             commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
             commandManager.RefreshVisualState();
-
+            //refresh state of railcar information only at save because at save command we remove empty railcar
+            viewModel.SaveCommand.RefreshVisualStateEvent += railcarNumber.Refresh;
+            viewModel.SaveCommand.RefreshVisualStateEvent += certificateNumber.Refresh;
+            viewModel.SaveCommand.RefreshVisualStateEvent += destination.Refresh;
             viewModel.SaveCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.ShipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.UnshipCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
@@ -216,9 +228,12 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
         {
-            viewModel.GetStoredPipes();
-            pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
-            pipeNumberLookUp.Refresh();
+            if (formLeave)
+            {
+                viewModel.GetStoredPipes();
+               // pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
+                pipeNumberLookUp.Refresh();
+            }
         }
 
         private void AttachmentsButton_Click(object sender, EventArgs e)
@@ -291,6 +306,11 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     e.DisplayText = localizedAllPipeMillStatus[(int)result];
                 }
             }
+        }
+
+        private void ReleaseNoteNewEditXtraForm_Leave(object sender, EventArgs e)
+        {
+            formLeave = true;
         }
 
     }

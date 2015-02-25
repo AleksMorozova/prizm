@@ -24,7 +24,7 @@ using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
-    public class ConstructionReportViewModel : ViewModelBase
+    public class ConstructionReportViewModel : ViewModelBase, IDisposable
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ConstructionReportViewModel));
 
@@ -316,6 +316,9 @@ namespace Prizm.Main.Forms.Reports.Construction
             return list;
         }
 
-
+        public void Dispose()
+        {
+            repo.Dispose();
+        }
     }
 }

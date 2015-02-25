@@ -14,6 +14,6 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         public string CarDestination { get; set; }
         public string NoteNumber { get; set; }
         public string NoteDate { get; set; }
-        public string Status { get; set; }
+        public bool Status { get; set; }
     }
 }

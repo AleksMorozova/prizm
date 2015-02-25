@@ -570,6 +570,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
+            heatsLookUp.Properties.MaxLength = LengthLimit.MaxHeatNumber;
+            ordersLookUp.Properties.MaxLength = LengthLimit.MaxPurchaseOrderNumber;
         }
 
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
@@ -834,6 +836,21 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void ordersLookUp_Validated(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+        void weldingHistoryGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gridView = sender as GridView;
+
+            if(gridView != null)
+            {
+                var weld = gridView.GetRow(e.RowHandle) as Weld;
+                if(weld != null && weld.Welders.Count == 0)
+                {
+                    gridView.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
+                    e.Valid = false;
+                }
+            }
         }
 
         private void addInspectionButton_Click(object sender, EventArgs e)

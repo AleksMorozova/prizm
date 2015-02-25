@@ -17,7 +17,7 @@ using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    public class MillReportsViewModel : ViewModelBase
+    public class MillReportsViewModel : ViewModelBase, IDisposable
     {
         readonly IMillReportsRepository repo;
         readonly ICategoryRepository repoCategory;
@@ -160,5 +160,10 @@ namespace Prizm.Main.Forms.Reports.Mill
         }
 
 
+
+        public void Dispose()
+        {
+            repo.Dispose();
+        }
     }
 }

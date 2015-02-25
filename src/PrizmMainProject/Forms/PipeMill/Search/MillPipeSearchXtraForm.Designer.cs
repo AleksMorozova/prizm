@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillPipeSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -45,9 +46,6 @@
             this.pipeMillGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.heatNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusSearchGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.weldingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.internalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.externalCoatingDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeMillStatus = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.pipeActivity = new DevExpress.XtraEditors.ComboBoxEdit();
             this.PipeSearchLayout = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -67,7 +65,7 @@
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource();
+            this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
@@ -230,10 +228,7 @@
             this.pipeTypeSizeGridColumn,
             this.pipeMillGridColumn,
             this.heatNumberGridColumn,
-            this.statusSearchGridColumn,
-            this.weldingDateGridColumn,
-            this.internalCoatingDateGridColumn,
-            this.externalCoatingDateGridColumn});
+            this.statusSearchGridColumn});
             this.pipesSearchResultView.GridControl = this.pipesSearchResult;
             this.pipesSearchResultView.Name = "pipesSearchResultView";
             this.pipesSearchResultView.OptionsBehavior.FocusLeaveOnTab = true;
@@ -293,36 +288,6 @@
             this.statusSearchGridColumn.Visible = true;
             this.statusSearchGridColumn.VisibleIndex = 4;
             this.statusSearchGridColumn.Width = 100;
-            // 
-            // weldingDateGridColumn
-            // 
-            this.weldingDateGridColumn.Caption = "Дата сварки";
-            this.weldingDateGridColumn.FieldName = "WeldingDate";
-            this.weldingDateGridColumn.Name = "weldingDateGridColumn";
-            this.weldingDateGridColumn.OptionsColumn.AllowEdit = false;
-            this.weldingDateGridColumn.Visible = true;
-            this.weldingDateGridColumn.VisibleIndex = 5;
-            this.weldingDateGridColumn.Width = 100;
-            // 
-            // internalCoatingDateGridColumn
-            // 
-            this.internalCoatingDateGridColumn.Caption = "Дата внутреннего покрытия";
-            this.internalCoatingDateGridColumn.FieldName = "InternalCoatingDate";
-            this.internalCoatingDateGridColumn.Name = "internalCoatingDateGridColumn";
-            this.internalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
-            this.internalCoatingDateGridColumn.Visible = true;
-            this.internalCoatingDateGridColumn.VisibleIndex = 7;
-            this.internalCoatingDateGridColumn.Width = 87;
-            // 
-            // externalCoatingDateGridColumn
-            // 
-            this.externalCoatingDateGridColumn.Caption = "Дата наружного покрытия";
-            this.externalCoatingDateGridColumn.FieldName = "ExternalCoatingDate";
-            this.externalCoatingDateGridColumn.Name = "externalCoatingDateGridColumn";
-            this.externalCoatingDateGridColumn.OptionsColumn.AllowEdit = false;
-            this.externalCoatingDateGridColumn.Visible = true;
-            this.externalCoatingDateGridColumn.VisibleIndex = 6;
-            this.externalCoatingDateGridColumn.Width = 100;
             // 
             // pipeMillStatus
             // 
@@ -612,9 +577,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn pipeNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn heatNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn statusSearchGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn weldingDateGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn internalCoatingDateGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn externalCoatingDateGridColumn;
         private DevExpress.XtraLayout.LayoutControl PipeSearchLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup PipeSearchLayout;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButton;
