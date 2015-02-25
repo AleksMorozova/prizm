@@ -230,7 +230,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             if (this.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
+                if (!ValidateCode(viewModel.Code))
                 {
                     string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
                     string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
@@ -246,18 +246,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
         /// <param name="code">code TestPipe</param>
         /// <param name="id">id TestPipe</param>
         /// <returns>true if uniqueness</returns>
-        private bool ValidateCode(string code, Guid id)
+        private bool ValidateCode(string code)
         {
-            bool retValue = true;
-            foreach (var item in pipeTestList)
-            {
-                if (item.Code == code && item.Id != id)
-                {
-                    retValue = false;
-                    break;
-                }
-            }
-            return retValue;
+            var testList = pipeTestList.Where(g => g.Code==code).ToList();
+            return !(testList.Count >= 2);
         }
 
 
