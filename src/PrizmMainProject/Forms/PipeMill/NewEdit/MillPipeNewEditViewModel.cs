@@ -1098,36 +1098,36 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public PipeMillSubStatus UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
         {
-            if (allResults.Count > 0)
-            {
-                PipeTestResultStatus resultStatus = CheckOperationStatus(allResults);
-                if (resultStatus == PipeTestResultStatus.Scheduled)
+            PipeMillSubStatus result;
+
+            PipeTestResultStatus resultStatus = CheckOperationStatus(allResults);
+                switch (resultStatus)
                 {
-                    return PipeMillSubStatus.Scheduled;
-                }
-                else
-                {
-                    if (resultStatus == PipeTestResultStatus.Failed)
-                    {
-                        return PipeMillSubStatus.Failed;
-                    }
-                    else
-                    {
-                        if (resultStatus == PipeTestResultStatus.Passed && testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
+                    case PipeTestResultStatus.Scheduled:
+                        result = PipeMillSubStatus.Scheduled;
+                        break;
+                    case PipeTestResultStatus.Failed:
+                        result = PipeMillSubStatus.Failed;
+                        break;
+                    case PipeTestResultStatus.Repair:
+                        result = PipeMillSubStatus.Repair;
+                        break;
+                    case PipeTestResultStatus.Passed:
+                        if (testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
                         {
-                            return PipeMillSubStatus.WithRepair;
+                            result = PipeMillSubStatus.WithRepair;
                         }
                         else
                         {
-                            return PipeMillSubStatus.Passed;
+                            result = PipeMillSubStatus.Passed;
                         }
-                    }
+                        break;
+                    default:
+                        result = PipeMillSubStatus.Undefined;
+                        break;
                 }
-            }
-            else
-            {
-                return PipeMillSubStatus.Undefined;
-            }
+
+                return result;
         }
     }
 }

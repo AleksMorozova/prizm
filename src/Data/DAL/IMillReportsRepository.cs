@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL
 {
-    public interface IMillReportsRepository
+    public interface IMillReportsRepository : IDisposable
     {
         DataSet GetPipesByStatus(DateTime startDate, DateTime finalDate, List<Guid> categories, MillReportType reportType, List<string> statuses, bool previewFlag = false);
         DataTable GetPipelineElements();
