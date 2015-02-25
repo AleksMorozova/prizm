@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
-    public class InspectionReportsViewModel : ViewModelBase
+    public class InspectionReportsViewModel : ViewModelBase, IDisposable
     {
         readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
@@ -89,6 +89,11 @@ namespace Prizm.Main.Forms.Reports.Incoming
         public ICommand PreviewCommand
         {
             get { return previewCommand; }
+        }
+
+        public void Dispose()
+        {
+            repo.Dispose();
         }
     }
 

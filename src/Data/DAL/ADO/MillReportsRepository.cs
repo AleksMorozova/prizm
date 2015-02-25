@@ -12,7 +12,7 @@ using System.ComponentModel;
 
 namespace Prizm.Data.DAL.ADO
 {
-    public class MillReportsRepository : IMillReportsRepository
+    public class MillReportsRepository : IMillReportsRepository, IDisposable
     {
         [Inject]
         public MillReportsRepository() { }
@@ -470,6 +470,18 @@ namespace Prizm.Data.DAL.ADO
 
             return GetPipelineElements(tempSQLObject.ToString());
 
+        }
+
+        public void Dispose()
+        {
+            try
+            {
+                connection.Dispose();
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Dispose", ex);
+            }
         }
     }
 }
