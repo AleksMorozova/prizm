@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -53,7 +54,7 @@ namespace Prizm.Main.Forms.Spool
             this.notify = notify;
             this.Inspectors = repos.RepoInspector.GetAll();
 
-            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+            if(this.Inspectors == null || this.Inspectors.Count <= 0)
                 log.Warn(string.Format("Spool (id:{0}) creation: List of Inspectors is NULL or empty", id));
 
             searchCommand = ViewModelSource.Create<EditPipeForCutCommand>(
@@ -67,7 +68,7 @@ namespace Prizm.Main.Forms.Spool
 
             allPipes = new BindingList<Pipe>();
 
-            foreach (Pipe p in repos.PipeRepo.GetAvailableForCutPipes())
+            foreach(Pipe p in repos.PipeRepo.GetAvailableForCutPipes())
             {
                 allPipes.Add(p);
             }
@@ -79,18 +80,20 @@ namespace Prizm.Main.Forms.Spool
             else
             {
                 Spool = repos.SpoolRepo.Get(id);
+                Pipe = Spool.Pipe;
+                InitPipeLenght = Spool.Length + Pipe.Length;
             }
         }
 
         public string SpoolNumber
         {
-            get 
-            { 
+            get
+            {
                 return Spool.Number;
             }
             set
             {
-                if (value != Spool.Number)
+                if(value != Spool.Number)
                 {
                     Spool.Number = value;
                     RaisePropertyChanged("SpoolNumber");
@@ -106,7 +109,7 @@ namespace Prizm.Main.Forms.Spool
             }
             set
             {
-                if (value != Spool.PipeNumber)
+                if(value != Spool.PipeNumber)
                 {
                     Spool.PipeNumber = value;
                     RaisePropertyChanged("PipeNumber");
@@ -135,7 +138,7 @@ namespace Prizm.Main.Forms.Spool
             }
             set
             {
-                if (value != Spool.Pipe.Length)
+                if(value != Spool.Pipe.Length)
                 {
                     Spool.Pipe.Length = value;
                     RaisePropertyChanged("PipeLength");
@@ -148,7 +151,7 @@ namespace Prizm.Main.Forms.Spool
             get { return Spool.Length; }
             set
             {
-                if (value != Spool.Length)
+                if(value != Spool.Length)
                 {
                     Spool.Length = value;
                     Pipe.Length = InitPipeLenght - Spool.Length;
@@ -162,9 +165,9 @@ namespace Prizm.Main.Forms.Spool
         public bool SpoolIsActive
         {
             get { return Spool.IsActive; }
-            set 
+            set
             {
-                if (value != Spool.IsActive)
+                if(value != Spool.IsActive)
                 {
                     Spool.IsActive = value;
                     RaisePropertyChanged("SpoolIsActive");
@@ -180,7 +183,7 @@ namespace Prizm.Main.Forms.Spool
             }
             set
             {
-                if (value != Spool.Pipe)
+                if(value != Spool.Pipe)
                 {
                     Spool.Pipe = value;
                     RaisePropertyChanged("SpoolLength");
@@ -202,12 +205,12 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanCut
         {
-            get 
+            get
             {
-                return Pipe.Length > 0 &&
-                    Pipe.Length < InitPipeLenght &&
-                    SpoolLength > 0 &&
-                    SpoolLength < InitPipeLenght;
+                return Pipe.Length >= Constants.MinSpoolCut &&
+                    Pipe.Length <= InitPipeLenght - Constants.MinSpoolCut &&
+                    SpoolLength >= Constants.MinSpoolCut &&
+                    SpoolLength <= InitPipeLenght - Constants.MinSpoolCut;
             }
         }
 
@@ -223,7 +226,7 @@ namespace Prizm.Main.Forms.Spool
             }
             set
             {
-                if (value != Spool.InspectionTestResults)
+                if(value != Spool.InspectionTestResults)
                 {
                     Spool.InspectionTestResults = value;
                     RaisePropertyChanged("InspectionTestResults");
@@ -236,7 +239,7 @@ namespace Prizm.Main.Forms.Spool
         /// </summary>
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if (inspectors == null)
+            if(inspectors == null)
             {
                 return string.Empty;
             }
@@ -248,14 +251,14 @@ namespace Prizm.Main.Forms.Spool
         {
             repos.Dispose();
             ModifiableView = null;
-            if (FilesFormViewModel != null)
+            if(FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
                 FilesFormViewModel = null;
             }
         }
 
-        public void NewSpool() 
+        public void NewSpool()
         {
             Spool = new Prizm.Domain.Entity.Construction.Spool();
             Spool.Number = string.Empty;
@@ -264,7 +267,7 @@ namespace Prizm.Main.Forms.Spool
             Spool.ConstructionStatus = PartConstructionStatus.Pending;
             Spool.InspectionStatus = PartInspectionStatus.Pending;
             Pipe = new Pipe();
-            if (this.FilesFormViewModel != null)
+            if(this.FilesFormViewModel != null)
             {
                 this.FilesFormViewModel.Files = null;
             }
