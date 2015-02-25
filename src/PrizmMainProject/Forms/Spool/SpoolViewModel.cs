@@ -40,6 +40,9 @@ namespace Prizm.Main.Forms.Spool
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         private readonly ISecurityContext ctx;
 
+        public int InitPipeLenght;
+        public SpoolsXtraForm editableForm;
+
         public bool IsNew { get { return this.Spool.IsNew(); } }
 
         [Inject]
@@ -116,7 +119,7 @@ namespace Prizm.Main.Forms.Spool
             get { return Spool.Pipe; }
             set
             {
-                if (value != Spool.Pipe)
+                if(value != Spool.Pipe)
                 {
                     Spool.Pipe = value;
                     RaisePropertyChanged("PipeNumber");
@@ -148,7 +151,7 @@ namespace Prizm.Main.Forms.Spool
                 if (value != Spool.Length)
                 {
                     Spool.Length = value;
-                    Pipe.Length = Pipe.Length - Spool.Length;
+                    Pipe.Length = InitPipeLenght - Spool.Length;
                     Pipe.RecalculateWeight();
                     RaisePropertyChanged("SpoolLength");
                     RaisePropertyChanged("CanCut");
@@ -199,7 +202,13 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanCut
         {
-            get { return (Pipe.Length - Spool.Length) > 0; }
+            get 
+            {
+                return Pipe.Length > 0 &&
+                    Pipe.Length < InitPipeLenght &&
+                    SpoolLength > 0 &&
+                    SpoolLength < InitPipeLenght;
+            }
         }
 
         public IList<Inspector> Inspectors { get; set; }

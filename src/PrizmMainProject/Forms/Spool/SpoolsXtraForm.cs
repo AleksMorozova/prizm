@@ -63,6 +63,9 @@ namespace Prizm.Main.Forms.Spool
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
 
             CannotOpenForViewing = id == Guid.Empty;
+
+            spoolLength.SetMask(Constants.PositiveDigitMask);
+            viewModel.editableForm = this;
         }
 
         public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }
@@ -286,16 +289,7 @@ namespace Prizm.Main.Forms.Spool
 
         private void pipeLength_TextChanged(object sender, EventArgs e)
         {
-            spoolLength.Properties.MinValue = 1;
-            spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
-            if(viewModel.Pipe.Length.ToString().Length == 0)
-            {
-                spoolLength.Properties.MaxLength = int.MaxValue;
-            }
-            else
-            {
-                spoolLength.Properties.MaxLength = viewModel.Pipe.Length.ToString().Length;
-            }
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
