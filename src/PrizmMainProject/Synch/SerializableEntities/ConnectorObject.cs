@@ -21,6 +21,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.IsActive = connector.IsActive;
          this.Diameter = connector.Diameter;
          this.WallThickness = connector.WallThickness;
+         this.Joint = connector.Joint;
       }
 
       public static implicit operator ConnectorObject(Connector connector)
@@ -39,5 +40,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("WallThickness")]
       public float WallThickness { get; set; }
+
+      [XmlElement("Joint")]
+      public JointObject Joint { get; set; }
    }
 }
