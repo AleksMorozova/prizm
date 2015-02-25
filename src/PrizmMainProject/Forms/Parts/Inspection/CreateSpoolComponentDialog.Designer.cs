@@ -199,6 +199,7 @@
             this.Controls.Add(this.generalLayoutControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateSpoolComponentDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Создание компонента";
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutControl)).EndInit();
             this.generalLayoutControl.ResumeLayout(false);

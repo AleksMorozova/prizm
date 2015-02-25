@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrderXtraForm));
             this.purchaseOrderLayout = new DevExpress.XtraLayout.LayoutControl();
             this.date = new DevExpress.XtraEditors.DateEdit();
@@ -38,10 +39,10 @@
             this.purchaseOrderNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.purchaseOrderDateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.canselLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.generalEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderLayout)).BeginInit();
             this.purchaseOrderLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).BeginInit();
@@ -51,9 +52,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumberLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canselLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +107,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
             this.cancelButton.Location = new System.Drawing.Point(278, 81);
             this.cancelButton.Name = "cancelButton";
@@ -167,16 +169,6 @@
             this.saveButtonEmptySpace.Text = "saveButtonEmptySpace";
             this.saveButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // generalEmptySpace
-            // 
-            this.generalEmptySpace.AllowHotTrack = false;
-            this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
-            this.generalEmptySpace.Location = new System.Drawing.Point(0, 50);
-            this.generalEmptySpace.Name = "generalEmptySpace";
-            this.generalEmptySpace.Size = new System.Drawing.Size(369, 19);
-            this.generalEmptySpace.Text = "generalEmptySpace";
-            this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // saveButtonLayoutControl
             // 
             this.saveButtonLayoutControl.Control = this.saveButton;
@@ -207,10 +199,22 @@
             this.canselLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.canselLayoutControl.TextVisible = false;
             // 
+            // generalEmptySpace
+            // 
+            this.generalEmptySpace.AllowHotTrack = false;
+            this.generalEmptySpace.CustomizationFormText = "generalEmptySpace";
+            this.generalEmptySpace.Location = new System.Drawing.Point(0, 50);
+            this.generalEmptySpace.Name = "generalEmptySpace";
+            this.generalEmptySpace.Size = new System.Drawing.Size(369, 19);
+            this.generalEmptySpace.Text = "generalEmptySpace";
+            this.generalEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // PurchaseOrderXtraForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(389, 116);
             this.Controls.Add(this.purchaseOrderLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -228,9 +232,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderNumberLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseOrderDateLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canselLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 

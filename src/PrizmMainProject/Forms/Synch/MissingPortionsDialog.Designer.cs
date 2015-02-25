@@ -98,6 +98,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
             this.Name = "MissingPortionsDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Нарушена последовательность";
             ((System.ComponentModel.ISupportInitialize)(this.portionsDiapason.Properties)).EndInit();
             this.ResumeLayout(false);
