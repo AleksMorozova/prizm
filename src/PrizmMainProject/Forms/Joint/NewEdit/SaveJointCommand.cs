@@ -50,7 +50,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             foreach(JointWeldResult w in viewModel.JointWeldResults)
             {
-                if(w.Welders.Count <= 0)
+                if (w.Welders.Count <= 0 
+                    && w.Operation.Type == Prizm.Domain.Entity.Setup.JointOperationType.Weld)
                 {
                     numberOfWeldOperationWithoutWelders++;
                 }

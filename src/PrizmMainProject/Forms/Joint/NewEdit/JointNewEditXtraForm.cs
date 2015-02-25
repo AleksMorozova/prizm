@@ -390,15 +390,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// </summary>
         private void RepairOperationsLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
-            LookUpEdit q = sender as LookUpEdit;
-            object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
-            JointOperation selectedOperationWeld = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
-            if(selectedOperationWeld != null)
+            var q = sender as LookUpEdit;
+            var selectedOperationWeld = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
+            var focusedJointWeldResult = repairOperationsView.GetFocusedRow() as JointWeldResult;
+
+            if (selectedOperationWeld != null && focusedJointWeldResult != null)
             {
-                currentJointWeldResult.Operation = selectedOperationWeld;
-                if(selectedOperationWeld.Type != JointOperationType.Weld)
+                focusedJointWeldResult.Operation = selectedOperationWeld;
+
+                if (selectedOperationWeld.Type != JointOperationType.Weld)
                 {
-                    currentJointWeldResult.Welders = new BindingList<Welder>();
+                    focusedJointWeldResult.Welders = new BindingList<Welder>();
                 }
             }
         }
