@@ -14,5 +14,7 @@ namespace Prizm.Main.Common
         public const int MaxYear = 2150;
 
         public const string PositiveDigitMask = "\\d+";
+
+        public const int MinSpoolCut = 20; // in millimeters
     }
 }

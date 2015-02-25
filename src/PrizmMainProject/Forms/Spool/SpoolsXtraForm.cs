@@ -64,8 +64,10 @@ namespace Prizm.Main.Forms.Spool
 
             CannotOpenForViewing = id == Guid.Empty;
 
-            spoolLength.SetMask(Constants.PositiveDigitMask);
             viewModel.editableForm = this;
+            spoolLength.SetMask(Constants.PositiveDigitMask);
+            spoolLength.Properties.MinValue = Constants.MinSpoolCut;
+            spoolLength.Properties.MaxValue = viewModel.InitPipeLenght - Constants.MinSpoolCut;
         }
 
         public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }
