@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.factString = new DevExpress.XtraEditors.LookUpEdit();
             this.status = new DevExpress.XtraEditors.ComboBoxEdit();
             this.factLimit = new DevExpress.XtraEditors.SpinEdit();
             this.factBool = new DevExpress.XtraEditors.CheckEdit();
@@ -59,16 +60,16 @@
             this.factBoolLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.factBoolLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.factStringLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.factStringLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.factString = new DevExpress.XtraEditors.LookUpEdit();
-            this.factStringLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBool.Properties)).BeginInit();
@@ -95,14 +96,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
@@ -138,6 +138,19 @@
             this.rootLayoutControl.TabIndex = 0;
             this.rootLayoutControl.Text = "layoutControl1";
             // 
+            // factString
+            // 
+            this.factString.Location = new System.Drawing.Point(35, 226);
+            this.factString.Name = "factString";
+            this.factString.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.factString.Properties.NullText = "";
+            this.factString.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.factString.Size = new System.Drawing.Size(319, 20);
+            this.factString.StyleController = this.rootLayoutControl;
+            this.factString.TabIndex = 17;
+            this.factString.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.factString_ProcessNewValue);
+            // 
             // status
             // 
             this.status.Location = new System.Drawing.Point(32, 466);
@@ -155,7 +168,7 @@
             0,
             0,
             0});
-            this.factLimit.Location = new System.Drawing.Point(39, 359);
+            this.factLimit.Location = new System.Drawing.Point(35, 359);
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -165,16 +178,16 @@
             2,
             0,
             0});
-            this.factLimit.Size = new System.Drawing.Size(311, 20);
+            this.factLimit.Size = new System.Drawing.Size(319, 20);
             this.factLimit.StyleController = this.rootLayoutControl;
             this.factLimit.TabIndex = 15;
             // 
             // factBool
             // 
-            this.factBool.Location = new System.Drawing.Point(39, 293);
+            this.factBool.Location = new System.Drawing.Point(35, 293);
             this.factBool.Name = "factBool";
             this.factBool.Properties.Caption = "Результат";
-            this.factBool.Size = new System.Drawing.Size(311, 19);
+            this.factBool.Size = new System.Drawing.Size(319, 19);
             this.factBool.StyleController = this.rootLayoutControl;
             this.factBool.TabIndex = 14;
             this.factBool.CheckedChanged += new System.EventHandler(this.factBool_CheckedChanged);
@@ -425,6 +438,7 @@
             this.factLimitLayout});
             this.factDiapasonLayoutControlGroup.Location = new System.Drawing.Point(0, 183);
             this.factDiapasonLayoutControlGroup.Name = "factDiapasonLayoutControlGroup";
+            this.factDiapasonLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 9, 9);
             this.factDiapasonLayoutControlGroup.Size = new System.Drawing.Size(339, 67);
             this.factDiapasonLayoutControlGroup.Text = "Фактический";
             this.factDiapasonLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -435,7 +449,7 @@
             this.factLimitLayout.CustomizationFormText = "От";
             this.factLimitLayout.Location = new System.Drawing.Point(0, 0);
             this.factLimitLayout.Name = "factLimitLayout";
-            this.factLimitLayout.Size = new System.Drawing.Size(315, 24);
+            this.factLimitLayout.Size = new System.Drawing.Size(323, 24);
             this.factLimitLayout.Text = "От";
             this.factLimitLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.factLimitLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -449,6 +463,7 @@
             this.factBoolLayoutControlItem});
             this.factBoolLayoutControlGroup.Location = new System.Drawing.Point(0, 117);
             this.factBoolLayoutControlGroup.Name = "factBoolLayoutControlGroup";
+            this.factBoolLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 9, 9);
             this.factBoolLayoutControlGroup.Size = new System.Drawing.Size(339, 66);
             this.factBoolLayoutControlGroup.Text = "Фактический";
             this.factBoolLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -459,7 +474,7 @@
             this.factBoolLayoutControlItem.CustomizationFormText = "Логический";
             this.factBoolLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.factBoolLayoutControlItem.Name = "factBoolLayoutControlItem";
-            this.factBoolLayoutControlItem.Size = new System.Drawing.Size(315, 23);
+            this.factBoolLayoutControlItem.Size = new System.Drawing.Size(323, 23);
             this.factBoolLayoutControlItem.Text = "factBoolLayoutControlItem";
             this.factBoolLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.factBoolLayoutControlItem.TextVisible = false;
@@ -471,9 +486,21 @@
             this.factStringLayout});
             this.factStringLayoutControlGroup.Location = new System.Drawing.Point(0, 50);
             this.factStringLayoutControlGroup.Name = "factStringLayoutControlGroup";
+            this.factStringLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 9, 9);
             this.factStringLayoutControlGroup.Size = new System.Drawing.Size(339, 67);
             this.factStringLayoutControlGroup.Text = "Фактический";
             this.factStringLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // factStringLayout
+            // 
+            this.factStringLayout.Control = this.factString;
+            this.factStringLayout.CustomizationFormText = "factStringLayout";
+            this.factStringLayout.Location = new System.Drawing.Point(0, 0);
+            this.factStringLayout.Name = "factStringLayout";
+            this.factStringLayout.Size = new System.Drawing.Size(323, 24);
+            this.factStringLayout.Text = "factStringLayout";
+            this.factStringLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.factStringLayout.TextVisible = false;
             // 
             // dateLayoutControlItem
             // 
@@ -509,45 +536,24 @@
             this.footerEmptySpaceItem.Text = "footerEmptySpaceItem";
             this.footerEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // factString
-            // 
-            this.factString.Location = new System.Drawing.Point(39, 226);
-            this.factString.Name = "factString";
-            this.factString.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.factString.Properties.NullText = "";
-            this.factString.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.factString.Size = new System.Drawing.Size(311, 20);
-            this.factString.StyleController = this.rootLayoutControl;
-            this.factString.TabIndex = 17;
-            this.factString.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.factString_ProcessNewValue);
-            // 
-            // factStringLayout
-            // 
-            this.factStringLayout.Control = this.factString;
-            this.factStringLayout.CustomizationFormText = "factStringLayout";
-            this.factStringLayout.Location = new System.Drawing.Point(0, 0);
-            this.factStringLayout.Name = "factStringLayout";
-            this.factStringLayout.Size = new System.Drawing.Size(315, 24);
-            this.factStringLayout.Text = "factStringLayout";
-            this.factStringLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.factStringLayout.TextVisible = false;
-            // 
             // InspectionAddEditXtraForm
             // 
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(816, 586);
             this.Controls.Add(this.rootLayoutControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InspectionAddEditXtraForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InspectionAddEditXtraForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InspectionAddEditXtraForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionAddEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.InspectionAddEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).EndInit();
             this.rootLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBool.Properties)).EndInit();
@@ -574,14 +580,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBoolLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factStringLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footerEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factStringLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
