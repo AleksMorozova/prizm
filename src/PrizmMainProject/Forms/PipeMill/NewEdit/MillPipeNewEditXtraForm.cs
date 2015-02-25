@@ -570,6 +570,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             plateNumber.Properties.MaxLength = LengthLimit.MaxPlateNumber;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
             testResultValue.MaxLength = LengthLimit.MaxPipeTestResultValue;
+            heatsLookUp.Properties.MaxLength = LengthLimit.MaxHeatNumber;
+            ordersLookUp.Properties.MaxLength = LengthLimit.MaxPurchaseOrderNumber;
         }
 
         private void inspectionCodeLookUpEdit_EditValueChanged(object sender, EventArgs e)
