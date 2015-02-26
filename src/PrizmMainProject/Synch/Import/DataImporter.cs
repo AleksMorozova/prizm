@@ -657,6 +657,7 @@ namespace Prizm.Main.Synch.Import
             ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
 
+            Project currentProject = importRepo.ProjectRepo.GetSingle();
             foreach (var pipeObj in pipes)
             {
                 Pipe pipe = importRepo.PipeRepo.Get(pipeObj.Id);
@@ -666,7 +667,7 @@ namespace Prizm.Main.Synch.Import
 
                     MapSerializableEntityToPipe(tempDir, pipeObj, pipe);
 
-                    Project currentProject = importRepo.ProjectRepo.GetSingle();
+                 
                     pipe.ToExport = currentProject.WorkstationType == WorkstationType.Master && manifest.WorkstationType == WorkstationType.Mill;
 
                     importRepo.PipeRepo.Save(pipe);
