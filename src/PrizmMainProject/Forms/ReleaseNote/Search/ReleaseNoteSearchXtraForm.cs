@@ -33,8 +33,10 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         public ReleaseNoteSearchXtraForm()
         {
             InitializeComponent();
-            releaseNoteDate.Properties.NullDate = DateTime.MinValue;
-            releaseNoteDate.Properties.NullText = string.Empty;
+            strartDate.Properties.NullDate = DateTime.MinValue;
+            strartDate.Properties.NullText = string.Empty;
+            endDate.Properties.NullDate = DateTime.MinValue;
+            endDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();
             this.railcarNumber.SetAsIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
@@ -46,7 +48,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             BindCommands();
             BindToViewModel();
 
-            releaseNoteDate.SetLimits();
+            strartDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -57,7 +59,9 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
-            releaseNoteDate.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteDate");
+            strartDate.DataBindings.Add("EditValue", bindingSource, "StartDate");
+            endDate.DataBindings.Add("EditValue", bindingSource, "EndDate");
+            pipeNumber.DataBindings.Add("EditValue", bindingSource, "PipeNumber");
             //releasesGrid.DataSource = viewModel.Projection;
             releasesGrid.DataBindings.Add("DataSource", bindingSource, "Projection");
 
@@ -77,11 +81,14 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             {
                 // layout items
                 new LocalizedItem(releaseNoteNumberayout, StringResources.ReleaseSearch_NumberLabel.Id),
-                new LocalizedItem(releaseNoteDateLayout, StringResources.ReleaseSearch_DateLabel.Id),
+                new LocalizedItem(strartDateLayout, StringResources.ReleaseSearch_StartDateLabel.Id),
+                new LocalizedItem(endDateLayout, StringResources.ReleaseSearch_EndDateLabel.Id),
                 new LocalizedItem(destinationLayout, StringResources.ReleaseSearch_DestinationLabel.Id),
                 new LocalizedItem(railcarNumberLayout, StringResources.ReleaseSearch_RailcarLabel.Id),
                 new LocalizedItem(certificateNumberLayout, StringResources.ReleaseSearch_CertificateLabel.Id),
-
+                new LocalizedItem(releaseNoteDatePeriodLabel, StringResources.ReleaseSearch_ReleaseNotePeriodLabel.Id),
+                new LocalizedItem(pipeNumberLayout, StringResources.ReleaseSearch_PipeInReleaseNoteLabel.Id),
+                //pipeNumberLayout
                 // controls
                 new LocalizedItem(searchButton, StringResources.NewEditPipe_SearchButton.Id),
 
