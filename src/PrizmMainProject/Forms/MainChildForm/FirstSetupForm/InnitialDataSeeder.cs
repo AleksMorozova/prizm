@@ -580,12 +580,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region PlateManufacturers
             PlateManufacturer[] plateManufacturers = 
             {
-                new PlateManufacturer {Name = "Алапаевский металлургический завод", IsActive = true},
-                new PlateManufacturer {Name = "Альметьевский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Борский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Волжский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Волгоградский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Гурьевский металлургический завод", IsActive = true},
+                new PlateManufacturer {Name = "Алапаевский металлургический завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Альметьевский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Борский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Волжский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Волгоградский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Гурьевский металлургический завод", IsActive = true, IsNative = true, Project = viewModel.Project},
                 new PlateManufacturer {Name = "Завод Точлит", IsActive = true}
             };
             Array.ForEach(plateManufacturers, s => firstSetupRepo.PlateManRepo.Save(s));
@@ -598,12 +598,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 heats.Add
                     (
-                    new Heat
+                    new Heat ()
                     {
                         Number = RndString(8),
                         SteelGrade = RndString(6),
                         PlateManufacturer = plateManufacturers[rnd.Next(plateManufacturers.Length - 1)],
-                        IsActive = true
+                        IsActive = true,                        
                     }
                     );
                 firstSetupRepo.HeatRepo.Save(heats[i]);
@@ -629,7 +629,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             List<Pipe> pipes = new List<Pipe>();
             for(int i = 0; i < PIPECOUNT; i++)
             {
-                var plate = new Plate
+                var plate = new Plate ()
                     {
                         Number = RndString(8),
                         Thickness = rnd.Next(2000),

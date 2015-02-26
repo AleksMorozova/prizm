@@ -1947,6 +1947,7 @@ namespace Prizm.Main.Forms.Settings
             this.plateManufacturersListView.OptionsNavigation.UseTabKey = false;
             this.plateManufacturersListView.OptionsView.ShowGroupPanel = false;
             this.plateManufacturersListView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.plateManufacturersListView_RowCellStyle);
+            this.plateManufacturersListView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.plateManufacturersListView_InitNewRow);
             this.plateManufacturersListView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.plateManufacturersListView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.plateManufacturersListView_InvalidRowException);
             this.plateManufacturersListView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.plateManufacturersListView_ValidateRow);

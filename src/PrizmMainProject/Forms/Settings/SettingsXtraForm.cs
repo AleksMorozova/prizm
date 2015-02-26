@@ -482,7 +482,9 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             CurrentPipeMillSizeType = v.GetRow(e.RowHandle) as PipeMillSizeType;
             CurrentPipeMillSizeType.IsActive = true;
-            CurrentPipeMillSizeType.SeamType = new SeamType();
+            CurrentPipeMillSizeType.IsNative = true;
+            CurrentPipeMillSizeType.Project = viewModel.CurrentProjectSettings;
+            CurrentPipeMillSizeType.SeamType = new SeamType() { IsNative = true, Project = viewModel.CurrentProjectSettings };
 
             if (CurrentPipeMillSizeType != null)
             {
@@ -1033,6 +1035,8 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             ComponentType componentType = v.GetRow(e.RowHandle) as ComponentType;
             componentType.IsActive = true;
+            componentType.IsNative = true;
+            componentType.Project = viewModel.CurrentProjectSettings;
             componentType.ConnectorsCount = 2;
         }
 
@@ -1106,6 +1110,8 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             SeamType seemType = v.GetRow(e.RowHandle) as SeamType;
             seemType.IsActive = true;
+            seemType.IsNative = true;
+            seemType.Project = viewModel.CurrentProjectSettings;
         }
 
         private void seemTypeGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -2008,6 +2014,17 @@ namespace Prizm.Main.Forms.Settings
         private void certificateTypesView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void plateManufacturersListView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            PlateManufacturer plateManufacturer
+                = gv.GetRow(e.RowHandle) as PlateManufacturer;
+
+            plateManufacturer.IsActive = true;
+            plateManufacturer.IsNative = true;
+            plateManufacturer.Project = viewModel.CurrentProjectSettings;
         }
     }
 }

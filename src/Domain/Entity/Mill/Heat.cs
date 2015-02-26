@@ -8,7 +8,7 @@ namespace Prizm.Domain.Entity.Mill
         public Heat()
         {
             this.Plates = new List<Plate>();
-            this.PlateManufacturer = new PlateManufacturer();
+            this.PlateManufacturer = new PlateManufacturer() { IsNative = true};
         }
 
         public virtual string Number { get; set; }
