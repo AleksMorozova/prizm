@@ -13,6 +13,8 @@ namespace Prizm.Data.DAL.Mapping
         public SeamTypeMap()
         {
             Map(x => x.Name).Column("name");
+            Map(x => x.IsNative).Column("isNative");
+            References(x => x.Project).Column("projectId");
         }
     }
 }

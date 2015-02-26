@@ -16,8 +16,10 @@ namespace Prizm.Data.DAL.Mapping
             Map(_=>_.Length, "length");
             Map(_ => _.Thickness, "thickness");
             Map(_ => _.Diameter, "diameter");
+            Map(x => x.IsNative).Column("isNative");
 
             References(x => x.SeamType).Column("seamTypeId").Cascade.SaveUpdate();
+            References(x => x.Project).Column("projectId");
 
             HasMany(x => x.Pipes).KeyColumn("typeId");
             HasMany(_ => _.PipeTests).KeyColumn("pipeMillSizeTypeId").Cascade.All().Inverse().Not.LazyLoad();

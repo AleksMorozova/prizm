@@ -10,6 +10,8 @@ namespace Prizm.Domain.Entity.Construction
     {
         public virtual string Name { get; set; }
         public virtual int ConnectorsCount { get; set; }
+        public virtual bool IsNative { get; set; }
+        public virtual Project Project { get; set; }
 
         public virtual IList<Component> Components { get; set; }
 

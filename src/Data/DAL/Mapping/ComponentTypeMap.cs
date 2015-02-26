@@ -14,6 +14,9 @@ namespace Prizm.Data.DAL.Mapping
         {
             Map(x => x.Name).Column("name");
             Map(x => x.ConnectorsCount).Column("connectorsCount");
+            Map(x => x.IsNative).Column("isNative");
+
+            References(x => x.Project).Column("projectId");
 
             HasMany<Component>(x => x.Components).KeyColumn("componentTypeId");
         }

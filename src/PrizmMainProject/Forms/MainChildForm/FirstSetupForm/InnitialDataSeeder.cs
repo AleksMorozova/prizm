@@ -57,9 +57,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region SeamTypes
             seamTypes = new List<SeamType>
             {
-                new SeamType{Name = "Бесшовный", IsActive = true},
-                new SeamType{Name = "Прямой", IsActive = true},
-                new SeamType{Name = "Спиралевидный", IsActive = true},
+                new SeamType{Name = "Бесшовный", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new SeamType{Name = "Прямой", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new SeamType{Name = "Спиралевидный", IsActive = true, IsNative = true, Project = viewModel.Project},
             };
             foreach(var item in seamTypes)
             {
@@ -94,7 +94,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = 9090,
                     Diameter = 1212,
                     Thickness = 12,
-                    SeamType = seamTypes[0]
+                    SeamType = seamTypes[0],
+                    IsNative = true,
+                    Project = viewModel.Project
                 },
                 new PipeMillSizeType
                 {
@@ -103,7 +105,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = 9090,
                     Diameter = 1212,
                     Thickness = 12,
-                    SeamType = seamTypes[1]
+                    SeamType = seamTypes[1],
+                    Project = viewModel.Project
                 },
             };
             types.ForEach(s => firstSetupRepo.SizeTypeRepo.Save(s));
