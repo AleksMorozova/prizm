@@ -1368,9 +1368,9 @@
     <value>В вагоне</value>
   </data>
   <data name="ExternalFiles_NotCopied" xml:space="preserve">
-    <value>Файлы не скопированны. Все изменения отклонены</value>
+    <value>Файлы не скопированы. Все изменения отклонены.</value>
   </data>
   <data name="ExternalFiles_NotCopied_Header" xml:space="preserve">
-    <value>Проблема с вложенными файлами</value>
+    <value>Ошибка добавления файлов.</value>
   </data>
 </root>
