@@ -25,6 +25,15 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.IsAvailableToJoint = spool.IsAvailableToJoint;
          this.ConstructionStatus = spool.ConstructionStatus;
          this.InspectionStatus = spool.InspectionStatus;
+
+         if (spool.Attachments != null)
+         {
+             this.Attachments = new List<FileObject>();
+             foreach (var file in spool.Attachments)
+             {
+                 Attachments.Add(new FileObject(file));
+             }
+         }
       }
 
       public static implicit operator SpoolObject(Spool spool)
@@ -55,5 +64,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("InspectionStatus")]
       public PartInspectionStatus InspectionStatus { get; set; }
+
+      [XmlArray("Attachments")]
+      public List<FileObject> Attachments { get; set; }
    }
 }

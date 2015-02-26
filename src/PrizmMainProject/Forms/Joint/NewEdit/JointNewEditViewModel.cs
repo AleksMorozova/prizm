@@ -486,6 +486,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     construction.Component component = part as construction.Component;
 
+                    component.ToExport = true;
+
                     foreach (var con in component.Connectors)
                     {
                         if (con.Diameter == commonDiameter && (con.Joint == null || con.Joint.Id == Guid.Empty))
@@ -497,6 +499,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
+                    if (part is Pipe)
+                    {
+                        Pipe pipe = part as Pipe;
+                        pipe.ToExport = true;
+                    }
+                    else
+                    {
+                        construction.Spool spool = part as construction.Spool;
+                        spool.Pipe.ToExport = true;
+                    }
                     if (part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
                         switch (Joint.Status)
@@ -535,6 +547,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     var component = part as construction.Component;
 
+                    component.ToExport = false;
+
                     foreach (var connector in component.Connectors)
                     {
                         if (connector.Joint != null)
@@ -551,6 +565,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
+                    if (part is Pipe)
+                    {
+                        Pipe pipe = part as Pipe;
+                        pipe.ToExport = false;
+                    }
+                    else
+                    {
+                        construction.Spool spool = part as construction.Spool;
+                        spool.Pipe.ToExport = false;
+                    }
                     if (part.IsAvailableToJoint == false)
                     {
                         part.IsAvailableToJoint = true;
