@@ -807,6 +807,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Импортируется элемент {0} из {1}. Тип элемента: {2}.
+        /// </summary>
+        internal static string Import_Progress_Message {
+            get {
+                return ResourceManager.GetString("Import_Progress_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Данная порция уже была импортирована и не может быть импортирована снова..
         /// </summary>
         internal static string Import_SamePortion {

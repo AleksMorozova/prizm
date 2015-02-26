@@ -982,6 +982,9 @@ Import_TempStorage=Creating temporary storage
 ;Распаковка
 Import_Unzip=Unzipping
 
+;Сообщение: Импортирование прогресс выполнения
+Import_Progress_Message=Import element {0} from {1}. Element type: {2}
+
 ;Сообщение: Импортирование завершено
 ImportMessage_IsFinished=Import is finished
 
