@@ -33,8 +33,8 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         public ReleaseNoteSearchXtraForm()
         {
             InitializeComponent();
-            strartDate.Properties.NullDate = DateTime.MinValue;
-            strartDate.Properties.NullText = string.Empty;
+            startDate.Properties.NullDate = DateTime.MinValue;
+            startDate.Properties.NullText = string.Empty;
             endDate.Properties.NullDate = DateTime.MinValue;
             endDate.Properties.NullText = string.Empty;
             this.certificateNumber.SetAsIdentifier();
@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             BindCommands();
             BindToViewModel();
 
-            strartDate.SetLimits();
+            startDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -59,7 +59,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             certificateNumber.DataBindings.Add("EditValue", bindingSource, "Certificate");
             destination.DataBindings.Add("EditValue", bindingSource, "Receiver");
             releaseNoteNumber.DataBindings.Add("EditValue", bindingSource, "ReleaseNoteNumber");
-            strartDate.DataBindings.Add("EditValue", bindingSource, "StartDate");
+            startDate.DataBindings.Add("EditValue", bindingSource, "StartDate");
             endDate.DataBindings.Add("EditValue", bindingSource, "EndDate");
             pipeNumber.DataBindings.Add("EditValue", bindingSource, "PipeNumber");
             //releasesGrid.DataSource = viewModel.Projection;
@@ -81,7 +81,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             {
                 // layout items
                 new LocalizedItem(releaseNoteNumberayout, StringResources.ReleaseSearch_NumberLabel.Id),
-                new LocalizedItem(strartDateLayout, StringResources.ReleaseSearch_StartDateLabel.Id),
+                new LocalizedItem(startDateLayout, StringResources.ReleaseSearch_StartDateLabel.Id),
                 new LocalizedItem(endDateLayout, StringResources.ReleaseSearch_EndDateLabel.Id),
                 new LocalizedItem(destinationLayout, StringResources.ReleaseSearch_DestinationLabel.Id),
                 new LocalizedItem(railcarNumberLayout, StringResources.ReleaseSearch_RailcarLabel.Id),
