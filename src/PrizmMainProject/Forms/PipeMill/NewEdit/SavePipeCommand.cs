@@ -97,9 +97,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                                 fileCopySuccess = false;
                                 repo.Rollback();
                             }
+                            else
+                            {
+                                repo.Commit();
+                            }
+                        }
+                        else 
+                        {
+                            repo.Commit();
                         }
 
-                        repo.Commit();
+                        
                         repo.RepoPipe.Evict(viewModel.Pipe);
 
                         if (fileCopySuccess)
@@ -109,10 +117,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                                 filesViewModel.DetachFileEntities(); 
                             }
                             
-
                             notify.ShowSuccess(
                                  string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
                                  Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
+
+                            log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.", viewModel.Pipe.Number,
+                                viewModel.Pipe.Id));
                         }
                         else
                         {
@@ -123,13 +133,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Pipe.Id;
                         viewModel.ModifiableView.UpdateState();
-                        notify.ShowNotify(
-                            string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
-                            Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
 
-                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                            viewModel.Pipe.Number,
-                            viewModel.Pipe.Id));
                     }
                     catch(RepositoryException ex)
                     {

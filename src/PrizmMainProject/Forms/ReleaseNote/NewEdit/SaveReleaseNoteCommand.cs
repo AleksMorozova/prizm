@@ -92,17 +92,24 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 //saving attached documents
                 bool fileCopySuccess = true;
                 if (null != filesViewModel)
-                {            
+                {
                     filesViewModel.FileRepo = repos.FileRepo;
                     viewModel.FilesFormViewModel.Item = viewModel.ReleaseNote.Id;
                     if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.ReleaseNote))
                     {
                         fileCopySuccess = false;
                         repos.Rollback();
+
+                    }
+                    else
+                    {
+                        repos.Commit();
                     }
                 }
-
-                repos.Commit();
+                else 
+                {
+                    repos.Commit();
+                }
 
                 repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
@@ -115,22 +122,17 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         filesViewModel.DetachFileEntities(); 
                     }
 
-                    notify.ShowSuccess(
-                         string.Concat(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess), viewModel.ReleaseNote.Id),
-                         Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
+                    notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess),
+                        Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
+
+                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.", viewModel.ReleaseNote.Number, 
+                        viewModel.ReleaseNote.Id));
                 }
                 else
                 {
                     notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
                 }
-
-                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccess),
-                    Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_SaveSuccessHeader));
-
-                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                    viewModel.ReleaseNote.Number,
-                    viewModel.ReleaseNote.Id));
             }
             catch(RepositoryException ex)
             {

@@ -85,9 +85,16 @@ namespace Prizm.Main.Forms.Spool
                                     fileCopySuccess = false;
                                     repos.Rollback();
                                 }
+                                else
+                                {
+                                    repos.Commit();
+                                }
+                            }
+                            else
+                            {
+                                repos.Commit();
                             }
 
-                            repos.Commit();
                             repos.PipeRepo.Evict(viewModel.Pipe);
                             repos.SpoolRepo.Evict(viewModel.Spool);
 
@@ -98,9 +105,15 @@ namespace Prizm.Main.Forms.Spool
                                     filesViewModel.DetachFileEntities(); 
                                 }
 
-                                notify.ShowSuccess(
-                                     string.Concat(Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe), viewModel.Spool.Id),
-                                     Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+                                notify.ShowNotify(
+                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
+                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+
+                                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                                    viewModel.Spool.Number,
+                                    viewModel.Spool.Id));
+
+
                             }
                             else
                             {
@@ -110,14 +123,6 @@ namespace Prizm.Main.Forms.Spool
 
                             viewModel.ModifiableView.IsModified = false;
                             viewModel.ModifiableView.Id = viewModel.Spool.Id;
-
-                            notify.ShowNotify(
-                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
-                                Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
-
-                            log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                                viewModel.Spool.Number,
-                                viewModel.Spool.Id));
 
                             string oldPipeNumber = viewModel.Pipe.Number;
                             viewModel.NewSpool();

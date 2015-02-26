@@ -679,6 +679,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Файлы не скопированы. Все изменения отклонены..
+        /// </summary>
+        internal static string ExternalFiles_NotCopied {
+            get {
+                return ResourceManager.GetString("ExternalFiles_NotCopied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка добавления файлов..
+        /// </summary>
+        internal static string ExternalFiles_NotCopied_Header {
+            get {
+                return ResourceManager.GetString("ExternalFiles_NotCopied_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Внешние файлы.
         /// </summary>
         internal static string ExternalFilesXtraForm_Title {
