@@ -54,8 +54,6 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -304,25 +302,6 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // PageHeader
-            // 
-            this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.pageHeaderLabel});
-            this.PageHeader.HeightF = 33.33333F;
-            this.PageHeader.Name = "PageHeader";
-            this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
-            // 
-            // pageHeaderLabel
-            // 
-            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
-            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.pageHeaderLabel.Name = "pageHeaderLabel";
-            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(747.9999F, 33F);
-            this.pageHeaderLabel.StyleName = "Title";
-            this.pageHeaderLabel.StylePriority.UseForeColor = false;
-            this.pageHeaderLabel.Text = "IncomingInspection";
-            // 
             // IncomingReportsXtraReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -331,8 +310,7 @@
             this.BottomMargin,
             this.groupHeader,
             this.pageFooter,
-            this.reportHeader,
-            this.PageHeader});
+            this.reportHeader});
             this.DataMember = "Pipe";
             this.DataSource = this.sqlDataSourceForReport;
             this.Margins = new System.Drawing.Printing.Margins(66, 36, 51, 62);
@@ -372,7 +350,5 @@
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle DataField;
-        private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
-        private DevExpress.XtraReports.UI.XRLabel pageHeaderLabel;
     }
 }

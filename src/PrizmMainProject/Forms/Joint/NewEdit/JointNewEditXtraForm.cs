@@ -610,6 +610,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     if(viewModel.Joint.Status == JointStatus.Withdrawn)
                     {
                         checkEdit.Checked = true;
+                        repairOperationsView.OptionsBehavior.Editable = viewModel.IsNotWithdrawn;
                     }
                     else
                     {

@@ -425,11 +425,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get 
             {
-                if (LoweringDate != DateTime.MinValue)
+                if (LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
                 {
                     Joint.Status = JointStatus.Lowered;
                 }
-                if (Joint.JointWeldResults.Where(_ => _.Date == JointWeldResults.Max(x => x.Date)).Any(x => x.Operation.Type == JointOperationType.Withdraw))
+                if (Joint.JointWeldResults
+                    .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
+                    .Any(x => x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
                 {
                     Joint.Status = JointStatus.Withdrawn;
                 }
@@ -852,13 +854,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
                 this.Joint.JointWeldResults.Add(requredWeldResult);
             }
-            else 
+            else
             {
                 this.JointWeldResults = new BindingList<JointWeldResult>();
             }
             this.Number = String.Empty;
             this.LoweringDate = DateTime.MinValue;
             this.Joint.ToExport = false;
+
+            this.FirstElement = null;
+            this.SecondElement = null;
         }
 
         public void RefreshJointComponents()

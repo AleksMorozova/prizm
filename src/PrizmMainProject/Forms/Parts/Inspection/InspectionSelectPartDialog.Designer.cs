@@ -187,6 +187,7 @@
             this.Controls.Add(this.dialogLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InspectionSelectPartDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор элемента";
             this.Load += new System.EventHandler(this.NumbersDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dialogLayout)).EndInit();

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Languages;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -28,18 +29,28 @@ namespace Prizm.Main.Forms.Spool
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute() 
+        public void Execute()
         {
-            if (repos.PipeRepo.GetByNumber(viewModel.PipeNumber) != null)
+            if(repos.PipeRepo.GetByNumber(viewModel.PipeNumber) != null)
             {
                 viewModel.Pipe = repos.PipeRepo.GetByNumber(viewModel.PipeNumber);
-                viewModel.ModifiableView.IsEditMode = true;
-                StringBuilder number = new StringBuilder();
-                int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(viewModel.Spool.PipeNumber).Count + 1;
-                number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
-                viewModel.SpoolNumber = number.ToString();
-                viewModel.InitPipeLenght = viewModel.Pipe.Length;
-                viewModel.editableForm.spoolLength.Properties.MaxValue = viewModel.Pipe.Length;
+                if(viewModel.Pipe.Length <= Constants.MinSpoolCut)
+                {
+                    notify.ShowError(
+      Program.LanguageManager.GetString(StringResources.Spool_NullSpoolLength),
+         Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+                    viewModel.ModifiableView.IsEditMode = false;
+                }
+                else
+                {
+                    viewModel.ModifiableView.IsEditMode = true;
+                    StringBuilder number = new StringBuilder();
+                    int spoolNumber = repos.SpoolRepo.GetAllSpoolFromPipe(viewModel.Spool.PipeNumber).Count + 1;
+                    number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
+                    viewModel.SpoolNumber = number.ToString();
+                    viewModel.InitPipeLenght = viewModel.Pipe.Length;
+                    viewModel.editableForm.spoolLength.Properties.MaxValue = viewModel.Pipe.Length - Constants.MinSpoolCut;
+                }
             }
 
             else
