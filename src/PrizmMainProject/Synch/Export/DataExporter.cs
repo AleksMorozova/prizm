@@ -121,15 +121,9 @@ namespace Prizm.Main.Synch.Export
                {
                   WriteAttachments(tempDir, pipe.Attachments);
                }
-               if (pipe.Railcar != null)
+               if (pipe.Railcar != null && pipe.Railcar.ReleaseNote != null && pipe.Railcar.ReleaseNote.Attachments != null)
                {
-                   if (pipe.Railcar.ReleaseNote != null)
-                   {
-                       if (pipe.Railcar.ReleaseNote.Attachments != null)
-                       {
-                           WriteAttachments(tempDir, pipe.Railcar.ReleaseNote.Attachments);
-                       }
-                   }
+                  WriteAttachments(tempDir, pipe.Railcar.ReleaseNote.Attachments);
                }
                if (pipe.Spools.Count != 0)
                {

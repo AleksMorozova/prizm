@@ -601,10 +601,9 @@ namespace Prizm.Main.Synch.Import
             connector.WallThickness = co.WallThickness;
             connector.Diameter = co.Diameter;
             connector.Component = component;
-            if (co.Joint != null)
+            if (co.Joint != null && co.Joint.Id == joint.Id)
             {
-                if (co.Joint.Id == joint.Id)
-                    connector.Joint = joint;
+                connector.Joint = joint;
             }
             return connector;
         }
