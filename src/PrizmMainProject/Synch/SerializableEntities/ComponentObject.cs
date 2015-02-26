@@ -27,7 +27,16 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.ConstructionStatus = component.ConstructionStatus;
          this.InspectionStatus = component.InspectionStatus;
 
-         if (component.Attachments != null)
+         if (component.Connectors != null)
+         {
+             this.Connectors = new List<ConnectorObject>();
+             foreach (var connector in component.Connectors)
+             {
+                this.Connectors.Add(new ConnectorObject(connector));
+             }
+         }
+
+          if (component.Attachments != null)
          {
             this.Attachments = new List<FileObject>();
             foreach (var file in component.Attachments)
@@ -71,5 +80,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlArray("Attachments")]
       public List<FileObject> Attachments { get; set; }
+
+      [XmlArray("Connectors")]
+      public List<ConnectorObject> Connectors { get; set; }
    }
 }

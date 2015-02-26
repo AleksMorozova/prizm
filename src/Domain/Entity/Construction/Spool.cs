@@ -11,5 +11,6 @@ namespace Prizm.Domain.Entity.Construction
     {
         public virtual string PipeNumber { get; set; }
         public virtual Pipe Pipe { get; set; }
+        public virtual IList<File> Attachments { get; set; }
     }
 }

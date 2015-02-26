@@ -80,7 +80,7 @@ namespace Prizm.Main.Synch.Import
             return ImportResult.Success;
         }
 
-        
+
         void ImportData(string tempDir)
         {
             Manifest manifest = Deserialize<Manifest>(Path.Combine(tempDir, "Manifest"));
@@ -134,10 +134,10 @@ namespace Prizm.Main.Synch.Import
             List<int> portionList = importRepo.PortionRepo.CheckPortionSequence(project);
             List<int> controlList = (portionNumber == 1) ? new List<int>() { 0 } : Enumerable.Range(1, portionNumber - 1).ToList();
             if (!portionList.SequenceEqual(controlList))
-            {          
+            {
                 MissingEventArgs args = new MissingEventArgs();
                 args.MillName = project.MillName;
-                args.ExistingPortions= portionList.ToArray<int>();
+                args.ExistingPortions = portionList.ToArray<int>();
                 args.MissingPortions = (from i in controlList let found = portionList.Any(j => j == i) where !found select i).ToArray<int>();
                 FireMissing(args);
             }
@@ -212,7 +212,7 @@ namespace Prizm.Main.Synch.Import
             pipe.Railcar = ImportRailcar(pipeObj.Railcar);
             if (pipeObj.Railcar != null)
             {
-                pipe.Railcar.ReleaseNote = ImportReleaseNote(pipeObj.Railcar.ReleaseNote);
+                pipe.Railcar.ReleaseNote = ImportReleaseNote(tempDir, pipeObj.Railcar.ReleaseNote);
             }
             pipe.PurchaseOrder = ImportPurchaseOrder(pipeObj.PurchaseOrder);
             pipe.Status = pipeObj.Status;
@@ -221,7 +221,7 @@ namespace Prizm.Main.Synch.Import
             {
                 foreach (SpoolObject so in pipeObj.Spools)
                 {
-                    pipe.Spools.Add(ImportSpool(so, pipe));
+                    pipe.Spools.Add(ImportSpool(tempDir, so, pipe));
                 }
             }
 
@@ -242,7 +242,7 @@ namespace Prizm.Main.Synch.Import
             }
         }
 
-        private Spool ImportSpool(SpoolObject so, Pipe pipe)
+        private Spool ImportSpool(string tempDir, SpoolObject so, Pipe pipe)
         {
             Spool spool = importRepo.SpoolRepo.Get(so.Id);
 
@@ -254,7 +254,7 @@ namespace Prizm.Main.Synch.Import
                 isNew = true;
             }
 
-            MapSerializableEntityToSpool(so, spool);
+            MapSerializableEntityToSpool(tempDir, so, spool);
             spool.Pipe = pipe;
 
             if (isNew)
@@ -265,7 +265,7 @@ namespace Prizm.Main.Synch.Import
             return spool;
         }
 
-        void MapSerializableEntityToSpool(SpoolObject spoolObj, Spool spool)
+        void MapSerializableEntityToSpool(string tempDir, SpoolObject spoolObj, Spool spool)
         {
             spool.Id = spoolObj.Id;
             spool.IsActive = spoolObj.IsActive;
@@ -275,6 +275,22 @@ namespace Prizm.Main.Synch.Import
             spool.IsAvailableToJoint = spoolObj.IsAvailableToJoint;
             spool.ConstructionStatus = spoolObj.ConstructionStatus;
             spool.InspectionStatus = spoolObj.InspectionStatus;
+
+            if (spoolObj.Attachments != null)
+            {
+                if (!Directory.Exists(Directories.TargetPath))
+                {
+                    Directory.CreateDirectory(Directories.TargetPath);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+                spool.Attachments = new List<Prizm.Domain.Entity.File>();
+                foreach (var fileObject in spoolObj.Attachments)
+                {
+                    Prizm.Domain.Entity.File f = ImportFile(fileObject, spool.Id);
+                    CopyAttachment(tempDir, f);
+                }
+            }
         }
 
         private Project ImportProject(ProjectObject projectObj)
@@ -329,13 +345,17 @@ namespace Prizm.Main.Synch.Import
 
             foreach (var compObj in components)
             {
-                FireMessage(string.Format(Program.LanguageManager.GetString(
+            FireMessage(string.Format(Program.LanguageManager.GetString(
                     StringResources.Import_Progress_Message), elements--, elementsAll,
                     Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
+                if (!CheckIfWelded(data, compObj.Id))
+                {
+                    Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
 
-                importedComponents.Add(ImportComponent(tempDir, compObj));
-                progress += step;
-                FireProgress(progress);
+                    importedComponents.Add(ImportComponent(tempDir, compObj));
+                    progress += step;
+                    FireProgress(progress);
+                }
             }
 
             return importedComponents;
@@ -394,11 +414,18 @@ namespace Prizm.Main.Synch.Import
 
                 if (jointObj.Attachments != null)
                 {
-                    joint.Attachments = new List<Domain.Entity.File>();
-                    foreach (var file in jointObj.Attachments)
+                    if (!Directory.Exists(Directories.TargetPath))
                     {
-                        joint.Attachments.Add(ImportFile(file, jointObj.Id));
+                        Directory.CreateDirectory(Directories.TargetPath);
+                        DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                        directoryInfo.Attributes |= FileAttributes.Hidden;
                     }
+                    joint.Attachments = new List<Prizm.Domain.Entity.File>();
+                    foreach (var fileObject in jointObj.Attachments)
+                    {
+                        Prizm.Domain.Entity.File f = ImportFile(fileObject, joint.Id);
+                        CopyAttachment(tempDir, f);
+                    }               
                 }
 
                 if (isNew)
@@ -442,6 +469,23 @@ namespace Prizm.Main.Synch.Import
                     if (c.Id == id)
                     {
                         result = c;
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+
+        bool CheckIfWelded(Data data, Guid id)
+        {
+            bool result = false;
+            if (data.Joints != null)
+            {
+                foreach (JointObject j in data.Joints)
+                {
+                    if (j.FirstElement.Id == id || j.SecondElement.Id == id)
+                    {
+                        result = true;
                         break;
                     }
                 }
@@ -516,7 +560,7 @@ namespace Prizm.Main.Synch.Import
                         if (spoolObj != null)
                         {
                             spool = new Spool();
-                            MapSerializableEntityToSpool(spoolObj, spool);
+                            MapSerializableEntityToSpool(tempDir, spoolObj, spool);
                             isNewSpool = true;
                         }
                     }
@@ -540,7 +584,7 @@ namespace Prizm.Main.Synch.Import
                         if (compObj != null)
                         {
                             component = new Component();
-                            MapSerializableEntityToComponent(tempDir, compObj, component);
+                            MapSerializableEntityToComponent(tempDir, compObj, component, joint);
                             isNewComponent = true;
                         }
                     }
@@ -556,32 +600,26 @@ namespace Prizm.Main.Synch.Import
                     break;
             }
 
-            if (partDataObj.Connectors != null)
-            {
-                foreach (ConnectorObject co in partDataObj.Connectors)
-                {
-                    ImportConnector(tempDir, co, joint);
-                }
-            }
-
             PartData pd = new PartData();
             pd.Id = partId;
             pd.PartType = type;
             return pd;
         }
 
-        void ImportConnector(string tempDir, ConnectorObject co, Joint joint)
+        Connector ImportConnector(string tempDir, ConnectorObject co, Component component, Joint joint)
         {
-            Component component = ImportComponent(tempDir, co.Component);
 
             Connector connector = new Connector();
-            connector.Component = component;
-            connector.Joint = joint;
+            connector.Id = co.Id;
             connector.IsActive = co.IsActive;
             connector.WallThickness = co.WallThickness;
             connector.Diameter = co.Diameter;
-
-            importRepo.ComponentRepo.SaveOrUpdate(component);
+            connector.Component = component;
+            if (co.Joint != null && co.Joint.Id == joint.Id)
+            {
+                connector.Joint = joint;
+            }
+            return connector;
         }
 
         Component ImportComponent(string tempDir, ComponentObject compObj)
@@ -605,7 +643,7 @@ namespace Prizm.Main.Synch.Import
             return component;
         }
 
-        void MapSerializableEntityToComponent(string tempDir, ComponentObject compObj, Component component)
+        void MapSerializableEntityToComponent(string tempDir, ComponentObject compObj, Component component, Joint joint = null)
         {
             component.Id = compObj.Id;
             component.IsActive = compObj.IsActive;
@@ -623,6 +661,15 @@ namespace Prizm.Main.Synch.Import
                 foreach (var file in compObj.Attachments)
                 {
                     component.Attachments.Add(ImportFile(file, component.Id));
+                }
+            }
+
+            if (compObj.Connectors != null)
+            {
+                component.Connectors = new List<Connector>();
+                foreach (var connector in compObj.Connectors)
+                {
+                    component.Connectors.Add(ImportConnector(tempDir, connector, component, joint));
                 }
             }
         }
@@ -670,6 +717,7 @@ namespace Prizm.Main.Synch.Import
             ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
 
+            Project currentProject = importRepo.ProjectRepo.GetSingle();
             foreach (var pipeObj in pipes)
             {
                 FireMessage(string.Format(Program.LanguageManager.GetString(
@@ -683,7 +731,7 @@ namespace Prizm.Main.Synch.Import
 
                     MapSerializableEntityToPipe(tempDir, pipeObj, pipe);
 
-                    Project currentProject = importRepo.ProjectRepo.GetSingle();
+                 
                     pipe.ToExport = currentProject.WorkstationType == WorkstationType.Master && manifest.WorkstationType == WorkstationType.Mill;
 
                     importRepo.PipeRepo.Save(pipe);
@@ -940,7 +988,7 @@ namespace Prizm.Main.Synch.Import
 
             return railcar;
         }
-        private ReleaseNote ImportReleaseNote(ReleaseNoteObject releaseNoteObj)
+        private ReleaseNote ImportReleaseNote(string tempDir, ReleaseNoteObject releaseNoteObj)
         {
             if (releaseNoteObj == null)
                 return null;
@@ -959,6 +1007,21 @@ namespace Prizm.Main.Synch.Import
             releaseNote.Shipped = releaseNoteObj.Shipped;
             releaseNote.Date = releaseNoteObj.Date;
 
+            if (releaseNoteObj.Attachments != null)
+            {
+                if (!Directory.Exists(Directories.TargetPath))
+                {
+                    Directory.CreateDirectory(Directories.TargetPath);
+                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPath);
+                    directoryInfo.Attributes |= FileAttributes.Hidden;
+                }
+                releaseNote.Attachments = new List<Prizm.Domain.Entity.File>();
+                foreach (var fileObject in releaseNoteObj.Attachments)
+                {
+                    Prizm.Domain.Entity.File f = ImportFile(fileObject, releaseNote.Id);
+                    CopyAttachment(tempDir, f);
+                }
+            }
 
             if (isNew)
                 importRepo.ReleaseNoteRepo.Save(releaseNote);

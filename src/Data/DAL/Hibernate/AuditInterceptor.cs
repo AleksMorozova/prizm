@@ -67,7 +67,7 @@ namespace Prizm.Data.DAL.Hibernate
                         NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
 
                     }
-                    else if (currentState[i].ToString().StartsWith("System.Collections.Generic") || currentState[i].ToString().StartsWith("System.ComponentModel.BindingList") || previousState[i].ToString().StartsWith("System.Collections.Generic") || previousState[i].ToString().StartsWith("System.ComponentModel.BindingList"))
+                    else if (currentState[i].ToString().StartsWith("System.Collections.Generic") || currentState[i].ToString().StartsWith("System.ComponentModel.BindingList") || previousState[i].ToString().StartsWith("System.Collections.Generic") || previousState[i].ToString().StartsWith("System.ComponentModel.BindingList") || currentState[i].ToString().StartsWith("Prizm.Domain") || previousState[i].ToString().StartsWith("Prizm.Domain"))
                     {
                         continue;
                     }
@@ -144,7 +144,7 @@ namespace Prizm.Data.DAL.Hibernate
                             break;
                         default: break;
                     }
-                    if (state[i].ToString().StartsWith("System.Collections.Generic") || state[i].ToString().StartsWith("System.ComponentModel.BindingList"))
+                    if (state[i].ToString().StartsWith("System.Collections.Generic") || state[i].ToString().StartsWith("System.ComponentModel.BindingList") || state[i].ToString().StartsWith("Prizm.Domain") || state[i].ToString().StartsWith("Prizm.Domain"))
                         continue;
                     NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                 }

@@ -88,6 +88,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     try
                     {
                         viewModel.Component.InspectionStatus = viewModel.Component.GetPartInspectionStatus();
+                        viewModel.Component.ToExport = true;
                         repos.BeginTransaction();
                         viewModel.Component.Number = viewModel.Component.Number.ToUpper();
                         repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
