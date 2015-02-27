@@ -607,7 +607,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                         Number = RndString(8),
                         SteelGrade = RndString(6),
                         PlateManufacturer = plateManufacturers[rnd.Next(plateManufacturers.Length - 1)],
-                        IsActive = true,                        
+                        IsActive = true                      
                     }
                     );
                 firstSetupRepo.HeatRepo.Save(heats[i]);
@@ -633,7 +633,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             List<Pipe> pipes = new List<Pipe>();
             for(int i = 0; i < PIPECOUNT; i++)
             {
-                var plate = new Plate ()
+                var plate = new Plate
                     {
                         Number = RndString(8),
                         Thickness = rnd.Next(2000),
