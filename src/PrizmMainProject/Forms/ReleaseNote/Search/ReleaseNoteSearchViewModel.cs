@@ -60,16 +60,30 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             }
         }
 
-        private DateTime releaseNoteDate = DateTime.MinValue;
-        public DateTime ReleaseNoteDate
+        private DateTime startDate;
+        public DateTime StartDate
         {
-            get { return releaseNoteDate; }
+            get { return startDate; }
             set
             {
-                if(value != releaseNoteDate)
+                if (value != startDate)
                 {
-                    releaseNoteDate = value;
-                    RaisePropertyChanged("ShippingDate");
+                    startDate = value;
+                    RaisePropertyChanged("startDate");
+                }
+            }
+        }
+
+        private DateTime endDate;
+        public DateTime EndDate
+        {
+            get { return endDate; }
+            set
+            {
+                if (value != endDate)
+                {
+                    endDate = value;
+                    RaisePropertyChanged("EndDate");
                 }
             }
         }
@@ -84,6 +98,20 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 {
                     railcarNumber = value;
                     RaisePropertyChanged("RailcarNumber");
+                }
+            }
+        }
+
+        private string pipeNumber = "";
+        public string PipeNumber
+        {
+            get { return pipeNumber; }
+            set
+            {
+                if (value != pipeNumber)
+                {
+                    pipeNumber = value;
+                    RaisePropertyChanged("PipeNumber");
                 }
             }
         }

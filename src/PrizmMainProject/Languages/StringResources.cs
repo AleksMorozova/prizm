@@ -4239,21 +4239,36 @@ namespace Prizm.Main.Languages
 
 
         #region---Railcar Search---
-
+        //ReleaseSearch_PipeInReleaseNoteLabel
         public static StringResource ReleaseSearch_Title = new StringResource
         {
             Id = "ReleaseSearch_Title",
             Description = "Поиск разрешений на отгрузку"
+        };
+        public static StringResource ReleaseSearch_PipeInReleaseNoteLabel = new StringResource
+        {
+            Id = "ReleaseSearch_PipeInReleaseNoteLabel",
+            Description = "Поиск разрешений на отгрузку. Номер трубы"
         };
         public static StringResource ReleaseSearch_NumberLabel = new StringResource
         {
             Id = "ReleaseSearch_NumberLabel",
             Description = "Поиск разрешений на отгрузку. Номер разрешения"
         };
-        public static StringResource ReleaseSearch_DateLabel = new StringResource
+        public static StringResource ReleaseSearch_ReleaseNotePeriodLabel = new StringResource
         {
-            Id = "ReleaseSearch_DateLabel",
-            Description = "Поиск разрешений на отгрузку. Дата"
+            Id = "ReleaseSearch_ReleaseNotePeriodLabel",
+            Description = "Поиск разрешений на отгрузку.Период формирования разрешения на отгрузку"
+        };
+        public static StringResource ReleaseSearch_StartDateLabel = new StringResource
+        {
+            Id = "ReleaseSearch_StartDateLabel",
+            Description = "Поиск разрешений на отгрузку. Начальная дата"
+        };
+        public static StringResource ReleaseSearch_EndDateLabel = new StringResource
+        {
+            Id = "ReleaseSearch_EndDateLabel",
+            Description = "Поиск разрешений на отгрузку. Конечная дата"
         };
         public static StringResource ReleaseSearch_DestinationLabel = new StringResource
         {

@@ -103,12 +103,16 @@ namespace Prizm.Main.Forms.Component.NewEdit
                             viewModel.FilesFormViewModel.Item = viewModel.Component.Id;
                             if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Component))
                             {
-                               fileCopySuccess = false;
-                               repos.Rollback();
+                                fileCopySuccess = false;
+                                repos.Rollback();
                             }
                         }
 
-                        repos.Commit();
+                        if (fileCopySuccess)
+                        {
+                            repos.Commit();
+                        }
+
                         repos.ComponentRepo.Evict(viewModel.Component);
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Component.Id;
@@ -124,15 +128,18 @@ namespace Prizm.Main.Forms.Component.NewEdit
                            notify.ShowSuccess(
                                 string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Saved), viewModel.Number),
                                 Program.LanguageManager.GetString(StringResources.ComponentNewEdit_SavedHeader));
+
+                            log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                             viewModel.Component.Number, viewModel.Component.Id));
                         }
                         else
                         {
                             notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                            log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                                viewModel.Component.Number, viewModel.Component.Id));
                         }
 
-                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                             viewModel.Component.Number, viewModel.Component.Id));
                     }
                     catch (RepositoryException ex)
                     {

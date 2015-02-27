@@ -1901,10 +1901,19 @@ ReleaseNoteNewEdit_PendingStatus=Pending
 ReleaseSearch_NumberLabel=Release note &number
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_DateLabel=&Date
+ReleaseSearch_ReleaseNotePeriodLabel=Date range
+
+;Поиск разрешений на отгрузку. Дата
+ReleaseSearch_StartDateLabel=&From
+
+;Поиск разрешений на отгрузку. Дата
+ReleaseSearch_EndDateLabel=&To
 
 ;Поиск разрешений на отгрузку. Получатель
 ReleaseSearch_DestinationLabel=Dest&ination
+
+;Поиск разрешений на отгрузку. Вагон
+ReleaseSearch_PipeInReleaseNoteLabel=&Pipe number
 
 ;Поиск разрешений на отгрузку. Вагон
 ReleaseSearch_RailcarLabel=&Railcar number
