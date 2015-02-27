@@ -53,13 +53,17 @@ namespace Prizm.Main.Synch.Import
 
             progress = 0;
 
+            var tmpfileName = Path.Combine(Directories.Importing, Guid.NewGuid().ToString());
+
             try
             {
+                System.IO.File.Copy(archiveName, tmpfileName, true);
+
                 FireMessage(Program.LanguageManager.GetString(StringResources.Import_TempStorage));
                 string tempDir = CreateTempDir();
 
                 FireMessage(Program.LanguageManager.GetString(StringResources.Import_Unzip));
-                UnzipContent(archiveName, tempDir);
+                UnzipContent(tmpfileName, tempDir);
 
                 progress += 5;
                 FireProgress(progress);
@@ -78,6 +82,10 @@ namespace Prizm.Main.Synch.Import
             catch (Exception e)
             {
                 return FireError(new ImportException(e.Message, e));
+            }
+            finally
+            {
+                System.IO.File.Delete(tmpfileName);
             }
 
 
