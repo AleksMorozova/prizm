@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReportsXtraForm));
             this.previewReportDocument = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
@@ -56,7 +57,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.previewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.previewLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.millReportsBindingSource = new System.Windows.Forms.BindingSource();
+            this.millReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.generalReportLayout)).BeginInit();
             this.generalReportLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statuses)).BeginInit();
