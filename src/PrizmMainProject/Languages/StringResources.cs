@@ -151,8 +151,9 @@ namespace Prizm.Main.Languages
             Id = "StatusActive", 
             Description = "Надпись статуса активности элемента Активен"};
 
-        public static StringResource StatusInactive = new StringResource { 
-            Id = "StatusInactive", 
+        public static StringResource StatusUnactive = new StringResource
+        {
+            Id = "StatusUnactive", 
             Description = "Надпись статуса активности элемента Неактивен"};
 
         public static StringResource StatusAll = new StringResource { 

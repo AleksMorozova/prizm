@@ -62,7 +62,7 @@ PartTypeUndefined=Undefined
 StatusActive=Active
 
 ;Надпись статуса активности элемента Неактивен
-StatusInactive=Not active
+StatusUnactive=Not active
 
 ;Надпись статуса активности элемента Все
 StatusAll=All
