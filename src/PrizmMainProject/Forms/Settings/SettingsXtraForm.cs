@@ -445,7 +445,7 @@ namespace Prizm.Main.Forms.Settings
 
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[pipesSizeListGridView];
                 List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
@@ -457,7 +457,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[pipesSizeListGridView];
                 List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
@@ -1539,7 +1539,7 @@ namespace Prizm.Main.Forms.Settings
             view.ClearColumnErrors();
 
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[plateManufacturersListView];
                 List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
@@ -1570,7 +1570,7 @@ namespace Prizm.Main.Forms.Settings
 
             seamTypeGridView.ValidateNotEmpty(seamTypeColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[seamTypeGridView];
                 List<string> seemTypeDuplicates = l.Method(seamTypeGridView);
@@ -1587,7 +1587,7 @@ namespace Prizm.Main.Forms.Settings
 
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[componentryTypeGridView];
                 List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
@@ -1693,7 +1693,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void componentryTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[componentryTypeGridView];
                 List<string> componentryDuplicate = l.Method(componentryTypeGridView);
@@ -1703,7 +1703,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void plateManufacturersListView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[plateManufacturersListView];
                 List<string> plateManufacturersDuplicate = l.Method(plateManufacturersListView);
@@ -1720,7 +1720,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void seemTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
+            if (viewModel.CurrentProjectSettings != null && viewModel.IsMill)
             {
                 DuplicatesList l = findDuplicateList[seamTypeGridView];
                 List<string> seemTypeDuplicate = l.Method(seamTypeGridView);
@@ -2088,6 +2088,9 @@ namespace Prizm.Main.Forms.Settings
             }
             if (viewModel.IsConstruction)
             {
+                plateManufacturersListView.Columns["Project.MillName"].Visible = true;
+                seamTypeGridView.Columns["Project.MillName"].Visible = true;
+                pipesSizeListGridView.Columns["Project.MillName"].Visible = true;
                 addTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
