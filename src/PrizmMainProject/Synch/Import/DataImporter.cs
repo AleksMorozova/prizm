@@ -348,10 +348,9 @@ namespace Prizm.Main.Synch.Import
             FireMessage(string.Format(Program.LanguageManager.GetString(
                     StringResources.Import_Progress_Message), elements--, elementsAll,
                     Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
+
                 if (!CheckIfWelded(data, compObj.Id))
                 {
-                    Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
-
                     importedComponents.Add(ImportComponent(tempDir, compObj));
                     progress += step;
                     FireProgress(progress);
