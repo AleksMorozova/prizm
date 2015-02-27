@@ -98,7 +98,7 @@ namespace Prizm.Data.DAL.Hibernate
             }
             if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
             {
-                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate);
+                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
             }
             var list = new List<ReleaseNote>(s.List<ReleaseNote>().OrderBy(x => x.Number));
 
