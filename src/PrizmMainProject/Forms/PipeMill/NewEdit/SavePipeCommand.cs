@@ -1,4 +1,4 @@
-﻿using DevExpress.Mvvm.DataAnnotations;
+﻿﻿using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using System;
@@ -42,12 +42,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.ValidatableView.Validate())
+            if (!viewModel.ValidatableView.Validate())
             {
                 return;
             }
 
-            if(!DateValidate())
+            if (!DateValidate())
             {
                 notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
@@ -61,12 +61,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
             var p = repo.RepoPipe.GetActiveByNumber(viewModel.Pipe);
-            foreach(var pipe in p)
+            foreach (var pipe in p)
             {
                 repo.RepoPipe.Evict(pipe);
             }
 
-            if(p != null && p.Count > 0)
+            if (p != null && p.Count > 0)
             {
                 notify.ShowInfo(
                     string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberError), viewModel.Number),
@@ -75,7 +75,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             else
             {
-                if(viewModel.CheckStatus())
+                if (viewModel.CheckStatus())
                 {
                     try
                     {
@@ -103,16 +103,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         {
                             repo.Commit();
                         }
-                        
+
                         repo.RepoPipe.Evict(viewModel.Pipe);
 
                         if (fileCopySuccess)
                         {
-                            if (null != filesViewModel) 
+                            if (null != filesViewModel)
                             {
-                                filesViewModel.DetachFileEntities(); 
+                                filesViewModel.DetachFileEntities();
                             }
-                            
+
                             notify.ShowSuccess(
                                  string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
                                  Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
@@ -133,7 +133,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         viewModel.ModifiableView.UpdateState();
 
                     }
-                    catch(RepositoryException ex)
+                    catch (RepositoryException ex)
                     {
                         log.Error(ex.Message);
                         notify.ShowFailure(ex.InnerException.Message, ex.Message);
@@ -154,15 +154,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             bool result = true;
 
-            if(!viewModel.Pipe.ProductionDate.IsValid())
+            if (!viewModel.Pipe.ProductionDate.IsValid())
             {
                 result = false;
             }
-            if(!viewModel.Pipe.Coats.All(x => x.Date.IsValid()))
+            if (!viewModel.Pipe.Coats.All(x => x.Date.IsValid()))
             {
                 result = false;
             }
-            if(!viewModel.Pipe.Welds.All(x => x.Date.IsValid()))
+            if (!viewModel.Pipe.Welds.All(x => x.Date.IsValid()))
             {
                 result = false;
             }
