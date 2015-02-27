@@ -99,7 +99,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             }
                         }
 
-                        repo.Commit();
+                        if (fileCopySuccess)
+                        {
+                            repo.Commit();
+                        }
+                        
                         repo.RepoPipe.Evict(viewModel.Pipe);
 
                         if (fileCopySuccess)
@@ -109,27 +113,25 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                                 filesViewModel.DetachFileEntities(); 
                             }
                             
-
                             notify.ShowSuccess(
                                  string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
                                  Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
+
+                            log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.", viewModel.Pipe.Number,
+                                viewModel.Pipe.Id));
                         }
                         else
                         {
                             notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                            log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved", viewModel.Pipe.Number,
+                                viewModel.Pipe.Id));
                         }
 
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Pipe.Id;
                         viewModel.ModifiableView.UpdateState();
-                        notify.ShowNotify(
-                            string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_PipeSaved), viewModel.Number),
-                            Program.LanguageManager.GetString(StringResources.MillPipe_PipeSavedHeader));
 
-                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                            viewModel.Pipe.Number,
-                            viewModel.Pipe.Id));
                     }
                     catch(RepositoryException ex)
                     {

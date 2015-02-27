@@ -69,7 +69,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         }
                     }
 
-                    repo.Commit();
+                    if (fileCopySuccess)
+                    {
+                        repo.Commit();
+                    }
                     repo.RepoJoint.Evict(viewModel.Joint);
 
                     if (fileCopySuccess)
@@ -81,26 +84,25 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                         notify.ShowSuccess(
                              string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
-                             Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
+                             Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));                   
+                        
+                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                        viewModel.Joint.Number,
+                        viewModel.Joint.Id));
                     }
                     else
                     {
                         notify.ShowError(
                             Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                             Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                        log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                            viewModel.Joint.Number,
+                            viewModel.Joint.Id));
                     }
 
                     viewModel.ModifiableView.IsModified = false;
                     viewModel.ModifiableView.Id = viewModel.Joint.Id;
                     viewModel.ModifiableView.UpdateState();
-
-                    notify.ShowNotify(
-                        string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
-                        Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
-
-                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                        viewModel.Joint.Number,
-                        viewModel.Joint.Id));
                 }
                 catch (RepositoryException ex)
                 {
