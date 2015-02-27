@@ -616,6 +616,9 @@ SettingsComponent_ConnectorsNumberColumn=Number of connectors
 ;Настройки - Комплектующие. Активность комплектующего элемента
 SettingsComponent_IsActiveTypeColumn=Is active
 
+;Настройки - Комплектующие. Название строительного участка
+SettingsComponent_ConstructionNameColumn= Construction site
+
 ;Настройки - Сварщики. Фамилия сварщика
 SettingsWelders_LastNameColumn=Last name
 

@@ -1624,6 +1624,12 @@ namespace Prizm.Main.Languages
             Description = "Настройки - Комплектующие. Активность комплектующего элемента"
         };
 
+        public static StringResource SettingsComponent_ConstructionNameColumn = new StringResource
+        {
+            Id = "SettingsComponent_ConstructionNameColumn",
+            Description = "Настройки - Комплектующие. Название строительного участка"
+        };
+
         //welder page
         public static StringResource SettingsWelders_LastNameColumn = new StringResource
         {

@@ -139,7 +139,7 @@ namespace Prizm.Main.Forms.Settings
             //    return IsEditableCrtificate(IsEditMode);
             //}
             //);
-
+            SetWorkstationReadonlyFields();
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
@@ -154,6 +154,7 @@ namespace Prizm.Main.Forms.Settings
             externalDocumentSize.SetMask(Constants.PositiveDigitMask);
             pipeDiameter.SetMask(Constants.PositiveDigitMask);
             pipeLength.SetMask(Constants.PositiveDigitMask);
+            
         }
 
         private void BindToViewModel()
@@ -320,7 +321,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(typeColumn, StringResources.SettingsComponent_TypeColumn.Id),
                 new LocalizedItem(connectorsNumbersColumn, StringResources.SettingsComponent_ConnectorsNumberColumn.Id),
                 new LocalizedItem(isActiveComponentColumn, StringResources.SettingsComponent_IsActiveTypeColumn.Id),
-                new LocalizedItem(millColumn, StringResources.Settings_MillNameGridColumn.Id),
+                new LocalizedItem(constructionSiteColumn, StringResources.SettingsComponent_ConstructionNameColumn.Id),
 
 
                 // welders page
@@ -444,7 +445,7 @@ namespace Prizm.Main.Forms.Settings
 
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[pipesSizeListGridView];
                 List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
@@ -456,7 +457,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[pipesSizeListGridView];
                 List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
@@ -1538,7 +1539,7 @@ namespace Prizm.Main.Forms.Settings
             view.ClearColumnErrors();
 
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[plateManufacturersListView];
                 List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
@@ -1569,7 +1570,7 @@ namespace Prizm.Main.Forms.Settings
 
             seamTypeGridView.ValidateNotEmpty(seamTypeColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[seamTypeGridView];
                 List<string> seemTypeDuplicates = l.Method(seamTypeGridView);
@@ -1586,7 +1587,7 @@ namespace Prizm.Main.Forms.Settings
 
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
 
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[componentryTypeGridView];
                 List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
@@ -1692,7 +1693,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void componentryTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[componentryTypeGridView];
                 List<string> componentryDuplicate = l.Method(componentryTypeGridView);
@@ -1702,7 +1703,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void plateManufacturersListView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[plateManufacturersListView];
                 List<string> plateManufacturersDuplicate = l.Method(plateManufacturersListView);
@@ -1719,7 +1720,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void seemTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            if (viewModel.CurrentProjectSettings != null && !viewModel.IsMaster)
             {
                 DuplicatesList l = findDuplicateList[seamTypeGridView];
                 List<string> seemTypeDuplicate = l.Method(seamTypeGridView);
@@ -2052,6 +2053,51 @@ namespace Prizm.Main.Forms.Settings
             plateManufacturer.IsActive = true;
             plateManufacturer.IsNative = true;
             plateManufacturer.Project = viewModel.CurrentProjectSettings;
+        }
+
+        private void SetWorkstationReadonlyFields()
+        {
+            if (viewModel.IsMaster)
+            {
+                plateManufacturersListView.Columns["Project.MillName"].Visible = true;
+                seamTypeGridView.Columns["Project.MillName"].Visible = true;
+                pipesSizeListGridView.Columns["Project.MillName"].Visible = true;
+                componentryTypeGridView.Columns["Project.MillName"].Visible = true;
+                addTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                sizesLayoutControlItem.Width = 600;
+                SetAlwaysReadOnly(plateManufacturersList);
+                SetAlwaysReadOnly(millName);
+                SetAlwaysReadOnly(pipeNumberMask);
+                SetAlwaysReadOnly(categoriesGrid);
+                SetAlwaysReadOnly(seamTypes);
+                SetAlwaysReadOnly(pipesSizeList);
+                SetAlwaysReadOnly(jointOperations);
+                SetAlwaysReadOnly(componentryTypeGridControl);
+                SetAlwaysReadOnly(gridControlWelders);
+                SetAlwaysReadOnly(gridControlInspectors);
+                SetAlwaysReadOnly(gridControlInspectorsCertificates);
+                SetAlwaysReadOnly(certificateTypes);
+
+            }
+            if (viewModel.IsMill)
+            {
+                SetAlwaysReadOnly(jointOperations);
+                SetAlwaysReadOnly(componentryTypeGridControl);
+            }
+            if (viewModel.IsConstruction)
+            {
+                addTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                SetAlwaysReadOnly(plateManufacturersList);
+                SetAlwaysReadOnly(millName);
+                SetAlwaysReadOnly(pipeNumberMask);
+                SetAlwaysReadOnly(categoriesGrid);
+                SetAlwaysReadOnly(seamTypes);
+                SetAlwaysReadOnly(pipesSizeList);
+            }
         }
     }
 }

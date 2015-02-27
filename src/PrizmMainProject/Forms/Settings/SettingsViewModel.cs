@@ -651,5 +651,20 @@ namespace Prizm.Main.Forms.Settings
                 }
             }
         }
+
+        public bool IsMaster
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Master) ? true : false; } 
+        }
+
+        public bool IsMill
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Mill) ? true : false; }
+        }
+
+        public bool IsConstruction
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Construction) ? true : false; }
+        }
     }
 }
