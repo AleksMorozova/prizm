@@ -95,6 +95,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         notify.ShowError(
                             Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
                             Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                        log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                            viewModel.Joint.Number,
+                            viewModel.Joint.Id));
                     }
 
                     viewModel.ModifiableView.IsModified = false;
