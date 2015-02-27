@@ -4475,11 +4475,6 @@ namespace Prizm.Main.Languages
             Id = "InspectionAddEdit_FactStringResultLabel",
             Description = "Контрольная операция. Фактический результат строка"
         };
-        public static StringResource InspectionAddEdit_FactBoolResultLabel = new StringResource
-        {
-            Id = "InspectionAddEdit_FactBoolResultLabel",
-            Description = "Контрольная операция. Фактический результат логический"
-        };
         public static StringResource InspectionAddEdit_FactLimitResultLabel = new StringResource
         {
             Id = "InspectionAddEdit_FactLimitResultLabel",

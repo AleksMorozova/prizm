@@ -2020,9 +2020,6 @@ InspectionAddEdit_ExpectedResultLabel=Expected result
 ;Контрольная операция. Фактический результат строка
 InspectionAddEdit_FactStringResultLabel=Actual string result
 
-;Контрольная операция. Фактический результат логический
-InspectionAddEdit_FactBoolResultLabel=Actual logic result
-
 ;Контрольная операция. Фактический результат диапазон
 InspectionAddEdit_FactLimitResultLabel=Actual range result
 
