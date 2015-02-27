@@ -1120,6 +1120,19 @@ namespace Prizm.Main.Languages
         #endregion Spool
 
         #region MissingPortion
+
+        public static StringResource MissingPortionsDialog_SequenceIsBroken = new StringResource
+        {
+            Id = "MissingPortionsDialog_SequenceIsBroken",
+            Description = "Последовательность импортируемых данных нарушена. Рабочая станция: "
+        };
+
+        public static StringResource MissingPortionsDialog_PortionsAlreadyExist = new StringResource
+        {
+            Id = "MissingPortionsDialog_PortionsAlreadyExist",
+            Description = "Уже существуют порции с номерами:"
+        };
+
         public static StringResource MissingPortionsDialog_Title = new StringResource
         {
             Id = "MissingPortionsDialog_Title",
