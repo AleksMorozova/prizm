@@ -19,6 +19,8 @@ namespace Prizm.Domain.Entity.Setup
         public virtual int Length { get; set; }
         public virtual int Diameter { get; set; }
         public virtual int Thickness { get; set; }
+        public virtual bool IsNative { get; set; }
+        public virtual Project Project { get; set; }
 
         public virtual SeamType SeamType { get; set; }
 
@@ -62,6 +64,8 @@ namespace Prizm.Domain.Entity.Setup
             clone.Thickness = this.Thickness;
             clone.Length = this.Length;
             clone.SeamType = this.SeamType;
+            clone.IsNative = this.IsNative;
+            clone.Project = this.Project;
 
             return clone;
         }

@@ -627,7 +627,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public void NewPipe()
         {
-            currentType = new PipeMillSizeType();
+            currentType = new PipeMillSizeType() { IsNative = true, Project = this.Project};
             extractPurchaseOrderCommand.Execute();
             extractHeatsCommand.Execute();
             extractPipeTypeCommand.Execute();

@@ -20,6 +20,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Id = seamType.Id;
          this.IsActive = seamType.IsActive;
          this.Name = seamType.Name;
+         this.Project = seamType.Project;
          
          if (seamType.SeamTypes != null)
          {
@@ -47,6 +48,9 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlArray("SeamTypes")]
       public List<SeamTypeObject> SeamTypes { get; set; }
+
+      [XmlElement("Project")]
+      public ProjectObject Project { get; set; }
 
    }
 }
