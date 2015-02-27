@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MissingPortionsDialog));
             this.acceptButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.portionsDiapason = new DevExpress.XtraEditors.TextEdit();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.portionsDiapason);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MissingPortionsDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Нарушена последовательность";

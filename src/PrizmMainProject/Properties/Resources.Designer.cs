@@ -2592,11 +2592,29 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ошибка создания наряд-заказа.
+        /// </summary>
+        internal static string PurchaseOrder_ErrorHeader {
+            get {
+                return ResourceManager.GetString("PurchaseOrder_ErrorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Наряд-заказ.
         /// </summary>
         internal static string PurchaseOrder_Title {
             get {
                 return ResourceManager.GetString("PurchaseOrder_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите номер наряд-заказа.
+        /// </summary>
+        internal static string PurchaseOrder_ValueRequired {
+            get {
+                return ResourceManager.GetString("PurchaseOrder_ValueRequired", resourceCulture);
             }
         }
         

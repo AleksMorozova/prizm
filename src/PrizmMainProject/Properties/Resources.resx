@@ -1379,10 +1379,16 @@
   <data name="MissingPortionsDialog_SequenceIsBroken" xml:space="preserve">
     <value>Последовательность импортируемых данных нарушена. Рабочая станция: </value>
   </data>
-    <data name="ExternalFiles_NotCopied" xml:space="preserve">
+  <data name="ExternalFiles_NotCopied" xml:space="preserve">
     <value>Файлы не скопированы. Все изменения отклонены.</value>
   </data>
   <data name="ExternalFiles_NotCopied_Header" xml:space="preserve">
     <value>Ошибка добавления файлов.</value>
+  </data>
+  <data name="PurchaseOrder_ErrorHeader" xml:space="preserve">
+    <value>Ошибка создания наряд-заказа</value>
+  </data>
+  <data name="PurchaseOrder_ValueRequired" xml:space="preserve">
+    <value>Введите номер наряд-заказа</value>
   </data>
 </root>

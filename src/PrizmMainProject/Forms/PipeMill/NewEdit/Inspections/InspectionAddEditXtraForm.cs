@@ -130,7 +130,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 new LocalizedItem(nameLayoutControlItem, StringResources.InspectionAddEdit_NameLabel.Id),
                 new LocalizedItem(expectedLayoutControlItem, StringResources.InspectionAddEdit_ExpectedResultLabel.Id),
                 new LocalizedItem(factStringLayout, StringResources.InspectionAddEdit_FactStringResultLabel.Id),
-                new LocalizedItem(factBool, StringResources.InspectionAddEdit_FactBoolResultLabel.Id),
                 new LocalizedItem(factLimitLayout, StringResources.InspectionAddEdit_FactLimitResultLabel.Id),
                 new LocalizedItem(dateLayoutControlItem, StringResources.InspectionAddEdit_DateLabel.Id),
                 new LocalizedItem(statusLayoutControlItem, StringResources.InspectionAddEdit_StatusLabel.Id),

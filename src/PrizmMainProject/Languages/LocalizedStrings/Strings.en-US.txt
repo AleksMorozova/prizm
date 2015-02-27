@@ -62,7 +62,7 @@ PartTypeUndefined=Undefined
 StatusActive=Active
 
 ;Надпись статуса активности элемента Неактивен
-StatusInactive=Not active
+StatusUnactive=Not active
 
 ;Надпись статуса активности элемента Все
 StatusAll=All
@@ -213,7 +213,7 @@ Message_CannotOpenForViewingHeader=Cannot open form for viewing
 
 
 ;Обязательное значение
-PurchaseOrder_ValueRequaered=Value required
+PurchaseOrder_ValueRequired=Value required
 
 ;Ошибка создания наряд-заказа
 PurchaseOrder_ErrorHeader=Error
@@ -2031,9 +2031,6 @@ InspectionAddEdit_ExpectedResultLabel=Expected result
 
 ;Контрольная операция. Фактический результат строка
 InspectionAddEdit_FactStringResultLabel=Actual string result
-
-;Контрольная операция. Фактический результат логический
-InspectionAddEdit_FactBoolResultLabel=Actual logic result
 
 ;Контрольная операция. Фактический результат диапазон
 InspectionAddEdit_FactLimitResultLabel=Actual range result

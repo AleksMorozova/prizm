@@ -151,8 +151,9 @@ namespace Prizm.Main.Languages
             Id = "StatusActive", 
             Description = "Надпись статуса активности элемента Активен"};
 
-        public static StringResource StatusInactive = new StringResource { 
-            Id = "StatusInactive", 
+        public static StringResource StatusUnactive = new StringResource
+        {
+            Id = "StatusUnactive", 
             Description = "Надпись статуса активности элемента Неактивен"};
 
         public static StringResource StatusAll = new StringResource { 
@@ -710,9 +711,9 @@ namespace Prizm.Main.Languages
 
         #region PurchaseOrderForm
          //message
-        public static StringResource PurchaseOrder_ValueRequired = new StringResource
+         public static StringResource PurchaseOrder_ValueRequired = new StringResource
         {
-            Id = "PurchaseOrder_ValueRequaered",
+            Id = "PurchaseOrder_ValueRequired",
             Description = "Обязательное значение"
         };
         public static StringResource PurchaseOrder_ErrorHeader = new StringResource
@@ -4498,11 +4499,6 @@ namespace Prizm.Main.Languages
         {
             Id = "InspectionAddEdit_FactStringResultLabel",
             Description = "Контрольная операция. Фактический результат строка"
-        };
-        public static StringResource InspectionAddEdit_FactBoolResultLabel = new StringResource
-        {
-            Id = "InspectionAddEdit_FactBoolResultLabel",
-            Description = "Контрольная операция. Фактический результат логический"
         };
         public static StringResource InspectionAddEdit_FactLimitResultLabel = new StringResource
         {

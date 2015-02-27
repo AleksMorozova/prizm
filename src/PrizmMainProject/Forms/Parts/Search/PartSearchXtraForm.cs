@@ -41,17 +41,12 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
-            {
-                activity.Properties.Items.Add(item.Item2);
-            }
             foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
             {
                 type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
                 localizedPartTypes.Add(item.Item2);
             }
             RefreshTypes();
-            activity.SelectedIndex = 0;
         }
 
         private void BindToViewModel()
@@ -59,6 +54,13 @@ namespace Prizm.Main.Forms.Parts.Search
             bindingSource.DataSource = viewModel;
             parts.DataBindings.Add("DataSource", bindingSource, "Parts");
             number.DataBindings.Add("Editvalue", bindingSource, "Number");
+            foreach (var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
+            {
+                activity.Properties.Items.Add(item.Item2);
+            }
+
+            viewModel.Activity = ActivityCriteria.StatusActive;
+
             activity.DataBindings.Add("SelectedIndex", bindingSource, "ActivityIndex");
         }
 
@@ -81,7 +83,7 @@ namespace Prizm.Main.Forms.Parts.Search
                 // controls
                new LocalizedItem(searchButton, StringResources.PartSearch_SearchButton.Id),
                new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
-               new LocalizedItem(activity, new  string [] {StringResources.StatusActive.Id, StringResources.StatusInactive.Id, StringResources.StatusAll.Id }),
+               new LocalizedItem(activity, new  string [] {StringResources.StatusActive.Id, StringResources.StatusUnactive.Id, StringResources.StatusAll.Id }),
 
                 // grid column headers
                 new LocalizedItem(numberCol, StringResources.PartSearch_NumberColumnHeader.Id),
