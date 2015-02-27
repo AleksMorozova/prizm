@@ -2405,3 +2405,9 @@ SearchPipe_MillStatusUndefined=Undefined
 
 ;Готова к отгрузке
 SearchPipe_ReadyToShip=Ready to ship
+
+;Последовательность импортируемых данных нарушена. Рабочая станция: 
+MissingPortionsDialog_SequenceIsBroken=The imported data sequence is broken. Workstation:
+
+;Уже существуют порции с номерами:
+MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exist:
