@@ -44,7 +44,9 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 projList.Clear();
                 var list = repo.SearchReleases(
                     viewModel.ReleaseNoteNumber,
-                    viewModel.ReleaseNoteDate,
+                    viewModel.StartDate,
+                    viewModel.EndDate,
+                    viewModel.PipeNumber,
                     viewModel.RailcarNumber,
                     viewModel.Certificate,
                     viewModel.Receiver);

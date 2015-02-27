@@ -64,14 +64,21 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
         #region IReleaseNoteRepository Members
-        public List<ReleaseNote> SearchReleases(string number, DateTime date, string railcar, string certificate, string reciver)
+        public List<ReleaseNote> SearchReleases(string number, DateTime startDate, DateTime endDate, string pipeNumber, string railcar, string certificate, string reciver)
         {
             ReleaseNote note = null;
             Railcar car = null;
+            Pipe pipe = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
                 .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
                 .TransformUsing(Transformers.DistinctRootEntity);
+
+            if (!string.IsNullOrWhiteSpace(pipeNumber))
+            {
+                s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Anywhere);
+            }
 
             if(!string.IsNullOrWhiteSpace(railcar))
             {
@@ -89,9 +96,9 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
             }
-            if(date != DateTime.MinValue)
+            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
             {
-                s.Where(x => x.Date == date);
+                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
             }
             var list = new List<ReleaseNote>(s.List<ReleaseNote>().OrderBy(x => x.Number));
 
