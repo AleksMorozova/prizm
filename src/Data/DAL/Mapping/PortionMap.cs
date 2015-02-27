@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,11 @@ namespace Prizm.Data.DAL.Mapping
 
          References<Project>(_ => _.Project).Column("projectId");
 
-         HasManyToMany<Project>(_ => _.Joints)
+         HasManyToMany<Joint>(_ => _.Joints)
             .Table("Portion_Joint")
             .ParentKeyColumn("portionId")
             .ChildKeyColumn("jointId").Not.LazyLoad();
-         HasManyToMany<Project>(_ => _.Components)
+         HasManyToMany<Component>(_ => _.Components)
             .Table("Portion_Component")
             .ParentKeyColumn("portionId")
             .ChildKeyColumn("componentId").Not.LazyLoad();

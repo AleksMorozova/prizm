@@ -19,8 +19,9 @@ namespace Prizm.Main.Forms.Synch
         public MissingPortionsDialog(int[] existingPortions, int[] missingPortions, string millName)
         {
             InitializeComponent();
-            message.Text = string.Format(@"Последовательность импортируемых данных из {0} нарушена.
-Уже существуют порции с номерами:",millName);
+
+            millNameText.Text = millName;
+
             StringBuilder sb = new StringBuilder();
             if (existingPortions.Length >= 1)
             {
@@ -50,7 +51,7 @@ namespace Prizm.Main.Forms.Synch
                 }
                 sb.Remove(sb.Length - 1, 1);
             }
-            missingNumbers.Text += sb.ToString();
+            missingNumbersText.Text += sb.ToString();
         }
 
         #region --- Localization ---
@@ -59,6 +60,9 @@ namespace Prizm.Main.Forms.Synch
         {
             return new List<LocalizedItem>()
             {
+                new LocalizedItem(millNameLabel, StringResources.MissingPortionsDialog_SequenceIsBroken.Id),
+                new LocalizedItem(portionsDiapasonLabel, StringResources.MissingPortionsDialog_PortionsAlreadyExist.Id),
+
                 new LocalizedItem(missingNumbers, StringResources.MissingPortion_missingNumbers.Id),
                 new LocalizedItem(recomendation, StringResources.MissingPortion_recomendation.Id),
                 new LocalizedItem(acceptButton, StringResources.MissingPortion_acceptButton.Id),

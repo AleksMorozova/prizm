@@ -17,7 +17,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(InnitialDataSeeder));
 
         private const int HEATCOUNT = 5;
-        private const int PIPECOUNT = 1210;
+        private const int PIPECOUNT = 4210;
         private const int INSPECTORCOUNT = 25;
         private const int WELDERCOUNT = 25;
         private const int COMPONENTCOUNT = 300;
@@ -651,7 +651,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Project = viewModel.Project,
                     Status = PipeMillStatus.Produced,
                     ProductionDate = DateTime.Now.AddDays(-rnd.Next(20)),
-                    ToExport = true,
                     IsActive = true
                 };
                 pipe.RecalculateWeight();
@@ -670,7 +669,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 }
                 pipe.PipeTestResult = results;
                 pipes.Add(pipe);
-                if(pipes.Count % 4 == 0)
+                if(pipes.Count % 2 == 0)
                 {
                     foreach(var item in pipe.PipeTestResult)
                     {
@@ -684,6 +683,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     pipe.Status = PipeMillStatus.Stocked;
                     pipe.ConstructionStatus = PartConstructionStatus.Pending;
                     pipe.IsAvailableToJoint = true;
+                    pipe.ToExport = true;
+                    pipe.WallThickness = 12;
+                    pipe.RecalculateWeight();
+
                 }
 
 

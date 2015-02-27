@@ -79,7 +79,7 @@ namespace Prizm.Main.Forms.Spool
                             if (null != filesViewModel)
                             {
                                 filesViewModel.FileRepo = repos.FileRepo;
-                                viewModel.FilesFormViewModel.Item = viewModel.Pipe.Id;
+                                viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
                                 if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
                                 {
                                     fileCopySuccess = false;

@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
+using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Mill;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.Date).Column("date");
             Map(x => x.Shipped).Column("Shipped");
             HasMany(_ => _.Railcars).KeyColumn("releaseNoteId").Cascade.SaveUpdate().Not.LazyLoad();//.Inverse()
+            HasMany<File>(x => x.Attachments).KeyColumn("item").Inverse().LazyLoad();
         }
+
     }
 }

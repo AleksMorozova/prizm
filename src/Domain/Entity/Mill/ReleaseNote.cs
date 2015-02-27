@@ -19,5 +19,7 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual IList<Railcar> Railcars { get; set; }
 
+        public virtual IList<File> Attachments { get; set; }
+
     }
 }
