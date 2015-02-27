@@ -21,6 +21,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.IsActive = type.IsActive;
          this.Name = type.Name;
          this.ConnectorsCount = type.ConnectorsCount;
+         this.Project = type.Project;
       }
 
       public static implicit operator ComponentTypeObject(ComponentType type)
@@ -39,5 +40,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlAttribute("ConnectorsCount")]
       public int ConnectorsCount { get; set; }
+
+      [XmlElement("Project")]
+      public ProjectObject Project { get; set; }
    }
 }

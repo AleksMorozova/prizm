@@ -41,8 +41,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public bool Seed(bool isOptionalSeed)
         {
-            bool req, opt = true;
-            req = SeedRequired();
+            bool req = true, opt = true;
+            if (viewModel.Project.WorkstationType != WorkstationType.Master)
+            {
+                req = SeedRequired();
+            }
             if(isOptionalSeed)
             {
                 opt = SeedOptional();
@@ -57,9 +60,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region SeamTypes
             seamTypes = new List<SeamType>
             {
-                new SeamType{Name = "Бесшовный", IsActive = true},
-                new SeamType{Name = "Прямой", IsActive = true},
-                new SeamType{Name = "Спиралевидный", IsActive = true},
+                new SeamType{Name = "Бесшовный", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new SeamType{Name = "Прямой", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new SeamType{Name = "Спиралевидный", IsActive = true, IsNative = true, Project = viewModel.Project},
             };
             foreach(var item in seamTypes)
             {
@@ -94,7 +97,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = 9090,
                     Diameter = 1212,
                     Thickness = 12,
-                    SeamType = seamTypes[0]
+                    SeamType = seamTypes[0],
+                    IsNative = true,
+                    Project = viewModel.Project
                 },
                 new PipeMillSizeType
                 {
@@ -103,7 +108,9 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Length = 9090,
                     Diameter = 1212,
                     Thickness = 12,
-                    SeamType = seamTypes[1]
+                    SeamType = seamTypes[1],
+                    IsNative = true,
+                    Project = viewModel.Project
                 },
             };
             types.ForEach(s => firstSetupRepo.SizeTypeRepo.Save(s));
@@ -577,12 +584,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             #region PlateManufacturers
             PlateManufacturer[] plateManufacturers = 
             {
-                new PlateManufacturer {Name = "Алапаевский металлургический завод", IsActive = true},
-                new PlateManufacturer {Name = "Альметьевский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Борский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Волжский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Волгоградский трубный завод", IsActive = true},
-                new PlateManufacturer {Name = "Гурьевский металлургический завод", IsActive = true},
+                new PlateManufacturer {Name = "Алапаевский металлургический завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Альметьевский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Борский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Волжский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Волгоградский трубный завод", IsActive = true, IsNative = true, Project = viewModel.Project},
+                new PlateManufacturer {Name = "Гурьевский металлургический завод", IsActive = true, IsNative = true, Project = viewModel.Project},
                 new PlateManufacturer {Name = "Завод Точлит", IsActive = true}
             };
             Array.ForEach(plateManufacturers, s => firstSetupRepo.PlateManRepo.Save(s));
@@ -595,12 +602,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             {
                 heats.Add
                     (
-                    new Heat
+                    new Heat ()
                     {
                         Number = RndString(8),
                         SteelGrade = RndString(6),
                         PlateManufacturer = plateManufacturers[rnd.Next(plateManufacturers.Length - 1)],
-                        IsActive = true
+                        IsActive = true                      
                     }
                     );
                 firstSetupRepo.HeatRepo.Save(heats[i]);

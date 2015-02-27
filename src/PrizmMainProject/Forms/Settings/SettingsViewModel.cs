@@ -456,7 +456,7 @@ namespace Prizm.Main.Forms.Settings
            var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
             if (!existingItem.Any())
             {
-                PlateManufacturer newManufacturer = new PlateManufacturer { IsActive = true, Name = newManufacturerName };
+                PlateManufacturer newManufacturer = new PlateManufacturer { IsActive = true, Name = newManufacturerName, IsNative = true, Project = CurrentProjectSettings };
                 plateManufacturers.Add(newManufacturer);
             }
         }
@@ -637,10 +637,10 @@ namespace Prizm.Main.Forms.Settings
                     }
                     else 
                     {
-                        return new SeamType(); 
+                        return new SeamType() { IsNative = true, Project = CurrentProjectSettings }; 
                     }
                 }
-                else { return new SeamType(); }
+                else { return new SeamType() { IsNative = true, Project = CurrentProjectSettings }; }
             }
             set
             {
@@ -650,6 +650,21 @@ namespace Prizm.Main.Forms.Settings
                     RaisePropertyChanged("SeamType");
                 }
             }
+        }
+
+        public bool IsMaster
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Master) ? true : false; } 
+        }
+
+        public bool IsMill
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Mill) ? true : false; }
+        }
+
+        public bool IsConstruction
+        {
+            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Construction) ? true : false; }
         }
     }
 }

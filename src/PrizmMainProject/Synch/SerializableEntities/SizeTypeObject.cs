@@ -24,6 +24,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Diameter = sizeType.Diameter;
          this.Thickness = sizeType.Thickness;
          this.SeamType = sizeType.SeamType;
+         this.Project = sizeType.Project;
       }
 
       public static implicit operator SizeTypeObject(PipeMillSizeType sizeType)
@@ -51,5 +52,8 @@ namespace Prizm.Main.Synch.SerializableEntities
 
       [XmlElement("SeamType")]
       public SeamTypeObject SeamType { get; set; }
+
+      [XmlElement("Project")]
+      public ProjectObject Project { get; set; }
    }
 }

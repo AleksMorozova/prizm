@@ -14,6 +14,8 @@ namespace Prizm.Data.DAL.Mapping
         {
             Table("PlateManufacturer");
             Map(_ => _.Name).Column("name");
+            Map(x => x.IsNative).Column("isNative");
+            References(x => x.Project).Column("projectId");
             HasMany(_ => _.Heats).KeyColumn("plateManufacturer");
         }
     }

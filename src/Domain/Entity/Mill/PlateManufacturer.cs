@@ -11,6 +11,8 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual string Name { get; set; }
         public virtual IList<Heat> Heats { get; set; }
+        public virtual bool IsNative { get; set; }
+        public virtual Project Project { get; set; }
 
         public override string ToString()
         {

@@ -47,9 +47,9 @@ namespace Prizm.UnitTests.Forms.Settings
             var repoSeamType = new Mock<ISeamTypeRepository>();
 
             var testProjectSetting = new Project() { IsNative = true};
-            var testSizeType = new PipeMillSizeType();
+            var testSizeType = new PipeMillSizeType() { IsNative = true, Project = testProjectSetting };
             var testWelder = new Welder();
-            var testManufacturer = new PlateManufacturer();
+            var testManufacturer = new PlateManufacturer() { IsNative = true, Project = testProjectSetting};
             var testInspector = new Inspector();
             var testUser = new User();
             var testRole = new Role();

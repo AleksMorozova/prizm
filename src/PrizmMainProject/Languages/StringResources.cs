@@ -1286,6 +1286,12 @@ namespace Prizm.Main.Languages
             Description = "Настройки. Кнопка - Закрыть"
         };
 
+        public static StringResource Settings_MillNameGridColumn = new StringResource
+        {
+            Id = "Settings_MillNameGridColumn",
+            Description = "Настройки. Надпись колонки завода"
+        };
+
         //project page
         public static StringResource SettingsProject_TitleLabel = new StringResource
         {
@@ -1616,6 +1622,12 @@ namespace Prizm.Main.Languages
         {
             Id = "SettingsComponent_IsActiveTypeColumn",
             Description = "Настройки - Комплектующие. Активность комплектующего элемента"
+        };
+
+        public static StringResource SettingsComponent_ConstructionNameColumn = new StringResource
+        {
+            Id = "SettingsComponent_ConstructionNameColumn",
+            Description = "Настройки - Комплектующие. Название строительного участка"
         };
 
         //welder page
