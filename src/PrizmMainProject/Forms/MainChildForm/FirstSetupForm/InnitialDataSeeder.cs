@@ -41,8 +41,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         public bool Seed(bool isOptionalSeed)
         {
-            bool req, opt = true;
-            req = SeedRequired();
+            bool req = true, opt = true;
+            if (viewModel.Project.WorkstationType != WorkstationType.Master)
+            {
+                req = SeedRequired();
+            }
             if(isOptionalSeed)
             {
                 opt = SeedOptional();
