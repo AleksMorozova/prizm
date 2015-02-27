@@ -2088,6 +2088,9 @@ namespace Prizm.Main.Forms.Settings
             }
             if (viewModel.IsConstruction)
             {
+                plateManufacturersListView.Columns["Project.MillName"].Visible = true;
+                seamTypeGridView.Columns["Project.MillName"].Visible = true;
+                pipesSizeListGridView.Columns["Project.MillName"].Visible = true;
                 addTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
