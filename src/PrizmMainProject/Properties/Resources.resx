@@ -1367,7 +1367,13 @@
   <data name="ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended" xml:space="preserve">
     <value>В вагоне</value>
   </data>
-  <data name="ExternalFiles_NotCopied" xml:space="preserve">
+  <data name="MissingPortionsDialog_PortionsAlreadyExist" xml:space="preserve">
+    <value>Уже существуют порции с номерами:</value>
+  </data>
+  <data name="MissingPortionsDialog_SequenceIsBroken" xml:space="preserve">
+    <value>Последовательность импортируемых данных нарушена. Рабочая станция: </value>
+  </data>
+    <data name="ExternalFiles_NotCopied" xml:space="preserve">
     <value>Файлы не скопированы. Все изменения отклонены.</value>
   </data>
   <data name="ExternalFiles_NotCopied_Header" xml:space="preserve">

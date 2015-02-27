@@ -1931,6 +1931,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Уже существуют порции с номерами:.
+        /// </summary>
+        internal static string MissingPortionsDialog_PortionsAlreadyExist {
+            get {
+                return ResourceManager.GetString("MissingPortionsDialog_PortionsAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Последовательность импортируемых данных нарушена. Рабочая станция: .
+        /// </summary>
+        internal static string MissingPortionsDialog_SequenceIsBroken {
+            get {
+                return ResourceManager.GetString("MissingPortionsDialog_SequenceIsBroken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нарушена последовательность.
         /// </summary>
         internal static string MissingPortionsDialog_Title {

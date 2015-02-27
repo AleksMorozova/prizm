@@ -286,6 +286,15 @@ CREATE NONCLUSTERED INDEX IX_Pipe_Number
     ON [dbo].[Pipe] (number)
 GO
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Pipe_MillStatus')
+    DROP INDEX IX_Pipe_MillStatus ON [dbo].[Pipe]
+GO
+CREATE NONCLUSTERED INDEX IX_Pipe_MillStatus
+    ON [dbo].[Pipe] (pipeMillStatus)
+GO
+
+
 SET ANSI_PADDING OFF
 
 /****** Object:  Table [dbo].[PipeMillSizeType]    Script Date: 11/4/2014 4:35:49 PM ******/
