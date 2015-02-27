@@ -49,7 +49,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                     viewModel.PipeNumber,
                     viewModel.RailcarNumber,
                     viewModel.Certificate,
-                    viewModel.Receiver);
+                    viewModel.Receiver).Distinct();
 
                 foreach(var release in list)
                 {
