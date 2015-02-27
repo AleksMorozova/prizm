@@ -20,6 +20,7 @@ namespace Prizm.Main.Synch.SerializableEntities
          this.Id = manufacturer.Id;
          this.Name = manufacturer.Name;
          this.IsActive = manufacturer.IsActive;
+         this.Project = manufacturer.Project;
       }
 
       public static implicit operator PlateManufacturerObject(PlateManufacturer manufacturer)
@@ -36,5 +37,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       [XmlAttribute("Name")]
       public string Name { get; set; }
 
+      [XmlElement("Project")]
+      public ProjectObject Project { get; set; }
    }
 }

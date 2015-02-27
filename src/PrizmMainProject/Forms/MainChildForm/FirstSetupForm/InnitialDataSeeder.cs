@@ -106,6 +106,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     Diameter = 1212,
                     Thickness = 12,
                     SeamType = seamTypes[1],
+                    IsNative = true,
                     Project = viewModel.Project
                 },
             };

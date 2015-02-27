@@ -631,6 +631,8 @@ namespace Prizm.Main.Synch.Import
             componentType.IsActive = componentTypeObject.IsActive;
             componentType.Name = componentTypeObject.Name;
             componentType.ConnectorsCount = componentTypeObject.ConnectorsCount;
+            componentType.IsNative = false;
+            componentType.Project = ImportProject(componentTypeObject.Project);
 
 
             if (isNew)
@@ -820,11 +822,14 @@ namespace Prizm.Main.Synch.Import
             {
                 manufacturer = new PlateManufacturer();
                 isNew = true;
+                
             }
 
             manufacturer.Id = plateManufacturerObj.Id;
             manufacturer.Name = plateManufacturerObj.Name;
             manufacturer.IsActive = plateManufacturerObj.IsActive;
+            manufacturer.IsNative = false;
+            manufacturer.Project = ImportProject(plateManufacturerObj.Project);
 
             if (isNew)
                 importRepo.PlateManufacturerRepo.Save(manufacturer);
@@ -854,6 +859,8 @@ namespace Prizm.Main.Synch.Import
             type.Diameter = sizeTypeObj.Diameter;
             type.Thickness = sizeTypeObj.Thickness;
             type.SeamType = ImportSeamType(sizeTypeObj.SeamType);
+            type.Project = ImportProject(sizeTypeObj.Project);
+            type.IsNative = false;
 
             if (isNew)
                 importRepo.SizeTypeRepo.Save(type);
@@ -879,6 +886,8 @@ namespace Prizm.Main.Synch.Import
             seamType.Id = seamTypeObj.Id;
             seamType.IsActive = seamTypeObj.IsActive;
             seamType.Name = seamTypeObj.Name;
+            seamType.IsNative = false;
+            seamType.Project = ImportProject(seamTypeObj.Project);
 
             if (seamTypeObj.SeamTypes != null)
             {
