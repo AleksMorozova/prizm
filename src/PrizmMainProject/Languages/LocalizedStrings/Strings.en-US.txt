@@ -213,7 +213,7 @@ Message_CannotOpenForViewingHeader=Cannot open form for viewing
 
 
 ;Обязательное значение
-PurchaseOrder_ValueRequaered=Value required
+PurchaseOrder_ValueRequired=Value required
 
 ;Ошибка создания наряд-заказа
 PurchaseOrder_ErrorHeader=Error

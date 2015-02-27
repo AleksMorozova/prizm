@@ -711,9 +711,9 @@ namespace Prizm.Main.Languages
 
         #region PurchaseOrderForm
          //message
-        public static StringResource PurchaseOrder_ValueRequired = new StringResource
+         public static StringResource PurchaseOrder_ValueRequired = new StringResource
         {
-            Id = "PurchaseOrder_ValueRequaered",
+            Id = "PurchaseOrder_ValueRequired",
             Description = "Обязательное значение"
         };
         public static StringResource PurchaseOrder_ErrorHeader = new StringResource
