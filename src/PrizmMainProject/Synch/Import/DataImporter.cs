@@ -28,6 +28,9 @@ namespace Prizm.Main.Synch.Import
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
         public bool TaskIsCancelled { get; set; }
+        private int elements;
+        private int elementsAll;
+        private string progressMessage = string.Empty;
 
         [Inject]
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
@@ -36,6 +39,9 @@ namespace Prizm.Main.Synch.Import
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, true);
             this.importRepo = Program.Kernel.Get<IImportRepository>();
+
+            progressMessage = Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Counter) + " {0} / {1} " + ". " +
+                Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Type) + " {2}";
         }
 
         int progress = 0;
@@ -101,6 +107,9 @@ namespace Prizm.Main.Synch.Import
             CheckProjectSequence(project, manifest.PortionNumber);
             if (!TaskIsCancelled)
             {
+                // imported elements count for messages
+                elements = elementsAll = data.Pipes.Count + data.Joints.Count + data.Components.Count;
+
                 IList<Pipe> importedPipes = ImportPipes(manifest, data.Pipes, tempDir);
                 IList<Joint> importedJoints = ImportJoints(manifest, data, tempDir);
                 IList<Component> importedComponents = ImportComponents(manifest, data, tempDir);
@@ -348,6 +357,9 @@ namespace Prizm.Main.Synch.Import
 
             foreach (var compObj in components)
             {
+            FireMessage(string.Format(progressMessage, elements--, elementsAll,
+                    Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
+
                 if (!CheckIfWelded(data, compObj.Id))
                 {
                     importedComponents.Add(ImportComponent(tempDir, compObj));
@@ -380,6 +392,9 @@ namespace Prizm.Main.Synch.Import
 
             foreach (var jointObj in joints)
             {
+                FireMessage(string.Format(progressMessage, elements--, elementsAll,
+                    Program.LanguageManager.GetString(StringResources.JointNewXtraForm_Title)));
+
                 Joint joint = importRepo.JointRepo.Get(jointObj.Id);
                 bool isNew = false;
 
@@ -714,6 +729,9 @@ namespace Prizm.Main.Synch.Import
             Project currentProject = importRepo.ProjectRepo.GetSingle();
             foreach (var pipeObj in pipes)
             {
+                FireMessage(string.Format(progressMessage, elements--, elementsAll,
+                    Program.LanguageManager.GetString(StringResources.PartTypePipe)));
+
                 Pipe pipe = importRepo.PipeRepo.Get(pipeObj.Id);
                 if (pipe == null)
                 {
