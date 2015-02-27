@@ -2335,10 +2335,16 @@ namespace Prizm.Main.Languages
             Description = "Сообщение: Импортирование завершено"
         };
 
-        public static StringResource Import_Progress_Message = new StringResource
+        public static StringResource Import_Progress_Message_Counter = new StringResource
         {
-            Id = "Import_Progress_Message",
-            Description = "Сообщение: Импортирование прогресс выполнения"
+            Id = "Import_Progress_Message_Counter",
+            Description = "Сообщение: Импортирование прогресс счетчик"
+        };
+
+        public static StringResource Import_Progress_Message_Type = new StringResource
+        {
+            Id = "Import_Progress_Message_Type",
+            Description = "Сообщение: Импортирование прогресс тип"
         };
 
 

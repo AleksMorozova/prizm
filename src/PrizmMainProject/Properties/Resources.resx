@@ -1367,7 +1367,10 @@
   <data name="ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended" xml:space="preserve">
     <value>В вагоне</value>
   </data>
-  <data name="Import_Progress_Message" xml:space="preserve">
-    <value>Импортируется элемент {0} из {1}. Тип элемента: {2}</value>
+  <data name="Import_Progress_Message_Counter" xml:space="preserve">
+    <value>Импортируется элемент</value>
+  </data>
+  <data name="Import_Progress_Message_Type" xml:space="preserve">
+    <value>Тип элемента:</value>
   </data>
 </root>
