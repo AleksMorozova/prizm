@@ -1273,6 +1273,12 @@ namespace Prizm.Main.Languages
             Description = "Настройки. Кнопка - Закрыть"
         };
 
+        public static StringResource Settings_MillNameGridColumn = new StringResource
+        {
+            Id = "Settings_MillNameGridColumn",
+            Description = "Настройки. Надпись колонки завода"
+        };
+
         //project page
         public static StringResource SettingsProject_TitleLabel = new StringResource
         {

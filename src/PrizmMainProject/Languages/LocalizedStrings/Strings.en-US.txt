@@ -461,6 +461,9 @@ Settings_SaveButton=&Save
 ;Настройки. Кнопка - Закрыть
 Settings_CloseButton=&Close
 
+;Настройки. Надпись колонки завода
+Settings_MillNameGridColumn = Mill name
+
 ;Настройки-Проект. Название проекта
 SettingsProject_TitleLabel=Title
 

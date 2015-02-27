@@ -264,12 +264,14 @@ namespace Prizm.Main.Forms.Settings
 
                 // plate manufacturer grid
                 new LocalizedItem(plateManufacturerGridColumn, StringResources.SettingsProject_PlateManColumn.Id),
+                new LocalizedItem(millNamegridColumn, StringResources.Settings_MillNameGridColumn.Id),
                 // inspections grid
                 new LocalizedItem(categoryNameColumn, StringResources.SettingsProject_InspectionsCategoryColumn.Id),
                 new LocalizedItem(isActiveColumn, StringResources.SettingsProject_InspectionsIsActiveColumn.Id),
                 // seams grid
                 new LocalizedItem(seamTypeColumn, StringResources.SettingsProject_SeamTypeColumn.Id),
                 new LocalizedItem(seemTypeIsActiveColumn, StringResources.SettingsProject_SeamIsActiveColumn.Id),
+                new LocalizedItem(millNameColumn, StringResources.Settings_MillNameGridColumn.Id),
 
                 // pipe page
                 new LocalizedItem(sizesLayoutControlItem, StringResources.SettingsPipe_SizesLabel.Id),
@@ -285,8 +287,8 @@ namespace Prizm.Main.Forms.Settings
 
                 new LocalizedItem(pipeSizeGridColumn, StringResources.SettingsPipe_SizeGridColumn.Id),
                 new LocalizedItem(isActiveGridColumn, StringResources.SettingsPipe_SizeIsActiveGridColumn.Id),
+                new LocalizedItem(millGridColumn, StringResources.Settings_MillNameGridColumn.Id),
                 
-
                 new LocalizedItem(inspectionCodeGridColumn, StringResources.SettingsPipe_InspectionsCodeColumn.Id),
                 new LocalizedItem(inspectionNameGridColumn, StringResources.SettingsPipe_InspectionsNameColumn.Id),
                 new LocalizedItem(categoryColumn,StringResources.SettingsPipe_InspectionsCategoryColumn.Id),
@@ -318,6 +320,8 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(typeColumn, StringResources.SettingsComponent_TypeColumn.Id),
                 new LocalizedItem(connectorsNumbersColumn, StringResources.SettingsComponent_ConnectorsNumberColumn.Id),
                 new LocalizedItem(isActiveComponentColumn, StringResources.SettingsComponent_IsActiveTypeColumn.Id),
+                new LocalizedItem(millColumn, StringResources.Settings_MillNameGridColumn.Id),
+
 
                 // welders page
                 new LocalizedItem(colWelderLastName, StringResources.SettingsWelders_LastNameColumn.Id),
@@ -440,18 +444,24 @@ namespace Prizm.Main.Forms.Settings
 
             pipesSizeListGridView.ValidateNotEmpty(pipeSizeGridColumn, e);
 
-            DuplicatesList l = findDuplicateList[pipesSizeListGridView];
-            List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
-            pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[pipesSizeListGridView];
+                List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
+                pipesSizeListGridView.ValidateDuplicate(pipeSizeGridColumn, pipeSizesDuplicates, e);
+            }
 
             pipesSizeValidate = e.Valid;
         }
 
         private void pipesSizeListGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            DuplicatesList l = findDuplicateList[pipesSizeListGridView];
-            List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
-            pipesSizeListGridView.ColorGrid(pipeSizeGridColumn, pipeSizesDuplicates, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[pipesSizeListGridView];
+                List<string> pipeSizesDuplicates = l.Method(pipesSizeListGridView);
+                pipesSizeListGridView.ColorGrid(pipeSizeGridColumn, pipeSizesDuplicates, e);
+            }
         }
 
         private void cloneTypeSizeButton_Click(object sender, EventArgs e)
@@ -1528,10 +1538,12 @@ namespace Prizm.Main.Forms.Settings
             view.ClearColumnErrors();
 
             plateManufacturersListView.ValidateNotEmpty(plateManufacturerGridColumn, e);
-
-            DuplicatesList l = findDuplicateList[plateManufacturersListView];
-            List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
-            plateManufacturersListView.ValidateDuplicate(plateManufacturerGridColumn, plateManufacturersDuplicates, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[plateManufacturersListView];
+                List<string> plateManufacturersDuplicates = l.Method(plateManufacturersListView);
+                plateManufacturersListView.ValidateDuplicate(plateManufacturerGridColumn, plateManufacturersDuplicates, e);
+            }
 
             plateManufacturersValidate = e.Valid;
         }
@@ -1557,9 +1569,12 @@ namespace Prizm.Main.Forms.Settings
 
             seamTypeGridView.ValidateNotEmpty(seamTypeColumn, e);
 
-            DuplicatesList l = findDuplicateList[seamTypeGridView];
-            List<string> seemTypeDuplicates = l.Method(seamTypeGridView);
-            seamTypeGridView.ValidateDuplicate(seamTypeColumn, seemTypeDuplicates, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[seamTypeGridView];
+                List<string> seemTypeDuplicates = l.Method(seamTypeGridView);
+                seamTypeGridView.ValidateDuplicate(seamTypeColumn, seemTypeDuplicates, e);
+            }
 
             seamTypesValidate = e.Valid;
         }
@@ -1571,9 +1586,12 @@ namespace Prizm.Main.Forms.Settings
 
             componentryTypeGridView.ValidateNotEmpty(typeColumn, e);
 
-            DuplicatesList l = findDuplicateList[componentryTypeGridView];
-            List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
-            componentryTypeGridView.ValidateDuplicate(typeColumn, componentryTypeDuplicates, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[componentryTypeGridView];
+                List<string> componentryTypeDuplicates = l.Method(componentryTypeGridView);
+                componentryTypeGridView.ValidateDuplicate(typeColumn, componentryTypeDuplicates, e);
+            }
 
             componentryTypeValidate = e.Valid;
         }
@@ -1674,16 +1692,22 @@ namespace Prizm.Main.Forms.Settings
 
         private void componentryTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            DuplicatesList l = findDuplicateList[componentryTypeGridView];
-            List<string> componentryDuplicate = l.Method(componentryTypeGridView);
-            componentryTypeGridView.ColorGrid(typeColumn, componentryDuplicate, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[componentryTypeGridView];
+                List<string> componentryDuplicate = l.Method(componentryTypeGridView);
+                componentryTypeGridView.ColorGrid(typeColumn, componentryDuplicate, e);
+            }
         }
 
         private void plateManufacturersListView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            DuplicatesList l = findDuplicateList[plateManufacturersListView];
-            List<string> plateManufacturersDuplicate = l.Method(plateManufacturersListView);
-            plateManufacturersListView.ColorGrid(plateManufacturerGridColumn, plateManufacturersDuplicate, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[plateManufacturersListView];
+                List<string> plateManufacturersDuplicate = l.Method(plateManufacturersListView);
+                plateManufacturersListView.ColorGrid(plateManufacturerGridColumn, plateManufacturersDuplicate, e);
+            }
         }
 
         private void categoriesGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -1695,9 +1719,12 @@ namespace Prizm.Main.Forms.Settings
 
         private void seemTypeGridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            DuplicatesList l = findDuplicateList[seamTypeGridView];
-            List<string> seemTypeDuplicate = l.Method(seamTypeGridView);
-            seamTypeGridView.ColorGrid(seamTypeColumn, seemTypeDuplicate, e);
+            if (viewModel.CurrentProjectSettings != null && viewModel.CurrentProjectSettings.WorkstationType != WorkstationType.Master)
+            {
+                DuplicatesList l = findDuplicateList[seamTypeGridView];
+                List<string> seemTypeDuplicate = l.Method(seamTypeGridView);
+                seamTypeGridView.ColorGrid(seamTypeColumn, seemTypeDuplicate, e);
+            }
         }
         private void inspectorCertificateGridView_GotFocus(object sender, EventArgs e)
         {
