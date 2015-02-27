@@ -30,6 +30,7 @@ namespace Prizm.Main.Synch.Import
         public bool TaskIsCancelled { get; set; }
         private int elements;
         private int elementsAll;
+        private string progressMessage = string.Empty;
 
         [Inject]
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
@@ -38,6 +39,9 @@ namespace Prizm.Main.Synch.Import
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, true);
             this.importRepo = Program.Kernel.Get<IImportRepository>();
+
+            progressMessage = Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Counter) + " {0} / {1} " + ". " +
+                Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Type) + " {2}";
         }
 
         int progress = 0;
@@ -345,8 +349,7 @@ namespace Prizm.Main.Synch.Import
 
             foreach (var compObj in components)
             {
-            FireMessage(string.Format(Program.LanguageManager.GetString(
-                    StringResources.Import_Progress_Message), elements--, elementsAll,
+            FireMessage(string.Format(progressMessage, elements--, elementsAll,
                     Program.LanguageManager.GetString(StringResources.PartTypeComponent)));
 
                 if (!CheckIfWelded(data, compObj.Id))
@@ -381,8 +384,7 @@ namespace Prizm.Main.Synch.Import
 
             foreach (var jointObj in joints)
             {
-                FireMessage(string.Format(Program.LanguageManager.GetString(
-                    StringResources.Import_Progress_Message), elements--, elementsAll,
+                FireMessage(string.Format(progressMessage, elements--, elementsAll,
                     Program.LanguageManager.GetString(StringResources.JointNewXtraForm_Title)));
 
                 Joint joint = importRepo.JointRepo.Get(jointObj.Id);
@@ -719,8 +721,7 @@ namespace Prizm.Main.Synch.Import
             Project currentProject = importRepo.ProjectRepo.GetSingle();
             foreach (var pipeObj in pipes)
             {
-                FireMessage(string.Format(Program.LanguageManager.GetString(
-                    StringResources.Import_Progress_Message), elements--, elementsAll,
+                FireMessage(string.Format(progressMessage, elements--, elementsAll,
                     Program.LanguageManager.GetString(StringResources.PartTypePipe)));
 
                 Pipe pipe = importRepo.PipeRepo.Get(pipeObj.Id);
