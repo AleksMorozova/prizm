@@ -157,6 +157,7 @@ namespace Prizm.Main.Forms.ExternalFile
                     catch (Exception e)
                     {
                         successCopy = false;
+                        log.Error(e.Message);
                         RemoveCopiedFilesIfError();
                         break;
                     }

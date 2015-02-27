@@ -99,14 +99,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     {
                         fileCopySuccess = false;
                         repos.Rollback();
-
-                    }
-                    else
-                    {
-                        repos.Commit();
                     }
                 }
-                else 
+
+                if (fileCopySuccess)
                 {
                     repos.Commit();
                 }

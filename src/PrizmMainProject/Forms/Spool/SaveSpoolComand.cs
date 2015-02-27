@@ -85,12 +85,9 @@ namespace Prizm.Main.Forms.Spool
                                     fileCopySuccess = false;
                                     repos.Rollback();
                                 }
-                                else
-                                {
-                                    repos.Commit();
-                                }
                             }
-                            else
+
+                            if (fileCopySuccess)
                             {
                                 repos.Commit();
                             }

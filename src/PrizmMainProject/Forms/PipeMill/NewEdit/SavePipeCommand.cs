@@ -97,16 +97,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                                 fileCopySuccess = false;
                                 repo.Rollback();
                             }
-                            else
-                            {
-                                repo.Commit();
-                            }
                         }
-                        else 
+
+                        if (fileCopySuccess)
                         {
                             repo.Commit();
                         }
-
                         
                         repo.RepoPipe.Evict(viewModel.Pipe);
 

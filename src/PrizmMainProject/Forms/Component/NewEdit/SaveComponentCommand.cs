@@ -106,13 +106,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                 fileCopySuccess = false;
                                 repos.Rollback();
                             }
-
-                            else
-                            {
-                                repos.Commit();
-                            }
                         }
-                        else 
+
+                        if (fileCopySuccess)
                         {
                             repos.Commit();
                         }

@@ -67,16 +67,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             fileCopySuccess = false;
                             repo.Rollback();
                         }
-                        else
-                        {
-                            repo.Commit();
-                        }
                     }
-                    else
+
+                    if (fileCopySuccess)
                     {
                         repo.Commit();
                     }
-
                     repo.RepoJoint.Evict(viewModel.Joint);
 
                     if (fileCopySuccess)
