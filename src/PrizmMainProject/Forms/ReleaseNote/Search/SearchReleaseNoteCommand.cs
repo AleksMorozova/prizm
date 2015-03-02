@@ -38,44 +38,47 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            try
+            if (viewModel.StartDate < viewModel.EndDate) 
             {
-                var projList = viewModel.Projection;
-                projList.Clear();
-                var list = repo.SearchReleases(
-                    viewModel.ReleaseNoteNumber,
-                    viewModel.StartDate,
-                    viewModel.EndDate,
-                    viewModel.PipeNumber,
-                    viewModel.RailcarNumber,
-                    viewModel.Certificate,
-                    viewModel.Receiver).Distinct();
-
-                foreach(var release in list)
+                try
                 {
-                    foreach(var car in release.Railcars)
+                    var projList = viewModel.Projection;
+                    projList.Clear();
+                    var list = repo.SearchReleases(
+                        viewModel.ReleaseNoteNumber,
+                        viewModel.StartDate,
+                        viewModel.EndDate,
+                        viewModel.PipeNumber,
+                        viewModel.RailcarNumber,
+                        viewModel.Certificate,
+                        viewModel.Receiver);
+
+                    foreach (var release in list)
                     {
                         projList.Add(new ReleaseNoteProjection
                         {
                             Id = release.Id,
                             NoteNumber = release.Number,
                             NoteDate = release.Date.ToShortDateString(),
-                            CarNumber = car.Number,
-                            CarCertificate = car.Certificate,
-                            CarDestination = car.Destination,
                             Status = release.Shipped
                         });
                     }
+
+                    viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
+
+                    RefreshVisualStateEvent();
                 }
-
-                viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
-
-                RefreshVisualStateEvent();
-            }
-            catch(RepositoryException ex)
+                catch (RepositoryException ex)
+                {
+                    log.Error(ex.Message);
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+            } 
+            else 
             {
-                log.Error(ex.Message);
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                log.Warn("Date limits not valid!");
             }
 
         }

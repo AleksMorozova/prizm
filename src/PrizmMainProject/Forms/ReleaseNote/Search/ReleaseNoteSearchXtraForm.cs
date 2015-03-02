@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             BindToViewModel();
 
             startDate.SetLimits();
+            endDate.SetLimits();
         }
 
         private void BindToViewModel()
