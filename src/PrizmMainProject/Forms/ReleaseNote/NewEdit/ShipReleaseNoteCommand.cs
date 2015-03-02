@@ -59,40 +59,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 return;
             }
 
-            foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.ReleaseNote.Railcars)
-            {
-                var distinctTypes = r.Pipes.Select(p => p.Type).Distinct();
-
-                if(distinctTypes.Count() > 1)
-                {
-                    difTypeSize = true;
-                    distinctSizeDict.Add(r, distinctTypes);
-                }
-            }
-
-            if(difTypeSize)
-            {
-                StringBuilder messageBuilder = new StringBuilder();
-
-                messageBuilder.AppendLine(Program.LanguageManager.GetString(
-                    StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcar));
-
-                string distintTypesMessage = Program.LanguageManager.GetString(
-                        StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended);
-                foreach (var item in distinctSizeDict)
-                {
-                    messageBuilder.AppendLine(
-                        String.Format("{0} {1}:", distintTypesMessage, item.Key.Number));
-
-                    foreach (var pipes in item.Value)
-                        messageBuilder.AppendLine(String.Format("\t{0}", pipes.Type));
-                }
-
-                notify.ShowError(messageBuilder.ToString(),
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-            }
-
-
             if(!noPipe && !difTypeSize)
             {
                 foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)

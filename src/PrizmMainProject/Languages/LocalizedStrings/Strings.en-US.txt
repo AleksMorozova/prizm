@@ -1882,9 +1882,6 @@ ReleaseNoteNewEdit_PipesAbsent=Unable to ship without pipes.
 ;Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера.
 ReleaseNoteNewEdit_DifferentTypeSizeInRailcar=All pipes in railcar should have the same size type.
 
-;Для расширенного сообщения об ошибке отгрузки: В вагоне [Имя вагона]:
-ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended=In railcar
-
 ;Сообщение об ошибке: Введите номер разрешения на отгрузку.
 ReleaseNoteNewEdit_MissingReleaseNoteNumber=Enter release note number.
 
