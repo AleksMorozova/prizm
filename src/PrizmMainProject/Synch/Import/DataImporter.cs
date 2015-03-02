@@ -17,6 +17,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -27,7 +28,10 @@ namespace Prizm.Main.Synch.Import
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
+
         public bool TaskIsCancelled { get; set; }
+        public bool IsDisposed { get; private set; }
+
         private int elements;
         private int elementsAll;
         private string progressMessage = string.Empty;
@@ -36,6 +40,7 @@ namespace Prizm.Main.Synch.Import
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
             : base(hasher, encryptor)
         {
+            this.IsDisposed = false;
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, true);
             this.importRepo = Program.Kernel.Get<IImportRepository>();
@@ -1142,6 +1147,7 @@ namespace Prizm.Main.Synch.Import
 
         public void Dispose()
         {
+            this.IsDisposed = true;
             importRepo.Dispose();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, false);

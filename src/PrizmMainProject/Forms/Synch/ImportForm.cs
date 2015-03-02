@@ -143,7 +143,7 @@ namespace Prizm.Main.Forms.Synch
 
       void importer_OnError(ImportException e)
       {
-          if (this.InvokeRequired)
+          if (this.InvokeRequired && !importer.IsDisposed)
           {
               this.Invoke(new Action(() => { OnErrorMessaging(e); }));
           }
@@ -216,7 +216,7 @@ namespace Prizm.Main.Forms.Synch
 
       private void ImportForm_FormClosing(object sender, FormClosingEventArgs e)
       {
-         importer.Dispose();
+          importer.Dispose();
       }
    }
 }
