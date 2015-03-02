@@ -32,10 +32,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private ExternalFilesXtraForm filesForm = null;
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
-        private List<string> localizedAllShipStatus = new List<string>(2) { "unshipped", "shipped"};
+        private List<string> localizedAllShipStatus = new List<string>(2) { "unshipped", "shipped" };
         private void UpdateTextEdit()
         {
-            bindingSource.CancelEdit(); 
+            bindingSource.CancelEdit();
         }
         public ReleaseNoteNewEditXtraForm(Guid id)
         {
@@ -70,7 +70,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
             {
                 localizedAllPipeMillStatus.Add(item.Item2);
             }
@@ -89,7 +89,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         protected override List<LocalizedItem> CreateLocalizedItems()
         {
-                        return new List<LocalizedItem>()
+            return new List<LocalizedItem>()
             {
                 // layout items
                 new LocalizedItem(releasedNoteNumberLayout, StringResources.ReleaseNoteNewEdit_ReleaseNumberLabel.Id),
@@ -161,7 +161,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 {
                     return (bool)value ? localizedAllShipStatus[1] : localizedAllShipStatus[0];
                 }));
-            
+
             pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
             pipeNumberLookUp.Properties.DisplayMember = "Number";
             pipeNumberLookUp.Properties.ValueMember = "Id";
@@ -192,7 +192,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void addPipeButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
+            if(!string.IsNullOrWhiteSpace(pipeNumberLookUp.Text))
             {
                 viewModel.AddPipe((Guid)pipeNumberLookUp.EditValue);
                 pipesList.RefreshDataSource();
@@ -200,6 +200,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
                 IsModified = true;
                 commandManager.RefreshVisualState();
+                pipeNumberLookUp.ClosePopup();
             }
 
         }
@@ -208,7 +209,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         {
             Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe pipe =
                 pipesListView.GetRow(pipesListView.FocusedRowHandle) as Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe;
-            if (pipe != null)
+            if(pipe != null)
             {
                 viewModel.RemovePipe(pipe);
                 pipesList.RefreshDataSource();
@@ -228,10 +229,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Activated(object sender, EventArgs e)
         {
-            if (formLeave)
+            if(formLeave)
             {
                 viewModel.GetStoredPipes();
-               // pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
+                // pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
                 pipeNumberLookUp.Refresh();
             }
         }
@@ -242,7 +243,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 filesForm = new ExternalFilesXtraForm();
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
-            }         
+            }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
@@ -298,10 +299,10 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void pipesListView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.Name == pipeStatusGridColumn.Name)
+            if(e.Column.Name == pipeStatusGridColumn.Name)
             {
                 PipeMillStatus result;
-                if (Enum.TryParse<PipeMillStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<PipeMillStatus>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = localizedAllPipeMillStatus[(int)result];
                 }
@@ -314,4 +315,4 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         }
 
     }
-} 
+}
