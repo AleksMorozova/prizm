@@ -59,6 +59,18 @@ namespace Prizm.Main.Forms.ExternalFile
             if (item != Guid.Empty)
             {
                 var fileList = repos.FileRepo.GetByItem(item);
+
+                foreach (var dictItem in this.FilesToAttach)
+                {
+                    Prizm.Domain.Entity.File file = new Domain.Entity.File() 
+                    { 
+                        FileName = dictItem.Value,
+                        UploadDate = DateTime.Now,
+                        NewName = string.Format("{0}{1}", Directories.FilesToAttachFolder, dictItem.Key)
+                    };
+                    fileList.Add(file);
+                }
+
                 if (fileList != null)
                 {
                     files = new BindingList<Prizm.Domain.Entity.File>(fileList);
