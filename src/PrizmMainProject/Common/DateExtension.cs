@@ -18,6 +18,33 @@ namespace Prizm.Main.Common
             return Constants.MinYear <= date.Year && date.Year <= Constants.MaxYear;
         }
 
+        public static bool CheckDiapason(DateTime startDate, DateTime endDate)
+        {
+            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
+            {
+                if (startDate < endDate)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (startDate == null)
+                {
+                    startDate=DateTime.MinValue;
+                }
+                if (endDate == null)
+                {
+                    endDate = DateTime.MaxValue;
+                }
+
+                return true;
+            }
+        }
         /// <summary>
         /// Check date limits for save to DB & Convert DatetimeMinValue to NULL value;
         /// </summary>

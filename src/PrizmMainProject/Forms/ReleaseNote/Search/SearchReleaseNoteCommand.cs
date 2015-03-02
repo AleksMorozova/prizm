@@ -21,7 +21,6 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         private readonly ReleaseNoteSearchViewModel viewModel;
         private readonly IReleaseNoteRepository repo;
         private readonly IUserNotify notify;
-
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         [Inject]
@@ -38,22 +37,58 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (viewModel.StartDate < viewModel.EndDate) 
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate)) 
             {
                 try
                 {
                     var projList = viewModel.Projection;
                     projList.Clear();
-                    var list = repo.SearchReleases(
-                        viewModel.ReleaseNoteNumber,
-                        viewModel.StartDate,
-                        viewModel.EndDate,
-                        viewModel.PipeNumber,
-                        viewModel.RailcarNumber,
-                        viewModel.Certificate,
-                        viewModel.Receiver);
+                    List<Prizm.Domain.Entity.Mill.ReleaseNote> note = new List<Domain.Entity.Mill.ReleaseNote>(); ;
 
-                    foreach (var release in list)
+                    if ((viewModel.PipeNumber == string.Empty) &&
+                        (viewModel.RailcarNumber == string.Empty)) 
+                    {
+                        note = repo.SearchReleases(viewModel.ReleaseNoteNumber,
+                        viewModel.StartDate,
+                        viewModel.EndDate);
+                    }
+                    else if ((viewModel.PipeNumber != string.Empty) &&
+                        (viewModel.RailcarNumber != string.Empty)) 
+                    {
+                        note = repo.SearchReleasesAllCreteria(viewModel.ReleaseNoteNumber,
+                    viewModel.StartDate,
+                    viewModel.EndDate,
+                    viewModel.PipeNumber,
+                    viewModel.RailcarNumber,
+                    viewModel.Certificate,
+                    viewModel.Receiver);
+                    }
+
+                    else if ((viewModel.PipeNumber != string.Empty) &&
+                        (viewModel.RailcarNumber == string.Empty))
+                    {
+                        note = repo.SearchReleasesByPipe(viewModel.ReleaseNoteNumber,
+                    viewModel.StartDate,
+                    viewModel.EndDate,
+                    viewModel.PipeNumber);
+                    }
+                    else if ((viewModel.PipeNumber == string.Empty) &&
+                        (viewModel.RailcarNumber != string.Empty))
+                    {
+                        note = repo.SearchReleasesByRailcar(viewModel.ReleaseNoteNumber,
+                    viewModel.StartDate,
+                    viewModel.EndDate,
+                    viewModel.RailcarNumber,
+                    viewModel.Certificate,
+                    viewModel.Receiver);
+                    }
+
+                    //var list = repo.SearchReleases(
+                    //    viewModel.ReleaseNoteNumber,
+                    //    viewModel.StartDate,
+                    //    viewModel.EndDate);
+
+                    foreach (var release in note)
                     {
                         projList.Add(new ReleaseNoteProjection
                         {
