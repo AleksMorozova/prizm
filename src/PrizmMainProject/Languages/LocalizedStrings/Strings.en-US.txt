@@ -1907,9 +1907,6 @@ ReleaseNoteNewEdit_PendingStatus=Pending
 ReleaseSearch_NumberLabel=Release note &number
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_ReleaseNotePeriodLabel=Date range
-
-;Поиск разрешений на отгрузку. Дата
 ReleaseSearch_StartDateLabel=&From
 
 ;Поиск разрешений на отгрузку. Дата
