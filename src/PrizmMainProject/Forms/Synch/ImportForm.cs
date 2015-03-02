@@ -101,26 +101,59 @@ namespace Prizm.Main.Forms.Synch
 
       void importer_OnConflict(ConflictEventArgs args)
       {
-         ConflictDialog dlg = new ConflictDialog(args.Message);
+          if (this.InvokeRequired)
+          {
+              this.Invoke(new Action(() => { ConflictDialogCreation(args); }));
+          }
+          else
+          {
+              ConflictDialogCreation(args);
+          }
+      }
 
-         dlg.ShowDialog();
-
-         args.Decision = dlg.Decision;
-         args.ForAll = dlg.ForAll;
+      private void ConflictDialogCreation(ConflictEventArgs args)
+      {
+          ConflictDialog dlg = new ConflictDialog(args.Message);
+          dlg.ShowDialog();
+          args.Decision = dlg.Decision;
+          args.ForAll = dlg.ForAll;
       }
 
       void importer_OnMissing(MissingEventArgs args)
       {
-          MissingPortionsDialog dialog = new MissingPortionsDialog(args.ExistingPortions,args.MissingPortions, args.MillName);
-          dialog.ShowDialog();
-          if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
+          if (this.InvokeRequired)
           {
-              importer.TaskIsCancelled = true; 
+              this.Invoke(new Action(() => { MissingPortionsDialogCreation(args); }));
+          }
+          else
+          {
+              MissingPortionsDialogCreation(args);
           }
       }
 
+      private void MissingPortionsDialogCreation(MissingEventArgs args)
+      {
+          MissingPortionsDialog dialog = new MissingPortionsDialog(args.ExistingPortions, args.MissingPortions, args.MillName);
+          dialog.ShowDialog();
+          if (dialog.DialogResult != System.Windows.Forms.DialogResult.No)
+          {
+              importer.TaskIsCancelled = true;
+          }
+      }
 
       void importer_OnError(ImportException e)
+      {
+          if (this.InvokeRequired)
+          {
+              this.Invoke(new Action(() => { OnErrorMessaging(e); }));
+          }
+          else
+          {
+              OnErrorMessaging(e);
+          }
+      }
+
+      private void OnErrorMessaging(ImportException e)
       {
          string msg = e.Message;
          if (e.StackTrace != null)
@@ -139,9 +172,22 @@ namespace Prizm.Main.Forms.Synch
 
       void importer_OnDone()
       {
+          if (this.InvokeRequired)
+          {
+              this.Invoke(new Action(() => { OnDoneMessageCreation(); }));
+          }
+          else
+          {
+              OnDoneMessageCreation();
+          }
+      }
+
+      private void OnDoneMessageCreation()
+      {
           XtraMessageBox.Show(Program.LanguageManager.GetString(StringResources.ImportMessage_IsFinished));
           ResetControls();
       }
+
 
       public ImportForm()
       {
