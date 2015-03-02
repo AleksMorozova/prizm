@@ -192,6 +192,8 @@ english.ConfirmDowngrade=Version of current installation (%1) is lower or the sa
 russian.ConfirmDowngrade=Версия текущей инсталяции (%1) меньше либо равна уже установленной версии (%2). Вы действительно хотите продолжить?
 english.InstallingMsOdbcSql=Installing Microsoft ODBC Driver for SQL Server
 russian.InstallingMsOdbcSql=Установка Microsoft ODBC Driver for SQL Server
+english.AppIsRunning=Prism application is running. Please close the application before running the installer.
+russian.AppIsRunning=Приложение Призма запущено. Пожалуйста закройте его перед запуском установщика.
 
 
 [Registry]
@@ -204,6 +206,29 @@ Root: HKLM; Subkey: "Software\{#PrizmRoot}\{code:GetProjectName}"; ValueType: st
 
 
 [Code]
+function IsAppRunning(const FileName: string): Boolean;
+var
+  FWMIService: Variant;
+  FSWbemLocator: Variant;
+  FWbemObjectSet: Variant;
+begin
+  Result := false;
+  FSWbemLocator := CreateOleObject('WBEMScripting.SWBEMLocator');
+  FWMIService := FSWbemLocator.ConnectServer('', 'root\CIMV2', '', '');
+  FWbemObjectSet := FWMIService.ExecQuery(Format('SELECT Name FROM Win32_Process Where Name="%s"',[FileName]));
+  Result := (FWbemObjectSet.Count > 0);
+  FWbemObjectSet := Unassigned;
+  FWMIService := Unassigned;
+  FSWbemLocator := Unassigned;
+end;
+
+function InitializeSetup(): boolean;
+begin
+  Result := not IsAppRunning('Prism.Program.exe');
+  if not Result then
+  MsgBox(CustomMessage('AppIsRunning'), mbError, MB_OK);
+end;
+
 var
   NewProductPage: TWizardPage;
   UpdateProductPage: TInputOptionWizardPage;
