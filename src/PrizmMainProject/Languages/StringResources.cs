@@ -4269,11 +4269,7 @@ namespace Prizm.Main.Languages
             Id = "ReleaseSearch_NumberLabel",
             Description = "Поиск разрешений на отгрузку. Номер разрешения"
         };
-        public static StringResource ReleaseSearch_ReleaseNotePeriodLabel = new StringResource
-        {
-            Id = "ReleaseSearch_ReleaseNotePeriodLabel",
-            Description = "Поиск разрешений на отгрузку.Период формирования разрешения на отгрузку"
-        };
+
         public static StringResource ReleaseSearch_StartDateLabel = new StringResource
         {
             Id = "ReleaseSearch_StartDateLabel",
