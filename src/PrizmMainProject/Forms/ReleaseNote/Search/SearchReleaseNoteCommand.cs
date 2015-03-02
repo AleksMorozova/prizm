@@ -59,7 +59,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                         viewModel.EndDate);
                     }
 
-                    if (!hasPipeCreteria && hasRailCarCreteria)
+                    else if (!hasPipeCreteria && hasRailCarCreteria)
                     {
                         note = repo.SearchReleasesByRailcar(viewModel.ReleaseNoteNumber,
                     viewModel.StartDate,
@@ -104,7 +104,8 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             {
                 notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-                log.Warn("Date limits not valid!");
+                log.Warn("Date limits not valid!"+"Diapason: start date= " 
+                    + viewModel.StartDate.ToString()+" end date= "+viewModel.EndDate.ToString());
             }
 
         }

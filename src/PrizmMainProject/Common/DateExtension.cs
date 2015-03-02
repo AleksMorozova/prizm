@@ -20,16 +20,10 @@ namespace Prizm.Main.Common
 
         public static bool CheckDiapason(DateTime startDate, DateTime endDate)
         {
+            bool checkDiapason = false;
             if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
             {
-                if (startDate < endDate)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                checkDiapason = (startDate < endDate);
             }
             else
             {
@@ -42,8 +36,9 @@ namespace Prizm.Main.Common
                     endDate = DateTime.MaxValue;
                 }
 
-                return true;
+                checkDiapason= true;
             }
+            return checkDiapason;
         }
         /// <summary>
         /// Check date limits for save to DB & Convert DatetimeMinValue to NULL value;
