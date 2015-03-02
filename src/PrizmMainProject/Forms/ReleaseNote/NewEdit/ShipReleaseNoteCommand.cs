@@ -40,9 +40,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         public void Execute()
         {
             bool noPipe = false;
-            bool difTypeSize = false;
-
-            var distinctSizeDict = new Dictionary<Railcar, IEnumerable<Prizm.Domain.Entity.Setup.PipeMillSizeType>>();
 
             foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.ReleaseNote.Railcars)
             {
@@ -59,7 +56,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 return;
             }
 
-            if(!noPipe && !difTypeSize)
+            if(!noPipe)
             {
                 foreach(Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars)
                 {
