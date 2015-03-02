@@ -88,36 +88,6 @@ namespace Prizm.Data.DAL.Hibernate
             return list;
         }
 
-        public List<ReleaseNote> SearchReleasesByPipe(string number, DateTime startDate, DateTime endDate,  string pipeNumber)
-        {
-            ReleaseNote note = null;
-            Railcar car = null;
-            Pipe pipe = null;
-
-            var s = session.QueryOver<ReleaseNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                .TransformUsing(Transformers.DistinctRootEntity);
-
-            if (!string.IsNullOrWhiteSpace(pipeNumber))
-            {
-                s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Anywhere);
-            }
-
-            if (!string.IsNullOrWhiteSpace(number))
-            {
-                s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
-            }
-            
-            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
-            {
-                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
-            }
-            var list = new List<ReleaseNote>(s.List<ReleaseNote>().OrderBy(x => x.Number));
-
-            return list;
-        }
-       
         public List<ReleaseNote> SearchReleasesByRailcar(string number, DateTime startDate, DateTime endDate, 
             string railcar,  string certificate, string reciver)
         {
@@ -162,10 +132,16 @@ namespace Prizm.Data.DAL.Hibernate
             ReleaseNote note = null;
             Railcar car = null;
             Pipe pipe = null;
+            PipeTestResult result = null;
+            Inspector inspector = null;
+            Certificate cert = null;
 
             var s = session.QueryOver<ReleaseNote>(() => note)
                 .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
                 .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
+                .JoinAlias(() => pipe.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+                .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+                .JoinAlias(() => inspector.Certificates, () => cert, JoinType.LeftOuterJoin)
                 .TransformUsing(Transformers.DistinctRootEntity);
 
             if (!string.IsNullOrWhiteSpace(pipeNumber))

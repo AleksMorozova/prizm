@@ -37,7 +37,14 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate)) 
+            bool hasPipeCreteria = false;
+            bool hasRailCarCreteria = false;
+            hasPipeCreteria = viewModel.PipeNumber != string.Empty;
+            hasRailCarCreteria = viewModel.RailcarNumber != string.Empty
+                        || viewModel.Certificate != string.Empty
+                        || viewModel.Receiver != string.Empty;
+
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
                 try
                 {
@@ -45,15 +52,23 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                     projList.Clear();
                     List<Prizm.Domain.Entity.Mill.ReleaseNote> note = new List<Domain.Entity.Mill.ReleaseNote>(); ;
 
-                    if ((viewModel.PipeNumber == string.Empty) &&
-                        (viewModel.RailcarNumber == string.Empty)) 
+                    if (!hasPipeCreteria && !hasRailCarCreteria) 
                     {
                         note = repo.SearchReleases(viewModel.ReleaseNoteNumber,
                         viewModel.StartDate,
                         viewModel.EndDate);
                     }
-                    else if ((viewModel.PipeNumber != string.Empty) &&
-                        (viewModel.RailcarNumber != string.Empty)) 
+
+                    if (!hasPipeCreteria && hasRailCarCreteria)
+                    {
+                        note = repo.SearchReleasesByRailcar(viewModel.ReleaseNoteNumber,
+                    viewModel.StartDate,
+                    viewModel.EndDate,
+                    viewModel.RailcarNumber,
+                    viewModel.Certificate,
+                    viewModel.Receiver);
+                    }
+                    else 
                     {
                         note = repo.SearchReleasesAllCreteria(viewModel.ReleaseNoteNumber,
                     viewModel.StartDate,
@@ -63,31 +78,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                     viewModel.Certificate,
                     viewModel.Receiver);
                     }
-
-                    else if ((viewModel.PipeNumber != string.Empty) &&
-                        (viewModel.RailcarNumber == string.Empty))
-                    {
-                        note = repo.SearchReleasesByPipe(viewModel.ReleaseNoteNumber,
-                    viewModel.StartDate,
-                    viewModel.EndDate,
-                    viewModel.PipeNumber);
-                    }
-                    else if ((viewModel.PipeNumber == string.Empty) &&
-                        (viewModel.RailcarNumber != string.Empty))
-                    {
-                        note = repo.SearchReleasesByRailcar(viewModel.ReleaseNoteNumber,
-                    viewModel.StartDate,
-                    viewModel.EndDate,
-                    viewModel.RailcarNumber,
-                    viewModel.Certificate,
-                    viewModel.Receiver);
-                    }
-
-                    //var list = repo.SearchReleases(
-                    //    viewModel.ReleaseNoteNumber,
-                    //    viewModel.StartDate,
-                    //    viewModel.EndDate);
-
+                 
                     foreach (var release in note)
                     {
                         projList.Add(new ReleaseNoteProjection
@@ -108,8 +99,8 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                     log.Error(ex.Message);
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
-            } 
-            else 
+            }
+            else
             {
                 notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
