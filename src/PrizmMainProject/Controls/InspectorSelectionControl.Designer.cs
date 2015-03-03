@@ -72,7 +72,7 @@
             this.colLastName.FieldName = "Name.LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 1;
+            this.colLastName.VisibleIndex = 3;
             // 
             // colFirstName
             // 
@@ -80,7 +80,7 @@
             this.colFirstName.FieldName = "Name.FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 2;
+            this.colFirstName.VisibleIndex = 1;
             // 
             // colMiddleName
             // 
@@ -88,7 +88,7 @@
             this.colMiddleName.FieldName = "Name.MiddleName";
             this.colMiddleName.Name = "colMiddleName";
             this.colMiddleName.Visible = true;
-            this.colMiddleName.VisibleIndex = 3;
+            this.colMiddleName.VisibleIndex = 2;
             // 
             // InspectorSelectionControl
             // 
