@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Prizm.Data.DAL.Mill;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.POCO;
@@ -377,14 +378,25 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         }
                         else
                         {
-                            pipeToAdd.Railcar = this.Railcar;
-                            pipeToAdd.Status = PipeMillStatus.ReadyToShip;
-                            Railcar.Pipes.Add(pipeToAdd);
-                            ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
-                            AllPipesToAdd.Remove(pipeToAdd);
+                            if (this.Railcar.Pipes.Any(x => x.Type != pipeToAdd.Type))
+                            {
+                                log.Warn(string.Format("Attempt to add pipes of different mill size types to one railcar (railcar # {0})", this.Railcar.Number));
 
-                            log.Info(String.Format("Pipe {0},{1} added to Release note {2},{3} and railcar {4},{5}",
-                                pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                                notify.ShowError(Program.LanguageManager.GetString(
+                                    StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcar),
+                                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                            }
+                            else
+                            {
+                                pipeToAdd.Railcar = this.Railcar;
+                                pipeToAdd.Status = PipeMillStatus.ReadyToShip;
+                                Railcar.Pipes.Add(pipeToAdd);
+                                ReleaseNotePipes.Add(new PlainPipe(pipeToAdd));
+                                AllPipesToAdd.Remove(pipeToAdd);
+
+                                log.Info(String.Format("Pipe {0},{1} added to Release note {2},{3} and railcar {4},{5}",
+                                    pipeToAdd.Id, pipeToAdd.Number, ReleaseNote.Id, ReleaseNote.Number, pipeToAdd.Railcar.Id, pipeToAdd.Railcar.Number));
+                            }
                         }
                     }
                     else
