@@ -57,6 +57,7 @@
             this.colMiddleName});
             this.inspectorsGridView.GridControl = this.inspectorsGridControl;
             this.inspectorsGridView.Name = "inspectorsGridView";
+            this.inspectorsGridView.OptionsBehavior.Editable = false;
             this.inspectorsGridView.OptionsBehavior.FocusLeaveOnTab = true;
             this.inspectorsGridView.OptionsNavigation.UseTabKey = false;
             this.inspectorsGridView.OptionsSelection.CheckBoxSelectorColumnWidth = 25;

@@ -58,6 +58,7 @@
             this.colMiddleName});
             this.gridViewWelders.GridControl = this.gridControlWelders;
             this.gridViewWelders.Name = "gridViewWelders";
+            this.gridViewWelders.OptionsBehavior.Editable = false;
             this.gridViewWelders.OptionsSelection.CheckBoxSelectorColumnWidth = 25;
             this.gridViewWelders.OptionsSelection.MultiSelect = true;
             this.gridViewWelders.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
