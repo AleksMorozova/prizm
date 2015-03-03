@@ -380,6 +380,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                         {
                             if (this.Railcar.Pipes.Any(x => x.Type != pipeToAdd.Type))
                             {
+                                log.Warn("Attempt to add pipes of different mill size types to one railcar");
+
                                 notify.ShowError(Program.LanguageManager.GetString(
                                     StringResources.ReleaseNoteNewEdit_DifferentTypeSizeInRailcar),
                                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
