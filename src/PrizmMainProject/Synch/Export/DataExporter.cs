@@ -214,10 +214,6 @@ namespace Prizm.Main.Synch.Export
 
             ZipContent(tempDir);
 
-            this.ExportedElementCount = portion.Pipes.Count + portion.Components.Count + portion.Joints.Count;
-
-            FireDone();
-
             exportRepo.PipeRepo.BeginTransaction();
 
             UnmarkPipes(portion);
@@ -225,6 +221,10 @@ namespace Prizm.Main.Synch.Export
             UnmarkComponents(portion);
 
             exportRepo.PipeRepo.Commit();
+
+            this.ExportedElementCount = portion.Pipes.Count + portion.Components.Count + portion.Joints.Count;
+
+            FireDone();
 
             return ExportResult.Success;
          }
