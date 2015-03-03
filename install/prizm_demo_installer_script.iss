@@ -366,7 +366,7 @@ end;
 
 function SetUsersLanguage(): String;
 begin
-if ActiveLanguage='russian' then Result:='ru-Ru' else Result:='en-Us';
+if ActiveLanguage='russian' then Result:='ru-RU' else Result:='en-US';
 end;
 
 function ValidateProjectName(name : String) : Boolean;
