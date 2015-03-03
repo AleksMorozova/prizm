@@ -151,6 +151,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeCreationDate.SetLimits();
             repositoryCoatingDate.SetLimits();
             repositoryWeldingDate.SetLimits();
+
+            weldersGridColumn.SortMode = ColumnSortMode.DisplayText;
         }
 
         private void BindToViewModel()
