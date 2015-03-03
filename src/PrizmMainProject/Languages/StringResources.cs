@@ -4426,9 +4426,28 @@ namespace Prizm.Main.Languages
             Id = "FirstSetup_CancelButton",
             Description = "Начальные установки. Кнопка отмена"
         };
+        public static StringResource FirstSetup_PipeNumberFormatLabel = new StringResource
+        {
+            Id = "FirstSetup_PipeNumberFormatLabel",
+            Description = "Начальные установки. Формат номера трубы"
+        };
+        public static StringResource FirstSetup_ProjectGroup = new StringResource
+        {
+            Id = "FirstSetup_ProjectGroup",
+            Description = "Начальные установки.Надпись группы проекта"
+        };
 
+        public static StringResource FirstSetup_MainAdministratorGroup = new StringResource
+        {
+            Id = "FirstSetup_MainAdministratorGroup",
+            Description = "Начальные установки.Надпись главного администратора"
+        };
 
-
+        public static StringResource FirstSetup_FormHeader = new StringResource
+        {
+            Id = "FirstSetup_FormHeader",
+            Description = "Начальные установки.Надпись окна: первичные настройки"
+        };
         #endregion
 
         #region Heat

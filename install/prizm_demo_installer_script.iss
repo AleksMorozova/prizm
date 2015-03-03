@@ -389,6 +389,11 @@ begin
     Result := GetUpdateProductName()
 end;
 
+function SetUsersLanguage(): String;
+begin
+if ActiveLanguage='russian' then Result:='ru-RU' else Result:='en-US';
+end;
+
 function ValidateProjectName(name : String) : Boolean;
 var n : Integer;
     b : String;
@@ -778,7 +783,7 @@ end;
 procedure UpdateConfig();
 var
   XMLDoc, RootNode, Nodes, Node: Variant;
-  ConfigFilename, Key: String;
+  ConfigFilename, Key: String; 
   i: integer;
 
 begin
@@ -814,8 +819,23 @@ begin
         'PrismDatabase' : Node.setAttribute('connectionString', 'Data Source=(LocalDb)\v11.0;Initial Catalog=' + GetProjectName('') + ';Integrated Security=true;AttachDBFileName=' + ExpandConstant('{app}') + '\Data\' + GetProjectName('') + '.mdf');
       end;
     end;
-  end;
-
+  end;  
+  
+  //update user settings
+  Nodes := RootNode.selectNodes('//configuration/userSettings/Prizm.Main.Properties.Settings/setting');
+  
+  for i := 0 to Nodes.length - 1 do
+  begin
+    Node := Nodes.Item[i];
+    if Node.NodeType = 1 then 
+	begin
+		key := Node.getAttribute('name');
+		Case key of	  
+		'UsersLanguage' : Node.childNodes[0].text := SetUsersLanguage();	   
+	    end;
+	end;
+  end; 
+	
 
   if IsNewInstall then
   begin
@@ -838,7 +858,7 @@ begin
       end;
     end;
   end;
-
+  
   XMLDoc.Save(ConfigFilename); 
 
 end;
