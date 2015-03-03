@@ -31,8 +31,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             InitializeComponent();
             SetControlsTextLength();
-            viewModel = vm;
-            this.Text += ": [" + viewModel.Type + "]";
+            viewModel = vm;          
 
             this.AcceptButton = saveButton;
             this.CancelButton = cancelButton;
@@ -46,6 +45,12 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
             BindToViewModel();
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
+            localizedHeader.Clear();
+
+            localizedHeader.Add(Resources.FirstSetup_FormHeader);  // usage of Resources is OK - setting default values here
+            localizedHeader.Add(WorkstationType.Mill.ToString());
+            localizedHeader.Add(WorkstationType.Master.ToString());
+            localizedHeader.Add(WorkstationType.Construction.ToString());
         }
 
         private void BindToViewModel()
@@ -79,6 +84,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new LocalizedItem(titleLayoutControl, StringResources.FirstSetup_ProjectTitleLabel.Id),
                 new LocalizedItem(fileLayoutControlItem, StringResources.FirstSetup_FileSizeLabel.Id),
                 new LocalizedItem(typeLayoutControlItem, StringResources.FirstSetup_TypeLabel.Id),
+                new LocalizedItem(maskLayoutControlItem, StringResources.FirstSetup_PipeNumberFormatLabel.Id),
                 new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MillLabel.Id),
                 new LocalizedItem(loginLayoutControlItem, StringResources.FirstSetup_LoginLabel.Id),
                 new LocalizedItem(passLayoutControlItem, StringResources.FirstSetup_PasswordLabel.Id),
@@ -86,7 +92,10 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new LocalizedItem(reEnterLayoutControlItem, StringResources.FirstSetup_ReEnterPasswordLabel.Id),
                 new LocalizedItem(lastNameLayoutControlItem, StringResources.FirstSetup_LastNameLabel.Id),
                 new LocalizedItem(firstNameLayoutControlItem, StringResources.FirstSetup_FirstNameLabel.Id),
+                new LocalizedItem(middleNameLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
                 new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
+                new LocalizedItem(projectLayoutGroup,StringResources.FirstSetup_ProjectGroup.Id),
+                new LocalizedItem(adminLayoutControlGroup, StringResources.FirstSetup_MainAdministratorGroup.Id),
                 
                 new LocalizedItem(saveButton, StringResources.FirstSetup_SaveButton.Id),
                 new LocalizedItem(cancelButton, StringResources.FirstSetup_CancelButton.Id),
@@ -96,8 +105,27 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                             StringResources.WorkstationType_Master.Id, 
                             StringResources.WorkstationType_Mill.Id, 
                             StringResources.WorkstationType_Construction.Id} ),
-            };
+
+                               // header
+                new LocalizedItem(this, localizedHeader, new string[] { "FirstSetup_FormHeader", 
+                    "MainWindowHeader_Mill", "MainWindowHeader_Master", "MainWindowHeader_Construction" } ),
+           };
         }
+               public override void UpdateTitle()
+        {
+            // base.UpdateTitle(); should not be called
+            this.Text = string.Concat(localizedHeader[0], " [", 
+                viewModel.Project.WorkstationType == WorkstationType.Mill 
+                ? localizedHeader[1]
+                : viewModel.Project.WorkstationType == WorkstationType.Master
+                    ? localizedHeader[2]
+                    : viewModel.Project.WorkstationType == WorkstationType.Construction
+                        ? localizedHeader[3]
+                        : ""
+            , "]");
+        }
+           
+        
 
         #endregion // --- Localization ---
 
