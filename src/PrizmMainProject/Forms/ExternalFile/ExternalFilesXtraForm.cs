@@ -76,9 +76,11 @@ namespace Prizm.Main.Forms.ExternalFile
                         directoryInfo.Attributes |= FileAttributes.Hidden;
                         directoryInfoParent.Attributes |= FileAttributes.Hidden;
                     }
-                    fileInfo.CopyTo(string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension));
+                    string filesToAttachPath = string.Format("{0}{1}{2}", Directories.FilesToAttachFolder, newNameId, fileInfo.Extension);
+                    fileInfo.CopyTo(filesToAttachPath);
                     viewModel.FilesToAttach.Add(newNameId.ToString() + fileInfo.Extension, fileInfo.Name);
                     Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() { FileName = fileInfo.Name, UploadDate = DateTime.Now };
+                    newFile.NewName = filesToAttachPath;
                     viewModel.Files.Add(newFile);
                 }
                 else

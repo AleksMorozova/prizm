@@ -1904,9 +1904,6 @@ ReleaseNoteNewEdit_PendingStatus=Pending
 ReleaseSearch_NumberLabel=Release note &number
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_ReleaseNotePeriodLabel=Date range
-
-;Поиск разрешений на отгрузку. Дата
 ReleaseSearch_StartDateLabel=&From
 
 ;Поиск разрешений на отгрузку. Дата
@@ -1975,6 +1972,9 @@ FirstSetup_TypeLabel=Workstation type
 ;Начальные установки. Название завода
 FirstSetup_MillLabel=Mill name
 
+;Начальные установки. Формат номера трубы
+FirstSetup_PipeNumberFormatLabel=Pipe number format
+
 ;Начальные установки. Логин
 FirstSetup_LoginLabel=Login
 
@@ -1992,6 +1992,15 @@ FirstSetup_FirstNameLabel=First name
 
 ;Начальные установки. Отчество
 FirstSetup_MiddleNameLabel=Middle name 
+
+;Начальные установки.Надпись группы проекта
+FirstSetup_ProjectGroup=Project
+
+;Начальные установки.Надпись главного администратора
+FirstSetup_MainAdministratorGroup = Main administrator
+
+;Начальные установки.Надпись окна: первичные настройки
+FirstSetup_FormHeader= First setup
 
 ;Начальные установки. Кнопка сохранить
 FirstSetup_SaveButton=&Save
