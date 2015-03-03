@@ -1882,9 +1882,6 @@ ReleaseNoteNewEdit_PipesAbsent=Unable to ship without pipes.
 ;Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера.
 ReleaseNoteNewEdit_DifferentTypeSizeInRailcar=All pipes in railcar should have the same size type.
 
-;Для расширенного сообщения об ошибке отгрузки: В вагоне [Имя вагона]:
-ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended=In railcar
-
 ;Сообщение об ошибке: Введите номер разрешения на отгрузку.
 ReleaseNoteNewEdit_MissingReleaseNoteNumber=Enter release note number.
 
@@ -1905,9 +1902,6 @@ ReleaseNoteNewEdit_PendingStatus=Pending
 
 ;Поиск разрешений на отгрузку. Номер разрешения
 ReleaseSearch_NumberLabel=Release note &number
-
-;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_ReleaseNotePeriodLabel=Date range
 
 ;Поиск разрешений на отгрузку. Дата
 ReleaseSearch_StartDateLabel=&From
@@ -1978,6 +1972,9 @@ FirstSetup_TypeLabel=Workstation type
 ;Начальные установки. Название завода
 FirstSetup_MillLabel=Mill name
 
+;Начальные установки. Формат номера трубы
+FirstSetup_PipeNumberFormatLabel=Pipe number format
+
 ;Начальные установки. Логин
 FirstSetup_LoginLabel=Login
 
@@ -1995,6 +1992,15 @@ FirstSetup_FirstNameLabel=First name
 
 ;Начальные установки. Отчество
 FirstSetup_MiddleNameLabel=Middle name 
+
+;Начальные установки.Надпись группы проекта
+FirstSetup_ProjectGroup=Project
+
+;Начальные установки.Надпись главного администратора
+FirstSetup_MainAdministratorGroup = Main administrator
+
+;Начальные установки.Надпись окна: первичные настройки
+FirstSetup_FormHeader= First setup
 
 ;Начальные установки. Кнопка сохранить
 FirstSetup_SaveButton=&Save

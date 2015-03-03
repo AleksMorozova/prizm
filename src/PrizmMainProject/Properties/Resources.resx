@@ -1368,6 +1368,7 @@
     <value>В вагоне</value>
   </data>
   <data name="Import_Progress_Message_Counter" xml:space="preserve">
+  <data name="Import_Progress_Message_Counter" xml:space="preserve">
     <value>Импортируется элемент</value>
   </data>
   <data name="Import_Progress_Message_Type" xml:space="preserve">
@@ -1390,5 +1391,8 @@
   </data>
   <data name="PurchaseOrder_ValueRequired" xml:space="preserve">
     <value>Введите номер наряд-заказа</value>
+  </data>
+  <data name="FirstSetup_FormHeader" xml:space="preserve">
+    <value>Первичные настройки</value>
   </data>
 </root>

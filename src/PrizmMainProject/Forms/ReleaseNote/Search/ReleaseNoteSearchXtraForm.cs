@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             BindToViewModel();
 
             startDate.SetLimits();
+            endDate.SetLimits();
         }
 
         private void BindToViewModel()
@@ -86,7 +87,6 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                 new LocalizedItem(destinationLayout, StringResources.ReleaseSearch_DestinationLabel.Id),
                 new LocalizedItem(railcarNumberLayout, StringResources.ReleaseSearch_RailcarLabel.Id),
                 new LocalizedItem(certificateNumberLayout, StringResources.ReleaseSearch_CertificateLabel.Id),
-                new LocalizedItem(releaseNoteDatePeriodLabel, StringResources.ReleaseSearch_ReleaseNotePeriodLabel.Id),
                 new LocalizedItem(pipeNumberLayout, StringResources.ReleaseSearch_PipeInReleaseNoteLabel.Id),
                 //pipeNumberLayout
                 // controls

@@ -4171,12 +4171,6 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об ошибке отгрузки: Все трубы в в вагоне должны быть одного типоразмера."
         };
 
-        public static StringResource ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended = new StringResource
-        {
-            Id = "ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended",
-            Description = "Для расширенного сообщения об ошибке отгрузки: В вагоне [Имя вагона]:"
-        };
-
         public static StringResource ReleaseNoteNewEdit_MissingReleaseNoteNumber = new StringResource
         {
             Id = "ReleaseNoteNewEdit_MissingReleaseNoteNumber",
@@ -4269,11 +4263,7 @@ namespace Prizm.Main.Languages
             Id = "ReleaseSearch_NumberLabel",
             Description = "Поиск разрешений на отгрузку. Номер разрешения"
         };
-        public static StringResource ReleaseSearch_ReleaseNotePeriodLabel = new StringResource
-        {
-            Id = "ReleaseSearch_ReleaseNotePeriodLabel",
-            Description = "Поиск разрешений на отгрузку.Период формирования разрешения на отгрузку"
-        };
+
         public static StringResource ReleaseSearch_StartDateLabel = new StringResource
         {
             Id = "ReleaseSearch_StartDateLabel",
@@ -4430,9 +4420,28 @@ namespace Prizm.Main.Languages
             Id = "FirstSetup_CancelButton",
             Description = "Начальные установки. Кнопка отмена"
         };
+        public static StringResource FirstSetup_PipeNumberFormatLabel = new StringResource
+        {
+            Id = "FirstSetup_PipeNumberFormatLabel",
+            Description = "Начальные установки. Формат номера трубы"
+        };
+        public static StringResource FirstSetup_ProjectGroup = new StringResource
+        {
+            Id = "FirstSetup_ProjectGroup",
+            Description = "Начальные установки.Надпись группы проекта"
+        };
 
+        public static StringResource FirstSetup_MainAdministratorGroup = new StringResource
+        {
+            Id = "FirstSetup_MainAdministratorGroup",
+            Description = "Начальные установки.Надпись главного администратора"
+        };
 
-
+        public static StringResource FirstSetup_FormHeader = new StringResource
+        {
+            Id = "FirstSetup_FormHeader",
+            Description = "Начальные установки.Надпись окна: первичные настройки"
+        };
         #endregion
 
         #region Heat
