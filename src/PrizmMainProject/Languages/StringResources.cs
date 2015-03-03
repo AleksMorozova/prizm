@@ -2226,7 +2226,7 @@ namespace Prizm.Main.Languages
         public static StringResource Export_Ready = new StringResource
         {
             Id = "Export_Ready",
-            Description = "Сообщение об успехе экспорта: Экспортирование завершено успешно."
+            Description = "Сообщение об успехе экспорта: Экспортирование завершено успешно. Количество экспортированных элементов:"
         };
 
         public static StringResource Export_ExportButton = new StringResource { 

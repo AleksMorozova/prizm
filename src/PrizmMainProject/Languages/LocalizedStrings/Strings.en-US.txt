@@ -913,8 +913,8 @@ PartSearch_SearchGroup=Search
 ;Поиск элементов трубопровода. Надпись панели результатов поиска
 PartSearch_SearchResultGroup=Search results
 
-;Сообщение об успехе экспорта: Экспортирование завершено успешно.
-Export_Ready=Export was finished successfully
+;Сообщение об успехе экспорта: Экспортирование завершено успешно. Количество экспортированных элементов: 
+Export_Ready=Export was finished successfully. The number of exported elements:
 
 ;Экспорт. Надпись кнопки экспорта
 Export_ExportButton=&Export

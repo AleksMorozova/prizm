@@ -589,7 +589,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Экспортирование завершено успешно..
+        ///   Looks up a localized string similar to Экспортирование завершено успешно. Количество экспортированных элементов:.
         /// </summary>
         internal static string Export_Ready {
             get {

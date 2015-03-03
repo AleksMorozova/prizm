@@ -30,6 +30,8 @@ namespace Prizm.Main.Synch.Export
          this.exportRepo = exportRepo;
       }
 
+      public int ExportedElementCount { get; private set; }
+
       public IList<Portion> GetAllPortions()
       {
          return exportRepo.PortionRepo.GetAll();
@@ -212,6 +214,8 @@ namespace Prizm.Main.Synch.Export
 
             ZipContent(tempDir);
 
+            this.ExportedElementCount = portion.Pipes.Count + portion.Components.Count + portion.Joints.Count;
+
             FireDone();
 
             exportRepo.PipeRepo.BeginTransaction();
@@ -221,7 +225,7 @@ namespace Prizm.Main.Synch.Export
             UnmarkComponents(portion);
 
             exportRepo.PipeRepo.Commit();
-            
+
             return ExportResult.Success;
          }
          catch (Exception e)
