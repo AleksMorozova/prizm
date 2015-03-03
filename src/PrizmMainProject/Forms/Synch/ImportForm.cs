@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.Synch
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ImportForm : PrizmForm
    {
+      private ConflictDialog singleConflictDialog = null;
+
       readonly DataImporter importer;
       [Inject]
       public ImportForm(DataImporter importer)
@@ -113,10 +115,18 @@ namespace Prizm.Main.Forms.Synch
 
       private void ConflictDialogCreation(ConflictEventArgs args)
       {
-          ConflictDialog dlg = new ConflictDialog(args.Message);
-          dlg.ShowDialog();
-          args.Decision = dlg.Decision;
-          args.ForAll = dlg.ForAll;
+          if (singleConflictDialog == null)
+          {
+              singleConflictDialog = new ConflictDialog(args.Message);
+          }
+          else
+          {
+              singleConflictDialog.SetConflictDialog(args.Message);
+          }
+
+          singleConflictDialog.ShowDialog();
+          args.Decision = singleConflictDialog.Decision;
+          args.ForAll = singleConflictDialog.ForAll;
       }
 
       void importer_OnMissing(MissingEventArgs args)

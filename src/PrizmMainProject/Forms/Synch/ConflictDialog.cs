@@ -30,6 +30,13 @@ namespace Prizm.Main.Forms.Synch
          lblDesc.Text = msg;
       }
 
+      public void  SetConflictDialog(string msg)
+      {
+          this.decision = ConflictDecision.Undefined;
+          this.chkForAll.Checked = false;
+          lblDesc.Text = msg;
+      }
+
       #region --- Localization ---
 
       protected override List<LocalizedItem> CreateLocalizedItems()
