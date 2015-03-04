@@ -579,7 +579,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             LookUpEdit q = sender as LookUpEdit;
             object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
             PipeTest selectedTest = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PipeTest;
-            if(selectedTest != null)
+            if (selectedTest != null && currentTestResult != null)
                 currentTestResult.Operation = selectedTest;
         }
 
