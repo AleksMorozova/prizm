@@ -574,7 +574,7 @@
     <value>Создание временного хранилища.</value>
   </data>
   <data name="Export_Ready" xml:space="preserve">
-    <value>Экспортирование завершено успешно.</value>
+    <value>Экспортирование завершено успешно. Количество экспортированных элементов:</value>
   </data>
   <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
     <value>Дубликат номера труб</value>

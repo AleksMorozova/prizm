@@ -72,7 +72,7 @@ namespace Prizm.Main.Forms.Synch
          }
 
          SaveFileDialog dlg = new SaveFileDialog();
-         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter)+Resources.prizm;
+         dlg.Filter = Program.LanguageManager.GetString(StringResources.Export_Filter) + Resources.prizm;
 
          if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             return;
@@ -140,7 +140,8 @@ namespace Prizm.Main.Forms.Synch
          {
             log.AppendText(string.Format(Program.LanguageManager.GetString(StringResources.Export_ArchiveExported), DateTime.Now.ToString(), exporter.ArchiveName) + "\n");
             log.AppendText("--------------------------------------------------------------------------------------------\n");
-            log.AppendText(Program.LanguageManager.GetString(StringResources.Export_Ready) + "\n");
+            log.AppendText(Program.LanguageManager.GetString(StringResources.Export_Ready));
+            log.AppendText(string.Concat(" ", Convert.ToString(exporter.ExportedElementCount), "\n"));
          });
       }
 
