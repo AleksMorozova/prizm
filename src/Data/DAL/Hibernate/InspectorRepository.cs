@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Exceptions;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -17,6 +18,22 @@ namespace Prizm.Data.DAL.Hibernate
             : base(session)
         {
 
+        }
+
+        public IList<Inspector> GetAll()
+        {
+            try
+            {
+                var q = session.QueryOver<Inspector>()
+                    .Fetch(x => x.Certificates).Eager
+                    .List<Inspector>();
+                return q;
+                //return session.CreateCriteria<Inspector>().List<Inspector>();
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetAll", ex);
+            }
         }
     }
 }
