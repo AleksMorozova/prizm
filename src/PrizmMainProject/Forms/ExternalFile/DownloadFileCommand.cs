@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.ExternalFile
                 string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
                 if (File.Exists(sourceFile))
                 {
-                    File.Copy(sourceFile, viewModel.SelectedPath);
+                    File.Copy(sourceFile, viewModel.SelectedPath, true);
                     notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadSuccess), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileDownloadHeader));
                 }
             }
