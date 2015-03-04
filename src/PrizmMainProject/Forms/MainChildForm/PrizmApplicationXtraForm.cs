@@ -257,7 +257,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <returns>true if yes, false if no</returns>
         public bool ShowYesNo(string text, string header)
         {
-            return (DialogResult.Yes == XtraMessageBox.Show(text, header, MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+            YesNoDialog dlg = new YesNoDialog(text, header);
+            return dlg.ShowDialog() == DialogResult.Yes;
         }
         /// <summary>
         /// Message that requires user confirmation, denial or operation cancellation (yes/no/cancel)
