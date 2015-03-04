@@ -130,6 +130,7 @@
             // 
             // statuses
             // 
+            this.statuses.CheckOnClick = true;
             this.statuses.Location = new System.Drawing.Point(724, 59);
             this.statuses.Name = "statuses";
             this.statuses.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -140,6 +141,7 @@
             // 
             // testCategories
             // 
+            this.testCategories.CheckOnClick = true;
             this.testCategories.Location = new System.Drawing.Point(418, 59);
             this.testCategories.MultiColumn = true;
             this.testCategories.Name = "testCategories";
