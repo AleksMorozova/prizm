@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Prizm.DatabaseMigrator.Migrations
 {
-    [Migration(20150303)]
-    public class M20150303_AddDateTimePortion : Migration
+    [Migration(20150304)]
+    public class M20150304_AddDateTimePortion : Migration
     {
         public override void Up()
         {
