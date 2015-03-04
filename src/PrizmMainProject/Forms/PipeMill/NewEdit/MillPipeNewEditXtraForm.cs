@@ -728,8 +728,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
             {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowHeatDialog(number);
+                var lookUp = sender as GridLookUpEdit;
+                ShowHeatDialog((lookUp).Text);
+                lookUp.Refresh();
             }
         }
 
@@ -766,8 +767,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
             {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowOrderDialog(number);
+                var lookUp = sender as GridLookUpEdit;
+                ShowOrderDialog(lookUp.Text);
+                lookUp.Refresh();
             }
         }
 
