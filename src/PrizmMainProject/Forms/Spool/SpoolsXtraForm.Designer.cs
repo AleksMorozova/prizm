@@ -244,6 +244,7 @@
             this.inspectorsGridColumn.ColumnEdit = this.inspectorsPopupContainerEdit;
             this.inspectorsGridColumn.FieldName = "Inspectors";
             this.inspectorsGridColumn.Name = "inspectorsGridColumn";
+            this.inspectorsGridColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectorsGridColumn.Visible = true;
             this.inspectorsGridColumn.VisibleIndex = 2;
             // 

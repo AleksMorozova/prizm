@@ -43,7 +43,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.Id = id;
 
             InitializeComponent();
-            
+
             SetControlsTextLength();
 
             viewModel = (ComponentNewEditViewModel)Program
@@ -147,6 +147,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             repositoryInspectionDate.SetLimits();
             componentLength.SetMask(Constants.PositiveDigitMask);
+
+            inspectorColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
         }
 
         private void BindToViewModel()

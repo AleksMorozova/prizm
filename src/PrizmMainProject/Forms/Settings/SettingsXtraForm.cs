@@ -154,6 +154,9 @@ namespace Prizm.Main.Forms.Settings
             externalDocumentSize.SetMask(Constants.PositiveDigitMask);
             pipeDiameter.SetMask(Constants.PositiveDigitMask);
             pipeLength.SetMask(Constants.PositiveDigitMask);
+
+            categoryColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            certificateTypeColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             
         }
 
