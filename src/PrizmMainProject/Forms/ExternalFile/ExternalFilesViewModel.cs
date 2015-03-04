@@ -212,8 +212,13 @@ namespace Prizm.Main.Forms.ExternalFile
                     NewName = kvp.Key
                 };
                 repos.FileRepo.Save(fileEntity);
+
+               if(System.IO.File.Exists(Directories.FilesToAttachFolder + kvp.Key))
+               {
+                   System.IO.File.Delete(Directories.FilesToAttachFolder + kvp.Key);
+               }
            }
-            
+           
            FilesToAttach.Clear();
 
            notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess),
