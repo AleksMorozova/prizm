@@ -1391,4 +1391,7 @@
   <data name="FirstSetup_FormHeader" xml:space="preserve">
     <value>Первичные настройки</value>
   </data>
+  <data name="Import_WrongWorkstationType" xml:space="preserve">
+    <value>На строительство данные должны импортироваться с мастера!</value>
+  </data>
 </root>

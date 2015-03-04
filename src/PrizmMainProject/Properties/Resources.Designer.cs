@@ -879,6 +879,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to На строительство данные должны импортироваться с мастера!.
+        /// </summary>
+        internal static string Import_WrongWorkstationType {
+            get {
+                return ResourceManager.GetString("Import_WrongWorkstationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Импорт.
         /// </summary>
         internal static string ImportForm_Title {

@@ -2529,6 +2529,12 @@ namespace Prizm.Main.Languages
             Id = "Import_ImportButton", 
             Description = "Импорт. Надпись кнопки импорта"};
 
+        public static StringResource Import_WrongWorkstationType = new StringResource
+        {
+            Id = "Import_WrongWorkstationType",
+            Description = "На строительство данные должны импортироваться с мастера!"
+        };
+
         #endregion
 
         #region --- Heat Number Form ---

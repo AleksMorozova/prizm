@@ -2435,3 +2435,6 @@ MissingPortionsDialog_SequenceIsBroken=The imported data sequence is broken. Wor
 
 ;Уже существуют порции с номерами:
 MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exist:
+
+;На строительство данные должны импортироваться с мастера!
+Import_WrongWorkstationType=Data  import is only possible from master!
