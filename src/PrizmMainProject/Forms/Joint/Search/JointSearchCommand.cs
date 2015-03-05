@@ -69,6 +69,9 @@ namespace Prizm.Main.Forms.Joint.Search
                 {
                     viewModel.Joints.Add(item);
                 }
+
+                viewModel.Amount = list.Count();
+                RefreshVisualStateEvent();
             }
         }
 

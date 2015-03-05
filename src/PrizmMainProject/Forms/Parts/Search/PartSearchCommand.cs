@@ -44,6 +44,8 @@ namespace Prizm.Main.Forms.Parts.Search
             }
 
             viewModel.Parts = parts;
+            viewModel.Amount = parts.Count();
+            RefreshVisualStateEvent();
         }
 
         public bool CanExecute()

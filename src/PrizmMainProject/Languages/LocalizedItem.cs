@@ -20,6 +20,7 @@ namespace Prizm.Main.Languages
             LayoutControlItem, 
             GridColumn, 
             LayoutControlGroup,
+            LayoutControlGroupMultipartText,
             BarItem,
             BarItemCustomCaption,
             ProgressPanel, 
@@ -68,6 +69,24 @@ namespace Prizm.Main.Languages
             this.type = ItemType.LayoutControlGroup;
             this.defaultValues = new string[TextsCount] { group.Text };
         }
+
+        public LocalizedItem(DevExpress.XtraLayout.LayoutControlGroup group, List<string> list, string[] resourceIds, Action action = null)
+        {
+            this.resourceIds = new string[resourceIds.Length];
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.resourceIds[index] = resourceIds[index];
+            }
+            this.obj = (object)new Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>(group, list, action);
+            this.type = ItemType.LayoutControlGroupMultipartText;
+            this.defaultValues = new string[resourceIds.Length];
+
+            for (int index = 0; index < resourceIds.Length; index++)
+            {
+                this.defaultValues[index] = (index == 0) ? group.Text : "";
+            }
+        }
+
 
         public LocalizedItem(DevExpress.XtraBars.BarItem item, string resourceId)
         {
@@ -271,6 +290,13 @@ namespace Prizm.Main.Languages
                     case ItemType.LayoutControlGroup:
                         ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text = value;
                         break;
+                    case ItemType.LayoutControlGroupMultipartText:
+                        Action action = ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item3;
+                        if (action != null)
+                        {
+                            action();
+                        }
+                        break;
                     case ItemType.BarItem:
                         ((DevExpress.XtraBars.BarItem)obj).Caption = value;
                         break;
@@ -287,7 +313,15 @@ namespace Prizm.Main.Languages
         {
             set
             {
-                if (Count < 2)
+                if (type == ItemType.LayoutControlGroupMultipartText)
+                {
+                    var list = ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item2;
+                    if (index < list.Count)
+                    {
+                        list[index] = value;
+                    }
+                }
+                else if (Count < 2)
                 {
                     Text = value;
                 }
@@ -431,6 +465,9 @@ namespace Prizm.Main.Languages
                     break;
                 case ItemType.LayoutControlGroup:
                     // ??
+                    break;
+                case ItemType.LayoutControlGroupMultipartText:
+                    ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item3.Invoke();
                     break;
                 case ItemType.BarItem:
                     ((DevExpress.XtraBars.BarItem)obj).Refresh();

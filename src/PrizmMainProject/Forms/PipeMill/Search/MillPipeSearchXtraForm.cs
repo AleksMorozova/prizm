@@ -22,6 +22,15 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private MillPipeSearchViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
 
+        List<string> localizedSearchResultGroup = new List<string>();
+
+        void UpdateNumberOfFoundItems()
+        {
+            searchResultLayoutGroup.Text = localizedSearchResultGroup[0];
+            searchResultLayoutGroup.Text += ": " + viewModel.Amount;
+        }
+
+
         public MillPipeSearchXtraForm()
         {
             InitializeComponent();
@@ -72,6 +81,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            viewModel.SearchCommand.RefreshVisualStateEvent += UpdateNumberOfFoundItems;
         }
 
         private void MillPipeSearchXtraForm_Load(object sender, System.EventArgs e)
@@ -89,6 +99,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             weldingDate.SetLimits();
             externalCoatingDate.SetLimits();
             internalCoatingDate.SetLimits();
+            localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
         }
 
         #region --- Localization ---
@@ -136,8 +147,9 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 new LocalizedItem(statusSearchGridColumn, StringResources.SearchPipe_PipeStatusColumn.Id),
 
                 // layout control groups
+                new LocalizedItem(searchResultLayoutGroup, localizedSearchResultGroup, new string[] 
+                                {StringResources.SearchPipe_ResultGroup.Id}, UpdateNumberOfFoundItems),
                 new LocalizedItem(searchLayoutGroup, StringResources.SearchPipe_SearchGroup.Id),
-                new LocalizedItem(searchResultLayoutGroup, StringResources.SearchPipe_ResultGroup.Id),
 
                 // one-way by-column transformation statuses.
                 // See grid's CustomColumnDisplayText for all grid's columns, to understand the connection.

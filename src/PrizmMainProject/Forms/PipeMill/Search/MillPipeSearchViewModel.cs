@@ -23,6 +23,7 @@ using Prizm.Main.Properties;
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
     {
+        
         private readonly IUserNotify notify;
         readonly ICommand searchCommand;
 
@@ -52,6 +53,19 @@ using Prizm.Main.Properties;
             checkedPipeTypes = repoMill.RepoPipeType.GetAll();
 
             LoadStatuses();
+        }
+        private int amount=0;
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                if (value != amount)
+                {
+                    amount = value;
+                    RaisePropertyChanged("Amount");
+                }
+            }
         }
 
         #region Properties

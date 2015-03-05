@@ -44,6 +44,20 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             }
         }
 
+        private int amount = 0;
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                if (value != amount)
+                {
+                    amount = value;
+                    RaisePropertyChanged("Amount");
+                }
+            }
+        }
+
         #region Search Fields
 
         private string releaseNoteNumber = "";

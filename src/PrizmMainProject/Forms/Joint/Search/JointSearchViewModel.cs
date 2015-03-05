@@ -32,6 +32,20 @@ namespace Prizm.Main.Forms.Joint.Search
 
         #region BindingFields
 
+        private int amount = 0;
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                if (value != amount)
+                {
+                    amount = value;
+                    RaisePropertyChanged("Amount");
+                }
+            }
+        }
+
         private ActivityCriteria activity;
         public ActivityCriteria Activity
         {

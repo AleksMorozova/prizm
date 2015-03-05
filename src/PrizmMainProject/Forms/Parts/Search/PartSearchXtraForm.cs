@@ -30,6 +30,13 @@ namespace Prizm.Main.Forms.Parts.Search
         ICommandManager commandManager = new CommandManager();
         private List<string> localizedPartTypes = new List<string>();
 
+        List<string> localizedSearchResultGroup = new List<string>();
+
+        void UpdateNumberOfFoundItems()
+        {
+            searchResultLayoutGroup.Text = localizedSearchResultGroup[0];
+            searchResultLayoutGroup.Text += ": " + viewModel.Amount;
+        }
         public PartSearchXtraForm()
         {
             InitializeComponent();
@@ -47,6 +54,7 @@ namespace Prizm.Main.Forms.Parts.Search
                 localizedPartTypes.Add(item.Item2);
             }
             RefreshTypes();
+            localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
         }
 
         private void BindToViewModel()
@@ -67,6 +75,7 @@ namespace Prizm.Main.Forms.Parts.Search
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            viewModel.SearchCommand.RefreshVisualStateEvent += UpdateNumberOfFoundItems;
         }
 
         #region --- Localization ---
@@ -91,8 +100,8 @@ namespace Prizm.Main.Forms.Parts.Search
 
                 // layout control groups
                 new LocalizedItem(searchLayoutControlGroup, StringResources.PartSearch_SearchGroup.Id),
-                new LocalizedItem(searchResultLayoutGroup, StringResources.PartSearch_SearchResultGroup.Id),
-
+                new LocalizedItem(searchResultLayoutGroup, localizedSearchResultGroup, new string[] 
+                                {StringResources.PartSearch_SearchResultGroup.Id}, UpdateNumberOfFoundItems),
                 //grid column with enum
                 new LocalizedItem(partsView, localizedPartTypes, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id}),
                 // form
