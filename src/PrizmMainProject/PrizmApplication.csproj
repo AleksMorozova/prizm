@@ -217,14 +217,6 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Documents\IValidatable.cs" />
-    <Compile Include="DummyData\ComponentryDummy.cs" />
-    <Compile Include="DummyData\InspectionDummy.cs" />
-    <Compile Include="DummyData\JointsDummy.cs" />
-    <Compile Include="DummyData\PipesDummy.cs" />
-    <Compile Include="DummyData\RailcarsDummy.cs" />
-    <Compile Include="DummyData\RolesDummy.cs" />
-    <Compile Include="DummyData\UsersDummy.cs" />
-    <Compile Include="DummyData\WeldersDummy.cs" />
     <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
     <Compile Include="Forms\Audit\AuditViewModel.cs" />
     <Compile Include="Forms\Audit\AuditXtraForm.cs">
@@ -906,7 +898,6 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

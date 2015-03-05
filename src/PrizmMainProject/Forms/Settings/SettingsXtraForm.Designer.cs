@@ -1758,10 +1758,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
             this.inspectionOperation.DoubleClick += new System.EventHandler(this.inspectionOperation_DoubleClick);
-            // 
-            // inspectionBindingSource
-            // 
-            this.inspectionBindingSource.DataSource = typeof(Prizm.Main.DummyData.InspectionDummy);
+
             // 
             // inspectionView
             // 
@@ -2705,18 +2702,7 @@ namespace Prizm.Main.Forms.Settings
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.editItem.Name = "editItem";
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
-            // 
-            // roleBindingSource
-            // 
-            this.roleBindingSource.DataSource = typeof(Prizm.Main.DummyData.Role);
-            // 
-            // jointOperationsBindingSource
-            // 
-            this.jointOperationsBindingSource.DataSource = typeof(Prizm.Main.DummyData.User);
+
             // 
             // SettingsXtraForm
             // 

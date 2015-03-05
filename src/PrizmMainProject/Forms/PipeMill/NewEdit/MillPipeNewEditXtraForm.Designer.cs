@@ -473,10 +473,7 @@
             this.inspections.TabIndex = 25;
             this.inspections.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionsGridView});
-            // 
-            // inspectionOperation
-            // 
-            this.inspectionOperation.DataSource = typeof(Prizm.Main.DummyData.InspectionDummy);
+
             // 
             // inspectionsGridView
             // 
@@ -1593,10 +1590,7 @@
             this.certificateEmptySpace.Size = new System.Drawing.Size(33, 50);
             this.certificateEmptySpace.Text = "certificateEmptySpace";
             this.certificateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // weldingDs
-            // 
-            this.weldingDs.DataSource = typeof(Prizm.Main.DummyData.WeldersDummy);
+
             // 
             // workspaceManager
             // 
