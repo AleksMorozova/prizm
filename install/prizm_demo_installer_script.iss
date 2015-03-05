@@ -530,6 +530,7 @@ begin
 
   NewProductName := TNewEdit.Create(NewProductPage);
   NewProductName.Top := StaticText1.Top + StaticText1.Height + ScaleY(1);
+  NewProductName.MaxLength :=50;
   NewProductName.Width := NewProductPage.SurfaceWidth;
   NewProductName.Text := '';
   NewProductName.Parent := NewProductPage.Surface;

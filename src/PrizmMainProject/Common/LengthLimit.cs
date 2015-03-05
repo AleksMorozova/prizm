@@ -125,7 +125,7 @@ namespace Prizm.Main.Common
         #region ProjectLimits
         public const int MaxProjectClient = 100;
         public const int MaxProjectMillName = 100;
-        public const int MaxProjectTitle = 20;
+        public const int MaxProjectTitle = 50;
         #endregion ProjectLimits
 
         public const int MaxAuditlogUser = 50;
