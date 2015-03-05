@@ -2071,6 +2071,12 @@ InspectionAddEdit_SaveButton=Save
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
 
+;Сообщение об ошибке: Уже существует операция с номером:
+Inspection_ExistingCodeError=There is an existing operation with number:
+
+;Заголовок сообщения о дублировании кода: Дублирование кода контрольной операции
+Inspection_ExistingCodeErrorHeader=Operation number duplicating
+
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DublicateLogin_Critical = User logins duplicating
 
