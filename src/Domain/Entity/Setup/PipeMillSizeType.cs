@@ -13,7 +13,6 @@ namespace Prizm.Domain.Entity.Setup
         public PipeMillSizeType()
         {
             PipeTests = new List<PipeTest>();
-            Pipes = new List<Pipe>();
         }
         public virtual string Type { get; set; }
         public virtual int Length { get; set; }
@@ -26,7 +25,6 @@ namespace Prizm.Domain.Entity.Setup
 
 
         public virtual IList<PipeTest> PipeTests { get; set; }
-        public virtual IList<Pipe> Pipes { get; set; }
 
         public override string ToString()
         {
