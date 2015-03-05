@@ -1391,4 +1391,7 @@
   <data name="FirstSetup_FormHeader" xml:space="preserve">
     <value>Первичные настройки</value>
   </data>
+  <data name="Import_WrongWorkstationType" xml:space="preserve">
+    <value>Невозможно импортировать данные. Импортируемый файл был создан не на мастере.</value>
+  </data>
 </root>

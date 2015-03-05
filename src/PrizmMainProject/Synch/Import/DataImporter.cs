@@ -106,6 +106,8 @@ namespace Prizm.Main.Synch.Import
 
             importRepo.PipeRepo.BeginTransaction();
 
+            CheckWorkstationType(manifest.WorkstationType);
+
             CheckPortion(manifest.PortionID);
 
             Project project = ImportProject(data.Project);
@@ -138,7 +140,18 @@ namespace Prizm.Main.Synch.Import
                 log.Error(ex.Message);
                 throw ex;
             }
+        }
 
+        void CheckWorkstationType(WorkstationType workstationType)
+        { 
+            var project = importRepo.ProjectRepo.GetSingle();
+            if (project.WorkstationType == WorkstationType.Construction 
+                && workstationType != WorkstationType.Master)
+            {
+                var ex = new ImportException(Program.LanguageManager.GetString(StringResources.Import_WrongWorkstationType));
+                log.Error(ex.Message);
+                throw ex;
+            }
         }
 
         /// <summary>

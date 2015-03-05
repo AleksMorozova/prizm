@@ -2435,3 +2435,6 @@ MissingPortionsDialog_SequenceIsBroken=The imported data sequence is broken. Wor
 
 ;Уже существуют порции с номерами:
 MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exist:
+
+;Невозможно импортировать данные. Импортируемый файл был создан не на мастере.
+Import_WrongWorkstationType=Could not import data because importing file was created not at Maste.
