@@ -32,27 +32,21 @@ namespace Prizm.Main.Forms.ExternalFile
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (CanExecute())
+
+            string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
+            string tempFile = Path.Combine(Directories.TargetPathForView, Guid.NewGuid() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
+
+            if(!Directory.Exists(Directories.TargetPathForView))
             {
-                string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
-                string tempFile = Path.Combine(Directories.TargetPathForView, Guid.NewGuid() + viewModel.SelectedFile.FileName.Substring(viewModel.SelectedFile.FileName.LastIndexOf('.')));
-
-                if (!Directory.Exists(Directories.TargetPathForView))
-                {
-                    Directory.CreateDirectory(Directories.TargetPathForView);
-                    DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPathForView);
-                    directoryInfo.Attributes |= FileAttributes.Hidden;
-                }
-
-                if (File.Exists(sourceFile))
-                {
-                    File.Copy(sourceFile, tempFile);
-                    System.Diagnostics.Process.Start(tempFile);
-                }
+                Directory.CreateDirectory(Directories.TargetPathForView);
+                DirectoryInfo directoryInfo = new DirectoryInfo(Directories.TargetPathForView);
+                directoryInfo.Attributes |= FileAttributes.Hidden;
             }
-            else
+
+            if(File.Exists(sourceFile))
             {
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFail), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileViewDownloadFailHeader));
+                File.Copy(sourceFile, tempFile);
+                System.Diagnostics.Process.Start(tempFile);
             }
         }
 
