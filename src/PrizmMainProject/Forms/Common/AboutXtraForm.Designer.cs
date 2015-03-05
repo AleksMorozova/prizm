@@ -95,6 +95,7 @@
             this.Controls.Add(this.labelVersion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutXtraForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
             this.Load += new System.EventHandler(this.AboutXtraForm_Load);
