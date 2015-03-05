@@ -21,7 +21,6 @@ namespace Prizm.Data.DAL.Mapping
             References(x => x.SeamType).Column("seamTypeId").Cascade.SaveUpdate();
             References(x => x.Project).Column("projectId");
 
-            HasMany(x => x.Pipes).KeyColumn("typeId");
             HasMany(_ => _.PipeTests).KeyColumn("pipeMillSizeTypeId").Cascade.All().Inverse().Not.LazyLoad();
         }
     }
