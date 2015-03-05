@@ -3,6 +3,7 @@
 namespace Prizm.Domain.Entity
 {
     // TODO: Name convert Funtion (property)
+    [Serializable()]
     public class PersonName : Item
     {
         public virtual string FirstName { get; set; }

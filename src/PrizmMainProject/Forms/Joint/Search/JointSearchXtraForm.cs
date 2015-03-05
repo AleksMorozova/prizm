@@ -6,7 +6,6 @@ using Ninject;
 using Ninject.Parameters;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
-using Prizm.Main.DummyData;
 using Prizm.Main.Forms.Joint.NewEdit;
 using Prizm.Main.Forms.MainChildForm;
 using System;

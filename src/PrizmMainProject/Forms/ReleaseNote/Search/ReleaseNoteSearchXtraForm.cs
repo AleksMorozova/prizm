@@ -13,7 +13,6 @@ using System.Windows.Forms;
 using Prizm.Main.Forms.ReleaseNote.NewEdit;
 using Prizm.Main.Forms.MainChildForm;
 
-using Prizm.Main.DummyData;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Languages;

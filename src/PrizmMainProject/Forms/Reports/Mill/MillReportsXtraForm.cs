@@ -5,7 +5,6 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
 
-using Prizm.Main.DummyData;
 using Prizm.Main.Forms.MainChildForm;
 using DevExpress.XtraReports.Parameters;
 using System.Data.SqlClient;

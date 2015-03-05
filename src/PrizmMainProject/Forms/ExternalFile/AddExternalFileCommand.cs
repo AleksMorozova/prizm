@@ -34,8 +34,7 @@ namespace Prizm.Main.Forms.ExternalFile
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (CanExecute())
-            {
+
                 if (!Directory.Exists(Directories.TargetPath))
                 {
                     Directory.CreateDirectory(Directories.TargetPath);
@@ -75,7 +74,7 @@ namespace Prizm.Main.Forms.ExternalFile
 
                 Directory.Delete(Directories.FilesToAttachFolder, true);
                 notify.ShowNotify(Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccess), Program.LanguageManager.GetString(StringResources.ExternalFiles_FileAttachSuccessHeader));
-            }
+            
         }
 
         public bool CanExecute()

@@ -27,10 +27,6 @@ namespace Prizm.Main.Forms.MainChildForm
 
         #endregion
 
-        public enum SplashScreenCommand
-        {
-        }
-
         #region --- Localization ---
 
         private List<LocalizedItem> localizedItems = null;
