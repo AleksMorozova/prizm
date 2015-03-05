@@ -75,8 +75,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
-            firstJointElement.SetAsIdentifier();
-            secondJointElement.SetAsIdentifier();
+            firstJointElement.SetAsJointElement();
+            secondJointElement.SetAsJointElement();
             attachmentsButton.Enabled = true;
             #endregion
         }
@@ -222,6 +222,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             PKNumber.SetMask(Constants.PositiveDigitMask);
             distanceFromPK.SetMask(Constants.PositiveDigitMask);
+
+            weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
         }
 
         #region --- Localization ---
@@ -394,11 +397,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             var selectedOperationWeld = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as JointOperation;
             var focusedJointWeldResult = repairOperationsView.GetFocusedRow() as JointWeldResult;
 
-            if (selectedOperationWeld != null && focusedJointWeldResult != null)
+            if(selectedOperationWeld != null && focusedJointWeldResult != null)
             {
                 focusedJointWeldResult.Operation = selectedOperationWeld;
 
-                if (selectedOperationWeld.Type != JointOperationType.Weld)
+                if(selectedOperationWeld.Type != JointOperationType.Weld)
                 {
                     focusedJointWeldResult.Welders = new BindingList<Welder>();
                 }

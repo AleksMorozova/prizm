@@ -73,7 +73,7 @@
             this.colLastName.Name = "colLastName";
             this.colLastName.OptionsColumn.ReadOnly = true;
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 1;
+            this.colLastName.VisibleIndex = 3;
             // 
             // colFirstName
             // 
@@ -82,7 +82,7 @@
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.OptionsColumn.ReadOnly = true;
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 2;
+            this.colFirstName.VisibleIndex = 1;
             // 
             // colMiddleName
             // 
@@ -91,7 +91,7 @@
             this.colMiddleName.Name = "colMiddleName";
             this.colMiddleName.OptionsColumn.ReadOnly = true;
             this.colMiddleName.Visible = true;
-            this.colMiddleName.VisibleIndex = 3;
+            this.colMiddleName.VisibleIndex = 2;
             // 
             // WeldersSelectionControl
             // 

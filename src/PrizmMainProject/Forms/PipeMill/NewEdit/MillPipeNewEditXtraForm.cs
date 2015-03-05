@@ -151,6 +151,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             pipeCreationDate.SetLimits();
             repositoryCoatingDate.SetLimits();
             repositoryWeldingDate.SetLimits();
+
+            weldersGridColumn.SortMode = ColumnSortMode.DisplayText;
         }
 
         private void BindToViewModel()
@@ -577,7 +579,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             LookUpEdit q = sender as LookUpEdit;
             object row = q.Properties.GetDataSourceRowByKeyValue(q.EditValue);
             PipeTest selectedTest = q.Properties.GetDataSourceRowByKeyValue(q.EditValue) as PipeTest;
-            if(selectedTest != null)
+            if (selectedTest != null && currentTestResult != null)
                 currentTestResult.Operation = selectedTest;
         }
 
@@ -726,8 +728,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
             {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowHeatDialog(number);
+                var lookUp = sender as GridLookUpEdit;
+                ShowHeatDialog((lookUp).Text);
+                lookUp.Refresh();
             }
         }
 
@@ -764,8 +767,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis)
             {
-                var number = ((GridLookUpEdit)sender).Text;
-                ShowOrderDialog(number);
+                var lookUp = sender as GridLookUpEdit;
+                ShowOrderDialog(lookUp.Text);
+                lookUp.Refresh();
             }
         }
 

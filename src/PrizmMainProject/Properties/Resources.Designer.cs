@@ -589,7 +589,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Экспортирование завершено успешно..
+        ///   Looks up a localized string similar to Экспортирование завершено успешно. Количество экспортированных элементов:.
         /// </summary>
         internal static string Export_Ready {
             get {
@@ -702,6 +702,15 @@ namespace Prizm.Main.Properties {
         internal static string ExternalFilesXtraForm_Title {
             get {
                 return ResourceManager.GetString("ExternalFilesXtraForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Первичные настройки.
+        /// </summary>
+        internal static string FirstSetup_FormHeader {
+            get {
+                return ResourceManager.GetString("FirstSetup_FormHeader", resourceCulture);
             }
         }
         
@@ -2652,15 +2661,6 @@ namespace Prizm.Main.Properties {
         internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcar {
             get {
                 return ResourceManager.GetString("ReleaseNoteNewEdit_DifferentTypeSizeInRailcar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to В вагоне.
-        /// </summary>
-        internal static string ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended {
-            get {
-                return ResourceManager.GetString("ReleaseNoteNewEdit_DifferentTypeSizeInRailcarExtended", resourceCulture);
             }
         }
         
