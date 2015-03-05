@@ -9,9 +9,16 @@ namespace Prizm.Main.Common
 {
     public static class Directories
     {
-        public static string FilesToAttachFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data\\Attachments\\FilesToAttach\\");
-        public static string TargetPath = Path.Combine(Directory.GetCurrentDirectory(), "Data\\Attachments\\");
-        public static string TargetPathForView = Path.Combine(Directory.GetCurrentDirectory(), "Data\\Attachments\\tmp\\");
+        //path constants
+        public const string DataDirName = "Data";
+        public const string AttachDirName = "Attachments";
+        public const string TmpDirName = "tmp";
+        public const string FilesToAttachDirName = "FilesToAttach";
+        public const string EndPath = "\\";
+
+        public static string FilesToAttachFolder = Path.Combine(Directory.GetCurrentDirectory(), DataDirName, AttachDirName, FilesToAttachDirName) + EndPath;
+        public static string TargetPath = Path.Combine(Directory.GetCurrentDirectory(), DataDirName, AttachDirName) + EndPath;
+        public static string TargetPathForView = Path.Combine(Directory.GetCurrentDirectory(), DataDirName, AttachDirName, TmpDirName) + EndPath;
 
         public const string LanguagesFolderName = "Languages";
         public const string BaseLanguageFileName = "Strings";
