@@ -155,6 +155,7 @@
             // 
             this.status.Location = new System.Drawing.Point(32, 466);
             this.status.Name = "status";
+            this.status.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.status.Size = new System.Drawing.Size(325, 20);
