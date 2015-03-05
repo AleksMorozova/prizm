@@ -42,7 +42,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             }
 
 
-            number.SetAsIdentifier();
+            number.SetAsLookUpIdentifier();
         }
 
         #region --- Localization ---
