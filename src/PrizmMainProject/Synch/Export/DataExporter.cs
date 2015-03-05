@@ -169,14 +169,17 @@ namespace Prizm.Main.Synch.Export
          foreach (var att in attachments)
          {
             string destFile = Path.Combine(tempDir, "Attachments", att.NewName);
-            System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
-            using (FileStream fs = new FileStream(destFile, FileMode.Open))
+            if (!System.IO.File.Exists(destFile))
             {
-               byte[] bytes = new byte[fs.Length];
-               fs.Read(bytes, 0, bytes.Length);
-               fs.Close();
+                System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
+                using (FileStream fs = new FileStream(destFile, FileMode.Open))
+                {
+                    byte[] bytes = new byte[fs.Length];
+                    fs.Read(bytes, 0, bytes.Length);
+                    fs.Close();
 
-               System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
+                    System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
+                }
             }
          }
       }
