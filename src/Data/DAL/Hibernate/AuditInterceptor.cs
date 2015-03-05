@@ -10,7 +10,7 @@ using Prizm.Domain.Entity;
 namespace Prizm.Data.DAL.Hibernate
 {
     [Serializable]
-    public class AuditInterceptor : EmptyInterceptor
+    public class AuditInterceptor : EmptyInterceptor, IDisposable
     {
         private IAuditLogRepository repo;
         private PersonName currentUser;
@@ -150,5 +150,14 @@ namespace Prizm.Data.DAL.Hibernate
                 }
             }
         }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            repo.Dispose();
+        }
+
+        #endregion
     }
 }
