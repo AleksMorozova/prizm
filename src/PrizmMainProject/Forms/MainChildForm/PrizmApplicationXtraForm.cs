@@ -262,6 +262,8 @@ namespace Prizm.Main.Forms.MainChildForm
         }
         /// <summary>
         /// Message that requires user confirmation, denial or operation cancellation (yes/no/cancel)
+        /// Now is not used. In case of using to avoid problems with localization it is better to
+        /// create own dialog form, similar to YesNoDialog
         /// </summary>
         /// <param name="text">message body</param>
         /// <param name="header">message header</param>
