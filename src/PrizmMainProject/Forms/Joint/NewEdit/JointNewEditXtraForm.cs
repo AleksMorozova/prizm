@@ -75,8 +75,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
-            firstJointElement.SetAsJointElement();
-            secondJointElement.SetAsJointElement();
+            firstJointElement.SetAsLookUpIdentifier();
+            secondJointElement.SetAsLookUpIdentifier();
             attachmentsButton.Enabled = true;
             #endregion
         }

@@ -43,8 +43,8 @@ namespace Prizm.Main.Forms.Spool
             SetControlsTextLength();
             viewModel = (SpoolViewModel)Program.Kernel.Get<SpoolViewModel>(new ConstructorArgument("id", id));
             viewModel.ModifiableView = this;
-            pipeNumber.SetAsIdentifier();
-            spoolNumber.SetAsIdentifier();
+            pipeNumber.SetAsLookUpIdentifier();
+            spoolNumber.SetAsLookUpIdentifier();
             if(number != string.Empty)
             {
                 viewModel.SpoolNumber = number;

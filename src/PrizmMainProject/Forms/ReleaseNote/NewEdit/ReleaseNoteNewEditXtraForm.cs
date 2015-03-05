@@ -54,9 +54,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.releaseNoteNumber.SetRequiredText();
             SetControlsTextLength();
             this.certificateNumber.SetAsIdentifier();
-            this.pipeNumberLookUp.SetAsIdentifier();
+            this.pipeNumberLookUp.SetAsLookUpIdentifier();
             this.releaseNoteNumber.SetAsIdentifier();
-            this.railcarNumber.SetAsIdentifier();
+            this.railcarNumber.SetAsLookUpIdentifier();
 
             SetAlwaysReadOnly(textEditReleaseNoteStatus);
             IsEditMode = true; //do not remove until IsEditMode logic is changed
