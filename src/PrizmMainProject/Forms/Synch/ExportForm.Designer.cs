@@ -86,7 +86,9 @@
             this.progressPanel.AppearanceDescription.Options.UseFont = true;
             this.progressPanel.Caption = "Пожалуйста подождите";
             this.progressPanel.Description = "Экспорт данных...";
-            this.progressPanel.Location = new System.Drawing.Point(11, 457);
+            this.progressPanel.Location = new System.Drawing.Point(12, 457);
+            this.progressPanel.LookAndFeel.SkinName = "Visual Studio 2013 Blue";
+            this.progressPanel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(246, 40);
             this.progressPanel.TabIndex = 3;
@@ -109,7 +111,8 @@
             this.log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.log.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.log.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.log.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.log.Location = new System.Drawing.Point(12, 26);
             this.log.Name = "log";
             this.log.ReadOnly = true;
