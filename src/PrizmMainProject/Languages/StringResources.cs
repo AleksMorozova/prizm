@@ -2532,7 +2532,7 @@ namespace Prizm.Main.Languages
         public static StringResource Import_WrongWorkstationType = new StringResource
         {
             Id = "Import_WrongWorkstationType",
-            Description = "На строительство данные должны импортироваться с мастера!"
+            Description = "Невозможно импортировать данные. Импортируемый файл был создан не на мастере."
         };
 
         #endregion

@@ -1392,6 +1392,6 @@
     <value>Первичные настройки</value>
   </data>
   <data name="Import_WrongWorkstationType" xml:space="preserve">
-    <value>На строительство данные должны импортироваться с мастера!</value>
+    <value>Невозможно импортировать данные. Импортируемый файл был создан не на мастере.</value>
   </data>
 </root>

@@ -879,7 +879,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to На строительство данные должны импортироваться с мастера!.
+        ///   Looks up a localized string similar to Невозможно импортировать данные. Импортируемый файл был создан не на мастере..
         /// </summary>
         internal static string Import_WrongWorkstationType {
             get {
