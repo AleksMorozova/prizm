@@ -30,6 +30,21 @@ namespace Prizm.Main.Forms.Parts.Search
             searchCommand = ViewModelSource.Create(() => new PartsSearchCommand(this, session));
             LoadStatuses();
         }
+
+        private int amount = 0;
+        public int Amount
+        {
+            get { return amount; }
+            set
+            {
+                if (value != amount)
+                {
+                    amount = value;
+                    RaisePropertyChanged("Amount");
+                }
+            }
+        }
+
         private ActivityCriteria activity;
         public ActivityCriteria Activity
         {

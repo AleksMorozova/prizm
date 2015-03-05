@@ -25,6 +25,13 @@ namespace Prizm.Main.Forms.Joint.Search
         private JointSearchViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
         private List<string> localizedJointStatuses = new List<string>();
+        List<string> localizedSearchResultGroup = new List<string>();
+
+        void UpdateNumberOfFoundItems()
+        {
+            searchResultLayoutGroup.Text = localizedSearchResultGroup[0];
+            searchResultLayoutGroup.Text += ": " + viewModel.Amount;
+        }
 
         [Inject]
         public JointSearchXtraForm(JointSearchViewModel vm)
@@ -58,6 +65,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
             weldingDateFrom.SetLimits();
             weldingDateTo.SetLimits();
+            localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
         }
 
         private void BindToViewModel()
@@ -75,6 +83,7 @@ namespace Prizm.Main.Forms.Joint.Search
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
+            viewModel.SearchCommand.RefreshVisualStateEvent += UpdateNumberOfFoundItems;
         }
 
         private void controlState_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
@@ -115,7 +124,8 @@ namespace Prizm.Main.Forms.Joint.Search
                 new LocalizedItem(activityLayout, StringResources.JointSearch_ActivityLayout.Id),
                 new LocalizedItem(searchLayoutGroup, StringResources.JointSearch_SearchLayoutGroup.Id),
                 new LocalizedItem(searchButton, StringResources.JointSearch_SearchButton.Id),
-                new LocalizedItem(searchResultLayoutGroup, StringResources.JointSearch_SearchResultLayoutGroup.Id),
+                new LocalizedItem(searchResultLayoutGroup, localizedSearchResultGroup, new string[] 
+                                {StringResources.JointSearch_SearchResultLayoutGroup.Id}, UpdateNumberOfFoundItems),
                 new LocalizedItem(jointNumberGridColumn, StringResources.JointSearch_JointNumberGridColumn.Id),
                 new LocalizedItem(statusLocalizedCol, StringResources.JointSearch_JoinStatusGridColumn.Id),
                 new LocalizedItem(numberKPCol, StringResources.JointSearch_NumberKPCol.Id),

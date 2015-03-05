@@ -27,6 +27,13 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class ReleaseNoteSearchXtraForm : ChildForm
     {
+        List<string> localizedSearchResultGroup = new List<string>();
+
+        void UpdateNumberOfFoundItems()
+        {
+            resultParametersLayoutGroup.Text = localizedSearchResultGroup[0];
+            resultParametersLayoutGroup.Text += ": " + viewModel.Amount;
+        }
         private ICommandManager commandManager = new CommandManager();
         private ReleaseNoteSearchViewModel viewModel;
         private List<string> localizedAllShipStatus = new List<string>() { "unshipped", "shipped" };
@@ -50,6 +57,8 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
 
             startDate.SetLimits();
             endDate.SetLimits();
+
+            localizedSearchResultGroup.Add(resultParametersLayoutGroup.Text);
         }
 
         private void BindToViewModel()
@@ -72,6 +81,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(searchButton);
             viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            viewModel.SearchCommand.RefreshVisualStateEvent += UpdateNumberOfFoundItems;
         }
 
         #region --- Localization ---
@@ -99,7 +109,8 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
 
                 // layout control groups
                 new LocalizedItem(searchParametersLayoutGroup, StringResources.ReleaseSearch_SearchGroup.Id),
-                new LocalizedItem(resultParametersLayoutGroup, StringResources.ReleaseSearch_ResultGroup.Id),
+                new LocalizedItem(resultParametersLayoutGroup, localizedSearchResultGroup, new string[] 
+                                {StringResources.ReleaseSearch_ResultGroup.Id}, UpdateNumberOfFoundItems),
 
                 new LocalizedItem( railcarListView, localizedAllShipStatus,
                         new string [] {StringResources.ReleaseNoteNewEdit_PendingStatus.Id, StringResources.ReleaseNoteNewEdit_ShippedStatus.Id }),

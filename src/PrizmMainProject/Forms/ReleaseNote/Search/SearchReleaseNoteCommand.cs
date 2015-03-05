@@ -91,7 +91,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
                     }
 
                     viewModel.Projection = new BindingList<ReleaseNoteProjection>(projList);
-
+                    viewModel.Amount = viewModel.Projection.Count();
                     RefreshVisualStateEvent();
                 }
                 catch (RepositoryException ex)

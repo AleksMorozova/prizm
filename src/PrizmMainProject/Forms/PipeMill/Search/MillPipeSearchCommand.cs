@@ -22,7 +22,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         private readonly IPipeRepository repo;
         private readonly MillPipeSearchViewModel viewModel;
         private readonly IUserNotify notify;
-
+        
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public MillPipeSearchCommand(
@@ -63,6 +63,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 }
 
                 viewModel.Pipes = pipes;
+                viewModel.Amount = pipes.Count;
+                RefreshVisualStateEvent();
             }
             catch (RepositoryException ex)
             {
