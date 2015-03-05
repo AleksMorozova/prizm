@@ -122,10 +122,10 @@ namespace Prizm.Main.Forms.Spool
                             }
 
                             viewModel.ModifiableView.IsModified = false;
-                            viewModel.ModifiableView.Id = viewModel.Spool.Id;
 
                             string oldPipeNumber = viewModel.Pipe.Number;
                             viewModel.NewSpool();
+                            viewModel.ModifiableView.Id = viewModel.Spool.Id;
                             viewModel.PipeNumber = oldPipeNumber;
                             RefreshVisualStateEvent();
                         }
