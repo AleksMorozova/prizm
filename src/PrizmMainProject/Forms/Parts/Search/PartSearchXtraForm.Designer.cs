@@ -99,8 +99,9 @@
             this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(679, 63);
+            this.searchButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(86, 22);
+            this.searchButton.Size = new System.Drawing.Size(110, 22);
             this.searchButton.StyleController = this.mainLayoutControl;
             this.searchButton.TabIndex = 7;
             this.searchButton.Text = "&Поиск";
@@ -230,9 +231,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(759, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(783, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(454, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(430, 45);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -242,7 +243,7 @@
             this.searchBtnLayoutControl.CustomizationFormText = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.Location = new System.Drawing.Point(649, 0);
             this.searchBtnLayoutControl.Name = "searchBtnLayoutControl";
-            this.searchBtnLayoutControl.Size = new System.Drawing.Size(110, 45);
+            this.searchBtnLayoutControl.Size = new System.Drawing.Size(134, 45);
             this.searchBtnLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 15, 0);
             this.searchBtnLayoutControl.Text = "searchBtnLayoutControl";
             this.searchBtnLayoutControl.TextSize = new System.Drawing.Size(0, 0);
