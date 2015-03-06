@@ -81,6 +81,7 @@
             this.jointCutDialogLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jointCutDialogLayout.Location = new System.Drawing.Point(0, 0);
             this.jointCutDialogLayout.Name = "jointCutDialogLayout";
+            this.jointCutDialogLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(639, 28, 250, 350);
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
