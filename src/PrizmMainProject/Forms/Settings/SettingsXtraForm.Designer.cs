@@ -1454,8 +1454,8 @@ namespace Prizm.Main.Forms.Settings
             this.externalDocumentSize.Location = new System.Drawing.Point(59, 445);
             this.externalDocumentSize.Name = "externalDocumentSize";
             this.externalDocumentSize.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.externalDocumentSize.Properties.Mask.EditMask = "d";
-            this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.externalDocumentSize.Properties.Mask.EditMask = "\\d\\d\\d\\d";
+            this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.externalDocumentSize.Properties.Mask.SaveLiteral = false;
             this.externalDocumentSize.Properties.Mask.ShowPlaceHolders = false;
             this.externalDocumentSize.Size = new System.Drawing.Size(368, 20);
