@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraJointButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -63,7 +64,7 @@
             this.controlStateLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.activityLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusLabel = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.extraJointButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLayoutControl)).BeginInit();
@@ -130,7 +131,7 @@
             this.activity.Name = "activity";
             this.activity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.activity.Size = new System.Drawing.Size(174, 20);
+            this.activity.Size = new System.Drawing.Size(183, 20);
             this.activity.StyleController = this.searchLayoutControl;
             this.activity.TabIndex = 66;
             // 
@@ -293,9 +294,9 @@
             // 
             this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(1156, 53);
+            this.searchButton.Location = new System.Drawing.Point(1165, 53);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(100, 21);
+            this.searchButton.Size = new System.Drawing.Size(91, 21);
             this.searchButton.StyleController = this.searchLayoutControl;
             this.searchButton.TabIndex = 60;
             this.searchButton.Text = "&Поиск";
@@ -465,11 +466,11 @@
             // 
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(1126, 0);
-            this.searchButtonLayout.MaxSize = new System.Drawing.Size(119, 0);
-            this.searchButtonLayout.MinSize = new System.Drawing.Size(119, 47);
+            this.searchButtonLayout.Location = new System.Drawing.Point(1135, 0);
+            this.searchButtonLayout.MaxSize = new System.Drawing.Size(110, 0);
+            this.searchButtonLayout.MinSize = new System.Drawing.Size(99, 47);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(119, 47);
+            this.searchButtonLayout.Size = new System.Drawing.Size(110, 47);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 7);
             this.searchButtonLayout.Text = "searchButtonLayout";
@@ -482,7 +483,7 @@
             this.activityLayout.CustomizationFormText = "layoutControlItem1";
             this.activityLayout.Location = new System.Drawing.Point(924, 0);
             this.activityLayout.Name = "activityLayout";
-            this.activityLayout.Size = new System.Drawing.Size(202, 47);
+            this.activityLayout.Size = new System.Drawing.Size(211, 47);
             this.activityLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
             this.activityLayout.Text = "Состояние стыка";
             this.activityLayout.TextLocation = DevExpress.Utils.Locations.Top;
