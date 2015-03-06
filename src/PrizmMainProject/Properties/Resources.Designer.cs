@@ -3405,6 +3405,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Допустимый размер внешнего документа, Kbytes.
+        /// </summary>
+        internal static string SettingsProject_DocumentSizeLabel {
+            get {
+                return ResourceManager.GetString("SettingsProject_DocumentSizeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap shipment_icon {
