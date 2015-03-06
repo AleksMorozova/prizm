@@ -102,8 +102,10 @@
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
             this.previewButton.Location = new System.Drawing.Point(1026, 94);
+            this.previewButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.previewButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(113, 22);
+            this.previewButton.Size = new System.Drawing.Size(110, 22);
             this.previewButton.StyleController = this.generalReportLayout;
             this.previewButton.TabIndex = 76;
             this.previewButton.Text = "&Предпросмотр";
@@ -203,8 +205,10 @@
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
             this.createReportButton.Location = new System.Drawing.Point(1026, 58);
+            this.createReportButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.createReportButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(113, 22);
+            this.createReportButton.Size = new System.Drawing.Size(110, 22);
             this.createReportButton.StyleController = this.generalReportLayout;
             this.createReportButton.TabIndex = 75;
             this.createReportButton.Text = "Соз&дать отчёт";

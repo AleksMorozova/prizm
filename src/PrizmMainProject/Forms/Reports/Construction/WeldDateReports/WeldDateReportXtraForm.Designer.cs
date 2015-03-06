@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeldDateReportXtraForm));
             this.weldReportLayout = new DevExpress.XtraLayout.LayoutControl();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
@@ -46,7 +47,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.jointReportViewerGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointReportViewerLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.weldReportLayout)).BeginInit();
             this.weldReportLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weldDateTo.Properties.CalendarTimeProperties)).BeginInit();
@@ -96,8 +97,10 @@
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
             this.createReportButton.Location = new System.Drawing.Point(775, 57);
+            this.createReportButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.createReportButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(113, 22);
+            this.createReportButton.Size = new System.Drawing.Size(110, 22);
             this.createReportButton.StyleController = this.weldReportLayout;
             this.createReportButton.TabIndex = 8;
             this.createReportButton.Text = "Соз&дать отчет";
@@ -106,6 +109,8 @@
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
             this.previewButton.Location = new System.Drawing.Point(644, 57);
+            this.previewButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.previewButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(110, 22);
             this.previewButton.StyleController = this.weldReportLayout;

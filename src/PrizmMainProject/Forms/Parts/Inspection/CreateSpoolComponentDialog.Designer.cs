@@ -41,6 +41,7 @@
             this.cancelButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.questionLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.numberLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutControl)).BeginInit();
             this.generalLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partRadioGroup.Properties)).BeginInit();
@@ -50,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayoutControl
@@ -88,16 +90,16 @@
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.cancelButton.Location = new System.Drawing.Point(12, 117);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(137, 22);
+            this.cancelButton.Size = new System.Drawing.Size(96, 22);
             this.cancelButton.StyleController = this.generalLayoutControl;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "О&тмена";
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(173, 117);
+            this.acceptButton.Location = new System.Drawing.Point(214, 117);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(136, 22);
+            this.acceptButton.Size = new System.Drawing.Size(95, 22);
             this.acceptButton.StyleController = this.generalLayoutControl;
             this.acceptButton.TabIndex = 5;
             this.acceptButton.Text = "&Создать";
@@ -125,7 +127,8 @@
             this.acceptButtonLayout,
             this.cancelButtonLayout,
             this.questionLabelLayout,
-            this.numberLabelLayout});
+            this.numberLabelLayout,
+            this.emptySpaceItem1});
             this.generalLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutControlGroup.Name = "generalLayoutControlGroup";
             this.generalLayoutControlGroup.Size = new System.Drawing.Size(321, 151);
@@ -149,9 +152,9 @@
             // 
             this.acceptButtonLayout.Control = this.acceptButton;
             this.acceptButtonLayout.CustomizationFormText = "acceptButtonLayout";
-            this.acceptButtonLayout.Location = new System.Drawing.Point(151, 90);
+            this.acceptButtonLayout.Location = new System.Drawing.Point(192, 90);
             this.acceptButtonLayout.Name = "acceptButtonLayout";
-            this.acceptButtonLayout.Size = new System.Drawing.Size(150, 41);
+            this.acceptButtonLayout.Size = new System.Drawing.Size(109, 41);
             this.acceptButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 15, 0);
             this.acceptButtonLayout.Text = "acceptButtonLayout";
             this.acceptButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -163,7 +166,7 @@
             this.cancelButtonLayout.CustomizationFormText = "cancelButtonLayout";
             this.cancelButtonLayout.Location = new System.Drawing.Point(0, 90);
             this.cancelButtonLayout.Name = "cancelButtonLayout";
-            this.cancelButtonLayout.Size = new System.Drawing.Size(151, 41);
+            this.cancelButtonLayout.Size = new System.Drawing.Size(110, 41);
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 15, 0);
             this.cancelButtonLayout.Text = "cancelButtonLayout";
             this.cancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -189,6 +192,16 @@
             this.numberLabelLayout.Text = " ";
             this.numberLabelLayout.TextSize = new System.Drawing.Size(140, 13);
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(110, 90);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(82, 41);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // CreateSpoolComponentDialog
             // 
             this.AcceptButton = this.acceptButton;
@@ -210,6 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +242,6 @@
         private DevExpress.XtraLayout.LayoutControlItem questionLabelLayout;
         private DevExpress.XtraEditors.LabelControl numberLabel;
         private DevExpress.XtraLayout.LayoutControlItem numberLabelLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

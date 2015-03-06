@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
             this.reportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
@@ -59,7 +60,7 @@
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
@@ -192,8 +193,10 @@
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
             this.createReportButton.Location = new System.Drawing.Point(750, 102);
+            this.createReportButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.createReportButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(113, 23);
+            this.createReportButton.Size = new System.Drawing.Size(110, 23);
             this.createReportButton.StyleController = this.generalLayout;
             this.createReportButton.TabIndex = 64;
             this.createReportButton.Text = "Соз&дать отчет";
@@ -202,6 +205,8 @@
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
             this.previewButton.Location = new System.Drawing.Point(606, 102);
+            this.previewButton.MaximumSize = new System.Drawing.Size(110, 0);
+            this.previewButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.previewButton.Name = "previewButton";
             this.previewButton.Size = new System.Drawing.Size(110, 22);
             this.previewButton.StyleController = this.generalLayout;

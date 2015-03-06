@@ -135,7 +135,7 @@
             this.search.Image = ((System.Drawing.Image)(resources.GetObject("search.Image")));
             this.search.Location = new System.Drawing.Point(579, 58);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(100, 22);
+            this.search.Size = new System.Drawing.Size(110, 22);
             this.search.StyleController = this.searchGroupLayout;
             this.search.TabIndex = 9;
             this.search.Text = "&Поиск";
@@ -406,10 +406,10 @@
             this.searchButtonLayout.Control = this.search;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
             this.searchButtonLayout.Location = new System.Drawing.Point(555, 15);
-            this.searchButtonLayout.MaxSize = new System.Drawing.Size(104, 26);
-            this.searchButtonLayout.MinSize = new System.Drawing.Size(104, 26);
+            this.searchButtonLayout.MaxSize = new System.Drawing.Size(114, 26);
+            this.searchButtonLayout.MinSize = new System.Drawing.Size(114, 26);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(104, 26);
+            this.searchButtonLayout.Size = new System.Drawing.Size(114, 26);
             this.searchButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -455,9 +455,9 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(659, 15);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(669, 15);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(93, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(83, 26);
             this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 

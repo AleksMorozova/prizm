@@ -167,10 +167,10 @@
             // 
             // deactivated
             // 
-            this.deactivated.Location = new System.Drawing.Point(134, 444);
+            this.deactivated.Location = new System.Drawing.Point(135, 444);
             this.deactivated.Name = "deactivated";
             this.deactivated.Properties.Caption = "Компонент деактивирован";
-            this.deactivated.Size = new System.Drawing.Size(304, 19);
+            this.deactivated.Size = new System.Drawing.Size(301, 19);
             this.deactivated.StyleController = this.newEditPipeLayout;
             this.deactivated.TabIndex = 15;
             // 
@@ -187,9 +187,9 @@
             // saveComponentButton
             // 
             this.saveComponentButton.Image = ((System.Drawing.Image)(resources.GetObject("saveComponentButton.Image")));
-            this.saveComponentButton.Location = new System.Drawing.Point(729, 444);
+            this.saveComponentButton.Location = new System.Drawing.Point(727, 444);
             this.saveComponentButton.Name = "saveComponentButton";
-            this.saveComponentButton.Size = new System.Drawing.Size(94, 22);
+            this.saveComponentButton.Size = new System.Drawing.Size(96, 22);
             this.saveComponentButton.StyleController = this.newEditPipeLayout;
             this.saveComponentButton.TabIndex = 7;
             this.saveComponentButton.Text = "&Сохранить";
@@ -199,7 +199,7 @@
             this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(19, 444);
             this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(91, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(92, 22);
             this.attachmentsButton.StyleController = this.newEditPipeLayout;
             this.attachmentsButton.TabIndex = 6;
             this.attachmentsButton.Text = "&Вложения";
@@ -493,7 +493,7 @@
             // 
             this.emptySpaceBetweenButtons.AllowHotTrack = false;
             this.emptySpaceBetweenButtons.CustomizationFormText = "emptySpaceBetweenButtons";
-            this.emptySpaceBetweenButtons.Location = new System.Drawing.Point(435, 425);
+            this.emptySpaceBetweenButtons.Location = new System.Drawing.Point(433, 425);
             this.emptySpaceBetweenButtons.Name = "emptySpaceBetweenButtons";
             this.emptySpaceBetweenButtons.Size = new System.Drawing.Size(267, 40);
             this.emptySpaceBetweenButtons.Text = "emptySpaceBetweenButtons";
@@ -505,7 +505,7 @@
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 425);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(107, 40);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(108, 40);
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 7, 7);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -527,9 +527,9 @@
             // 
             this.saveButtonLayoutControl.Control = this.saveComponentButton;
             this.saveButtonLayoutControl.CustomizationFormText = "saveButtonLayoutControl";
-            this.saveButtonLayoutControl.Location = new System.Drawing.Point(702, 425);
+            this.saveButtonLayoutControl.Location = new System.Drawing.Point(700, 425);
             this.saveButtonLayoutControl.Name = "saveButtonLayoutControl";
-            this.saveButtonLayoutControl.Size = new System.Drawing.Size(118, 40);
+            this.saveButtonLayoutControl.Size = new System.Drawing.Size(120, 40);
             this.saveButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.saveButtonLayoutControl.Text = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -539,9 +539,9 @@
             // 
             this.layoutControlDeactivation.Control = this.deactivated;
             this.layoutControlDeactivation.CustomizationFormText = "layoutControlDeactivation";
-            this.layoutControlDeactivation.Location = new System.Drawing.Point(107, 425);
+            this.layoutControlDeactivation.Location = new System.Drawing.Point(108, 425);
             this.layoutControlDeactivation.Name = "layoutControlDeactivation";
-            this.layoutControlDeactivation.Size = new System.Drawing.Size(328, 40);
+            this.layoutControlDeactivation.Size = new System.Drawing.Size(325, 40);
             this.layoutControlDeactivation.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.layoutControlDeactivation.Text = "layoutControlDeactivation";
             this.layoutControlDeactivation.TextSize = new System.Drawing.Size(0, 0);

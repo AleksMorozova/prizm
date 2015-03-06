@@ -474,7 +474,7 @@ SettingsProject_ClientLabel=Client
 SettingsProject_PlateManufacturerLabel=Plate manufacturers
 
 ;Настройки-Проект. Максимальный размер документа
-SettingsProject_DocumentSizeLabel=Max size of document to be attached
+SettingsProject_DocumentSizeLabel=Max size of document to be attached, Kbytes
 
 ;Настройки-Проект. Название завода
 SettingsProject_MillLabel=Mill
@@ -522,7 +522,7 @@ SettingsPipe_SizesLabel=Pipe size parameters
 SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
 
 ;Настройки-труба. Диаметр трубы с заданым типоразмером
-SettingsPipe_DiameterLabel=Pipe's &diameter
+SettingsPipe_DiameterLabel=Pipe &diameter
 
 ;Настройки-труба. Толщина стенки для трубы с заданым типоразмером
 SettingsPipe_WallThicknessLabel=Wall &thickness

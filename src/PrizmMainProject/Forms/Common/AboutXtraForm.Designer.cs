@@ -68,9 +68,9 @@
             // acceptButton
             // 
             this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.acceptButton.Location = new System.Drawing.Point(452, 215);
+            this.acceptButton.Location = new System.Drawing.Point(399, 217);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(75, 23);
+            this.acceptButton.Size = new System.Drawing.Size(110, 22);
             this.acceptButton.TabIndex = 6;
             this.acceptButton.Text = "ОК";
             // 
@@ -93,9 +93,9 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelVersion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutXtraForm";
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "О программе";
             this.Load += new System.EventHandler(this.AboutXtraForm_Load);

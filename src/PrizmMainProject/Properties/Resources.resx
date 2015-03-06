@@ -1394,4 +1394,7 @@
   <data name="Import_WrongWorkstationType" xml:space="preserve">
     <value>Невозможно импортировать данные. Импортируемый файл был создан не на мастере.</value>
   </data>
+  <data name="SettingsProject_DocumentSizeLabel" xml:space="preserve">
+    <value>Допустимый размер внешнего документа, Kbytes</value>
+  </data>
 </root>
