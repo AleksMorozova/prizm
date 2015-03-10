@@ -463,7 +463,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
+            float commonDiameter = GetCommonDiameter(firstElement, secondElement);
 
             if (commonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
             {
@@ -624,9 +624,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <param name="firstElement">the first connectable element</param>
         /// <param name="secondElement">the second connectable element</param>
         /// <returns></returns>
-        private int GetCommonDiameter(PartData firstElement, PartData secondElement)
+        private float GetCommonDiameter(PartData firstElement, PartData secondElement)
         {
-            int commonDiameter;
+            float commonDiameter;
 
             var duplicates =
                 firstElement.Connectors

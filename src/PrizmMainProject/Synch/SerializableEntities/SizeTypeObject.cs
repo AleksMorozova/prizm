@@ -45,10 +45,10 @@ namespace Prizm.Main.Synch.SerializableEntities
       public int Length { get; set; }
 
       [XmlAttribute("Diameter")]
-      public int Diameter { get; set; }
+      public float Diameter { get; set; }
 
       [XmlAttribute("Thickness")]
-      public int Thickness { get; set; }
+      public float Thickness { get; set; }
 
       [XmlElement("SeamType")]
       public SeamTypeObject SeamType { get; set; }
