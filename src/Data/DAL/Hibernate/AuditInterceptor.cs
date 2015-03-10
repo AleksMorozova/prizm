@@ -42,7 +42,12 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Is called while inserting new record
         /// </summary>
-        public override bool OnSave(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
+        public override bool OnSave(
+            object entity, 
+            object id, 
+            object[] state, 
+            string[] propertyNames, 
+            NHibernate.Type.IType[] types)
         {
             LogAudit(entity, propertyNames, Actions.Insert, state);
             return base.OnSave(entity, id, state, propertyNames, types);
@@ -51,7 +56,13 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Is called while updating existing record
         /// </summary>
-        public override bool OnFlushDirty(object entity, object id, object[] currentState, object[] previousState, string[] propertyNames, NHibernate.Type.IType[] types)
+        public override bool OnFlushDirty(
+            object entity, 
+            object id, 
+            object[] currentState, 
+            object[] previousState, 
+            string[] propertyNames, 
+            NHibernate.Type.IType[] types)
         {
             if (previousState == null) return false;
             var curentity = entity as Item;
@@ -59,31 +70,44 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 for (var i = 0; i < currentState.Count(); i++)
                 {
-                    if (currentState[i] == null && previousState[i] == null) continue; // prevent exeption 
+                    string newValue = "";
+                    string oldValue = "";
+                    string propertyName = propertyNames[i];
+
+
+                    if (currentState[i] == null && previousState[i] == null)
+                    {
+                        continue; // prevent exeption 
+                    }
                     else if (currentState[i] == null || previousState[i] == null) //prevent exeption
                     {
-                        string newValue = (currentState[i] == null) ? "" : currentState[i].ToString();
-                        string oldValue = (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
-                        NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
+                        newValue = (currentState[i] == null) ? "" : currentState[i].ToString();
+                        oldValue = (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
 
                     }
-                    else if (currentState[i].ToString().StartsWith("System.Collections.Generic") || currentState[i].ToString().StartsWith("System.ComponentModel.BindingList") || previousState[i].ToString().StartsWith("System.Collections.Generic") || previousState[i].ToString().StartsWith("System.ComponentModel.BindingList") || currentState[i].ToString().StartsWith("Prizm.Domain") || previousState[i].ToString().StartsWith("Prizm.Domain"))
+                    else if (!IsAuditableType(currentState[i]) || !IsAuditableType(previousState[i]))
                     {
                         continue;
                     }
                     else if (currentState[i] as Item == null && currentState[i].ToString() != previousState[i].ToString())
                     {
-                        NewAuditRecord(curentity, propertyNames[i], currentState[i].ToString(), previousState[i].ToString());
-                    }                
+                        newValue = currentState[i].ToString();
+                        oldValue = previousState[i].ToString();
+                    }
                     else
                     {
-                        var previousStateId = previousState[i] as Item;
-                        var currentStateId = currentState[i] as Item;
-                        if (previousStateId != null && currentState[i].Equals(previousState[i]) == false)
+                        var previousStateItem = previousState[i] as Item;
+                        var currentStateItem = currentState[i] as Item;
+
+                        if (previousStateItem != null && currentState[i].Equals(previousState[i]))
                         {
-                            NewAuditRecord(curentity, propertyNames[i], previousStateId.Id.ToString(), currentStateId.Id.ToString());
+                            newValue = previousStateItem.Id.ToString();
+                            oldValue = currentStateItem.Id.ToString();
                         }
                     }
+
+
+                    NewAuditRecord(curentity, propertyName, newValue, oldValue);
                 }
             }
             return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);
@@ -125,30 +149,58 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Log  insert/delete record (just one state)
         /// </summary>
-        private void LogAudit(object entity, string[] propertyNames, Actions actionType, params object[] state)
+        private void LogAudit(
+            object entity, 
+            string[] propertyNames, 
+            Actions actionType, 
+            params object[] state)
         {
-            string oldValue = "just inserted", newValue = "";
+            string oldValue = "just inserted";
+            string newValue = "";
+
             var curentity = entity as Item;
+
             if (curentity != null)
             {
                 for (var i = 0; i < propertyNames.Count(); i++)
                 {
-                    if (state[i] == null) continue;
+                    if (state[i] == null || !IsAuditableType(state[i])) 
+                        continue;
+
                     var objectProperty = state[i] as Item;
+
                     switch (actionType)
                     {
-                        case Actions.Insert: newValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
+                        case Actions.Insert:
+                            newValue = (state[i] is Item) ? objectProperty.Id.ToString() : state[i].ToString();
                             break;
-                        case Actions.Delete: oldValue = (objectProperty == null) ? state[i].ToString() : objectProperty.Id.ToString();
+
+                        case Actions.Delete:
+                            oldValue = (state[i] is Item) ? objectProperty.Id.ToString() : state[i].ToString();
                             newValue = "deleted";
                             break;
-                        default: break;
+
+                        default: 
+                            break;
                     }
-                    if (state[i].ToString().StartsWith("System.Collections.Generic") || state[i].ToString().StartsWith("System.ComponentModel.BindingList") || state[i].ToString().StartsWith("Prizm.Domain") || state[i].ToString().StartsWith("Prizm.Domain"))
-                        continue;
+
                     NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                 }
             }
+        }
+
+
+        private bool IsAuditableType(object obj)
+        {
+            //if (obj == null) return false;
+
+            var str = obj.GetType().Namespace;
+
+            var a = obj.GetType().IsValueType;
+            var b = obj.GetType() == typeof(string) ;
+            var c = obj.GetType().Namespace.StartsWith("Prizm.Domain");
+
+            return a || b || c;
         }
 
         #region IDisposable Members
