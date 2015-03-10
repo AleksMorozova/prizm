@@ -11,6 +11,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Construction;
 using NHibernate.Transform;
 using System.Collections;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -54,7 +55,8 @@ namespace Prizm.Data.DAL.Hibernate
 
         public IList<AuditLog> GetRecordsByNumber(string number, DateTime startDate, DateTime endDate)
         {
-          var query = session.CreateSQLQuery(
+            AuditLogQuery.Transformer.Session = session;
+            var query = session.CreateSQLQuery(
                   @"select a.id, a.entityID, a.auditDate, a.userName, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
                   " from AuditLog a " +
                   " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" + 
@@ -96,12 +98,11 @@ namespace Prizm.Data.DAL.Hibernate
 
     public class AuditLogQuery : IResultTransformer
     {
-        private ISession session;
-
         public static readonly AuditLogQuery Transformer = new AuditLogQuery();
 
+        public ISession Session { get; set; }
         private AuditLogQuery()
-        { }
+        {}
 
         #region IResultTransformer Members
 
@@ -116,7 +117,7 @@ namespace Prizm.Data.DAL.Hibernate
             rec.AuditID = (Guid)tuple[0];
             rec.EntityID = (Guid)tuple[1];
             rec.AuditDate = (DateTime)tuple[2];
-            rec.User = (Guid)tuple[3];
+            rec.User = Session.QueryOver<User>().Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault();
             rec.TableName = (ItemTypes)tuple[4];
             rec.FieldName = (FieldNames)tuple[5];
             rec.OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString();

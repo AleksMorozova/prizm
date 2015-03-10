@@ -107,7 +107,7 @@ namespace Prizm.Data.DAL.Hibernate
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
-                User = currentUser.Id,
+                User = currentUser,
                 TableName = tableName,
                 FieldName = enumFieldName,
                 NewValue = newValue,

@@ -29,12 +29,6 @@ namespace Prizm.Main.Forms.Audit
         {
             this.repo = repo;
           //  UsersList = repo.GetAllUsers();
-            foreach (Guid userId in repo.AuditLogRepo.GetAllUsers())
-            {
-                User user = repo.UserRepo.Get(userId);
-                if (user != null)
-                    UsersList.Add(user.Id, user.Name.GetFullName());
-            }
             searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo));
         }
 
