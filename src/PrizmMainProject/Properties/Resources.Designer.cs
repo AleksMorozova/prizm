@@ -2111,6 +2111,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationMeters_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationMeters_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationPipes_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationPipes_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationTons_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationTons_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сообщение об окончании срока: Сертификат просрочен.
         /// </summary>
         internal static string Notification_WelderCertificateExpired_Critical {

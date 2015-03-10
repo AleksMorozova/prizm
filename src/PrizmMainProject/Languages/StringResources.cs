@@ -4586,7 +4586,41 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
-        
+        //Notification_NotRequiredControlOperation_Critical
+        public static StringResource Notification_NotRequiredControlOperationPipes_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationPipes_Critical",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationTons_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationTons_Critical",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationMeters_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationMeters_Critical",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
+        public static StringResource Notification_NotRequiredControlOperationPipes_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationPipes_Warning",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationTons_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationTons_Warning",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationMeters_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationMeters_Warning",
+            Description = "Сообщение о необязательной контрольной операции"
+        };
         public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
         {
             Id = "NotificationXtraForm_LayoutControlItemNotification",

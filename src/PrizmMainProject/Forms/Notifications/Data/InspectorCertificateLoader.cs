@@ -57,7 +57,10 @@ namespace Prizm.Main.Forms.Notifications.Data
             return (DateTime)tuple[5];
         }
 
-
+        public override float GetTimeToOccur(object[] tuple)
+        {
+            return (float)0;
+        }
     }
 
 }

@@ -16,5 +16,8 @@ namespace Prizm.Main.Common
         public const string PositiveDigitMask = "\\d+";
 
         public const int MinSpoolCut = 20; // in millimeters
+
+        // period in percents for remaining about execution of control operation
+        public const string PercentForControlOperation = "*0.90";
     }
 }
