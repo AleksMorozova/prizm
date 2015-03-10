@@ -10,6 +10,5 @@ namespace Prizm.Main.Forms.Notifications
     {
         IList<Notification> LoadNotificationFromDB();
         Notification CreateNotification(Guid ownerId, string representation, DateTime dateToOccur, float timeToOccur);
-        //Notification CreateNotificationForControlOperation(Guid ownerId, string representation, float timeToOccur);
     }
 }
