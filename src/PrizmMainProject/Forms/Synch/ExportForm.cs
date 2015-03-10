@@ -23,6 +23,12 @@ namespace Prizm.Main.Forms.Synch
    {
       readonly DataExporter exporter;
 
+      public ExportForm(DataExporter exporter, Guid id)
+          : this(exporter)
+      {
+          this.DoExport(exporter.GetPortion(Id));
+      }
+
       [Inject]
       public ExportForm(DataExporter exporter)
           : this()

@@ -70,6 +70,7 @@
             this.isExportСolumn});
             this.gridViewHistory.GridControl = this.gridControlHistory;
             this.gridViewHistory.Name = "gridViewHistory";
+            this.gridViewHistory.OptionsBehavior.Editable = false;
             this.gridViewHistory.OptionsView.ShowGroupPanel = false;
             // 
             // portionIdColumn
@@ -102,6 +103,7 @@
             this.btnReexport.StyleController = this.historyLayout;
             this.btnReexport.TabIndex = 1;
             this.btnReexport.Text = "&Переэкспортировать";
+            this.btnReexport.Click += new System.EventHandler(this.btnReexport_Click);
             // 
             // historyLayout
             // 
@@ -191,6 +193,8 @@
             this.Controls.Add(this.historyLayout);
             this.Name = "HistoryExportImport";
             this.Text = "HistoryExportImport";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HistoryExportImport_FormClosed);
+            this.Load += new System.EventHandler(this.HistoryExportImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyLayout)).EndInit();
