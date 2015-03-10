@@ -77,6 +77,7 @@
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -91,6 +92,7 @@
     <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -102,6 +104,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -120,6 +123,7 @@
     <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -553,6 +557,12 @@
     <Compile Include="Forms\Synch\ExportForm.Designer.cs">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Synch\HistoryExportImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\HistoryExportImport.Designer.cs">
+      <DependentUpon>HistoryExportImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Synch\ImportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -900,6 +910,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\HistoryExportImport.resx">
+      <DependentUpon>HistoryExportImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
