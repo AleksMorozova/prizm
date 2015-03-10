@@ -9,7 +9,7 @@ namespace Prizm.Data.DAL
 {
     public interface IAuditLogRepository : IRepository<Guid, AuditLog>
     {
-        IEnumerable<string> GetAllUsers();
+        IEnumerable<Guid> GetAllUsers();
         IList<AuditLog> GetRecordsByNumber(string number, DateTime startDate, DateTime endDate);
         IList<AuditLog> GetRecordsByUser(string user, DateTime startDate, DateTime endDate);
     }

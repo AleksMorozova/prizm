@@ -18,11 +18,6 @@ namespace Prizm.Main.Security
          return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
       }
 
-      public Prizm.Domain.Entity.PersonName GetLoggedPerson()
-      {
-         return loggedUser.Name;
-      }
-
       private bool RoleHasPermission(Role r, Privileges privilege)
       {
           return PrivilegeBelongsToCurrentWorkstation(privilege) &&

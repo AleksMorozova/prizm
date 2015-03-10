@@ -217,6 +217,7 @@
       <DependentUpon>WeldersSelectionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Documents\IValidatable.cs" />
+    <Compile Include="Forms\Audit\AuditRepository.cs" />
     <Compile Include="Forms\Audit\AuditSearchCommand.cs" />
     <Compile Include="Forms\Audit\AuditViewModel.cs" />
     <Compile Include="Forms\Audit\AuditXtraForm.cs">
@@ -225,6 +226,7 @@
     <Compile Include="Forms\Audit\AuditXtraForm.Designer.cs">
       <DependentUpon>AuditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Audit\IAuditRepository.cs" />
     <Compile Include="Forms\Audit\TracingModeEnum.cs" />
     <Compile Include="Forms\BindingListExtensions.cs" />
     <Compile Include="Forms\Common\AboutXtraForm.cs">
@@ -907,6 +909,7 @@
     <EmbeddedResource Include="Forms\Synch\MissingPortionsDialog.resx">
       <DependentUpon>MissingPortionsDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

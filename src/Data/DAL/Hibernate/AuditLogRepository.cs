@@ -21,9 +21,10 @@ namespace Prizm.Data.DAL.Hibernate
             : base(session)
         {
         }
-        public IEnumerable<string> GetAllUsers()
+        public IEnumerable<Guid> GetAllUsers()
         {
-            return (from b in session.QueryOver<AuditLog>() select b.User).List<string>().Distinct();
+            IEnumerable<Guid> list = (from b in session.QueryOver<AuditLog>() select b.User).List<Guid>().Distinct();
+            return list;
         }
 
 
@@ -95,6 +96,7 @@ namespace Prizm.Data.DAL.Hibernate
 
     public class AuditLogQuery : IResultTransformer
     {
+        private ISession session;
 
         public static readonly AuditLogQuery Transformer = new AuditLogQuery();
 
@@ -110,18 +112,28 @@ namespace Prizm.Data.DAL.Hibernate
 
         public object TransformTuple(object[] tuple, string[] aliases)
         {
-            return new AuditLog()
-            {
-                AuditID = (Guid)tuple[0],
-                EntityID = (Guid)tuple[1],
-                AuditDate = (DateTime)tuple[2],
-                User = tuple[3].ToString(),
-                TableName = tuple[4].ToString(),
-                FieldName = tuple[5].ToString(),
-                OldValue = tuple[6].ToString(),
-                NewValue = tuple[7].ToString(),
-                Number = tuple[8].ToString(),
-            };
+            AuditLog rec = new AuditLog();
+            rec.AuditID = (Guid)tuple[0];
+            rec.EntityID = (Guid)tuple[1];
+            rec.AuditDate = (DateTime)tuple[2];
+            rec.User = (Guid)tuple[3];
+            rec.TableName = (ItemTypes)tuple[4];
+            rec.FieldName = (FieldNames)tuple[5];
+            rec.OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString();
+            rec.NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString();
+            rec.Number = tuple[8].ToString();
+            //{
+             //   AuditID = (Guid)tuple[0],
+             //   EntityID = (Guid)tuple[1],
+             //   AuditDate = (DateTime)tuple[2],
+             //   User = (Guid)tuple[3],              
+             //   TableName = (ItemTypes)tuple[4],
+             //   FieldName = (FieldNames)tuple[5],
+             //   OldValue = (tuple[6]==null) ? "just inserted" : tuple[6].ToString(),
+             //   NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
+             //   Number = tuple[8].ToString(),
+            //};
+           return rec;
         }
         #endregion
     }

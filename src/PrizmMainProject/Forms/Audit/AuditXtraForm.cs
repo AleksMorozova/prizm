@@ -127,11 +127,11 @@ namespace Prizm.Main.Forms.Audit
         {
             if(e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
             {
-                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
-                if(resId != null)
-                {
-                    e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
-                }
+                //StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
+                //if(resId != null)
+                //{
+                //    e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
+                //}
 
             }
         }

@@ -59,32 +59,32 @@ namespace Prizm.DatabaseMigrator.Migrations
         {
             if (Schema.Table("ReleaseNote").Index("IDX_ReleaseNote_Number").Exists())
             {
-                Delete.Index("IDX_ReleaseNote_Number");
+                Delete.Index("IDX_ReleaseNote_Number").OnTable("ReleaseNote");
             }
 
             if (Schema.Table("ReleaseNote").Index("IDX_ReleaseNote_Date").Exists())
             {
-                Delete.Index("IDX_ReleaseNote_Number");
+                Delete.Index("IDX_ReleaseNote_Number").OnTable("ReleaseNote");
             }
 
             if (Schema.Table("Railcar").Index("IDX_Railcar_Number").Exists())
             {
-                Delete.Index("IDX_Railcar_Number");
+                Delete.Index("IDX_Railcar_Number").OnTable("Railcar");
             }
 
             if (Schema.Table("Railcar").Index("IDX_Railcar_Certificate").Exists())
             {
-                Delete.Index("IDX_Railcar_Certificate");
+                Delete.Index("IDX_Railcar_Certificate").OnTable("Railcar");
             }
 
             if (Schema.Table("Joint").Index("IDX_Joint_Number").Exists())
             {
-                Delete.Index("IDX_Joint_Number");
+                Delete.Index("IDX_Joint_Number").OnTable("Joint");
             }
 
             if (Schema.Table("Joint").Index("IDX_Joint_Date").Exists())
             {
-                Delete.Index("IDX_Joint_Date");
+                Delete.Index("IDX_Joint_Date").OnTable("Joint");
             }
         }
     }

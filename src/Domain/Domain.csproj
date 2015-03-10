@@ -47,6 +47,8 @@
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
     <Compile Include="Entity\Construction\PartData.cs" />
     <Compile Include="Entity\Construction\PartType.cs" />
+    <Compile Include="Entity\FieldNames.cs" />
+    <Compile Include="Entity\ItemTypes.cs" />
     <Compile Include="Entity\Mill\CannedMessage.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Mill\ReleaseNote.cs" />
