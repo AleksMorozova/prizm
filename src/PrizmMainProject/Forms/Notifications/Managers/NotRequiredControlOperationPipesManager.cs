@@ -1,5 +1,4 @@
-﻿using NHibernate.Transform;
-using Prizm.Main.Forms.Notifications.Data;
+﻿using Prizm.Main.Forms.Notifications.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Managers
 {
-    class DuplicateLoginManager : NotificationManager, IDuplicateLoginManager
+    class NotRequiredControlOperationPipesManager : NotificationManager, INotRequiredControlOperationPipesManager
     {
-
-        public DuplicateLoginManager()
-            : base(new DuplicateLoginLoader())
+        public NotRequiredControlOperationPipesManager()
+            : base(new NotRequiredControlOperationPipesLoader())
         { 
         }
 
-        public override TypeNotification Type { get { return TypeNotification.DuplicateLogin; } }
+        public override TypeNotification Type { get { return TypeNotification.NotRequiredControlOperationPipes; } }
 
         public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur)
         {
@@ -30,3 +28,4 @@ namespace Prizm.Main.Forms.Notifications.Managers
         }
     }
 }
+

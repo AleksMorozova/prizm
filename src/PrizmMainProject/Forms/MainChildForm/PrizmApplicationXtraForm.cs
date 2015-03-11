@@ -381,8 +381,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
-
-            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
+            //TODO: remove
+            //NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
 
         }

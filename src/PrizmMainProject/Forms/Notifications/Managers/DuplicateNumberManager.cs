@@ -1,5 +1,4 @@
-﻿using NHibernate.Transform;
-using Prizm.Main.Forms.Notifications.Data;
+﻿using Prizm.Main.Forms.Notifications.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Managers
 {
-    class DuplicateLoginManager : NotificationManager, IDuplicateLoginManager
+    class DuplicateNumberManager : NotificationManager, IDuplicateNumberManager
     {
 
-        public DuplicateLoginManager()
-            : base(new DuplicateLoginLoader())
+        public DuplicateNumberManager()
+            : base(new DuplicateNumberLoader())
         { 
         }
 

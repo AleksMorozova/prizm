@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Prizm.Data.DAL.Notifications;
 using Prizm.Main.Forms.Notifications;
-using Ninject;
+using Prizm.Main.Properties;
 using NHibernate.Transform;
 using Prizm.Main.Forms.Notifications.Managers;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
-    class DuplicateNumberLoader : DataNotificationLoader
+    class ExpiredWelderCertificateLoader : DataNotificationLoader
     {
-        class DuplicateNumberTransformer : IResultTransformer
+        class ExpiredWelderCertificateTransformer : IResultTransformer
         {
 
             public System.Collections.IList TransformList(System.Collections.IList collection)
@@ -23,9 +21,8 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+                return ExpiredWelderCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
             }
-
 
             public Guid GetId(object[] tuple)
             {
@@ -34,22 +31,18 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public string GetOwnerName(object[] tuple)
             {
-                return tuple[1].ToString() + "/" + tuple[2].ToString();
+                string middleName = (tuple[3] == null) ? "" : tuple[3].ToString();
+                return tuple[1].ToString() + " " + tuple[2].ToString() + " " + middleName;
             }
 
             public DateTime GetDateToOccur(object[] tuple)
             {
-                return DateTime.Now;
-            }
-
-            public float GetTimeToOccur(object[] tuple)
-            {
-                return (float)0;
+                return (DateTime)tuple[4];
             }
         }
         // Methods
-        public DuplicateNumberLoader()
-            : base(new DuplicateNumberTransformer())
+        public ExpiredWelderCertificateLoader()
+            : base(new ExpiredWelderCertificateTransformer())
         {
 
         }
@@ -58,13 +51,9 @@ namespace Prizm.Main.Forms.Notifications.Data
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(
-                @"  select 
-                                id,
-                                mill,
-                                number 
-                                from Pipe
-                                where number  in 
-                                (select number from Pipe group by number having count(*) >1)");
+                @" SELECT  id, firstName, lastName, middleName, certificateExpiration
+                       FROM  Welder
+                WHERE   (DATEDIFF(day, GETDATE(), certificateExpiration) < 5) AND (isActive = 1) ");
             return sb.ToString();
         }
     }

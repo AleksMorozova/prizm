@@ -1,4 +1,6 @@
-﻿using Prizm.Main.Common;
+﻿using NHibernate.Transform;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Notifications.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,41 @@ namespace Prizm.Main.Forms.Notifications.Data
 {
     class NotRequiredControlOperationMetersLoader : DataNotificationLoader
     {
-        public NotRequiredControlOperationMetersLoader(NotificationManager manager)
-            : base(manager)
+        class NotRequiredControlOperationMetersTransformer : IResultTransformer
+        {
+
+            public System.Collections.IList TransformList(System.Collections.IList collection)
+            {
+                return collection;
+            }
+
+            public object TransformTuple(object[] tuple, string[] aliases)
+            {
+                return NotRequiredControlOperationMetersManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+            }
+
+            public Guid GetId(object[] tuple)
+            {
+                return (Guid)tuple[5];
+            }
+
+            public string GetOwnerName(object[] tuple)
+            {
+                return tuple[4].ToString() + ":" + tuple[1].ToString() + "-" + tuple[0].ToString();
+            }
+
+            public DateTime GetDateToOccur(object[] tuple)
+            {
+                return DateTime.Now;
+            }
+
+            public float GetTimeToOccur(object[] tuple)
+            {
+                return (float)Convert.ChangeType(tuple[6], typeof(float)) - (float)Convert.ChangeType(tuple[2], typeof(float));
+            }
+        }
+        public NotRequiredControlOperationMetersLoader()
+            : base(new NotRequiredControlOperationMetersTransformer())
         {
 
         }
@@ -27,26 +62,6 @@ namespace Prizm.Main.Forms.Notifications.Data
                                group by p.typeId) a
                                on b.id =a.typeId where b.f "+ Constants.PercentForControlOperation +" <= a.length");
             return sb.ToString();
-        }
-
-        public override Guid GetId(object[] tuple)
-        {
-            return (Guid)tuple[5];
-        }
-
-        public override string GetOwnerName(object[] tuple)
-        {
-            return tuple[4].ToString() + ":" + tuple[1].ToString() + "-" + tuple[0].ToString();
-        }
-
-        public override DateTime GetDateToOccur(object[] tuple)
-        {
-            return DateTime.Now;
-        }
-
-        public override float GetTimeToOccur(object[] tuple)
-        {
-            return (float)Convert.ChangeType(tuple[6], typeof(float)) - (float)Convert.ChangeType(tuple[2], typeof(float));
         }
     }
 }

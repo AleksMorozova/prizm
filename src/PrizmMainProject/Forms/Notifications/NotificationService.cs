@@ -19,6 +19,15 @@ namespace Prizm.Main.Forms.Notifications
             } 
         }
 
+        IExpiredWelderCertificateManager ExpiredWelderCertificateManager
+        {
+            get
+            {
+                return (IExpiredWelderCertificateManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.ExpiredWelderCertificate; }
+                    ).Value;
+            }
+        }
         // Fields
         private static NotificationService StaticInstance;
         private Dictionary<TypeNotification, INotificationManager> managers;
@@ -29,6 +38,7 @@ namespace Prizm.Main.Forms.Notifications
             managers = new Dictionary<TypeNotification, INotificationManager>();
 
             RegisterManager(new DuplicateLoginManager());
+            RegisterManager(new ExpiredWelderCertificateManager());
             // TODO: add other managers
         }
 
@@ -65,7 +75,8 @@ namespace Prizm.Main.Forms.Notifications
             get
             {
                 List<Notification> list = new List<Notification>();
-                list = managers.SelectMany(f => f.Value).ToList(); // TODO ???
+                //TODO: fix
+                //list = managers.SelectMany(f => f.Value).ToList(); 
                 return list;
             }
         }
@@ -74,7 +85,9 @@ namespace Prizm.Main.Forms.Notifications
         {
             get
             {
-                return managers.Sum(CountSummator);
+                return 10;
+                //TODO: fix
+                //return managers.Sum(CountSummator);
             }
         }
 
