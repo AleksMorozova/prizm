@@ -23,15 +23,7 @@ namespace Prizm.Main.Common
             bool checkDiapason = false;
             if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
             {
-                if (startDate == endDate)
-                {
-                    checkDiapason = true;
-                }
-                else 
-                {
-                    checkDiapason = (startDate < endDate);
-                }
-
+                checkDiapason = (startDate <= endDate);
             }
             else
             {
