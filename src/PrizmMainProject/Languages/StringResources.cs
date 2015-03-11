@@ -1405,12 +1405,12 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsPipe_DiameterLabel = new StringResource
         {
             Id = "SettingsPipe_DiameterLabel",
-            Description = "Настройки-труба. Диаметр трубы с заданым типоразмером"
+            Description = "Настройки-труба. Диаметр трубы с заданым типоразмером,мм"
         };
         public static StringResource SettingsPipe_WallThicknessLabel = new StringResource
         {
             Id = "SettingsPipe_WallThicknessLabel",
-            Description = "Настройки-труба. Толщина стенки для трубы с заданым типоразмером"
+            Description = "Настройки-труба. Толщина стенки для трубы с заданым типоразмером, мм"
         };
         public static StringResource SettingsPipe_LengthLabel = new StringResource
         {
@@ -2680,13 +2680,13 @@ namespace Prizm.Main.Languages
         public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_DiameterGridColumn",
-            Description = "Диаметр отверстия"
+            Description = "Диаметр отверстия, мм"
         };
 
         public static StringResource ComponentNewEdit_WallThicknessGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_WallThicknessGridColumn",
-            Description = "Толщина стенки"
+            Description = "Толщина стенки, мм"
         };
 
         public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
@@ -3593,7 +3593,7 @@ namespace Prizm.Main.Languages
         public static StringResource NewEditPipe_PlateThicknessLabel = new StringResource
         {
             Id = "NewEditPipe_PlateThicknessLabel",
-            Description = "Труба. Толщина листа"
+            Description = "Труба. Толщина листа, мм"
         };
         public static StringResource NewEditPipe_PlateManufacturerLabel = new StringResource
         {
@@ -3623,12 +3623,12 @@ namespace Prizm.Main.Languages
         public static StringResource NewEditPipe_TypeSizeDiameterLabel = new StringResource
         {
             Id = "NewEditPipe_TypeSizeDiameterLabel",
-            Description = "Труба. Диаметр по типоразмеру"
+            Description = "Труба. Диаметр по типоразмеру,мм"
         };
         public static StringResource NewEditPipe_TypeSizeThicknessLabel = new StringResource
         {
             Id = "NewEditPipe_TypeSizeThicknessLabel",
-            Description = "Труба. Толщина по типоразмеру"
+            Description = "Труба. Толщина по типоразмеру, мм"
         };
         public static StringResource NewEditPipe_ReleaseNoteNumber_Label = new StringResource
         {

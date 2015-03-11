@@ -1170,7 +1170,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры или толщины для формирования стыка..
         /// </summary>
         internal static string Joint_IncorrectDiameter {
             get {
@@ -1179,7 +1179,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        ///   Looks up a localized string similar to Не совпадают диаметры или толщины стыкуемых элементов.
         /// </summary>
         internal static string Joint_IncorrectDiameterHeader {
             get {
