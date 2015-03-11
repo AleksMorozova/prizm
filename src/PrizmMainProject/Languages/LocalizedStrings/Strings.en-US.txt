@@ -350,8 +350,8 @@ Spool_PipeSearchGroup=Pipe search
 ;Катушка. Данные о катушке
 Spool_SpoolGroup=Spool information
 
-;Катушка. Длины трубы и катушки
-Spool_LenghtGroup=Length
+;Катушка. Длины трубы и катушки, мм
+Spool_LenghtGroup=Length, mm
 
 ;Катушка. Входной контроль
 Spool_IncomingInspectionGroup=Incoming inspection
@@ -521,14 +521,14 @@ SettingsPipe_SizesLabel=Pipe size parameters
 ;Настройки-труба. Контрольные операции для типоразмера
 SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
 
-;Настройки-труба. Диаметр трубы с заданым типоразмером
-SettingsPipe_DiameterLabel=Pipe &diameter
+;Настройки-труба. Наружный диаметр трубы с заданым типоразмером, мм
+SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 
-;Настройки-труба. Толщина стенки для трубы с заданым типоразмером
-SettingsPipe_WallThicknessLabel=Wall &thickness
+;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
+SettingsPipe_WallThicknessLabel=Wall &thickness, mm
 
-;Настройки-труба. Длина трубы для заданного типоразмера
-SettingsPipe_LengthLabel=Pipe l&ength
+;Настройки-труба. Длина трубы для заданного типоразмера, мм
+SettingsPipe_LengthLabel=Pipe l&ength, mm
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
@@ -1097,7 +1097,7 @@ ComponentNewEdit_TypeLayoutControl=&Type
 ComponentNewEdit_CertificateLayout=Certi&ficate number
 
 ;Длина комплектую&щего, мм
-ComponentNewEdit_ComponentLengthLayout=Component &length
+ComponentNewEdit_ComponentLengthLayout=Component &length, mm
 
 ;&Вложения
 ComponentNewEdit_AttachmentsButton=&Attachments
@@ -1123,11 +1123,11 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
-;Диаметр отверстия
-ComponentNewEdit_DiameterGridColumn=Diameter
+;Наружный диаметр отверстия, мм
+ComponentNewEdit_DiameterGridColumn=External diameter, mm
 
-;Толщина стенки
-ComponentNewEdit_WallThicknessGridColumn=Wall thickness
+;Толщина стенки, мм
+ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 
 ;Входно&й контроль
 ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
@@ -1261,11 +1261,11 @@ Joint_Duplicate=Joint already exists, number:
 ;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
 Joint_DuplicateHeader=Joint number duplication
 
-;Сообщение о диаметрах: Отсутствуют подходящие диаметры для формирования стыка.
-Joint_IncorrectDiameter=There are no suitable diameters for the joint formation
+;Сообщение о диаметрах: Отсутствуют подходящие диаметры или толщины для формирования стыка.
+Joint_IncorrectDiameter=There are no suitable diameters or wall thicknesses for the joint formation
 
-;Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов
-Joint_IncorrectDiameterHeader=Diameters of the joint elements do not match
+;Заголовок сообщения о диаметрах: Не совпадают диаметры или толщины стыкуемых элементов
+Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint elements do not match
 
 ;Ном&ер стыка
 JointSearch_JointNumber=Joint&Number
@@ -1397,7 +1397,7 @@ JointCutDialog_FirstJoinedPartGroup=First element
 JointCutDialog_FirstJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_FirstJoinedPartLengthLayout=Length
+JointCutDialog_FirstJoinedPartLengthLayout=Length, mm
 
 ;Второй элемент
 JointCutDialog_SecondJoinedPartGroup=Second element
@@ -1406,7 +1406,7 @@ JointCutDialog_SecondJoinedPartGroup=Second element
 JointCutDialog_SecondJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_SecondJoinedPartLengthLayout=Length
+JointCutDialog_SecondJoinedPartLengthLayout=Length, mm
 
 ;Вырезать
 JointCutDialog_CutJointButton=Withdraw
@@ -1546,8 +1546,8 @@ NewEditPipe_PipeStatusLabel=Status on &mill
 ;Труба. Номер листа
 NewEditPipe_PlateNumberLabel=Number
 
-;Труба. Толщина листа
-NewEditPipe_PlateThicknessLabel=Thic&kness
+;Труба. Толщина листа, мм
+NewEditPipe_PlateThicknessLabel=Thic&kness, mm
 
 ;Труба. Производитель листа
 NewEditPipe_PlateManufacturerLabel=Manufacturer
@@ -1555,20 +1555,20 @@ NewEditPipe_PlateManufacturerLabel=Manufacturer
 ;Труба. Марка стали
 NewEditPipe_PlateSteelGradeLabel=Steel grade
 
-;Труба. Длина трубы
-NewEditPipe_PipeLengthLabel=Length
+;Труба. Длина трубы, мм
+NewEditPipe_PipeLengthLabel=Length, mm
 
 ;Труба. Вес трубы
 NewEditPipe_PipeWeightLabel=Weight
 
-;Труба. Длина по типоразмеру
-NewEditPipe_TypeSizeLengthLabel=Length
+;Труба. Длина по типоразмеру, мм
+NewEditPipe_TypeSizeLengthLabel=Length, mm
 
-;Труба. Диаметр по типоразмеру
-NewEditPipe_TypeSizeDiameterLabel=Diameter
+;Труба. Наружный диаметр по типоразмеру, мм
+NewEditPipe_TypeSizeDiameterLabel=External diameter, mm
 
-;Труба. Толщина по типоразмеру
-NewEditPipe_TypeSizeThicknessLabel=Thickness
+;Труба. Толщина по типоразмеру, мм
+NewEditPipe_TypeSizeThicknessLabel=Thickness, mm
 
 ;Труба. Номер вагона
 NewEditPipe_RailcarNumber_Label=Railcar number

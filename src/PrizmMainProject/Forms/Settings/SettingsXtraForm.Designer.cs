@@ -26,7 +26,6 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -36,18 +35,18 @@ namespace Prizm.Main.Forms.Settings
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.millGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,7 +156,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -240,14 +239,14 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -429,11 +428,11 @@ namespace Prizm.Main.Forms.Settings
             this.pipesSizeListGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSizeListGridView_RowCellStyle);
             this.pipesSizeListGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.pipesSizeListGridView_InitNewRow);
             this.pipesSizeListGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.pipesSizeListGridView_FocusedRowChanged);
+            this.pipesSizeListGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.pipesSizeListGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.pipesSizeListGridView_InvalidRowException);
             this.pipesSizeListGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.pipesSizeListGridView_ValidateRow);
             this.pipesSizeListGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSizeListGridView_KeyDown);
-            this.pipesSizeListGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
-            //
+            // 
             // pipeSizeGridColumn
             // 
             this.pipeSizeGridColumn.Caption = "Типоразмер";
@@ -1711,11 +1710,11 @@ namespace Prizm.Main.Forms.Settings
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(752, 455);
+            this.pipeLength.Location = new System.Drawing.Point(789, 455);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Properties.Mask.EditMask = "d";
             this.pipeLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.pipeLength.Size = new System.Drawing.Size(102, 20);
+            this.pipeLength.Size = new System.Drawing.Size(177, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
             // 
@@ -2023,10 +2022,10 @@ namespace Prizm.Main.Forms.Settings
             // 
             // wallThickness
             // 
-            this.wallThickness.Location = new System.Drawing.Point(636, 455);
+            this.wallThickness.Location = new System.Drawing.Point(673, 455);
             this.wallThickness.Name = "wallThickness";
-            this.wallThickness.Properties.Mask.EditMask = "d";
-            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.wallThickness.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.wallThickness.Size = new System.Drawing.Size(102, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
@@ -2035,20 +2034,20 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(486, 455);
             this.pipeDiameter.Name = "pipeDiameter";
-            this.pipeDiameter.Properties.Mask.EditMask = "d";
-            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.pipeDiameter.Size = new System.Drawing.Size(136, 20);
+            this.pipeDiameter.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.pipeDiameter.Size = new System.Drawing.Size(173, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
             // 
             // seamType
             // 
-            this.seamType.Location = new System.Drawing.Point(868, 455);
+            this.seamType.Location = new System.Drawing.Point(980, 455);
             this.seamType.Name = "seamType";
             this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seamType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.seamType.Size = new System.Drawing.Size(363, 20);
+            this.seamType.Size = new System.Drawing.Size(251, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
             // 
@@ -2150,10 +2149,10 @@ namespace Prizm.Main.Forms.Settings
             this.diameterLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.diameterLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
             this.diameterLayoutControlItem.Name = "diameterLayoutControlItem";
-            this.diameterLayoutControlItem.Size = new System.Drawing.Size(150, 55);
+            this.diameterLayoutControlItem.Size = new System.Drawing.Size(187, 55);
             this.diameterLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.diameterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.diameterLayoutControlItem.Text = "Диаметр трубы";
+            this.diameterLayoutControlItem.Text = "Наружный диаметр трубы, мм";
             this.diameterLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.diameterLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2161,13 +2160,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThicknessLayoutControlItem.Control = this.wallThickness;
             this.wallThicknessLayoutControlItem.CustomizationFormText = "Толщина стенки";
-            this.wallThicknessLayoutControlItem.Location = new System.Drawing.Point(150, 0);
+            this.wallThicknessLayoutControlItem.Location = new System.Drawing.Point(187, 0);
             this.wallThicknessLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
             this.wallThicknessLayoutControlItem.Name = "wallThicknessLayoutControlItem";
             this.wallThicknessLayoutControlItem.Size = new System.Drawing.Size(116, 55);
             this.wallThicknessLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.wallThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.wallThicknessLayoutControlItem.Text = "Толщина ст&енки";
+            this.wallThicknessLayoutControlItem.Text = "Толщина ст&енки, мм";
             this.wallThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.wallThicknessLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2175,13 +2174,13 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeLengthLayoutControlItem.Control = this.pipeLength;
             this.pipeLengthLayoutControlItem.CustomizationFormText = "Номинальная длина трубы";
-            this.pipeLengthLayoutControlItem.Location = new System.Drawing.Point(266, 0);
+            this.pipeLengthLayoutControlItem.Location = new System.Drawing.Point(303, 0);
             this.pipeLengthLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
             this.pipeLengthLayoutControlItem.Name = "pipeLengthLayoutControlItem";
-            this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(116, 55);
+            this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(191, 55);
             this.pipeLengthLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipeLengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы";
+            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы, мм";
             this.pipeLengthLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeLengthLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2189,10 +2188,10 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.seamTypeLayoutControlItem.Control = this.seamType;
             this.seamTypeLayoutControlItem.CustomizationFormText = "Тип шва";
-            this.seamTypeLayoutControlItem.Location = new System.Drawing.Point(382, 0);
+            this.seamTypeLayoutControlItem.Location = new System.Drawing.Point(494, 0);
             this.seamTypeLayoutControlItem.MinSize = new System.Drawing.Size(50, 25);
             this.seamTypeLayoutControlItem.Name = "seamTypeLayoutControlItem";
-            this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(377, 55);
+            this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(265, 55);
             this.seamTypeLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.seamTypeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.seamTypeLayoutControlItem.Text = "Тип &шва";
