@@ -43,6 +43,7 @@ namespace Domain.Entity.Security
         DeactivatePipe,
         DeactivateJoint,
         DeactivateSpool,
-        DeactivateComponent
+        DeactivateComponent,
+        ViewExportImportHistory
     }
 }

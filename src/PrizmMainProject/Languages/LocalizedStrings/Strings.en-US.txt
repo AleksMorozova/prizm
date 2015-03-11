@@ -2465,3 +2465,6 @@ HistoryExportImport_WorkstationColumn=Workstation
 
 ;История экспорта/импорта
 Menu_File_HistoryExportImport=Export/Import history
+
+;Просмотр истории экспорта/импорта
+SecurityPrivilege_ViewExportImportHistory=View export/import history

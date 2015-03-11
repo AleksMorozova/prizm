@@ -2068,6 +2068,11 @@ namespace Prizm.Main.Languages
             Description = "Название соответствующей привилегии доступа"
         };
 
+        public static StringResource SecurityPrivilege_ViewExportImportHistory = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewExportImportHistory",
+            Description = "Название соответствующей привилегии доступа"
+        };
 
         #endregion Settings
 

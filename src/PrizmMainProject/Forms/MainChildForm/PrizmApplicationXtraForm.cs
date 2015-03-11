@@ -483,6 +483,8 @@ namespace Prizm.Main.Forms.MainChildForm
             barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
             barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
 
+            btnHistoryExportImport.Enabled = ctx.HasAccess(Privileges.ViewExportImportHistory);
+
             barButtonItemFindEditJoints.Enabled = ctx.HasAccess(Privileges.SearchJoints);
 
             barButtonItemFindEditParts.Enabled = ctx.HasAccess(Privileges.SearchParts);
