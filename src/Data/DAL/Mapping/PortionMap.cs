@@ -22,18 +22,19 @@ namespace Prizm.Data.DAL.Mapping
          HasManyToMany<Pipe>(_ => _.Pipes)
             .Table("Portion_Pipe")
             .ParentKeyColumn("portionId")
-            .ChildKeyColumn("pipeId").Not.LazyLoad();
+            .ChildKeyColumn("pipeId");
 
          References<Project>(_ => _.Project).Column("projectId");
 
          HasManyToMany<Joint>(_ => _.Joints)
             .Table("Portion_Joint")
             .ParentKeyColumn("portionId")
-            .ChildKeyColumn("jointId").Not.LazyLoad();
+            .ChildKeyColumn("jointId");
+
          HasManyToMany<Component>(_ => _.Components)
             .Table("Portion_Component")
             .ParentKeyColumn("portionId")
-            .ChildKeyColumn("componentId").Not.LazyLoad();
+            .ChildKeyColumn("componentId");
       }
    }
 }

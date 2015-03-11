@@ -22,11 +22,12 @@ namespace Prizm.Main.Forms.Synch
     public partial class ExportForm : ChildForm
    {
       readonly DataExporter exporter;
+      private Portion reexportedPortion = null;
 
       public ExportForm(DataExporter exporter, Guid id)
           : this(exporter)
       {
-          this.DoExport(exporter.GetPortion(Id));
+          this.reexportedPortion = exporter.GetPortion(id);
       }
 
       public ExportForm(DataExporter exporter)
@@ -174,6 +175,11 @@ namespace Prizm.Main.Forms.Synch
       void ExportForm_Load(object sender, EventArgs e)
       {
          LoadPortions();
+
+         if (reexportedPortion != null)
+         {
+             this.DoExport(reexportedPortion);
+         }
       }
 
       private void btnReexport_Click(object sender, EventArgs e)

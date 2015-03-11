@@ -58,7 +58,7 @@
             this.gridControlHistory.Location = new System.Drawing.Point(12, 12);
             this.gridControlHistory.MainView = this.gridViewHistory;
             this.gridControlHistory.Name = "gridControlHistory";
-            this.gridControlHistory.Size = new System.Drawing.Size(632, 434);
+            this.gridControlHistory.Size = new System.Drawing.Size(851, 434);
             this.gridControlHistory.TabIndex = 0;
             this.gridControlHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewHistory});
@@ -110,7 +110,7 @@
             // btnReexport
             // 
             this.btnReexport.Image = ((System.Drawing.Image)(resources.GetObject("btnReexport.Image")));
-            this.btnReexport.Location = new System.Drawing.Point(498, 464);
+            this.btnReexport.Location = new System.Drawing.Point(717, 464);
             this.btnReexport.Name = "btnReexport";
             this.btnReexport.Size = new System.Drawing.Size(146, 22);
             this.btnReexport.StyleController = this.historyLayout;
@@ -138,7 +138,7 @@
             this.historyLayout.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.historyLayout.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.historyLayout.Root = this.Root;
-            this.historyLayout.Size = new System.Drawing.Size(656, 498);
+            this.historyLayout.Size = new System.Drawing.Size(875, 498);
             this.historyLayout.TabIndex = 2;
             this.historyLayout.Text = "layoutControl1";
             // 
@@ -154,7 +154,7 @@
             this.underGridEmptySpaceItem});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(656, 498);
+            this.Root.Size = new System.Drawing.Size(875, 498);
             this.Root.Text = "Root";
             this.Root.TextVisible = false;
             // 
@@ -164,7 +164,7 @@
             this.historyGridLayout.CustomizationFormText = "historyGridLayout";
             this.historyGridLayout.Location = new System.Drawing.Point(0, 0);
             this.historyGridLayout.Name = "historyGridLayout";
-            this.historyGridLayout.Size = new System.Drawing.Size(636, 438);
+            this.historyGridLayout.Size = new System.Drawing.Size(855, 438);
             this.historyGridLayout.Text = "historyGridLayout";
             this.historyGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.historyGridLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -174,7 +174,7 @@
             // 
             this.btnReexportLayout.Control = this.btnReexport;
             this.btnReexportLayout.CustomizationFormText = "btnReexportLayout";
-            this.btnReexportLayout.Location = new System.Drawing.Point(486, 452);
+            this.btnReexportLayout.Location = new System.Drawing.Point(705, 452);
             this.btnReexportLayout.MaxSize = new System.Drawing.Size(150, 26);
             this.btnReexportLayout.MinSize = new System.Drawing.Size(150, 26);
             this.btnReexportLayout.Name = "btnReexportLayout";
@@ -190,7 +190,7 @@
             this.underBtnEmptySpace.CustomizationFormText = "underBtnEmptySpace";
             this.underBtnEmptySpace.Location = new System.Drawing.Point(0, 452);
             this.underBtnEmptySpace.Name = "underBtnEmptySpace";
-            this.underBtnEmptySpace.Size = new System.Drawing.Size(486, 26);
+            this.underBtnEmptySpace.Size = new System.Drawing.Size(705, 26);
             this.underBtnEmptySpace.Text = "underBtnEmptySpace";
             this.underBtnEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -200,7 +200,7 @@
             this.underGridEmptySpaceItem.CustomizationFormText = "underGridEmptySpaceItem";
             this.underGridEmptySpaceItem.Location = new System.Drawing.Point(0, 438);
             this.underGridEmptySpaceItem.Name = "underGridEmptySpaceItem";
-            this.underGridEmptySpaceItem.Size = new System.Drawing.Size(636, 14);
+            this.underGridEmptySpaceItem.Size = new System.Drawing.Size(855, 14);
             this.underGridEmptySpaceItem.Text = "underGridEmptySpaceItem";
             this.underGridEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -208,8 +208,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 516);
+            this.ClientSize = new System.Drawing.Size(901, 516);
             this.Controls.Add(this.historyLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistoryExportImport";
             this.Text = "История экспорта / импорта";
