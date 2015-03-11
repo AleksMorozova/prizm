@@ -31,6 +31,7 @@ using Prizm.Main.Forms.Settings.Inspections;
 using Domain.Entity.Security;
 using Prizm.Main.Security;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.Data;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -157,6 +158,8 @@ namespace Prizm.Main.Forms.Settings
 
             categoryColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             certificateTypeColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectionCodeGridColumn.SortOrder = ColumnSortOrder.Ascending;
             
         }
 
