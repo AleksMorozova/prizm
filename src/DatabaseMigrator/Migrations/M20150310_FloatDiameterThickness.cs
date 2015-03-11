@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prizm.Domain.Entity.Security;
 
 namespace Prizm.DatabaseMigrator.Migrations
 {
@@ -29,9 +28,14 @@ namespace Prizm.DatabaseMigrator.Migrations
 
             // The name ViewExportImportHistory corresponds to 
             // enum item name Privileges.ViewExportImportHistory
-            Insert.IntoTable("Permission")
-                .Row(new Permission(){ Name = "ViewExportImportHistory"});
+            Execute.Sql(@"
+                    If Not Exists(select * from [Permission] where Name='ViewExportImportHistory')
+                    Begin
+                        insert into [Permission] (id, Name) values (NEWID(), 'ViewExportImportHistory')
+                    End");
+            
         }
+
         public override void Down()
         {
             Alter.Table("Pipe")
@@ -48,7 +52,11 @@ namespace Prizm.DatabaseMigrator.Migrations
                .AlterColumn("diameter")
                .AsInt32();
 
-            Delete.FromTable("Permission").Row(new { Name = "ViewExportImportHistory" });
+            Execute.Sql(@"
+                    If Exists(select * from [Permission] where Name = 'ViewExportImportHistory')
+                    Begin
+                        delete from [Permission] where Name = 'ViewExportImportHistory'
+                    End");
         }
     }
 }
