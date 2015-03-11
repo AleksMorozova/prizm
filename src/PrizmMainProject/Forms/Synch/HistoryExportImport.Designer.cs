@@ -76,6 +76,7 @@
             // portionIdColumn
             // 
             this.portionIdColumn.Caption = "ID порции";
+            this.portionIdColumn.FieldName = "Id";
             this.portionIdColumn.Name = "portionIdColumn";
             this.portionIdColumn.Visible = true;
             this.portionIdColumn.VisibleIndex = 0;
@@ -83,6 +84,7 @@
             // portionDateColumn
             // 
             this.portionDateColumn.Caption = "Дата экспорта/импорта";
+            this.portionDateColumn.FieldName = "ExportDateTime";
             this.portionDateColumn.Name = "portionDateColumn";
             this.portionDateColumn.Visible = true;
             this.portionDateColumn.VisibleIndex = 1;
@@ -90,6 +92,7 @@
             // isExportСolumn
             // 
             this.isExportСolumn.Caption = "Экспорт/Импорт";
+            this.isExportСolumn.FieldName = "IsExport";
             this.isExportСolumn.Name = "isExportСolumn";
             this.isExportСolumn.Visible = true;
             this.isExportСolumn.VisibleIndex = 2;

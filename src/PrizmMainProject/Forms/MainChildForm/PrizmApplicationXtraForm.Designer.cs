@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
-            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
+            DevExpress.Utils.Animation.PushTransition pushTransition2 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -83,14 +84,15 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
+            this.btnHistoryExportImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -167,9 +169,10 @@
             this.barButtonItemPartIncomingInspection,
             this.barButtonItemImportantMessages,
             this.weldConstructionRepoBarButton,
-            this.pipeConstructionRepoBarButton});
+            this.pipeConstructionRepoBarButton,
+            this.btnHistoryExportImport});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 65;
+            this.barManager1.MaxItemId = 66;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -201,6 +204,7 @@
             this.barSubItemApplication.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemImport),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHistoryExportImport),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemExit)});
             this.barSubItemApplication.Name = "barSubItemApplication";
             // 
@@ -666,7 +670,14 @@
             // workspaceManager
             // 
             this.workspaceManager.TargetControl = this;
-            this.workspaceManager.TransitionType = pushTransition1;
+            this.workspaceManager.TransitionType = pushTransition2;
+            // 
+            // btnHistoryExportImport
+            // 
+            this.btnHistoryExportImport.Caption = "История экспорта / импорта";
+            this.btnHistoryExportImport.Id = 65;
+            this.btnHistoryExportImport.Name = "btnHistoryExportImport";
+            this.btnHistoryExportImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHistoryExportImport_ItemClick);
             // 
             // PrizmApplicationXtraForm
             // 
@@ -764,6 +775,7 @@
         private DevExpress.Utils.WorkspaceManager workspaceManager;
         private DevExpress.XtraBars.BarButtonItem weldConstructionRepoBarButton;
         private DevExpress.XtraBars.BarButtonItem pipeConstructionRepoBarButton;
+        private DevExpress.XtraBars.BarButtonItem btnHistoryExportImport;
 
 
 

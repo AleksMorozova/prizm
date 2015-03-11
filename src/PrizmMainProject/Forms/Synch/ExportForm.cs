@@ -29,7 +29,6 @@ namespace Prizm.Main.Forms.Synch
           this.DoExport(exporter.GetPortion(Id));
       }
 
-      [Inject]
       public ExportForm(DataExporter exporter)
           : this()
       {

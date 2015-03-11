@@ -13,10 +13,12 @@ using Prizm.Main.Synch.Export;
 using Prizm.Domain.Entity;
 using Ninject.Parameters;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.MainChildForm;
 
 namespace Prizm.Main.Forms.Synch
 {
-    public partial class HistoryExportImport : DevExpress.XtraEditors.XtraForm
+    [System.ComponentModel.DesignerCategory("Form")]
+    public partial class HistoryExportImport : ChildForm
     {
         private readonly DataExporter exporter;
 
@@ -32,7 +34,6 @@ namespace Prizm.Main.Forms.Synch
             InitializeComponent();
         }
 
-
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()
@@ -44,7 +45,7 @@ namespace Prizm.Main.Forms.Synch
               //new LocalizedItem(progressPanel, StringResources.Export_PleaseWaitPanel.Id, StringResources.Export_ExportingData.Id),
               //new LocalizedItem(lblLog, StringResources.Export_LogLabel.Id),
               //new LocalizedItem(btnReexport, StringResources.Export_ReexportButton.Id),
-              
+
               //// grid column headers
               //new LocalizedItem(portionId, StringResources.Export_PortionIdColumnHeader.Id),
               //new LocalizedItem(gridColumnExportDate, StringResources.Export_ExportDateColumnHeader.Id),
@@ -66,8 +67,11 @@ namespace Prizm.Main.Forms.Synch
         private void btnReexport_Click(object sender, EventArgs e)
         {
             Portion portion = gridViewHistory.GetFocusedRow() as Portion;
-
-            Program.Kernel.Get<ExportForm>(new ConstructorArgument("id", portion.Id));
+            if (portion != null)
+            {
+                var parent = this.MdiParent as PrizmApplicationXtraForm;
+                parent.OpenChildForm(typeof(ExportForm), portion.Id);
+            }
         }
 
         private void HistoryExportImport_FormClosed(object sender, FormClosedEventArgs e)

@@ -218,6 +218,11 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             OpenChildForm(typeof(AuditXtraForm));
         }
+
+        private void btnHistoryExportImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(typeof(HistoryExportImport));
+        }
         #endregion
 
 
@@ -644,5 +649,6 @@ namespace Prizm.Main.Forms.MainChildForm
             WinApi.ShowToFront(this.Handle);
         } 
         #endregion
+
     }
 }
