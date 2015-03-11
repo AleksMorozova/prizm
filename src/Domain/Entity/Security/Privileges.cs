@@ -44,6 +44,10 @@ namespace Domain.Entity.Security
         DeactivateJoint,
         DeactivateSpool,
         DeactivateComponent,
+        /// <summary>
+        /// This element is used in one of the database migration version. 
+        /// The name change can lead to fatal errors!
+        /// </summary>
         ViewExportImportHistory
     }
 }
