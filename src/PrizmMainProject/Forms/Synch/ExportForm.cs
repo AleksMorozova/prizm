@@ -22,14 +22,8 @@ namespace Prizm.Main.Forms.Synch
     public partial class ExportForm : ChildForm
    {
       readonly DataExporter exporter;
-      private Portion reexportedPortion = null;
 
-      public ExportForm(DataExporter exporter, Guid id)
-          : this(exporter)
-      {
-          this.reexportedPortion = exporter.GetPortion(id);
-      }
-
+      [Inject]
       public ExportForm(DataExporter exporter)
           : this()
       {
@@ -161,7 +155,7 @@ namespace Prizm.Main.Forms.Synch
 
       void LoadPortions()
       {
-         IList<Portion> portions = exporter.GetAllPortions();
+         IList<Portion> portions = exporter.GetAllPortions().Where<Portion>(x=>x.IsExport == true).ToList<Portion>();
          if (gridControlHistory.InvokeRequired)
          {
             gridControlHistory.Invoke(new MethodInvoker(() => { gridControlHistory.DataSource = portions; }));
@@ -175,11 +169,6 @@ namespace Prizm.Main.Forms.Synch
       void ExportForm_Load(object sender, EventArgs e)
       {
          LoadPortions();
-
-         if (reexportedPortion != null)
-         {
-             this.DoExport(reexportedPortion);
-         }
       }
 
       private void btnReexport_Click(object sender, EventArgs e)

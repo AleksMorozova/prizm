@@ -33,24 +33,19 @@
             this.gridViewHistory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.portionIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.portionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.isExportСolumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isExportColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryIsExportСolumnTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.workstationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnReexport = new DevExpress.XtraEditors.SimpleButton();
             this.historyLayout = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.historyGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnReexportLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.underBtnEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.underGridEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryIsExportСolumnTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyLayout)).BeginInit();
             this.historyLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReexportLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underBtnEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underGridEmptySpaceItem)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlHistory
@@ -58,7 +53,9 @@
             this.gridControlHistory.Location = new System.Drawing.Point(12, 12);
             this.gridControlHistory.MainView = this.gridViewHistory;
             this.gridControlHistory.Name = "gridControlHistory";
-            this.gridControlHistory.Size = new System.Drawing.Size(851, 434);
+            this.gridControlHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryIsExportСolumnTextEdit});
+            this.gridControlHistory.Size = new System.Drawing.Size(851, 474);
             this.gridControlHistory.TabIndex = 0;
             this.gridControlHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewHistory});
@@ -68,12 +65,13 @@
             this.gridViewHistory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.portionIdColumn,
             this.portionDateColumn,
-            this.isExportСolumn,
+            this.isExportColumn,
             this.workstationColumn});
             this.gridViewHistory.GridControl = this.gridControlHistory;
             this.gridViewHistory.Name = "gridViewHistory";
             this.gridViewHistory.OptionsBehavior.Editable = false;
             this.gridViewHistory.OptionsView.ShowGroupPanel = false;
+            this.gridViewHistory.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridViewHistory_CustomColumnDisplayText);
             // 
             // portionIdColumn
             // 
@@ -85,19 +83,25 @@
             // 
             // portionDateColumn
             // 
-            this.portionDateColumn.Caption = "Дата экспорта / импорта";
+            this.portionDateColumn.Caption = "Дата экспорта/импорта";
             this.portionDateColumn.FieldName = "ExportDateTime";
             this.portionDateColumn.Name = "portionDateColumn";
             this.portionDateColumn.Visible = true;
             this.portionDateColumn.VisibleIndex = 1;
             // 
-            // isExportСolumn
+            // isExportColumn
             // 
-            this.isExportСolumn.Caption = "Экспорт / Импорт";
-            this.isExportСolumn.FieldName = "IsExport";
-            this.isExportСolumn.Name = "isExportСolumn";
-            this.isExportСolumn.Visible = true;
-            this.isExportСolumn.VisibleIndex = 2;
+            this.isExportColumn.Caption = "Экспорт/Импорт";
+            this.isExportColumn.ColumnEdit = this.repositoryIsExportСolumnTextEdit;
+            this.isExportColumn.FieldName = "IsExport";
+            this.isExportColumn.Name = "isExportColumn";
+            this.isExportColumn.Visible = true;
+            this.isExportColumn.VisibleIndex = 2;
+            // 
+            // repositoryIsExportСolumnTextEdit
+            // 
+            this.repositoryIsExportСolumnTextEdit.AutoHeight = false;
+            this.repositoryIsExportСolumnTextEdit.Name = "repositoryIsExportСolumnTextEdit";
             // 
             // workstationColumn
             // 
@@ -107,24 +111,12 @@
             this.workstationColumn.Visible = true;
             this.workstationColumn.VisibleIndex = 3;
             // 
-            // btnReexport
-            // 
-            this.btnReexport.Image = ((System.Drawing.Image)(resources.GetObject("btnReexport.Image")));
-            this.btnReexport.Location = new System.Drawing.Point(717, 464);
-            this.btnReexport.Name = "btnReexport";
-            this.btnReexport.Size = new System.Drawing.Size(146, 22);
-            this.btnReexport.StyleController = this.historyLayout;
-            this.btnReexport.TabIndex = 1;
-            this.btnReexport.Text = "&Переэкспортировать";
-            this.btnReexport.Click += new System.EventHandler(this.btnReexport_Click);
-            // 
             // historyLayout
             // 
             this.historyLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.historyLayout.Controls.Add(this.gridControlHistory);
-            this.historyLayout.Controls.Add(this.btnReexport);
             this.historyLayout.Location = new System.Drawing.Point(12, 12);
             this.historyLayout.Name = "historyLayout";
             this.historyLayout.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
@@ -148,10 +140,7 @@
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.historyGridLayout,
-            this.btnReexportLayout,
-            this.underBtnEmptySpace,
-            this.underGridEmptySpaceItem});
+            this.historyGridLayout});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(875, 498);
@@ -164,45 +153,11 @@
             this.historyGridLayout.CustomizationFormText = "historyGridLayout";
             this.historyGridLayout.Location = new System.Drawing.Point(0, 0);
             this.historyGridLayout.Name = "historyGridLayout";
-            this.historyGridLayout.Size = new System.Drawing.Size(855, 438);
+            this.historyGridLayout.Size = new System.Drawing.Size(855, 478);
             this.historyGridLayout.Text = "historyGridLayout";
             this.historyGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.historyGridLayout.TextSize = new System.Drawing.Size(0, 0);
             this.historyGridLayout.TextVisible = false;
-            // 
-            // btnReexportLayout
-            // 
-            this.btnReexportLayout.Control = this.btnReexport;
-            this.btnReexportLayout.CustomizationFormText = "btnReexportLayout";
-            this.btnReexportLayout.Location = new System.Drawing.Point(705, 452);
-            this.btnReexportLayout.MaxSize = new System.Drawing.Size(150, 26);
-            this.btnReexportLayout.MinSize = new System.Drawing.Size(150, 26);
-            this.btnReexportLayout.Name = "btnReexportLayout";
-            this.btnReexportLayout.Size = new System.Drawing.Size(150, 26);
-            this.btnReexportLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.btnReexportLayout.Text = "btnReexportLayout";
-            this.btnReexportLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.btnReexportLayout.TextVisible = false;
-            // 
-            // underBtnEmptySpace
-            // 
-            this.underBtnEmptySpace.AllowHotTrack = false;
-            this.underBtnEmptySpace.CustomizationFormText = "underBtnEmptySpace";
-            this.underBtnEmptySpace.Location = new System.Drawing.Point(0, 452);
-            this.underBtnEmptySpace.Name = "underBtnEmptySpace";
-            this.underBtnEmptySpace.Size = new System.Drawing.Size(705, 26);
-            this.underBtnEmptySpace.Text = "underBtnEmptySpace";
-            this.underBtnEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // underGridEmptySpaceItem
-            // 
-            this.underGridEmptySpaceItem.AllowHotTrack = false;
-            this.underGridEmptySpaceItem.CustomizationFormText = "underGridEmptySpaceItem";
-            this.underGridEmptySpaceItem.Location = new System.Drawing.Point(0, 438);
-            this.underGridEmptySpaceItem.Name = "underGridEmptySpaceItem";
-            this.underGridEmptySpaceItem.Size = new System.Drawing.Size(855, 14);
-            this.underGridEmptySpaceItem.Text = "underGridEmptySpaceItem";
-            this.underGridEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // HistoryExportImport
             // 
@@ -218,13 +173,11 @@
             this.Load += new System.EventHandler(this.HistoryExportImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryIsExportСolumnTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyLayout)).EndInit();
             this.historyLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReexportLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underBtnEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.underGridEmptySpaceItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,14 +188,11 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewHistory;
         private DevExpress.XtraGrid.Columns.GridColumn portionIdColumn;
         private DevExpress.XtraGrid.Columns.GridColumn portionDateColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn isExportСolumn;
-        private DevExpress.XtraEditors.SimpleButton btnReexport;
+        private DevExpress.XtraGrid.Columns.GridColumn isExportColumn;
         private DevExpress.XtraLayout.LayoutControl historyLayout;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem historyGridLayout;
-        private DevExpress.XtraLayout.LayoutControlItem btnReexportLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem underBtnEmptySpace;
-        private DevExpress.XtraLayout.EmptySpaceItem underGridEmptySpaceItem;
         private DevExpress.XtraGrid.Columns.GridColumn workstationColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryIsExportСolumnTextEdit;
     }
 }

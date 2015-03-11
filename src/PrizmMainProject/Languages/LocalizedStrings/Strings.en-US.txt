@@ -2444,3 +2444,24 @@ MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exi
 
 ;Невозможно импортировать данные. Импортируемый файл был создан не на мастере.
 Import_WrongWorkstationType=Could not import data because importing file was created not at Maste.
+
+;Экспорт
+HistoryExportImport_SynchType_Export=Export
+
+;Импорт
+HistoryExportImport_SynchType_Import=Import
+
+;Не определено
+HistoryExportImport_SynchType_Undefined=Undefined
+
+;История экспорта/импорта
+HistoryExportImport_Title=Export/Import history
+
+;Экспорт/Импорт
+HistoryExportImport_IsExportColumn=Export/Import
+
+;Рабочая станция
+HistoryExportImport_WorkstationColumn=Workstation
+
+;История экспорта/импорта
+Menu_File_HistoryExportImport=Export/Import history

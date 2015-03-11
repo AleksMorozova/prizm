@@ -37,11 +37,6 @@ namespace Prizm.Main.Synch.Export
          return exportRepo.PortionRepo.GetAll();
       }
 
-      public Portion GetPortion(Guid id)
-      {
-          return exportRepo.PortionRepo.Get(id);
-      }
-
       public bool AnyNewDataToExport()
       {
           IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();

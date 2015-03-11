@@ -779,6 +779,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Экспорт/Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_IsExportColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_IsExportColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Export {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Import {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не определено.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Undefined {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to История экспорта/импорта.
+        /// </summary>
+        internal static string HistoryExportImport_Title {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рабочая станция.
+        /// </summary>
+        internal static string HistoryExportImport_WorkstationColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_WorkstationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Уникальный идентификатор.
         /// </summary>
         internal static string Id {

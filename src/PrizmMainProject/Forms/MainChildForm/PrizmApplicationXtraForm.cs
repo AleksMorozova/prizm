@@ -587,6 +587,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 new LocalizedItem(barSubItemApplication, "Menu_File"),
                 new LocalizedItem(barButtonItemExport, "Menu_File_Export"),
                 new LocalizedItem(barButtonItemImport, "Menu_File_Import"),
+                new LocalizedItem(btnHistoryExportImport, StringResources.Menu_File_HistoryExportImport.Id),
                 new LocalizedItem(barButtonItemExit, "Menu_File_Exit"),
                 new LocalizedItem(barSubItemMill, "Menu_Mill"),
                 new LocalizedItem(barButtonItemNewPipe, "Menu_Mill_NewPipe"),

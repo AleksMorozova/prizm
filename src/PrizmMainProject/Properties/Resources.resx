@@ -1397,4 +1397,22 @@
   <data name="SettingsProject_DocumentSizeLabel" xml:space="preserve">
     <value>Допустимый размер внешнего документа, Kbytes</value>
   </data>
+  <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Import" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Undefined" xml:space="preserve">
+    <value>Не определено</value>
+  </data>
+  <data name="HistoryExportImport_IsExportColumn" xml:space="preserve">
+    <value>Экспорт/Импорт</value>
+  </data>
+  <data name="HistoryExportImport_Title" xml:space="preserve">
+    <value>История экспорта/импорта</value>
+  </data>
+  <data name="HistoryExportImport_WorkstationColumn" xml:space="preserve">
+    <value>Рабочая станция</value>
+  </data>
 </root>

@@ -14,12 +14,17 @@ using Prizm.Domain.Entity;
 using Ninject.Parameters;
 using Prizm.Main.Languages;
 using Prizm.Main.Forms.MainChildForm;
+using Prizm.Main.Common;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Main.Forms.Synch
 {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class HistoryExportImport : ChildForm
     {
+        private List<string> localizedAllWorkstations = new List<string>();
+        private List<string> localizedSynchType = new List<string>();
+
         private readonly DataExporter exporter;
 
         [Inject]
@@ -40,20 +45,25 @@ namespace Prizm.Main.Forms.Synch
         {
             return new List<LocalizedItem>()
           {
-              //// controls
-              //new LocalizedItem(btnExport, StringResources.Export_ExportButton.Id),
-              //new LocalizedItem(progressPanel, StringResources.Export_PleaseWaitPanel.Id, StringResources.Export_ExportingData.Id),
-              //new LocalizedItem(lblLog, StringResources.Export_LogLabel.Id),
-              //new LocalizedItem(btnReexport, StringResources.Export_ReexportButton.Id),
+              // grid column headers
+              new LocalizedItem(portionIdColumn, StringResources.Export_PortionIdColumnHeader.Id),
+              new LocalizedItem(portionDateColumn, StringResources.Export_ExportDateColumnHeader.Id),
 
-              //// grid column headers
-              //new LocalizedItem(portionId, StringResources.Export_PortionIdColumnHeader.Id),
-              //new LocalizedItem(gridColumnExportDate, StringResources.Export_ExportDateColumnHeader.Id),
-              //// other
-              //new LocalizedItem(logTabPage, StringResources.Export_LogTab.Id),
-              //new LocalizedItem(historyTabPage,StringResources.Export_HistoryTab.Id),
+              new LocalizedItem(isExportColumn, StringResources.HistoryExportImport_IsExportColumn.Id),
+              new LocalizedItem(workstationColumn, StringResources.HistoryExportImport_WorkstationColumn.Id),
 
-              //new LocalizedItem(this, localizedHeader, new string[] {StringResources.ExportForm_Title.Id} )
+              new LocalizedItem(gridViewHistory, localizedAllWorkstations,
+                        new string [] {StringResources.WorkstationType_Undefined.Id, 
+                            StringResources.WorkstationType_Master.Id, 
+                            StringResources.WorkstationType_Mill.Id, 
+                            StringResources.WorkstationType_Construction.Id} ),
+
+              new LocalizedItem(gridViewHistory, localizedSynchType,
+                        new string [] {StringResources.HistoryExportImport_SynchType_Undefined.Id, 
+                            StringResources.HistoryExportImport_SynchType_Export.Id, 
+                            StringResources.HistoryExportImport_SynchType_Import.Id} ),
+
+              new LocalizedItem(this, localizedHeader, new string[] {StringResources.HistoryExportImport_Title.Id} )
           };
         }
 
@@ -61,17 +71,16 @@ namespace Prizm.Main.Forms.Synch
 
         private void HistoryExportImport_Load(object sender, EventArgs e)
         {
-            gridControlHistory.DataSource = exporter.GetAllPortions();
-        }
-
-        private void btnReexport_Click(object sender, EventArgs e)
-        {
-            Portion portion = gridViewHistory.GetFocusedRow() as Portion;
-            if (portion != null)
+            foreach (var item in EnumWrapper<WorkstationType>.EnumerateItems())
             {
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.OpenChildForm(typeof(ExportForm), portion.Id);
+                localizedAllWorkstations.Add(item.Item2);
             }
+            foreach (var item in EnumWrapper<SynchType>.EnumerateItems())
+            {
+                localizedSynchType.Add(item.Item2);
+            }
+
+            gridControlHistory.DataSource = exporter.GetAllPortions();
         }
 
         private void HistoryExportImport_FormClosed(object sender, FormClosedEventArgs e)
@@ -79,6 +88,33 @@ namespace Prizm.Main.Forms.Synch
             this.exporter.Dispose();
         }
 
+        private void gridViewHistory_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == workstationColumn.Name)
+            {
+                WorkstationType result;
+                if (Enum.TryParse<WorkstationType>(e.Value.ToString(), out result))
+                {
+                    e.DisplayText = localizedAllWorkstations[(int)result];
+                }
+            }
+
+            if (e.Column.Name == isExportColumn.Name)
+            {
+                bool result;
+                if (bool.TryParse(e.Value.ToString(), out result))
+                {
+                    if ((bool)e.Value)
+                    {
+                        e.DisplayText = localizedSynchType[(int)SynchType.Export];
+                    }
+                    else
+                    {
+                        e.DisplayText = localizedSynchType[(int)SynchType.Import];
+                    }
+                }
+            }
+        }
 
     }
 }

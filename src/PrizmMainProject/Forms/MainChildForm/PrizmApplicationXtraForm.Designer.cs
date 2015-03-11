@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
-            DevExpress.Utils.Animation.PushTransition pushTransition2 = new DevExpress.Utils.Animation.PushTransition();
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemImport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHistoryExportImport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemMill = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemNewPipe = new DevExpress.XtraBars.BarButtonItem();
@@ -92,7 +93,6 @@
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
-            this.btnHistoryExportImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -221,6 +221,13 @@
             this.barButtonItemImport.Id = 49;
             this.barButtonItemImport.Name = "barButtonItemImport";
             this.barButtonItemImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImport_ItemClick);
+            // 
+            // btnHistoryExportImport
+            // 
+            this.btnHistoryExportImport.Caption = "История экспорта/импорта";
+            this.btnHistoryExportImport.Id = 65;
+            this.btnHistoryExportImport.Name = "btnHistoryExportImport";
+            this.btnHistoryExportImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHistoryExportImport_ItemClick);
             // 
             // barButtonItemExit
             // 
@@ -670,14 +677,7 @@
             // workspaceManager
             // 
             this.workspaceManager.TargetControl = this;
-            this.workspaceManager.TransitionType = pushTransition2;
-            // 
-            // btnHistoryExportImport
-            // 
-            this.btnHistoryExportImport.Caption = "История экспорта / импорта";
-            this.btnHistoryExportImport.Id = 65;
-            this.btnHistoryExportImport.Name = "btnHistoryExportImport";
-            this.btnHistoryExportImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHistoryExportImport_ItemClick);
+            this.workspaceManager.TransitionType = pushTransition1;
             // 
             // PrizmApplicationXtraForm
             // 

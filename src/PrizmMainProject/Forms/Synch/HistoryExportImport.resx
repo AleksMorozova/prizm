@@ -118,25 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnReexport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABF0RVh0VGl0
-        bGUARXhwb3J0O1NhdmVG1J4xAAADC0lEQVQ4T3WTa0iTURjH3zmnuc2aEpbQ1wgjgrSabU0T1+ZtU5Y2
-        zW25Vk6nLXPezS5W2rooVnYBgwpUxHKSkYZQKH2JwMrymiGV92szL5HEv3OWhVE98ON93/Oe/48Dz3MY
-        AH9BK/aCpwNSHLXVwy4xc+p8wthryDebwApI5zCBhP8KYqwCxv6tjb66qooEMw0vihGa6znkp3OOIGsu
-        BNbE1xb6n2ERnAjU/AuiZtwIfMLqyMKVM4PzdWgbvIqky37fhYmcMr4Xa9XSXsZJbyl5qreUIlqXC5U2
-        CxV3bDBYxVCccofipDsiCL32crQOH8LLidMofaCGJNW1fUMo25cKnBPSS1Be2YyofZmYsC9gfMoOVeFa
-        DC80YWjuIQZmbWifPIvGDyo09CvQ/FGLuleJiCxYM08FHF3aBZTdboRibxrGpufRPzAO5XEvvJ48g0dL
-        Idv7ENx7J0VNTyCqukQoeeKLILPAIXDRHD6HixUNCFGlYGhiFn2fxpFSJod/ivMSHFSS0N1OIW6/8UXi
-        TW9sjuN0rPN3ElGBa5ypCOeu2yBVGjEw9gVtPSPo6h9Fx7tBPH/ZDbGJhwd9Slx6tgGybD7WR7AreF4s
-        b3p6KlihNp5G4ZVaBIUZsEuuh0Smw06pBuLgeOiN2RAauThh2wihXgCVIZ722YvAvt8ro3nGLdpwAgUl
-        1TDlXUdy7jUYc8uhST6DkJg0WPJLiYCHnVofpGScgiH1JBXwN8Y6Mz6xji4y3KiEY8guvotofT6Zoz9r
-        cXERdrsd5kwrktPPQyzd7xA4kkvFU2pyYCm8hShNliM0/pm0kjK94OgKRapMQnhMOrYFxFHBSrLt99Ty
-        w9QWmAtuIJy0kRYNjFKmKHMYIc9A+QGE7DkKP7GaplYtF7jL9xxBcs5VyCJNyK/vRnZdFzJqu5BW04nD
-        VR0wVb6FKEiLoPAkbNkR/dcJ3ETB2hbx7gTShYNQFjQhLO8xpBkPybjWY/vB6p9IYiEMiMemrYpWkuEu
-        F9CLxCXQyyFYhsc/oOs8AvunAMwPcYvz+2ylqrsAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
