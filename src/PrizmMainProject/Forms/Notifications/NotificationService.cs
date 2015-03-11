@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Main.Forms.Notifications.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,52 +9,41 @@ namespace Prizm.Main.Forms.Notifications
 {
     class NotificationService
     {
+        IDuplicateNumberManager DuplicateNumberManager 
+        { 
+            get 
+            {
+                return (IDuplicateNumberManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.DuplicatePipeNumber; }
+                    ).Value;
+            } 
+        }
 
         // Fields
         private static NotificationService StaticInstance;
-        private Dictionary<TypeNotification, INotificationManager> listNotificationRequest;
-        private Dictionary<TypeNotification, IList<Notification>> listNotification;
-
-        // Events
-        public event EventHandler NotificationReload;
+        private Dictionary<TypeNotification, INotificationManager> managers;
 
         // Methods
         private NotificationService()
         {
-            listNotification = new Dictionary<TypeNotification, IList<Notification>>();
-            listNotificationRequest = new Dictionary<TypeNotification, INotificationManager>();
+            managers = new Dictionary<TypeNotification, INotificationManager>();
 
-            foreach (TypeNotification type in Enum.GetValues(typeof(TypeNotification)))
-            {
-                RegisterManager(type);
-            }
-
+            RegisterManager(new DuplicateLoginManager());
+            // TODO: add other managers
         }
 
-        private void RegisterManager(TypeNotification type)
+        private void RegisterManager(INotificationManager manager)
         {
-            listNotificationRequest.Add(type, new NotificationManager(type));
+            managers.Add(manager.Type, manager);
         }
-
 
         public void RequestAllNotification()
         {
-            foreach (var item in listNotificationRequest)
+            foreach (var item in managers)
             {
-                listNotification[item.Key] = item.Value.LoadNotificationFromDB();
+                item.Value.LoadNotifications();
             }
 
-            EventHandler eventRefresh = this.NotificationReload;
-            if (eventRefresh != null)
-            {
-                eventRefresh(this, EventArgs.Empty);
-            }
-
-        }
-
-        private void RequestNotification(TypeNotification type)
-        {
-            listNotification[type] = listNotificationRequest[type].LoadNotificationFromDB();
         }
 
         public static NotificationService Instance
@@ -75,7 +65,7 @@ namespace Prizm.Main.Forms.Notifications
             get
             {
                 List<Notification> list = new List<Notification>();
-                list = listNotification.SelectMany(f => f.Value).ToList();
+                list = managers.SelectMany(f => f.Value).ToList(); // TODO ???
                 return list;
             }
         }
@@ -84,8 +74,13 @@ namespace Prizm.Main.Forms.Notifications
         {
             get
             {
-                return listNotification.SelectMany(f => f.Value).Count();
+                return managers.Sum(CountSummator);
             }
+        }
+
+        private static int CountSummator(KeyValuePair<TypeNotification, INotificationManager> arg)
+        {
+            return (int)arg.Value.Count;
         }
 
     }

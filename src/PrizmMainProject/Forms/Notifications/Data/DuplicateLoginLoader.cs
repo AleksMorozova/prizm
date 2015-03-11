@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NHibernate.Transform;
+using Prizm.Main.Forms.Notifications.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,37 @@ namespace Prizm.Main.Forms.Notifications.Data
 {
     public class DuplicateLoginLoader : DataNotificationLoader
     {
-                // Methods
-        public DuplicateLoginLoader(NotificationManager manager)
-            : base(manager)
+        class DuplicateLoginResultTransformer : IResultTransformer
+        {
+
+            public System.Collections.IList TransformList(System.Collections.IList collection)
+            {
+                return collection;
+            }
+
+            public object TransformTuple(object[] tuple, string[] aliases)
+            {
+                return DuplicateLoginManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+            }
+            public Guid GetId(object[] tuple)
+            {
+                return (Guid)tuple[0];
+            }
+
+            public string GetOwnerName(object[] tuple)
+            {
+                return tuple[1].ToString() + ": " + tuple[2].ToString() + " " + tuple[3].ToString();
+            }
+
+            public DateTime GetDateToOccur(object[] tuple)
+            {
+                return DateTime.Now;
+            }
+        }
+        
+        // Methods
+        public DuplicateLoginLoader()
+            : base(new DuplicateLoginResultTransformer())
         {
 
         }
@@ -30,23 +60,5 @@ namespace Prizm.Main.Forms.Notifications.Data
             return sb.ToString();
         }
 
-        public override Guid GetId(object[] tuple)
-        {
-            return (Guid)tuple[0];
-        }
-
-        public override string GetOwnerName(object[] tuple)
-        {
-            return tuple[1].ToString() + ": " + tuple[2].ToString() + " " + tuple[3].ToString();
-        }
-
-        public override DateTime GetDateToOccur(object[] tuple)
-        {
-            return DateTime.Now;
-        }
-        public override float GetTimeToOccur(object[] tuple)
-        {
-            return (float)0;
-        }
     }
 }

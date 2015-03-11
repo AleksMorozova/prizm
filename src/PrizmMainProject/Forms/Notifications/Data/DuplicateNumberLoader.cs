@@ -10,10 +10,10 @@ using NHibernate.Transform;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
-    class DublicateNumberLoader : DataNotificationLoader
+    class DuplicateNumberLoader : DataNotificationLoader
     {
         // Methods
-        public DublicateNumberLoader(NotificationManager manager)
+        public DuplicateNumberLoader(NotificationManager manager)
             : base(manager)
         {
 

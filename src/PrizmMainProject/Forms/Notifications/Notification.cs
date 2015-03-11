@@ -121,10 +121,10 @@ namespace Prizm.Main.Forms.Notifications
 
     public enum TypeNotification
     {
-        DublicatePipeNumber,
-        ExpiredCertificate,
-        WelderCertificateExpired,
-        DublicateLogin,
+        DuplicatePipeNumber,
+        DuplicateLogin,
+        ExpiredInspectorCertificate,
+        ExpiredWelderCertificate,
         NotRequiredControlOperationPipes,
         NotRequiredControlOperationTons,
         NotRequiredControlOperationMeters

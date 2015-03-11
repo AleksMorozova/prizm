@@ -7,7 +7,7 @@ using Prizm.Main.Forms.PipeMill.NewEdit;
 
 namespace Prizm.Main.Forms.Notifications.Strategy
 {
-    class DublicateNumberFill : StrategyNotificationFill
+    class DuplicateNumberFill : StrategyNotificationFill
     {
 
 
