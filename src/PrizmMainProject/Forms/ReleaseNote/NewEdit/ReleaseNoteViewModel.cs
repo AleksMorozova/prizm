@@ -434,7 +434,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     var tmpRailcar = ((Pipe)pipe).Railcar;
                     ((Pipe)pipe).Railcar = null;
                     ((Pipe)pipe).Status = PipeMillStatus.Stocked;
-                    repos.PipeRepo.Merge(pipe);
+                    repos.PipeRepo.SaveOrUpdate(pipe);
 
                     log.Info(String.Format("Pipe {0},{1} removed from Release note {2},{3} and railcar {4},{5}",
                         pipe.Id, pipe.PipeNumber, ReleaseNote.Id, ReleaseNote.Number, tmpRailcar.Id, tmpRailcar.Number));

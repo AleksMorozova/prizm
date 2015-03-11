@@ -1493,9 +1493,12 @@ namespace Prizm.Main.Forms.Settings
                 {
                     var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes);
 
-                    inspectionForm.ShowDialog();
-                    IsModified = true;
-                    inspectionOperation.RefreshDataSource();
+                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
+                    }
+                    
 
                 }
             }
@@ -1518,9 +1521,12 @@ namespace Prizm.Main.Forms.Settings
                         inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
 
-                    inspectionForm.ShowDialog();
-                    inspectionOperation.RefreshDataSource();
-
+                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
+                    }
+                   
                 }
             }
         }

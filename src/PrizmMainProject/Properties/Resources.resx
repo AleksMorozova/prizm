@@ -1397,6 +1397,24 @@
   <data name="SettingsProject_DocumentSizeLabel" xml:space="preserve">
     <value>Допустимый размер внешнего документа, Kbytes</value>
   </data>
+  <data name="Notification_NotRequiredControlOperationPipes_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationMeters_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationTons_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationMeters_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationPipes_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationTons_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
   <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">
     <value>Экспорт</value>
   </data>

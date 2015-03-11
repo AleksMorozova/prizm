@@ -547,6 +547,8 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeChangeLanguage()
         {
             Program.LanguageManager.ChangeLanguage(this);
+            System.Threading.Thread.CurrentThread.CurrentCulture = Program.LanguageManager.CurrentCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Program.LanguageManager.CurrentCulture;
 
             foreach (var child in FormManager.Instance.ChildForms)
             {
