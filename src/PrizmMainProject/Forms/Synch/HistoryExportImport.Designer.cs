@@ -34,6 +34,7 @@
             this.portionIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.portionDateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isExportСolumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.workstationColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnReexport = new DevExpress.XtraEditors.SimpleButton();
             this.historyLayout = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -67,7 +68,8 @@
             this.gridViewHistory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.portionIdColumn,
             this.portionDateColumn,
-            this.isExportСolumn});
+            this.isExportСolumn,
+            this.workstationColumn});
             this.gridViewHistory.GridControl = this.gridControlHistory;
             this.gridViewHistory.Name = "gridViewHistory";
             this.gridViewHistory.OptionsBehavior.Editable = false;
@@ -83,7 +85,7 @@
             // 
             // portionDateColumn
             // 
-            this.portionDateColumn.Caption = "Дата экспорта/импорта";
+            this.portionDateColumn.Caption = "Дата экспорта / импорта";
             this.portionDateColumn.FieldName = "ExportDateTime";
             this.portionDateColumn.Name = "portionDateColumn";
             this.portionDateColumn.Visible = true;
@@ -91,11 +93,19 @@
             // 
             // isExportСolumn
             // 
-            this.isExportСolumn.Caption = "Экспорт/Импорт";
+            this.isExportСolumn.Caption = "Экспорт / Импорт";
             this.isExportСolumn.FieldName = "IsExport";
             this.isExportСolumn.Name = "isExportСolumn";
             this.isExportСolumn.Visible = true;
             this.isExportСolumn.VisibleIndex = 2;
+            // 
+            // workstationColumn
+            // 
+            this.workstationColumn.Caption = "Рабочая станция";
+            this.workstationColumn.FieldName = "Project.WorkstationType";
+            this.workstationColumn.Name = "workstationColumn";
+            this.workstationColumn.Visible = true;
+            this.workstationColumn.VisibleIndex = 3;
             // 
             // btnReexport
             // 
@@ -110,6 +120,9 @@
             // 
             // historyLayout
             // 
+            this.historyLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.historyLayout.Controls.Add(this.gridControlHistory);
             this.historyLayout.Controls.Add(this.btnReexport);
             this.historyLayout.Location = new System.Drawing.Point(12, 12);
@@ -162,8 +175,11 @@
             this.btnReexportLayout.Control = this.btnReexport;
             this.btnReexportLayout.CustomizationFormText = "btnReexportLayout";
             this.btnReexportLayout.Location = new System.Drawing.Point(486, 452);
+            this.btnReexportLayout.MaxSize = new System.Drawing.Size(150, 26);
+            this.btnReexportLayout.MinSize = new System.Drawing.Size(150, 26);
             this.btnReexportLayout.Name = "btnReexportLayout";
             this.btnReexportLayout.Size = new System.Drawing.Size(150, 26);
+            this.btnReexportLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.btnReexportLayout.Text = "btnReexportLayout";
             this.btnReexportLayout.TextSize = new System.Drawing.Size(0, 0);
             this.btnReexportLayout.TextVisible = false;
@@ -194,8 +210,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 516);
             this.Controls.Add(this.historyLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistoryExportImport";
-            this.Text = "HistoryExportImport";
+            this.Text = "История экспорта / импорта";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HistoryExportImport_FormClosed);
             this.Load += new System.EventHandler(this.HistoryExportImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlHistory)).EndInit();
@@ -225,5 +242,6 @@
         private DevExpress.XtraLayout.LayoutControlItem btnReexportLayout;
         private DevExpress.XtraLayout.EmptySpaceItem underBtnEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem underGridEmptySpaceItem;
+        private DevExpress.XtraGrid.Columns.GridColumn workstationColumn;
     }
 }
