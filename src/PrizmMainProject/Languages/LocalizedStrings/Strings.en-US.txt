@@ -527,8 +527,8 @@ SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 ;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
 SettingsPipe_WallThicknessLabel=Wall &thickness, mm
 
-;Настройки-труба. Длина трубы для заданного типоразмера
-SettingsPipe_LengthLabel=Pipe l&ength
+;Настройки-труба. Длина трубы для заданного типоразмера, мм
+SettingsPipe_LengthLabel=Pipe l&ength, mm
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
