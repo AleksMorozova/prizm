@@ -536,6 +536,11 @@ namespace Prizm.Main.Languages
              Id = "Menu_File_Import",
              Description = "Главное меню, пункт Импорт"
          };
+         public static StringResource Menu_File_HistoryExportImport = new StringResource
+         {
+             Id = "Menu_File_HistoryExportImport",
+             Description = "Главное меню, пункт История экспорта/импорта"
+         };
          public static StringResource Menu_File_Exit = new StringResource
          {
              Id = "Menu_File_Exit",
@@ -2063,6 +2068,11 @@ namespace Prizm.Main.Languages
             Description = "Название соответствующей привилегии доступа"
         };
 
+        public static StringResource SecurityPrivilege_ViewExportImportHistory = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewExportImportHistory",
+            Description = "Название соответствующей привилегии доступа"
+        };
 
         #endregion Settings
 
@@ -2373,6 +2383,41 @@ namespace Prizm.Main.Languages
             Description = "Сообщение: Импортирование прогресс тип"
         };
 
+        public static StringResource HistoryExportImport_SynchType_Undefined = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Undefined",
+            Description = "Экспорт"
+        };
+
+        public static StringResource HistoryExportImport_SynchType_Export = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Export",
+            Description = "Экспорт"
+        };
+
+        public static StringResource HistoryExportImport_SynchType_Import = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Import",
+            Description = "Импорт"
+        };
+
+        public static StringResource HistoryExportImport_IsExportColumn = new StringResource
+        {
+            Id = "HistoryExportImport_IsExportColumn",
+            Description = "Экспорт / Импорт"
+        };
+
+        public static StringResource HistoryExportImport_WorkstationColumn = new StringResource
+        {
+            Id = "HistoryExportImport_WorkstationColumn",
+            Description = "Рабочая станция"
+        };
+
+        public static StringResource HistoryExportImport_Title = new StringResource
+        {
+            Id = "HistoryExportImport_Title",
+            Description = "История экспорта / импорта"
+        };
 
         #endregion // --- Export/Import ---
 

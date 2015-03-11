@@ -25,7 +25,19 @@ namespace Prizm.DatabaseMigrator.Migrations
             Alter.Table("Connector")
                 .AlterColumn("diameter")
                 .AsFloat();
+
+            // The name ViewExportImportHistory corresponds to 
+            // enum item name Privileges.ViewExportImportHistory
+            Execute.Sql(@"
+                If Not Exists(select * from [Permission] 
+                    where Name = 'ViewExportImportHistory') 
+                        and (select COUNT(*) from [Permission]) > 0
+                Begin
+                    insert into [Permission] (id, Name) values (NEWID(), 'ViewExportImportHistory')
+                End");
+            
         }
+
         public override void Down()
         {
             Alter.Table("Pipe")
@@ -41,6 +53,13 @@ namespace Prizm.DatabaseMigrator.Migrations
             Alter.Table("Connector")
                .AlterColumn("diameter")
                .AsInt32();
+
+            Execute.Sql(@"
+                    If Exists(select * from [Permission] where Name = 'ViewExportImportHistory')
+                    Begin
+                        delete from [Role_Permission] where [permissionId] = (select id from [Permission] where Name = 'ViewExportImportHistory')
+                        delete from [Permission] where Name = 'ViewExportImportHistory'
+                    End");
         }
     }
 }

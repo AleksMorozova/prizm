@@ -148,6 +148,7 @@ namespace Prizm.Main
             Bind<ImportForm>().ToSelf();
             Bind<PipeConstractionReportXtraForm>().ToSelf();
             Bind<WeldDateReportXtraForm>().ToSelf();
+            Bind<HistoryExportImport>().ToSelf();
             #endregion
 
             #region Commands
@@ -161,7 +162,8 @@ namespace Prizm.Main
             
             Bind<IEncryptor>().To<Encryptor>();
             Bind<IHasher>().To<Hasher>();
-
+            Bind<DataExporter>().ToSelf();
+            
             #endregion
 
         }

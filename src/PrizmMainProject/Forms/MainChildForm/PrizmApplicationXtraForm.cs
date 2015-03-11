@@ -218,6 +218,11 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             OpenChildForm(typeof(AuditXtraForm));
         }
+
+        private void btnHistoryExportImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(typeof(HistoryExportImport));
+        }
         #endregion
 
 
@@ -478,6 +483,8 @@ namespace Prizm.Main.Forms.MainChildForm
             barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
             barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
 
+            btnHistoryExportImport.Enabled = ctx.HasAccess(Privileges.ViewExportImportHistory);
+
             barButtonItemFindEditJoints.Enabled = ctx.HasAccess(Privileges.SearchJoints);
 
             barButtonItemFindEditParts.Enabled = ctx.HasAccess(Privileges.SearchParts);
@@ -584,6 +591,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 new LocalizedItem(barSubItemApplication, "Menu_File"),
                 new LocalizedItem(barButtonItemExport, "Menu_File_Export"),
                 new LocalizedItem(barButtonItemImport, "Menu_File_Import"),
+                new LocalizedItem(btnHistoryExportImport, StringResources.Menu_File_HistoryExportImport.Id),
                 new LocalizedItem(barButtonItemExit, "Menu_File_Exit"),
                 new LocalizedItem(barSubItemMill, "Menu_Mill"),
                 new LocalizedItem(barButtonItemNewPipe, "Menu_Mill_NewPipe"),
@@ -646,5 +654,6 @@ namespace Prizm.Main.Forms.MainChildForm
             WinApi.ShowToFront(this.Handle);
         } 
         #endregion
+
     }
 }
