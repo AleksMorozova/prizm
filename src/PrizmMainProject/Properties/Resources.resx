@@ -1415,4 +1415,7 @@
   <data name="HistoryExportImport_WorkstationColumn" xml:space="preserve">
     <value>Рабочая станция</value>
   </data>
+  <data name="SecurityPrivilege_ViewExportImportHistory" xml:space="preserve">
+    <value>Просмотр истории экспорта/импорта</value>
+  </data>
 </root>

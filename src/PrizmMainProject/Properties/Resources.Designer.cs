@@ -3279,6 +3279,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Просмотр истории экспорта/импорта.
+        /// </summary>
+        internal static string SecurityPrivilege_ViewExportImportHistory {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ViewExportImportHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Просмотр стыка.
         /// </summary>
         internal static string SecurityPrivilege_ViewJoint {
