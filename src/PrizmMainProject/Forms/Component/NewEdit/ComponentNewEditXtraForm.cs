@@ -345,7 +345,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             for(int i = 0; i < componentParametersView.RowCount; i++)
             {
-                if(Convert.ToInt32(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
+                if(Convert.ToDecimal(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
                 {
                     componentParametersView.FocusedRowHandle = i;
 
@@ -369,7 +369,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             GridView gv = sender as GridView;
 
-            var diameter = (int)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
+            var diameter = (float)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
 
             if(diameter <= 0)
             {

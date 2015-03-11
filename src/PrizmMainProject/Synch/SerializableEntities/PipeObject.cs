@@ -89,7 +89,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Mill { get; set; }
 
       [XmlAttribute("Diameter")]
-      public int Diameter { get; set; }
+      public float Diameter { get; set; }
 
       [XmlAttribute("WallThickness")]
       public float WallThickness { get; set; }

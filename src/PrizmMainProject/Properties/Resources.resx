@@ -413,7 +413,7 @@
     <value>Величина диаметра должна быть больше нуля</value>
   </data>
   <data name="Joint_IncorrectDiameter" xml:space="preserve">
-    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
+    <value>Отсутствуют подходящие диаметры или толщины для формирования стыка.</value>
   </data>
   <data name="MillPipe_PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
@@ -479,7 +479,7 @@
     <value>Роли пользователя</value>
   </data>
   <data name="Joint_IncorrectDiameterHeader" xml:space="preserve">
-    <value>Не совпадают диаметры стыкуемых элементов</value>
+    <value>Не совпадают диаметры или толщины стыкуемых элементов</value>
   </data>
   <data name="ReleaseNoteNewEdit_Shipped" xml:space="preserve">
     <value>Отгрузка произошла успешно</value>

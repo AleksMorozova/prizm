@@ -153,7 +153,6 @@ namespace Prizm.Main.Forms.Settings
             CreateDuplicateList();
 
             externalDocumentSize.SetMask(Constants.PositiveDigitMask);
-            pipeDiameter.SetMask(Constants.PositiveDigitMask);
             pipeLength.SetMask(Constants.PositiveDigitMask);
 
             categoryColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
