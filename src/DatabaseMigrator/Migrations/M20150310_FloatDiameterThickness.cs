@@ -29,10 +29,12 @@ namespace Prizm.DatabaseMigrator.Migrations
             // The name ViewExportImportHistory corresponds to 
             // enum item name Privileges.ViewExportImportHistory
             Execute.Sql(@"
-                    If Not Exists(select * from [Permission] where Name='ViewExportImportHistory')
-                    Begin
-                        insert into [Permission] (id, Name) values (NEWID(), 'ViewExportImportHistory')
-                    End");
+                If Not Exists(select * from [Permission] 
+                    where Name = 'ViewExportImportHistory') 
+                        and (select COUNT(*) from [Permission]) > 0
+                Begin
+                    insert into [Permission] (id, Name) values (NEWID(), 'ViewExportImportHistory')
+                End");
             
         }
 
