@@ -19,7 +19,7 @@ namespace Prizm.Domain.Entity.Construction
         public string PartTypeDescription { get; set; }
         public int Length { get; set; }
         public float WallThickness { get; set; }
-        public int Diameter { get; set; }
+        public float Diameter { get; set; }
         public IList<Connector> Connectors { get; set; }
         public PartConstructionStatus ConstructionStatus { get; set; }
         public string ConnectorsCount { get; set; }
@@ -44,7 +44,7 @@ namespace Prizm.Domain.Entity.Construction
             Length = row.Field<int>("length");
             PartTypeDescription = row.Field<string>("typeTranslated");
             WallThickness = Convert.ToSingle(row.Field<double>("wallThickness"));
-            Diameter = row.Field<int>("diameter");
+            Diameter = row.Field<float>("diameter");
 
             ConstructionStatus = (PartConstructionStatus)Enum
                     .Parse(typeof(PartConstructionStatus),
@@ -106,7 +106,8 @@ namespace Prizm.Domain.Entity.Construction
 
             if (this.PartType == PartType.Component)
             {
-                cnt.Diameter = row.Field<int>("diameter");
+                cnt.Diameter = row.Field<float>("diameter");
+                cnt.WallThickness = Convert.ToSingle(row.Field<double>("wallThickness"));
 
                 this.Connectors.Add(cnt);
 

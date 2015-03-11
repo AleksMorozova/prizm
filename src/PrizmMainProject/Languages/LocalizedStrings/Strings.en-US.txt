@@ -1261,11 +1261,11 @@ Joint_Duplicate=Joint already exists, number:
 ;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
 Joint_DuplicateHeader=Joint number duplication
 
-;Сообщение о диаметрах: Отсутствуют подходящие диаметры для формирования стыка.
-Joint_IncorrectDiameter=There are no suitable diameters for the joint formation
+;Сообщение о диаметрах: Отсутствуют подходящие диаметры или толщины для формирования стыка.
+Joint_IncorrectDiameter=There are no suitable diameters or wall thicknesses for the joint formation
 
-;Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов
-Joint_IncorrectDiameterHeader=Diameters of the joint elements do not match
+;Заголовок сообщения о диаметрах: Не совпадают диаметры или толщины стыкуемых элементов
+Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint elements do not match
 
 ;Ном&ер стыка
 JointSearch_JointNumber=Joint&Number

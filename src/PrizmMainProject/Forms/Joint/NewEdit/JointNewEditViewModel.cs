@@ -681,7 +681,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
                     return false;
 
-                return x.Diameter == y.Diameter;
+                return (x.Diameter == y.Diameter && 
+                        Math.Abs(x.WallThickness - y.WallThickness) <= 2);
+                
             }
 
             public int GetHashCode(construction.Connector connector)
@@ -813,15 +815,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             .Connectors
                             .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
                             .Diameter;
+                        connector.WallThickness = ((construction.Component)part)
+                           .Connectors
+                           .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
+                           .WallThickness;
                     }
                 }
                 else if (part is Pipe)
                 {
                     connector.Diameter = ((Pipe)part).Diameter;
+                    connector.WallThickness = ((Pipe)part).WallThickness;
                 }
                 else
                 {
                     connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
+                    connector.WallThickness = ((construction.Spool)part).Pipe.WallThickness;
                 }
                 
                 PartDataList.First<PartData>(x => x.Id == partData.Id).Connectors.Add(connector);
