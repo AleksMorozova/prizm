@@ -521,11 +521,11 @@ SettingsPipe_SizesLabel=Pipe size parameters
 ;Настройки-труба. Контрольные операции для типоразмера
 SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
 
-;Настройки-труба. Диаметр трубы с заданым типоразмером
-SettingsPipe_DiameterLabel=Pipe &diameter
+;Настройки-труба. Наружный диаметр трубы с заданым типоразмером, мм
+SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 
-;Настройки-труба. Толщина стенки для трубы с заданым типоразмером
-SettingsPipe_WallThicknessLabel=Wall &thickness
+;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
+SettingsPipe_WallThicknessLabel=Wall &thickness, mm
 
 ;Настройки-труба. Длина трубы для заданного типоразмера
 SettingsPipe_LengthLabel=Pipe l&ength
@@ -1123,11 +1123,11 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
-;Диаметр отверстия
-ComponentNewEdit_DiameterGridColumn=Diameter
+;Наружный диаметр отверстия, мм
+ComponentNewEdit_DiameterGridColumn=External diameter, mm
 
-;Толщина стенки
-ComponentNewEdit_WallThicknessGridColumn=Wall thickness
+;Толщина стенки, мм
+ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 
 ;Входно&й контроль
 ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
@@ -1546,8 +1546,8 @@ NewEditPipe_PipeStatusLabel=Status on &mill
 ;Труба. Номер листа
 NewEditPipe_PlateNumberLabel=Number
 
-;Труба. Толщина листа
-NewEditPipe_PlateThicknessLabel=Thic&kness
+;Труба. Толщина листа, мм
+NewEditPipe_PlateThicknessLabel=Thic&kness, mm
 
 ;Труба. Производитель листа
 NewEditPipe_PlateManufacturerLabel=Manufacturer
@@ -1564,11 +1564,11 @@ NewEditPipe_PipeWeightLabel=Weight
 ;Труба. Длина по типоразмеру
 NewEditPipe_TypeSizeLengthLabel=Length
 
-;Труба. Диаметр по типоразмеру
-NewEditPipe_TypeSizeDiameterLabel=Diameter
+;Труба. Наружный диаметр по типоразмеру, мм
+NewEditPipe_TypeSizeDiameterLabel=External diameter, mm
 
-;Труба. Толщина по типоразмеру
-NewEditPipe_TypeSizeThicknessLabel=Thickness
+;Труба. Толщина по типоразмеру, мм
+NewEditPipe_TypeSizeThicknessLabel=Thickness, mm
 
 ;Труба. Номер вагона
 NewEditPipe_RailcarNumber_Label=Railcar number
