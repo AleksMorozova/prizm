@@ -350,8 +350,8 @@ Spool_PipeSearchGroup=Pipe search
 ;Катушка. Данные о катушке
 Spool_SpoolGroup=Spool information
 
-;Катушка. Длины трубы и катушки
-Spool_LenghtGroup=Length
+;Катушка. Длины трубы и катушки, мм
+Spool_LenghtGroup=Length, mm
 
 ;Катушка. Входной контроль
 Spool_IncomingInspectionGroup=Incoming inspection
@@ -1097,7 +1097,7 @@ ComponentNewEdit_TypeLayoutControl=&Type
 ComponentNewEdit_CertificateLayout=Certi&ficate number
 
 ;Длина комплектую&щего, мм
-ComponentNewEdit_ComponentLengthLayout=Component &length
+ComponentNewEdit_ComponentLengthLayout=Component &length, mm
 
 ;&Вложения
 ComponentNewEdit_AttachmentsButton=&Attachments
@@ -1397,7 +1397,7 @@ JointCutDialog_FirstJoinedPartGroup=First element
 JointCutDialog_FirstJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_FirstJoinedPartLengthLayout=Length
+JointCutDialog_FirstJoinedPartLengthLayout=Length, mm
 
 ;Второй элемент
 JointCutDialog_SecondJoinedPartGroup=Second element
@@ -1406,7 +1406,7 @@ JointCutDialog_SecondJoinedPartGroup=Second element
 JointCutDialog_SecondJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_SecondJoinedPartLengthLayout=Length
+JointCutDialog_SecondJoinedPartLengthLayout=Length, mm
 
 ;Вырезать
 JointCutDialog_CutJointButton=Withdraw
@@ -1555,14 +1555,14 @@ NewEditPipe_PlateManufacturerLabel=Manufacturer
 ;Труба. Марка стали
 NewEditPipe_PlateSteelGradeLabel=Steel grade
 
-;Труба. Длина трубы
-NewEditPipe_PipeLengthLabel=Length
+;Труба. Длина трубы, мм
+NewEditPipe_PipeLengthLabel=Length, mm
 
 ;Труба. Вес трубы
 NewEditPipe_PipeWeightLabel=Weight
 
-;Труба. Длина по типоразмеру
-NewEditPipe_TypeSizeLengthLabel=Length
+;Труба. Длина по типоразмеру, мм
+NewEditPipe_TypeSizeLengthLabel=Length, mm
 
 ;Труба. Наружный диаметр по типоразмеру, мм
 NewEditPipe_TypeSizeDiameterLabel=External diameter, mm
