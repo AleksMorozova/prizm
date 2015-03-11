@@ -57,6 +57,7 @@ namespace Prizm.DatabaseMigrator.Migrations
             Execute.Sql(@"
                     If Exists(select * from [Permission] where Name = 'ViewExportImportHistory')
                     Begin
+                        delete from [Role_Permission] where [permissionId] = (select id from [Permission] where Name = 'ViewExportImportHistory')
                         delete from [Permission] where Name = 'ViewExportImportHistory'
                     End");
         }
