@@ -282,6 +282,7 @@
     </Compile>
     <Compile Include="Forms\Joint\NewEdit\JointDeactivationCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\NewSaveJointCommand.cs" />
+    <Compile Include="Forms\MainChildForm\ChildEditableForm.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupRepo.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupSaveCommand.cs" />
     <Compile Include="Forms\MainChildForm\FirstSetupForm\FirstSetupViewModel.cs" />
@@ -306,7 +307,6 @@
     </Compile>
     <Compile Include="Forms\MainChildForm\FirstSetupForm\InnitialDataSeeder.cs" />
     <Compile Include="Forms\MainChildForm\FormManager.cs" />
-    <Compile Include="Forms\MainChildForm\INewEditEntityForm.cs" />
     <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />

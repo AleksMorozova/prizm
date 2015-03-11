@@ -16,6 +16,8 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("")]
     public class PrizmForm : DevExpress.XtraEditors.XtraForm, ILocalizable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PrizmForm));
+
         #region --- Localization ---
 
         // do NOT re-create it because reference passed to localization item. Clean it instead.
@@ -34,7 +36,12 @@ namespace Prizm.Main.Forms.MainChildForm
         
         private List<LocalizedItem> localizedItems = null;
 
-        protected virtual List<LocalizedItem> CreateLocalizedItems() { return null; } // not abstract because of designer
+        protected virtual List<LocalizedItem> CreateLocalizedItems()
+        {
+            var e = new ApplicationException("PrizmForm.CreateLocalizedItems must not be called.");
+            log.Error(e.Message);
+            throw e;
+        }
 
         public IEnumerator<ILocalizedItem> GetEnumerator()
         {

@@ -24,7 +24,7 @@ using Prizm.Main.Controls;
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class ReleaseNoteNewEditXtraForm : ChildForm, IValidatable
     {
         private bool formLeave = false;
         private ICommandManager commandManager = new CommandManager();

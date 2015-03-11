@@ -144,21 +144,16 @@ namespace Prizm.Main.Forms.Parts.Search
                 {
                     case PartType.Component:
                         {
-                            parent.OpenChildForm(
-                                typeof(ComponentNewEditXtraForm),
-                                viewModel.Parts[selectedPart].Id,
-                                viewModel.Parts[selectedPart].Number);
+                            parent.OpenChildForm(DocumentTypes.ConstructionComponent, 
+                                viewModel.Parts[selectedPart].Id, viewModel.Parts[selectedPart].Number);
                         } break;
                     case PartType.Pipe:
                         {
-                            parent.OpenChildForm
-                                (typeof(MillPipeNewEditXtraForm), 
-                                viewModel.Parts[selectedPart].Id);
+                            parent.OpenChildForm(DocumentTypes.MillPipe, viewModel.Parts[selectedPart].Id);
                         } break;
                     case PartType.Spool:
                         {
-                            parent.OpenChildForm(
-                                typeof(SpoolsXtraForm), viewModel.Parts[selectedPart].Id);
+                            parent.OpenChildForm(DocumentTypes.ConstructionSpool, viewModel.Parts[selectedPart].Id);
                         } break;
                     default: break;
                 }

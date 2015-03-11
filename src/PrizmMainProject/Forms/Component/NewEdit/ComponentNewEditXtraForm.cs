@@ -23,7 +23,7 @@ using System.Drawing;
 namespace Prizm.Main.Forms.Component.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable
     {
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();

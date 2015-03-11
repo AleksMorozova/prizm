@@ -33,7 +33,7 @@ using System.Drawing;
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class JointNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class JointNewEditXtraForm : ChildForm, IValidatable
     {
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;

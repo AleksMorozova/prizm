@@ -62,19 +62,19 @@ namespace PrizmMain.Forms.Notifications
 
         private void OpenEditorForm(Guid id, TypeNotification typeNotification)
         {
-            Type typeEditor = null;
+            DocumentTypes typeEditor;
             int page = -1;
             switch (typeNotification)
             {
                 case TypeNotification.DublicatePipeNumber:
-                    typeEditor = typeof(MillPipeNewEditXtraForm);
+                    typeEditor = DocumentTypes.MillPipe;
                     break;
                 case TypeNotification.ExpiredCertificate:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 5;
                     break;
                 case TypeNotification.WelderCertificateExpired:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 4;
                     break;
                 default:
@@ -86,7 +86,7 @@ namespace PrizmMain.Forms.Notifications
 
             var parent = this.MdiParent as PrizmApplicationXtraForm;
 
-            if (typeEditor == typeof(SettingsXtraForm) && page >= 0)
+            if (typeEditor == DocumentTypes.Settings && page >= 0)
             {
                 parent.CreateSettingsChildForm(page);
             }
