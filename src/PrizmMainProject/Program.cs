@@ -83,10 +83,7 @@ namespace Prizm.Main
                 return;
             } 
             #endregion
-
-            Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
-            Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
-          
+ 
             foreach (var arg in args)
             {
                 if (arg.Equals("seed"))
@@ -109,6 +106,10 @@ namespace Prizm.Main
 
             bool cmdLineMode = false;
             LanguageManager.LoadTranslation(new CultureInfo(Settings.Default.UsersLanguage));
+            
+            Thread.CurrentThread.CurrentCulture = LanguageManager.CurrentCulture;
+            Thread.CurrentThread.CurrentUICulture = LanguageManager.CurrentCulture; 
+
             try
             {
                 // Splash screen
