@@ -65,49 +65,52 @@ namespace Prizm.Data.DAL.Hibernate
             NHibernate.Type.IType[] types)
         {
             if (previousState == null) return false;
+
             var curentity = entity as Item;
+
             if (curentity != null)
             {
                 for (var i = 0; i < currentState.Count(); i++)
                 {
-                    string newValue = "";
-                    string oldValue = "";
-                    string propertyName = propertyNames[i];
+                    if (currentState[i] != null || previousState[i] != null)
+                    {
+                        string newValue = "";
+                        string oldValue = "";
+                        string propertyName = propertyNames[i];
 
-
-                    if (currentState[i] == null && previousState[i] == null)
-                    {
-                        continue; // prevent exeption 
-                    }
-                    else if (currentState[i] == null || previousState[i] == null) //prevent exeption
-                    {
-                        newValue = (currentState[i] == null) ? "" : currentState[i].ToString();
-                        oldValue = (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
-
-                    }
-                    else if (!IsAuditableType(currentState[i]) || !IsAuditableType(previousState[i]))
-                    {
-                        continue;
-                    }
-                    else if (currentState[i] as Item == null && currentState[i].ToString() != previousState[i].ToString())
-                    {
-                        newValue = currentState[i].ToString();
-                        oldValue = previousState[i].ToString();
-                    }
-                    else
-                    {
-                        var previousStateItem = previousState[i] as Item;
-                        var currentStateItem = currentState[i] as Item;
-
-                        if (previousStateItem != null && currentState[i].Equals(previousState[i]))
+                        //prevent exeption
+                        if (currentState[i] == null || previousState[i] == null) 
                         {
-                            newValue = previousStateItem.Id.ToString();
-                            oldValue = currentStateItem.Id.ToString();
+                            newValue = 
+                                (currentState[i] == null) ? "" : currentState[i].ToString();
+
+                            oldValue = 
+                                (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
                         }
+                        else if (!IsAuditableType(currentState[i]) || !IsAuditableType(previousState[i]))
+                        {
+                            continue;
+                        }
+                        else if (currentState[i] as Item == null && currentState[i].ToString() != previousState[i].ToString())
+                        {
+                            newValue = currentState[i].ToString();
+                            oldValue = previousState[i].ToString();
+                        }
+                        else
+                        {
+                            var previousStateItem = previousState[i] as Item;
+                            var currentStateItem = currentState[i] as Item;
+
+                            if (previousStateItem != null && currentState[i].Equals(previousState[i]))
+                            {
+                                newValue = previousStateItem.Id.ToString();
+                                oldValue = currentStateItem.Id.ToString();
+                            }
+                        }
+
+
+                        NewAuditRecord(curentity, propertyName, newValue, oldValue);
                     }
-
-
-                    NewAuditRecord(curentity, propertyName, newValue, oldValue);
                 }
             }
             return base.OnFlushDirty(entity, id, currentState, previousState, propertyNames, types);
@@ -116,7 +119,11 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Creating log record and saving it to DB
         /// </summary>
-        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
+        private void NewAuditRecord(
+            Item curentity, 
+            string fieldName, 
+            string newValue, 
+            string oldValue)
         {
             string entityType = curentity.GetType().ToString();
             string tableName = entityType.Substring(entityType.LastIndexOf('.') + 1);
@@ -140,7 +147,12 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Is called whilr deleting record
         /// </summary>
-        public override void OnDelete(object entity, object id, object[] state, string[] propertyNames, NHibernate.Type.IType[] types)
+        public override void OnDelete(
+            object entity, 
+            object id, 
+            object[] state, 
+            string[] propertyNames, 
+            NHibernate.Type.IType[] types)
         {
             LogAudit(entity, propertyNames, Actions.Delete, state);
             base.OnDelete(entity, id, state, propertyNames, types);
@@ -164,27 +176,25 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 for (var i = 0; i < propertyNames.Count(); i++)
                 {
-                    if (state[i] == null || !IsAuditableType(state[i])) 
-                        continue;
-
-                    var objectProperty = state[i] as Item;
-
-                    switch (actionType)
+                    if (state[i] != null && IsAuditableType(state[i]))
                     {
-                        case Actions.Insert:
-                            newValue = (state[i] is Item) ? objectProperty.Id.ToString() : state[i].ToString();
-                            break;
+                        switch (actionType)
+                        {
+                            case Actions.Insert:
+                                newValue = (state[i] is Item) ? ((Item)state[i]).Id.ToString() : state[i].ToString();
+                                break;
 
-                        case Actions.Delete:
-                            oldValue = (state[i] is Item) ? objectProperty.Id.ToString() : state[i].ToString();
-                            newValue = "deleted";
-                            break;
+                            case Actions.Delete:
+                                oldValue = (state[i] is Item) ? ((Item)state[i]).Id.ToString() : state[i].ToString();
+                                newValue = "deleted";
+                                break;
 
-                        default: 
-                            break;
+                            default:
+                                break;
+                        }
+
+                        NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                     }
-
-                    NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
                 }
             }
         }
