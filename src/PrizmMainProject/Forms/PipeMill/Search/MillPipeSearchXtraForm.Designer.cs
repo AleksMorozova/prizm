@@ -154,8 +154,9 @@
             this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.Location = new System.Drawing.Point(817, 61);
+            this.searchButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(97, 22);
+            this.searchButton.Size = new System.Drawing.Size(110, 22);
             this.searchButton.StyleController = this.PipeSearchLayoutControl;
             this.searchButton.TabIndex = 8;
             this.searchButton.Text = "&Поиск";
@@ -378,9 +379,9 @@
             // 
             this.searchGroupTopEmptySpace.AllowHotTrack = false;
             this.searchGroupTopEmptySpace.CustomizationFormText = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(898, 0);
+            this.searchGroupTopEmptySpace.Location = new System.Drawing.Point(911, 0);
             this.searchGroupTopEmptySpace.Name = "searchGroupTopEmptySpace";
-            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(266, 46);
+            this.searchGroupTopEmptySpace.Size = new System.Drawing.Size(253, 46);
             this.searchGroupTopEmptySpace.Text = "searchGroupTopEmptySpace";
             this.searchGroupTopEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -446,7 +447,7 @@
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
             this.searchButtonLayout.Location = new System.Drawing.Point(777, 15);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(121, 31);
+            this.searchButtonLayout.Size = new System.Drawing.Size(134, 31);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -458,7 +459,7 @@
             this.searchButtonEmptySpace.CustomizationFormText = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.Location = new System.Drawing.Point(777, 0);
             this.searchButtonEmptySpace.Name = "searchButtonEmptySpace";
-            this.searchButtonEmptySpace.Size = new System.Drawing.Size(121, 15);
+            this.searchButtonEmptySpace.Size = new System.Drawing.Size(134, 15);
             this.searchButtonEmptySpace.Text = "searchButtonEmptySpace";
             this.searchButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 

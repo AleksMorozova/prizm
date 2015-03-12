@@ -779,6 +779,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Экспорт/Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_IsExportColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_IsExportColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Export {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Import {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не определено.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Undefined {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to История экспорта/импорта.
+        /// </summary>
+        internal static string HistoryExportImport_Title {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рабочая станция.
+        /// </summary>
+        internal static string HistoryExportImport_WorkstationColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_WorkstationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Уникальный идентификатор.
         /// </summary>
         internal static string Id {
@@ -1116,7 +1170,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры или толщины для формирования стыка..
         /// </summary>
         internal static string Joint_IncorrectDiameter {
             get {
@@ -1125,7 +1179,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        ///   Looks up a localized string similar to Не совпадают диаметры или толщины стыкуемых элементов.
         /// </summary>
         internal static string Joint_IncorrectDiameterHeader {
             get {
@@ -2107,6 +2161,60 @@ namespace Prizm.Main.Properties {
         internal static string Notification_ExpiredCertificate_Warning {
             get {
                 return ResourceManager.GetString("Notification_ExpiredCertificate_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationMeters_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationMeters_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationPipes_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationPipes_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationTons_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredControlOperationTons_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Warning", resourceCulture);
             }
         }
         
@@ -3225,6 +3333,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Просмотр истории экспорта/импорта.
+        /// </summary>
+        internal static string SecurityPrivilege_ViewExportImportHistory {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ViewExportImportHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Просмотр стыка.
         /// </summary>
         internal static string SecurityPrivilege_ViewJoint {
@@ -3401,6 +3518,15 @@ namespace Prizm.Main.Properties {
         internal static string Settings_ValueRequired {
             get {
                 return ResourceManager.GetString("Settings_ValueRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Допустимый размер внешнего документа, Kbytes.
+        /// </summary>
+        internal static string SettingsProject_DocumentSizeLabel {
+            get {
+                return ResourceManager.GetString("SettingsProject_DocumentSizeLabel", resourceCulture);
             }
         }
         

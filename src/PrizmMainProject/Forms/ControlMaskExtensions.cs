@@ -20,7 +20,7 @@ namespace Prizm.Main.Forms
             textEdit.EditValueChanged += textEdit_EditValueChanged;
         }
 
-        public static void SetAsJointElement(this TextEdit textEdit)
+        public static void SetAsLookUpIdentifier(this TextEdit textEdit)
         {
             textEdit.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
         }

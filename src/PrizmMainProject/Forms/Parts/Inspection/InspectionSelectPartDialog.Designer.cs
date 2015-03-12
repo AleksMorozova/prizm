@@ -40,6 +40,7 @@
             this.searchResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.acceptButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dialogLayout)).BeginInit();
             this.dialogLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchResults)).BeginInit();
@@ -48,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // dialogLayout
@@ -66,9 +68,9 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(225, 227);
+            this.acceptButton.Location = new System.Drawing.Point(296, 227);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(180, 22);
+            this.acceptButton.Size = new System.Drawing.Size(109, 22);
             this.acceptButton.StyleController = this.dialogLayout;
             this.acceptButton.TabIndex = 6;
             this.acceptButton.Text = "Конт&роль";
@@ -79,7 +81,7 @@
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(12, 227);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(179, 22);
+            this.cancelButton.Size = new System.Drawing.Size(110, 22);
             this.cancelButton.StyleController = this.dialogLayout;
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "О&тменить";
@@ -135,7 +137,8 @@
             this.dialogLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.searchResultsLayout,
             this.cancelButtonLayout,
-            this.acceptButtonLayout});
+            this.acceptButtonLayout,
+            this.emptySpaceItem1});
             this.dialogLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.dialogLayoutControlGroup.Name = "dialogLayoutControlGroup";
             this.dialogLayoutControlGroup.Size = new System.Drawing.Size(417, 261);
@@ -159,7 +162,7 @@
             this.cancelButtonLayout.CustomizationFormText = "cancelButtonLayout";
             this.cancelButtonLayout.Location = new System.Drawing.Point(0, 200);
             this.cancelButtonLayout.Name = "cancelButtonLayout";
-            this.cancelButtonLayout.Size = new System.Drawing.Size(198, 41);
+            this.cancelButtonLayout.Size = new System.Drawing.Size(129, 41);
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 15, 0);
             this.cancelButtonLayout.Text = "cancelButtonLayout";
             this.cancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -169,13 +172,23 @@
             // 
             this.acceptButtonLayout.Control = this.acceptButton;
             this.acceptButtonLayout.CustomizationFormText = "acceptButtonLayout";
-            this.acceptButtonLayout.Location = new System.Drawing.Point(198, 200);
+            this.acceptButtonLayout.Location = new System.Drawing.Point(269, 200);
             this.acceptButtonLayout.Name = "acceptButtonLayout";
-            this.acceptButtonLayout.Size = new System.Drawing.Size(199, 41);
+            this.acceptButtonLayout.Size = new System.Drawing.Size(128, 41);
             this.acceptButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 15, 0);
             this.acceptButtonLayout.Text = "acceptButtonLayout";
             this.acceptButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.acceptButtonLayout.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(129, 200);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(140, 41);
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // InspectionSelectPartDialog
             // 
@@ -198,6 +211,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +229,6 @@
         private DevExpress.XtraLayout.LayoutControlItem acceptButtonLayout;
         private DevExpress.XtraGrid.Columns.GridColumn numberCol;
         private DevExpress.XtraGrid.Columns.GridColumn typeCol;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }
