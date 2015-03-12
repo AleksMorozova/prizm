@@ -16,18 +16,9 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
         public override TypeNotification Type { get { return TypeNotification.ExpiredWelderCertificate; } }
 
-        public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur, string information)
+        public static Notification CreateNotification(Guid userId, string ownerName, DateTime expirationDate, string information)
         {
-            Notification notification = new Notification(userId, ownerName, TypeNotification.ExpiredWelderCertificate, dateToOccur, information);
-            if (notification.DayToOccur < 0)
-            {
-                notification.Status = NotificationStatus.Critical;
-            }
-            else
-            {
-                notification.Status = NotificationStatus.Warning;
-            }
-            return notification;
+            return new Notification(userId, ownerName, TypeNotification.ExpiredWelderCertificate, information, expirationDate);
         }
 
 
@@ -35,5 +26,6 @@ namespace Prizm.Main.Forms.Notifications.Managers
         {
             throw new NotImplementedException();
         }
+
     }
 }

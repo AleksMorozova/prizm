@@ -18,21 +18,30 @@ namespace Prizm.Main.Forms.Notifications
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Notification));
 
         // Methods
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, DateTime dateToOccur, string information)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information)
         {
             Id = ownerId;
             OwnerName = ownerName;
             TypeNotification = typeNotification;
-            DateToOccur = dateToOccur;
             Information = information;
+            Status = NotificationStatus.Critical;
+            DateToOccur = default(DateTime);
+            UnitsLeft = 0;
+
         }
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, float timeToOccur, string information)
+
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, DateTime dayToOccur)
+            : this(ownerId, ownerName, typeNotification, information)
         {
-            Id = ownerId;
-            OwnerName = ownerName;
-            TypeNotification = typeNotification;
-            TimeToOccur = timeToOccur;
-            Information = information;
+            DateToOccur = dayToOccur;
+            Status = DaysLeft < 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
+        }
+
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, float unitsLeft)
+            : this(ownerId, ownerName, typeNotification, information)
+        {
+            UnitsLeft = unitsLeft;
+            Status = UnitsLeft <= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
         }
 
         // TODO: move screen representation to Form
@@ -104,17 +113,17 @@ namespace Prizm.Main.Forms.Notifications
 
         public string Information { get; set; }
 
-        public float TimeToOccur { get; set; }
+        public float UnitsLeft { get; set; }
         
         public DateTime DateToOccur { get; set; }
        
-        public int DayToOccur
+        public int DaysLeft
         {
             get
             {
                 int retVal = 0;
 
-                if (DateToOccur != null)
+                if (DateToOccur != default(DateTime))
                 {
                     retVal = (int)(DateToOccur - DateTime.Now).TotalDays;
                 }

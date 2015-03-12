@@ -16,18 +16,9 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
         public override TypeNotification Type { get { return TypeNotification.NotRequiredControlOperationPipes; } }
 
-        public static Notification CreateNotification(Guid userId, string ownerName, float timeToOccur, string information)
+        public static Notification CreateNotification(Guid userId, string ownerName, float unitsLeft, string information)
         {
-            Notification n = new Notification(userId, ownerName, TypeNotification.NotRequiredControlOperationPipes, timeToOccur, information);
-            if (n.TimeToOccur > 0)
-            {
-                n.Status = NotificationStatus.Warning;
-            }
-            else
-            {
-                n.Status = NotificationStatus.Critical;
-            }
-            return n;
+            return new Notification(userId, ownerName, TypeNotification.NotRequiredControlOperationPipes, information, unitsLeft);
         }
 
         public void RefreshNotification(Guid pipe, string oldNumber, string newNumber)

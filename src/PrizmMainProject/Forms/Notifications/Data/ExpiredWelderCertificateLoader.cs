@@ -6,6 +6,7 @@ using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Properties;
 using NHibernate.Transform;
 using Prizm.Main.Forms.Notifications.Managers;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
@@ -21,7 +22,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return ExpiredWelderCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetInformationToOccur(tuple));
+                return ExpiredWelderCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetExpirationDate(tuple), GetTextInformation(tuple));
             }
 
             public Guid GetId(object[] tuple)
@@ -35,12 +36,12 @@ namespace Prizm.Main.Forms.Notifications.Data
                 return tuple[1].ToString() + " " + tuple[2].ToString() + " " + middleName;
             }
 
-            public DateTime GetDateToOccur(object[] tuple)
+            public DateTime GetExpirationDate(object[] tuple)
             {
                 return (DateTime)tuple[4];
             }
 
-            public string GetInformationToOccur(object[] tuple)
+            public string GetTextInformation(object[] tuple)
             {
                 DateTime t = (DateTime)tuple[4];
                 return t.Date.ToString("d");
@@ -59,7 +60,7 @@ namespace Prizm.Main.Forms.Notifications.Data
             sb.Append(
                 @" SELECT  id, firstName, lastName, middleName, certificateExpiration
                        FROM  Welder
-                WHERE   (DATEDIFF(day, GETDATE(), certificateExpiration) < 5) AND (isActive = 1) ");
+                WHERE   (DATEDIFF(day, GETDATE(), certificateExpiration) < " + Constants.DaysToExpirationWarning + ") AND (isActive = 1) ");
             return sb.ToString();
         }
     }

@@ -341,14 +341,6 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Notifications\Strategy\DuplicateLoginFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\DuplicateNumberFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationMetersFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationPipesFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationTonsFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
     <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,7 +23,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetInformationToOccur(tuple));
+                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), "");
             }
 
 
@@ -37,15 +37,6 @@ namespace Prizm.Main.Forms.Notifications.Data
                 return tuple[1].ToString() + "/" + tuple[2].ToString();
             }
 
-            public DateTime GetDateToOccur(object[] tuple)
-            {
-                return DateTime.Now;
-            }
-
-            public string GetInformationToOccur(object[] tuple)
-            {
-                return DateTime.Now.Date.ToString("d");
-            }
         }
         // Methods
         public DuplicateNumberLoader()

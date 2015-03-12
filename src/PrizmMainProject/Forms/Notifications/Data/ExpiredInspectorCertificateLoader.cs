@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Prizm.Main.Properties;
 using System.Text;
 using Prizm.Main.Forms.Notifications.Managers;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
@@ -23,7 +24,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return ExpiredInspectorCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetInformationToOccur(tuple));
+                return ExpiredInspectorCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetExpirationDate(tuple), GetTextInformation(tuple));
             }
 
             public  Guid GetId(object[] tuple)
@@ -39,12 +40,12 @@ namespace Prizm.Main.Forms.Notifications.Data
                 return text;
             }
 
-            public DateTime GetDateToOccur(object[] tuple)
+            public DateTime GetExpirationDate(object[] tuple)
             {
                 return (DateTime)tuple[5];
             }
 
-            public string GetInformationToOccur(object[] tuple)
+            public string GetTextInformation(object[] tuple)
             {
                 DateTime t = (DateTime)tuple[5];
                 return t.Date.ToString("d");
@@ -73,7 +74,7 @@ namespace Prizm.Main.Forms.Notifications.Data
                     LEFT OUTER JOIN Inspector ON 
                     InspectorCertificate.inspectorId = Inspector.id
                     WHERE (InspectorCertificate.isActive = 1) 
-                    AND (DATEDIFF(day, GETDATE(), InspectorCertificate.expirationDate) < 5)");
+                    AND (DATEDIFF(day, GETDATE(), InspectorCertificate.expirationDate) < " + Constants.DaysToExpirationWarning + ")");
             return sb.ToString();
         }
 

@@ -17,9 +17,9 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
         public override TypeNotification Type { get { return TypeNotification.DuplicatePipeNumber; } }
 
-        public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur, string information)
+        public static Notification CreateNotification(Guid userId, string ownerName, string information)
         {
-            return new Notification(userId, ownerName, TypeNotification.DuplicatePipeNumber, dateToOccur, information);
+            return new Notification(userId, ownerName, TypeNotification.DuplicatePipeNumber, information);
         }
 
 

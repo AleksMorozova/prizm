@@ -16,23 +16,15 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
         public override TypeNotification Type { get { return TypeNotification.ExpiredInspectorCertificate; } }
 
-        public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur, string information)
+        public static Notification CreateNotification(Guid userId, string ownerName, DateTime expirationDate, string information)
         {
-            Notification notification = new Notification(userId, ownerName, TypeNotification.ExpiredInspectorCertificate, dateToOccur, information);
-            if (notification.DayToOccur < 0)
-            {
-                notification.Status = NotificationStatus.Critical;
-            }
-            else
-            {
-                notification.Status = NotificationStatus.Warning;
-            }
-            return notification;
+            return new Notification(userId, ownerName, TypeNotification.ExpiredInspectorCertificate, information, expirationDate);
         }
 
         public void RefreshNotification(Guid pipe, string oldNumber, string newNumber)
         {
             throw new NotImplementedException();
         }
+
     }
 }

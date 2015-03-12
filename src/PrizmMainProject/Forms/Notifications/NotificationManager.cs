@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Forms.Notifications.Data;
-using Prizm.Main.Forms.Notifications.Strategy;
 
 namespace Prizm.Main.Forms.Notifications
 {
