@@ -61,7 +61,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public float WallThickness { get; set; }
 
       [XmlAttribute("Diameter")]
-      public int Diameter { get; set; }
+      public float Diameter { get; set; }
 
       [XmlArray("Connectors")]
       public List<ConnectorObject> Connectors { get; set; }

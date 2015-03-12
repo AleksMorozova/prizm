@@ -52,6 +52,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewSpool
                       || privilege == Privileges.ViewSettings
                       || privilege == Privileges.EditSettings
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;
@@ -73,6 +74,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewPipe
                       || privilege == Privileges.ViewReleaseNote
                       || privilege == Privileges.ViewSettings
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;
@@ -105,6 +107,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewReleaseNote
                       || privilege == Privileges.ViewSettings
                       || privilege == Privileges.ViewSpool
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;

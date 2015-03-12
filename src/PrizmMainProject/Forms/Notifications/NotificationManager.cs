@@ -37,6 +37,18 @@ namespace Prizm.Main.Forms.Notifications
                     strategyFill = new DublicateLoginFill();
                     loader = new DuplicateLoginLoader(this);
                     break;
+                case TypeNotification.NotRequiredControlOperationPipes:
+                    strategyFill = new NotRequiredControlOperationPipesFill();
+                    loader = new NotRequiredControlOperationPipesLoader(this);
+                    break;
+                case TypeNotification.NotRequiredControlOperationTons:
+                    strategyFill = new NotRequiredControlOperationTonsFill();
+                    loader = new NotRequiredControlOperationTonsLoader(this);
+                    break;
+                case TypeNotification.NotRequiredControlOperationMeters:
+                    strategyFill = new NotRequiredControlOperationMetersFill();
+                    loader = new NotRequiredControlOperationMetersLoader(this);
+                    break;
                 default:
                     var ex = new NotImplementedException();
                     log.Error(ex.Message);
@@ -50,9 +62,9 @@ namespace Prizm.Main.Forms.Notifications
             return loader.LoadNotificationFromDB();
         }
 
-        public Notification CreateNotification(Guid ownerId, string ownerName, DateTime dateToOccur)
+        public Notification CreateNotification(Guid ownerId, string ownerName, DateTime dateToOccur, float timeToOccur)
         {
-            Notification notification = new Notification(ownerId, ownerName, type, dateToOccur);
+            Notification notification = new Notification(ownerId, ownerName, type, dateToOccur, timeToOccur);
             strategyFill.FillAttribute(notification);
             return notification;
         }

@@ -76,9 +76,9 @@
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(140, 66);
+            this.saveButton.Location = new System.Drawing.Point(120, 66);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(96, 23);
+            this.saveButton.Size = new System.Drawing.Size(106, 23);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "&Сохранить";
@@ -87,9 +87,9 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(250, 66);
+            this.cancelButton.Location = new System.Drawing.Point(240, 66);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(96, 23);
+            this.cancelButton.Size = new System.Drawing.Size(106, 23);
             this.cancelButton.StyleController = this.mainLayoutControl;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "О&тменить";
@@ -127,11 +127,11 @@
             // 
             this.okButtonLayoutControl.Control = this.saveButton;
             this.okButtonLayoutControl.CustomizationFormText = "okButtonLayoutControl";
-            this.okButtonLayoutControl.Location = new System.Drawing.Point(128, 54);
+            this.okButtonLayoutControl.Location = new System.Drawing.Point(108, 54);
             this.okButtonLayoutControl.MaxSize = new System.Drawing.Size(170, 27);
             this.okButtonLayoutControl.MinSize = new System.Drawing.Size(100, 27);
             this.okButtonLayoutControl.Name = "okButtonLayoutControl";
-            this.okButtonLayoutControl.Size = new System.Drawing.Size(100, 31);
+            this.okButtonLayoutControl.Size = new System.Drawing.Size(110, 31);
             this.okButtonLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.okButtonLayoutControl.Text = "okButtonLayoutControl";
             this.okButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -141,11 +141,11 @@
             // 
             this.cancelButtonLayoutControl.Control = this.cancelButton;
             this.cancelButtonLayoutControl.CustomizationFormText = "cancelButtonLayoutControl";
-            this.cancelButtonLayoutControl.Location = new System.Drawing.Point(238, 54);
+            this.cancelButtonLayoutControl.Location = new System.Drawing.Point(228, 54);
             this.cancelButtonLayoutControl.MaxSize = new System.Drawing.Size(170, 27);
             this.cancelButtonLayoutControl.MinSize = new System.Drawing.Size(100, 27);
             this.cancelButtonLayoutControl.Name = "cancelButtonLayoutControl";
-            this.cancelButtonLayoutControl.Size = new System.Drawing.Size(100, 31);
+            this.cancelButtonLayoutControl.Size = new System.Drawing.Size(110, 31);
             this.cancelButtonLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.cancelButtonLayoutControl.Text = "cancelButtonLayoutControl";
             this.cancelButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -155,7 +155,7 @@
             // 
             this.buttonDividerEmptySpace.AllowHotTrack = false;
             this.buttonDividerEmptySpace.CustomizationFormText = "buttonDividerEmptySpace";
-            this.buttonDividerEmptySpace.Location = new System.Drawing.Point(228, 54);
+            this.buttonDividerEmptySpace.Location = new System.Drawing.Point(218, 54);
             this.buttonDividerEmptySpace.MaxSize = new System.Drawing.Size(10, 27);
             this.buttonDividerEmptySpace.MinSize = new System.Drawing.Size(10, 27);
             this.buttonDividerEmptySpace.Name = "buttonDividerEmptySpace";
@@ -171,7 +171,7 @@
             this.buttonLeftEmptySpace.Location = new System.Drawing.Point(0, 54);
             this.buttonLeftEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.buttonLeftEmptySpace.Name = "buttonLeftEmptySpace";
-            this.buttonLeftEmptySpace.Size = new System.Drawing.Size(128, 31);
+            this.buttonLeftEmptySpace.Size = new System.Drawing.Size(108, 31);
             this.buttonLeftEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.buttonLeftEmptySpace.Text = "buttonLeftEmptySpace";
             this.buttonLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);

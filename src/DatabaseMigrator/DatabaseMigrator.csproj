@@ -61,6 +61,7 @@
     <Compile Include="Migrations\M20150303_AddIndexes.cs" />
     <Compile Include="Migrations\M20150305_IncreaseProjectSize.cs" />
     <Compile Include="Migrations\M20150306_AuditChangeColumnTypes.cs" />
+    <Compile Include="Migrations\M20150310_FloatDiameterThickness.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />

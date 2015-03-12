@@ -64,7 +64,7 @@
             this.diametersIntersection.Name = "diametersIntersection";
             this.diametersIntersection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.diametersIntersection.Size = new System.Drawing.Size(192, 20);
+            this.diametersIntersection.Size = new System.Drawing.Size(205, 20);
             this.diametersIntersection.StyleController = this.diameterChoiceLayout;
             this.diametersIntersection.TabIndex = 6;
             this.diametersIntersection.SelectedIndexChanged += new System.EventHandler(this.diametersIntersection_SelectedIndexChanged);
@@ -73,9 +73,9 @@
             // 
             this.saveChosenDiameter.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveChosenDiameter.Image = ((System.Drawing.Image)(resources.GetObject("saveChosenDiameter.Image")));
-            this.saveChosenDiameter.Location = new System.Drawing.Point(229, 26);
+            this.saveChosenDiameter.Location = new System.Drawing.Point(242, 26);
             this.saveChosenDiameter.Name = "saveChosenDiameter";
-            this.saveChosenDiameter.Size = new System.Drawing.Size(105, 22);
+            this.saveChosenDiameter.Size = new System.Drawing.Size(92, 22);
             this.saveChosenDiameter.StyleController = this.diameterChoiceLayout;
             this.saveChosenDiameter.TabIndex = 5;
             this.saveChosenDiameter.Text = "Сохранить";
@@ -112,7 +112,7 @@
             this.diametersIntersectionLayout.CustomizationFormText = "Выбор диаметра соединения";
             this.diametersIntersectionLayout.Location = new System.Drawing.Point(0, 0);
             this.diametersIntersectionLayout.Name = "diametersIntersectionLayout";
-            this.diametersIntersectionLayout.Size = new System.Drawing.Size(210, 40);
+            this.diametersIntersectionLayout.Size = new System.Drawing.Size(223, 40);
             this.diametersIntersectionLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.diametersIntersectionLayout.Text = "Выбор диаметра соединения";
             this.diametersIntersectionLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -122,9 +122,11 @@
             // 
             this.saveChosenDiameterLayout.Control = this.saveChosenDiameter;
             this.saveChosenDiameterLayout.CustomizationFormText = "saveChosenDiameterLayout";
-            this.saveChosenDiameterLayout.Location = new System.Drawing.Point(210, 14);
+            this.saveChosenDiameterLayout.Location = new System.Drawing.Point(223, 14);
+            this.saveChosenDiameterLayout.MinSize = new System.Drawing.Size(103, 26);
             this.saveChosenDiameterLayout.Name = "saveChosenDiameterLayout";
-            this.saveChosenDiameterLayout.Size = new System.Drawing.Size(123, 26);
+            this.saveChosenDiameterLayout.Size = new System.Drawing.Size(110, 26);
+            this.saveChosenDiameterLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.saveChosenDiameterLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 0, 0);
             this.saveChosenDiameterLayout.Text = "saveChosenDiameterLayout";
             this.saveChosenDiameterLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -134,9 +136,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(210, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(223, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(123, 14);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(110, 14);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 

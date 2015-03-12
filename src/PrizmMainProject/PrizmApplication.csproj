@@ -314,6 +314,9 @@
     <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DuplicateLoginLoader.cs" />
     <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationMetersLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationPipesLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationTonsLoader.cs" />
     <Compile Include="Forms\Notifications\Data\WelderCertificateLoader.cs" />
     <Compile Include="Forms\Notifications\INotificationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
@@ -329,6 +332,9 @@
     <Compile Include="Forms\Notifications\Strategy\DublicateLoginFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\DublicateNumberFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationMetersFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationPipesFill.cs" />
+    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationTonsFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
     <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
     <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
@@ -555,12 +561,19 @@
     <Compile Include="Forms\Synch\ExportForm.Designer.cs">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Synch\HistoryExportImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Synch\HistoryExportImport.Designer.cs">
+      <DependentUpon>HistoryExportImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Synch\ImportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Synch\ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Synch\SynchType.cs" />
     <Compile Include="Languages\ILocalizable.cs" />
     <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
       <SubType>Form</SubType>
@@ -902,6 +915,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Synch\HistoryExportImport.resx">
+      <DependentUpon>HistoryExportImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Synch\ImportForm.resx">
       <DependentUpon>ImportForm.cs</DependentUpon>
