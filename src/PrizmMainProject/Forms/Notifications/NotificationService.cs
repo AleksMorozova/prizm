@@ -9,6 +9,9 @@ namespace Prizm.Main.Forms.Notifications
 {
     class NotificationService
     {
+        // Events
+        public event EventHandler NotificationReload;
+
         IDuplicateNumberManager DuplicateNumberManager 
         { 
             get 
@@ -39,6 +42,10 @@ namespace Prizm.Main.Forms.Notifications
 
             RegisterManager(new DuplicateLoginManager());
             RegisterManager(new ExpiredWelderCertificateManager());
+            RegisterManager(new ExpiredInspectorCertificateManager());
+            RegisterManager(new NotRequiredControlOperationMetersManager());
+            RegisterManager(new NotRequiredControlOperationPipesManager());
+            RegisterManager(new NotRequiredControlOperationTonsManager());
             // TODO: add other managers
         }
 
@@ -54,6 +61,11 @@ namespace Prizm.Main.Forms.Notifications
                 item.Value.LoadNotifications();
             }
 
+            EventHandler eventRefresh = this.NotificationReload;
+            if (eventRefresh != null)
+            {
+                eventRefresh(this, EventArgs.Empty);
+            }
         }
 
         public static NotificationService Instance
@@ -75,8 +87,7 @@ namespace Prizm.Main.Forms.Notifications
             get
             {
                 List<Notification> list = new List<Notification>();
-                //TODO: fix
-                //list = managers.SelectMany(f => f.Value).ToList(); 
+                list = managers.SelectMany(f => f.Value.Notifications).ToList(); 
                 return list;
             }
         }
@@ -85,9 +96,7 @@ namespace Prizm.Main.Forms.Notifications
         {
             get
             {
-                return 10;
-                //TODO: fix
-                //return managers.Sum(CountSummator);
+                return managers.Sum(f => f.Value.Count);
             }
         }
 

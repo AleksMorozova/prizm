@@ -14,11 +14,20 @@ namespace Prizm.Main.Forms.Notifications.Managers
         { 
         }
 
-        public override TypeNotification Type { get { return TypeNotification.DuplicateLogin; } }
+        public override TypeNotification Type { get { return TypeNotification.ExpiredWelderCertificate; } }
 
-        public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur)
+        public static Notification CreateNotification(Guid userId, string ownerName, DateTime dateToOccur, string information)
         {
-            return new Notification(userId, ownerName, TypeNotification.DuplicateLogin, dateToOccur, 0);
+            Notification notification = new Notification(userId, ownerName, TypeNotification.ExpiredWelderCertificate, dateToOccur, information);
+            if (notification.DayToOccur < 0)
+            {
+                notification.Status = NotificationStatus.Critical;
+            }
+            else
+            {
+                notification.Status = NotificationStatus.Warning;
+            }
+            return notification;
         }
 
 

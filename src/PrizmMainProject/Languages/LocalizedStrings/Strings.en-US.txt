@@ -2102,10 +2102,16 @@ Notification_DublicateLogin_Critical = User logins duplicating
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
 
 ;Сообщение об окончании срока: Сертификат просрочен
-Notification_ExpiredCertificate_Critical=Certificate's date is expired
+Notification_ExpiredInspectorCertificate_Critical=Certificate's date is expired
 
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
-Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+Notification_ExpiredInspectorCertificate_Warning=Certificate's date will be expired soon
+
+;Сообщение об окончании срока: Сертификат просрочен
+Notification_ExpiredWelderCertificate_Critical=Certificate's date is expired
+
+;Сообщение о приближении окончания срока: Заканчивается срок сертификата
+Notification_ExpiredWelderCertificate_Warning=Certificate's date will be expired soon
 
 ;Результат контрольной операции. Ожидается
 PipeTestResultStatus_Scheduled=Scheduled
@@ -2435,7 +2441,7 @@ WaitScreen_Description=Loading...
 NotificationXtraForm_LayoutControlItemNotification=Notifications
 
 ;Дата
-NotificationXtraForm_ColDate=Date
+NotificationXtraForm_ColDate=Data
 
 ;Сообщение
 NotificationXtraForm_ColNotification=Message

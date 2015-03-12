@@ -9,7 +9,7 @@ namespace Prizm.Main.Forms.Notifications
     interface INotificationManager
     {
         void LoadNotifications();
-
+        List<Notification> Notifications { get; }
         TypeNotification Type { get; }
         int Count { get; }
     }

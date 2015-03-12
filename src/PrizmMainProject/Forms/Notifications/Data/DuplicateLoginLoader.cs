@@ -20,7 +20,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateLoginManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+                return DuplicateLoginManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetInformationToOccur(tuple));
             }
             public Guid GetId(object[] tuple)
             {
@@ -35,6 +35,11 @@ namespace Prizm.Main.Forms.Notifications.Data
             public DateTime GetDateToOccur(object[] tuple)
             {
                 return DateTime.Now;
+            }
+
+            public string GetInformationToOccur(object[] tuple)
+            {
+                return DateTime.Now.Date.ToString("d");
             }
         }
         

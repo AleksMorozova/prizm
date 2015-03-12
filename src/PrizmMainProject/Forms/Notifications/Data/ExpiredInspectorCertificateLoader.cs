@@ -23,7 +23,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return ExpiredInspectorCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+                return ExpiredInspectorCertificateManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetInformationToOccur(tuple));
             }
 
             public  Guid GetId(object[] tuple)
@@ -42,6 +42,12 @@ namespace Prizm.Main.Forms.Notifications.Data
             public DateTime GetDateToOccur(object[] tuple)
             {
                 return (DateTime)tuple[5];
+            }
+
+            public string GetInformationToOccur(object[] tuple)
+            {
+                DateTime t = (DateTime)tuple[5];
+                return t.Date.ToString("d");
             }
         }
         // Methods 

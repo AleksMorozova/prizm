@@ -18,13 +18,21 @@ namespace Prizm.Main.Forms.Notifications
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Notification));
 
         // Methods
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, DateTime dateToOccur, float timeToOccur)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, DateTime dateToOccur, string information)
         {
             Id = ownerId;
             OwnerName = ownerName;
             TypeNotification = typeNotification;
             DateToOccur = dateToOccur;
+            Information = information;
+        }
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, float timeToOccur, string information)
+        {
+            Id = ownerId;
+            OwnerName = ownerName;
+            TypeNotification = typeNotification;
             TimeToOccur = timeToOccur;
+            Information = information;
         }
 
         // TODO: move screen representation to Form
@@ -93,7 +101,9 @@ namespace Prizm.Main.Forms.Notifications
                 return GetResourceMessage(TypeNotification, Status);
             }
         }
-        
+
+        public string Information { get; set; }
+
         public float TimeToOccur { get; set; }
         
         public DateTime DateToOccur { get; set; }

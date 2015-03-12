@@ -41,12 +41,13 @@ namespace PrizmMain.Forms.Notifications
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationXtraForm));
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlNotification = new DevExpress.XtraLayout.LayoutControl();
             this.gridControlMessage = new DevExpress.XtraGrid.GridControl();
-            this.notificationBindingSource = new System.Windows.Forms.BindingSource();
+            this.notificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewNotification = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colImage = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -166,8 +167,8 @@ namespace PrizmMain.Forms.Notifications
             // 
             // colDate
             // 
-            this.colDate.Caption = "Дата";
-            this.colDate.FieldName = "DateToOccur";
+            this.colDate.Caption = "Данные";
+            this.colDate.FieldName = "Information";
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;

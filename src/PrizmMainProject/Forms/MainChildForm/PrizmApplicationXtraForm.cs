@@ -382,11 +382,11 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
             //TODO: remove
-            //NotificationService.Instance.NotificationReload += OnNotificationRefresh;
+            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
 
         }
-
+        
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
             AboutXtraForm form = new AboutXtraForm();

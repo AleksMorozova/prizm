@@ -13,7 +13,7 @@ namespace Prizm.Main.Forms.Notifications
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationManager));
 
         DataNotificationLoader loader;
-        List<Notification> notifications = new List<Notification>();
+        public List<Notification> notifications = new List<Notification>();
 
         public NotificationManager(DataNotificationLoader loader)
         {
@@ -24,6 +24,15 @@ namespace Prizm.Main.Forms.Notifications
         {
             notifications.Clear();
             notifications.AddRange(loader.LoadNotifications());
+        }
+
+
+        public List<Notification> Notifications
+        {
+            get
+            {
+                return notifications;
+            }
         }
 
         public int Count 

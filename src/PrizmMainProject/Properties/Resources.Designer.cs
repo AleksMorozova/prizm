@@ -2095,18 +2095,36 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Сертификат просрочен.
         /// </summary>
-        internal static string Notification_ExpiredCertificate_Critical {
+        internal static string Notification_ExpiredInspectorCertificate_Critical {
             get {
-                return ResourceManager.GetString("Notification_ExpiredCertificate_Critical", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredInspectorCertificate_Critical", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Заканчивается срок сертификата.
         /// </summary>
-        internal static string Notification_ExpiredCertificate_Warning {
+        internal static string Notification_ExpiredInspectorCertificate_Warning {
             get {
-                return ResourceManager.GetString("Notification_ExpiredCertificate_Warning", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredInspectorCertificate_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сообщение об окончании срока: Сертификат просрочен.
+        /// </summary>
+        internal static string Notification_ExpiredWelderCertificate_Critical {
+            get {
+                return ResourceManager.GetString("Notification_ExpiredWelderCertificate_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заканчивается срок сертификата.
+        /// </summary>
+        internal static string Notification_ExpiredWelderCertificate_Warning {
+            get {
+                return ResourceManager.GetString("Notification_ExpiredWelderCertificate_Warning", resourceCulture);
             }
         }
         
@@ -2161,24 +2179,6 @@ namespace Prizm.Main.Properties {
         internal static string Notification_NotRequiredControlOperationTons_Warning {
             get {
                 return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Сообщение об окончании срока: Сертификат просрочен.
-        /// </summary>
-        internal static string Notification_WelderCertificateExpired_Critical {
-            get {
-                return ResourceManager.GetString("Notification_WelderCertificateExpired_Critical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Заканчивается срок сертификата.
-        /// </summary>
-        internal static string Notification_WelderCertificateExpired_Warning {
-            get {
-                return ResourceManager.GetString("Notification_WelderCertificateExpired_Warning", resourceCulture);
             }
         }
         

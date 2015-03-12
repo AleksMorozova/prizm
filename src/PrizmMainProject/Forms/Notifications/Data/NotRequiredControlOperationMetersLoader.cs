@@ -21,7 +21,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return NotRequiredControlOperationMetersManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+                return NotRequiredControlOperationMetersManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetTimeToOccur(tuple), GetInformationToOccur(tuple));
             }
 
             public Guid GetId(object[] tuple)
@@ -34,14 +34,14 @@ namespace Prizm.Main.Forms.Notifications.Data
                 return tuple[4].ToString() + ":" + tuple[1].ToString() + "-" + tuple[0].ToString();
             }
 
-            public DateTime GetDateToOccur(object[] tuple)
-            {
-                return DateTime.Now;
-            }
-
             public float GetTimeToOccur(object[] tuple)
             {
                 return (float)Convert.ChangeType(tuple[6], typeof(float)) - (float)Convert.ChangeType(tuple[2], typeof(float));
+            }
+
+            public string GetInformationToOccur(object[] tuple)
+            {
+                return tuple[6].ToString();
             }
         }
         public NotRequiredControlOperationMetersLoader()

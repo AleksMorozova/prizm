@@ -4630,7 +4630,7 @@ namespace Prizm.Main.Languages
         public static StringResource NotificationXtraForm_ColDate = new StringResource
         {
             Id = "NotificationXtraForm_ColDate",
-            Description = "Дата"
+            Description = "Данные"
         };
 
         public static StringResource NotificationXtraForm_ColNotification = new StringResource
@@ -4657,27 +4657,27 @@ namespace Prizm.Main.Languages
             Description = "Сообщение о дублировании номеров труб: Дубликат номера труб"
         };
 
-        public static StringResource Notification_ExpiredCertificate_Critical = new StringResource
+        public static StringResource Notification_ExpiredInspectorCertificate_Critical = new StringResource
         {
-            Id = "Notification_ExpiredCertificate_Critical",
+            Id = "Notification_ExpiredInspectorCertificate_Critical",
             Description = "Сообщение об окончании срока: Сертификат просрочен"
         };
 
-        public static StringResource Notification_ExpiredCertificate_Warning = new StringResource
+        public static StringResource Notification_ExpiredInspectorCertificate_Warning = new StringResource
         {
-            Id = "Notification_ExpiredCertificate_Warning",
+            Id = "Notification_ExpiredInspectorCertificate_Warning",
             Description = "Сообщение о приближении окончания срока: Заканчивается срок сертификата"
         };
 
-        public static StringResource Notification_WelderCertificateExpired_Critical = new StringResource
+        public static StringResource Notification_ExpiredWelderCertificate_Critical = new StringResource
         {
-            Id = "Notification_WelderCertificateExpired_Critical",
+            Id = "Notification_ExpiredWelderCertificate_Critical",
             Description = "Сообщение об окончании срока: Сертификат просрочен"
         };
 
-        public static StringResource Notification_WelderCertificateExpired_Warning = new StringResource
+        public static StringResource Notification_ExpiredWelderCertificate_Warning = new StringResource
         {
-            Id = "Notification_WelderCertificateExpired_Warning",
+            Id = "Notification_ExpiredWelderCertificate_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
 
