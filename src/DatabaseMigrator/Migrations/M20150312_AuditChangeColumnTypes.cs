@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Prizm.DatabaseMigrator.Migrations
 {
-    [Migration(20150306)]
-    public class M20150306_AuditChangeColumnTypes : Migration
+    [Migration(20150312)]
+    public class M20150312_AuditChangeColumnTypes : Migration
     {
         public override void Up()
         {

@@ -99,7 +99,12 @@ namespace Prizm.Data.DAL.Hibernate
                 .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) 
                          && _.AuditDate >= startDate
                          && _.User == user).List<AuditLog>();
-            string userName = userList.Where(_ => _.Id == user).SingleOrDefault().Name.GetFullName();
+            User selectedUser = userList.Where(_ => _.Id == user).SingleOrDefault();
+            string userName = "";
+            if (selectedUser != null)
+            {
+                userName = selectedUser.Name.GetFullName();
+            }
             if (retVal != null)
             {
                 foreach (AuditLog record in retVal)
