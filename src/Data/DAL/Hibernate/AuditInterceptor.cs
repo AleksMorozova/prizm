@@ -72,44 +72,28 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 for (var i = 0; i < currentState.Count(); i++)
                 {
-                    if (currentState[i] != null || previousState[i] != null)
+                    if (currentState[i] != null && IsAuditableType(currentState[i]) 
+                        ||
+                        previousState[i] != null && IsAuditableType(previousState[i]))
                     {
-                        string newValue = "";
-                        string oldValue = "";
-                        string propertyName = propertyNames[i];
+                        string newValue = string.Empty;
+                        string oldValue = string.Empty;
 
-                        //prevent exeption
-                        if (currentState[i] == null || previousState[i] == null) 
+                        if (currentState[i] is Item || previousState[i] is Item)
                         {
-                            newValue = 
-                                (currentState[i] == null) ? "" : currentState[i].ToString();
-
-                            oldValue = 
-                                (previousState[i] == null || previousState == null) ? "" : previousState[i].ToString();
-                        }
-                        else if (!IsAuditableType(currentState[i]) || !IsAuditableType(previousState[i]))
-                        {
-                            continue;
-                        }
-                        else if (currentState[i] as Item == null && currentState[i].ToString() != previousState[i].ToString())
-                        {
-                            newValue = currentState[i].ToString();
-                            oldValue = previousState[i].ToString();
+                            if (currentState[i] != null) newValue = ((Item)currentState[i]).Id.ToString();
+                            if (previousState[i] != null) oldValue = ((Item)previousState[i]).Id.ToString();
                         }
                         else
                         {
-                            var previousStateItem = previousState[i] as Item;
-                            var currentStateItem = currentState[i] as Item;
-
-                            if (previousStateItem != null && currentState[i].Equals(previousState[i]))
-                            {
-                                newValue = previousStateItem.Id.ToString();
-                                oldValue = currentStateItem.Id.ToString();
-                            }
+                            if (currentState[i] != null) newValue = currentState[i].ToString();
+                            if (previousState[i] != null) oldValue = previousState[i].ToString();
                         }
 
-
-                        NewAuditRecord(curentity, propertyName, newValue, oldValue);
+                        if (newValue != oldValue)
+                        {
+                            NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
+                        }
                     }
                 }
             }
@@ -202,15 +186,14 @@ namespace Prizm.Data.DAL.Hibernate
 
         private bool IsAuditableType(object obj)
         {
-            //if (obj == null) return false;
-
-            var str = obj.GetType().Namespace;
-
             var a = obj.GetType().IsValueType;
             var b = obj.GetType() == typeof(string) ;
-            var c = obj.GetType().Namespace.StartsWith("Prizm.Domain");
+            var c = obj.GetType().FullName.StartsWith("Prizm.Domain");
 
-            return a || b || c;
+            return 
+                obj.GetType().IsValueType
+                || obj.GetType() == typeof(string)
+                || obj.GetType().FullName.StartsWith("Prizm.Domain");
         }
 
         #region IDisposable Members
