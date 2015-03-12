@@ -64,7 +64,7 @@ namespace Prizm.Data.DAL.Hibernate
         {
             AuditLogQuery.Transformer.Users = userList;
             var query = session.CreateSQLQuery(
-                  @"select a.id, a.entityID, a.auditDate, a.userName, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
+                  @"select a.id, a.entityID, a.auditDate, a.userId, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
                   " from AuditLog a " +
                   " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" + 
                   " union all" +

@@ -16,7 +16,7 @@ namespace Prizm.Data.DAL.Mapping
             Id(a => a.AuditID).Column("id");
             Map(a => a.EntityID).Column("entityID");
             Map(a => a.AuditDate).Column("auditDate");
-            Map(a => a.User).Column("userName");
+            Map(a => a.User).Column("userId");
             Map(a => a.TableName).Column("tableName").CustomType(typeof(Int32));
             Map(a => a.FieldName).Column("fieldName").CustomType(typeof(Int32));
             Map(a => a.OldValue).Column("oldValue").Nullable();
