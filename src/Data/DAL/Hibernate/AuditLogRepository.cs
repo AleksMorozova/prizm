@@ -17,15 +17,22 @@ namespace Prizm.Data.DAL.Hibernate
 {
     public class AuditLogRepository : AbstractHibernateRepository<Guid, AuditLog>, IAuditLogRepository
     {
+        private IList<User> userList;
         [Inject]
         public AuditLogRepository(ISession session)
             : base(session)
         {
+            List<Guid> userIdList = (from b in session.QueryOver<AuditLog>() select b.User).List<Guid>().Distinct().ToList<Guid>();
+            userList = session.QueryOver<User>().WhereRestrictionOn(x => x.Id).IsIn(userIdList).List<User>();
         }
-        public IEnumerable<Guid> GetAllUsers()
+        public Dictionary<Guid, string> GetAllUsers()
         {
-            IEnumerable<Guid> list = (from b in session.QueryOver<AuditLog>() select b.User).List<Guid>().Distinct();
-            return list;
+            Dictionary<Guid, string> userNameList = new Dictionary<Guid, string>();
+            foreach (User user in userList)
+            {
+                userNameList.Add(user.Id, user.Name.GetFullName());
+            }
+            return userNameList;
         }
 
 
@@ -55,7 +62,7 @@ namespace Prizm.Data.DAL.Hibernate
 
         public IList<AuditLog> GetRecordsByNumber(string number, DateTime startDate, DateTime endDate)
         {
-            AuditLogQuery.Transformer.Session = session;
+            AuditLogQuery.Transformer.Users = userList;
             var query = session.CreateSQLQuery(
                   @"select a.id, a.entityID, a.auditDate, a.userName, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
                   " from AuditLog a " +
@@ -86,23 +93,32 @@ namespace Prizm.Data.DAL.Hibernate
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <returns></returns>
-        public IList<AuditLog> GetRecordsByUser(string user, DateTime startDate, DateTime endDate)
+        public IList<AuditLog> GetRecordsByUser(Guid user, DateTime startDate, DateTime endDate)
         {
             var retVal = session.QueryOver<AuditLog>()
-                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) && _.AuditDate >= startDate)
-                .WhereRestrictionOn(x => x.User).IsLike(user).List<AuditLog>();
-
+                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) 
+                         && _.AuditDate >= startDate
+                         && _.User == user).List<AuditLog>();
+            string userName = userList.Where(_ => _.Id == user).SingleOrDefault().Name.GetFullName();
+            if (retVal != null)
+            {
+                foreach (AuditLog record in retVal)
+                {
+                    record.UserName = userName;
+                }
+            }
             return retVal ?? new List<AuditLog>();
         }
+
     }
 
     public class AuditLogQuery : IResultTransformer
     {
         public static readonly AuditLogQuery Transformer = new AuditLogQuery();
-
-        public ISession Session { get; set; }
+        public IList<User> Users { get; set; }
         private AuditLogQuery()
-        {}
+        {
+        }
 
         #region IResultTransformer Members
 
@@ -113,29 +129,22 @@ namespace Prizm.Data.DAL.Hibernate
 
         public object TransformTuple(object[] tuple, string[] aliases)
         {
-            AuditLog rec = new AuditLog();
-            rec.AuditID = (Guid)tuple[0];
-            rec.EntityID = (Guid)tuple[1];
-            rec.AuditDate = (DateTime)tuple[2];
-            rec.User = Session.QueryOver<User>().Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault();
-            rec.TableName = (ItemTypes)tuple[4];
-            rec.FieldName = (FieldNames)tuple[5];
-            rec.OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString();
-            rec.NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString();
-            rec.Number = tuple[8].ToString();
-            //{
-             //   AuditID = (Guid)tuple[0],
-             //   EntityID = (Guid)tuple[1],
-             //   AuditDate = (DateTime)tuple[2],
-             //   User = (Guid)tuple[3],              
-             //   TableName = (ItemTypes)tuple[4],
-             //   FieldName = (FieldNames)tuple[5],
-             //   OldValue = (tuple[6]==null) ? "just inserted" : tuple[6].ToString(),
-             //   NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
-             //   Number = tuple[8].ToString(),
-            //};
-           return rec;
+
+            return new AuditLog()
+            {
+                AuditID = (Guid)tuple[0],
+                EntityID = (Guid)tuple[1],
+                AuditDate = (DateTime)tuple[2],
+                User = (Guid)tuple[3],
+                TableName = (ItemTypes)tuple[4],
+                FieldName = (FieldNames)tuple[5],
+                OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString(),
+                NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
+                Number = tuple[8].ToString(),
+                UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName()
+            };
         }
         #endregion
     }
+  
 }

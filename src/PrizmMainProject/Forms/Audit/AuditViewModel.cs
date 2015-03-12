@@ -21,14 +21,14 @@ namespace Prizm.Main.Forms.Audit
         private DateTime startDate = DateTime.Now.Date;
         private DateTime endDate = DateTime.Now.Date;
         public Dictionary<Guid,string> UsersList = new Dictionary<Guid, string>();
-        private string selectedUser = "";
+        private Guid selectedUser;
         private string number = "";
 
         [Inject]
         public AuditViewModel(IAuditRepository repo)
         {
             this.repo = repo;
-          //  UsersList = repo.GetAllUsers();
+            UsersList = repo.AuditLogRepo.GetAllUsers();
             searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo));
         }
 
@@ -90,7 +90,7 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
-        public string SelectedUser
+        public Guid SelectedUser
         {
             get
             {

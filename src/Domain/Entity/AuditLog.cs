@@ -28,8 +28,11 @@ namespace Prizm.Domain.Entity
         /// <summary>
         /// user who made changes
         /// </summary>
-        public virtual User User { get; set; }
+        public virtual Guid User { get; set; }
+
+        public virtual string UserName { get; set; }
         /// <summary>
+        /// 
         /// entity that was changed
         /// </summary>
         public virtual ItemTypes TableName { get; set; }
