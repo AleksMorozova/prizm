@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Domain.Entity.SimpleReleaseNote
 {
-    public class SimpleRailcar
+    public class SimpleRailcar : Item
     {
         public SimpleRailcar()
         {
@@ -16,16 +16,5 @@ namespace Prizm.Domain.Entity.SimpleReleaseNote
         public virtual bool IsShipped { get; set; }
         public virtual SimpleNote ReleaseNote { get; set; }
         public virtual IList<SimplePipe> Pipes { get; set; }
-
-        //item
-        private bool isActive = true;
-
-        public virtual Guid Id { get; set; }
-        public virtual bool IsActive { get { return isActive; } set { isActive = value; } }
-
-        public virtual bool IsNew()
-        {
-            return (Id == Guid.Empty);
-        }
     }
 }

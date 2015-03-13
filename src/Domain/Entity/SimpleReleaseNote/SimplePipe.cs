@@ -6,7 +6,7 @@ using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.Domain.Entity.SimpleReleaseNote
 {
-    public class SimplePipe
+    public class SimplePipe : Part
     {
         public virtual PipeMillSizeType Type { get; set; }
 
