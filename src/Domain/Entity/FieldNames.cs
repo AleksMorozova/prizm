@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity
 {
+    /// <summary>
+    /// All items in this list should correspond to appropriate types of Entity Field Name.
+    /// Do not reorder the item number and Field Name.
+    /// </summary>
     public enum FieldNames
     {
+
         Undefined = 0,
         Name = 1,
         ConnectorsCount = 2,
