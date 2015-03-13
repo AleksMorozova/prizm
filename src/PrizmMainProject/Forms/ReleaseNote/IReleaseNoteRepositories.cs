@@ -14,6 +14,7 @@ namespace Prizm.Main.Forms.ReleaseNote
         IRailcarRepository RailcarRepo { get; }
         IReleaseNoteRepository ReleaseNoteRepo { get; }
         IFileRepository FileRepo { get; }
+        ISimpleNoteRepository SimpleNoteRepo { get; }
 
         void Commit();
         void BeginTransaction();
