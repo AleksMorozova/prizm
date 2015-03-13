@@ -97,14 +97,14 @@ namespace Prizm.Main.Languages
             this.defaultValues = new string[TextsCount] { item.Caption };
         }
 
-        public LocalizedItem(DevExpress.XtraBars.BarItem item, List<string> list, string [] resourceIds)
+        public LocalizedItem(DevExpress.XtraBars.BarButtonItem item, List<string> list, string [] resourceIds, Action action = null)
         {
             this.resourceIds = new string[resourceIds.Length];
             for (int index = 0; index < resourceIds.Length; index++)
             {
                 this.resourceIds[index] = resourceIds[index];
             }
-            this.obj = (object)new Tuple<DevExpress.XtraBars.BarItem, List<string>>(item, list);
+            this.obj = (object)new Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>(item, list, action);
             this.type = ItemType.BarItemCustomCaption;
             this.defaultValues = new string[resourceIds.Length];
 
@@ -300,6 +300,13 @@ namespace Prizm.Main.Languages
                     case ItemType.BarItem:
                         ((DevExpress.XtraBars.BarItem)obj).Caption = value;
                         break;
+                    case ItemType.BarItemCustomCaption:
+                        Action action1 = ((Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>)obj).Item3;
+                        if (action1 != null)
+                        {
+                            action1();
+                        }
+                        break;
                     case ItemType.FormHeader:
                         ((Tuple<PrizmForm, List<string>>)obj).Item2[this.Count - 1] = value;
                         break;
@@ -313,6 +320,15 @@ namespace Prizm.Main.Languages
         {
             set
             {
+                if (type == ItemType.BarItemCustomCaption)
+                {
+                    var list = ((Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>)obj).Item2;
+
+                    if (index < list.Count)
+                    {
+                        list[index] = value;
+                    }
+                }
                 if (type == ItemType.LayoutControlGroupMultipartText)
                 {
                     var list = ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item2;
@@ -473,7 +489,7 @@ namespace Prizm.Main.Languages
                     ((DevExpress.XtraBars.BarItem)obj).Refresh();
                     break;
                 case ItemType.BarItemCustomCaption:
-                    ((Tuple<DevExpress.XtraBars.BarItem, List<string>>)obj).Item1.Refresh();
+                    ((Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>)obj).Item3.Invoke();
                     break;
                 case ItemType.ProgressPanel:
                         ((DevExpress.XtraWaitForm.ProgressPanel)obj).Refresh();
