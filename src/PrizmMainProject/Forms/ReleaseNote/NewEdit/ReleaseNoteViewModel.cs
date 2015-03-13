@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 return p.pipe;
             }
 
-            public PlainPipe(Pipe p)
+            public PlainPipe(SimplePipe p)
             {
                 pipe = p;
             }
@@ -134,7 +134,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
             else
             {
-                ReleaseNote = repos.ReleaseNoteRepo.Get(id);
+                ReleaseNote = repos.SimpleNoteRepo.Get(id);
                 if (ReleaseNote == null)
                 {
                     log.Error(string.Format("Release Note (id:{0}) does not exist.", id));
@@ -142,7 +142,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
                 else
                 {
-                    IList<Pipe> pipes = repos.ReleaseNoteRepo.GetReleasedNotePipe(id);
+                    IList<SimplePipe> pipes = repos.SimpleNoteRepo.GetReleasedNotePipe(id);
                     foreach (var p in pipes)
                     {
                         ReleaseNotePipes.Add(new PlainPipe(p));
@@ -435,7 +435,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     var tmpRailcar = ((SimplePipe)pipe).Railcar;
                     ((SimplePipe)pipe).Railcar = null;
                     ((SimplePipe)pipe).Status = PipeMillStatus.Stocked;
-                    repos.PipeRepo.SaveOrUpdate(pipe);
+                    repos.SimpleNoteRepo.SaveOrUpdatePipe(pipe);
 
                     log.Info(String.Format("Pipe {0},{1} removed from Release note {2},{3} and railcar {4},{5}",
                         pipe.Id, pipe.PipeNumber, ReleaseNote.Id, ReleaseNote.Number, tmpRailcar.Id, tmpRailcar.Number));
@@ -481,7 +481,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
                 if (modifiableView.IsEditMode)
                 {
-                    var storedPipes = repos.PipeRepo.GetStored();
+                    var storedPipes = repos.SimpleNoteRepo.GetStoredPipes();
                     if (storedPipes != null)
                     {
                         pipesToAdd.AddRange(storedPipes);

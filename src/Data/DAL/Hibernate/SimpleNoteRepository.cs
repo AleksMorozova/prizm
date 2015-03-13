@@ -163,5 +163,32 @@ namespace Prizm.Data.DAL.Hibernate
         }
        
         #endregion
+
+        #region ISimpleNoteRepository Members
+
+
+        public void SaveOrUpdatePipe(SimplePipe pipe)
+        {
+            session.SaveOrUpdate(pipe);
+        }
+        #endregion
+
+        public IList<SimplePipe> GetStoredPipes()
+        {
+            try
+            {
+                var q = session.QueryOver<SimplePipe>()
+                    .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true) && n.Railcar == null))
+                    .List<SimplePipe>();
+
+                return q;
+
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetStored", ex);
+            }
+
+        }
     }
 }

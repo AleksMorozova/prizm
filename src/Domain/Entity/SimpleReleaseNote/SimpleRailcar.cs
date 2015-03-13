@@ -23,6 +23,11 @@ namespace Prizm.Domain.Entity.SimpleReleaseNote
         public virtual Guid Id { get; set; }
         public virtual bool IsActive { get { return isActive; } set { isActive = value; } }
 
-      
+
+
+        public bool IsNew()
+        {
+            return (Id == Guid.Empty);
+        }
     }
 }
