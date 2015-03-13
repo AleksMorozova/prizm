@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity.SimpleReleaseNote
 {
-    public class SimpleNote: Item
+    public class SimpleNote
     {
         public SimpleNote()
         {
@@ -20,6 +20,12 @@ namespace Prizm.Domain.Entity.SimpleReleaseNote
         public virtual IList<SimpleRailcar> Railcars { get; set; }
 
         public virtual IList<File> Attachments { get; set; }
+
+        //item
+        private bool isActive = true;
+
+        public virtual Guid Id { get; set; }
+        public virtual bool IsActive { get { return isActive; } set {isActive=value ;} }
 
     }
 }

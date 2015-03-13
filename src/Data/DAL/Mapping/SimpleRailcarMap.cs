@@ -4,11 +4,12 @@ using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Data.DAL.Mapping
 {
-    public class SimpleRailcarMap : SubclassMap<SimpleRailcar>
+    public class SimpleRailcarMap : ClassMap<SimpleRailcar>
     {
         public SimpleRailcarMap()
         {
             Table("Railcar");
+            Id(x => x.Id).Column("id").GeneratedBy.Guid();
             Map(x => x.Number).Column("number");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");

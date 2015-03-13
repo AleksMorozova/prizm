@@ -9,11 +9,13 @@ using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Data.DAL.Mapping
 {
-    public class SimplePipeMap : SubclassMap<SimplePipe>
+    public class SimplePipeMap : ClassMap<SimplePipe>
     {
         public SimplePipeMap()
         {
+            Table("Pipe");
             #region --- Map ---
+            Id(x => x.Id).Column("id").GeneratedBy.Guid();
             Map(_ => _.ToExport).Column("ToExport");
             #endregion
 

@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.Mapping
 {
-    class SimpleNoteMap : SubclassMap<SimpleNote>
+    class SimpleNoteMap : ClassMap<SimpleNote>
     {
         public SimpleNoteMap()
         {
             Table("ReleaseNote");
+            Id(x => x.Id).Column("id").GeneratedBy.Guid();
             Map(_ => _.Number).Column("number");
             Map(_ => _.Date).Column("date");
             Map(x => x.Shipped).Column("Shipped");
