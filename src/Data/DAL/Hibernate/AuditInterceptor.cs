@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NHibernate;
 using Ninject;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -76,6 +78,12 @@ namespace Prizm.Data.DAL.Hibernate
                         ||
                         previousState[i] != null && IsAuditableType(previousState[i]))
                     {
+                        if (IsMapLikeComponent(currentState[i]) || IsMapLikeComponent(previousState[i]))
+                        {
+                            FlushDirtyEntityMapLikeComponent(currentState[i], currentState[i], previousState[i], types);
+                            continue;
+                        }
+
                         string newValue = string.Empty;
                         string oldValue = string.Empty;
 
@@ -162,6 +170,12 @@ namespace Prizm.Data.DAL.Hibernate
                 {
                     if (state[i] != null && IsAuditableType(state[i]))
                     {
+                        if (IsMapLikeComponent(state[i]))
+                        {
+                            LogAuditEntityMapLikeComponent(state[i], actionType);
+                            continue;
+                        }
+
                         switch (actionType)
                         {
                             case Actions.Insert:
@@ -186,15 +200,69 @@ namespace Prizm.Data.DAL.Hibernate
 
         private bool IsAuditableType(object obj)
         {
-            var a = obj.GetType().IsValueType;
-            var b = obj.GetType() == typeof(string) ;
-            var c = obj.GetType().FullName.StartsWith("Prizm.Domain");
-
             return 
                 obj.GetType().IsValueType
                 || obj.GetType() == typeof(string)
                 || obj.GetType().FullName.StartsWith("Prizm.Domain");
         }
+
+        private bool IsMapLikeComponent(object obj)
+        {
+            return
+                obj is PersonName
+                || obj is PartData
+                || obj is Certificate
+                || obj is PipeTestFrequency;
+        }
+
+        private void LogAuditEntityMapLikeComponent(object entity, Actions actionType)
+        {
+            List<string> tempNames = new List<string>();
+            List<object> tempState = new List<object>();
+
+            foreach (var property in entity.GetType().GetProperties())
+            {
+                if (property.Name == "Id") continue;
+
+                tempNames.Add(property.Name);
+                tempState.Add(property.GetValue(entity));
+            }
+
+            this.LogAudit(entity, tempNames.ToArray(), actionType, tempState.ToArray());
+        }
+
+        private void FlushDirtyEntityMapLikeComponent(
+            object entity,
+            object currentState,
+            object previousState,
+            NHibernate.Type.IType[] types)
+        {
+            List<string> tempNames = new List<string>();
+            List<object> tempCurrentState = new List<object>();
+            List<object> tempPreviousState = new List<object>();
+
+            var propertyEntity = entity.GetType().GetProperties();
+            var propertyCurren = currentState.GetType().GetProperties();
+            var propertyPrevious = previousState.GetType().GetProperties();
+
+            for (int i = 0; i < propertyEntity.Length; ++i)
+            {
+                if (propertyEntity[i].Name == "Id") continue;
+                
+                tempNames.Add(propertyEntity[i].Name);
+                tempCurrentState.Add(propertyCurren[i].GetValue(currentState));
+                tempPreviousState.Add(propertyPrevious[i].GetValue(previousState));
+            }
+
+            this.OnFlushDirty(
+                entity, 
+                ((Item)entity).Id, 
+                tempCurrentState.ToArray(), 
+                tempPreviousState.ToArray(), 
+                tempNames.ToArray(), 
+                types);
+        }
+
 
         #region IDisposable Members
 
