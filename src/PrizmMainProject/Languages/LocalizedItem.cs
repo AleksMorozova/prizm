@@ -291,20 +291,20 @@ namespace Prizm.Main.Languages
                         ((DevExpress.XtraLayout.LayoutControlGroup)obj).Text = value;
                         break;
                     case ItemType.LayoutControlGroupMultipartText:
-                        Action action = ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item3;
-                        if (action != null)
+                        Action layoutControlGroupAction = ((Tuple<DevExpress.XtraLayout.LayoutControlGroup, List<string>, Action>)obj).Item3;
+                        if (layoutControlGroupAction != null)
                         {
-                            action();
+                            layoutControlGroupAction();
                         }
                         break;
                     case ItemType.BarItem:
                         ((DevExpress.XtraBars.BarItem)obj).Caption = value;
                         break;
                     case ItemType.BarItemCustomCaption:
-                        Action action1 = ((Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>)obj).Item3;
-                        if (action1 != null)
+                        Action barItemCaptionAction = ((Tuple<DevExpress.XtraBars.BarButtonItem, List<string>, Action>)obj).Item3;
+                        if (barItemCaptionAction != null)
                         {
-                            action1();
+                            barItemCaptionAction();
                         }
                         break;
                     case ItemType.FormHeader:
