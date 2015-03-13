@@ -751,6 +751,7 @@ CREATE TABLE [dbo].[AuditLog](
 	[fieldName] [int] NULL,
 	[oldValue] [nvarchar](100) NULL,
 	[newValue] [nvarchar](100) NULL,
+	[ownerId] [uniqueidentifier] NULL,
 	CONSTRAINT [PK_AuditLog] PRIMARY KEY NONCLUSTERED ([id]))
 GO
 

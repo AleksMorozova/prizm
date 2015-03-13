@@ -211,6 +211,7 @@
             this.dateGridColumn.DisplayFormat.FormatString = "g";
             this.dateGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateGridColumn.FieldName = "AuditDate";
+            this.dateGridColumn.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DisplayText;
             this.dateGridColumn.Name = "dateGridColumn";
             this.dateGridColumn.Visible = true;
             this.dateGridColumn.VisibleIndex = 0;
