@@ -13,6 +13,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using DevExpress.XtraEditors.Controls;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -26,13 +27,17 @@ namespace Prizm.Main.Forms.Audit
         {
             InitializeComponent();
             viewModel = (AuditViewModel)Program.Kernel.GetService(typeof(AuditViewModel));
+            viewModel.TracingMode = TracingModeEnum.TracingByNumber;
         }
 
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<TracingModeEnum>.EnumerateItems())
+            {
+                radioPeriodUser.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
+            }
             BindCommands();
             BindToViewModel();
-
             startDate.SetLimits();
             endDate.SetLimits();
         }
@@ -45,6 +50,7 @@ namespace Prizm.Main.Forms.Audit
             userList.Properties.DataSource = viewModel.UsersList.ToList();
             userList.DataBindings.Add("EditValue", viewModel, "SelectedUser");
             number.DataBindings.Add("EditValue", viewModel, "Number");
+            radioPeriodUser.DataBindings.Add("SelectedIndex", viewModel, "TracingMode");
             number.SetAsIdentifier();
         }
 
@@ -104,19 +110,20 @@ namespace Prizm.Main.Forms.Audit
 
         private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RadioGroup edit = sender as RadioGroup;
+            if (radioPeriodUser.SelectedIndex < 0)
+                return;
+            var selected = (TracingModeEnum)radioPeriodUser.Properties.Items[radioPeriodUser.SelectedIndex].Value;
+            viewModel.TracingMode = selected;
 
-            if(edit.SelectedIndex == 0)
+            if (radioPeriodUser.SelectedIndex == 0)
             {
                 number.Enabled = true;
                 userList.Enabled = false;
-                viewModel.TracingMode = TracingModeEnum.TracingByNumber;
             }
             else
             {
                 number.Enabled = false;
                 userList.Enabled = true;
-                viewModel.TracingMode = TracingModeEnum.TracingByUser;
             }
         }
 
