@@ -143,6 +143,7 @@
             this.frequencyMeasure.Name = "frequencyMeasure";
             this.frequencyMeasure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.frequencyMeasure.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.frequencyMeasure.Size = new System.Drawing.Size(255, 20);
             this.frequencyMeasure.StyleController = this.mainLayoutControl;
             this.frequencyMeasure.TabIndex = 24;

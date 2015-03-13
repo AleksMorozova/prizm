@@ -260,7 +260,7 @@ namespace Prizm.Main
                 ISecurityContext ctx = Kernel.Get<ISecurityContext>();
                 ctx.LoggedUser = user;
 
-                HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
+                HibernateUtil.CurrentUser = ctx.LoggedUser;
                 return LoginResult.LoggedIn;
             }
             else

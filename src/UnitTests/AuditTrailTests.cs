@@ -8,6 +8,7 @@ using Moq;
 using Prizm.Data.DAL.Hibernate;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.UnitTests
 {
@@ -18,7 +19,7 @@ namespace Prizm.UnitTests
         public void InterceptorOnSaveTest() 
         {
             var auditRepo = new Mock<IAuditLogRepository>();
-            PersonName editingPerson = new PersonName { LastName = "LN", FirstName = "FN", MiddleName = "MN" };
+            User editingPerson = new User();
             AuditInterceptor interceptor = new AuditInterceptor(editingPerson);
             interceptor.LogRepo = auditRepo.Object;
             object [] state = new object [1] {1};
@@ -34,7 +35,7 @@ namespace Prizm.UnitTests
         public void InterceptorOnFlushDirtyTest()
         {
             var auditRepo = new Mock<IAuditLogRepository>();
-            PersonName editingPerson = new PersonName { LastName = "LN", FirstName = "FN", MiddleName = "MN" };
+            User editingPerson = new User();
             AuditInterceptor interceptor = new AuditInterceptor(editingPerson);
             interceptor.LogRepo = auditRepo.Object;
             object[] currentState = new object[1] { 1 };

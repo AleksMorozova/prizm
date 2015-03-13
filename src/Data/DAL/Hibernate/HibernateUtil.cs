@@ -5,6 +5,7 @@ using NHibernate.Exceptions;
 using NHibernate.Tool.hbm2ddl;
 using System.ComponentModel;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Security;
 
 
 namespace Prizm.Data.DAL.Hibernate
@@ -14,7 +15,7 @@ namespace Prizm.Data.DAL.Hibernate
         private static ISessionFactory sessionFactory;
         private static bool isImport = false;
         public static bool Import { get { return isImport; } }
-        public  static PersonName CurrentUser { get; set; }
+        public  static User CurrentUser { get; set; }
         public static void Initialize(string connectionString, bool import)
         {
             isImport = import;

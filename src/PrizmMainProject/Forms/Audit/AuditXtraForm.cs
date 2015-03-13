@@ -39,14 +39,11 @@ namespace Prizm.Main.Forms.Audit
 
         private void BindToViewModel()
         {
-            foreach(var u in viewModel.UsersList)
-            {
-                user.Properties.Items.Add(u);
-            }
             startDate.DataBindings.Add("EditValue", viewModel, "StartDate");
             endDate.DataBindings.Add("EditValue", viewModel, "EndDate");
-            auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");
-            user.DataBindings.Add("EditValue", viewModel, "SelectedUser");
+            auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");          
+            userList.Properties.DataSource = viewModel.UsersList.ToList();
+            userList.DataBindings.Add("EditValue", viewModel, "SelectedUser");
             number.DataBindings.Add("EditValue", viewModel, "Number");
             number.SetAsIdentifier();
         }
@@ -112,13 +109,13 @@ namespace Prizm.Main.Forms.Audit
             if(edit.SelectedIndex == 0)
             {
                 number.Enabled = true;
-                user.Enabled = false;
+                userList.Enabled = false;
                 viewModel.TracingMode = TracingModeEnum.TracingByNumber;
             }
             else
             {
                 number.Enabled = false;
-                user.Enabled = true;
+                userList.Enabled = true;
                 viewModel.TracingMode = TracingModeEnum.TracingByUser;
             }
         }
@@ -127,7 +124,7 @@ namespace Prizm.Main.Forms.Audit
         {
             if(e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
             {
-                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
+                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */e.Value.ToString()));
                 if(resId != null)
                 {
                     e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
