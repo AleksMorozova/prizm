@@ -434,20 +434,21 @@
             // 
             // xrPageInfo1
             // 
+            this.xrPageInfo1.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
             this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(111.8989F, 23F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(278.0473F, 23F);
             this.xrPageInfo1.StyleName = "PageInfo";
             // 
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(948.2664F, 0F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(84.73352F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(166.692F, 23F);
             this.xrPageInfo2.StyleName = "PageInfo";
             this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -546,9 +547,10 @@
             this.DataMember = "Pipe";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(46, 21, 51, 53);
-            this.PageHeight = 850;
-            this.PageWidth = 1100;
+            this.Margins = new System.Drawing.Printing.Margins(67, 69, 51, 53);
+            this.PageHeight = 827;
+            this.PageWidth = 1169;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,

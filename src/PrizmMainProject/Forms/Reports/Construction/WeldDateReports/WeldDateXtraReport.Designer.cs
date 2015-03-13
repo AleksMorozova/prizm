@@ -46,8 +46,10 @@
             this.firstPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.secondPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -148,7 +150,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 72.91666F;
+            this.BottomMargin.HeightF = 36.45833F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -205,14 +207,36 @@
             this.ReportHeader.HeightF = 34.375F;
             this.ReportHeader.Name = "ReportHeader";
             // 
-            // ReportFooter
-            // 
-            this.ReportFooter.HeightF = 15.625F;
-            this.ReportFooter.Name = "ReportFooter";
-            // 
             // bindingSource
             // 
             this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData);
+            // 
+            // PageFooter
+            // 
+            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.numberOfPageInfo,
+            this.dateTimePageInfo});
+            this.PageFooter.HeightF = 23.95833F;
+            this.PageFooter.Name = "PageFooter";
+            // 
+            // dateTimePageInfo
+            // 
+            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
+            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.dateTimePageInfo.Name = "dateTimePageInfo";
+            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(307.9166F, 23F);
+            // 
+            // numberOfPageInfo
+            // 
+            this.numberOfPageInfo.Format = "Page {0} of {1}";
+            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(307.9166F, 0F);
+            this.numberOfPageInfo.Name = "numberOfPageInfo";
+            this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(342.0834F, 23F);
+            this.numberOfPageInfo.StylePriority.UseTextAlignment = false;
+            this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // WeldDateXtraReport
             // 
@@ -221,9 +245,9 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.ReportFooter});
+            this.PageFooter});
             this.DataSource = this.bindingSource;
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 45, 73);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 45, 36);
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -250,6 +274,8 @@
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraReports.UI.XRLabel weldReportByDateHeader;
-        private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
+        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
     }
 }
