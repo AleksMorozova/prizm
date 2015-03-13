@@ -8,6 +8,7 @@ using Ninject;
 using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -15,10 +16,10 @@ namespace Prizm.Data.DAL.Hibernate
     public class AuditInterceptor : EmptyInterceptor, IDisposable
     {
         private IAuditLogRepository repo;
-        private PersonName currentUser;
+        private User currentUser;
 
         [Inject]
-        public AuditInterceptor(PersonName currentUser)
+        public AuditInterceptor(User currentUser)
         {
             this.currentUser = currentUser;
         }
@@ -84,8 +85,8 @@ namespace Prizm.Data.DAL.Hibernate
                             continue;
                         }
 
-                        string newValue = string.Empty;
-                        string oldValue = string.Empty;
+                        string newValue = null;
+                        string oldValue = null;
 
                         if (currentState[i] is Item || previousState[i] is Item)
                         {
@@ -111,22 +112,23 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Creating log record and saving it to DB
         /// </summary>
-        private void NewAuditRecord(
-            Item curentity, 
-            string fieldName, 
-            string newValue, 
-            string oldValue)
+        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
         {
             string entityType = curentity.GetType().ToString();
-            string tableName = entityType.Substring(entityType.LastIndexOf('.') + 1);
+            string stringTableName = entityType.Substring(entityType.LastIndexOf('.') + 1);
+            ItemTypes tableName = ItemTypes.Undefined;
+            Enum.TryParse(stringTableName, true, out tableName);
+            FieldNames enumFieldName = FieldNames.Undefined;
+            Enum.TryParse(fieldName, true, out enumFieldName);
+
             AuditLog record = new AuditLog()
             {
                 AuditID = Guid.NewGuid(),
                 EntityID = curentity.Id,
                 AuditDate = DateTime.Now,
-                User = currentUser.GetFullName(),
+                User = currentUser.Id,
                 TableName = tableName,
-                FieldName = fieldName,
+                FieldName = enumFieldName,
                 NewValue = newValue,
                 OldValue = oldValue
             };
@@ -159,8 +161,8 @@ namespace Prizm.Data.DAL.Hibernate
             Actions actionType, 
             params object[] state)
         {
-            string oldValue = "just inserted";
-            string newValue = "";
+            string oldValue = null;
+            string newValue = null;
 
             var curentity = entity as Item;
 
