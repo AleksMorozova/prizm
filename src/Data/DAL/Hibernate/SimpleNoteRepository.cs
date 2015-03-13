@@ -21,6 +21,7 @@ namespace Prizm.Data.DAL.Hibernate
     {
         [Inject]
         public SimpleNoteRepository(ISession session) : base(session) { }
+
         public IList<SimplePipe> GetReleasedNotePipe(Guid Id)
         {
             try
@@ -32,32 +33,6 @@ namespace Prizm.Data.DAL.Hibernate
                     .List<SimplePipe>();
 
                 return q;
-
-                //IList<SimplePipe> pipeList = new List<SimplePipe>();
-                //SimpleNote note = null;
-                //SimpleRailcar car = null;
-                //SimplePipe pipe = null;
-
-                //var s = session.QueryOver<SimpleNote>(() => note)
-                //.Where(n => ((n.Id == Id)))
-                //.JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                //.JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                //    .TransformUsing(Transformers.DistinctRootEntity);
-
-                //var listReleaseNote = new List<SimpleNote>(s.List<SimpleNote>());
-                //foreach(SimpleNote n in listReleaseNote)
-                //{
-                //    foreach(SimpleRailcar r in n.Railcars)
-                //    {
-                //        foreach(SimplePipe p in r.Pipes)
-                //        {
-                //            pipeList.Add(p);
-                //        }
-                //    }
-                //}
-
-                //return pipeList;
-
             }
             catch(GenericADOException ex)
             {
@@ -186,6 +161,8 @@ namespace Prizm.Data.DAL.Hibernate
             try
             {
                 var q = session.QueryOver<SimplePipe>()
+                    .Fetch(x => x.Type).Eager
+                    .Fetch(x => x.Attachments).Eager
                     .Where(n => ((n.Status == PipeMillStatus.Stocked) && (n.IsActive == true) && n.Railcar == null))
                     .List<SimplePipe>();
 
