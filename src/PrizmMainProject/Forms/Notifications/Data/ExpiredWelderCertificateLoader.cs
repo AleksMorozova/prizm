@@ -54,16 +54,21 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
-        // TODO: sqlCache
+        protected string sqlCache = null;
 
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @" SELECT  id, firstName, lastName, middleName, certificateExpiration
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @" SELECT  id, firstName, lastName, middleName, certificateExpiration
                        FROM  Welder
                 WHERE   (DATEDIFF(day, GETDATE(), certificateExpiration) < " + Constants.DaysToExpirationWarning + ") AND (isActive = 1) ");
-            return sb.ToString();
+                sqlCache = sb.ToString();
+            }
+            return sqlCache;
+            
         }
     }
 }

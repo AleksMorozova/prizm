@@ -17,7 +17,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
-        // TODO: sqlCache
+        protected string sqlCache = null;
 
         // TODO: remove from SQL request the filter PercentForInspectionOperation because we need all data for cache
 
@@ -25,16 +25,20 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @" select * from (
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @" select * from (
                         Select t.name, t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
                                where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Meters') b
                             right join 
                         (Select Sum(p.length) length, p.typeId From Pipe p 
                                group by p.typeId) a
-                               on b.id =a.typeId where b.f "+ Constants.PercentForInspectionOperation +" <= a.length");
-            return sb.ToString();
+                               on b.id =a.typeId where b.f " + Constants.PercentForInspectionOperation + " <= a.length");
+                sqlCache=sb.ToString();
+            }
+            return sqlCache;
         }
     }
 }

@@ -17,23 +17,26 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
-        // TODO: sqlCache
+        protected string sqlCache = null;
+
 
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @" select * from (
-Select t.name,t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
-where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Tons') b
-
-right join 
-
-(Select Sum(p.weight) weight, p.typeId From Pipe p 
-group by p.typeId) a
-
-on b.id =a.typeId where b.f" + Constants.PercentForInspectionOperation + "  <= a.weight");
-            return sb.ToString();
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @" select * from (
+                                Select t.name,t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id 
+                                            From pipeTest t, PipeMillSizeType s
+                                where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Tons') b
+                                                    right join 
+                        (Select Sum(p.weight) weight, p.typeId From Pipe p 
+                                        group by p.typeId) a
+                                on b.id =a.typeId where b.f" + Constants.PercentForInspectionOperation + "  <= a.weight");
+                sqlCache = sb.ToString();
+            }
+            return sqlCache;
         }
     }
 }

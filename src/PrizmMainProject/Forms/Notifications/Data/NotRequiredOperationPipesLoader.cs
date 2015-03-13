@@ -18,19 +18,24 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
-        // TODO: sqlCache
+        protected string sqlCache = null;
 
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @"  select * from (Select t.name,  t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @"  select * from (Select t.name,  t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
                             where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Pipes') b
                             right join 
                     (Select Count(p.number) number, p.typeId From Pipe p 
                         group by p.typeId) a
                         on b.id =a.typeId where b.f" + Constants.PercentForInspectionOperation + " <= a.number");
-            return sb.ToString();
+                sqlCache= sb.ToString();
+            }
+
+            return sqlCache;
         }
 
     }

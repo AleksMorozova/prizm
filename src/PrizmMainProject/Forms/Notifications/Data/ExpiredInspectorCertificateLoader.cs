@@ -58,14 +58,15 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
-        // TODO: sqlCache
-
+        protected string sqlCache = null;
 
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @" SELECT
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @" SELECT
                     InspectorCertificate.id,
                     Inspector.firstName,
                     Inspector.lastName,
@@ -78,7 +79,10 @@ namespace Prizm.Main.Forms.Notifications.Data
                     InspectorCertificate.inspectorId = Inspector.id
                     WHERE (InspectorCertificate.isActive = 1) 
                     AND (DATEDIFF(day, GETDATE(), InspectorCertificate.expirationDate) < " + Constants.DaysToExpirationWarning + ")");
-            return sb.ToString();
+                sqlCache = sb.ToString();
+            }
+
+            return sqlCache;
         }
 
     }
