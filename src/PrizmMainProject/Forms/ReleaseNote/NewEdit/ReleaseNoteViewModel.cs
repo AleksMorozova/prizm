@@ -17,6 +17,7 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -26,9 +27,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         public class PlainPipe
         {
-            private Pipe pipe;
+            private SimplePipe pipe;
 
-            public static implicit operator Pipe(PlainPipe p)
+            public static implicit operator SimplePipe(PlainPipe p)
             {
                 return p.pipe;
             }
@@ -84,12 +85,12 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             /// </summary>
             /// <param name="p">pipe to remove</param>
             /// <returns>status if pipe was removed from plain pipes list</returns>
-            public bool Remove(Pipe p)
+            public bool Remove(SimplePipe p)
             {
                 bool removed = false;
                 for (int index = 0; index < this.Count; index++)
                 {
-                    if (p == (Pipe)this[index])
+                    if(p == (SimplePipe)this[index])
                     {
                         this.RemoveAt(index);
                         removed = true; 
@@ -101,15 +102,15 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         }
 
         public PlainPipeBindingList ReleaseNotePipes { get; set; }
-        
-        private Prizm.Domain.Entity.Mill.Railcar railcar = new Domain.Entity.Mill.Railcar();
+
+        private SimpleRailcar railcar = new SimpleRailcar();
         private readonly IReleaseNoteRepositories repos;
         private readonly IUserNotify notify;
         private readonly SaveReleaseNoteCommand saveCommand;
         private readonly ShipReleaseNoteCommand shipCommand;
         private readonly UnshipReleaseNoteCommand unshipCommand;
         private readonly ISecurityContext ctx;
-        private List<Pipe> pipesToAdd = null;
+        private List<SimplePipe> pipesToAdd = null;
         IModifiable modifiableView = null;
         public IValidatable validatableView { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
@@ -151,7 +152,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
            
         }
 
-        public List<Pipe> AllPipesToAdd
+        public List<SimplePipe> AllPipesToAdd
         {
             get
             {
@@ -163,7 +164,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
         }
 
-        public Prizm.Domain.Entity.Mill.ReleaseNote ReleaseNote { get; set; }
+        public SimpleNote ReleaseNote { get; set; }
 
         #region Release Note
 
@@ -210,7 +211,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
         }
 
-        public IList<Prizm.Domain.Entity.Mill.Railcar> Railcars
+        public IList<SimpleRailcar> Railcars
         {
             get { return ReleaseNote.Railcars; }
             set
@@ -237,7 +238,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         #region Railcar Note
 
-        public Prizm.Domain.Entity.Mill.Railcar Railcar
+        public SimpleRailcar Railcar
         {
             get { return railcar; }
             set
@@ -431,9 +432,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     AllPipesToAdd.Add(pipe);
                     ReleaseNotePipes.Remove(pipe);
                     Railcar.Pipes.Remove(pipe);
-                    var tmpRailcar = ((Pipe)pipe).Railcar;
-                    ((Pipe)pipe).Railcar = null;
-                    ((Pipe)pipe).Status = PipeMillStatus.Stocked;
+                    var tmpRailcar = ((SimplePipe)pipe).Railcar;
+                    ((SimplePipe)pipe).Railcar = null;
+                    ((SimplePipe)pipe).Status = PipeMillStatus.Stocked;
                     repos.PipeRepo.SaveOrUpdate(pipe);
 
                     log.Info(String.Format("Pipe {0},{1} removed from Release note {2},{3} and railcar {4},{5}",
@@ -453,14 +454,14 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         {
             if (ReleaseNote == null)
             {
-                ReleaseNote = new Prizm.Domain.Entity.Mill.ReleaseNote { Shipped = false, IsActive = true };
+                ReleaseNote = new SimpleNote { Shipped = false, IsActive = true };
             }
             if (this.FilesFormViewModel != null)
             {
                 this.FilesFormViewModel.Files = null;
             }
             Number = string.Empty;
-            Railcars = new List<Prizm.Domain.Entity.Mill.Railcar>();
+            Railcars = new List<SimpleRailcar>();
         }
 
         /// <summary>
@@ -472,7 +473,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             {
                 if (pipesToAdd == null)
                 {
-                    pipesToAdd = new List<Pipe>();
+                    pipesToAdd = new List<SimplePipe>();
                 }
                 else
                 {
@@ -484,7 +485,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     if (storedPipes != null)
                     {
                         pipesToAdd.AddRange(storedPipes);
-                        pipesToAdd.Sort(new Comparison<Pipe>((p1, p2) => { return string.Compare(p1.Number, p2.Number, true); }));
+                        pipesToAdd.Sort(new Comparison<SimplePipe>((p1, p2) => { return string.Compare(p1.Number, p2.Number, true); }));
                     }
                     else
                     {
