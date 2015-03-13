@@ -93,7 +93,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new LocalizedItem(lastNameLayoutControlItem, StringResources.FirstSetup_LastNameLabel.Id),
                 new LocalizedItem(firstNameLayoutControlItem, StringResources.FirstSetup_FirstNameLabel.Id),
                 new LocalizedItem(middleNameLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
-                new LocalizedItem(millLayoutControlItem, StringResources.FirstSetup_MiddleNameLabel.Id),
                 new LocalizedItem(projectLayoutGroup,StringResources.FirstSetup_ProjectGroup.Id),
                 new LocalizedItem(adminLayoutControlGroup, StringResources.FirstSetup_MainAdministratorGroup.Id),
                 

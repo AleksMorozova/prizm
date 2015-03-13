@@ -31,6 +31,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.DXErrorProvider;
 using Prizm.Main.Languages;
+using DevExpress.Data;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -152,6 +153,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             repositoryWeldingDate.SetLimits();
 
             weldersGridColumn.SortMode = ColumnSortMode.DisplayText;
+
+            inspectionCodeGridColumn.SortOrder = ColumnSortOrder.Ascending;
         }
 
         private void BindToViewModel()

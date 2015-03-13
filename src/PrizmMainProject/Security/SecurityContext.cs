@@ -18,11 +18,6 @@ namespace Prizm.Main.Security
          return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
       }
 
-      public Prizm.Domain.Entity.PersonName GetLoggedPerson()
-      {
-         return loggedUser.Name;
-      }
-
       private bool RoleHasPermission(Role r, Privileges privilege)
       {
           return PrivilegeBelongsToCurrentWorkstation(privilege) &&
@@ -57,6 +52,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewSpool
                       || privilege == Privileges.ViewSettings
                       || privilege == Privileges.EditSettings
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;
@@ -78,6 +74,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewPipe
                       || privilege == Privileges.ViewReleaseNote
                       || privilege == Privileges.ViewSettings
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;
@@ -110,6 +107,7 @@ namespace Prizm.Main.Security
                       || privilege == Privileges.ViewReleaseNote
                       || privilege == Privileges.ViewSettings
                       || privilege == Privileges.ViewSpool
+                      || privilege == Privileges.ViewExportImportHistory
                       )
                   {
                       belongs = true;

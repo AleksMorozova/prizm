@@ -413,7 +413,7 @@
     <value>Величина диаметра должна быть больше нуля</value>
   </data>
   <data name="Joint_IncorrectDiameter" xml:space="preserve">
-    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
+    <value>Отсутствуют подходящие диаметры или толщины для формирования стыка.</value>
   </data>
   <data name="MillPipe_PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
@@ -479,7 +479,7 @@
     <value>Роли пользователя</value>
   </data>
   <data name="Joint_IncorrectDiameterHeader" xml:space="preserve">
-    <value>Не совпадают диаметры стыкуемых элементов</value>
+    <value>Не совпадают диаметры или толщины стыкуемых элементов</value>
   </data>
   <data name="ReleaseNoteNewEdit_Shipped" xml:space="preserve">
     <value>Отгрузка произошла успешно</value>
@@ -1414,5 +1414,26 @@
   </data>
   <data name="Notification_NotRequiredControlOperationTons_Warning" xml:space="preserve">
     <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Import" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Undefined" xml:space="preserve">
+    <value>Не определено</value>
+  </data>
+  <data name="HistoryExportImport_IsExportColumn" xml:space="preserve">
+    <value>Экспорт/Импорт</value>
+  </data>
+  <data name="HistoryExportImport_Title" xml:space="preserve">
+    <value>История экспорта/импорта</value>
+  </data>
+  <data name="HistoryExportImport_WorkstationColumn" xml:space="preserve">
+    <value>Рабочая станция</value>
+  </data>
+  <data name="SecurityPrivilege_ViewExportImportHistory" xml:space="preserve">
+    <value>Просмотр истории экспорта/импорта</value>
   </data>
 </root>
