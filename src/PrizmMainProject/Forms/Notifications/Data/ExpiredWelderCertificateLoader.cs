@@ -54,6 +54,8 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
+        // TODO: sqlCache
+
         public override string BuildSql()
         {
             StringBuilder sb = new StringBuilder();

@@ -40,11 +40,17 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         }
 
+        #region --- building sql... ---
+
+        protected string sqlCache = null;
+
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @"  select 
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @"  select 
                                 id,
                                 login,
                                 firstName,
@@ -52,8 +58,11 @@ namespace Prizm.Main.Forms.Notifications.Data
                                 from [User]
                                 where login  in 
                                 (select login from [User] group by login having count(*) >1)");
-            return sb.ToString();
+                sqlCache = sb.ToString();
+            }
+            return sqlCache;
         }
+        #endregion // --- building sql... ---
 
     }
 }

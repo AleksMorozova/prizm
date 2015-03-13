@@ -23,7 +23,7 @@ namespace Prizm.Main.Common
         /// <summary>
         /// period in percents for remaining about execution of control operation
         /// </summary>
-        public const string PercentForControlOperation = "*0.90";
+        public const string PercentForInspectionOperation = "*0.90";
 
         /// <summary>
         /// Warning should be shown this amount of days before expiration

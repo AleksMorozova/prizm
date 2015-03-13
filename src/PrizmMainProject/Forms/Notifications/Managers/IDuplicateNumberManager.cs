@@ -8,6 +8,6 @@ namespace Prizm.Main.Forms.Notifications.Managers
 {
     interface IDuplicateNumberManager
     {
-        void RefreshNotification(Guid pipe, string oldNumber, string newNumber);
+        void RefreshNotifications();
     }
 }

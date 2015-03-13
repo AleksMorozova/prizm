@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Managers
 {
-    interface INotRequiredControlOperationTonsManager
+    interface INotRequiredOperationManager
     {
-        void RefreshNotification(Guid pipe, string oldNumber, string newNumber);
+        void RefreshNotification(Guid pipeSizeTypeId, string pipeSizeTypeName, string operationCode, string operationName, float units);
     }
 }

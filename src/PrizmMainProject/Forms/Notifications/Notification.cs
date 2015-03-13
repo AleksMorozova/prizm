@@ -144,9 +144,7 @@ namespace Prizm.Main.Forms.Notifications
         DuplicateLogin,
         ExpiredInspectorCertificate,
         ExpiredWelderCertificate,
-        NotRequiredControlOperationPipes,
-        NotRequiredControlOperationTons,
-        NotRequiredControlOperationMeters
+        NotRequiredInspectionOperation,
     }
 
 }

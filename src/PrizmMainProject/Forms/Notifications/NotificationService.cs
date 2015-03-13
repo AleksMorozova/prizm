@@ -12,7 +12,8 @@ namespace Prizm.Main.Forms.Notifications
         // Events
         public event EventHandler NotificationReload;
 
-        IDuplicateNumberManager DuplicateNumberManager 
+        #region --- Managers Properties ---
+        public IDuplicateNumberManager DuplicateNumberManager 
         { 
             get 
             {
@@ -22,7 +23,7 @@ namespace Prizm.Main.Forms.Notifications
             } 
         }
 
-        IExpiredWelderCertificateManager ExpiredWelderCertificateManager
+        public IExpiredWelderCertificateManager ExpiredWelderCertificateManager
         {
             get
             {
@@ -31,6 +32,19 @@ namespace Prizm.Main.Forms.Notifications
                     ).Value;
             }
         }
+
+        public IExpiredInspectorCertificateManager ExpiredInspectorCertificateManager
+        {
+            get
+            {
+                return (IExpiredInspectorCertificateManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.ExpiredInspectorCertificate; }
+                    ).Value;
+            }
+        }
+
+        #endregion // --- Managers Properties ---
+
         // Fields
         private static NotificationService StaticInstance;
         private Dictionary<TypeNotification, INotificationManager> managers;
@@ -41,11 +55,12 @@ namespace Prizm.Main.Forms.Notifications
             managers = new Dictionary<TypeNotification, INotificationManager>();
 
             RegisterManager(new DuplicateLoginManager());
+            RegisterManager(new DuplicateNumberManager());
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
-            RegisterManager(new NotRequiredControlOperationMetersManager());
-            RegisterManager(new NotRequiredControlOperationPipesManager());
-            RegisterManager(new NotRequiredControlOperationTonsManager());
+            RegisterManager(new NotRequiredOperationManager());
+            RegisterManager(new NotRequiredOperationPipesManager());
+            RegisterManager(new NotRequiredOperationTonsManager());
             // TODO: add other managers
         }
 
@@ -98,11 +113,6 @@ namespace Prizm.Main.Forms.Notifications
             {
                 return managers.Sum(f => f.Value.Count);
             }
-        }
-
-        private static int CountSummator(KeyValuePair<TypeNotification, INotificationManager> arg)
-        {
-            return (int)arg.Value.Count;
         }
 
     }

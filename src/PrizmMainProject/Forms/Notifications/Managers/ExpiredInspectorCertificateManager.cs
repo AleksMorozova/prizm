@@ -21,9 +21,9 @@ namespace Prizm.Main.Forms.Notifications.Managers
             return new Notification(userId, ownerName, TypeNotification.ExpiredInspectorCertificate, information, expirationDate);
         }
 
-        public void RefreshNotification(Guid pipe, string oldNumber, string newNumber)
+        public void RefreshNotifications()
         {
-            throw new NotImplementedException();
+            LoadNotifications();
         }
 
     }

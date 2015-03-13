@@ -1,5 +1,4 @@
 ﻿using NHibernate.Transform;
-using Prizm.Main.Common;
 using Prizm.Main.Forms.Notifications.Managers;
 using System;
 using System.Collections.Generic;
@@ -9,11 +8,8 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
-    class NotRequiredControlOperationTonsLoader : DataNotificationLoader
+    class NotRequiredOperationTransformer : IResultTransformer
     {
-        class NotRequiredControlOperationTonsTransformer : IResultTransformer
-        {
-
             public System.Collections.IList TransformList(System.Collections.IList collection)
             {
                 return collection;
@@ -21,7 +17,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return NotRequiredControlOperationTonsManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetUnitsLeft(tuple), GetTextInformation(tuple));
+                return NotRequiredOperationManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetUnitsLeft(tuple), GetTextInformation(tuple));
             }
 
             public Guid GetId(object[] tuple)
@@ -43,27 +39,5 @@ namespace Prizm.Main.Forms.Notifications.Data
             {
                 return tuple[6].ToString();
             }
-        }
-        public NotRequiredControlOperationTonsLoader()
-            : base(new NotRequiredControlOperationTonsTransformer())
-        {
-
-        }
-        public override string BuildSql()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @" select * from (
-Select t.name,t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
-where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Tons') b
-
-right join 
-
-(Select Sum(p.weight) weight, p.typeId From Pipe p 
-group by p.typeId) a
-
-on b.id =a.typeId where b.f" + Constants.PercentForControlOperation + "  <= a.weight");
-            return sb.ToString();
-        }
     }
 }

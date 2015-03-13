@@ -11,18 +11,26 @@ namespace Prizm.Main.Forms.Notifications
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationManager));
 
-        DataNotificationLoader loader;
-        public List<Notification> notifications = new List<Notification>();
+        readonly List<DataNotificationLoader> loaders = new List<DataNotificationLoader>();
+        public readonly List<Notification> notifications = new List<Notification>();
 
         public NotificationManager(DataNotificationLoader loader)
         {
-            this.loader = loader;
+            loaders.Add(loader);
+        }
+
+        protected void AddLoader(DataNotificationLoader loader)
+        {
+            loaders.Add(loader);
         }
 
         public void LoadNotifications()
         {
             notifications.Clear();
-            notifications.AddRange(loader.LoadNotifications());
+            foreach (var loader in loaders)
+            {
+                notifications.AddRange(loader.LoadNotifications());
+            }
         }
 
 
@@ -42,7 +50,9 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
-
+        /// <summary>
+        /// Override in derived classes
+        /// </summary>
         public virtual TypeNotification Type
         {
             get { throw new NotImplementedException(); }
