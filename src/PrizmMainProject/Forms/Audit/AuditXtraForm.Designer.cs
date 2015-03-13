@@ -137,9 +137,6 @@
             this.radioPeriodUser.Name = "radioPeriodUser";
             this.radioPeriodUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioPeriodUser.Properties.Appearance.Options.UseBackColor = true;
-            this.radioPeriodUser.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Номер элемента"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Пользователь")});
             this.radioPeriodUser.Size = new System.Drawing.Size(87, 76);
             this.radioPeriodUser.StyleController = this.searchGroupLayout;
             this.radioPeriodUser.TabIndex = 10;
