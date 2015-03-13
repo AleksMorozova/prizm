@@ -85,7 +85,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
 
                 repos.BeginTransaction();
-                repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
+                repos.SimpleNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
 
                 var filesViewModel = viewModel.FilesFormViewModel;
 
@@ -108,7 +108,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     repos.Commit();
                 }
 
-                repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
+                repos.SimpleNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
                 viewModel.ModifiableView.Id = viewModel.ReleaseNote.Id;
 
