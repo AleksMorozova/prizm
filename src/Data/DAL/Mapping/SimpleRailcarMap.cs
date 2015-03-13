@@ -10,6 +10,7 @@ namespace Prizm.Data.DAL.Mapping
         {
             Table("Railcar");
             Id(x => x.Id).Column("id").GeneratedBy.Guid();
+            Map(x => x.IsActive).Column("isActive");
             Map(x => x.Number).Column("number");
             Map(_ => _.Destination, "destination");
             Map(_ => _.Certificate, "certificate");

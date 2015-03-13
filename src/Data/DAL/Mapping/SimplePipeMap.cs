@@ -16,11 +16,14 @@ namespace Prizm.Data.DAL.Mapping
             Table("Pipe");
             #region --- Map ---
             Id(x => x.Id).Column("id").GeneratedBy.Guid();
+            Map(x => x.Number).Column("number");
             Map(_ => _.ToExport).Column("ToExport");
+            Map(_ => _.Status).Column("pipeMillStatus");
+            Map(x => x.IsActive).Column("isActive");
             #endregion
 
             #region --- References ---
-            References<Railcar>(x => x.Railcar).Column("railcarId").Cascade.SaveUpdate();
+            References<SimpleRailcar>(x => x.Railcar).Column("railcarId").Cascade.SaveUpdate();
 	        References<PipeMillSizeType>(x => x.Type).Column("typeId");
             #endregion
 

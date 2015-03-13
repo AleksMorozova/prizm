@@ -16,6 +16,7 @@ namespace Prizm.Data.DAL.Mapping
         {
             Table("ReleaseNote");
             Id(x => x.Id).Column("id").GeneratedBy.Guid();
+            Map(x => x.IsActive).Column("isActive");
             Map(_ => _.Number).Column("number");
             Map(_ => _.Date).Column("date");
             Map(x => x.Shipped).Column("Shipped");

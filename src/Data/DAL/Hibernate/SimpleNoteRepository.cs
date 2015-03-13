@@ -25,30 +25,38 @@ namespace Prizm.Data.DAL.Hibernate
         {
             try
             {
-                IList<SimplePipe> pipeList = new List<SimplePipe>();
-                SimpleNote note = null;
-                SimpleRailcar car = null;
-                SimplePipe pipe = null;
+                var q = session.CreateCriteria<SimplePipe>()
+                    .CreateCriteria("Railcar")
+                    .CreateCriteria("ReleaseNote")
+                    .Add(Restrictions.Eq("Id", Id))
+                    .List<SimplePipe>();
 
-                var s = session.QueryOver<SimpleNote>(() => note)
-                .Where(n => ((n.Id == Id)))
-                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                    .TransformUsing(Transformers.DistinctRootEntity);
+                return q;
 
-                var listReleaseNote = new List<SimpleNote>(s.List<SimpleNote>());
-                foreach(SimpleNote n in listReleaseNote)
-                {
-                    foreach(SimpleRailcar r in n.Railcars)
-                    {
-                        foreach(SimplePipe p in r.Pipes)
-                        {
-                            pipeList.Add(p);
-                        }
-                    }
-                }
+                //IList<SimplePipe> pipeList = new List<SimplePipe>();
+                //SimpleNote note = null;
+                //SimpleRailcar car = null;
+                //SimplePipe pipe = null;
 
-                return pipeList;
+                //var s = session.QueryOver<SimpleNote>(() => note)
+                //.Where(n => ((n.Id == Id)))
+                //.JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                //.JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
+                //    .TransformUsing(Transformers.DistinctRootEntity);
+
+                //var listReleaseNote = new List<SimpleNote>(s.List<SimpleNote>());
+                //foreach(SimpleNote n in listReleaseNote)
+                //{
+                //    foreach(SimpleRailcar r in n.Railcars)
+                //    {
+                //        foreach(SimplePipe p in r.Pipes)
+                //        {
+                //            pipeList.Add(p);
+                //        }
+                //    }
+                //}
+
+                //return pipeList;
 
             }
             catch(GenericADOException ex)
