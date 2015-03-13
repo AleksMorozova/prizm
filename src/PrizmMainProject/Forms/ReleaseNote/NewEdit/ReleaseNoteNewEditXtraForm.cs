@@ -280,7 +280,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private void railcarNumber_QueryCloseUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var currentRailcar = sender as LookUpEdit;
-            viewModel.Railcar = currentRailcar.EditValue as Prizm.Domain.Entity.Mill.Railcar;
+            viewModel.Railcar = currentRailcar.EditValue as SimpleRailcar;
 
         }
 
