@@ -100,13 +100,13 @@ namespace Prizm.Domain.Entity
         Mill = 89,
         Weight = 90,
         ProductionDate = 91,
-        Railcar = 92,
         PurchaseOrder = 92,
         IsCutOnSpool = 93,
         WeldSubStatus = 94,
         ExternalCoatSubStatus = 95,
         InternalCoatSubStatus = 96,
-        SeamType = 97
+        SeamType = 97,
+        Railcar = 98
 
     }
 }
