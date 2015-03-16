@@ -23,13 +23,15 @@ namespace Prizm.Main.Forms.Audit
         public Dictionary<Guid,string> UsersList = new Dictionary<Guid, string>();
         private Guid selectedUser;
         private string number = "";
+        private readonly IUserNotify notify;
 
         [Inject]
-        public AuditViewModel(IAuditRepository repo)
+        public AuditViewModel(IAuditRepository repo, IUserNotify notify)
         {
             this.repo = repo;
+            this.notify = notify;
             UsersList = repo.AuditLogRepo.GetAllUsers();
-            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo));
+            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo, notify));
         }
 
         public ICommand SearchCommand
