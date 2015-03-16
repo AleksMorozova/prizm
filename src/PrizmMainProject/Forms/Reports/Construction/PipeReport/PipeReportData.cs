@@ -13,10 +13,10 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public PipeReportData(DataRow row)
             :this()
         {
-            PipeNumber = row.Field<string>("number");
-            Length = row.Field<int>("length");
+            PipeNumber = row.Field<string>("Number");
+            Length = row.Field<int>("Length");
             Thickness = row.Field<double>("Thickness");
-            Diameter = row.Field<int>("diameter");
+            Diameter = Convert.ToInt32(row.Field<float>("Diameter")); // diameter in row are float
             SeamType = row.Field<string>("Seam");
             GradeType = row.Field<string>("Grade");
             FirstJointNumber = row.Field<string>("Joint1");
