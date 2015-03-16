@@ -136,11 +136,18 @@ group by productionDate  ";
 
         private const string GetAllPipesFromInspection = @"select Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
           from  InspectionTestResult InspectionTestResult
+
+          INNER JOIN 
+		    (SELECT partId,MAX (inspectionDate) as insprctionDate FROM InspectionTestResult 
+			    WHERE inspectionDate >= @startDate and inspectionDate <= @finalDate
+				GROUP BY partId) a
+				ON InspectionTestResult.partId = a.partId AND InspectionTestResult.inspectionDate = a.insprctionDate
+
 		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
           left join Plate on (Plate.id = Pipe.plateId)
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
-                WHERE InspectionTestResult.inspectionDate >=  @startDate and InspectionTestResult.inspectionDate <= @finalDate AND Pipe.isActive=1";
+            WHERE  Pipe.isActive=1";
 
         private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint
