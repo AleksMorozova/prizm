@@ -107,7 +107,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         "Checked", jointNewEditBindingSoure, "JointIsActive"));
 
             loweringDate.DataBindings
-               .Add("EditValue", jointNewEditBindingSoure, "LoweringDate");
+               .Add("EditValue", jointNewEditBindingSoure, "LoweringDate", true, DataSourceUpdateMode.OnPropertyChanged);
             GPSLat.DataBindings
                 .Add("EditValue", jointNewEditBindingSoure, "GpsLatitude");
             GPSLong.DataBindings
@@ -524,7 +524,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            jointStatus.EditValue = viewModel.JointConstructionStatus;
         }
 
         #region IValidatable Members
