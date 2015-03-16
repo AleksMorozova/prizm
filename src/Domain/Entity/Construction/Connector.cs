@@ -18,5 +18,16 @@ namespace Prizm.Domain.Entity.Construction
         {
             return Convert.ToString(Diameter);
         }
+        public override Guid OwnerId
+        {
+            get
+            {
+                return (Component == null) ? this.Id : Component.Id;
+            }
+            set
+            {
+                base.OwnerId = value;
+            }
+        }
     }
 }

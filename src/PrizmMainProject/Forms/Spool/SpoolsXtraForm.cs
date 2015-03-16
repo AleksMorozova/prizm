@@ -205,6 +205,7 @@ namespace Prizm.Main.Forms.Spool
                 = v.GetRow(e.RowHandle) as InspectionTestResult;
 
             inspectionTestResult.IsActive = true;
+            inspectionTestResult.Part = viewModel.Spool;
             inspectionTestResult.Status = PartInspectionStatus.Pending;
         }
 

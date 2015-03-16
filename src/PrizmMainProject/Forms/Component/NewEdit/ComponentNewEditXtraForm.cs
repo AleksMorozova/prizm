@@ -238,6 +238,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 = v.GetRow(e.RowHandle) as InspectionTestResult;
 
             inspectionTestResult.IsActive = true;
+            inspectionTestResult.Part = viewModel.Component;
             inspectionTestResult.Status = PartInspectionStatus.Pending;
         }
 

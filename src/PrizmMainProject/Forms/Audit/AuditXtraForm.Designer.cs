@@ -252,7 +252,7 @@
             // 
             // numberColumn
             // 
-            this.numberColumn.Caption = "Номер элемента";
+            this.numberColumn.Caption = "Номер владельца";
             this.numberColumn.FieldName = "Number";
             this.numberColumn.Name = "numberColumn";
             this.numberColumn.Visible = true;

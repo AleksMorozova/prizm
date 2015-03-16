@@ -26,10 +26,12 @@ namespace Prizm.Domain.Entity
         /// </summary>
         public virtual DateTime AuditDate { get; set; }
         /// <summary>
-        /// user who made changes
+        ///Id of user who made changes
         /// </summary>
         public virtual Guid User { get; set; }
-
+        /// <summary>
+        /// Full name of user who made changes(is not mapped)
+        /// </summary>
         public virtual string UserName { get; set; }
         /// <summary>
         /// 
@@ -47,6 +49,10 @@ namespace Prizm.Domain.Entity
         /// <summary>
         /// current field state
         /// </summary>
-        public virtual string NewValue { get; set; } 
+        public virtual string NewValue { get; set; }
+        /// <summary>
+        /// Id of entity that contains edited entity
+        /// </summary>
+        public virtual Guid OwnerId { get; set; }
     }
 }

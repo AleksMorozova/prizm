@@ -154,7 +154,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     {
                         for (int i = 0; i < value.ConnectorsCount; ++i)
                         {
-                            Connectors.Add(new Connector());
+                            Connectors.Add(new Connector() { Component = this.Component});
                         }
                         RaisePropertyChanged("Type");
                     }

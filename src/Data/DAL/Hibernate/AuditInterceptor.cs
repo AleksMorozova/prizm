@@ -130,7 +130,8 @@ namespace Prizm.Data.DAL.Hibernate
                 TableName = tableName,
                 FieldName = enumFieldName,
                 NewValue = newValue,
-                OldValue = oldValue
+                OldValue = oldValue,
+                OwnerId = curentity.OwnerId
             };
             LogRepo.BeginTransaction();
             LogRepo.Save(record);

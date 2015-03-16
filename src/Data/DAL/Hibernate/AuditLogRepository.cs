@@ -64,11 +64,11 @@ namespace Prizm.Data.DAL.Hibernate
         {
             AuditLogQuery.Transformer.Users = userList;
             var query = session.CreateSQLQuery(
-                  @"select a.id, a.entityID, a.auditDate, a.userId, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
+                  @"select a.id, a.entityID, a.auditDate, a.userId, a.tableName, a.fieldName, a.oldValue, a.newValue, a.ownerId , b.number as number " +
                   " from AuditLog a " +
-                  " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  "  join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
-                  " select id, number from Spool WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  " select id, number from Spool WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
                   " select id, number from Joint WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
@@ -80,7 +80,9 @@ namespace Prizm.Data.DAL.Hibernate
                   " union all" +
                   " select id, number from Railcar WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
-                  " select id,number from Component WHERE number LIKE CONCAT(:entityNumber, '%')) b on a.entityID = b.id" +
+                  " select id, number from Plate WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
+                  " select id,number from Component WHERE number LIKE CONCAT(:entityNumber, '%')) b on a.ownerId = b.id" +
                   " where a.auditDate >= :startDate AND a.auditDate <= :endDate").SetResultTransformer(AuditLogQuery.Transformer);
 
             query.SetString("entityNumber", number.ToString());
@@ -99,24 +101,34 @@ namespace Prizm.Data.DAL.Hibernate
         /// <returns></returns>
         public IList<AuditLog> GetRecordsByUser(Guid user, DateTime startDate, DateTime endDate)
         {
-            var retVal = session.QueryOver<AuditLog>()
-                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) 
-                         && _.AuditDate >= startDate
-                         && _.User == user).List<AuditLog>();
-            User selectedUser = userList.Where(_ => _.Id == user).SingleOrDefault();
-            string userName = "";
-            if (selectedUser != null)
-            {
-                userName = selectedUser.Name.GetFullName();
-            }
-            if (retVal != null)
-            {
-                foreach (AuditLog record in retVal)
-                {
-                    record.UserName = userName;
-                }
-            }
-            return retVal ?? new List<AuditLog>();
+            AuditLogQuery.Transformer.Users = userList;
+            var query = session.CreateSQLQuery(
+                  @"select a.id, a.entityID, a.auditDate, a.userId, a.tableName, a.fieldName, a.oldValue, a.newValue, a.ownerId , b.number as number " +
+                  " from AuditLog a " +
+                  "left join (select id, number from Pipe " +
+                  " union all" +
+                  " select id, number from Spool " +
+                  " union all" +
+                  " select id, number from Joint " +
+                  " union all" +
+                  " select id, number from Heat " +
+                  " union all" +
+                  " select id, number from PurchaseOrder " +
+                  " union all" +
+                  " select id, number from ReleaseNote " +
+                  " union all" +
+                  " select id, number from Railcar " +
+                  " union all" +
+                  " select id, number from Plate " +
+                  " union all" +
+                  " select id,number from Component ) b on a.ownerId = b.id" +
+                  " where a.auditDate >= :startDate AND a.auditDate <= :endDate AND userId = :userId").SetResultTransformer(AuditLogQuery.Transformer);
+
+            query.SetGuid("userId", user);
+            query.SetDateTime("startDate", startDate);
+            query.SetDateTime("endDate", endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
+            var results = query.List<AuditLog>();
+            return results;
         }
 
     }
@@ -149,11 +161,12 @@ namespace Prizm.Data.DAL.Hibernate
                 FieldName = (FieldNames)tuple[5],
                 OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString(),
                 NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
-                Number = tuple[8].ToString(),
-                UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName()
+                Number = (tuple[9] == null) ? "" : tuple[9].ToString(),
+                UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName(),
+                OwnerId = (tuple[8]==null) ? Guid.Empty : (Guid)tuple[8]
             };
         }
         #endregion
     }
-  
+
 }
