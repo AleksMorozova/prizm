@@ -228,15 +228,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == System.Windows.Forms.DialogResult.OK)
+            if (!ValidateCode(viewModel.Code))
             {
-                if (!ValidateCode(viewModel.Code))
-                {
-                    string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
-                    string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
-                    Program.MainForm.ShowInfo(msg, header);
-                    e.Cancel = true;
-                }
+                string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
+                string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
+                Program.MainForm.ShowInfo(msg, header);
+                e.Cancel = true;
             }
         }
 
@@ -251,7 +248,5 @@ namespace Prizm.Main.Forms.Settings.Inspections
             var testList = pipeTestList.Where(g => g.Code==code).ToList();
             return !(testList.Count >= 2);
         }
-
-
     }
 }
