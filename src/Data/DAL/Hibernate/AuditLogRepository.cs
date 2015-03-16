@@ -28,7 +28,7 @@ namespace Prizm.Data.DAL.Hibernate
         public Dictionary<Guid, string> GetAllUsers()
         {
             Dictionary<Guid, string> userNameList = new Dictionary<Guid, string>();
-            foreach (User user in userList)
+            foreach(User user in userList)
             {
                 userNameList.Add(user.Id, user.Name.GetFullName());
             }
@@ -38,11 +38,11 @@ namespace Prizm.Data.DAL.Hibernate
 
         private Dictionary<Guid, string> DNumberLookupUpdate(Dictionary<Guid, string> DNumberLookup, IEnumerable<Guid> listGuids, IEnumerable<string> listNumbers)
         {
-            for (int i = 0; i < listGuids.Count(); i++)
+            for(int i = 0; i < listGuids.Count(); i++)
             {
                 listGuids.ElementAt(i);
                 listNumbers.ElementAt(i);
-                if (listGuids.ElementAt(i) != null)
+                if(listGuids.ElementAt(i) != null)
                 {
                     DNumberLookup[listGuids.ElementAt(i)] = listNumbers.ElementAt(i);
                 }
@@ -66,9 +66,9 @@ namespace Prizm.Data.DAL.Hibernate
             var query = session.CreateSQLQuery(
                   @"select a.id, a.entityID, a.auditDate, a.userId, a.tableName, a.fieldName, a.oldValue, a.newValue, b.number as number " +
                   " from AuditLog a " +
-                  " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  " join (select id, number from Pipe WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
-                  " select id, number from Spool WHERE number LIKE CONCAT(:entityNumber, '%')" + 
+                  " select id, number from Spool WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
                   " select id, number from Joint WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
@@ -100,18 +100,18 @@ namespace Prizm.Data.DAL.Hibernate
         public IList<AuditLog> GetRecordsByUser(Guid user, DateTime startDate, DateTime endDate)
         {
             var retVal = session.QueryOver<AuditLog>()
-                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59) 
+                .Where(_ => _.AuditDate <= endDate.AddHours(23).AddMinutes(59).AddSeconds(59)
                          && _.AuditDate >= startDate
                          && _.User == user).List<AuditLog>();
             User selectedUser = userList.Where(_ => _.Id == user).SingleOrDefault();
             string userName = "";
-            if (selectedUser != null)
+            if(selectedUser != null)
             {
                 userName = selectedUser.Name.GetFullName();
             }
-            if (retVal != null)
+            if(retVal != null)
             {
-                foreach (AuditLog record in retVal)
+                foreach(AuditLog record in retVal)
                 {
                     record.UserName = userName;
                 }
@@ -147,7 +147,7 @@ namespace Prizm.Data.DAL.Hibernate
                 User = (Guid)tuple[3],
                 TableName = (ItemTypes)tuple[4],
                 FieldName = (FieldNames)tuple[5],
-                OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString(),
+                OldValue = (tuple[6] == null) ? "imported" : tuple[6].ToString(),
                 NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
                 Number = tuple[8].ToString(),
                 UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName()
@@ -155,5 +155,4 @@ namespace Prizm.Data.DAL.Hibernate
         }
         #endregion
     }
-  
 }
