@@ -19,7 +19,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         protected string sqlCache = null;
 
-        // TODO: remove from SQL request the filter PercentForInspectionOperation because we need all data for cache
+        // TODO: remove from SQL request the filter PercentForInspectionOperation because we need all data for internalCache
 
         // TODO: change request to take into account the date of latest inspection operation on pipe
 

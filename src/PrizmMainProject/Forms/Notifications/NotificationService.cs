@@ -43,6 +43,16 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
+        public INotRequiredOperationManager NotRequiredOperationManager
+        {
+            get
+            {
+                return (INotRequiredOperationManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.NotRequiredInspectionOperation; }
+                    ).Value;
+            }
+        }
+
         #endregion // --- Managers Properties ---
 
         // Fields
@@ -59,9 +69,6 @@ namespace Prizm.Main.Forms.Notifications
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
             RegisterManager(new NotRequiredOperationManager());
-            RegisterManager(new NotRequiredOperationPipesManager());
-            RegisterManager(new NotRequiredOperationTonsManager());
-            // TODO: add other managers
         }
 
         private void RegisterManager(INotificationManager manager)
