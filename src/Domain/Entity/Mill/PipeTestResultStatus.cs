@@ -10,8 +10,8 @@ namespace Prizm.Domain.Entity.Mill
     {
         Undefined = 0,
         Scheduled = 1,
-        Passed = 2,
-        Failed = 3,
+        Accepted = 2,
+        Rejected = 3,
         Repair = 4,
     }
 }

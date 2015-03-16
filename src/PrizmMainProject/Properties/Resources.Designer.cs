@@ -2618,20 +2618,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Брак.
+        ///   Looks up a localized string similar to Годен.
         /// </summary>
-        internal static string PipeTestResultStatus_Failed {
+        internal static string PipeTestResultStatus_Accepted {
             get {
-                return ResourceManager.GetString("PipeTestResultStatus_Failed", resourceCulture);
+                return ResourceManager.GetString("PipeTestResultStatus_Accepted", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Годен.
+        ///   Looks up a localized string similar to Брак.
         /// </summary>
-        internal static string PipeTestResultStatus_Passed {
+        internal static string PipeTestResultStatus_Rejected {
             get {
-                return ResourceManager.GetString("PipeTestResultStatus_Passed", resourceCulture);
+                return ResourceManager.GetString("PipeTestResultStatus_Rejected", resourceCulture);
             }
         }
         

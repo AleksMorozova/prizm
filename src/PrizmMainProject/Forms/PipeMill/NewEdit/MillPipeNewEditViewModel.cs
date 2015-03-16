@@ -757,8 +757,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             int count = 0;
             foreach(PipeTestResult test in pipeTestResults)
             {
-                if((test.Status == PipeTestResultStatus.Failed)
-                    || (test.Status == PipeTestResultStatus.Passed)
+                if((test.Status == PipeTestResultStatus.Rejected)
+                    || (test.Status == PipeTestResultStatus.Accepted)
                     || (test.Status == PipeTestResultStatus.Repair)
                     )
                 {
@@ -806,7 +806,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if (Pipe.Status == PipeMillStatus.Stocked && Pipe.Railcar != null)
             {
                 resultValue =
-                    !(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
+                    !(testsResults.Contains(PipeTestResultStatus.Rejected.ToString())
                     || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
                     || testsResults.Contains(PipeTestResultStatus.Repair.ToString()));
             }
@@ -824,7 +824,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
-            if(testsResults.Contains(PipeTestResultStatus.Failed.ToString())
+            if(testsResults.Contains(PipeTestResultStatus.Rejected.ToString())
                 || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
                 || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
                 )
@@ -971,7 +971,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
                 if (t.Operation.Category.Type == FixedCategory.Length
-                    && t.Status == PipeTestResultStatus.Passed
+                    && t.Status == PipeTestResultStatus.Accepted
                     && !string.IsNullOrEmpty(t.Value))
                 {
                     lengthOperation.Add(t);
@@ -1106,13 +1106,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     case PipeTestResultStatus.Scheduled:
                         result = PipeMillSubStatus.Scheduled;
                         break;
-                    case PipeTestResultStatus.Failed:
+                    case PipeTestResultStatus.Rejected:
                         result = PipeMillSubStatus.Failed;
                         break;
                     case PipeTestResultStatus.Repair:
                         result = PipeMillSubStatus.Repair;
                         break;
-                    case PipeTestResultStatus.Passed:
+                    case PipeTestResultStatus.Accepted:
                         if (testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
                         {
                             result = PipeMillSubStatus.WithRepair;

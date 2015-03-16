@@ -2111,10 +2111,10 @@ Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
 PipeTestResultStatus_Scheduled=Scheduled
 
 ;Результат контрольной операции. Принят
-PipeTestResultStatus_Passed=Passed
+PipeTestResultStatus_Accepted=Accepted
 
 ;Результат контрольной операции. Брак
-PipeTestResultStatus_Failed=Failed
+PipeTestResultStatus_Rejected=Rejected
 
 ;Результат контрольной операции. Ремонт
 PipeTestResultStatus_Repair=Repair

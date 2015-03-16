@@ -463,7 +463,7 @@
   <data name="Produced" xml:space="preserve">
     <value>Производится</value>
   </data>
-  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Accepted" xml:space="preserve">
     <value>Годен</value>
   </data>
   <data name="Message_UnknownComponentType" xml:space="preserve">
@@ -729,7 +729,7 @@
   <data name="Diameter" xml:space="preserve">
     <value>Диаметр</value>
   </data>
-  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Rejected" xml:space="preserve">
     <value>Брак</value>
   </data>
   <data name="WallThickness" xml:space="preserve">
