@@ -53,6 +53,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     report.PipesCount = counts[0];
                     report.PipesLength = counts[1];
                     report.PipesWeight = counts[2];
+                    SetDataSortByColumn();
                     report.DataSource = data;
                     report.CreateDocument();
                     var tool = new ReportPrintTool(report);
@@ -63,6 +64,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                 {
                     data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                     GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                    SetDataSortByColumn();
                     report.DataSource = data;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
@@ -70,8 +72,10 @@ namespace Prizm.Main.Forms.Reports.Mill
                 }
                 else if (viewModel.SelectedReportType == MillReportType.ByShipped)
                 {
+                    data = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
                     LoadingXtraReport report = new LoadingXtraReport();
-                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                    SetDataSortByColumn();
+                    report.DataSource = data;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();
@@ -93,6 +97,23 @@ namespace Prizm.Main.Forms.Reports.Mill
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
            
+        }
+
+        private void SetDataSortByColumn()
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == "productionDate"
+                        || column.ColumnName == "number"
+                        || column.ColumnName == "releaseNote")
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
    
         public bool CanExecute()

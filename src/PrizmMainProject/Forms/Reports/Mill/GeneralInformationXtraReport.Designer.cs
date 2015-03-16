@@ -95,6 +95,8 @@
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
@@ -277,7 +279,7 @@
             this.xrLabel10.SizeF = new System.Drawing.SizeF(111.8989F, 57.87499F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseForeColor = false;
-            this.xrLabel10.Text = "production Date";
+            this.xrLabel10.Text = "Дата производства";
             // 
             // xrLabel11
             // 
@@ -326,7 +328,7 @@
             this.xrLabel34.Name = "xrLabel34";
             this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel34.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
-            this.xrLabel34.Text = "BAR (Производство голой трубы)";
+            this.xrLabel34.Text = "BAR (Производство готовой трубы)";
             // 
             // xrLabel35
             // 

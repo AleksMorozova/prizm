@@ -48,6 +48,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     report.PipesCount = counts[0];
                     report.PipesLength = counts[1];
                     report.PipesWeight = counts[2];
+                    SetDataSortByColumn();  
                     report.DataSource = data;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
@@ -56,14 +57,17 @@ namespace Prizm.Main.Forms.Reports.Mill
                 {
                     data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                     GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                    SetDataSortByColumn();                 
                     report.DataSource = data;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
                 else if (viewModel.SelectedReportType == MillReportType.ByShipped)
                 {
+                    data = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
                     LoadingXtraReport report = new LoadingXtraReport();
-                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                    SetDataSortByColumn();
+                    report.DataSource = data;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
@@ -71,6 +75,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                 { 
                     data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses, true);
                     MillReportsXtraReport report = new MillReportsXtraReport();
+                    SetDataSortByColumn();  
                     report.DataSource = data;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
@@ -82,6 +87,23 @@ namespace Prizm.Main.Forms.Reports.Mill
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
           
+        }
+
+        private void SetDataSortByColumn()
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == "productionDate"
+                        || column.ColumnName == "number"
+                        || column.ColumnName == "releaseNote")
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
    
         public bool CanExecute()
