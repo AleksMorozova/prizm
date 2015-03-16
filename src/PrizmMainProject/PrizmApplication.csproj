@@ -312,9 +312,9 @@
     <Compile Include="Forms\Notifications\Data\DuplicateNumberLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DuplicateLoginLoader.cs" />
     <Compile Include="Forms\Notifications\Data\ExpiredInspectorCertificateLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationMetersLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationPipesLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationTonsLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationMetersLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationPipesLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationTonsLoader.cs" />
     <Compile Include="Forms\Notifications\Data\ExpiredWelderCertificateLoader.cs" />
     <Compile Include="Forms\Notifications\INotificationManager.cs" />
     <Compile Include="Forms\Notifications\Managers\DuplicateLoginManager.cs" />
