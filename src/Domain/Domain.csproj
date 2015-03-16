@@ -47,6 +47,8 @@
     <Compile Include="Entity\Construction\JointWeldResult.cs" />
     <Compile Include="Entity\Construction\PartData.cs" />
     <Compile Include="Entity\Construction\PartType.cs" />
+    <Compile Include="Entity\FieldNames.cs" />
+    <Compile Include="Entity\ItemTypes.cs" />
     <Compile Include="Entity\Mill\CannedMessage.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Mill\ReleaseNote.cs" />
@@ -104,6 +106,9 @@
     <Compile Include="Entity\Setup\SeamType.cs" />
     <Compile Include="Entity\Setup\Welder.cs" />
     <Compile Include="Entity\Setup\WorkstationType.cs" />
+    <Compile Include="Entity\SimpleReleaseNote\SimplePipe.cs" />
+    <Compile Include="Entity\SimpleReleaseNote\SimpleRailcar.cs" />
+    <Compile Include="Entity\SimpleReleaseNote\SimpleNote.cs" />
     <Compile Include="Entity\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

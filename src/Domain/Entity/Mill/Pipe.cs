@@ -20,7 +20,7 @@ namespace Prizm.Domain.Entity.Mill
         public virtual Plate Plate { get; set; }
 
         public virtual string Mill { get; set; }
-        public virtual int Diameter { get; set; }
+        public virtual float Diameter { get; set; }
         public virtual float WallThickness { get; set; }
 
         public virtual float Weight { get; set; }

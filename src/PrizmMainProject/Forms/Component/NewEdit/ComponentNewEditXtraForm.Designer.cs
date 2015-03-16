@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
@@ -52,6 +51,7 @@
             this.componentParameters = new DevExpress.XtraGrid.GridControl();
             this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.positiveFloat = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.wallThicknessGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.componentNewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -69,9 +69,9 @@
             this.newSaveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDeactivation = new DevExpress.XtraLayout.LayoutControlItem();
-            this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.componentBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -86,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positiveFloat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
@@ -317,6 +318,8 @@
             this.componentParameters.Location = new System.Drawing.Point(44, 163);
             this.componentParameters.MainView = this.componentParametersView;
             this.componentParameters.Name = "componentParameters";
+            this.componentParameters.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.positiveFloat});
             this.componentParameters.Size = new System.Drawing.Size(325, 110);
             this.componentParameters.TabIndex = 4;
             this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -337,19 +340,31 @@
             // 
             // diameterGridColumn
             // 
-            this.diameterGridColumn.Caption = "Диаметр отверстия";
+            this.diameterGridColumn.Caption = "Наружный диаметр отверстия, мм";
+            this.diameterGridColumn.ColumnEdit = this.positiveFloat;
             this.diameterGridColumn.FieldName = "Diameter";
             this.diameterGridColumn.Name = "diameterGridColumn";
             this.diameterGridColumn.Visible = true;
             this.diameterGridColumn.VisibleIndex = 0;
+            this.diameterGridColumn.Width = 188;
+            // 
+            // positiveFloat
+            // 
+            this.positiveFloat.AutoHeight = false;
+            this.positiveFloat.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.positiveFloat.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.positiveFloat.Mask.UseMaskAsDisplayFormat = true;
+            this.positiveFloat.Name = "positiveFloat";
             // 
             // wallThicknessGridColumn
             // 
-            this.wallThicknessGridColumn.Caption = "Толщина стенки";
+            this.wallThicknessGridColumn.Caption = "Толщина стенки, мм";
+            this.wallThicknessGridColumn.ColumnEdit = this.positiveFloat;
             this.wallThicknessGridColumn.FieldName = "WallThickness";
             this.wallThicknessGridColumn.Name = "wallThicknessGridColumn";
             this.wallThicknessGridColumn.Visible = true;
             this.wallThicknessGridColumn.VisibleIndex = 1;
+            this.wallThicknessGridColumn.Width = 119;
             // 
             // certificateNumber
             // 
@@ -575,6 +590,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positiveFloat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
@@ -640,5 +656,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButtons;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit positiveFloat;
     }
 }

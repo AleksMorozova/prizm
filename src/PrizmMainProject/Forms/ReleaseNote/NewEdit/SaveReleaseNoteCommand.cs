@@ -14,6 +14,7 @@ using Ninject;
 using Prizm.Data.DAL;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -63,9 +64,9 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
             try
             {
-                var emptyRailcars = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
+                var emptyRailcars = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<SimpleRailcar>();
 
-                var empty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<Domain.Entity.Mill.Railcar>();
+                var empty = viewModel.Railcars.Where(x => x.Pipes.Count == 0).ToList<SimpleRailcar>();
                 foreach(var item in empty)
                 {
                     viewModel.Railcars.Remove(item);
@@ -84,7 +85,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 }
 
                 repos.BeginTransaction();
-                repos.ReleaseNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
+                repos.SimpleNoteRepo.SaveOrUpdate(viewModel.ReleaseNote);
 
                 var filesViewModel = viewModel.FilesFormViewModel;
 
@@ -107,7 +108,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     repos.Commit();
                 }
 
-                repos.ReleaseNoteRepo.Evict(viewModel.ReleaseNote);
+                repos.SimpleNoteRepo.Evict(viewModel.ReleaseNote);
                 viewModel.ModifiableView.IsModified = false;
                 viewModel.ModifiableView.Id = viewModel.ReleaseNote.Id;
 

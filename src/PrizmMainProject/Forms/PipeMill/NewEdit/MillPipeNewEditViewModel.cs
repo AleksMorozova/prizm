@@ -925,7 +925,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int Diameter
+        public float Diameter
         {
             get
             {
@@ -941,7 +941,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public int WallThickness
+        public float WallThickness
         {
             get
             {

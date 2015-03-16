@@ -125,6 +125,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Номер элемента.
+        /// </summary>
+        internal static string Audit_RadioPeriod {
+            get {
+                return ResourceManager.GetString("Audit_RadioPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователь.
+        /// </summary>
+        internal static string Audit_RadioUser {
+            get {
+                return ResourceManager.GetString("Audit_RadioUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Аудит.
         /// </summary>
         internal static string AuditXtraForm_Title {
@@ -779,6 +797,60 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Экспорт/Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_IsExportColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_IsExportColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Экспорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Export {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импорт.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Import {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не определено.
+        /// </summary>
+        internal static string HistoryExportImport_SynchType_Undefined {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_SynchType_Undefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to История экспорта/импорта.
+        /// </summary>
+        internal static string HistoryExportImport_Title {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рабочая станция.
+        /// </summary>
+        internal static string HistoryExportImport_WorkstationColumn {
+            get {
+                return ResourceManager.GetString("HistoryExportImport_WorkstationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Уникальный идентификатор.
         /// </summary>
         internal static string Id {
@@ -1116,7 +1188,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры для формирования стыка..
+        ///   Looks up a localized string similar to Отсутствуют подходящие диаметры или толщины для формирования стыка..
         /// </summary>
         internal static string Joint_IncorrectDiameter {
             get {
@@ -1125,7 +1197,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не совпадают диаметры стыкуемых элементов.
+        ///   Looks up a localized string similar to Не совпадают диаметры или толщины стыкуемых элементов.
         /// </summary>
         internal static string Joint_IncorrectDiameterHeader {
             get {
@@ -3275,6 +3347,15 @@ namespace Prizm.Main.Properties {
         internal static string SecurityPrivilege_ViewComponent {
             get {
                 return ResourceManager.GetString("SecurityPrivilege_ViewComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просмотр истории экспорта/импорта.
+        /// </summary>
+        internal static string SecurityPrivilege_ViewExportImportHistory {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_ViewExportImportHistory", resourceCulture);
             }
         }
         

@@ -30,6 +30,7 @@ namespace Prizm.Data.DAL.Mapping
             .Table("Portion_Joint")
             .ParentKeyColumn("portionId")
             .ChildKeyColumn("jointId").Not.LazyLoad();
+
          HasManyToMany<Component>(_ => _.Components)
             .Table("Portion_Component")
             .ParentKeyColumn("portionId")
