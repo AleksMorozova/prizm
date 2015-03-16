@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -44,7 +45,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
             else
             {
-                foreach (Prizm.Domain.Entity.Mill.Railcar r in viewModel.Railcars) 
+                foreach(SimpleRailcar r in viewModel.Railcars) 
                 {
                     r.IsShipped = false;
                     foreach(var pipe in r.Pipes)
