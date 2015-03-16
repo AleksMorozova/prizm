@@ -11,7 +11,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
 {
     class NotRequiredCache : IEnumerable<Guid>
     { 
-        public struct NotRequiredCachePack
+        private struct NotRequiredCachePack
         {
             int frequency;
             FrequencyMeasure measure;
