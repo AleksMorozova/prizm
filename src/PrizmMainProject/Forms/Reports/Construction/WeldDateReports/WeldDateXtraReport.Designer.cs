@@ -48,8 +48,8 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -65,6 +65,8 @@
             this.Detail.HeightF = 23.95833F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("JointNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // dateXrLabel
@@ -219,24 +221,24 @@
             this.PageFooter.HeightF = 23.95833F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // dateTimePageInfo
-            // 
-            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
-            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.dateTimePageInfo.Name = "dateTimePageInfo";
-            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(307.9166F, 23F);
-            // 
             // numberOfPageInfo
             // 
             this.numberOfPageInfo.Format = "Page {0} of {1}";
             this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(307.9166F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
-            this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(342.0834F, 23F);
             this.numberOfPageInfo.StylePriority.UseTextAlignment = false;
             this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // dateTimePageInfo
+            // 
+            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
+            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.dateTimePageInfo.Name = "dateTimePageInfo";
+            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(307.9166F, 23F);
             // 
             // WeldDateXtraReport
             // 

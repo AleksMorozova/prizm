@@ -52,8 +52,8 @@
             this.pipeNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.numberPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -71,6 +71,8 @@
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("PipeNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // secondJoint
@@ -261,24 +263,24 @@
             this.PageFooter.HeightF = 26.04167F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // dateTimePageInfo
-            // 
-            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
-            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.dateTimePageInfo.Name = "dateTimePageInfo";
-            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(336.012F, 23F);
-            // 
             // numberPageInfo
             // 
             this.numberPageInfo.Format = "Page {0} of {1}";
             this.numberPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 0F);
             this.numberPageInfo.Name = "numberPageInfo";
-            this.numberPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.numberPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.numberPageInfo.SizeF = new System.Drawing.SizeF(313.988F, 23F);
             this.numberPageInfo.StylePriority.UseTextAlignment = false;
             this.numberPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // dateTimePageInfo
+            // 
+            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
+            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.dateTimePageInfo.Name = "dateTimePageInfo";
+            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(336.012F, 23F);
             // 
             // PipeConstructionXtraReport
             // 

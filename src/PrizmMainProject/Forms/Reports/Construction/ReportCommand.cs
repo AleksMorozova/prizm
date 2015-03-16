@@ -121,6 +121,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
 
                     data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                    SetDataSortByColumn("number");
                 }
             }
             catch (RepositoryException ex)
@@ -206,6 +207,21 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel.PipelineLength =
                 path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
+        }
+
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
 
         public bool CanExecute() { return true; }

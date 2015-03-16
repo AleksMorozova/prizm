@@ -45,6 +45,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             {
                 data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
                 IncomingReportsXtraReport report = new IncomingReportsXtraReport();
+                SetDataSortByColumn("number");
                 report.DataSource = data;
                 report.CreateDocument();
                 viewModel.PreviewSource = report;
@@ -55,6 +56,21 @@ namespace Prizm.Main.Forms.Reports.Incoming
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
 
+        }
+
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
 
         public bool CanExecute()

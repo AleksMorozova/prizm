@@ -260,7 +260,7 @@
             this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(748F, 33F);
             this.reportHeaderLabel.StyleName = "Title";
             this.reportHeaderLabel.StylePriority.UseForeColor = false;
-            this.reportHeaderLabel.Text = "IncomingInspection";
+            this.reportHeaderLabel.Text = "Отчет по входному контролю";
             // 
             // Title
             // 
