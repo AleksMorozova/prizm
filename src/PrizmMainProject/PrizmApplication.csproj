@@ -316,6 +316,7 @@
     <Compile Include="Forms\Notifications\Data\NotRequiredOperationPipesLoader.cs" />
     <Compile Include="Forms\Notifications\Data\NotRequiredOperationTonsLoader.cs" />
     <Compile Include="Forms\Notifications\Data\ExpiredWelderCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationTransformer.cs" />
     <Compile Include="Forms\Notifications\INotificationManager.cs" />
     <Compile Include="Forms\Notifications\Managers\DuplicateLoginManager.cs" />
     <Compile Include="Forms\Notifications\Managers\DuplicateNumberManager.cs" />
@@ -325,12 +326,8 @@
     <Compile Include="Forms\Notifications\Managers\IDuplicateNumberManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredInspectorCertificateManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredWelderCertificateManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\INotRequiredControlOperationMetersManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\INotRequiredControlOperationPipesManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\INotRequiredControlOperationTonsManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\NotRequiredControlOperationMetersManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\NotRequiredControlOperationPipesManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\NotRequiredControlOperationTonsManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\INotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequiredOperationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
     <Compile Include="Forms\Notifications\NotificationService.cs" />
