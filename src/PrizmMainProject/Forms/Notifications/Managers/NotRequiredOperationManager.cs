@@ -1,4 +1,7 @@
-﻿using Prizm.Domain.Entity.Mill;
+﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Forms.Notifications.Data;
 using System;
@@ -64,6 +67,8 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
     class NotRequiredOperationManager : NotificationManager,  INotRequiredOperationManager
     {
+        readonly INORNotificationRepository repo = new NORNotificationRepository();
+
         private NotRequiredCache cache = new NotRequiredCache();
 
         public NotRequiredOperationManager()
@@ -96,7 +101,8 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public override void LoadNotifications()
         {
             base.LoadNotifications();
-
+            //1)
+            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
             // TODO: renew cache and notifications list
 
             /*
