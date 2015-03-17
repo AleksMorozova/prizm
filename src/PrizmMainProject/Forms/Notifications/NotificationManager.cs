@@ -29,11 +29,19 @@ namespace Prizm.Main.Forms.Notifications
 
         public virtual void LoadNotifications()
         {
-            notifications.Clear();
-            foreach (var loader in loaders)
+            try 
             {
-                notifications.AddRange(loader.LoadNotifications());
+                notifications.Clear();
+                foreach (var loader in loaders)
+                {
+                    notifications.AddRange(loader.LoadNotifications());
+                }
             }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+  
         }
 
 

@@ -83,7 +83,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
     class NotRequiredOperationManager : NotificationManager,  INotRequiredOperationManager
     {
         readonly INORNotificationRepository repo = new NORNotificationRepository();
-
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotRequiredOperationManager));
         private NotRequiredCache cache = new NotRequiredCache();
 
         public NotRequiredOperationManager()
@@ -117,49 +117,56 @@ namespace Prizm.Main.Forms.Notifications.Managers
         {
             base.LoadNotifications();
             // TODO: renew cache and notifications list
-           
-            NotRequiredCache cache = new NotRequiredCache();
-            cache.Clear();
 
-            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
-
-            foreach (NotRequiredOperation operation in inspectionOperations)
+            try 
             {
-                cache.AddOrReplace(operation.operationId, operation.frequency, 0, operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
-            }
+                NotRequiredCache cache = new NotRequiredCache();
+                cache.Clear();
 
-            List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
+                List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
 
-            foreach (KeyValuePair<DateTime, Guid> list in listOfDate)
-            {
-
-                KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
-                cache.SetUnitsLeft(producedUnits.Key, producedUnits.Value);
-                if (cache.IsGoingToExpire(producedUnits.Key))
+                foreach (NotRequiredOperation operation in inspectionOperations)
                 {
-                    notifications.Add(
-                    CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, producedUnits.Value.ToString()));
+                    cache.AddOrReplace(operation.operationId, operation.frequency, 0, operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
                 }
-                
-            }      
-           
 
-            /*
-             * 0) Clear the cache
-             * 1) DB sql request: Read size types + not required inspection operations, from settings. Use internalCache.Add to add all information (except for unitsLeft)
-             *      (INPUT: none)
-             *      (OUTPUT: pipe size type name (!), pipe test id, operation code, operation name, frequency, frequency measure)
-             * 2) DB sql request: Read all MAX dates including NULL, ordering by not required inspection operations, in pipe test results. 
-             *      (INPUT: none)
-             *      (OUTPUT: pipe test id, date (can be NULL))
-             * 3) DB sql request: Read all "unitsProducedSinceLastDate" for all not required inspection operations.
-             *      (INPUT: pipe test id, MAX date, frequency measure)
-             *      (OUTPUT: pipe test id, unitsProducedSinceLastDate)
-             * 4) modify for each cache entry: unitsLeft = frequency - unitsProducedSinceLastDate (use SetUnitsLeft)
-             * 
-             * 5) iterate cache and use IsGoingToExpire to determine whether to create Notification (use this.CreateNotification)
-             * 
-             */
+                List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
+
+                foreach (KeyValuePair<DateTime, Guid> list in listOfDate)
+                {
+
+                    KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
+                    cache.SetUnitsLeft(producedUnits.Key, producedUnits.Value);
+                    if (cache.IsGoingToExpire(producedUnits.Key))
+                    {
+                        notifications.Add(
+                        CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, producedUnits.Value.ToString()));
+                    }
+
+                }
+
+
+                /*
+                 * 0) Clear the cache
+                 * 1) DB sql request: Read size types + not required inspection operations, from settings. Use internalCache.Add to add all information (except for unitsLeft)
+                 *      (INPUT: none)
+                 *      (OUTPUT: pipe size type name (!), pipe test id, operation code, operation name, frequency, frequency measure)
+                 * 2) DB sql request: Read all MAX dates including NULL, ordering by not required inspection operations, in pipe test results. 
+                 *      (INPUT: none)
+                 *      (OUTPUT: pipe test id, date (can be NULL))
+                 * 3) DB sql request: Read all "unitsProducedSinceLastDate" for all not required inspection operations.
+                 *      (INPUT: pipe test id, MAX date, frequency measure)
+                 *      (OUTPUT: pipe test id, unitsProducedSinceLastDate)
+                 * 4) modify for each cache entry: unitsLeft = frequency - unitsProducedSinceLastDate (use SetUnitsLeft)
+                 * 
+                 * 5) iterate cache and use IsGoingToExpire to determine whether to create Notification (use this.CreateNotification)
+                 * 
+                 */
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
 
         public void NotRequiredOperationWasRemoved(Guid operationId)
