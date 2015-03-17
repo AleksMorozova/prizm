@@ -9,6 +9,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Domain.Entity.Security;
+using System.Reflection;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -258,11 +259,11 @@ namespace Prizm.Data.DAL.Hibernate
             }
 
             this.OnFlushDirty(
-                entity, 
-                ((Item)entity).Id, 
-                tempCurrentState.ToArray(), 
-                tempPreviousState.ToArray(), 
-                tempNames.ToArray(), 
+                entity,
+                propertyEntity.FirstOrDefault<PropertyInfo>(x => x.Name == "Id").GetValue(entity),
+                tempCurrentState.ToArray(),
+                tempPreviousState.ToArray(),
+                tempNames.ToArray(),
                 types);
         }
 
