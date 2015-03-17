@@ -159,7 +159,7 @@ namespace Prizm.Data.DAL.Hibernate
                 User = (Guid)tuple[3],
                 TableName = (ItemTypes)tuple[4],
                 FieldName = (FieldNames)tuple[5],
-                OldValue = (tuple[6] == null) ? "just inserted" : tuple[6].ToString(),
+                OldValue = (tuple[6] == null) ? ((HibernateUtil.Import) ? "imported" : "created" ): tuple[6].ToString(),,
                 NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
                 Number = (tuple[9] == null) ? "" : tuple[9].ToString(),
                 UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName(),
