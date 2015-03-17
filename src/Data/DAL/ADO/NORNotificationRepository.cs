@@ -122,7 +122,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     {
                         command.CommandText = @"Select count(p.number) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate
+                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
                                                             group by   t.id ";
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
@@ -139,7 +139,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     {
                         command.CommandText = @"Select sum(p.weight) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate
+                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
                                                             group by   t.id ";
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
@@ -157,7 +157,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     {
                         command.CommandText = @"Select sum(p.length) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate
+                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
                                                             group by   t.id ";
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
@@ -171,7 +171,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     {
                         command.CommandText = @"Select 0 amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate
+                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
                                                             group by   t.id ";
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
