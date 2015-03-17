@@ -108,11 +108,14 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             {
                 public NROInfo(Guid id, bool completed)
                 {
-                    OperationId = id;
-                    IsCompleted = completed;
+                    operationId = id;
+                    isCompleted = completed;
                 }
-                public Guid OperationId { get; private set; }
-                public bool IsCompleted { get; private set; }
+                private Guid operationId;
+                private bool isCompleted;
+
+                public Guid OperationId { get { return operationId; } }
+                public bool IsCompleted { get { return isCompleted; } }
             }
 
             private NotRequiredOperationManager manager;
