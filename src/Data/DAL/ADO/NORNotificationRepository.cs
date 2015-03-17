@@ -25,7 +25,7 @@ namespace Prizm.Data.DAL.ADO
                     connection.Open();
                     command.Connection = connection;
 
-                    command.CommandText = @"Select t.code,t.name,t.frequency,t.frequencyMeasure, s.type
+                    command.CommandText = @"Select t.id, t.code,t.name,t.frequency,t.frequencyMeasure, s.type
                                                     From PipeTest t, PipeMillSizeType s 
                                                     where t.isRequired=0 and t.pipeMillSizeTypeId=s.id";
 
@@ -34,11 +34,12 @@ namespace Prizm.Data.DAL.ADO
                     {
                         inspectionOperations.Add(new NotRequiredOperation()
                         {
-                            operationCode=(string)dr[0],
-                            operationName = (string)dr[1],
-                            frequency = (int)dr[2],
-                            measure = (string)dr[3],// problem with convertation to enum type
-                            pipeSizeTypeName = (string)dr[4]
+                            operationId = (Guid)dr[0],
+                            operationCode=(string)dr[1],
+                            operationName = (string)dr[2],
+                            frequency = (int)dr[3],
+                            measure = (string)dr[4],// problem with convertation to enum type
+                            pipeSizeTypeName = (string)dr[5]
                         });
                     }
                 }
@@ -60,52 +61,95 @@ namespace Prizm.Data.DAL.ADO
             return inspectionOperations;
         }
 
-//        public List<NotRequiredOperation> GetAllNotRequiredOperation()
-//        {
-//            CreateConnection();
-//            List<NotRequiredOperation> inspectionOperations = new List<NotRequiredOperation>();
+        public List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult()
+        {
+            CreateConnection();
+            List<KeyValuePair<DateTime, Guid>> inspectionOperationsResult = new List<KeyValuePair<DateTime, Guid>>();
 
-//            try
-//            {
-//                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
-//                {
-//                    connection.Open();
-//                    command.Connection = connection;
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
 
-//                    command.CommandText = @"Select t.code,t.name,t.frequency,t.frequencyMeasure, s.type
-//                                                    From PipeTest t, PipeMillSizeType s 
-//                                                    where t.isRequired=0 and t.pipeMillSizeTypeId=s.id";
+                    command.CommandText = @"Select Max(r.Date), t.id From PipeTestResult r
+right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
+  group by t.id";
 
-//                    SqlDataReader dr = command.ExecuteReader();
-//                    while (dr.Read())
-//                    {
-//                        inspectionOperations.Add(new NotRequiredOperation()
-//                        {
-//                            operationCode = (string)dr[0],
-//                            operationName = (string)dr[1],
-//                            frequency = (int)dr[2],
-//                            measure = (string)dr[3],// problem with convertation to enum type
-//                            pipeSizeTypeName = (string)dr[4]
-//                        });
-//                    }
-//                }
+                    SqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        inspectionOperationsResult.Add(new KeyValuePair<DateTime, Guid>(
+                        dr[0] == System.DBNull.Value ? (DateTime)(DateTime.MinValue) : (DateTime)dr[0],
+                        (Guid)dr[1]
+                        ));
+                    }
+                }
 
 
-//            }
-//            catch (SqlException ex)
-//            {
-//                throw new RepositoryException("Get all not required operation", ex);
-//            }
-//            finally
-//            {
-//                if (connection.State == System.Data.ConnectionState.Open)
-//                {
-//                    connection.Close();
-//                }
-//            }
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get all not required operation", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
 
-//            return inspectionOperations;
-//        }
+            return inspectionOperationsResult;
+        }
+
+        public List<KeyValuePair<Guid, float>> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate)
+        {
+            CreateConnection();
+            List<KeyValuePair<Guid, float>> unitsProducedSinceLastDate = new List<KeyValuePair<Guid, float>>();
+
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.Parameters.AddWithValue("@testId", testId);
+                    command.Parameters.AddWithValue("@maxDate", maxDate);
+                    command.CommandText = @"Select count(p.number) amount, t.id 
+From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+ t.id =@testId and p.productionDate>@maxDate
+group by   t.id ";
+
+                    SqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        unitsProducedSinceLastDate.Add(new KeyValuePair<Guid, float>(
+                        
+                            (Guid)dr[1],
+                            (float)(int)dr[0]
+                       )
+                        );
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get all not required operation", ex);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return unitsProducedSinceLastDate;
+        }
 
         public SqlConnection CreateConnection()
         {

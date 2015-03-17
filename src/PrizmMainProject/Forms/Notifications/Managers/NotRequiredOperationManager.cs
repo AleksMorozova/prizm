@@ -14,14 +14,15 @@ namespace Prizm.Main.Forms.Notifications.Managers
 {
     class NotRequiredCache : IEnumerable<Guid>
     { 
-        private struct NotRequiredCachePack
+        private class NotRequiredCachePack
         {
-            int frequency;
-            FrequencyMeasure measure;
-            float unitsLeft;
-            string operationCode;
-            string operationName;
-            string pipeSizeTypeName;
+            public Guid operationId { get; set; }
+            public int frequency { get; set; }
+            public string measure { get; set; } // enum type
+            public float unitsLeft { get; set; }
+            public string operationCode { get; set; }
+            public string operationName { get; set; }
+            public string pipeSizeTypeName { get; set; }
         }
         private Dictionary<Guid, NotRequiredCachePack> internalCache = new Dictionary<Guid, NotRequiredCachePack>();
 
@@ -29,12 +30,18 @@ namespace Prizm.Main.Forms.Notifications.Managers
             Guid notRequiredOperationId, 
             int Frequency, float unitsLeft, 
             string operationCode, string operationName, string pipeSizeTypeName,
-            FrequencyMeasure measure)
+            string measure)
         {
             internalCache[notRequiredOperationId] = 
                 new NotRequiredCachePack() 
                 {
-                    // TODO: init all struct members from arguments
+                    operationId = notRequiredOperationId,
+                    frequency = Frequency,
+                    measure = measure,
+                    unitsLeft = unitsLeft,
+                    operationCode = operationCode,
+                    operationName = operationName,
+                    pipeSizeTypeName = pipeSizeTypeName
                 };
         }
 
@@ -101,9 +108,18 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public override void LoadNotifications()
         {
             base.LoadNotifications();
-            //1)
-            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
+           
             // TODO: renew cache and notifications list
+            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
+            NotRequiredCache cache = new NotRequiredCache();
+
+            foreach (NotRequiredOperation operation in inspectionOperations)
+            {
+                cache.AddOrReplace(operation.operationId, operation.frequency, 0, operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
+            }
+
+            List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
+            //List<KeyValuePair<Guid, float>> listOfUnitsProducedSinceLastDate = repo.GetAllUnitsProducedSinceLastDate(
 
             /*
              * 0) Clear the cache

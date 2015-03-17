@@ -9,6 +9,7 @@ namespace Prizm.Domain.Entity
 {
     public class NotRequiredOperation
     {
+        public Guid operationId { get; set; }
         public int frequency { get; set; }
         public string measure { get; set; }
         public string operationCode { get; set; }

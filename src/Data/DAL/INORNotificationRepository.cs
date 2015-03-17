@@ -10,5 +10,7 @@ namespace Prizm.Data.DAL
     public interface INORNotificationRepository
     {
         List<NotRequiredOperation> GetAllNotRequiredOperation();
+        List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult();
+        List<KeyValuePair<Guid, float>> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate);
     }
 }
