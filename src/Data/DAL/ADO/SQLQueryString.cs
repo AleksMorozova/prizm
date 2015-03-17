@@ -138,10 +138,10 @@ group by productionDate  ";
           from  InspectionTestResult InspectionTestResult
 
           INNER JOIN 
-		    (SELECT partId,MAX (inspectionDate) as insprctionDate FROM InspectionTestResult 
+		    (SELECT partId,MAX (inspectionDate) as insprctionDate, MAX ([order]) as lastOrder FROM InspectionTestResult 
 			    WHERE inspectionDate >= @startDate and inspectionDate <= @finalDate
 				GROUP BY partId) a
-				ON InspectionTestResult.partId = a.partId AND InspectionTestResult.inspectionDate = a.insprctionDate
+				ON InspectionTestResult.partId = a.partId AND InspectionTestResult.inspectionDate = a.insprctionDate AND InspectionTestResult.[order] = a.lastOrder
 
 		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
           left join Plate on (Plate.id = Pipe.plateId)
