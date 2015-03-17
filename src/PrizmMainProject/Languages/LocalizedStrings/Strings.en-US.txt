@@ -868,8 +868,8 @@ Audit_NewValueColumnHeader=New value
 ;Аудит. Надпись колонки поля
 Audit_FieldColumnHeader=Field
 
-;Аудит. Надпись колонки номера
-Audit_NumberColumnHeader=Number
+;Аудит. Надпись колонки номера владельца
+Audit_NumberColumnHeader=Owner number
 
 ;Аудит. Надпись панели параметров поиска
 Audit_SearchParametersGroup=Search parameters

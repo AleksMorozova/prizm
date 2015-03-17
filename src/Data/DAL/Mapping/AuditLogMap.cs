@@ -21,6 +21,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(a => a.FieldName).Column("fieldName").CustomType(typeof(Int32));
             Map(a => a.OldValue).Column("oldValue").Nullable();
             Map(a => a.NewValue).Column("newValue").Nullable();
+            Map(a => a.OwnerId).Column("ownerId").Nullable();
         }
     }
 }

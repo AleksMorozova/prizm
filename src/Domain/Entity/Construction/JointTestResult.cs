@@ -11,5 +11,16 @@ namespace Prizm.Domain.Entity.Construction
     {
         public virtual Joint Joint { get; set; }
         public virtual JointOperation Operation { get; set; }
+        public override Guid OwnerId
+        {
+            get
+            {
+                return (Joint == null) ? this.Id : Joint.Id;
+            }
+            set
+            {
+                base.OwnerId = value;
+            }
+        }
     }
 }

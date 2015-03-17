@@ -13,5 +13,16 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual PipeTest Operation { get; set; }
         public virtual Pipe Pipe { get; set; }
+        public override Guid OwnerId
+        {
+            get
+            {
+                return (Pipe == null) ? this.Id : Pipe.Id;
+            }
+            set
+            {
+                base.OwnerId = value;
+            }
+        }
     }
 }
