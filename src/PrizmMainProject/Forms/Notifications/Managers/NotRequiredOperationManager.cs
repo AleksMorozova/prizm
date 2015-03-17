@@ -51,8 +51,8 @@ namespace Prizm.Main.Forms.Notifications.Managers
         }
 
         public void SetUnitsLeft(Guid pipeTestId, float unitsProducedSinceLastDate)
-        { 
-            // TODO
+        {
+            internalCache[pipeTestId].unitsLeft = internalCache[pipeTestId].frequency - unitsProducedSinceLastDate;
         }
 
         public bool IsGoingToExpire(Guid pipeTestId)
@@ -60,7 +60,10 @@ namespace Prizm.Main.Forms.Notifications.Managers
             // TODO (is after 90%)
             return false;
         }
-
+        public string GetMeasure(Guid pipeTestId)
+        {
+            return internalCache[pipeTestId].measure;
+        }
         public IEnumerator<Guid> GetEnumerator()
         {
             return internalCache.Keys.AsEnumerable<Guid>().GetEnumerator();
@@ -108,10 +111,12 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public override void LoadNotifications()
         {
             base.LoadNotifications();
-           
             // TODO: renew cache and notifications list
-            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
+           
             NotRequiredCache cache = new NotRequiredCache();
+            cache.Clear();
+
+            List<NotRequiredOperation> inspectionOperations = repo.GetAllNotRequiredOperation();
 
             foreach (NotRequiredOperation operation in inspectionOperations)
             {
@@ -119,6 +124,19 @@ namespace Prizm.Main.Forms.Notifications.Managers
             }
 
             List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
+
+
+            List<KeyValuePair<Guid, float>> listOfUnitsProducedSinceLastDate = new List<KeyValuePair<Guid, float>>();
+
+
+            foreach (KeyValuePair<DateTime, Guid> list in listOfDate)
+            {
+
+                KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
+               //string s = cache.GetMeasure(list.Value);
+                cache.SetUnitsLeft(producedUnits.Key, producedUnits.Value);
+            }
+
             //List<KeyValuePair<Guid, float>> listOfUnitsProducedSinceLastDate = repo.GetAllUnitsProducedSinceLastDate(
 
             /*

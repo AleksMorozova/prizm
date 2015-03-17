@@ -81,7 +81,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     while (dr.Read())
                     {
                         inspectionOperationsResult.Add(new KeyValuePair<DateTime, Guid>(
-                        dr[0] == System.DBNull.Value ? (DateTime)(DateTime.MinValue) : (DateTime)dr[0],
+                        dr[0] == System.DBNull.Value ? (DateTime)(new DateTime(1950, 6, 10, 15, 24, 16)) : (DateTime)dr[0],
                         (Guid)dr[1]
                         ));
                     }
@@ -104,10 +104,10 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
             return inspectionOperationsResult;
         }
 
-        public List<KeyValuePair<Guid, float>> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate)
+        public KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, string measure)
         {
             CreateConnection();
-            List<KeyValuePair<Guid, float>> unitsProducedSinceLastDate = new List<KeyValuePair<Guid, float>>();
+            KeyValuePair<Guid, float> unitsProducedSinceLastDate = new KeyValuePair<Guid,float>();
 
             try
             {
@@ -117,29 +117,78 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     command.Connection = connection;
                     command.Parameters.AddWithValue("@testId", testId);
                     command.Parameters.AddWithValue("@maxDate", maxDate);
-                    command.CommandText = @"Select count(p.number) amount, t.id 
-From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
- t.id =@testId and p.productionDate>@maxDate
-group by   t.id ";
 
-                    SqlDataReader dr = command.ExecuteReader();
-                    while (dr.Read())
+                    if (measure == "Pipes")
                     {
-                        unitsProducedSinceLastDate.Add(new KeyValuePair<Guid, float>(
-                        
-                            (Guid)dr[1],
-                            (float)(int)dr[0]
-                       )
-                        );
+                        command.CommandText = @"Select count(p.number) amount, t.id 
+                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                        t.id =@testId and p.productionDate>@maxDate
+                                                            group by   t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+
+                                (Guid)dr[1],
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]
+                            );
+                        }
+
+                    }
+                    else if (measure == "Tons")
+                    {
+                        command.CommandText = @"Select sum(p.weight) amount, t.id 
+                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                        t.id =@testId and p.productionDate>@maxDate
+                                                            group by   t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+
+                                (Guid)dr[1],
+                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]
+
+                            );
+                        }
+                    }
+
+                    else if (measure == "Meters")
+                    {
+                        command.CommandText = @"Select sum(p.length) amount, t.id 
+                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                        t.id =@testId and p.productionDate>@maxDate
+                                                            group by   t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                                ((Guid)dr[1],
+                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]);
+                        }
+                    }
+                    else 
+                    {
+                        command.CommandText = @"Select 0 amount, t.id 
+                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                        t.id =@testId and p.productionDate>@maxDate
+                                                            group by   t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                                ((Guid)dr[1],
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                        }
                     }
                 }
-
-
             }
+
             catch (SqlException ex)
             {
                 throw new RepositoryException("Get all not required operation", ex);
             }
+
             finally
             {
                 if (connection.State == System.Data.ConnectionState.Open)

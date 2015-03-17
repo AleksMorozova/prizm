@@ -11,6 +11,6 @@ namespace Prizm.Data.DAL
     {
         List<NotRequiredOperation> GetAllNotRequiredOperation();
         List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult();
-        List<KeyValuePair<Guid, float>> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate);
+        KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, string measure);
     }
 }
