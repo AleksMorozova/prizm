@@ -1437,4 +1437,19 @@
   <data name="SecurityPrivilege_ViewExportImportHistory" xml:space="preserve">
     <value>Просмотр истории экспорта/импорта</value>
   </data>
+  <data name="ConstructionReports_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="InspectionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="MillReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="PipeConstructionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="WeldDateReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
 </root>

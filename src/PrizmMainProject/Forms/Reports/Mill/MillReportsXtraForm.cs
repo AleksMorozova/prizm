@@ -104,6 +104,8 @@ namespace Prizm.Main.Forms.Reports.Mill
                     StringResources.MillReport_TypeByProduced.Id, 
                     StringResources.MillReport_TypeGeneral.Id }),
 
+                new LocalizedItem(footersCheck, StringResources.MillReport_FootersCheck.Id),
+
                 new LocalizedItem(statuses, new string[] { StringResources.PipeTestResultStatus_Scheduled.Id,
                                                            StringResources.PipeTestResultStatus_Passed.Id,
                                                            StringResources.PipeTestResultStatus_Failed.Id,

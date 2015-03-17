@@ -91,6 +91,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
                 new LocalizedItem(reportType, new string[] {StringResources.ConstructionReport_ReportTypeTracingReport.Id, StringResources.ConstructionReport_ReportTypeUsedProductReport.Id}),
 
+                new LocalizedItem(footersCheck, StringResources.ConstructionReports_FootersCheck.Id),
+
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.ConstructionReport_Title.Id} )
             };
         }

@@ -65,6 +65,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
                 new LocalizedItem(previewButton, StringResources.InspectionReport_PreviewButton.Id),
                 new LocalizedItem(createReportButton, StringResources.InspectionReport_CreateButton.Id),
 
+                new LocalizedItem(footersCheck, StringResources.InspectionReport_FootersCheck.Id),
+
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionReport_Title.Id} )
             };
         }
