@@ -68,6 +68,7 @@
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.SpoolBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.orderGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
@@ -190,7 +191,8 @@
             this.inspectionDateGridColumn,
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
-            this.reasonGridColumn});
+            this.reasonGridColumn,
+            this.orderGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
@@ -199,6 +201,7 @@
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
+            this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
             // 
             // inspectionDateGridColumn
             // 
@@ -554,6 +557,14 @@
             this.deactivatedLayout.TextSize = new System.Drawing.Size(0, 0);
             this.deactivatedLayout.TextVisible = false;
             // 
+            // orderGridColumn
+            // 
+            this.orderGridColumn.Caption = "Порядок";
+            this.orderGridColumn.FieldName = "Order";
+            this.orderGridColumn.Name = "orderGridColumn";
+            this.orderGridColumn.Visible = true;
+            this.orderGridColumn.VisibleIndex = 4;
+            // 
             // SpoolsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,5 +656,6 @@
         private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
         public DevExpress.XtraEditors.SpinEdit spoolLength;
+        private DevExpress.XtraGrid.Columns.GridColumn orderGridColumn;
     }
 }
