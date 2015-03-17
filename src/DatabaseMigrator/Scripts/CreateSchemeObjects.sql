@@ -770,6 +770,15 @@ GO
 CREATE NONCLUSTERED INDEX IX_Audit_User
     ON [dbo].[AuditLog] ([userId])
 GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Audit_Owner')
+    DROP INDEX IX_Audit_Owner ON [dbo].[AuditLog]
+GO
+CREATE NONCLUSTERED INDEX IX_Audit_Owner
+    ON [dbo].[AuditLog] ([ownerId])
+GO
+
 /*************** Security **********************************/
 
 CREATE TABLE [dbo].[User] (
