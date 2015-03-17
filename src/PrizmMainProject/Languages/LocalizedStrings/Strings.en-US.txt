@@ -875,7 +875,7 @@ Audit_NumberColumnHeader=Number
 Audit_SearchParametersGroup=Search parameters
 
 ;Аудит. Надпись радиокнопки периода
-Audit_RadioPeriod=Period
+Audit_RadioPeriod=Number
 
 ;Аудит. Надпись радиокнопки пользователя
 Audit_RadioUser=User

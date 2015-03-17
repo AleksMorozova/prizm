@@ -1437,6 +1437,12 @@
   <data name="SecurityPrivilege_ViewExportImportHistory" xml:space="preserve">
     <value>Просмотр истории экспорта/импорта</value>
   </data>
+  <data name="Audit_RadioPeriod" xml:space="preserve">
+    <value>Номер элемента</value>
+  </data>
+  <data name="Audit_RadioUser" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
   <data name="ConstructionReports_FootersCheck" xml:space="preserve">
     <value>Добавить колонтитулы</value>
   </data>

@@ -20,6 +20,7 @@ using DevExpress.XtraGrid.Views.Base;
 using Prizm.Main.Languages;
 using System.Drawing;
 using Prizm.Main.Controls;
+using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -279,13 +280,13 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private void railcarNumber_QueryCloseUp(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var currentRailcar = sender as LookUpEdit;
-            viewModel.Railcar = currentRailcar.EditValue as Prizm.Domain.Entity.Mill.Railcar;
+            viewModel.Railcar = currentRailcar.EditValue as SimpleRailcar;
 
         }
 
         private void railcarNumber_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
         {
-            Prizm.Domain.Entity.Mill.Railcar r = new Prizm.Domain.Entity.Mill.Railcar
+            SimpleRailcar r = new SimpleRailcar
             {
                 Number = railcarNumber.Text,
                 Certificate = "",

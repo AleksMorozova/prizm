@@ -1,30 +1,26 @@
-﻿using System;
-using System.Configuration;
-using System.Windows.Forms;
-
+﻿using DevExpress.XtraSplashScreen;
 using Ninject;
-
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
-
-
-using Prizm.Main.Forms.MainChildForm;
-using Prizm.Main.Properties;
-using Prizm.Main.Forms.Common;
-using Prizm.Main.Security;
 using Prizm.Data.DAL.Security;
 using Prizm.Domain.Entity.Security;
-using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.Main.Forms.Settings;
-using DevExpress.XtraSplashScreen;
 using Prizm.Main.Languages;
+using Prizm.Main.Properties;
+using Prizm.Main.Security;
+using System;
 using System.Collections.Generic;
-using Prizm.Main.Common;
-using Prizm.Domain.Entity.Setup;
-using System.Threading;
-using System.Text;
-using System.IO;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 
 namespace Prizm.Main

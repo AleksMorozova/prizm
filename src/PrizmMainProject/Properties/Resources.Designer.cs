@@ -125,6 +125,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Номер элемента.
+        /// </summary>
+        internal static string Audit_RadioPeriod {
+            get {
+                return ResourceManager.GetString("Audit_RadioPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователь.
+        /// </summary>
+        internal static string Audit_RadioUser {
+            get {
+                return ResourceManager.GetString("Audit_RadioUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Аудит.
         /// </summary>
         internal static string AuditXtraForm_Title {

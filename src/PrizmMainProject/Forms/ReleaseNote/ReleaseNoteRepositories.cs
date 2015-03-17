@@ -19,6 +19,7 @@ namespace Prizm.Main.Forms.ReleaseNote
         private readonly IRailcarRepository railcarRepo;
         private readonly IReleaseNoteRepository releaseNoteRepo;
         private readonly IFileRepository fileRepo;
+        private readonly ISimpleNoteRepository simpleNoteRepo;
 
         [Inject]
         public ReleaseNoteRepositories(ISession session)
@@ -28,6 +29,11 @@ namespace Prizm.Main.Forms.ReleaseNote
             this.railcarRepo = new RailcarRepository(session);
             this.releaseNoteRepo = new ReleaseNoteRepository(session);
             this.fileRepo = new FileRepository(session);
+            this.simpleNoteRepo = new SimpleNoteRepository(session);
+        }
+        public ISimpleNoteRepository SimpleNoteRepo
+        {
+            get { return simpleNoteRepo; }
         }
 
         public IPipeRepository PipeRepo

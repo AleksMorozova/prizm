@@ -76,6 +76,10 @@ namespace Prizm.Data.DAL.Hibernate
                   " union all" +
                   " select id, number from PurchaseOrder WHERE number LIKE CONCAT(:entityNumber, '%')" +
                   " union all" +
+                  " select id, number from ReleaseNote WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
+                  " select id, number from Railcar WHERE number LIKE CONCAT(:entityNumber, '%')" +
+                  " union all" +
                   " select id,number from Component WHERE number LIKE CONCAT(:entityNumber, '%')) b on a.entityID = b.id" +
                   " where a.auditDate >= :startDate AND a.auditDate <= :endDate").SetResultTransformer(AuditLogQuery.Transformer);
 
