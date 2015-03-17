@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Prizm.Domain.Entity;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -15,28 +16,40 @@ namespace Prizm.Main.Forms.Audit
     {
         readonly IAuditLogRepository repo;
         readonly AuditViewModel viewModel;
+        private readonly IUserNotify notify;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AuditSearchCommand));
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public AuditSearchCommand(AuditViewModel viewModel, IAuditLogRepository repo)
+        public AuditSearchCommand(AuditViewModel viewModel, IAuditLogRepository repo, IUserNotify notify)
         {
             this.viewModel = viewModel;
             this.repo = repo;
+            this.notify = notify;
         }
 
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-
-            if (viewModel.TracingMode == TracingModeEnum.TracingByNumber)
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
-                var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate);
-                viewModel.AuditResults = new BindingList<AuditLog>(results);
+                if (viewModel.TracingMode == TracingModeEnum.TracingByNumber)
+                {
+                    var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate);
+                    viewModel.AuditResults = new BindingList<AuditLog>(results);
+                }
+                else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
+                {
+                    var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate);
+                    viewModel.AuditResults = new BindingList<AuditLog>(results);
+                }
             }
-            else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
+            else
             {
-                var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate);
-                viewModel.AuditResults = new BindingList<AuditLog>(results);
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                log.Warn("Date limits not valid!" + "Diapason: start date= "
+                    + viewModel.StartDate.ToString() + " end date= " + viewModel.EndDate.ToString());
             }
 
         }
