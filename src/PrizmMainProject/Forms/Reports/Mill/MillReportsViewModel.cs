@@ -159,6 +159,20 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
         }
 
+        private bool isFooterVisible;
+        public bool IsFooterVisible
+        {
+            get { return isFooterVisible; }
+            set{
+                if (value != isFooterVisible)
+                {
+                    isFooterVisible = value;
+                    RaisePropertyChanged("IsFooterVisible");
+                }
+            }
+        }
+
+        
 
 
         public void Dispose()

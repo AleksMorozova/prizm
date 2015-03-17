@@ -43,5 +43,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             set { pipelineLengthXrLabel.Text = value.ToString(); }
         }
 
+        public bool FootersVisibility
+        {
+            get { return pageFooter.Visible; }
+            set { pageFooter.Visible = value; }
+        }
+
+
     }
 }

@@ -42,7 +42,9 @@ namespace Prizm.Main.Forms.Reports.Incoming
                 {
                     data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
                     IncomingReportsXtraReport report = new IncomingReportsXtraReport();
+                    SetDataSortByColumn("number");
                     report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
                     report.CreateDocument();
                     viewModel.PreviewSource = report;
                 }
@@ -58,6 +60,21 @@ namespace Prizm.Main.Forms.Reports.Incoming
                     Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
                 log.Warn("Date limits not valid!" + "Diapason: start date= "
                     + viewModel.StartDate.ToString() + " end date= " + viewModel.EndDate.ToString());
+            }
+        }
+
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
             }
         }
 

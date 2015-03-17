@@ -43,6 +43,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             var report = new PipeConstructionXtraReport();
 
             report.DataSource = viewModel.PipeReportDataList;
+            report.FootersVisibility = viewModel.IsFooterVisible;
             report.CreateDocument();
             viewModel.PreviewSource = report;
 

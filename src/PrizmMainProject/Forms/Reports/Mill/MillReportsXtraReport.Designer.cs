@@ -73,6 +73,7 @@
             DevExpress.DataAccess.Sql.ColumnInfo columnInfo32 = new DevExpress.DataAccess.Sql.ColumnInfo();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillReportsXtraReport));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.heatNumber = new DevExpress.XtraReports.UI.XRLabel();
             this.type = new DevExpress.XtraReports.UI.XRLabel();
             this.wallThickness = new DevExpress.XtraReports.UI.XRLabel();
@@ -113,7 +114,6 @@
             this.GroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.StatusParameter = new DevExpress.XtraReports.Parameters.Parameter();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -134,8 +134,20 @@
             this.Detail.HeightF = 37.66669F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("number", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "calculatedField1")});
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(932.6842F, 0F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(82.3158F, 37.66669F);
+            this.xrLabel1.Text = "xrLabel1";
             // 
             // heatNumber
             // 
@@ -402,20 +414,21 @@
             // 
             // datePageInfo
             // 
+            this.datePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
             this.datePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.datePageInfo.Name = "datePageInfo";
             this.datePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.datePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.datePageInfo.SizeF = new System.Drawing.SizeF(83.67309F, 23F);
+            this.datePageInfo.SizeF = new System.Drawing.SizeF(295.864F, 23F);
             this.datePageInfo.StyleName = "PageInfo";
             // 
             // numberOfPageInfo
             // 
             this.numberOfPageInfo.Format = "Page {0} of {1}";
-            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(932.6843F, 0F);
+            this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(730.7495F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
             this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(82.31573F, 23F);
+            this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(284.2507F, 23F);
             this.numberOfPageInfo.StyleName = "PageInfo";
             this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -655,16 +668,6 @@
             this.calculatedField1.Expression = "Iif([Pipe.isActive] ==True , 1  , 0 )";
             this.calculatedField1.Name = "calculatedField1";
             // 
-            // xrLabel1
-            // 
-            this.xrLabel1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "calculatedField1")});
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(932.6842F, 0F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(82.3158F, 37.66669F);
-            this.xrLabel1.Text = "xrLabel1";
-            // 
             // MillReportsXtraReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -681,9 +684,10 @@
             this.DataSource = this.sqlDataSourceForReport;
             this.FilterString = "StartsWith([pipeMillStatus], ?StatusParameter)";
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(59, 26, 51, 64);
-            this.PageHeight = 850;
-            this.PageWidth = 1100;
+            this.Margins = new System.Drawing.Printing.Margins(70, 83, 51, 64);
+            this.PageHeight = 827;
+            this.PageWidth = 1169;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.StatusParameter});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

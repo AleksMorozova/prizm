@@ -44,9 +44,9 @@ namespace Prizm.Main.Forms.Reports.Mill
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
 
-
             reportTypes.DataBindings.Add("SelectedIndex", millReportsBindingSource, "ReportTypeIndex");
 
+            footersCheck.DataBindings.Add("EditValue", millReportsBindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()
@@ -103,6 +103,8 @@ namespace Prizm.Main.Forms.Reports.Mill
                     StringResources.MillReport_TypeByShipped.Id, 
                     StringResources.MillReport_TypeByProduced.Id, 
                     StringResources.MillReport_TypeGeneral.Id }),
+
+                new LocalizedItem(footersCheck, StringResources.MillReport_FootersCheck.Id),
 
                 new LocalizedItem(statuses, new string[] { StringResources.PipeTestResultStatus_Scheduled.Id,
                                                            StringResources.PipeTestResultStatus_Accepted.Id,

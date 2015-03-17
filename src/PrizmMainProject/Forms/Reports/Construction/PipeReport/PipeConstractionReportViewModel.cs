@@ -57,6 +57,19 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             }
         }
 
+        private bool isFooterVisible;
+        public bool IsFooterVisible
+        {
+            get { return isFooterVisible; }
+            set
+            {
+                if (value != isFooterVisible)
+                {
+                    isFooterVisible = value;
+                    RaisePropertyChanged("IsFooterVisible");
+                }
+            }
+        }
 
         public XtraReport Report { get; set; }
 

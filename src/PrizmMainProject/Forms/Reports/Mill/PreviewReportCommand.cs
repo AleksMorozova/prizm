@@ -45,7 +45,9 @@ namespace Prizm.Main.Forms.Reports.Mill
                         report.PipesCount = counts[0];
                         report.PipesLength = counts[1];
                         report.PipesWeight = counts[2];
+                        SetDataSortByColumn("number");
                         report.DataSource = data;
+                        report.FootersVisibility = viewModel.IsFooterVisible;
                         report.CreateDocument();
                         viewModel.PreviewSource = report;
                     }
@@ -53,14 +55,19 @@ namespace Prizm.Main.Forms.Reports.Mill
                     {
                         data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
                         GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                        SetDataSortByColumn("productionDate");
                         report.DataSource = data;
+                        report.FootersVisibility = viewModel.IsFooterVisible;
                         report.CreateDocument();
                         viewModel.PreviewSource = report;
                     }
                     else if (viewModel.SelectedReportType == MillReportType.ByShipped)
                     {
+                        data = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
                         LoadingXtraReport report = new LoadingXtraReport();
-                        report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                        SetDataSortByColumn("releaseNote");
+                        report.DataSource = data;
+                        report.FootersVisibility = viewModel.IsFooterVisible;
                         report.CreateDocument();
                         viewModel.PreviewSource = report;
                     }
@@ -68,7 +75,9 @@ namespace Prizm.Main.Forms.Reports.Mill
                     {
                         data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses, true);
                         MillReportsXtraReport report = new MillReportsXtraReport();
+                        SetDataSortByColumn("number"); 
                         report.DataSource = data;
+                        report.FootersVisibility = viewModel.IsFooterVisible;
                         report.CreateDocument();
                         viewModel.PreviewSource = report;
                     }
@@ -87,7 +96,22 @@ namespace Prizm.Main.Forms.Reports.Mill
                     + viewModel.StartDate.ToString() + " end date= " + viewModel.EndDate.ToString());
             }
         }
-   
+
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
+        }
+
         public bool CanExecute()
         {
             return true;

@@ -50,8 +50,10 @@
             this.lengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.diameterHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.numberPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -69,6 +71,8 @@
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("PipeNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // secondJoint
@@ -164,7 +168,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 100F;
+            this.BottomMargin.HeightF = 38.54167F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -247,14 +251,36 @@
             this.pipeNumberHeader.SizeF = new System.Drawing.SizeF(82.44056F, 38.37497F);
             this.pipeNumberHeader.Text = "Номер трубы";
             // 
-            // ReportFooter
-            // 
-            this.ReportFooter.HeightF = 12.5F;
-            this.ReportFooter.Name = "ReportFooter";
-            // 
             // bindingSource
             // 
             this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.PipeReport.PipeReportData);
+            // 
+            // pageFooter
+            // 
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.numberPageInfo,
+            this.dateTimePageInfo});
+            this.pageFooter.HeightF = 26.04167F;
+            this.pageFooter.Name = "pageFooter";
+            // 
+            // numberPageInfo
+            // 
+            this.numberPageInfo.Format = "Page {0} of {1}";
+            this.numberPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 0F);
+            this.numberPageInfo.Name = "numberPageInfo";
+            this.numberPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.numberPageInfo.SizeF = new System.Drawing.SizeF(313.988F, 23F);
+            this.numberPageInfo.StylePriority.UseTextAlignment = false;
+            this.numberPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // dateTimePageInfo
+            // 
+            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
+            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.dateTimePageInfo.Name = "dateTimePageInfo";
+            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(336.012F, 23F);
             // 
             // PipeConstructionXtraReport
             // 
@@ -263,9 +289,9 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.ReportFooter});
+            this.pageFooter});
             this.DataSource = this.bindingSource;
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 90, 100);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 90, 39);
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -295,7 +321,9 @@
         private DevExpress.XtraReports.UI.XRLabel firstJointHeader;
         private DevExpress.XtraReports.UI.XRLabel gradeHeader;
         private DevExpress.XtraReports.UI.XRLabel seamTypeHeader;
-        private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRLabel pipeConstructionReportHeader;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
+        private DevExpress.XtraReports.UI.XRPageInfo numberPageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
     }
 }
