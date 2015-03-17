@@ -73,7 +73,8 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.partDataList = FormWeldedParts(data);
 
             this.Joints = repoJoint.GetAll()
-                .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null)
+                .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null 
+                    && x.IsActive == true && x.Status != JointStatus.Withdrawn).OrderBy(_ => _.Number)
                 .ToList<construct.Joint>();
             if (this.Joints == null || this.Joints.Count <= 0)
                 log.Warn( "Report at Construction: List of Joints is NULL or empty." );
