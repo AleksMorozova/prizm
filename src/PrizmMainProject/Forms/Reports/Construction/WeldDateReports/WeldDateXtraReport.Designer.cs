@@ -47,7 +47,7 @@
             this.secondPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -213,13 +213,13 @@
             // 
             this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData);
             // 
-            // PageFooter
+            // pageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.numberOfPageInfo,
             this.dateTimePageInfo});
-            this.PageFooter.HeightF = 23.95833F;
-            this.PageFooter.Name = "PageFooter";
+            this.pageFooter.HeightF = 23.95833F;
+            this.pageFooter.Name = "pageFooter";
             // 
             // numberOfPageInfo
             // 
@@ -247,7 +247,7 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.PageFooter});
+            this.pageFooter});
             this.DataSource = this.bindingSource;
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 45, 36);
             this.Version = "14.2";
@@ -276,7 +276,7 @@
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private System.Windows.Forms.BindingSource bindingSource;
         private DevExpress.XtraReports.UI.XRLabel weldReportByDateHeader;
-        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
     }

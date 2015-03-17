@@ -52,6 +52,10 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             endKPComboBox.DataBindings
                 .Add("EditValue", bindingSource, "EndPK");
+
+            footersCheck.DataBindings
+                .Add("EditValue", bindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         private void BindCommands()

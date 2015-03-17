@@ -64,7 +64,7 @@
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
-            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooterBand = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -426,13 +426,13 @@
             this.xrLabel41.StylePriority.UseForeColor = false;
             this.xrLabel41.Text = "Брак";
             // 
-            // pageFooterBand1
+            // pageFooterBand
             // 
-            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooterBand.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1,
             this.xrPageInfo2});
-            this.pageFooterBand1.HeightF = 23F;
-            this.pageFooterBand1.Name = "pageFooterBand1";
+            this.pageFooterBand.HeightF = 23F;
+            this.pageFooterBand.Name = "pageFooterBand";
             // 
             // xrPageInfo1
             // 
@@ -542,7 +542,7 @@
             this.TopMargin,
             this.BottomMargin,
             this.pageHeaderBand1,
-            this.pageFooterBand1,
+            this.pageFooterBand,
             this.reportHeaderBand1,
             this.GroupHeader1});
             this.ComponentStorage.Add(this.sqlDataSource1);
@@ -588,7 +588,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel30;
         private DevExpress.XtraReports.UI.XRLabel xrLabel31;
         private DevExpress.XtraReports.UI.XRLabel xrLabel32;
-        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;

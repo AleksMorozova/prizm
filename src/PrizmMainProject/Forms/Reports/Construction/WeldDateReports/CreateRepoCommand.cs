@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             var report = new WeldDateXtraReport();
 
             report.DataSource = viewModel.WeldDateReportDataList;
+            report.FootersVisibility = viewModel.IsFooterVisible;
             var tool = new ReportPrintTool(report);
             tool.AutoShowParametersPanel = false;
             tool.ShowPreview();

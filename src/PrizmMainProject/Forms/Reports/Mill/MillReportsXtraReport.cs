@@ -13,5 +13,11 @@ namespace Prizm.Main.Forms.Reports.Mill
             InitializeComponent();
         }
 
+        public bool FootersVisibility
+        {
+            get { return pageFooter.Visible; }
+            set { pageFooter.Visible = value; }
+        }
+
     }
 }

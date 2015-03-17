@@ -51,7 +51,7 @@
             this.diameterHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.pipeNumberHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.numberPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -255,13 +255,13 @@
             // 
             this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.PipeReport.PipeReportData);
             // 
-            // PageFooter
+            // pageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.numberPageInfo,
             this.dateTimePageInfo});
-            this.PageFooter.HeightF = 26.04167F;
-            this.PageFooter.Name = "PageFooter";
+            this.pageFooter.HeightF = 26.04167F;
+            this.pageFooter.Name = "pageFooter";
             // 
             // numberPageInfo
             // 
@@ -289,7 +289,7 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.PageFooter});
+            this.pageFooter});
             this.DataSource = this.bindingSource;
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 90, 39);
             this.Version = "14.2";
@@ -322,7 +322,7 @@
         private DevExpress.XtraReports.UI.XRLabel gradeHeader;
         private DevExpress.XtraReports.UI.XRLabel seamTypeHeader;
         private DevExpress.XtraReports.UI.XRLabel pipeConstructionReportHeader;
-        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo numberPageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
     }

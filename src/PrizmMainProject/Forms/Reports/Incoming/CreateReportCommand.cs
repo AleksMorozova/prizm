@@ -47,6 +47,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
                 IncomingReportsXtraReport report = new IncomingReportsXtraReport();
                 SetDataSortByColumn("number");
                 report.DataSource = data;
+                report.FootersVisibility = viewModel.IsFooterVisible;
                 report.CreateDocument();
                 var tool = new ReportPrintTool(report);
                 tool.AutoShowParametersPanel = false;

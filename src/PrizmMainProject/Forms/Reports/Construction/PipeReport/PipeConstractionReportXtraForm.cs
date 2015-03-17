@@ -53,6 +53,9 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
             pipeReportViewer.DataBindings
                 .Add("DocumentSource", bindingSource, "PreviewSource");
+
+            footersCheck.DataBindings
+                .Add("EditValue", bindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()

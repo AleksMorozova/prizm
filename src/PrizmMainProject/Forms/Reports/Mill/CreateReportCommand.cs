@@ -55,6 +55,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     report.PipesWeight = counts[2];
                     SetDataSortByColumn("number");
                     report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
                     report.CreateDocument();
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
@@ -66,6 +67,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     GeneralInformationXtraReport report = new GeneralInformationXtraReport();
                     SetDataSortByColumn("productionDate");
                     report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();
@@ -76,6 +78,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     LoadingXtraReport report = new LoadingXtraReport();
                     SetDataSortByColumn("releaseNote");
                     report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;
                     tool.ShowPreview();
@@ -86,6 +89,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     MillReportsXtraReport report = new MillReportsXtraReport();
                     SetDataSortByColumn("number");
                     report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
                     report.CreateDocument();
                     var tool = new ReportPrintTool(report);
                     tool.AutoShowParametersPanel = false;

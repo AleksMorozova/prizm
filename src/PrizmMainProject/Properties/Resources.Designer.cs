@@ -351,8 +351,9 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
-        ///    между заданными точками не зависимо от их связности..
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные
+        ///элементы расположенные между заданными точками
+        ///не зависимо от их связности..
         /// </summary>
         internal static string ConstructionReport_TracingReportInfoLabelText {
             get {

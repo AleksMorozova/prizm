@@ -27,6 +27,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             startDate.DataBindings.Add("EditValue", inspectionReportsBindingSource, "StartDate");
             endDate.DataBindings.Add("EditValue", inspectionReportsBindingSource, "EndDate");
             previewReportDocument.DataBindings.Add("DocumentSource", inspectionReportsBindingSource, "PreviewSource");
+            footersCheck.DataBindings.Add("EditValue", inspectionReportsBindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()

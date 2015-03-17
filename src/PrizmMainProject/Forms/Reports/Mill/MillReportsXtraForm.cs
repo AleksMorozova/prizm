@@ -44,9 +44,9 @@ namespace Prizm.Main.Forms.Reports.Mill
             statuses.DisplayMember = "Text";
             statuses.ValueMember = "Name";
 
-
             reportTypes.DataBindings.Add("SelectedIndex", millReportsBindingSource, "ReportTypeIndex");
 
+            footersCheck.DataBindings.Add("EditValue", millReportsBindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()

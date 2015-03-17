@@ -36,7 +36,7 @@
             this.GroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.productTypeLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.productNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.TableHeader = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -108,13 +108,13 @@
             this.productNumberLabel.SizeF = new System.Drawing.SizeF(325F, 23F);
             this.productNumberLabel.Text = "Номер изделия";
             // 
-            // PageFooter
+            // pageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.dateTimePageInfo,
             this.numberOfPageInfo});
-            this.PageFooter.HeightF = 25F;
-            this.PageFooter.Name = "PageFooter";
+            this.pageFooter.HeightF = 25F;
+            this.pageFooter.Name = "pageFooter";
             // 
             // dateTimePageInfo
             // 
@@ -236,7 +236,7 @@
             this.Detail,
             this.TopMargin,
             this.BottomMargin,
-            this.PageFooter,
+            this.pageFooter,
             this.GroupHeader,
             this.ReportHeader,
             this.PageHeader});
@@ -257,7 +257,7 @@
 
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader;
-        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle TableHeader;
         private DevExpress.XtraReports.UI.XRLabel groupHeaderLabel;
