@@ -265,15 +265,15 @@ namespace Prizm.Main.Languages
             Description = "Результат контрольной операции. Ожидается"
         };
 
-        public static StringResource PipeTestResultStatus_Passed = new StringResource
+        public static StringResource PipeTestResultStatus_Accepted = new StringResource
         {
-            Id = "PipeTestResultStatus_Passed",
+            Id = "PipeTestResultStatus_Accepted",
             Description = "Результат контрольной операции. Принят"
         };
 
-        public static StringResource PipeTestResultStatus_Failed = new StringResource
+        public static StringResource PipeTestResultStatus_Rejected = new StringResource
         {
-            Id = "PipeTestResultStatus_Failed",
+            Id = "PipeTestResultStatus_Rejected",
             Description = "Результат контрольной операции. Брак"
         };
 
@@ -809,6 +809,12 @@ namespace Prizm.Main.Languages
             Description = "Отчет"
         };
 
+        public static StringResource MillReport_FootersCheck = new StringResource
+        {
+            Id = "MillReport_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource MillReport_ReportTypesLabel = new StringResource
         {
             Id = "MillReport_ReportTypesLabel",
@@ -893,6 +899,12 @@ namespace Prizm.Main.Languages
         {
             Id = "InspectionReport_Title",
             Description = "Отчет по входному контролю"
+        };
+
+        public static StringResource InspectionReport_FootersCheck = new StringResource
+        {
+            Id = "InspectionReport_FootersCheck",
+            Description = "Добавить колонтитулы"
         };
 
         public static StringResource InspectionReport_DateLabel = new StringResource
@@ -3128,6 +3140,13 @@ namespace Prizm.Main.Languages
             Id = "ConstructionReport_Title",
             Description = "Отчет по сварке участка между пикетами"
         };
+
+        public static StringResource ConstructionReports_FootersCheck = new StringResource
+        {
+            Id = "ConstructionReports_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource ConstructionReports_ReportTypeLayout = new StringResource
         {
             Id = "ConstructionReports_ReportTypeLayout",
@@ -3211,6 +3230,13 @@ namespace Prizm.Main.Languages
             Id = "PipeConstructionReport_Title",
             Description = "Отчеты по трубам на стройке"
         };
+
+        public static StringResource PipeConstructionReport_FootersCheck = new StringResource
+        {
+            Id = "PipeConstructionReport_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource PipeConstructionReport_PipeNumberLayout = new StringResource
         {
             Id = "PipeConstructionReport_PipeNumberLayout",
@@ -3273,6 +3299,12 @@ namespace Prizm.Main.Languages
         {
             Id = "WeldDateReport_Title",
             Description = "Отчет по сварке (по дате)"
+        };
+
+        public static StringResource WeldDateReport_FootersCheck = new StringResource
+        {
+            Id = "WeldDateReport_FootersCheck",
+            Description = "Добавить колонтитулы"
         };
 
         public static StringResource WeldDateReport_WeldDateFromLayout = new StringResource {

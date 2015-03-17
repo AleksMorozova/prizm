@@ -38,6 +38,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 var report = new TracingReport();
 
                 report.DataSource = viewModel.ReportDataSource;
+                report.FootersVisibility = viewModel.IsFooterVisible;
+
 
                 report.PipelineJointCount = viewModel.PipelineJointCount;
                 report.PipelinePipeCount = viewModel.PipelinePipeCount;
@@ -54,6 +56,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 var report = new UsedProductsXtraReport();
 
                 report.DataSource = viewModel.ReportDataSource;
+                report.FootersVisibility = viewModel.IsFooterVisible;
 
                 var tool = new ReportPrintTool(report);
                 tool.AutoShowParametersPanel = false;

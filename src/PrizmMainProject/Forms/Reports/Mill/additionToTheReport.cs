@@ -35,5 +35,11 @@ namespace Prizm.Main.Forms.Reports.Mill
             set { pipesWeight.Text = value.ToString(); }
         }
 
+        public bool FootersVisibility
+        {
+            get { return pageFooterBand.Visible; }
+            set { pageFooterBand.Visible = value; }
+        }
+
     }
 }

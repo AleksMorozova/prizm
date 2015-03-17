@@ -64,7 +64,7 @@
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
-            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooterBand = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -95,6 +95,8 @@
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
@@ -277,7 +279,7 @@
             this.xrLabel10.SizeF = new System.Drawing.SizeF(111.8989F, 57.87499F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseForeColor = false;
-            this.xrLabel10.Text = "production Date";
+            this.xrLabel10.Text = "Дата производства";
             // 
             // xrLabel11
             // 
@@ -326,7 +328,7 @@
             this.xrLabel34.Name = "xrLabel34";
             this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel34.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
-            this.xrLabel34.Text = "BAR (Производство голой трубы)";
+            this.xrLabel34.Text = "BAR (Производство готовой трубы)";
             // 
             // xrLabel35
             // 
@@ -424,30 +426,31 @@
             this.xrLabel41.StylePriority.UseForeColor = false;
             this.xrLabel41.Text = "Брак";
             // 
-            // pageFooterBand1
+            // pageFooterBand
             // 
-            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooterBand.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1,
             this.xrPageInfo2});
-            this.pageFooterBand1.HeightF = 23F;
-            this.pageFooterBand1.Name = "pageFooterBand1";
+            this.pageFooterBand.HeightF = 23F;
+            this.pageFooterBand.Name = "pageFooterBand";
             // 
             // xrPageInfo1
             // 
+            this.xrPageInfo1.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
             this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(111.8989F, 23F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(278.0473F, 23F);
             this.xrPageInfo1.StyleName = "PageInfo";
             // 
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(948.2664F, 0F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(84.73352F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(166.692F, 23F);
             this.xrPageInfo2.StyleName = "PageInfo";
             this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -539,16 +542,17 @@
             this.TopMargin,
             this.BottomMargin,
             this.pageHeaderBand1,
-            this.pageFooterBand1,
+            this.pageFooterBand,
             this.reportHeaderBand1,
             this.GroupHeader1});
             this.ComponentStorage.Add(this.sqlDataSource1);
             this.DataMember = "Pipe";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(46, 21, 51, 53);
-            this.PageHeight = 850;
-            this.PageWidth = 1100;
+            this.Margins = new System.Drawing.Printing.Margins(67, 69, 51, 53);
+            this.PageHeight = 827;
+            this.PageWidth = 1169;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -584,7 +588,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel30;
         private DevExpress.XtraReports.UI.XRLabel xrLabel31;
         private DevExpress.XtraReports.UI.XRLabel xrLabel32;
-        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;

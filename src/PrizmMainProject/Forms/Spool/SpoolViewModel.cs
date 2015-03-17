@@ -234,6 +234,21 @@ namespace Prizm.Main.Forms.Spool
             }
         }
 
+        public int InspectionTestResultsMaxOrder()
+        {
+            var max = InspectionTestResults.Max(x => x.Order);
+            return max;
+        }
+
+        public void RecalculateInspectionTestResultsOrder()
+        {
+            int counter = 0;
+            foreach(var item in InspectionTestResults)
+            {
+                item.Order = ++counter;
+            }
+        }
+
         /// <summary>
         /// Customize displaying inspectors name in grid cell : show only last name
         /// </summary>

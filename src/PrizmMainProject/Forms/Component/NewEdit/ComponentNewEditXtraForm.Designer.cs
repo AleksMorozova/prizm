@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
@@ -48,6 +49,7 @@
             this.resultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryInspectionStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.reasonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.orderColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.componentParameters = new DevExpress.XtraGrid.GridControl();
             this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,9 +71,9 @@
             this.newSaveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDeactivation = new DevExpress.XtraLayout.LayoutControlItem();
-            this.componentBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -158,6 +160,7 @@
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.type.Size = new System.Drawing.Size(143, 20);
             this.type.StyleController = this.newEditPipeLayout;
             this.type.TabIndex = 1;
@@ -227,7 +230,8 @@
             this.inspectionDateColumn,
             this.inspectorColumn,
             this.resultColumn,
-            this.reasonColumn});
+            this.reasonColumn,
+            this.orderColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistoryGrid;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -235,6 +239,8 @@
             this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionHistoryGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.orderColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             this.inspectionHistoryGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
@@ -248,7 +254,7 @@
             this.inspectionDateColumn.Name = "inspectionDateColumn";
             this.inspectionDateColumn.Visible = true;
             this.inspectionDateColumn.VisibleIndex = 0;
-            this.inspectionDateColumn.Width = 98;
+            this.inspectionDateColumn.Width = 86;
             // 
             // repositoryInspectionDate
             // 
@@ -267,8 +273,8 @@
             this.inspectorColumn.Name = "inspectorColumn";
             this.inspectorColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectorColumn.Visible = true;
-            this.inspectorColumn.VisibleIndex = 1;
-            this.inspectorColumn.Width = 217;
+            this.inspectorColumn.VisibleIndex = 2;
+            this.inspectorColumn.Width = 190;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -288,8 +294,8 @@
             this.resultColumn.FieldName = "Status";
             this.resultColumn.Name = "resultColumn";
             this.resultColumn.Visible = true;
-            this.resultColumn.VisibleIndex = 2;
-            this.resultColumn.Width = 90;
+            this.resultColumn.VisibleIndex = 1;
+            this.resultColumn.Width = 79;
             // 
             // repositoryInspectionStatus
             // 
@@ -310,7 +316,16 @@
             this.reasonColumn.Name = "reasonColumn";
             this.reasonColumn.Visible = true;
             this.reasonColumn.VisibleIndex = 3;
-            this.reasonColumn.Width = 135;
+            this.reasonColumn.Width = 118;
+            // 
+            // orderColumn
+            // 
+            this.orderColumn.Caption = "Порядок";
+            this.orderColumn.FieldName = "Order";
+            this.orderColumn.Name = "orderColumn";
+            this.orderColumn.Visible = true;
+            this.orderColumn.VisibleIndex = 4;
+            this.orderColumn.Width = 50;
             // 
             // componentParameters
             // 
@@ -657,5 +672,6 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButtons;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit positiveFloat;
+        private DevExpress.XtraGrid.Columns.GridColumn orderColumn;
     }
 }

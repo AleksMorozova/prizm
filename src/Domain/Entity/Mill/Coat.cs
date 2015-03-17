@@ -11,5 +11,17 @@ namespace Prizm.Domain.Entity.Mill
       public virtual DateTime Date { get; set; }
       public virtual CoatingType Type { get; set; }
       public virtual Pipe Pipe { get; set; }
+
+      public override Guid OwnerId
+      {
+          get
+          {
+              return (Pipe == null) ? this.Id : Pipe.Id;
+          }
+          set
+          {
+              base.OwnerId = value;
+          }
+      }
    }
 }
