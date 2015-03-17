@@ -39,6 +39,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             InitializeComponent();
             SetAlwaysEditable(searchNumber);
+            SetAlwaysReadOnly(elementType);
+            SetAlwaysReadOnly(elementNumber);
             searchNumber.SetAsIdentifier();
             IsEditMode = true;
         }
