@@ -207,6 +207,9 @@ namespace Prizm.Main.Forms.Spool
             inspectionTestResult.IsActive = true;
             inspectionTestResult.Part = viewModel.Spool;
             inspectionTestResult.Status = PartInspectionStatus.Pending;
+
+            //set order
+            inspectionTestResult.Order = viewModel.InspectionTestResultsMaxOrder() + 1;
         }
 
         private void resultLookUpEdit_EditValueChanged(object sender, System.EventArgs e)
@@ -343,6 +346,20 @@ namespace Prizm.Main.Forms.Spool
             {
                 ValidateInspection(inspectionHistoryGridView, inspectorsGridColumn.Name.ToString(), e);
             }
+        }
+
+        private void inspectionHistoryGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<InspectionTestResult>(e, viewModel.InspectionTestResults, (_) => _.IsNew());
+
+            //recalculate order
+            if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
+            {
+                viewModel.RecalculateInspectionTestResultsOrder();
+            }
+
+            view.RefreshData();
         }
     }
 }

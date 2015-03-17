@@ -230,6 +230,21 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
         }
 
+        public int InspectionTestResultsMaxOrder()
+        {
+            var max = InspectionTestResults.Max(x => x.Order);
+            return max;
+        }
+
+        public void RecalculateInspectionTestResultsOrder()
+        {
+            int counter = 0;
+            foreach(var item in InspectionTestResults)
+            {
+                item.Order = ++counter;
+            }
+        }
+
         public bool ComponentIsActive
         {
             get { return Component.IsActive; }

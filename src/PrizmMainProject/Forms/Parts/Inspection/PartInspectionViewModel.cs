@@ -48,8 +48,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
             this.ctx = ctx;
 
             this.Inspectors = repos.RepoInspector.GetAll();
-            if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn( "Incoming Inspection of Componentry: List of Inspectors is NULL or empty" );
+            if(this.Inspectors == null || this.Inspectors.Count <= 0)
+                log.Warn("Incoming Inspection of Componentry: List of Inspectors is NULL or empty");
 
             searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
             saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));
@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return searchNumber; }
             set
             {
-                if (value != searchNumber)
+                if(value != searchNumber)
                 {
                     searchNumber = value;
                     RaisePropertyChanged("SearchNumber");
@@ -76,7 +76,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return parts; }
             set
             {
-                if (parts != value)
+                if(parts != value)
                 {
                     parts = value;
                     RaisePropertyChanged("Parts");
@@ -86,7 +86,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         public string ElementNumber
         {
-            get { return (selectedElement != null)? selectedElement.Number : string.Empty; }
+            get { return (selectedElement != null) ? selectedElement.Number : string.Empty; }
         }
 
         public PartType ElementType
@@ -99,28 +99,32 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return selectedElement; }
             set
             {
-                if (selectedElement != value)
+                if(selectedElement != value)
                 {
                     selectedElement = value;
-                    if (selectedElement != null)
+                    if(selectedElement != null)
                     {
                         modifiableView.IsEditMode = true;
-                        switch (selectedElement.Type.Value)
+                        switch(selectedElement.Type.Value)
                         {
-                            case PartType.Pipe: convertedPart = (Domain.Entity.Part)repos.RepoPipe.Get(selectedElement.Id);
+                            case PartType.Pipe:
+                                convertedPart = (Domain.Entity.Part)repos.RepoPipe.Get(selectedElement.Id);
                                 break;
-                            case PartType.Spool: convertedPart = (Domain.Entity.Part)repos.RepoSpool.Get(selectedElement.Id);
+                            case PartType.Spool:
+                                convertedPart = (Domain.Entity.Part)repos.RepoSpool.Get(selectedElement.Id);
                                 break;
-                            case PartType.Component: convertedPart = (Domain.Entity.Part)repos.RepoComponent.Get(selectedElement.Id);
+                            case PartType.Component:
+                                convertedPart = (Domain.Entity.Part)repos.RepoComponent.Get(selectedElement.Id);
                                 break;
-                            default: notify.ShowError(
-                                Program.LanguageManager.GetString(StringResources.Message_ErrorHeader), 
-                                Program.LanguageManager.GetString(StringResources.Message_UnknownComponentType));
+                            default:
+                                notify.ShowError(
+                                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader),
+                                    Program.LanguageManager.GetString(StringResources.Message_UnknownComponentType));
                                 log.Warn(string.Format("Unknown type of component. Type:{0}, #{1}.", selectedElement.Type, selectedElement.Number));
                                 break;
                         }
                         var results = repos.RepoInspectionTestResult.GetByPartId(selectedElement.Id);
-                        if (results != null)
+                        if(results != null)
                         {
                             InspectionTestResults = new BindingList<InspectionTestResult>(results);
                             convertedPart.InspectionTestResults = InspectionTestResults;
@@ -145,7 +149,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             get { return inspectionTestResults; }
             set
             {
-                if (inspectionTestResults != value)
+                if(inspectionTestResults != value)
                 {
                     inspectionTestResults = value;
                     RaisePropertyChanged("InspectionTestResults");
@@ -153,9 +157,24 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
         }
 
+        public int InspectionTestResultsMaxOrder()
+        {
+            var max = InspectionTestResults.Max(x => x.Order);
+            return max;
+        }
+
+        public void RecalculateInspectionTestResultsOrder()
+        {
+            int counter = 0;
+            foreach(var item in InspectionTestResults)
+            {
+                item.Order = ++counter;
+            }
+        }
+
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if (inspectors == null)
+            if(inspectors == null)
                 return String.Empty;
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
@@ -196,9 +215,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
         #endregion
 
-       /// <summary>
-       /// Is used in SearchPartInspectionCommand to get MDIParent 
-       /// </summary>
+        /// <summary>
+        /// Is used in SearchPartInspectionCommand to get MDIParent 
+        /// </summary>
         public PartInspectionXtraForm CurrentForm { get; set; }
     }
 }
