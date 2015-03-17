@@ -38,59 +38,64 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         public void Execute()
         {
-            if (viewModel.StartDate > viewModel.EndDate)
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
-                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate), 
+                try
+                {
+                    if (viewModel.SelectedReportType == MillReportType.ByProducing)
+                    {
+                        data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
+                        AdditionToTheReport report = new AdditionToTheReport();
+                        BindingList<double> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
+                        report.PipesCount = counts[0];
+                        report.PipesLength = counts[1];
+                        report.PipesWeight = counts[2];
+                        report.DataSource = data;
+                        report.CreateDocument();
+                        var tool = new ReportPrintTool(report);
+                        tool.AutoShowParametersPanel = false;
+                        tool.ShowPreview();
+                    }
+                    else if (viewModel.SelectedReportType == MillReportType.General)
+                    {
+                        data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
+                        GeneralInformationXtraReport report = new GeneralInformationXtraReport();
+                        report.DataSource = data;
+                        var tool = new ReportPrintTool(report);
+                        tool.AutoShowParametersPanel = false;
+                        tool.ShowPreview();
+                    }
+                    else if (viewModel.SelectedReportType == MillReportType.ByShipped)
+                    {
+                        LoadingXtraReport report = new LoadingXtraReport();
+                        report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
+                        var tool = new ReportPrintTool(report);
+                        tool.AutoShowParametersPanel = false;
+                        tool.ShowPreview();
+                    }
+                    else
+                    {
+                        data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
+                        MillReportsXtraReport report = new MillReportsXtraReport();
+                        report.DataSource = data;
+                        report.CreateDocument();
+                        var tool = new ReportPrintTool(report);
+                        tool.AutoShowParametersPanel = false;
+                        tool.ShowPreview();
+                    }
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(string.Concat(ex.InnerException.Message, ex.Message));
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+            }
+            else
+            {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate),
                     Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
-            }
-            try
-            {
-                if (viewModel.SelectedReportType == MillReportType.ByProducing)
-                {
-                    data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
-                    AdditionToTheReport report = new AdditionToTheReport();
-                    BindingList<double> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
-                    report.PipesCount = counts[0];
-                    report.PipesLength = counts[1];
-                    report.PipesWeight = counts[2];
-                    report.DataSource = data;
-                    report.CreateDocument();
-                    var tool = new ReportPrintTool(report);
-                    tool.AutoShowParametersPanel = false;
-                    tool.ShowPreview();
-                }
-                else if (viewModel.SelectedReportType == MillReportType.General)
-                {
-                    data = repo.CountWeldInf(viewModel.StartDate, viewModel.EndDate);
-                    GeneralInformationXtraReport report = new GeneralInformationXtraReport();
-                    report.DataSource = data;
-                    var tool = new ReportPrintTool(report);
-                    tool.AutoShowParametersPanel = false;
-                    tool.ShowPreview();
-                }
-                else if (viewModel.SelectedReportType == MillReportType.ByShipped)
-                {
-                    LoadingXtraReport report = new LoadingXtraReport();
-                    report.DataSource = repo.GetReleaseNotes(viewModel.StartDate, viewModel.EndDate);
-                    var tool = new ReportPrintTool(report);
-                    tool.AutoShowParametersPanel = false;
-                    tool.ShowPreview();
-                }
-                else
-                {
-                    data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses);
-                    MillReportsXtraReport report = new MillReportsXtraReport();
-                    report.DataSource = data;
-                    report.CreateDocument();
-                    var tool = new ReportPrintTool(report);
-                    tool.AutoShowParametersPanel = false;
-                    tool.ShowPreview();
-                }
-            }
-            catch (RepositoryException ex)
-            {
-                log.Error(string.Concat(ex.InnerException.Message, ex.Message));
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                log.Warn("Date limits not valid!" + "Diapason: start date= "
+                    + viewModel.StartDate.ToString() + " end date= " + viewModel.EndDate.ToString());
             }
            
         }
