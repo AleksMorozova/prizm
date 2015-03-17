@@ -46,10 +46,10 @@
             this.firstPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.secondPartLengthHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -57,12 +57,12 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.dateXrLabel,
-            this.firstPartLengthXrLabel,
             this.secondPartNumberXrLabel,
             this.firstNumberXrLabel,
             this.jointNumberXrLabel,
-            this.secondPartLengthXrLabel});
-            this.Detail.HeightF = 23.95833F;
+            this.secondPartLengthXrLabel,
+            this.firstPartLengthXrLabel});
+            this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
@@ -82,7 +82,7 @@
             // 
             this.firstPartLengthXrLabel.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "FipstPartLength")});
-            this.firstPartLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(421.9167F, 0.333341F);
+            this.firstPartLengthXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(421.9167F, 0F);
             this.firstPartLengthXrLabel.Name = "firstPartLengthXrLabel";
             this.firstPartLengthXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.firstPartLengthXrLabel.SizeF = new System.Drawing.SizeF(109.375F, 23F);
@@ -135,7 +135,7 @@
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.weldReportByDateHeader});
-            this.TopMargin.HeightF = 44.79167F;
+            this.TopMargin.HeightF = 45F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -152,7 +152,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 36.45833F;
+            this.BottomMargin.HeightF = 36F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -209,16 +209,12 @@
             this.ReportHeader.HeightF = 34.375F;
             this.ReportHeader.Name = "ReportHeader";
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData);
-            // 
             // pageFooter
             // 
             this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.numberOfPageInfo,
             this.dateTimePageInfo});
-            this.pageFooter.HeightF = 23.95833F;
+            this.pageFooter.HeightF = 23.00002F;
             this.pageFooter.Name = "pageFooter";
             // 
             // numberOfPageInfo
@@ -239,6 +235,10 @@
             this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
             this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(307.9166F, 23F);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData);
             // 
             // WeldDateXtraReport
             // 
