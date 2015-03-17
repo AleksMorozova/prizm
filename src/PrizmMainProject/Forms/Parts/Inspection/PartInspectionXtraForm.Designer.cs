@@ -41,6 +41,7 @@
             this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.colReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             this.elementType = new DevExpress.XtraEditors.TextEdit();
             this.elementNumber = new DevExpress.XtraEditors.TextEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -60,7 +61,6 @@
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.colOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -157,6 +157,8 @@
             this.inspectionsView.OptionsNavigation.UseTabKey = false;
             this.inspectionsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
+            this.inspectionsView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colOrder, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
             this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
             this.inspectionsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionsView_KeyDown);
@@ -229,6 +231,14 @@
             this.colReason.Visible = true;
             this.colReason.VisibleIndex = 3;
             this.colReason.Width = 175;
+            // 
+            // colOrder
+            // 
+            this.colOrder.Caption = "Порядок";
+            this.colOrder.FieldName = "Order";
+            this.colOrder.Name = "colOrder";
+            this.colOrder.Visible = true;
+            this.colOrder.VisibleIndex = 4;
             // 
             // elementType
             // 
@@ -429,14 +439,6 @@
             this.buttonsEmptySpaceItem.Size = new System.Drawing.Size(597, 26);
             this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // colOrder
-            // 
-            this.colOrder.Caption = "Порядок";
-            this.colOrder.FieldName = "Order";
-            this.colOrder.Name = "colOrder";
-            this.colOrder.Visible = true;
-            this.colOrder.VisibleIndex = 4;
             // 
             // PartInspectionXtraForm
             // 

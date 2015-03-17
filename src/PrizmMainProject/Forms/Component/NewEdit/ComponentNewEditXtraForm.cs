@@ -1,4 +1,4 @@
-﻿    using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using Ninject.Parameters;
 using Ninject;
 using Prizm.Main.Forms.ExternalFile;
