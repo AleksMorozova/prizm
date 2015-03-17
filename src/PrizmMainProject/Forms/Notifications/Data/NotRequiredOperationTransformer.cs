@@ -1,5 +1,5 @@
 ﻿using NHibernate.Transform;
-using Prizm.Main.Forms.Notifications.Managers;
+using Prizm.Main.Forms.Notifications.Managers.NotRequired;
 using System;
 using System.Collections.Generic;
 using System.Linq;

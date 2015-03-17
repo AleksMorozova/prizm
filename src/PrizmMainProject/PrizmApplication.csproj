@@ -328,8 +328,9 @@
     <Compile Include="Forms\Notifications\Managers\IDuplicateNumberManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredInspectorCertificateManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredWelderCertificateManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\INotRequiredOperationManager.cs" />
-    <Compile Include="Forms\Notifications\Managers\NotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\INotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredCache.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredOperationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
     <Compile Include="Forms\Notifications\NotificationService.cs" />
