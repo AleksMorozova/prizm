@@ -60,6 +60,7 @@
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource();
             this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.colOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -147,7 +148,8 @@
             this.colDate,
             this.colResult,
             this.colInspector,
-            this.colReason});
+            this.colReason,
+            this.colOrder});
             this.inspectionsView.GridControl = this.inspections;
             this.inspectionsView.Name = "inspectionsView";
             this.inspectionsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -157,6 +159,7 @@
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
             this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
+            this.inspectionsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionsView_KeyDown);
             // 
             // colDate
             // 
@@ -427,6 +430,14 @@
             this.buttonsEmptySpaceItem.Text = "buttonsEmptySpaceItem";
             this.buttonsEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // colOrder
+            // 
+            this.colOrder.Caption = "Порядок";
+            this.colOrder.FieldName = "Order";
+            this.colOrder.Name = "colOrder";
+            this.colOrder.Visible = true;
+            this.colOrder.VisibleIndex = 4;
+            // 
             // PartInspectionXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,5 +511,6 @@
         private DevExpress.XtraLayout.LayoutControlItem saveAndClearLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectionDateEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn colOrder;
     }
 }
