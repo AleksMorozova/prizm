@@ -56,14 +56,19 @@ namespace Prizm.Main.Forms.Notifications.Managers
         }
 
         public bool IsGoingToExpire(Guid pipeTestId)
-        { 
-            // TODO (is after 90%)
-            return false;
+        {
+            return (internalCache[pipeTestId].unitsLeft >= internalCache[pipeTestId].frequency * Prizm.Main.Common.Constants.PercentForInspectionOperation);
         }
         public string GetMeasure(Guid pipeTestId)
         {
             return internalCache[pipeTestId].measure;
         }
+
+        public string GetOwnerName(Guid pipeTestId)
+        {
+            return internalCache[pipeTestId].pipeSizeTypeName + ": " + internalCache[pipeTestId].operationCode + "-" + internalCache[pipeTestId].operationName;
+        }
+
         public IEnumerator<Guid> GetEnumerator()
         {
             return internalCache.Keys.AsEnumerable<Guid>().GetEnumerator();
@@ -125,19 +130,19 @@ namespace Prizm.Main.Forms.Notifications.Managers
 
             List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
 
-
-            List<KeyValuePair<Guid, float>> listOfUnitsProducedSinceLastDate = new List<KeyValuePair<Guid, float>>();
-
-
             foreach (KeyValuePair<DateTime, Guid> list in listOfDate)
             {
 
                 KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
-               //string s = cache.GetMeasure(list.Value);
                 cache.SetUnitsLeft(producedUnits.Key, producedUnits.Value);
-            }
-
-            //List<KeyValuePair<Guid, float>> listOfUnitsProducedSinceLastDate = repo.GetAllUnitsProducedSinceLastDate(
+                if (cache.IsGoingToExpire(producedUnits.Key))
+                {
+                    notifications.Add(
+                    CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, producedUnits.Value.ToString()));
+                }
+                
+            }      
+           
 
             /*
              * 0) Clear the cache
