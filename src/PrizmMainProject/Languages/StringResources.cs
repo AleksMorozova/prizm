@@ -265,15 +265,15 @@ namespace Prizm.Main.Languages
             Description = "Результат контрольной операции. Ожидается"
         };
 
-        public static StringResource PipeTestResultStatus_Passed = new StringResource
+        public static StringResource PipeTestResultStatus_Accepted = new StringResource
         {
-            Id = "PipeTestResultStatus_Passed",
+            Id = "PipeTestResultStatus_Accepted",
             Description = "Результат контрольной операции. Принят"
         };
 
-        public static StringResource PipeTestResultStatus_Failed = new StringResource
+        public static StringResource PipeTestResultStatus_Rejected = new StringResource
         {
-            Id = "PipeTestResultStatus_Failed",
+            Id = "PipeTestResultStatus_Rejected",
             Description = "Результат контрольной операции. Брак"
         };
 
