@@ -8,6 +8,7 @@ namespace Prizm.Domain.Entity.Construction
 {
     public enum JointTestResultStatus
     {
+        Undefined = 0,
         Accepted = 1,
         Repair = 2,
         Withdraw = 3
