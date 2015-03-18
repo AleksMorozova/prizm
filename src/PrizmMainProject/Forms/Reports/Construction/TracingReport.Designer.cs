@@ -43,6 +43,7 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.TracingPageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.tracingPageHeaderXrLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.TracingGroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
@@ -176,7 +177,8 @@
             // TracingPageHeader
             // 
             this.TracingPageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.tracingPageHeaderXrLabel});
+            this.tracingPageHeaderXrLabel,
+            this.reportDateTimeInfo});
             this.TracingPageHeader.HeightF = 50F;
             this.TracingPageHeader.Name = "TracingPageHeader";
             // 
@@ -186,9 +188,22 @@
             this.tracingPageHeaderXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(3.178914E-05F, 0F);
             this.tracingPageHeaderXrLabel.Name = "tracingPageHeaderXrLabel";
             this.tracingPageHeaderXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(749.3748F, 50F);
+            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(582.1428F, 50F);
             this.tracingPageHeaderXrLabel.StylePriority.UseFont = false;
+            this.tracingPageHeaderXrLabel.StylePriority.UseTextAlignment = false;
             this.tracingPageHeaderXrLabel.Text = "Трассировка трубопровода";
+            this.tracingPageHeaderXrLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(584.8215F, 0F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(164.5533F, 50F);
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             // 
             // TracingGroupHeader
             // 
@@ -460,5 +475,6 @@
         private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
     }
 }

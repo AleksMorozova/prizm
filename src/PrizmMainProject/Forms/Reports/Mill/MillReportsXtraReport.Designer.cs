@@ -102,6 +102,7 @@
             this.datePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -435,17 +436,31 @@
             // reportHeader
             // 
             this.reportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.reportDateTimeInfo,
             this.reportHeaderLabel});
             this.reportHeader.HeightF = 33.29166F;
             this.reportHeader.Name = "reportHeader";
             // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(849.3751F, 0F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(165.6249F, 33.29166F);
+            this.reportDateTimeInfo.StylePriority.UseFont = false;
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
             // reportHeaderLabel
             // 
             this.reportHeaderLabel.ForeColor = System.Drawing.Color.Black;
-            this.reportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(7.549921E-05F, 0F);
+            this.reportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(6.357829E-05F, 0F);
             this.reportHeaderLabel.Name = "reportHeaderLabel";
             this.reportHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(1015F, 33F);
+            this.reportHeaderLabel.SizeF = new System.Drawing.SizeF(849.375F, 33F);
             this.reportHeaderLabel.StyleName = "Title";
             this.reportHeaderLabel.StylePriority.UseForeColor = false;
             this.reportHeaderLabel.Text = "Отчет на заводе";
@@ -744,5 +759,6 @@
         private DevExpress.XtraReports.Parameters.Parameter StatusParameter;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
     }
 }

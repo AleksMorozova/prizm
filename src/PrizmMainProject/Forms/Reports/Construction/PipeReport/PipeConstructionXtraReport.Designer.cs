@@ -39,6 +39,7 @@
             this.pipeNumber = new DevExpress.XtraReports.UI.XRLabel();
             this.seamType = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pipeConstructionReportHeader = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -150,11 +151,23 @@
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.reportDateTimeInfo,
             this.pipeConstructionReportHeader});
             this.TopMargin.HeightF = 90.00002F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(505.0596F, 48.25001F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(144.9402F, 41.75002F);
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             // 
             // pipeConstructionReportHeader
             // 
@@ -162,9 +175,11 @@
             this.pipeConstructionReportHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 48.25001F);
             this.pipeConstructionReportHeader.Name = "pipeConstructionReportHeader";
             this.pipeConstructionReportHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeConstructionReportHeader.SizeF = new System.Drawing.SizeF(649.9999F, 41.75F);
+            this.pipeConstructionReportHeader.SizeF = new System.Drawing.SizeF(505.0596F, 41.75F);
             this.pipeConstructionReportHeader.StylePriority.UseFont = false;
+            this.pipeConstructionReportHeader.StylePriority.UseTextAlignment = false;
             this.pipeConstructionReportHeader.Text = "Отчет по трубам на строительстве";
+            this.pipeConstructionReportHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // BottomMargin
             // 
@@ -325,5 +340,6 @@
         private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo numberPageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
     }
 }
