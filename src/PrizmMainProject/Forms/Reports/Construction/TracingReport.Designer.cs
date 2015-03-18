@@ -197,11 +197,11 @@
             // reportDateTimeInfo
             // 
             this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(502.5298F, 0F);
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(487.3513F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(246.845F, 19.79167F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(262.0235F, 19.79167F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -399,10 +399,10 @@
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "{0} / {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(348.3332F, 0F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(389.881F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(401.0417F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(359.4939F, 23F);
             this.xrPageInfo2.StylePriority.UseTextAlignment = false;
             this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -413,7 +413,7 @@
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(348.3332F, 23F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(292.4108F, 23F);
             // 
             // TracingReport
             // 

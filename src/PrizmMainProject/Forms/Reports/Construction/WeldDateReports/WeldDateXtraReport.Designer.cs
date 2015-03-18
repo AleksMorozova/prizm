@@ -143,11 +143,11 @@
             // reportDateTimeInfo
             // 
             this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(402.0832F, 0F);
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(307.9166F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(247.9168F, 17.79167F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(342.0834F, 17.79167F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
@@ -215,7 +215,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.weldReportByDateHeader,
             this.reportDateTimeInfo});
-            this.ReportHeader.HeightF = 61.625F;
+            this.ReportHeader.HeightF = 61.62501F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // pageFooter
