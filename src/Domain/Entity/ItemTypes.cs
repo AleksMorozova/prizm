@@ -47,6 +47,9 @@ namespace Prizm.Domain.Entity
         Pipe = 36,
         PipeTestResult = 37,
         PipeMillSizeType = 38,
-        PartData = 39
+        PartData = 39,
+        SimpleNote = 40,
+        SimplePipe = 41,
+        SimpleRailcar = 42
     }
 }
