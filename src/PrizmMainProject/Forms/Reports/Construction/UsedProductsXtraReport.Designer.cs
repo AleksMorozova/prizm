@@ -47,6 +47,7 @@
             this.EvenStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
@@ -148,13 +149,15 @@
             // groupHeaderLabel
             // 
             this.groupHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 20F);
-            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.79169F);
             this.groupHeaderLabel.Name = "groupHeaderLabel";
             this.groupHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.groupHeaderLabel.StyleName = "Header";
             this.groupHeaderLabel.StylePriority.UseFont = false;
+            this.groupHeaderLabel.StylePriority.UseTextAlignment = false;
             this.groupHeaderLabel.Text = "Отчет по использованным изделиям";
+            this.groupHeaderLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // Header
             // 
@@ -195,9 +198,21 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.groupHeaderLabel});
-            this.ReportHeader.HeightF = 40.70836F;
+            this.groupHeaderLabel,
+            this.reportDateTimeInfo});
+            this.ReportHeader.HeightF = 58.50005F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(349.9999F, 0F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(300F, 17.79169F);
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // PageHeader
             // 
@@ -216,7 +231,9 @@
             this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.pageHeaderLabel.StyleName = "Header";
             this.pageHeaderLabel.StylePriority.UseFont = false;
+            this.pageHeaderLabel.StylePriority.UseTextAlignment = false;
             this.pageHeaderLabel.Text = "Отчет по использованным изделиям";
+            this.pageHeaderLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // sqlDataSource1
             // 
@@ -275,6 +292,7 @@
         private DevExpress.XtraReports.UI.XRLabel productNumberLabel;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
 
     }
 }
