@@ -1067,6 +1067,12 @@ namespace Prizm.Main.Languages
             Description = "Катушка. Комментарии по результату входного контроля"
         };
 
+        public static StringResource Spool_InspectionOrderColumn = new StringResource
+        {
+            Id = "Spool_InspectionOrderColumn",
+            Description = "Катушка. порядок операций входного контроля"
+        };
+
         public static StringResource Spool_SearchButton = new StringResource
         {
             Id = "Spool_SearchButton",
