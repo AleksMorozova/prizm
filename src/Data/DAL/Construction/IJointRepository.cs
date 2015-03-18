@@ -16,8 +16,8 @@ namespace Prizm.Data.DAL.Construction
             string jointNumber, 
             IList<JointStatus> statuses, 
             DateTime? from, 
-            DateTime? to, 
-            int peg, 
+            DateTime? to,
+            string peg, 
             bool? status);
     }
 }

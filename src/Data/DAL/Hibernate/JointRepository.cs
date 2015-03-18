@@ -48,7 +48,7 @@ namespace Prizm.Data.DAL.Hibernate
            }
         }
 
-        public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, int peg, bool? status)
+        public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, string peg, bool? status)
         {
 
             var jointWithWeld = QueryOver.Of<Joint>()
@@ -77,6 +77,12 @@ namespace Prizm.Data.DAL.Hibernate
             if(status != null)
             {
                 q.Where(x => x.IsActive == status);
+            }
+            //peg
+            if(!string.IsNullOrWhiteSpace(peg))
+            {
+                int number = Convert.ToInt32(peg);
+                q.Where(x => x.NumberKP == number);
             }
 
             
