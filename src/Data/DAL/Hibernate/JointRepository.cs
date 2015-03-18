@@ -52,7 +52,6 @@ namespace Prizm.Data.DAL.Hibernate
         {
 
             var jointWithWeld = QueryOver.Of<Joint>()
-                .Fetch(x => x.JointTestResults).Eager
                 .JoinQueryOver<JointWeldResult>(j => j.JointWeldResults)
                 .Select(Projections.Distinct(Projections.Property<Joint>(j => j.JointWeldResults)));
             if(from != null && from != DateTime.MinValue)
