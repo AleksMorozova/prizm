@@ -15,7 +15,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(x => x.Date).Column("date");
             Map(x => x.Value).Column("value");
             Map(x => x.Status).Column("status");
-            Map(x => x.Order).Column("pipeOrder");
+            Map(x => x.Order).Column("[pipeOrder]");
 
             References<PipeTest>(_ => _.Operation).Column("pipeTestId");
 

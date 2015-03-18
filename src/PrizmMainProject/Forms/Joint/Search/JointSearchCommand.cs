@@ -40,37 +40,32 @@ namespace Prizm.Main.Forms.Joint.Search
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.FromDate, viewModel.ToDate))
             {
                 repo.Clear();
-                DetachedCriteria criteria = DetachedCriteria.For<Construction.Joint>();
                 if (viewModel.Statuses.Count > 0)
                 {
-                    if (!string.IsNullOrWhiteSpace(viewModel.Number))
+                    bool? status;
+                    switch(viewModel.Activity)
                     {
-                        criteria.Add(Restrictions.Like("Number", viewModel.Number, MatchMode.Anywhere).IgnoreCase());
+                        case ActivityCriteria.StatusActive:
+                            status = true;
+                            break;
+                        case ActivityCriteria.StatusUnactive:
+                            status = false;
+                            break;
+                        default:
+                            status = null;
+                            break;
                     }
 
-                    criteria.Add(Restrictions.Eq("NumberKP", viewModel.PegNumber));
+                    IList<Construction.Joint> list = repo.SearchJoint
+                        (
+                            viewModel.Number,
+                            viewModel.Statuses,
+                            viewModel.FromDate,
+                            viewModel.ToDate,
+                            viewModel.PegNumber,
+                            status
+                        );
 
-                    if (viewModel.FromDate > DateTime.MinValue)
-                    {
-                        criteria.Add(Restrictions.Gt("LoweringDate", viewModel.FromDate));
-                    }
-                    if (viewModel.ToDate > DateTime.MinValue)
-                    {
-                        criteria.Add(Restrictions.Lt("LoweringDate", viewModel.ToDate));
-                    }
-                    criteria.Add(Restrictions.In("Status", viewModel.Statuses));
-
-                    if (viewModel.Activity.Equals(ActivityCriteria.StatusActive))
-                    {
-                        criteria.Add(Restrictions.Eq("IsActive", true));
-                    }
-                    else if (viewModel.Activity.Equals(ActivityCriteria.StatusUnactive))
-                    {
-                        criteria.Add(Restrictions.Eq("IsActive", false));
-                    }
-                    criteria.AddOrder(Order.Asc("Number"));
-
-                    var list = repo.GetByCriteria(criteria);
                     viewModel.Joints.Clear();
                     foreach (var item in list)
                     {
