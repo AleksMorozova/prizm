@@ -49,6 +49,7 @@ namespace Prizm.Main.Forms.Spool
                     number.Append(viewModel.Spool.PipeNumber + "/" + spoolNumber.ToString());
                     viewModel.SpoolNumber = number.ToString();
                     viewModel.InitPipeLenght = viewModel.Pipe.Length;
+                    viewModel.editableForm.spoolLength.Properties.MinValue = Constants.MinSpoolCut;
                     viewModel.editableForm.spoolLength.Properties.MaxValue = viewModel.Pipe.Length - Constants.MinSpoolCut;
                 }
             }
