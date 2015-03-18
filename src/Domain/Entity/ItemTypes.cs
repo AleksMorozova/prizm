@@ -31,7 +31,7 @@ namespace Prizm.Domain.Entity
         Inspector = 20,
         InspectorCertificate = 21,
         InscectorCertificateType = 22,
-        JointOpration = 23,
+        JointOperation = 23,
         PipeTest = 24,
         PipeTestFrequency = 25,
         Project = 26,
