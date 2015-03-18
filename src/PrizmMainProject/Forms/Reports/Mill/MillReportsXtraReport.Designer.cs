@@ -445,11 +445,11 @@
             // 
             this.reportDateTimeInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(749.3335F, 0F);
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(730.7495F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(266.6665F, 23.91666F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(285.2504F, 23.91666F);
             this.reportDateTimeInfo.StylePriority.UseFont = false;
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;

@@ -267,11 +267,11 @@
             // reportDateTimeInfo
             // 
             this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(449.012F, 0F);
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(403.8965F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(298.9878F, 17.375F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(344.1032F, 17.375F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
