@@ -179,16 +179,16 @@
             this.TracingPageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.tracingPageHeaderXrLabel,
             this.reportDateTimeInfo});
-            this.TracingPageHeader.HeightF = 50F;
+            this.TracingPageHeader.HeightF = 69.79167F;
             this.TracingPageHeader.Name = "TracingPageHeader";
             // 
             // tracingPageHeaderXrLabel
             // 
             this.tracingPageHeaderXrLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tracingPageHeaderXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(3.178914E-05F, 0F);
+            this.tracingPageHeaderXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 19.79167F);
             this.tracingPageHeaderXrLabel.Name = "tracingPageHeaderXrLabel";
             this.tracingPageHeaderXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(582.1428F, 50F);
+            this.tracingPageHeaderXrLabel.SizeF = new System.Drawing.SizeF(750.0001F, 50F);
             this.tracingPageHeaderXrLabel.StylePriority.UseFont = false;
             this.tracingPageHeaderXrLabel.StylePriority.UseTextAlignment = false;
             this.tracingPageHeaderXrLabel.Text = "Трассировка трубопровода";
@@ -196,14 +196,14 @@
             // 
             // reportDateTimeInfo
             // 
-            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(584.8215F, 0F);
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(502.5298F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(164.5533F, 50F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(246.845F, 19.79167F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
-            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // TracingGroupHeader
             // 

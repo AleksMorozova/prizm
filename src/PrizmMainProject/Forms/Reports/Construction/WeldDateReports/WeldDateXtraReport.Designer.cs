@@ -51,6 +51,7 @@
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -134,9 +135,6 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.reportDateTimeInfo,
-            this.weldReportByDateHeader});
             this.TopMargin.HeightF = 45F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -144,22 +142,22 @@
             // 
             // reportDateTimeInfo
             // 
-            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(497.9165F, 0F);
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(402.0832F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(152.0835F, 43.83334F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(247.9168F, 17.79167F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
-            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // weldReportByDateHeader
             // 
             this.weldReportByDateHeader.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.weldReportByDateHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.weldReportByDateHeader.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.79167F);
             this.weldReportByDateHeader.Name = "weldReportByDateHeader";
             this.weldReportByDateHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.weldReportByDateHeader.SizeF = new System.Drawing.SizeF(497.9165F, 43.83334F);
+            this.weldReportByDateHeader.SizeF = new System.Drawing.SizeF(650.0001F, 43.83334F);
             this.weldReportByDateHeader.StylePriority.UseFont = false;
             this.weldReportByDateHeader.StylePriority.UseTextAlignment = false;
             this.weldReportByDateHeader.Text = "Отчет по сварке (по дате)";
@@ -174,7 +172,7 @@
             // 
             // jointNumberHeader
             // 
-            this.jointNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(96.45831F, 0F);
+            this.jointNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(96.45824F, 0F);
             this.jointNumberHeader.Name = "jointNumberHeader";
             this.jointNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.jointNumberHeader.SizeF = new System.Drawing.SizeF(105.2083F, 34.2083F);
@@ -182,7 +180,7 @@
             // 
             // firstPartNumberHeader
             // 
-            this.firstPartNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(201.6666F, 0F);
+            this.firstPartNumberHeader.LocationFloat = new DevExpress.Utils.PointFloat(201.6665F, 0F);
             this.firstPartNumberHeader.Name = "firstPartNumberHeader";
             this.firstPartNumberHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.firstPartNumberHeader.SizeF = new System.Drawing.SizeF(106.25F, 34.2083F);
@@ -206,7 +204,7 @@
             // 
             // secondPartLengthHeader
             // 
-            this.secondPartLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(531.2917F, 0F);
+            this.secondPartLengthHeader.LocationFloat = new DevExpress.Utils.PointFloat(531.2916F, 0F);
             this.secondPartLengthHeader.Name = "secondPartLengthHeader";
             this.secondPartLengthHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.secondPartLengthHeader.SizeF = new System.Drawing.SizeF(118.7083F, 34.2083F);
@@ -215,13 +213,9 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.dateHeader,
-            this.secondPartLengthHeader,
-            this.firstPartNumberHeader,
-            this.secondPartNumberHeader,
-            this.firstPartLengthHeader,
-            this.jointNumberHeader});
-            this.ReportHeader.HeightF = 34.375F;
+            this.weldReportByDateHeader,
+            this.reportDateTimeInfo});
+            this.ReportHeader.HeightF = 61.625F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // pageFooter
@@ -255,6 +249,18 @@
             // 
             this.bindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.WeldDateReports.WeldDateReportData);
             // 
+            // PageHeader
+            // 
+            this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.secondPartLengthHeader,
+            this.firstPartLengthHeader,
+            this.secondPartNumberHeader,
+            this.firstPartNumberHeader,
+            this.jointNumberHeader,
+            this.dateHeader});
+            this.PageHeader.HeightF = 34.375F;
+            this.PageHeader.Name = "PageHeader";
+            // 
             // WeldDateXtraReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -262,7 +268,8 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.pageFooter});
+            this.pageFooter,
+            this.PageHeader});
             this.DataSource = this.bindingSource;
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 45, 36);
             this.Version = "14.2";
@@ -295,5 +302,6 @@
         private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
+        private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
     }
 }

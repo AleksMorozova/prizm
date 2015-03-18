@@ -149,10 +149,10 @@
             // groupHeaderLabel
             // 
             this.groupHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 20F);
-            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.79169F);
             this.groupHeaderLabel.Name = "groupHeaderLabel";
             this.groupHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(502.0832F, 40.70836F);
+            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.groupHeaderLabel.StyleName = "Header";
             this.groupHeaderLabel.StylePriority.UseFont = false;
             this.groupHeaderLabel.StylePriority.UseTextAlignment = false;
@@ -200,19 +200,19 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.groupHeaderLabel,
             this.reportDateTimeInfo});
-            this.ReportHeader.HeightF = 40.70836F;
+            this.ReportHeader.HeightF = 58.50005F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // reportDateTimeInfo
             // 
-            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(502.0832F, 0F);
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(349.9999F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(147.9167F, 40.70836F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(300F, 17.79169F);
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
-            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // PageHeader
             // 
