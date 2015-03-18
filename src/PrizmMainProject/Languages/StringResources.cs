@@ -1067,6 +1067,12 @@ namespace Prizm.Main.Languages
             Description = "Катушка. Комментарии по результату входного контроля"
         };
 
+        public static StringResource Spool_InspectionOrderColumn = new StringResource
+        {
+            Id = "Spool_InspectionOrderColumn",
+            Description = "Катушка. порядок операций входного контроля"
+        };
+
         public static StringResource Spool_SearchButton = new StringResource
         {
             Id = "Spool_SearchButton",
@@ -2689,6 +2695,12 @@ namespace Prizm.Main.Languages
             Description = "Причина"
         };
 
+        public static StringResource ComponentNewEdit_OrderColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_OrderColumn",
+            Description = "Порядок"
+        };
+
         public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_DiameterGridColumn",
@@ -3546,6 +3558,12 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspection_ReasonColumnHeader = new StringResource { 
             Id = "PartInspection_ReasonColumnHeader", 
             Description = "Входной контроль элемента. Надпись колонки причины"};
+
+        public static StringResource PartInspection_OrderColumnHeader = new StringResource
+        {
+            Id = "PartInspection_OrderColumnHeader",
+            Description = "Входной контроль элемента. Надпись колонки порядок"
+        };
 
         public static StringResource PartInspection_SearchGroup = new StringResource { 
             Id = "PartInspection_SearchGroup", 

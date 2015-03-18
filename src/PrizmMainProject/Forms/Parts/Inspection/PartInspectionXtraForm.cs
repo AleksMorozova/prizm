@@ -123,6 +123,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(colResult, StringResources.PartInspection_ResultColumnHeader.Id),
                 new LocalizedItem(colInspector, StringResources.PartInspection_InspectorColumnHeader.Id),
                 new LocalizedItem(colReason, StringResources.PartInspection_ReasonColumnHeader.Id),
+                new LocalizedItem(colOrder, StringResources.PartInspection_OrderColumnHeader.Id),
 
                 // layout control groups
                 new LocalizedItem(searchElementGroup, StringResources.PartInspection_SearchGroup.Id),

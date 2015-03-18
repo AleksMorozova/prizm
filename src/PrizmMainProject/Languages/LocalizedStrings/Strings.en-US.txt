@@ -368,6 +368,9 @@ Spool_InspectionInspectorsColumn=Inspectors
 ;Катушка. Комментарии по результату входного контроля
 Spool_InspectionReasonColumn=Reason
 
+;Катушка. порядок операций входного контроля
+Spool_InspectionOrderColumn=Order
+
 ;Катушка. Кнопка поиска трубы
 Spool_SearchButton=&Edit pipe
 
@@ -1123,6 +1126,9 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
+;Порядок
+ComponentNewEdit_OrderColumn=Order
+
 ;Наружный диаметр отверстия, мм
 ComponentNewEdit_DiameterGridColumn=External diameter, mm
 
@@ -1506,6 +1512,9 @@ PartInspection_ResultColumnHeader=Result
 
 ;Входной контроль элемента. Надпись колонки инспектора
 PartInspection_InspectorColumnHeader=Inspector
+
+;Входной контроль элемента. Надпись колонки порядок
+PartInspection_InspectorColumnHeader=Order
 
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
