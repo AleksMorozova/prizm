@@ -446,7 +446,7 @@
             // 
             // xrPageInfo2
             // 
-            this.xrPageInfo2.Format = "Page {0} of {1}";
+            this.xrPageInfo2.Format = "{0} / {1}";
             this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
