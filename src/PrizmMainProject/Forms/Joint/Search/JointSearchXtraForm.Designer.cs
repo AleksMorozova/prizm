@@ -271,8 +271,9 @@
             // 
             this.pegNumber.Location = new System.Drawing.Point(745, 54);
             this.pegNumber.Name = "pegNumber";
-            this.pegNumber.Properties.Mask.EditMask = "n0";
-            this.pegNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.pegNumber.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.pegNumber.Properties.Mask.EditMask = "[0-9]*";
+            this.pegNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.pegNumber.Size = new System.Drawing.Size(145, 20);
             this.pegNumber.StyleController = this.searchLayoutControl;
             this.pegNumber.TabIndex = 5;

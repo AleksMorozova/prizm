@@ -96,6 +96,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 new LocalizedItem(inspectorColumn, StringResources.ComponentNewEdit_InspectorColumn.Id),
                 new LocalizedItem(resultColumn, StringResources.ComponentNewEdit_ResultColumn.Id),
                 new LocalizedItem(reasonColumn, StringResources.ComponentNewEdit_ReasonColumn.Id),
+                new LocalizedItem(orderColumn, StringResources.ComponentNewEdit_OrderColumn.Id),
 
                 new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
                 new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id),

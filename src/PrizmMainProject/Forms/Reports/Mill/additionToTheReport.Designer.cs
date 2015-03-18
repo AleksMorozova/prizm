@@ -49,6 +49,7 @@
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -131,7 +132,7 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 49F;
+            this.TopMargin.HeightF = 49.00001F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -229,18 +230,32 @@
             // reportHeaderBand1
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel11});
-            this.reportHeaderBand1.HeightF = 33.29166F;
+            this.xrLabel11,
+            this.reportDateTimeInfo});
+            this.reportHeaderBand1.HeightF = 50.375F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             // 
             // xrLabel11
             // 
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(0.9401321F, 0F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.37501F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(659.7264F, 33F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(663.0001F, 33F);
             this.xrLabel11.StyleName = "Title";
             this.xrLabel11.Text = "Приложение к отчету";
+            // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(400.2364F, 0F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(262.7637F, 17.375F);
+            this.reportDateTimeInfo.StylePriority.UseFont = false;
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // Title
             // 
@@ -430,5 +445,6 @@
         private DevExpress.XtraReports.UI.XRLabel totalCount;
         private DevExpress.XtraReports.UI.XRLabel pipesWeight;
         private DevExpress.XtraReports.UI.XRLabel pipesLength;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
     }
 }
