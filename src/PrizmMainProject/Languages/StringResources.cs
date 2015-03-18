@@ -1067,6 +1067,12 @@ namespace Prizm.Main.Languages
             Description = "Катушка. Комментарии по результату входного контроля"
         };
 
+        public static StringResource Spool_InspectionOrderColumn = new StringResource
+        {
+            Id = "Spool_InspectionOrderColumn",
+            Description = "Катушка. порядок операций входного контроля"
+        };
+
         public static StringResource Spool_SearchButton = new StringResource
         {
             Id = "Spool_SearchButton",
@@ -2689,6 +2695,12 @@ namespace Prizm.Main.Languages
             Description = "Причина"
         };
 
+        public static StringResource ComponentNewEdit_OrderColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_OrderColumn",
+            Description = "Порядок"
+        };
+
         public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_DiameterGridColumn",
@@ -2758,6 +2770,22 @@ namespace Prizm.Main.Languages
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
+
+        public static StringResource Joint_JointTestResultStatus_Withdraw = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Withdraw",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Repair = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Repair",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Accepted = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Accepted",
+            Description = "статус контрольной операции для стыка"
+        };
 
         public static StringResource JointNew_JointNumberLayout = new StringResource
         {
@@ -3546,6 +3574,12 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspection_ReasonColumnHeader = new StringResource { 
             Id = "PartInspection_ReasonColumnHeader", 
             Description = "Входной контроль элемента. Надпись колонки причины"};
+
+        public static StringResource PartInspection_OrderColumnHeader = new StringResource
+        {
+            Id = "PartInspection_OrderColumnHeader",
+            Description = "Входной контроль элемента. Надпись колонки порядок"
+        };
 
         public static StringResource PartInspection_SearchGroup = new StringResource { 
             Id = "PartInspection_SearchGroup", 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Domain.Entity.Construction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,26 @@ namespace Prizm.Main.Forms.Reports.Construction
 {
     public class TracingData
     {
+        public TracingData() { }
+
+        public TracingData(PartData firstPartData, PartData secondPartData)
+            : this()
+        {
+            if (firstPartData != null)
+            {
+                FirstPartNumber = firstPartData.Number;
+                FirstPartTypeDescription = firstPartData.PartTypeDescription;
+                FirstPartLength = firstPartData.Length;
+            }
+
+            if (secondPartData != null)
+            {
+                SecondPartNumber = secondPartData.Number;
+                SecondPartTypeDescription = secondPartData.PartTypeDescription;
+                SecondPartLength = secondPartData.Length;
+            }
+        }
+
         public string JointNumber { get; set; }
         public string WeldingDate { get; set; }
 

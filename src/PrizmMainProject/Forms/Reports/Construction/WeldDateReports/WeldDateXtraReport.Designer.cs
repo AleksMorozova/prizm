@@ -228,7 +228,7 @@
             // 
             // numberOfPageInfo
             // 
-            this.numberOfPageInfo.Format = "Page {0} of {1}";
+            this.numberOfPageInfo.Format = "{0} / {1}";
             this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(307.9166F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
             this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

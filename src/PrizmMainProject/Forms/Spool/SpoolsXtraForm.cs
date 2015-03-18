@@ -167,6 +167,7 @@ namespace Prizm.Main.Forms.Spool
                 new LocalizedItem(inspectionResultGridColumn, "Spool_InspectionResultColumn"),
                 new LocalizedItem(inspectorsGridColumn, "Spool_InspectionInspectorsColumn"),
                 new LocalizedItem(reasonGridColumn, "Spool_InspectionReasonColumn"),
+                new LocalizedItem(orderGridColumn, "Spool_InspectionOrderColumn"),
 
                 new LocalizedItem(searchButton, "Spool_SearchButton"),
                 new LocalizedItem(attachmentsButton, "Spool_AttachButton"),

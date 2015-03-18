@@ -378,7 +378,7 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[pipeId] [uniqueidentifier] NULL,
 	[pipeTestId] [uniqueidentifier] NULL,
 	[date] [date] NULL,
-	[order][int] NULL,
+	[pipeOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (100) NULL,
 	[isActive] [bit] NULL,
@@ -548,7 +548,7 @@ CREATE TABLE [dbo].[InspectionTestResult](
 
 	[inspectionDate] [date] NULL,
 
-	[order][int] NULL,
+	[inspectionOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (20) NULL,
 
@@ -873,7 +873,7 @@ CREATE TABLE [dbo].[JointTestResult](
 	[date] [date] NULL,
 	[value] [nvarchar](20) NULL,
 	[status] [nvarchar](25) NULL,
-	[order] [int] NULL,
+	[jointOrder] [int] NULL,
 	[jointOperationId] [uniqueidentifier] NOT NULL,
 	[jointId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 

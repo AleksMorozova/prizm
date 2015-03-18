@@ -90,6 +90,7 @@
             this.activity.Name = "activity";
             this.activity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.activity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.activity.Size = new System.Drawing.Size(146, 20);
             this.activity.StyleController = this.mainLayoutControl;
             this.activity.TabIndex = 8;
@@ -213,7 +214,7 @@
             this.numberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.numberLayoutControl.Text = "Ном&ер";
             this.numberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayoutControl.TextSize = new System.Drawing.Size(68, 13);
+            this.numberLayoutControl.TextSize = new System.Drawing.Size(110, 13);
             // 
             // typeLayoutControl
             // 
@@ -225,7 +226,7 @@
             this.typeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 15, 0, 5);
             this.typeLayoutControl.Text = "&Тип";
             this.typeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.typeLayoutControl.TextSize = new System.Drawing.Size(68, 13);
+            this.typeLayoutControl.TextSize = new System.Drawing.Size(110, 13);
             // 
             // emptySpaceItem1
             // 
@@ -256,9 +257,9 @@
             this.activityLayout.Location = new System.Drawing.Point(499, 0);
             this.activityLayout.Name = "activityLayout";
             this.activityLayout.Size = new System.Drawing.Size(150, 45);
-            this.activityLayout.Text = "activityLayout";
+            this.activityLayout.Text = "Состояние &элементов";
             this.activityLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.activityLayout.TextSize = new System.Drawing.Size(68, 13);
+            this.activityLayout.TextSize = new System.Drawing.Size(110, 13);
             // 
             // searchResultLayoutGroup
             // 

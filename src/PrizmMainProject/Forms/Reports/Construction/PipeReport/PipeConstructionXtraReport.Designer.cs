@@ -272,7 +272,7 @@
             // 
             // numberPageInfo
             // 
-            this.numberPageInfo.Format = "Page {0} of {1}";
+            this.numberPageInfo.Format = "{0} / {1}";
             this.numberPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(336.012F, 0F);
             this.numberPageInfo.Name = "numberPageInfo";
             this.numberPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
