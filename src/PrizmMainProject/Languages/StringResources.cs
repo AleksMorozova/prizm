@@ -3553,6 +3553,12 @@ namespace Prizm.Main.Languages
             Id = "PartInspection_ReasonColumnHeader", 
             Description = "Входной контроль элемента. Надпись колонки причины"};
 
+        public static StringResource PartInspection_OrderColumnHeader = new StringResource
+        {
+            Id = "PartInspection_OrderColumnHeader",
+            Description = "Входной контроль элемента. Надпись колонки порядок"
+        };
+
         public static StringResource PartInspection_SearchGroup = new StringResource { 
             Id = "PartInspection_SearchGroup", 
             Description = "Входной контроль элемента. Надпись панели поиска"};
