@@ -1147,6 +1147,9 @@ ComponentNewEdit_SavedHeader=Component has been saved
 ;Сообщение об ошибке: Величина диаметра должна быть больше нуля
 ComponentNewEdit_DiameterValueValidation=Diameter value should be greater than 0
 
+Joint_JointTestResultStatus_Withdraw=Withdraw
+Joint_JointTestResultStatus_Repair=Repair
+Joint_JointTestResultStatus_Accepted=Accepted
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
 
