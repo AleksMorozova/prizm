@@ -896,7 +896,7 @@ PartSearch_SearchNumberLabel=&Number
 PartSearch_SearchTypeLabel=&Type
 
 ;Поиск элементов трубопровода. Надпись активности элемента
-PartSearch_ActivityLabel=Activity status
+PartSearch_ActivityLabel= &Activity status
 
 ;Поиск элементов трубопровода. Надпись кнопки поиска
 PartSearch_SearchButton=&Search
