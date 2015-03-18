@@ -116,6 +116,7 @@ namespace Prizm.Domain.Entity.Construction
             else
             {
                 cnt.Diameter = this.Diameter;
+                cnt.WallThickness = this.WallThickness;
 
                 this.Connectors.Add(cnt);
 
