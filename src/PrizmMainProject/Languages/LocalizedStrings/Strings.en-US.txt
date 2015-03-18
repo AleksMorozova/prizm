@@ -1519,6 +1519,9 @@ PartInspection_InspectorColumnHeader=Order
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
 
+;Входной контроль элемента. Надпись колонки порядок
+PartInspection_OrderColumnHeader=Order
+
 ;Входной контроль элемента. Надпись панели поиска
 PartInspection_SearchGroup=Search
 
