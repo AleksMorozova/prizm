@@ -899,7 +899,7 @@ PartSearch_SearchNumberLabel=&Number
 PartSearch_SearchTypeLabel=&Type
 
 ;Поиск элементов трубопровода. Надпись активности элемента
-PartSearch_ActivityLabel=Activity status
+PartSearch_ActivityLabel= &Activity status
 
 ;Поиск элементов трубопровода. Надпись кнопки поиска
 PartSearch_SearchButton=&Search
@@ -1153,6 +1153,15 @@ ComponentNewEdit_SavedHeader=Component has been saved
 ;Сообщение об ошибке: Величина диаметра должна быть больше нуля
 ComponentNewEdit_DiameterValueValidation=Diameter value should be greater than 0
 
+;Статус для контрольной операции стыка: Вырезка
+Joint_JointTestResultStatus_Withdraw=Withdraw
+
+;статус для сконтрольной операции стыка: Ремонт
+Joint_JointTestResultStatus_Repair=Repair
+
+;статус для контрольной операции стыка: Принят
+Joint_JointTestResultStatus_Accepted=Accepted
+
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
 
@@ -1274,7 +1283,7 @@ Joint_IncorrectDiameter=There are no suitable diameters or wall thicknesses for 
 Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint elements do not match
 
 ;Ном&ер стыка
-JointSearch_JointNumber=Joint&Number
+JointSearch_JointNumber=Joint &number
 
 ;С&татус
 JointSearch_ControlStateLayout=S&tatus

@@ -1225,6 +1225,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Accepted {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ремонт.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Repair {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Repair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Withdraw {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Withdraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Стык успешно сохранен в базе. Стык  #.
         /// </summary>
         internal static string Joint_Saved {

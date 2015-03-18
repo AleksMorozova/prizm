@@ -2771,6 +2771,22 @@ namespace Prizm.Main.Languages
 
         #region --- JointNew ---
 
+        public static StringResource Joint_JointTestResultStatus_Withdraw = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Withdraw",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Repair = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Repair",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Accepted = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Accepted",
+            Description = "статус контрольной операции для стыка"
+        };
+
         public static StringResource JointNew_JointNumberLayout = new StringResource
         {
             Id = "JointNew_JointNumberLayout",

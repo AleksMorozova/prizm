@@ -1458,4 +1458,13 @@
   <data name="WeldDateReport_FootersCheck" xml:space="preserve">
     <value>Добавить колонтитулы</value>
   </data>
+  <data name="Joint_JointTestResultStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
+  </data>
 </root>
