@@ -2689,6 +2689,12 @@ namespace Prizm.Main.Languages
             Description = "Причина"
         };
 
+        public static StringResource ComponentNewEdit_OrderColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_OrderColumn",
+            Description = "Порядок"
+        };
+
         public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_DiameterGridColumn",

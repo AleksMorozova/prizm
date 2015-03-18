@@ -1123,6 +1123,9 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
+;Порядок
+ComponentNewEdit_OrderColumn=Order
+
 ;Наружный диаметр отверстия, мм
 ComponentNewEdit_DiameterGridColumn=External diameter, mm
 
