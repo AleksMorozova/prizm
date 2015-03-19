@@ -73,5 +73,25 @@ namespace Prizm.Domain.Entity.Setup
             } 
         }
         //string test
+
+        public virtual void CustomShallowCopy(PipeTest original)
+        {
+            this.BoolExpected = original.BoolExpected;
+            this.Category = original.Category;
+            this.Code = original.Code;
+            this.ControlType = original.ControlType;
+            this.Frequency = original.Frequency;
+            this.Id = original.Id;
+            this.IsActive = original.IsActive;
+            this.IsRequired = original.IsRequired;
+            this.MaxExpected = original.MaxExpected;
+            this.MinExpected = original.MinExpected;
+            this.Name = original.Name;
+            this.OwnerId = original.OwnerId;
+            this.PipeTestResults = original.PipeTestResults;
+            this.pipeType = original.pipeType;
+            this.ResultType = original.ResultType;
+            this.StringExpected = original.StringExpected;
+        }
     }
 }

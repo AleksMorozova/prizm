@@ -150,6 +150,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             componentLength.SetMask(Constants.PositiveDigitMask);
 
             inspectorColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         private void BindToViewModel()
@@ -421,6 +423,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 ValidateInspection(inspectionHistoryGridView, inspectorColumn.Name.ToString(), e);
             }
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }
