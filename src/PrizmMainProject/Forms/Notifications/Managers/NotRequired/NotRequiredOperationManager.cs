@@ -172,22 +172,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
             private void UpdateNotification(Guid operationId)
             {
-                if (manager.notifications.FindAll(_ => _.Id == operationId).Count >= 1)
-                {
-                    if (manager.cache.IsGoingToExpire(operationId))
-                    {
-                        //update notification type
-                        foreach (Notification n in manager.notifications.FindAll(_ => _.Id == operationId)) 
-                        {
-                            if (manager.cache.IsExpired(operationId))
-                            {
-                                n.Status = NotificationStatus.Critical;
+                bool isGoingToExpire = manager.cache.IsGoingToExpire(operationId);
+                List<Notification> found = manager.notifications.FindAll(_ => _.Id == operationId);
 
-                            }
-                            else 
-                            { 
-                                n.Status = NotificationStatus.Warning; 
-                            }
+                if (found.Count >= 1)
+                {
+                    if (isGoingToExpire)
+                    {
+                        foreach (Notification n in found)
+                        {
+                            n.Status = manager.cache.IsExpired(operationId) ? NotificationStatus.Critical : n.Status = NotificationStatus.Warning; 
                         }
                     }
                     else
@@ -197,7 +191,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
                 else
                 {
-                    if (manager.cache.IsGoingToExpire(operationId))
+                    if (isGoingToExpire)
                     {
                         manager.notifications.Add(
                             CreateNotification(operationId, manager.cache.GetOwnerName(operationId),
@@ -247,7 +241,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
-            private void ProcessNORForPipeSizeType(Guid sizeTypeId) 
+            private void ProcessNROForPipeSizeType(Guid sizeTypeId) 
             {
                 foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(sizeTypeId))
                 {
@@ -265,7 +259,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
                     if (initialPipeSizeTypeId == null)
                     {
-                        ProcessNORForPipeSizeType(pipeSavingState.Id);
+                        ProcessNROForPipeSizeType(pipeSavingState.Id);
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
@@ -286,13 +280,13 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
                     else if (initialPipeSizeTypeId == pipeSavingState.Type.Id)
                     {
-                        ProcessNORForPipeSizeType(pipeSavingState.Id);
+                        ProcessNROForPipeSizeType(pipeSavingState.Id);
                     }
 
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     {
-                        ProcessNORForPipeSizeType(pipeSavingState.Id);
+                        ProcessNROForPipeSizeType(pipeSavingState.Id);
                     }
 
                     isAlreadyUpdated = true;
