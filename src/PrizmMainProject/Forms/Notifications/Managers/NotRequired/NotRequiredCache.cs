@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Domain.Entity.Setup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -145,16 +146,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
         }
 
-        public string GetMeasure(Guid pipeTestId) // TODO return enum type back
+        public FrequencyMeasure GetMeasure(Guid pipeTestId) // TODO return enum type back
         {
             try
             {
-                return internalCache[pipeTestId].Measure;
+                return (FrequencyMeasure)Enum.Parse(typeof(FrequencyMeasure), internalCache[pipeTestId].Measure);
             }
             catch (KeyNotFoundException)
             {
                 log.Error("GetMeasure called for wrong pipe test. id: " + pipeTestId);
-                return "";
+                return FrequencyMeasure.Undefined;
             }
         }
 

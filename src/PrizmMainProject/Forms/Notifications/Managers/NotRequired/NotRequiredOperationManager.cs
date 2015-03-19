@@ -54,8 +54,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                 foreach (NotRequiredOperation operation in inspectionOperations)
                 {
-                    cache.AddOrReplace(/*TODO: add real pipe size type id*/default(Guid), operation.operationId, operation.frequency, 0, 
-                        operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
+                    cache.AddOrReplace(operation.PipeSizeTypeId, operation.OperationId, operation.Frequency, 0, 
+                        operation.OperationCode, operation.OperationName, operation.PipeSizeTypeName, operation.Measure);
                 }
 
                 List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
@@ -247,6 +247,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
+            private void ProcessNORForPipeSizeType(Guid sizeTypeId) 
+            {
+                foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(sizeTypeId))
+                {
+                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                    manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                    UpdateNotification(id);
+                }
+            }
+
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
                 if (isProperlyCreated && !isAlreadyUpdated)
@@ -255,27 +265,34 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
                     if (initialPipeSizeTypeId == null)
                     {
-                        ProcessPipeTestResults(pipeSavingState.PipeTestResult, ProcessPipeTestResultsAction.Add);
+                        ProcessNORForPipeSizeType(pipeSavingState.Id);
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
-                        ProcessPipeTestResults(initialPipeTestResult, ProcessPipeTestResultsAction.Remove);
-
-                        ProcessPipeTestResults(pipeSavingState.PipeTestResult, ProcessPipeTestResultsAction.Add);
+                        foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(initialPipeSizeTypeId))
+                        {
+                            manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                            UpdateNotification(id);
+                        }
+                        foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(pipeSavingState.Id))
+                        {
+                            manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                            UpdateNotification(id);
+                        }
                     }
 
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
                     else if (initialPipeSizeTypeId == pipeSavingState.Type.Id)
                     {
-                        // TODO
+                        ProcessNORForPipeSizeType(pipeSavingState.Id);
                     }
 
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     {
-                        ProcessPipeTestResults(pipeSavingState.PipeTestResult, ProcessPipeTestResultsAction.Remove);
+                        ProcessNORForPipeSizeType(pipeSavingState.Id);
                     }
 
                     isAlreadyUpdated = true;

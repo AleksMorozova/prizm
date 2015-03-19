@@ -1,4 +1,5 @@
 ﻿using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Prizm.Data.DAL
     {
         List<NotRequiredOperation> GetAllNotRequiredOperation();
         List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult();
-        KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, string measure);
+        KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, FrequencyMeasure measure);
     }
 }

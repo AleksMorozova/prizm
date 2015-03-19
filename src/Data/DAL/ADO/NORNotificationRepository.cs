@@ -25,7 +25,7 @@ namespace Prizm.Data.DAL.ADO
                     connection.Open();
                     command.Connection = connection;
 
-                    command.CommandText = @"Select t.id, t.code,t.name,t.frequency,t.frequencyMeasure, s.type
+                    command.CommandText = @"Select s.id, t.id, t.code,t.name,t.frequency,t.frequencyMeasure, s.type
                                                     From PipeTest t, PipeMillSizeType s 
                                                     where t.isRequired=0 and t.pipeMillSizeTypeId=s.id";
 
@@ -34,12 +34,13 @@ namespace Prizm.Data.DAL.ADO
                     {
                         inspectionOperations.Add(new NotRequiredOperation()
                         {
-                            operationId = (Guid)dr[0],
-                            operationCode=(string)dr[1],
-                            operationName = (string)dr[2],
-                            frequency = (int)dr[3],
-                            measure = (string)dr[4],// problem with convertation to enum type
-                            pipeSizeTypeName = (string)dr[5]
+                            PipeSizeTypeId = (Guid)dr[0],
+                            OperationId = (Guid)dr[1],
+                            OperationCode=(string)dr[2],
+                            OperationName = (string)dr[3],
+                            Frequency = (int)dr[4],
+                            Measure = (string)dr[5],// problem with convertation to enum type
+                            PipeSizeTypeName = (string)dr[6]
                         });
                     }
                 }
@@ -104,7 +105,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
             return inspectionOperationsResult;
         }
 
-        public KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, string measure)
+        public KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, FrequencyMeasure measure)
         {
             CreateConnection();
             KeyValuePair<Guid, float> unitsProducedSinceLastDate = new KeyValuePair<Guid,float>();
@@ -118,7 +119,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                     command.Parameters.AddWithValue("@testId", testId);
                     command.Parameters.AddWithValue("@maxDate", maxDate);
 
-                    if (measure == "Pipes")
+                    if (measure == FrequencyMeasure.Pipes)
                     {
                         command.CommandText = @"Select count(p.number) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
@@ -135,7 +136,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                         }
 
                     }
-                    else if (measure == "Tons")
+                    else if (measure == FrequencyMeasure.Tons)
                     {
                         command.CommandText = @"Select sum(p.weight) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
@@ -153,7 +154,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                         }
                     }
 
-                    else if (measure == "Meters")
+                    else if (measure == FrequencyMeasure.Meters)
                     {
                         command.CommandText = @"Select sum(p.length) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and

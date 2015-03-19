@@ -9,11 +9,12 @@ namespace Prizm.Domain.Entity
 {
     public class NotRequiredOperation
     {
-        public Guid operationId { get; set; }
-        public int frequency { get; set; }
-        public string measure { get; set; }
-        public string operationCode { get; set; }
-        public string operationName { get; set; }
-        public string pipeSizeTypeName { get; set; }
+        public Guid PipeSizeTypeId { get; set; }
+        public Guid OperationId { get; set; }
+        public int Frequency { get; set; }
+        public string Measure { get; set; }
+        public string OperationCode { get; set; }
+        public string OperationName { get; set; }
+        public string PipeSizeTypeName { get; set; }
     }
 }
