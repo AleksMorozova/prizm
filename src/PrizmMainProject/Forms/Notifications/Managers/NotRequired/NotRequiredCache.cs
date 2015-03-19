@@ -32,8 +32,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             public string PipeSizeTypeName { get; set; }
         }
         private Dictionary<Guid, NotRequiredCachePack> internalCache = new Dictionary<Guid, NotRequiredCachePack>();
+        private Dictionary<Guid, HashSet<Guid>> operationsAtSizeType = new Dictionary<Guid, HashSet<Guid>>();
 
         public void AddOrReplace(
+            Guid pipeSizeTypeId,
             Guid notRequiredOperationId,
             int frequency, float unitsSinceLastOperation,
             string operationCode, string operationName, string pipeSizeTypeName,
@@ -50,6 +52,11 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     OperationName = operationName,
                     PipeSizeTypeName = pipeSizeTypeName
                 };
+            if (!operationsAtSizeType.ContainsKey(pipeSizeTypeId))
+            {
+                operationsAtSizeType[pipeSizeTypeId] = new HashSet<Guid>();
+            }
+            operationsAtSizeType[pipeSizeTypeId].Add(notRequiredOperationId);
         }
 
         public void Clear()
@@ -184,6 +191,19 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public IEnumerable<Guid> EnumerateOperationsForSizeType(Guid pipeSizeTypeId)
+        {
+            try
+            {
+                return operationsAtSizeType[pipeSizeTypeId];
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("EnumerateOperationsForSizeType called for wrong pipe size type. id: " + pipeSizeTypeId);
+                return new HashSet<Guid>();
+            }
         }
     }
 }

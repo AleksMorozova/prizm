@@ -54,7 +54,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                 foreach (NotRequiredOperation operation in inspectionOperations)
                 {
-                    cache.AddOrReplace(operation.operationId, operation.frequency, 0, operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
+                    cache.AddOrReplace(/*TODO: add real pipe size type id*/default(Guid), operation.operationId, operation.frequency, 0, 
+                        operation.operationCode, operation.operationName, operation.pipeSizeTypeName, operation.measure);
                 }
 
                 List<KeyValuePair<DateTime, Guid>> listOfDate = repo.GetAllNotRequiredOperationResult();
