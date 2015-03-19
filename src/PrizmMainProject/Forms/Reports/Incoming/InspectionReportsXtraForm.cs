@@ -27,6 +27,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             startDate.DataBindings.Add("EditValue", inspectionReportsBindingSource, "StartDate");
             endDate.DataBindings.Add("EditValue", inspectionReportsBindingSource, "EndDate");
             previewReportDocument.DataBindings.Add("DocumentSource", inspectionReportsBindingSource, "PreviewSource");
+            footersCheck.DataBindings.Add("EditValue", inspectionReportsBindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()
@@ -63,6 +64,8 @@ namespace Prizm.Main.Forms.Reports.Incoming
 
                 new LocalizedItem(previewButton, StringResources.InspectionReport_PreviewButton.Id),
                 new LocalizedItem(createReportButton, StringResources.InspectionReport_CreateButton.Id),
+
+                new LocalizedItem(footersCheck, StringResources.InspectionReport_FootersCheck.Id),
 
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionReport_Title.Id} )
             };

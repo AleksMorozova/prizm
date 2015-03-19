@@ -378,7 +378,7 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[pipeId] [uniqueidentifier] NULL,
 	[pipeTestId] [uniqueidentifier] NULL,
 	[date] [date] NULL,
-	[order][int] NULL,
+	[pipeOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (100) NULL,
 	[isActive] [bit] NULL,
@@ -548,7 +548,7 @@ CREATE TABLE [dbo].[InspectionTestResult](
 
 	[inspectionDate] [date] NULL,
 
-	[order][int] NULL,
+	[inspectionOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (20) NULL,
 
@@ -751,6 +751,7 @@ CREATE TABLE [dbo].[AuditLog](
 	[fieldName] [int] NULL,
 	[oldValue] [nvarchar](100) NULL,
 	[newValue] [nvarchar](100) NULL,
+	[ownerId] [uniqueidentifier] NULL,
 	CONSTRAINT [PK_AuditLog] PRIMARY KEY NONCLUSTERED ([id]))
 GO
 
@@ -769,6 +770,15 @@ GO
 CREATE NONCLUSTERED INDEX IX_Audit_User
     ON [dbo].[AuditLog] ([userId])
 GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Audit_Owner')
+    DROP INDEX IX_Audit_Owner ON [dbo].[AuditLog]
+GO
+CREATE NONCLUSTERED INDEX IX_Audit_Owner
+    ON [dbo].[AuditLog] ([ownerId])
+GO
+
 /*************** Security **********************************/
 
 CREATE TABLE [dbo].[User] (
@@ -863,7 +873,7 @@ CREATE TABLE [dbo].[JointTestResult](
 	[date] [date] NULL,
 	[value] [nvarchar](20) NULL,
 	[status] [nvarchar](25) NULL,
-	[order] [int] NULL,
+	[jointOrder] [int] NULL,
 	[jointOperationId] [uniqueidentifier] NOT NULL,
 	[jointId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 

@@ -53,6 +53,9 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
             pipeReportViewer.DataBindings
                 .Add("DocumentSource", bindingSource, "PreviewSource");
+
+            footersCheck.DataBindings
+                .Add("EditValue", bindingSource, "IsFooterVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void BindCommands()
@@ -70,6 +73,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             return new List<LocalizedItem>()
             {
+                new LocalizedItem(footersCheck, StringResources.PipeConstructionReport_FootersCheck.Id),
                 new LocalizedItem(pipeNumberLayout, StringResources.PipeConstructionReport_PipeNumberLayout.Id),
                 new LocalizedItem(pipeTypeCheckedComboLayout, StringResources.PipeConstructionReport_PipeTypeCheckedComboLayout.Id),
                 new LocalizedItem(pipeReportParametersLayoutGroup, StringResources.PipeConstructionReport_PipeReportParametersLayoutGroup.Id),

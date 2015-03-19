@@ -111,7 +111,8 @@ namespace Prizm.Domain.Entity
         ExternalCoatSubStatus = 95,
         InternalCoatSubStatus = 96,
         SeamType = 97,
-        Railcar = 98
+        Railcar = 98,
+        PartTypeDescription = 99,
 
     }
 }

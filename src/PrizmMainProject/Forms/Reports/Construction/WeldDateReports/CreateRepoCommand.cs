@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraReports.UI;
 using Prizm.Data.DAL;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,18 +32,29 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 
         public void Execute()
         {
-            viewModel.Data = repo.GetPipelineElements(viewModel.WeldDateFrom, viewModel.WeldDateTo);
-            if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
-                log.Warn( "Construction report: Data Table for Weld by Date report is NULL or empty" );
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.WeldDateFrom, viewModel.WeldDateTo))
+            {
+                viewModel.Data = repo.GetPipelineElements(viewModel.WeldDateFrom, viewModel.WeldDateTo);
+                if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
+                    log.Warn("Construction report: Data Table for Weld by Date report is NULL or empty");
 
-            var report = new WeldDateXtraReport();
+                var report = new WeldDateXtraReport();
 
             report.DataSource = viewModel.WeldDateReportDataList;
+            report.FootersVisibility = viewModel.IsFooterVisible;
             var tool = new ReportPrintTool(report);
             tool.AutoShowParametersPanel = false;
             tool.ShowPreview();
 
-            RefreshVisualStateEvent();
+                RefreshVisualStateEvent();
+            }
+            else
+            {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate),
+                    Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
+                log.Warn("Date limits not valid!" + "Diapason: start date= "
+                    + viewModel.WeldDateFrom.ToString() + " end date= " + viewModel.WeldDateTo.ToString());
+            }
         }
 
         public bool CanExecute()

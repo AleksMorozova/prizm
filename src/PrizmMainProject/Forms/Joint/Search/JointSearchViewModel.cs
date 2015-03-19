@@ -21,12 +21,14 @@ namespace Prizm.Main.Forms.Joint.Search
     {
         private readonly JointSearchCommand searchCommand;
         private readonly IJointRepository repo;
+        private readonly IUserNotify notify;
 
         [Inject]
-        public JointSearchViewModel(IJointRepository repo)
+        public JointSearchViewModel(IJointRepository repo, IUserNotify notify)
         {
             this.repo = repo;
-            searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo));
+            this.notify = notify;
+            searchCommand = ViewModelSource.Create(() => new JointSearchCommand(this, repo, notify));
             LoadStatuses();
         }
 
@@ -103,8 +105,8 @@ namespace Prizm.Main.Forms.Joint.Search
             }
         }
 
-        private int pegNumber;
-        public int PegNumber
+        private string pegNumber;
+        public string PegNumber
         {
             get { return pegNumber; }
             set

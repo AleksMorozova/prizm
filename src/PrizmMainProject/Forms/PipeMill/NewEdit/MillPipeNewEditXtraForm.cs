@@ -384,8 +384,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     //grid enums
                     new LocalizedItem (inspectionsGridView, localizedAllPipeTestResultStatus, new string [] { StringResources.PipeTestResultStatus_Scheduled.Id,
-                                                                                                              StringResources.PipeTestResultStatus_Passed.Id,
-                                                                                                              StringResources.PipeTestResultStatus_Failed.Id,
+                                                                                                              StringResources.PipeTestResultStatus_Accepted.Id,
+                                                                                                              StringResources.PipeTestResultStatus_Rejected.Id,
                                                                                                               StringResources.PipeTestResultStatus_Repair.Id}),
                     // header
                     new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillPipeNewEditXtraForm_Title.Id} )
@@ -681,8 +681,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             switch(result)
             {
-                case PipeTestResultStatus.Passed:
-                case PipeTestResultStatus.Failed:
+                case PipeTestResultStatus.Accepted:
+                case PipeTestResultStatus.Rejected:
                 case PipeTestResultStatus.Repair:
                     if(date == null || date > DateTime.Now)
                     {

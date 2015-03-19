@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Criterion;
+using NHibernate.SqlCommand;
+using NHibernate.Transform;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -18,7 +21,9 @@ namespace Prizm.Data.DAL.Hibernate
             : base(session)
         {
         }
-
+        
+        #region IJointRepository Members
+        
         public IList<Joint> GetActiveByNumber(Joint joint)
         {
             try
@@ -31,7 +36,6 @@ namespace Prizm.Data.DAL.Hibernate
             }
         }
 
-
         public IList<Joint> GetJointsToExport()
         {
            try
@@ -43,5 +47,52 @@ namespace Prizm.Data.DAL.Hibernate
               throw new RepositoryException("GetJointsToExport", ex);
            }
         }
+
+        public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, string peg, bool? status)
+        {
+
+            var jointWithWeld = QueryOver.Of<Joint>()
+                .JoinQueryOver<JointWeldResult>(j => j.JointWeldResults)
+                .Select(Projections.Distinct(Projections.Property<Joint>(j => j.JointWeldResults)));
+            if(from != null && from != DateTime.MinValue)
+            {
+                jointWithWeld.Where(f => f.Date >= from);
+            }
+            if(to != null && to != DateTime.MinValue)
+            {
+                jointWithWeld.Where(t => t.Date <= to);
+            }
+
+            
+            var q = session.QueryOver<Joint>();
+            // joint number
+            if(!string.IsNullOrWhiteSpace(jointNumber))
+            {
+                q.WhereRestrictionOn(n => n.Number).IsLike(jointNumber, MatchMode.Start);
+            }
+            // statuses
+            q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
+            // status
+            if(status != null)
+            {
+                q.Where(x => x.IsActive == status);
+            }
+            //peg
+            if(!string.IsNullOrWhiteSpace(peg))
+            {
+                int number = Convert.ToInt32(peg);
+                q.Where(x => x.NumberKP == number);
+            }
+
+            
+            q.WithSubquery
+                .WhereProperty(j => j.JointWeldResults)
+                .In(jointWithWeld);
+
+
+            return q.List<Joint>();
+        }
+
+        #endregion
     }
 }

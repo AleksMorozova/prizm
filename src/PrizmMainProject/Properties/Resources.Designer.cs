@@ -369,12 +369,22 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные 
-        ///    между заданными точками не зависимо от их связности..
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные
+        ///элементы расположенные между заданными точками
+        ///не зависимо от их связности..
         /// </summary>
         internal static string ConstructionReport_TracingReportInfoLabelText {
             get {
                 return ResourceManager.GetString("ConstructionReport_TracingReportInfoLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавить колонтитулы.
+        /// </summary>
+        internal static string ConstructionReports_FootersCheck {
+            get {
+                return ResourceManager.GetString("ConstructionReports_FootersCheck", resourceCulture);
             }
         }
         
@@ -1034,6 +1044,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить колонтитулы.
+        /// </summary>
+        internal static string InspectionReport_FootersCheck {
+            get {
+                return ResourceManager.GetString("InspectionReport_FootersCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отчет по входному контролю.
         /// </summary>
         internal static string InspectionReport_Title {
@@ -1202,6 +1221,33 @@ namespace Prizm.Main.Properties {
         internal static string Joint_IncorrectDiameterHeader {
             get {
                 return ResourceManager.GetString("Joint_IncorrectDiameterHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Accepted {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ремонт.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Repair {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Repair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вырезка.
+        /// </summary>
+        internal static string Joint_JointTestResultStatus_Withdraw {
+            get {
+                return ResourceManager.GetString("Joint_JointTestResultStatus_Withdraw", resourceCulture);
             }
         }
         
@@ -1985,6 +2031,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить колонтитулы.
+        /// </summary>
+        internal static string MillReport_FootersCheck {
+            get {
+                return ResourceManager.GetString("MillReport_FootersCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отчет.
         /// </summary>
         internal static string MillReport_Title {
@@ -2537,6 +2592,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить колонтитулы.
+        /// </summary>
+        internal static string PipeConstructionReport_FootersCheck {
+            get {
+                return ResourceManager.GetString("PipeConstructionReport_FootersCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отчеты по трубам на стройке.
         /// </summary>
         internal static string PipeConstructionReport_Title {
@@ -2582,20 +2646,20 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Брак.
+        ///   Looks up a localized string similar to Годен.
         /// </summary>
-        internal static string PipeTestResultStatus_Failed {
+        internal static string PipeTestResultStatus_Accepted {
             get {
-                return ResourceManager.GetString("PipeTestResultStatus_Failed", resourceCulture);
+                return ResourceManager.GetString("PipeTestResultStatus_Accepted", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Годен.
+        ///   Looks up a localized string similar to Брак.
         /// </summary>
-        internal static string PipeTestResultStatus_Passed {
+        internal static string PipeTestResultStatus_Rejected {
             get {
-                return ResourceManager.GetString("PipeTestResultStatus_Passed", resourceCulture);
+                return ResourceManager.GetString("PipeTestResultStatus_Rejected", resourceCulture);
             }
         }
         
@@ -3902,6 +3966,15 @@ namespace Prizm.Main.Properties {
         internal static string Weld {
             get {
                 return ResourceManager.GetString("Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавить колонтитулы.
+        /// </summary>
+        internal static string WeldDateReport_FootersCheck {
+            get {
+                return ResourceManager.GetString("WeldDateReport_FootersCheck", resourceCulture);
             }
         }
         

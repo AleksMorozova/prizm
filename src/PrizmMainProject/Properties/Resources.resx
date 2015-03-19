@@ -463,7 +463,7 @@
   <data name="Produced" xml:space="preserve">
     <value>Производится</value>
   </data>
-  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Accepted" xml:space="preserve">
     <value>Годен</value>
   </data>
   <data name="Message_UnknownComponentType" xml:space="preserve">
@@ -729,7 +729,7 @@
   <data name="Diameter" xml:space="preserve">
     <value>Диаметр</value>
   </data>
-  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Rejected" xml:space="preserve">
     <value>Брак</value>
   </data>
   <data name="WallThickness" xml:space="preserve">
@@ -1073,8 +1073,9 @@
     <value>По использованным изделиям</value>
   </data>
   <data name="ConstructionReport_TracingReportInfoLabelText" xml:space="preserve">
-    <value>Данный тип отчета содержит все сваренные элементы расположенные 
-    между заданными точками не зависимо от их связности.</value>
+    <value>Данный тип отчета содержит все сваренные
+элементы расположенные между заданными точками
+не зависимо от их связности.</value>
   </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
@@ -1429,5 +1430,29 @@
   </data>
   <data name="Audit_RadioUser" xml:space="preserve">
     <value>Пользователь</value>
+  </data>
+  <data name="ConstructionReports_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="InspectionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="MillReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="PipeConstructionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="WeldDateReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
   </data>
 </root>

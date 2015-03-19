@@ -676,7 +676,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 {
                     foreach(var item in pipe.PipeTestResult)
                     {
-                        item.Status = PipeTestResultStatus.Passed;
+                        item.Status = PipeTestResultStatus.Accepted;
                         if(item.Operation.Category.Type == FixedCategory.Length)
                         {
                             item.Value = PIPELENGHT.ToString();

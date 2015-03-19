@@ -10,9 +10,8 @@ using construction = Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Domain.Entity.Construction
 {
-    public class PartData
+    public class PartData : Item
     {
-        public virtual Guid Id { get; set; }
         public virtual PartType PartType { get; set; }
 
         public string Number { get; set; }
@@ -116,6 +115,7 @@ namespace Prizm.Domain.Entity.Construction
             else
             {
                 cnt.Diameter = this.Diameter;
+                cnt.WallThickness = this.WallThickness;
 
                 this.Connectors.Add(cnt);
 

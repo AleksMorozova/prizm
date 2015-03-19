@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -70,8 +71,8 @@
             this.middleNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.lastNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
-            this.validationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.validationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -205,6 +206,7 @@
             this.reEnterPass.Size = new System.Drawing.Size(376, 20);
             this.reEnterPass.StyleController = this.layoutControl;
             this.reEnterPass.TabIndex = 8;
+            compareAgainstControlValidationRule1.CaseSensitive = true;
             compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals;
             compareAgainstControlValidationRule1.Control = this.pass;
             compareAgainstControlValidationRule1.ErrorText = "Пароли не совпадают";

@@ -368,6 +368,9 @@ Spool_InspectionInspectorsColumn=Inspectors
 ;Катушка. Комментарии по результату входного контроля
 Spool_InspectionReasonColumn=Reason
 
+;Катушка. порядок операций входного контроля
+Spool_InspectionOrderColumn=Order
+
 ;Катушка. Кнопка поиска трубы
 Spool_SearchButton=&Edit pipe
 
@@ -868,8 +871,8 @@ Audit_NewValueColumnHeader=New value
 ;Аудит. Надпись колонки поля
 Audit_FieldColumnHeader=Field
 
-;Аудит. Надпись колонки номера
-Audit_NumberColumnHeader=Number
+;Аудит. Надпись колонки номера владельца
+Audit_NumberColumnHeader=Owner number
 
 ;Аудит. Надпись панели параметров поиска
 Audit_SearchParametersGroup=Search parameters
@@ -896,7 +899,7 @@ PartSearch_SearchNumberLabel=&Number
 PartSearch_SearchTypeLabel=&Type
 
 ;Поиск элементов трубопровода. Надпись активности элемента
-PartSearch_ActivityLabel=Activity status
+PartSearch_ActivityLabel= &Activity status
 
 ;Поиск элементов трубопровода. Надпись кнопки поиска
 PartSearch_SearchButton=&Search
@@ -1123,6 +1126,9 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
+;Порядок
+ComponentNewEdit_OrderColumn=Order
+
 ;Наружный диаметр отверстия, мм
 ComponentNewEdit_DiameterGridColumn=External diameter, mm
 
@@ -1146,6 +1152,15 @@ ComponentNewEdit_SavedHeader=Component has been saved
 
 ;Сообщение об ошибке: Величина диаметра должна быть больше нуля
 ComponentNewEdit_DiameterValueValidation=Diameter value should be greater than 0
+
+;Статус для контрольной операции стыка: Вырезка
+Joint_JointTestResultStatus_Withdraw=Withdraw
+
+;статус для сконтрольной операции стыка: Ремонт
+Joint_JointTestResultStatus_Repair=Repair
+
+;статус для контрольной операции стыка: Принят
+Joint_JointTestResultStatus_Accepted=Accepted
 
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
@@ -1268,7 +1283,7 @@ Joint_IncorrectDiameter=There are no suitable diameters or wall thicknesses for 
 Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint elements do not match
 
 ;Ном&ер стыка
-JointSearch_JointNumber=Joint&Number
+JointSearch_JointNumber=Joint &number
 
 ;С&татус
 JointSearch_ControlStateLayout=S&tatus
@@ -1509,6 +1524,9 @@ PartInspection_InspectorColumnHeader=Inspector
 
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
+
+;Входной контроль элемента. Надпись колонки порядок
+PartInspection_OrderColumnHeader=Order
 
 ;Входной контроль элемента. Надпись панели поиска
 PartInspection_SearchGroup=Search
@@ -2105,10 +2123,10 @@ Notification_ExpiredWelderCertificate_Warning=Certificate's date will be expired
 PipeTestResultStatus_Scheduled=Scheduled
 
 ;Результат контрольной операции. Принят
-PipeTestResultStatus_Passed=Passed
+PipeTestResultStatus_Accepted=Accepted
 
 ;Результат контрольной операции. Брак
-PipeTestResultStatus_Failed=Failed
+PipeTestResultStatus_Rejected=Rejected
 
 ;Результат контрольной операции. Ремонт
 PipeTestResultStatus_Repair=Repair
@@ -2480,3 +2498,18 @@ Menu_File_HistoryExportImport=Export/Import history
 
 ;Просмотр истории экспорта/импорта
 SecurityPrivilege_ViewExportImportHistory=View export/import history
+
+;Добавить колонтитулы
+MillReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+InspectionReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+ConstructionReports_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+WeldDateReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+PipeConstructionReport_FootersCheck=Add headers and footers

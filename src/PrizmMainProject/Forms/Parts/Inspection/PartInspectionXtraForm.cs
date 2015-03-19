@@ -39,17 +39,19 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             InitializeComponent();
             SetAlwaysEditable(searchNumber);
+            SetAlwaysReadOnly(elementType);
+            SetAlwaysReadOnly(elementNumber);
             searchNumber.SetAsIdentifier();
             IsEditMode = true;
         }
 
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PartType>.EnumerateItems())
+            foreach(var item in EnumWrapper<PartType>.EnumerateItems())
             {
                 localizedAllPartTypes.Add(item.Item2);
             }
-            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0:true))
+            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
             {
                 localizedAllInspectionStatus.Add(item.Item2);
             }
@@ -121,6 +123,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 new LocalizedItem(colResult, StringResources.PartInspection_ResultColumnHeader.Id),
                 new LocalizedItem(colInspector, StringResources.PartInspection_InspectorColumnHeader.Id),
                 new LocalizedItem(colReason, StringResources.PartInspection_ReasonColumnHeader.Id),
+                new LocalizedItem(colOrder, StringResources.PartInspection_OrderColumnHeader.Id),
 
                 // layout control groups
                 new LocalizedItem(searchElementGroup, StringResources.PartInspection_SearchGroup.Id),
@@ -150,20 +153,20 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value != null)
+            if(e.Value != null)
             {
                 PartInspectionStatus result;
-                if (Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<PartInspectionStatus>(e.Value.ToString(), out result))
                 {
-                    e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result-1];
+                    e.DisplayText = (result == PartInspectionStatus.Undefined) ? "" : localizedAllInspectionStatus[(int)result - 1];
                 }
             }
         }
 
         private void resultStatusLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {            
+        {
             LookUpEdit lookup = sender as LookUpEdit;
-            if (lookup.ItemIndex != -1)
+            if(lookup.ItemIndex != -1)
             {
                 lookup.EditValue = (PartInspectionStatus)lookup.ItemIndex + 1;
             }
@@ -171,7 +174,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void inspectorsPopupContainerEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
-            if (e.Value == null)
+            if(e.Value == null)
                 e.DisplayText = string.Empty;
 
             IList<Inspector> inspectors = e.Value as IList<Inspector>;
@@ -181,12 +184,12 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private void inspectorsPopupContainerEdit_Popup(object sender, EventArgs e)
         {
             inspectionsView.ClearSelection();
-            if (inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
+            if(inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
             {
                 InspectionTestResult inspectionTestResult
                     = inspectionsView.GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectorSelectionControl.SelectInspectors(inspectionTestResult.Inspectors);
                 }
@@ -195,16 +198,16 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void inspectorsPopupContainerEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
-            if (inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
+            if(inspectionsView.IsValidRowHandle(inspectionsView.FocusedRowHandle))
             {
                 IList<Inspector> selectedInspectors = inspectorSelectionControl.SelectedInspectors;
                 InspectionTestResult inspectionTestResult
                     = inspectionsView.GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
 
-                if (inspectionTestResult != null)
+                if(inspectionTestResult != null)
                 {
                     inspectionTestResult.Inspectors.Clear();
-                    foreach (Inspector i in selectedInspectors)
+                    foreach(Inspector i in selectedInspectors)
                     {
                         inspectionTestResult.Inspectors.Add(i);
                     }
@@ -218,7 +221,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 = inspectionsView
                 .GetRow(inspectionsView.FocusedRowHandle) as InspectionTestResult;
 
-            if (inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
+            if(inspectionTestResult == null || (inspectionTestResult != null && inspectionTestResult.Date == null))
             {
                 inspectionsView.SetColumnError(inspectionsView.VisibleColumns[0], Program.LanguageManager.GetString(StringResources.DateFirst));
                 e.Cancel = true;
@@ -238,6 +241,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
             inspectionTestResult.IsActive = true;
             inspectionTestResult.Status = PartInspectionStatus.Pending;
             inspectionTestResult.Part = viewModel.ConvertedPart;
+
+            //set order
+            inspectionTestResult.Order = viewModel.InspectionTestResultsMaxOrder() + 1;
         }
 
         private void elementNumber_EditValueChanged(object sender, EventArgs e)
@@ -251,11 +257,25 @@ namespace Prizm.Main.Forms.Parts.Inspection
             var gv = sender as GridView;
             var inspResult = gv.GetRow(e.RowHandle) as InspectionTestResult;
 
-            if (inspResult.Inspectors == null || inspResult.Inspectors.Count <= 0)
+            if(inspResult.Inspectors == null || inspResult.Inspectors.Count <= 0)
             {
                 gv.SetColumnError(colInspector, Program.LanguageManager.GetString(StringResources.Value_Required));
                 e.Valid = false;
             }
+        }
+
+        private void inspectionsView_KeyDown(object sender, KeyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.RemoveSelectedItem<InspectionTestResult>(e, viewModel.InspectionTestResults, (_) => _.IsNew());
+
+            //recalculate order
+            if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
+            {
+                viewModel.RecalculateInspectionTestResultsOrder();
+            }
+
+            view.RefreshData();
         }
 
     }

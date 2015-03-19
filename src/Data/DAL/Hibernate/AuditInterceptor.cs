@@ -9,6 +9,7 @@ using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Domain.Entity.Security;
+using System.Reflection;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -79,7 +80,7 @@ namespace Prizm.Data.DAL.Hibernate
                         ||
                         previousState[i] != null && IsAuditableType(previousState[i]))
                     {
-                        if (IsMapLikeComponent(currentState[i]) || IsMapLikeComponent(previousState[i]))
+                        if ((IsMapLikeComponent(currentState[i]) || IsMapLikeComponent(previousState[i])) && currentState[i] != null )
                         {
                             FlushDirtyEntityMapLikeComponent(currentState[i], currentState[i], previousState[i], types);
                             continue;
@@ -130,7 +131,8 @@ namespace Prizm.Data.DAL.Hibernate
                 TableName = tableName,
                 FieldName = enumFieldName,
                 NewValue = newValue,
-                OldValue = oldValue
+                OldValue = oldValue,
+                OwnerId = curentity.OwnerId
             };
             LogRepo.BeginTransaction();
             LogRepo.Save(record);
@@ -241,27 +243,30 @@ namespace Prizm.Data.DAL.Hibernate
         {
             List<string> tempNames = new List<string>();
             List<object> tempCurrentState = new List<object>();
-            List<object> tempPreviousState = new List<object>();
+            List<object> tempPreviousState = (previousState == null) ? null : new List<object>();
 
             var propertyEntity = entity.GetType().GetProperties();
             var propertyCurren = currentState.GetType().GetProperties();
-            var propertyPrevious = previousState.GetType().GetProperties();
+            var propertyPrevious = (previousState == null) ? null : previousState.GetType().GetProperties();
 
             for (int i = 0; i < propertyEntity.Length; ++i)
             {
                 if (propertyEntity[i].Name == "Id") continue;
-                
+
                 tempNames.Add(propertyEntity[i].Name);
                 tempCurrentState.Add(propertyCurren[i].GetValue(currentState));
-                tempPreviousState.Add(propertyPrevious[i].GetValue(previousState));
+                if (propertyPrevious != null)
+                {
+                    tempPreviousState.Add(propertyPrevious[i].GetValue(previousState));
+                }
             }
 
             this.OnFlushDirty(
-                entity, 
-                ((Item)entity).Id, 
-                tempCurrentState.ToArray(), 
-                tempPreviousState.ToArray(), 
-                tempNames.ToArray(), 
+                entity,
+                propertyEntity.FirstOrDefault<PropertyInfo>(x => x.Name == "Id").GetValue(entity),
+                tempCurrentState.ToArray(),
+                (tempPreviousState == null) ? null : tempPreviousState.ToArray(),
+                tempNames.ToArray(),
                 types);
         }
 

@@ -36,27 +36,48 @@ namespace Prizm.Main.Forms.Reports.Incoming
 
         public void Execute()
         {
-            if (viewModel.StartDate > viewModel.EndDate)
+            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
-                notify.ShowNotify(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate), 
+                try
+                {
+                    data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
+                    IncomingReportsXtraReport report = new IncomingReportsXtraReport();
+                    SetDataSortByColumn("number");
+                    report.DataSource = data;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
+                    report.CreateDocument();
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
+                catch (RepositoryException ex)
+                {
+                    log.Error(string.Concat(ex.InnerException.Message, ex.Message));
+                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                }
+            }
+            else
+            {
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.Message_FailureReportDate),
                     Program.LanguageManager.GetString(StringResources.Message_FailureReportDateHeader));
+                log.Warn("Date limits not valid!" + "Diapason: start date= "
+                    + viewModel.StartDate.ToString() + " end date= " + viewModel.EndDate.ToString());
             }
-            try
-            {
-                data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
-                IncomingReportsXtraReport report = new IncomingReportsXtraReport();
-                report.DataSource = data;
-                report.CreateDocument();
-                var tool = new ReportPrintTool(report);
-                tool.AutoShowParametersPanel = false;
-                tool.ShowPreview();
-            }
-            catch (RepositoryException ex)
-            {
-                log.Error(string.Concat(ex.InnerException.Message, ex.Message));
-                notify.ShowFailure(ex.InnerException.Message, ex.Message);
-            }
+        }
 
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
 
         public bool CanExecute()

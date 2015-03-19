@@ -44,6 +44,7 @@
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.reasonGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.orderGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.LookUpEdit();
@@ -190,15 +191,19 @@
             this.inspectionDateGridColumn,
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
-            this.reasonGridColumn});
+            this.reasonGridColumn,
+            this.orderGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
             this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionHistoryGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.orderGridColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
+            this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
             // 
             // inspectionDateGridColumn
             // 
@@ -271,6 +276,14 @@
             // 
             this.reasonTextEdit.AutoHeight = false;
             this.reasonTextEdit.Name = "reasonTextEdit";
+            // 
+            // orderGridColumn
+            // 
+            this.orderGridColumn.Caption = "Порядок";
+            this.orderGridColumn.FieldName = "Order";
+            this.orderGridColumn.Name = "orderGridColumn";
+            this.orderGridColumn.Visible = true;
+            this.orderGridColumn.VisibleIndex = 4;
             // 
             // pipeLength
             // 
@@ -645,5 +658,6 @@
         private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
         public DevExpress.XtraEditors.SpinEdit spoolLength;
+        private DevExpress.XtraGrid.Columns.GridColumn orderGridColumn;
     }
 }

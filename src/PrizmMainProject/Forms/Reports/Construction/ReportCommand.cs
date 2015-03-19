@@ -121,6 +121,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
 
                     data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                    SetDataSortByColumn("number");
                 }
             }
             catch (RepositoryException ex)
@@ -161,25 +162,26 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                     for (int i = path.Count - 1; i > 0; --i)
                     {
-                        var tracingDataItem = new TracingData()
-                        {
-                            FirstPartNumber = path[i].Data.Number,
-                            FirstPartTypeDescription = path[i].Data.PartTypeDescription,
-                            FirstPartLength = path[i].Data.Length,
-
-                            SecondPartNumber = path[i - 1].Data.Number,
-                            SecondPartTypeDescription = path[i - 1].Data.PartTypeDescription,
-                            SecondPartLength = path[i - 1].Data.Length
-                        };
+                        var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
 
                         var commonJoint = path[i].GetCommonJoint(path[i - 1]);
+
                         tracingDataItem.JointNumber = commonJoint.Data.Number;
-                        tracingDataItem.WeldingDate =
-                            commonJoint.Data
-                            .JointWeldResults.First().Date.Value.ToShortDateString();
+                        tracingDataItem.WeldingDate = commonJoint.Data.JointWeldResults.First().Date.Value.ToShortDateString();
 
                         tracingDataList.Add(tracingDataItem);
                     }
+
+                    var firstTracingDataItem = new TracingData(null, path.Last().Data);
+                    firstTracingDataItem.JointNumber = viewModel.StartJoint.Number;
+                    firstTracingDataItem.WeldingDate = viewModel.StartJoint.JointWeldResults.First().Date.Value.ToShortDateString();
+                    tracingDataList.Insert(0, firstTracingDataItem);
+
+                    var lastTracingDataItem = new TracingData(path.First().Data, null);
+                    lastTracingDataItem.JointNumber = viewModel.EndJoint.Number;
+                    lastTracingDataItem.WeldingDate = viewModel.EndJoint.JointWeldResults.First().Date.Value.ToShortDateString();
+                    tracingDataList.Add(lastTracingDataItem);
+
 
                     PipelineLenghtCalculation();
                 }
@@ -190,10 +192,12 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
+
+
         private void PipelineLenghtCalculation()
         {
             viewModel.PipelineJointCount = 
-                path.Count - 1;
+                path.Count + 1;
 
             viewModel.PipelinePipeCount =
                 path.Where<PipelineVertex>(x => x.Data.PartType == PartType.Pipe).Count<PipelineVertex>();
@@ -206,6 +210,21 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel.PipelineLength =
                 path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
+        }
+
+        private void SetDataSortByColumn(string columnName)
+        {
+            foreach (DataTable t in data.Tables)
+            {
+                foreach (DataColumn column in ((DataTable)t).Columns)
+                {
+                    if (column.ColumnName == columnName)
+                    {
+                        t.DefaultView.Sort = column.ColumnName;
+                        break;
+                    }
+                }
+            }
         }
 
         public bool CanExecute() { return true; }
