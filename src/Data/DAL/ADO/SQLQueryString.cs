@@ -110,14 +110,14 @@ group by productionDate  ";
 
           @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName, constructionStatus 
             FROM pipe 
-            WHERE isActive = 1 AND isAvailableToJoint = 1 AND isCutOnSpool = 0
+            WHERE isActive = 1 AND isAvailableToJoint = 1 AND isCutOnSpool = 0 AND [inspectionStatus] = 'Accepted'
             
             UNION ALL
 
             SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName, s.constructionStatus 
             FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id 
-            WHERE s.isActive = 1  AND s.isAvailableToJoint = 1
+            WHERE s.isActive = 1  AND s.isAvailableToJoint = 1 AND s.[inspectionStatus] = 'Accepted'
             
             UNION ALL
 
@@ -130,7 +130,7 @@ group by productionDate  ";
                     c.isAvailableToJoint = 1 AND 
                     (con.jointId IS NULL OR
                     con.jointId = CAST(CAST(0 AS BINARY) AS UNIQUEIDENTIFIER))
-                    
+                    AND c.[inspectionStatus] = 'Accepted'
             
             ORDER BY number";
 

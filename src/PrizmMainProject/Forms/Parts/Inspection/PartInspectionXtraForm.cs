@@ -18,6 +18,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Main.Languages;
 using Prizm.Main.Documents;
 using Prizm.Main.Common;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -63,6 +64,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             IsEditMode = false;
 
             repositoryInspectionDateEdit.SetLimits();
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         private void BindCommands()
@@ -273,9 +275,15 @@ namespace Prizm.Main.Forms.Parts.Inspection
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
     }

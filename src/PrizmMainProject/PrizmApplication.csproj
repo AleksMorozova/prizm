@@ -194,6 +194,7 @@
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\DateExtension.cs" />
+    <Compile Include="Common\InspectorsPopUpExtensions.cs" />
     <Compile Include="Controls\DateEditExtension.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />

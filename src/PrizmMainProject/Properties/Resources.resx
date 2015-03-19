@@ -1467,4 +1467,7 @@
   <data name="Joint_JointTestResultStatus_Withdraw" xml:space="preserve">
     <value>Вырезка</value>
   </data>
+  <data name="Value_Required" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
 </root>
