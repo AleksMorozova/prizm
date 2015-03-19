@@ -16,7 +16,7 @@ namespace Prizm.Data.DAL.Mapping
             Map(x => x.Date).Column("date");
             Map(x => x.Value).Column("value");
             Map(x => x.Status).Column("status");
-            Map(x => x.Order).Column("[jointOrder]");
+            Map(x => x.Order).Column("jointOrder");
 
             References<JointOperation>(_ => _.Operation).Column("jointOperationId");
             References<Joint>(_ => _.Joint).Column("jointId");
