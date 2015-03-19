@@ -32,6 +32,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.DXErrorProvider;
 using Prizm.Main.Languages;
 using DevExpress.Data;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -160,6 +161,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void BindToViewModel()
         {
             pipeNewEditBindingSource.DataSource = viewModel;
+
+            viewModel.PipeNotifier=NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(viewModel.Pipe);
 
             #region ComboBox filling
 

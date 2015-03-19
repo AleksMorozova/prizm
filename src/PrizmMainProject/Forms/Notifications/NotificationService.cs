@@ -24,6 +24,16 @@ namespace Prizm.Main.Forms.Notifications
             } 
         }
 
+        public IDuplicateLoginManager DuplicateLoginManager
+        {
+            get
+            {
+                return (IDuplicateLoginManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.DuplicateLogin; }
+                    ).Value;
+            }
+        }
+
         public IExpiredWelderCertificateManager ExpiredWelderCertificateManager
         {
             get
@@ -91,6 +101,14 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
+        public void UpdateNotification() 
+        {
+            EventHandler eventRefresh = this.NotificationReload;
+            if (eventRefresh != null)
+            {
+                eventRefresh(this, EventArgs.Empty);
+            }
+        }
         public static NotificationService Instance
         {
             get

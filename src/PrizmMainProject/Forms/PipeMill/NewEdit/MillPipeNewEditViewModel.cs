@@ -19,6 +19,7 @@ using Prizm.Main.Common;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Security;
+using Prizm.Main.Forms.Notifications.Managers.NotRequired;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -245,6 +246,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         #endregion
 
         #region Pipe
+
+        public IPipeNotifier pipeNotifier;
+        public IPipeNotifier PipeNotifier
+        {
+            get { return pipeNotifier; }
+            set
+            {
+                if (value != pipeNotifier)
+                {
+                    pipeNotifier = value;
+                    RaisePropertyChanged("PipeNotifier");
+                }
+            }
+        }
 
         public bool PipeIsActive
         {

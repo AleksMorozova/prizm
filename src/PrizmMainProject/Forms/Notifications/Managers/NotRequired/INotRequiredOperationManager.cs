@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 {
 
-    interface IPipeNotifier
+    public interface IPipeNotifier
     {
         void UpdateNotifications(Pipe pipeSavingState);
     }

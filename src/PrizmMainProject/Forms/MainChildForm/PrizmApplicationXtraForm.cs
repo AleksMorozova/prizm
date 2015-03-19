@@ -387,9 +387,8 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
             localizedNotificationPanelButton.Add(barButtonStatusNotifications.Caption);
-            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
-
+            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
         }
         
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
@@ -445,6 +444,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void OnNotificationRefresh(object sender, EventArgs e)
         {
             int NotificationCount = NotificationService.Instance.NotificationCount;
+            UpdateNumberOfNotification();
         }
 
         private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)

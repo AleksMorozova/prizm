@@ -24,9 +24,9 @@ namespace Prizm.Main.Forms.Notifications.Managers
         }
 
 
-        public void RefreshNotification(Guid pipe, string oldNumber, string newNumber)
+        public void RefreshNotifications()
         {
-            throw new NotImplementedException();
+            LoadNotifications();
         }
     }
 }
