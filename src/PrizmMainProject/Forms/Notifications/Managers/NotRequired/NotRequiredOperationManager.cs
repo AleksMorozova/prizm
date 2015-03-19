@@ -156,7 +156,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         {
                             if (!testResult.Operation.IsRequired)
                             {
-                                info.initialNROList.Add(new NROInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Passed));
+                                info.initialNROList.Add(new NROInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
                             }
                         }
                         else
