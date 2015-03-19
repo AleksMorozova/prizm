@@ -143,6 +143,8 @@ namespace Prizm.Main.Forms.Spool
             spoolNumber.SetAsIdentifier();
 
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         #region --- Localization ---

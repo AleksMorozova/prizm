@@ -150,6 +150,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             componentLength.SetMask(Constants.PositiveDigitMask);
 
             inspectorColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         private void BindToViewModel()
