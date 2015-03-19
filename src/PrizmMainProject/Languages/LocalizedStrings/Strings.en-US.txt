@@ -1522,9 +1522,6 @@ PartInspection_ResultColumnHeader=Result
 ;Входной контроль элемента. Надпись колонки инспектора
 PartInspection_InspectorColumnHeader=Inspector
 
-;Входной контроль элемента. Надпись колонки порядок
-PartInspection_InspectorColumnHeader=Order
-
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
 
