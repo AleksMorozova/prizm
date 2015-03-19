@@ -275,9 +275,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
         }
 
         private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)

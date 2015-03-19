@@ -360,9 +360,10 @@ namespace Prizm.Main.Forms.Spool
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
         }
     }
 }
