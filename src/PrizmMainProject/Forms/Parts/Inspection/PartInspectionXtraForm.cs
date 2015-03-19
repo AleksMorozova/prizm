@@ -63,6 +63,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             IsEditMode = false;
 
             repositoryInspectionDateEdit.SetLimits();
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         private void BindCommands()
