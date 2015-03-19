@@ -120,6 +120,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
             private NotRequiredOperationManager manager;
             private Guid initialPipeSizeTypeId = default(Guid);
+            private int initialPipeLength = 0;
+            private float initialPipeWeight = 0;
+            private List<PipeTestResult> initialPipeTestResult = new List<PipeTestResult>();
             private List<NROInfo> initialNROList = new List<NROInfo>();
             private bool isProperlyCreated = true;
             private bool isAlreadyUpdated = false;
@@ -135,6 +138,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 if (pipeInitialState.Type != null)
                 {
                     info.initialPipeSizeTypeId = pipeInitialState.Type.Id;
+                    info.initialPipeLength = pipeInitialState.Length;
+                    info.initialPipeWeight = pipeInitialState.Weight;
+                    info.initialPipeTestResult.AddRange(pipeInitialState.PipeTestResult);
                 }
                 if (pipeInitialState.PipeTestResult != null)
                 {
@@ -158,6 +164,42 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 return info;
             }
 
+            public void UpdateListOfNotification(Guid operationId)
+            {
+                NotRequiredCache c = new NotRequiredCache();
+                if (manager.notifications.FindAll(_ => _.Id == operationId).Count >= 1)
+                {
+                    if (c.IsGoingToExpire(operationId))
+                    {
+                        //update notification type
+                        foreach (Notification n in manager.notifications.FindAll(_ => _.Id == operationId)) 
+                        {
+                            if (c.IsExpired(operationId))
+                            {
+                                n.Status = NotificationStatus.Critical;
+
+                            }
+                            else 
+                            { 
+                                n.Status = NotificationStatus.Warning; 
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //remove notification
+                        manager.notifications.RemoveAll(_ => _.Id == operationId);
+                    }
+                }
+                else
+                {
+                    if (c.IsGoingToExpire(operationId))
+                    {
+                        //create notification
+                        manager.notifications.Add(CreateNotification(operationId, c.GetOwnerName(operationId), c.GetUnits(operationId), c.GetUnits(operationId).ToString()));
+                    }
+                }
+            }
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
                 if (isProperlyCreated && !isAlreadyUpdated)
@@ -165,14 +207,63 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* What can happen at Save Pipe: (NRO - non required inspection operation)
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
                     if (initialPipeSizeTypeId == null)
-                    { 
-                        // TODO
+                    {
+                        NotRequiredCache c = new NotRequiredCache();
+                        foreach(PipeTestResult results in pipeSavingState.PipeTestResult)
+                        {
+                            if (!results.Operation.IsRequired) 
+                            {
+                                if (results.Operation.Frequency.Measure == FrequencyMeasure.Meters)
+                                    c.AddUnits(results.Operation.Id, initialPipeWeight);
+
+                                else if (results.Operation.Frequency.Measure == FrequencyMeasure.Tons)
+                                    c.AddUnits(results.Operation.Id, initialPipeLength);
+
+                                else if (results.Operation.Frequency.Measure == FrequencyMeasure.Pipes)
+                                    c.AddUnits(results.Operation.Id, 1);
+                                UpdateListOfNotification(results.Operation.Id);
+                            }
+                        }
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
-                        // TODO
+                        NotRequiredCache c = new NotRequiredCache();
+
+                        //remove old operation with units units
+                        foreach (PipeTestResult result in initialPipeTestResult)
+                        {
+                            if (!result.Operation.IsRequired)
+                            {
+                                if (result.Operation.Frequency.Measure == FrequencyMeasure.Meters)
+                                    c.RemoveUnits(result.Operation.Id, initialPipeWeight);
+
+                                else if (result.Operation.Frequency.Measure == FrequencyMeasure.Tons)
+                                    c.RemoveUnits(result.Operation.Id, initialPipeLength);
+
+                                else if (result.Operation.Frequency.Measure == FrequencyMeasure.Pipes)
+                                    c.RemoveUnits(result.Operation.Id, 1);
+                                UpdateListOfNotification(result.Operation.Id);
+                            }
+                        }
+
+                        //add new operation with units units
+                        foreach (PipeTestResult newResult in pipeSavingState.PipeTestResult)
+                        {
+                            if (!newResult.Operation.IsRequired)
+                            {
+                                if (newResult.Operation.Frequency.Measure == FrequencyMeasure.Meters)
+                                    c.AddUnits(newResult.Operation.Id, initialPipeWeight);
+
+                                else if (newResult.Operation.Frequency.Measure == FrequencyMeasure.Tons)
+                                    c.AddUnits(newResult.Operation.Id, initialPipeLength);
+
+                                else if (newResult.Operation.Frequency.Measure == FrequencyMeasure.Pipes)
+                                    c.AddUnits(newResult.Operation.Id, 1);
+                                UpdateListOfNotification(newResult.Operation.Id);
+                            }
+                        }
                     }
 
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
@@ -184,7 +275,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     { 
-                        // TODO
+                        NotRequiredCache c = new NotRequiredCache();
+                        foreach (PipeTestResult result in pipeSavingState.PipeTestResult)
+                        {
+                            if (!result.Operation.IsRequired)
+                            {
+                                if (result.Operation.Frequency.Measure == FrequencyMeasure.Meters)
+                                    c.RemoveUnits(result.Operation.Id, initialPipeWeight);
+
+                                else if (result.Operation.Frequency.Measure == FrequencyMeasure.Tons)
+                                    c.RemoveUnits(result.Operation.Id, initialPipeLength);
+
+                                else if (result.Operation.Frequency.Measure == FrequencyMeasure.Pipes)
+                                    c.RemoveUnits(result.Operation.Id, 1);
+
+                                UpdateListOfNotification(result.Operation.Id);
+                            }
+                        }
                     }
 
                     isAlreadyUpdated = true;

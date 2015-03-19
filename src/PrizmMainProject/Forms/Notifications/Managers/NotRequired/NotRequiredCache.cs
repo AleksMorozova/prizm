@@ -164,6 +164,18 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
         }
 
+        public float GetUnits(Guid pipeTestId)
+        {
+            try
+            {
+                return internalCache[pipeTestId].UnitsSinceLastOperation;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetUnits called for wrong pipe test. id: " + pipeTestId);
+                return 0;
+            }
+        }
         public IEnumerator<Guid> GetEnumerator()
         {
             return internalCache.Keys.AsEnumerable<Guid>().GetEnumerator();
