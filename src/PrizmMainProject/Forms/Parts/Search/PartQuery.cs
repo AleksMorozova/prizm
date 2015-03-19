@@ -119,7 +119,7 @@ namespace Prizm.Main.Forms.Parts.Search
                                 UNION ALL
                                 SELECT id, number, isActive,'{2}' FROM Spool {0}
                                 UNION ALL
-                                SELECT id, number, isActive,'{3}' FROM Component {0}", number, PartType.Pipe, PartType.Spool, PartType.Component
+                                SELECT id, number, isActive,'{3}' FROM Component {0}  ORDER BY number ASC ", number, PartType.Pipe, PartType.Spool, PartType.Component
                                 );
 
 
