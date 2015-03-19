@@ -8,6 +8,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 {
     internal class NotRequiredCache : IEnumerable<Guid>
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotRequiredCache));
+
         private class NotRequiredCachePack
         {
             public Guid OperationId { get; set; }
@@ -21,8 +23,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
             public float WarningBoundary { get { return warningBoundary; } }
 
-            public string Measure { get; set; } // enum type
             public float UnitsSinceLastOperation { get; set; }
+            public float UnitsLeft { get { return Frequency - UnitsSinceLastOperation; } }
+
+            public string Measure { get; set; } // enum type
             public string OperationCode { get; set; }
             public string OperationName { get; set; }
             public string PipeSizeTypeName { get; set; }
@@ -53,9 +57,21 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             internalCache.Clear();
         }
 
-        public void SetUnits(Guid pipeTestId, float unitsProducedSinceLastDate)
+        /// <summary>
+        /// sets number of units produced since last operation date
+        /// </summary>
+        /// <param name="pipeTestId">id of NRO</param>
+        /// <param name="unitsProducedSinceLastDate">number of units to be set</param>
+        /// <returns>status, if units were really set (pipeTestId found in cache)</returns>
+        public bool SetUnits(Guid pipeTestId, float unitsProducedSinceLastDate)
         {
-            internalCache[pipeTestId].UnitsSinceLastOperation = unitsProducedSinceLastDate;
+            bool found = false;
+            if (internalCache.ContainsKey(pipeTestId))
+            {
+                internalCache[pipeTestId].UnitsSinceLastOperation = unitsProducedSinceLastDate;
+                found = true;
+            }
+            return found;
         }
 
         /// <summary>
@@ -98,17 +114,54 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
         public bool IsGoingToExpire(Guid pipeTestId)
         {
-            return (internalCache[pipeTestId].UnitsSinceLastOperation >= internalCache[pipeTestId].WarningBoundary);
+            try
+            {
+                return (internalCache[pipeTestId].UnitsSinceLastOperation >= internalCache[pipeTestId].WarningBoundary);
+            }
+            catch(KeyNotFoundException)
+            {
+                log.Error("IsGoingToExpire called for wrong pipe test. id: " + pipeTestId);
+                return false;
+            }
+        }
+
+        public bool IsExpired(Guid pipeTestId)
+        {
+            try
+            {
+                return (internalCache[pipeTestId].UnitsSinceLastOperation >= internalCache[pipeTestId].Frequency);
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("IsExpired called for wrong pipe test. id: " + pipeTestId);
+                return false;
+            }
         }
 
         public string GetMeasure(Guid pipeTestId) // TODO return enum type back
         {
-            return internalCache[pipeTestId].Measure;
+            try
+            {
+                return internalCache[pipeTestId].Measure;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetMeasure called for wrong pipe test. id: " + pipeTestId);
+                return "";
+            }
         }
 
         public string GetOwnerName(Guid pipeTestId)
         {
-            return internalCache[pipeTestId].PipeSizeTypeName + ": " + internalCache[pipeTestId].OperationCode + "-" + internalCache[pipeTestId].OperationName;
+            try
+            {
+                return internalCache[pipeTestId].PipeSizeTypeName + ": " + internalCache[pipeTestId].OperationCode + "-" + internalCache[pipeTestId].OperationName;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetOwnerName called for wrong pipe test. id: " + pipeTestId);
+                return "";
+            }
         }
 
         public IEnumerator<Guid> GetEnumerator()
