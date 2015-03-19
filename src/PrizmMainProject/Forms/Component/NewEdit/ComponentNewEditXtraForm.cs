@@ -341,9 +341,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
         }
 
         private void ComponentNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
