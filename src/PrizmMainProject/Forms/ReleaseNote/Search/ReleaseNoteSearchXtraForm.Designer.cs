@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseNoteSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -37,9 +36,9 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.releasesGrid = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NoteId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -156,7 +155,7 @@
             // railcarListView
             // 
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Id,
+            this.NoteId,
             this.releaseNoteNumberGridColumn,
             this.releaseNoteDateGridColumn,
             this.statusColumn});
@@ -171,11 +170,11 @@
             this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
-            // Id
+            // NoteId
             // 
-            this.Id.Caption = "Id";
-            this.Id.FieldName = "Id";
-            this.Id.Name = "Id";
+            this.NoteId.Caption = "Id";
+            this.NoteId.FieldName = "Id";
+            this.NoteId.Name = "NoteId";
             // 
             // releaseNoteNumberGridColumn
             // 
@@ -605,7 +604,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn releaseNoteNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn releaseNoteDateGridColumn;
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonButtomEmptySpace;
-        private DevExpress.XtraGrid.Columns.GridColumn Id;
+        private DevExpress.XtraGrid.Columns.GridColumn NoteId;
         private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryShippedStatus;
         private DevExpress.XtraEditors.DateEdit endDate;
