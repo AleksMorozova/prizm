@@ -48,6 +48,22 @@ namespace Prizm.Data.DAL.Hibernate
            }
         }
 
+        public IList<JointBindingObject> QuickSearchByNumber(string number)
+        {
+           //var result = session.QueryOver<Joint>().WhereRestrictionOn(n => n.Number).IsLike(number, MatchMode.Start)
+           //    .Select(Projections.ProjectionList()
+           //                 .Add(Projections.Property("Id"), "id")
+           //                 .Add(Projections.Property("Number"), "number"));
+           //return result.List<Joint>;
+            ICriteria crit = session.CreateCriteria<Joint>()
+                        .SetProjection(Projections.ProjectionList()
+                            .Add(Projections.Property("Id"), "id")
+                            .Add(Projections.Property("Number"), "Number"))
+                        .SetResultTransformer(Transformers.AliasToBean<JointBindingObject>());
+            IList<JointBindingObject> results = crit.List<JointBindingObject>();
+            return results;
+        }
+
         public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, string peg, bool? status)
         {
 
@@ -71,7 +87,10 @@ namespace Prizm.Data.DAL.Hibernate
                 q.WhereRestrictionOn(n => n.Number).IsLike(jointNumber, MatchMode.Start);
             }
             // statuses
-            q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
+            if (statuses != null)
+            {
+                q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
+            }
             // status
             if(status != null)
             {
@@ -94,5 +113,11 @@ namespace Prizm.Data.DAL.Hibernate
         }
 
         #endregion
+    }
+
+    public class JointBindingObject
+    {
+        public virtual Guid Id { get; set; }
+        public virtual string Number { get; set; }
     }
 }

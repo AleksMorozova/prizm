@@ -190,6 +190,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
             commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
             commandManager["Deactivate"].Executor(viewModel.JointDeactivationCommand).AttachTo(deactivated);
+            commandManager["QuickSearch"].Executor(viewModel.QuickSearchCommand).AttachTo(searchButton);
 
             SaveCommand = viewModel.SaveJointCommand;
 

@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly JointDeactivationCommand jointdeactivationCommand;
         private readonly JointCutCommand jointCutCommand;
         private readonly SaveOrUpdateJointCommand saveOrUpdateJointCommand;
+        private readonly QuickSearchCommand quickSearchCommand;
         private IModifiable modifiableView;
         private IValidatable validatableView;
         private DataTable pieces;
@@ -89,6 +90,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
+            quickSearchCommand =
+                ViewModelSource.Create(() => new QuickSearchCommand(this, repoConstruction.RepoJoint));
             #endregion
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
@@ -224,6 +227,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public ICommand SaveOrUpdateJointCommand
         {
             get { return saveOrUpdateJointCommand; }
+        }
+
+        public ICommand QuickSearchCommand
+        {
+            get { return quickSearchCommand; }
         }
         #endregion
 
