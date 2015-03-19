@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         /// <summary>
         /// This method should be used when "Passed" NRO at pipe was removed or set to other not ready state, or pipe was deactivated.
         /// </summary>
-        /// <param name="operationId"></param>
+        /// <param name="OperationId"></param>
         private void LoadNotifications(Guid operationId)
         { 
             // TODO: reload certain NRO data to cache 
@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 {
 
                     KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
-                    cache.SetUnitsLeft(producedUnits.Key, producedUnits.Value);
+                    cache.SetUnits(producedUnits.Key, producedUnits.Value);
                     if (cache.IsGoingToExpire(producedUnits.Key))
                     {
                         notifications.Add(
@@ -75,16 +75,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                 /*
                  * 0) Clear the cache
-                 * 1) DB sql request: Read size types + not required inspection operations, from settings. Use internalCache.Add to add all information (except for unitsLeft)
+                 * 1) DB sql request: Read size types + not required inspection operations, from settings. Use internalCache.Add to add all information (except for UnitsLeft)
                  *      (INPUT: none)
-                 *      (OUTPUT: pipe size type name (!), pipe test id, operation code, operation name, frequency, frequency measure)
+                 *      (OUTPUT: pipe size type name (!), pipe test id, operation code, operation name, Frequency, Frequency Measure)
                  * 2) DB sql request: Read all MAX dates including NULL, ordering by not required inspection operations, in pipe test results. 
                  *      (INPUT: none)
                  *      (OUTPUT: pipe test id, date (can be NULL))
                  * 3) DB sql request: Read all "unitsProducedSinceLastDate" for all not required inspection operations.
-                 *      (INPUT: pipe test id, MAX date, frequency measure)
+                 *      (INPUT: pipe test id, MAX date, Frequency Measure)
                  *      (OUTPUT: pipe test id, unitsProducedSinceLastDate)
-                 * 4) modify for each cache entry: unitsLeft = frequency - unitsProducedSinceLastDate (use SetUnitsLeft)
+                 * 4) modify for each cache entry: UnitsLeft = Frequency - unitsProducedSinceLastDate (use SetUnits)
                  * 
                  * 5) iterate cache and use IsGoingToExpire to determine whether to create Notification (use this.CreateNotification)
                  * 
@@ -189,7 +189,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                     isAlreadyUpdated = true;
                 }
-                // NotRequiredOperationManager.CreateNotification(Guid ownerId, string ownerName, float unitsLeft, string information);
+                // NotRequiredOperationManager.CreateNotification(Guid ownerId, string ownerName, float UnitsLeft, string information);
                 // manager.cache. // TODO: what is required from cache, to update the information
                 // manager.notifications.Find( match operation id )  // in case when notification has to be removed
             }

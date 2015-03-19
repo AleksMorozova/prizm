@@ -10,32 +10,41 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
     {
         private class NotRequiredCachePack
         {
-            public Guid operationId { get; set; }
-            public int frequency { get; set; }
-            public string measure { get; set; } // enum type
-            public float unitsLeft { get; set; }
-            public string operationCode { get; set; }
-            public string operationName { get; set; }
-            public string pipeSizeTypeName { get; set; }
+            public Guid OperationId { get; set; }
+
+            private float warningBoundary = 0;
+            private int frequency = 0;
+            public int Frequency
+            {
+                get { return frequency; }
+                set { frequency = value; warningBoundary = value * Prizm.Main.Common.Constants.PercentForInspectionOperation; } 
+            }
+            public float WarningBoundary { get { return warningBoundary; } }
+
+            public string Measure { get; set; } // enum type
+            public float UnitsSinceLastOperation { get; set; }
+            public string OperationCode { get; set; }
+            public string OperationName { get; set; }
+            public string PipeSizeTypeName { get; set; }
         }
         private Dictionary<Guid, NotRequiredCachePack> internalCache = new Dictionary<Guid, NotRequiredCachePack>();
 
         public void AddOrReplace(
             Guid notRequiredOperationId,
-            int Frequency, float unitsLeft,
+            int frequency, float unitsSinceLastOperation,
             string operationCode, string operationName, string pipeSizeTypeName,
             string measure)
         {
             internalCache[notRequiredOperationId] =
                 new NotRequiredCachePack()
                 {
-                    operationId = notRequiredOperationId,
-                    frequency = Frequency,
-                    measure = measure,
-                    unitsLeft = unitsLeft,
-                    operationCode = operationCode,
-                    operationName = operationName,
-                    pipeSizeTypeName = pipeSizeTypeName
+                    OperationId = notRequiredOperationId,
+                    Frequency = frequency,
+                    Measure = measure,
+                    UnitsSinceLastOperation = unitsSinceLastOperation,
+                    OperationCode = operationCode,
+                    OperationName = operationName,
+                    PipeSizeTypeName = pipeSizeTypeName
                 };
         }
 
@@ -44,9 +53,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             internalCache.Clear();
         }
 
-        public void SetUnitsLeft(Guid pipeTestId, float unitsProducedSinceLastDate)
+        public void SetUnits(Guid pipeTestId, float unitsProducedSinceLastDate)
         {
-            internalCache[pipeTestId].unitsLeft = internalCache[pipeTestId].frequency - unitsProducedSinceLastDate;
+            internalCache[pipeTestId].UnitsSinceLastOperation = unitsProducedSinceLastDate;
         }
 
         /// <summary>
@@ -57,23 +66,49 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         /// <returns>status, if units were really added (pipeTestId found in cache)</returns>
         public bool AddUnits(Guid pipeTestId, float units)
         {
-            // TODO implement this method
-            return true;
+            bool found = false;
+            if (internalCache.ContainsKey(pipeTestId))
+            {
+                internalCache[pipeTestId].UnitsSinceLastOperation += units;
+                found = true;
+            }
+            return found;
+        }
+
+        /// <summary>
+        /// Removes units from total count. If result is less than 0 it becomes 0.
+        /// </summary>
+        /// <param name="pipeTestId">id of NRO</param>
+        /// <param name="units">number of units to be removed</param>
+        /// <returns>status, if units were really removed (pipeTestId found in cache)</returns>
+        public bool RemoveUnits(Guid pipeTestId, float units)
+        {
+            bool found = false;
+            if (internalCache.ContainsKey(pipeTestId))
+            {
+                internalCache[pipeTestId].UnitsSinceLastOperation -= units;
+                if (internalCache[pipeTestId].UnitsSinceLastOperation < 0)
+                {
+                    internalCache[pipeTestId].UnitsSinceLastOperation = 0;
+                }
+                found = true;
+            }
+            return found;
         }
 
         public bool IsGoingToExpire(Guid pipeTestId)
         {
-            return (internalCache[pipeTestId].unitsLeft >= internalCache[pipeTestId].frequency * Prizm.Main.Common.Constants.PercentForInspectionOperation);
+            return (internalCache[pipeTestId].UnitsSinceLastOperation >= internalCache[pipeTestId].WarningBoundary);
         }
 
         public string GetMeasure(Guid pipeTestId) // TODO return enum type back
         {
-            return internalCache[pipeTestId].measure;
+            return internalCache[pipeTestId].Measure;
         }
 
         public string GetOwnerName(Guid pipeTestId)
         {
-            return internalCache[pipeTestId].pipeSizeTypeName + ": " + internalCache[pipeTestId].operationCode + "-" + internalCache[pipeTestId].operationName;
+            return internalCache[pipeTestId].PipeSizeTypeName + ": " + internalCache[pipeTestId].OperationCode + "-" + internalCache[pipeTestId].OperationName;
         }
 
         public IEnumerator<Guid> GetEnumerator()
