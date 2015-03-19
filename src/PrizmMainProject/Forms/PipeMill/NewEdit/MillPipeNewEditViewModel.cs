@@ -671,7 +671,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Gets for current pipe all linked pipe test results and sets them to its property
+        /// Gets for current pipe all linked pipe test result and sets them to its property
         /// </summary>
         void GetAllPipeTestResults()
         {
@@ -723,7 +723,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Creates predefined pipe test results for all active required availableTests for concrete pipe mill size type
+        /// Creates predefined pipe test result for all active required availableTests for concrete pipe mill size type
         /// </summary>
         /// <param name="millSizeType"></param>
         public BindingList<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
@@ -820,7 +820,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Change Pipe status according to pipe test results
+        /// Change Pipe status according to pipe test result
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
@@ -839,7 +839,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Returns list of ordered Pipe test results
+        /// Returns list of ordered Pipe test result
         /// </summary>
         public List<string> orderTestResult()
         {
