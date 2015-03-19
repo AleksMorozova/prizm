@@ -2787,6 +2787,24 @@ namespace Prizm.Main.Languages
             Description = "статус контрольной операции для стыка"
         };
 
+        public static StringResource JointNew_SearchGroupLayout = new StringResource
+        {
+            Id = "JointNew_SearchGroupLayout",
+            Description = "Поиск и редактирование стыка"
+        };
+
+        public static StringResource JointNew_SearchButton = new StringResource
+        {
+            Id = "JointNew_SearchButton",
+            Description = "Найти и открыть для редактирования"
+        };
+
+        public static StringResource JointNew_SearchNumberLayout = new StringResource
+        {
+            Id = "JointNew_SearchNumberLayout",
+            Description = "&Номер искомого стыка"
+        };
+        
         public static StringResource JointNew_JointNumberLayout = new StringResource
         {
             Id = "JointNew_JointNumberLayout",

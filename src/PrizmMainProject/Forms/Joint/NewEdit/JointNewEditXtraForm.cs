@@ -241,6 +241,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
+                new LocalizedItem(searchLayoutGroup, StringResources.JointNew_SearchGroupLayout.Id),
+                new LocalizedItem(searchNumberLayout, StringResources.JointNew_SearchNumberLayout.Id),
+                new LocalizedItem(searchButton, StringResources.JointNew_SearchButton.Id),
                 new LocalizedItem(jointNumberLayout, StringResources.JointNew_JointNumberLayout.Id),
                 new LocalizedItem(jointStatusLayout, StringResources.JointNew_JointStatusLayout.Id),
                 new LocalizedItem(firstJointElementLayout, StringResources.JointNew_FirstJointElementLayout.Id),
@@ -257,7 +260,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 new LocalizedItem(GPSLongLayout, StringResources.JointNew_GPSLongLayout.Id),
                 new LocalizedItem(elevationLayout, StringResources.JointNew_ElevationLayout.Id),      
          
-                new LocalizedItem(inspectionLayoutGroup, StringResources.JointNew_InspectionLayoutGroup.Id),
                 new LocalizedItem(repairOperationLayout, StringResources.JointNew_RepairOperationLayout.Id),    
                 new LocalizedItem(controlOperationsLayout, StringResources.JointNew_ControlOperationsLayout.Id),
 

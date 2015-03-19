@@ -1162,6 +1162,15 @@ Joint_JointTestResultStatus_Repair=Repair
 ;статус для контрольной операции стыка: Принят
 Joint_JointTestResultStatus_Accepted=Accepted
 
+;Поиск и редактирование стыка
+JointNew_SearchGroupLayout=Joint search and editing
+
+;Номер искомого стыка
+JointNew_SearchNumberLayout= Searc&h number
+
+;Найти и открыть для редактирования
+JointNew_SearchButton = Search and open for e&diting 
+
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
 
