@@ -18,6 +18,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Main.Languages;
 using Prizm.Main.Documents;
 using Prizm.Main.Common;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
@@ -277,6 +278,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
 
             view.RefreshData();
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
     }

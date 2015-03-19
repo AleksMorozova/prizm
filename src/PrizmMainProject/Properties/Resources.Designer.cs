@@ -3951,6 +3951,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Значение обязательно.
+        /// </summary>
+        internal static string Value_Required {
+            get {
+                return ResourceManager.GetString("Value_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ожидайте.
         /// </summary>
         internal static string WaitScreen_Caption {

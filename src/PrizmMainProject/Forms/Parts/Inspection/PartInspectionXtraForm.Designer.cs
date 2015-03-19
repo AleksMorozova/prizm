@@ -162,6 +162,7 @@
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
             this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
             this.inspectionsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionsView_KeyDown);
+            this.inspectionsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // colDate
             // 
