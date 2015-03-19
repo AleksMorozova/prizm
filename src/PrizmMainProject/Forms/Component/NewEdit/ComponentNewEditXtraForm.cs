@@ -424,5 +424,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 ValidateInspection(inspectionHistoryGridView, inspectorColumn.Name.ToString(), e);
             }
         }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
     }
 }

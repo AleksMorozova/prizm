@@ -364,5 +364,10 @@ namespace Prizm.Main.Forms.Spool
 
             view.RefreshData();
         }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
     }
 }
