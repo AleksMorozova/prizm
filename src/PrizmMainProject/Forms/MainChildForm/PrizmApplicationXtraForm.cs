@@ -410,7 +410,7 @@ namespace Prizm.Main.Forms.MainChildForm
             notifyHistory.Items.Add(text);
             while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
             {
-                notifyHistory.Items.RemoveAt(0);
+                notifyHistory.Items.RemoveAt(notifyHistory.ItemCount-1);
             }
         }
 
