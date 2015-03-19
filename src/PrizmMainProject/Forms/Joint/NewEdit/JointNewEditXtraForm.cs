@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private List<string> localizedResults = new List<string>();
-        
+
         private void UpdateTextEdit()
         {
             jointNewEditBindingSoure.CancelEdit();
@@ -207,7 +207,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 localizedAllJointStatus.Add(item.Item2);
             }
 
-            foreach (var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
             {
                 localizedResults.Add(item.Item2);
             }
@@ -233,6 +233,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
+            weldersPopupContainerEdit.SetSize();
         }
 
         #region --- Localization ---
@@ -365,10 +368,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
             JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-            if (e.Value != null)
+            if(e.Value != null)
             {
                 JointTestResultStatus result;
-                if (Enum.TryParse<JointTestResultStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<JointTestResultStatus>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = (result == JointTestResultStatus.Undefined) ? "" : localizedResults[(int)result - 1];
                 }
@@ -381,26 +384,26 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void resultStatusLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit lookup = sender as LookUpEdit;
-            if (lookup.ItemIndex != -1)
+            if(lookup.ItemIndex != -1)
             {
                 lookup.EditValue = (JointTestResultStatus)lookup.ItemIndex + 1;
             }
         }
         private void resultStatusLookUpEdit_QueryPopUp(object sender, CancelEventArgs e)
         {
-            if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
+            if(controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 availableResults.Clear();
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if (jointTestResult != null && jointTestResult.Operation != null)
+                if(jointTestResult != null && jointTestResult.Operation != null)
                 {
-                    if (jointTestResult.Operation.TestHasAccepted)
+                    if(jointTestResult.Operation.TestHasAccepted)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Accepted - 1]));
 
-                    if (jointTestResult.Operation.TestHasToRepair)
+                    if(jointTestResult.Operation.TestHasToRepair)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Repair - 1]));
 
-                    if (jointTestResult.Operation.TestHasToWithdraw)
+                    if(jointTestResult.Operation.TestHasToWithdraw)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Withdraw - 1]));
 
                     resultStatusLookUpEdit.DataSource = availableResults;
