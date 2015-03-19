@@ -1453,6 +1453,7 @@ namespace Prizm.Main.Forms.Settings
             findDuplicateList.Add(this.certificateTypesView, certificateType);
 
         }
+
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
                  BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes)
         {
@@ -1497,6 +1498,9 @@ namespace Prizm.Main.Forms.Settings
 
                     if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
+                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
+                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
+                        
                         IsModified = true;
                         inspectionOperation.RefreshDataSource();
                     }
@@ -1525,6 +1529,9 @@ namespace Prizm.Main.Forms.Settings
 
                     if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
+                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
+                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
+
                         IsModified = true;
                         inspectionOperation.RefreshDataSource();
                     }
