@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using NHibernate.Transform;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -98,25 +99,18 @@ namespace Prizm.Data.DAL.Hibernate
         {
             try
             {
+                JointWeldResult weldResult = null;
+                JointTestResult testResult = null;
+                List<Welder> welders = null;
+
                 return 
-                    session.CreateCriteria<Joint>()
-                    .SetProjection(Projections.ProjectionList()
-                        .Add(Projections.Property("FirstElement"), "FirstElement")
-                        .Add(Projections.Property("SecondElement"), "SecondElement")
-                        .Add(Projections.Property("Number"), "Number")
-                        .Add(Projections.Property("Id"), "Id")
-                        .Add(Projections.Property("IsActive"), "IsActive")
-                        .Add(Projections.Property("Status"), "Status")
-                        .Add(Projections.Property("LoweringDate"), "LoweringDate")
-                        .Add(Projections.Property("DistanceFromKP"), "DistanceFromKP")
-                        .Add(Projections.Property("NumberKP"), "NumberKP")
-                     ).SetResultTransformer(Transformers.AliasToBean<Joint>())
-                     .Add(Restrictions.Eq("IsActive", true))
-                     .Add(Restrictions.IsNotNull("FirstElement"))
-                     .Add(Restrictions.IsNotNull("SecondElement"))
-                     .Add(Restrictions.Not(Restrictions.Eq("Status", JointStatus.Withdrawn)))
-                     .AddOrder(Order.Asc("Number"))
-                     .List<Joint>();
+                    session.QueryOver<Joint>()
+                    .Where(x => x.IsActive == true && x.FirstElement != null && x.SecondElement != null && x.Status != JointStatus.Withdrawn)
+                    .JoinAlias(j => j.JointWeldResults, () => weldResult, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => weldResult.Welders, () => welders, JoinType.LeftOuterJoin)
+                    .JoinAlias(j => j.JointTestResults, () => testResult, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity)
+                    .List<Joint>();
             }
             catch (GenericADOException ex)
             {
@@ -136,9 +130,9 @@ namespace Prizm.Data.DAL.Hibernate
                     .Add(Restrictions.Not(Restrictions.Eq("Status", JointStatus.Withdrawn)))
                     .AddOrder(Order.Asc("Number"))
                     .SetProjection(Projections.ProjectionList()
-                        .Add(Projections.Property("Number"), "Number")
-                        .Add(Projections.Property("Id"), "Id")
-                        .Add(Projections.Property("NumberKP"), "NumberKP")
+                        .Add(Projections.Property<Joint>(x => x.Number), "Number")
+                        .Add(Projections.Property<Joint>(x => x.Id), "Id")
+                        .Add(Projections.Property<Joint>(x => x.NumberKP), "NumberKP")
                      );
             }
             catch (GenericADOException ex)
