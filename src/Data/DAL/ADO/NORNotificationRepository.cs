@@ -223,5 +223,106 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                 throw new RepositoryException("Dispose", ex);
             }
         }
+
+
+        public KeyValuePair<Guid, float> GetUnitsProducedSinceLastDateTest(Guid testId, FrequencyMeasure measure)
+        {
+            CreateConnection();
+            KeyValuePair<Guid, float> unitsProducedSinceLastDate = new KeyValuePair<Guid, float>();
+
+            try
+            {
+                using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.Parameters.AddWithValue("@testId", testId);
+
+                    if (measure == FrequencyMeasure.Pipes)
+                    {
+                        command.CommandText = @" Select count(p.number) amount, Max(r.date) date , t.id 
+                                                            From Pipe p, PipeTest t, PipeTestResult r 
+                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
+                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>date
+                                                                            group by  t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+
+                                testId,
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]
+                            );
+                        }
+
+                    }
+                    else if (measure == FrequencyMeasure.Tons)
+                    {
+                        command.CommandText = @" Select sum(p.weight) amount, Max(r.date) date , t.id 
+                                                            From Pipe p, PipeTest t, PipeTestResult r 
+                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
+                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>date
+                                                                            group by  t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+
+                                testId,
+                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]
+
+                            );
+                        }
+                    }
+
+                    else if (measure == FrequencyMeasure.Meters)
+                    {
+                        command.CommandText = @" Select sum(p.length) amount, Max(r.date) date , t.id 
+                                                            From Pipe p, PipeTest t, PipeTestResult r 
+                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
+                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>date
+                                                                            group by  t.id ";
+
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                                (testId,
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                        }
+                    }
+                    else
+                    {
+                        command.CommandText = @" Select 0 amount, Max(r.date) date , t.id 
+                                                            From Pipe p, PipeTest t, PipeTestResult r 
+                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
+                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>date
+                                                                            group by  t.id ";
+                        SqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                                (testId,
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                        }
+                    }
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                throw new RepositoryException("Get all units produced fr current test", ex);
+            }
+
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return unitsProducedSinceLastDate;
+        }
     }
 }

@@ -30,6 +30,12 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             return new Notification(ownerId, ownerName, TypeNotification.NotRequiredInspectionOperation, information, unitsLeft);
         }
 
+        public void UpdateUnits(Guid operationId)
+        {
+            KeyValuePair<Guid, float> producedUnits = repo.GetUnitsProducedSinceLastDateTest(operationId, cache.GetMeasure(operationId));
+            cache.SetUnits(operationId, producedUnits.Value);
+        }
+
         #region --- Loading ---
 
         /// <summary>
@@ -115,6 +121,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                 public Guid OperationId { get { return operationId; } }
                 public bool IsCompleted { get { return isCompleted; } }
+
+                public override bool Equals(Object obj)
+                {
+                    return obj is NROInfo && this == (NROInfo)obj;
+                }
+                public override int GetHashCode()
+                {
+                    return operationId.GetHashCode() ^ isCompleted.GetHashCode();
+                }
+                public static bool operator ==(NROInfo x, NROInfo y)
+                {
+                    return x.operationId == y.operationId && x.isCompleted == y.isCompleted;
+                }
+                public static bool operator !=(NROInfo x, NROInfo y)
+                {
+                    return !(x == y);
+                }
             }
 
             private NotRequiredOperationManager manager;
@@ -136,6 +159,19 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 this.manager = manager;
             }
 
+            private static List<NROInfo> GetNROInfoListFromPipeTestResultList(IList<PipeTestResult> results)
+            {
+                List<NROInfo> list = new List<NROInfo>();
+                foreach (var testResult in results)
+                {
+                     if (!testResult.Operation.IsRequired)
+                     {
+                         list.Add(new NROInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
+                     }
+                 }
+                return list;
+            }
+
             public static PipeNotificationInfo Create(NotRequiredOperationManager manager, Pipe pipeInitialState)
             {
                 PipeNotificationInfo info = new PipeNotificationInfo(manager);
@@ -148,22 +184,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
                 if (pipeInitialState.PipeTestResult != null)
                 {
-                    foreach (var testResult in pipeInitialState.PipeTestResult)
-                    {
-                        if (testResult.Operation != null)
-                        {
-                            if (!testResult.Operation.IsRequired)
-                            {
-                                info.initialNROList.Add(new NROInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
-                            }
-                        }
-                        else
-                        {
-                            log.Error("Operation types aren't loaded. Not able to calculate Not Required Operation notifications.");
-                            info.isProperlyCreated = false;
-                            break;
-                        }
-                    }
+                    info.initialNROList.AddRange(GetNROInfoListFromPipeTestResultList(pipeInitialState.PipeTestResult));
                 }
                 return info;
             }
@@ -198,16 +219,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
-            private float ChooseUnit(FrequencyMeasure measure, float weight, int length)
+            private float ChooseUnit(FrequencyMeasure measure, Pipe pipe = null)
             {
                 float ret = 0;
                 switch (measure)
                 {
                     case FrequencyMeasure.Meters:
-                        ret = length;
+                        ret =pipe == null ? initialPipeLength : pipe.Length;
                         break;
                     case FrequencyMeasure.Tons:
-                        ret =weight;
+                        ret = pipe == null ? initialPipeWeight : pipe.Weight;
                         break;
                     case FrequencyMeasure.Pipes:
                         ret = 1;
@@ -220,31 +241,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
 
             private enum ProcessPipeTestResultsAction { Add, Remove };
-            private void ProcessPipeTestResults(IList<PipeTestResult> results, ProcessPipeTestResultsAction action, float weight, int length)
+
+            private void ProcessPipeTestResults(IList<PipeTestResult> results)
             {
                 foreach (PipeTestResult result in results)
                 {
-                    if (!result.Operation.IsRequired)
+                    if (!result.Operation.IsRequired && result.Status==PipeTestResultStatus.Accepted)
                     {
-                        if (action == ProcessPipeTestResultsAction.Add)
-                        {
-                            manager.cache.AddUnits(result.Operation.Id, ChooseUnit(result.Operation.Frequency.Measure, weight, length));
-                        }
-                        else if(action == ProcessPipeTestResultsAction.Remove)
-                        {
-                            manager.cache.RemoveUnits(result.Operation.Id, ChooseUnit(result.Operation.Frequency.Measure, weight, length));
-                        }
-                        UpdateNotification(result.Operation.Id);
+                        manager.UpdateUnits(result.Operation.Id);
                     }
                 }
             }
-
-            private void ProcessNROForPipeSizeType(Guid sizeTypeId, float weight, int length) 
+            private void ProcessNROForPipeSizeType(Guid sizeTypeId, Pipe pipe) 
             {
                 foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(sizeTypeId))
                 {
-                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id), initialPipeWeight, initialPipeLength));
-                    manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), weight, length));
+                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                    manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipe));
                     UpdateNotification(id);
                 }
             }
@@ -257,20 +270,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
                     if (initialPipeSizeTypeId == null)
                     {
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState.Weight,pipeSavingState.Length);
+                        ProcessPipeTestResults(pipeSavingState.PipeTestResult);
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
+                        ProcessPipeTestResults(initialPipeTestResult);
                         foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(initialPipeSizeTypeId))
                         {
-                            manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id), initialPipeWeight,initialPipeLength));
+                            manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
                             UpdateNotification(id);
                         }
+                        ProcessPipeTestResults(pipeSavingState.PipeTestResult);
                         foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(pipeSavingState.Type.Id))
                         {
-                            manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipeSavingState.Weight, pipeSavingState.Length));
+                            manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipeSavingState));
                             UpdateNotification(id);
                         }
                     }
@@ -278,13 +294,28 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
                     else if (initialPipeSizeTypeId == pipeSavingState.Type.Id)
                     {
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState.Weight, pipeSavingState.Length);
+                        HashSet<NROInfo> initialState = new HashSet<NROInfo>();
+                        initialState.UnionWith(initialNROList);
+                        HashSet<NROInfo> savingState = new HashSet<NROInfo>();
+                        savingState.UnionWith(GetNROInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
+
+                        var resultList = initialState.Except(savingState).Union(savingState.Except(initialState));
+                        foreach (NROInfo result in resultList)
+                        {
+                            if (result.IsCompleted)
+                            {
+                                manager.UpdateUnits(result.OperationId); 
+                            }
+                        }   
+             
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
                     }
 
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     {
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState.Weight, pipeSavingState.Length);
+                        ProcessPipeTestResults(pipeSavingState.PipeTestResult);
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
                     }
 
                     isAlreadyUpdated = true;
