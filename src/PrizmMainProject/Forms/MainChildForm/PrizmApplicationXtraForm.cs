@@ -218,6 +218,11 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             OpenChildForm(DocumentTypes.Audit);
         }
+
+        private void btnHistoryExportImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(typeof(HistoryExportImport));
+        }
         #endregion
 
 
@@ -381,7 +386,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
-
+            localizedNotificationPanelButton.Add(barButtonStatusNotifications.Caption);
             NotificationService.Instance.NotificationReload += OnNotificationRefresh;
             NotificationService.Instance.RequestAllNotification();
 
@@ -405,7 +410,7 @@ namespace Prizm.Main.Forms.MainChildForm
             notifyHistory.Items.Add(text);
             while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
             {
-                notifyHistory.Items.RemoveAt(0);
+                notifyHistory.Items.RemoveAt(notifyHistory.ItemCount-1);
             }
         }
 
@@ -440,8 +445,6 @@ namespace Prizm.Main.Forms.MainChildForm
         private void OnNotificationRefresh(object sender, EventArgs e)
         {
             int NotificationCount = NotificationService.Instance.NotificationCount;
-            barButtonStatusNotifications.Caption = string.Format("{0} ({1})",
-                localizedNotificationPanelButton.Count > 0 ? localizedNotificationPanelButton[0] : "", NotificationCount);
         }
 
         private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)
@@ -477,6 +480,8 @@ namespace Prizm.Main.Forms.MainChildForm
             barButtonItemSpool.Enabled = ctx.HasAccess(Privileges.CreateSpool) || ctx.HasAccess(Privileges.EditSpool);
             barButtonItemExport.Enabled = ctx.HasAccess(Privileges.ExportDataFromMaster) || ctx.HasAccess(Privileges.ExportDataFromConstruction) || ctx.HasAccess(Privileges.ExportDataFromMill);
             barButtonItemImport.Enabled = ctx.HasAccess(Privileges.ImportDataAtMaster) || ctx.HasAccess(Privileges.ImportDataAtConstruction);
+
+            btnHistoryExportImport.Enabled = ctx.HasAccess(Privileges.ViewExportImportHistory);
 
             barButtonItemFindEditJoints.Enabled = ctx.HasAccess(Privileges.SearchJoints);
 
@@ -540,6 +545,8 @@ namespace Prizm.Main.Forms.MainChildForm
         void CascadeChangeLanguage()
         {
             Program.LanguageManager.ChangeLanguage(this);
+            System.Threading.Thread.CurrentThread.CurrentCulture = Program.LanguageManager.CurrentCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Program.LanguageManager.CurrentCulture;
 
             foreach (var child in FormManager.Instance.ChildForms)
             {
@@ -554,6 +561,11 @@ namespace Prizm.Main.Forms.MainChildForm
 
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         protected List<string> localizedNotificationPanelButton = new List<string>();
+        void UpdateNumberOfNotification()
+        {
+            barButtonStatusNotifications.Caption = localizedNotificationPanelButton[0];
+            barButtonStatusNotifications.Caption += " (" + NotificationService.Instance.NotificationCount+")";
+        }
 
         public override void UpdateTitle()
         {
@@ -582,6 +594,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 new LocalizedItem(barSubItemApplication, "Menu_File"),
                 new LocalizedItem(barButtonItemExport, "Menu_File_Export"),
                 new LocalizedItem(barButtonItemImport, "Menu_File_Import"),
+                new LocalizedItem(btnHistoryExportImport, StringResources.Menu_File_HistoryExportImport.Id),
                 new LocalizedItem(barButtonItemExit, "Menu_File_Exit"),
                 new LocalizedItem(barSubItemMill, "Menu_Mill"),
                 new LocalizedItem(barButtonItemNewPipe, "Menu_Mill_NewPipe"),
@@ -621,7 +634,8 @@ namespace Prizm.Main.Forms.MainChildForm
                     "MainWindowHeader_Mill", "MainWindowHeader_Master", "MainWindowHeader_Construction" } ),
 
                 // status bar notifications panel button
-                new LocalizedItem(barButtonStatusNotifications, localizedNotificationPanelButton, new string[] {"MainWindow_StatusNotificationsHeader" }),
+                new LocalizedItem(barButtonStatusNotifications, localizedNotificationPanelButton, 
+                    new string[] {StringResources.MainWindow_StatusNotificationsHeader.Id}, UpdateNumberOfNotification),//"MainWindow_StatusNotificationsHeader"
             };
         }
 
@@ -644,5 +658,6 @@ namespace Prizm.Main.Forms.MainChildForm
             WinApi.ShowToFront(this.Handle);
         } 
         #endregion
+
     }
 }

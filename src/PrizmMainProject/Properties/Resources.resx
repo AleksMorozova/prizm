@@ -413,7 +413,7 @@
     <value>Величина диаметра должна быть больше нуля</value>
   </data>
   <data name="Joint_IncorrectDiameter" xml:space="preserve">
-    <value>Отсутствуют подходящие диаметры для формирования стыка.</value>
+    <value>Отсутствуют подходящие диаметры или толщины для формирования стыка.</value>
   </data>
   <data name="MillPipe_PipeSizeChangeHeader" xml:space="preserve">
     <value>Изменение типоразмера</value>
@@ -463,7 +463,7 @@
   <data name="Produced" xml:space="preserve">
     <value>Производится</value>
   </data>
-  <data name="PipeTestResultStatus_Passed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Accepted" xml:space="preserve">
     <value>Годен</value>
   </data>
   <data name="Message_UnknownComponentType" xml:space="preserve">
@@ -479,7 +479,7 @@
     <value>Роли пользователя</value>
   </data>
   <data name="Joint_IncorrectDiameterHeader" xml:space="preserve">
-    <value>Не совпадают диаметры стыкуемых элементов</value>
+    <value>Не совпадают диаметры или толщины стыкуемых элементов</value>
   </data>
   <data name="ReleaseNoteNewEdit_Shipped" xml:space="preserve">
     <value>Отгрузка произошла успешно</value>
@@ -729,7 +729,7 @@
   <data name="Diameter" xml:space="preserve">
     <value>Диаметр</value>
   </data>
-  <data name="PipeTestResultStatus_Failed" xml:space="preserve">
+  <data name="PipeTestResultStatus_Rejected" xml:space="preserve">
     <value>Брак</value>
   </data>
   <data name="WallThickness" xml:space="preserve">
@@ -1073,8 +1073,7 @@
     <value>По использованным изделиям</value>
   </data>
   <data name="ConstructionReport_TracingReportInfoLabelText" xml:space="preserve">
-    <value>Данный тип отчета содержит все сваренные элементы расположенные 
-    между заданными точками не зависимо от их связности.</value>
+    <value>Данный тип отчета содержит все сваренные элементы расположенные между заданными точками не зависимо от их связности.</value>
   </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
@@ -1393,5 +1392,80 @@
   </data>
   <data name="Import_WrongWorkstationType" xml:space="preserve">
     <value>Невозможно импортировать данные. Импортируемый файл был создан не на мастере.</value>
+  </data>
+  <data name="SettingsProject_DocumentSizeLabel" xml:space="preserve">
+    <value>Допустимый размер внешнего документа, Kbytes</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationPipes_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationMeters_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationTons_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationMeters_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationPipes_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="Notification_NotRequiredControlOperationTons_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Import" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="HistoryExportImport_SynchType_Undefined" xml:space="preserve">
+    <value>Не определено</value>
+  </data>
+  <data name="HistoryExportImport_IsExportColumn" xml:space="preserve">
+    <value>Экспорт/Импорт</value>
+  </data>
+  <data name="HistoryExportImport_Title" xml:space="preserve">
+    <value>История экспорта/импорта</value>
+  </data>
+  <data name="HistoryExportImport_WorkstationColumn" xml:space="preserve">
+    <value>Рабочая станция</value>
+  </data>
+  <data name="SecurityPrivilege_ViewExportImportHistory" xml:space="preserve">
+    <value>Просмотр истории экспорта/импорта</value>
+  </data>
+  <data name="Audit_RadioPeriod" xml:space="preserve">
+    <value>Номер элемента</value>
+  </data>
+  <data name="Audit_RadioUser" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="ConstructionReports_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="InspectionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="MillReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="PipeConstructionReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="WeldDateReport_FootersCheck" xml:space="preserve">
+    <value>Добавить колонтитулы</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Accepted" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Repair" xml:space="preserve">
+    <value>Ремонт</value>
+  </data>
+  <data name="Joint_JointTestResultStatus_Withdraw" xml:space="preserve">
+    <value>Вырезка</value>
+  </data>
+  <data name="Value_Required" xml:space="preserve">
+    <value>Значение обязательно</value>
   </data>
 </root>

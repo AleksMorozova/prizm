@@ -8,7 +8,7 @@ namespace Prizm.Domain.Entity.Construction
 {
     public class Connector : Item
     {
-        public virtual int Diameter { get; set; }
+        public virtual float Diameter { get; set; }
         public virtual float WallThickness { get; set; }
 
         public virtual Joint Joint { get; set; }
@@ -17,6 +17,17 @@ namespace Prizm.Domain.Entity.Construction
         public override string ToString()
         {
             return Convert.ToString(Diameter);
+        }
+        public override Guid OwnerId
+        {
+            get
+            {
+                return (Component == null) ? this.Id : Component.Id;
+            }
+            set
+            {
+                base.OwnerId = value;
+            }
         }
     }
 }

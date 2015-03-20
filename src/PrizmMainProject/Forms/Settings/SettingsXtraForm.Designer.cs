@@ -186,23 +186,6 @@ namespace Prizm.Main.Forms.Settings
             this.seamType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.RootGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.rolesLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.rolesTabLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.permissionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.roleSplitterItem = new DevExpress.XtraLayout.SplitterItem();
-            this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.clientLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.plateManLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.techParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.extDocumentSizeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.millLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.millNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.maskLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.operationsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.maskLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.seamsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.sizesLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.inspectionsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -216,6 +199,19 @@ namespace Prizm.Main.Forms.Settings
             this.addTestButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.testButtonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editTestButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.projectLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.commonParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.projectTitleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.clientLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.plateManLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.techParamsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.extDocumentSizeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.millLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.millNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.maskLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.operationsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.maskLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.seamsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.lineLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.jointOperationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.partsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -235,6 +231,10 @@ namespace Prizm.Main.Forms.Settings
             this.userLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.roleLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.userSplitterItem = new DevExpress.XtraLayout.SplitterItem();
+            this.rolesLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.rolesTabLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.permissionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.roleSplitterItem = new DevExpress.XtraLayout.SplitterItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.closeButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -339,23 +339,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleSplitterItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plateManLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techParamsLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extDocumentSizeLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millNameLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationsLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLabelLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizesLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutControlItem)).BeginInit();
@@ -369,6 +352,19 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.addTestButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testButtonsEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTestButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techParamsLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extDocumentSizeLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millNameLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLabelLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).BeginInit();
@@ -388,6 +384,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleSplitterItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).BeginInit();
@@ -429,6 +429,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipesSizeListGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.pipesSizeListGridView_RowCellStyle);
             this.pipesSizeListGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.pipesSizeListGridView_InitNewRow);
             this.pipesSizeListGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.pipesSizeListGridView_FocusedRowChanged);
+            this.pipesSizeListGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.pipesSizeListGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.pipesSizeListGridView_InvalidRowException);
             this.pipesSizeListGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.pipesSizeListGridView_ValidateRow);
             this.pipesSizeListGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pipesSizeListGridView_KeyDown);
@@ -1454,8 +1455,8 @@ namespace Prizm.Main.Forms.Settings
             this.externalDocumentSize.Location = new System.Drawing.Point(59, 445);
             this.externalDocumentSize.Name = "externalDocumentSize";
             this.externalDocumentSize.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.externalDocumentSize.Properties.Mask.EditMask = "d";
-            this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.externalDocumentSize.Properties.Mask.EditMask = "\\d\\d\\d\\d";
+            this.externalDocumentSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.externalDocumentSize.Properties.Mask.SaveLiteral = false;
             this.externalDocumentSize.Properties.Mask.ShowPlaceHolders = false;
             this.externalDocumentSize.Size = new System.Drawing.Size(368, 20);
@@ -1516,9 +1517,10 @@ namespace Prizm.Main.Forms.Settings
             // editTestButton
             // 
             this.editTestButton.Image = ((System.Drawing.Image)(resources.GetObject("editTestButton.Image")));
-            this.editTestButton.Location = new System.Drawing.Point(565, 51);
+            this.editTestButton.Location = new System.Drawing.Point(595, 51);
+            this.editTestButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.editTestButton.Name = "editTestButton";
-            this.editTestButton.Size = new System.Drawing.Size(109, 22);
+            this.editTestButton.Size = new System.Drawing.Size(110, 22);
             this.editTestButton.StyleController = this.rootLayoutControl;
             this.editTestButton.TabIndex = 19;
             this.editTestButton.Text = "Редактировать";
@@ -1528,8 +1530,9 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.addTestButton.Image = ((System.Drawing.Image)(resources.GetObject("addTestButton.Image")));
             this.addTestButton.Location = new System.Drawing.Point(471, 51);
+            this.addTestButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.addTestButton.Name = "addTestButton";
-            this.addTestButton.Size = new System.Drawing.Size(80, 22);
+            this.addTestButton.Size = new System.Drawing.Size(110, 22);
             this.addTestButton.StyleController = this.rootLayoutControl;
             this.addTestButton.TabIndex = 18;
             this.addTestButton.Text = "Добавить";
@@ -1708,11 +1711,11 @@ namespace Prizm.Main.Forms.Settings
             // 
             // pipeLength
             // 
-            this.pipeLength.Location = new System.Drawing.Point(752, 455);
+            this.pipeLength.Location = new System.Drawing.Point(789, 455);
             this.pipeLength.Name = "pipeLength";
             this.pipeLength.Properties.Mask.EditMask = "d";
             this.pipeLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.pipeLength.Size = new System.Drawing.Size(102, 20);
+            this.pipeLength.Size = new System.Drawing.Size(177, 20);
             this.pipeLength.StyleController = this.rootLayoutControl;
             this.pipeLength.TabIndex = 15;
             // 
@@ -1758,7 +1761,6 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionOperation.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionView});
             this.inspectionOperation.DoubleClick += new System.EventHandler(this.inspectionOperation_DoubleClick);
-
             // 
             // inspectionView
             // 
@@ -1794,6 +1796,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionCodeGridColumn.FieldName = "Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.OptionsColumn.AllowEdit = false;
+            this.inspectionCodeGridColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
             this.inspectionCodeGridColumn.Width = 60;
@@ -2021,10 +2024,10 @@ namespace Prizm.Main.Forms.Settings
             // 
             // wallThickness
             // 
-            this.wallThickness.Location = new System.Drawing.Point(636, 455);
+            this.wallThickness.Location = new System.Drawing.Point(673, 455);
             this.wallThickness.Name = "wallThickness";
-            this.wallThickness.Properties.Mask.EditMask = "d";
-            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.wallThickness.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.wallThickness.Size = new System.Drawing.Size(102, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
@@ -2033,20 +2036,20 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(486, 455);
             this.pipeDiameter.Name = "pipeDiameter";
-            this.pipeDiameter.Properties.Mask.EditMask = "d";
-            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.pipeDiameter.Size = new System.Drawing.Size(136, 20);
+            this.pipeDiameter.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.pipeDiameter.Size = new System.Drawing.Size(173, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
             // 
             // seamType
             // 
-            this.seamType.Location = new System.Drawing.Point(868, 455);
+            this.seamType.Location = new System.Drawing.Point(980, 455);
             this.seamType.Name = "seamType";
             this.seamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seamType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.seamType.Size = new System.Drawing.Size(363, 20);
+            this.seamType.Size = new System.Drawing.Size(251, 20);
             this.seamType.StyleController = this.rootLayoutControl;
             this.seamType.TabIndex = 14;
             // 
@@ -2071,8 +2074,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 5;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2085,49 +2088,178 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup});
             this.tabbedControlGroup.Text = "Группа вкладок";
             // 
-            // rolesLayoutControlGroup
+            // pipeLayoutControlGroup
             // 
-            this.rolesLayoutControlGroup.CustomizationFormText = "Роли";
-            this.rolesLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.rolesTabLayoutControlItem,
-            this.permissionLayoutControlItem,
-            this.roleSplitterItem});
-            this.rolesLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.rolesLayoutControlGroup.Name = "rolesLayoutControlGroup";
-            this.rolesLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.rolesLayoutControlGroup.Text = "&Роли";
+            this.pipeLayoutControlGroup.CustomizationFormText = "&Труба";
+            this.pipeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.sizesLayoutControlItem,
+            this.inspectionsLayoutControlItem,
+            this.sizeParamsLayoutControlGroup,
+            this.cloneButtonLayoutControlItem,
+            this.pipeSplitterItem,
+            this.addTestButtonLayout,
+            this.testButtonsEmptySpace,
+            this.editTestButtonLayout});
+            this.pipeLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.pipeLayoutControlGroup.Name = "pipeLayoutControlGroup";
+            this.pipeLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.pipeLayoutControlGroup.Text = "&Труба";
+            this.pipeLayoutControlGroup.Shown += new System.EventHandler(this.pipeLayoutControlGroup_Shown);
             // 
-            // rolesTabLayoutControlItem
+            // sizesLayoutControlItem
             // 
-            this.rolesTabLayoutControlItem.Control = this.gridControl1;
-            this.rolesTabLayoutControlItem.CustomizationFormText = "Роли";
-            this.rolesTabLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.rolesTabLayoutControlItem.Name = "rolesTabLayoutControlItem";
-            this.rolesTabLayoutControlItem.Size = new System.Drawing.Size(900, 458);
-            this.rolesTabLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.rolesTabLayoutControlItem.Text = "Роли";
-            this.rolesTabLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.rolesTabLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            this.sizesLayoutControlItem.Control = this.pipesSizeList;
+            this.sizesLayoutControlItem.CustomizationFormText = "Список типораз&меров";
+            this.sizesLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.sizesLayoutControlItem.Name = "sizesLayoutControlItem";
+            this.sizesLayoutControlItem.Size = new System.Drawing.Size(437, 432);
+            this.sizesLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.sizesLayoutControlItem.Text = "Список типораз&меров";
+            this.sizesLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.sizesLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
-            // permissionLayoutControlItem
+            // inspectionsLayoutControlItem
             // 
-            this.permissionLayoutControlItem.Control = this.gridControlPermission;
-            this.permissionLayoutControlItem.CustomizationFormText = "Права";
-            this.permissionLayoutControlItem.Location = new System.Drawing.Point(905, 0);
-            this.permissionLayoutControlItem.Name = "permissionLayoutControlItem";
-            this.permissionLayoutControlItem.Size = new System.Drawing.Size(326, 458);
-            this.permissionLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.permissionLayoutControlItem.Text = "Права";
-            this.permissionLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.permissionLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            this.inspectionsLayoutControlItem.Control = this.inspectionOperation;
+            this.inspectionsLayoutControlItem.CustomizationFormText = "Список контрольных операций для выбранного типоразмера";
+            this.inspectionsLayoutControlItem.Location = new System.Drawing.Point(442, 36);
+            this.inspectionsLayoutControlItem.Name = "inspectionsLayoutControlItem";
+            this.inspectionsLayoutControlItem.Size = new System.Drawing.Size(789, 318);
+            this.inspectionsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.inspectionsLayoutControlItem.Text = "Список контрольных опера&ций для выбранного типоразмера";
+            this.inspectionsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.inspectionsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
-            // roleSplitterItem
+            // sizeParamsLayoutControlGroup
             // 
-            this.roleSplitterItem.AllowHotTrack = true;
-            this.roleSplitterItem.CustomizationFormText = "Разделитель";
-            this.roleSplitterItem.Location = new System.Drawing.Point(900, 0);
-            this.roleSplitterItem.Name = "roleSplitterItem";
-            this.roleSplitterItem.Size = new System.Drawing.Size(5, 458);
+            this.sizeParamsLayoutControlGroup.CustomizationFormText = "Параметры типоразмера";
+            this.sizeParamsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.diameterLayoutControlItem,
+            this.wallThicknessLayoutControlItem,
+            this.pipeLengthLayoutControlItem,
+            this.seamTypeLayoutControlItem});
+            this.sizeParamsLayoutControlGroup.Location = new System.Drawing.Point(442, 354);
+            this.sizeParamsLayoutControlGroup.Name = "sizeParamsLayoutControlGroup";
+            this.sizeParamsLayoutControlGroup.Size = new System.Drawing.Size(789, 104);
+            this.sizeParamsLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.sizeParamsLayoutControlGroup.Text = "Параметры типоразмера";
+            // 
+            // diameterLayoutControlItem
+            // 
+            this.diameterLayoutControlItem.Control = this.pipeDiameter;
+            this.diameterLayoutControlItem.CustomizationFormText = "Диаметр трубы";
+            this.diameterLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.diameterLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
+            this.diameterLayoutControlItem.Name = "diameterLayoutControlItem";
+            this.diameterLayoutControlItem.Size = new System.Drawing.Size(187, 55);
+            this.diameterLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.diameterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.diameterLayoutControlItem.Text = "Наружный диаметр трубы, мм";
+            this.diameterLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.diameterLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // wallThicknessLayoutControlItem
+            // 
+            this.wallThicknessLayoutControlItem.Control = this.wallThickness;
+            this.wallThicknessLayoutControlItem.CustomizationFormText = "Толщина стенки";
+            this.wallThicknessLayoutControlItem.Location = new System.Drawing.Point(187, 0);
+            this.wallThicknessLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
+            this.wallThicknessLayoutControlItem.Name = "wallThicknessLayoutControlItem";
+            this.wallThicknessLayoutControlItem.Size = new System.Drawing.Size(116, 55);
+            this.wallThicknessLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.wallThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.wallThicknessLayoutControlItem.Text = "Толщина ст&енки, мм";
+            this.wallThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.wallThicknessLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // pipeLengthLayoutControlItem
+            // 
+            this.pipeLengthLayoutControlItem.Control = this.pipeLength;
+            this.pipeLengthLayoutControlItem.CustomizationFormText = "Номинальная длина трубы";
+            this.pipeLengthLayoutControlItem.Location = new System.Drawing.Point(303, 0);
+            this.pipeLengthLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
+            this.pipeLengthLayoutControlItem.Name = "pipeLengthLayoutControlItem";
+            this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(191, 55);
+            this.pipeLengthLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.pipeLengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы, мм";
+            this.pipeLengthLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.pipeLengthLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // seamTypeLayoutControlItem
+            // 
+            this.seamTypeLayoutControlItem.Control = this.seamType;
+            this.seamTypeLayoutControlItem.CustomizationFormText = "Тип шва";
+            this.seamTypeLayoutControlItem.Location = new System.Drawing.Point(494, 0);
+            this.seamTypeLayoutControlItem.MinSize = new System.Drawing.Size(50, 25);
+            this.seamTypeLayoutControlItem.Name = "seamTypeLayoutControlItem";
+            this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(265, 55);
+            this.seamTypeLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.seamTypeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.seamTypeLayoutControlItem.Text = "Тип &шва";
+            this.seamTypeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.seamTypeLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // cloneButtonLayoutControlItem
+            // 
+            this.cloneButtonLayoutControlItem.Control = this.cloneTypeSizeButton;
+            this.cloneButtonLayoutControlItem.CustomizationFormText = "Копировать типоразмер";
+            this.cloneButtonLayoutControlItem.Location = new System.Drawing.Point(0, 432);
+            this.cloneButtonLayoutControlItem.Name = "cloneButtonLayoutControlItem";
+            this.cloneButtonLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 30, 2, 2);
+            this.cloneButtonLayoutControlItem.Size = new System.Drawing.Size(442, 26);
+            this.cloneButtonLayoutControlItem.Text = "cloneButtonLayoutControlItem";
+            this.cloneButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.cloneButtonLayoutControlItem.TextVisible = false;
+            // 
+            // pipeSplitterItem
+            // 
+            this.pipeSplitterItem.AllowHotTrack = true;
+            this.pipeSplitterItem.CustomizationFormText = "Разделитель";
+            this.pipeSplitterItem.Location = new System.Drawing.Point(437, 0);
+            this.pipeSplitterItem.Name = "pipeSplitterItem";
+            this.pipeSplitterItem.Size = new System.Drawing.Size(5, 432);
+            // 
+            // addTestButtonLayout
+            // 
+            this.addTestButtonLayout.Control = this.addTestButton;
+            this.addTestButtonLayout.CustomizationFormText = "addTestButtonLayout";
+            this.addTestButtonLayout.Location = new System.Drawing.Point(442, 0);
+            this.addTestButtonLayout.MinSize = new System.Drawing.Size(94, 36);
+            this.addTestButtonLayout.Name = "addTestButtonLayout";
+            this.addTestButtonLayout.Size = new System.Drawing.Size(124, 36);
+            this.addTestButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.addTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.addTestButtonLayout.Text = "addTestButtonLayout";
+            this.addTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.addTestButtonLayout.TextVisible = false;
+            // 
+            // testButtonsEmptySpace
+            // 
+            this.testButtonsEmptySpace.AllowHotTrack = false;
+            this.testButtonsEmptySpace.CustomizationFormText = "testButtonsEmptySpace";
+            this.testButtonsEmptySpace.Location = new System.Drawing.Point(689, 0);
+            this.testButtonsEmptySpace.MinSize = new System.Drawing.Size(104, 24);
+            this.testButtonsEmptySpace.Name = "testButtonsEmptySpace";
+            this.testButtonsEmptySpace.Size = new System.Drawing.Size(542, 36);
+            this.testButtonsEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.testButtonsEmptySpace.Text = "testButtonsEmptySpace";
+            this.testButtonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // editTestButtonLayout
+            // 
+            this.editTestButtonLayout.Control = this.editTestButton;
+            this.editTestButtonLayout.CustomizationFormText = "editTestButtonLayout";
+            this.editTestButtonLayout.Location = new System.Drawing.Point(566, 0);
+            this.editTestButtonLayout.MaxSize = new System.Drawing.Size(164, 0);
+            this.editTestButtonLayout.MinSize = new System.Drawing.Size(123, 36);
+            this.editTestButtonLayout.Name = "editTestButtonLayout";
+            this.editTestButtonLayout.Size = new System.Drawing.Size(123, 36);
+            this.editTestButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.editTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.editTestButtonLayout.Text = "editTestButtonLayout";
+            this.editTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.editTestButtonLayout.TextVisible = false;
             // 
             // projectLayoutControlGroup
             // 
@@ -2210,7 +2342,8 @@ namespace Prizm.Main.Forms.Settings
             this.extDocumentSizeLayoutControlItem.Name = "extDocumentSizeLayoutControlItem";
             this.extDocumentSizeLayoutControlItem.Size = new System.Drawing.Size(382, 50);
             this.extDocumentSizeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.extDocumentSizeLayoutControlItem.Text = "Допустимый размер внешнего документа, Kbytes";
+            this.extDocumentSizeLayoutControlItem.Tag = "Допустимый размер внешнего документа, Kbytes";
+            this.extDocumentSizeLayoutControlItem.Text = "extDocumentSizeLayoutControlItem";
             this.extDocumentSizeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.extDocumentSizeLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2288,172 +2421,6 @@ namespace Prizm.Main.Forms.Settings
             this.seamsLayoutControlItem.Text = "Типы сварочных швов";
             this.seamsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.seamsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // pipeLayoutControlGroup
-            // 
-            this.pipeLayoutControlGroup.CustomizationFormText = "&Труба";
-            this.pipeLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.sizesLayoutControlItem,
-            this.inspectionsLayoutControlItem,
-            this.sizeParamsLayoutControlGroup,
-            this.cloneButtonLayoutControlItem,
-            this.pipeSplitterItem,
-            this.addTestButtonLayout,
-            this.testButtonsEmptySpace,
-            this.editTestButtonLayout});
-            this.pipeLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.pipeLayoutControlGroup.Name = "pipeLayoutControlGroup";
-            this.pipeLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.pipeLayoutControlGroup.Text = "&Труба";
-            this.pipeLayoutControlGroup.Shown += new System.EventHandler(this.pipeLayoutControlGroup_Shown);
-            // 
-            // sizesLayoutControlItem
-            // 
-            this.sizesLayoutControlItem.Control = this.pipesSizeList;
-            this.sizesLayoutControlItem.CustomizationFormText = "Список типораз&меров";
-            this.sizesLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.sizesLayoutControlItem.Name = "sizesLayoutControlItem";
-            this.sizesLayoutControlItem.Size = new System.Drawing.Size(437, 432);
-            this.sizesLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.sizesLayoutControlItem.Text = "Список типораз&меров";
-            this.sizesLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.sizesLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // inspectionsLayoutControlItem
-            // 
-            this.inspectionsLayoutControlItem.Control = this.inspectionOperation;
-            this.inspectionsLayoutControlItem.CustomizationFormText = "Список контрольных операций для выбранного типоразмера";
-            this.inspectionsLayoutControlItem.Location = new System.Drawing.Point(442, 36);
-            this.inspectionsLayoutControlItem.Name = "inspectionsLayoutControlItem";
-            this.inspectionsLayoutControlItem.Size = new System.Drawing.Size(789, 318);
-            this.inspectionsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.inspectionsLayoutControlItem.Text = "Список контрольных опера&ций для выбранного типоразмера";
-            this.inspectionsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.inspectionsLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // sizeParamsLayoutControlGroup
-            // 
-            this.sizeParamsLayoutControlGroup.CustomizationFormText = "Параметры типоразмера";
-            this.sizeParamsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.diameterLayoutControlItem,
-            this.wallThicknessLayoutControlItem,
-            this.pipeLengthLayoutControlItem,
-            this.seamTypeLayoutControlItem});
-            this.sizeParamsLayoutControlGroup.Location = new System.Drawing.Point(442, 354);
-            this.sizeParamsLayoutControlGroup.Name = "sizeParamsLayoutControlGroup";
-            this.sizeParamsLayoutControlGroup.Size = new System.Drawing.Size(789, 104);
-            this.sizeParamsLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.sizeParamsLayoutControlGroup.Text = "Параметры типоразмера";
-            // 
-            // diameterLayoutControlItem
-            // 
-            this.diameterLayoutControlItem.Control = this.pipeDiameter;
-            this.diameterLayoutControlItem.CustomizationFormText = "Диаметр трубы";
-            this.diameterLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.diameterLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
-            this.diameterLayoutControlItem.Name = "diameterLayoutControlItem";
-            this.diameterLayoutControlItem.Size = new System.Drawing.Size(150, 55);
-            this.diameterLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.diameterLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.diameterLayoutControlItem.Text = "Диаметр трубы";
-            this.diameterLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.diameterLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // wallThicknessLayoutControlItem
-            // 
-            this.wallThicknessLayoutControlItem.Control = this.wallThickness;
-            this.wallThicknessLayoutControlItem.CustomizationFormText = "Толщина стенки";
-            this.wallThicknessLayoutControlItem.Location = new System.Drawing.Point(150, 0);
-            this.wallThicknessLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
-            this.wallThicknessLayoutControlItem.Name = "wallThicknessLayoutControlItem";
-            this.wallThicknessLayoutControlItem.Size = new System.Drawing.Size(116, 55);
-            this.wallThicknessLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.wallThicknessLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.wallThicknessLayoutControlItem.Text = "Толщина ст&енки";
-            this.wallThicknessLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.wallThicknessLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // pipeLengthLayoutControlItem
-            // 
-            this.pipeLengthLayoutControlItem.Control = this.pipeLength;
-            this.pipeLengthLayoutControlItem.CustomizationFormText = "Номинальная длина трубы";
-            this.pipeLengthLayoutControlItem.Location = new System.Drawing.Point(266, 0);
-            this.pipeLengthLayoutControlItem.MinSize = new System.Drawing.Size(116, 40);
-            this.pipeLengthLayoutControlItem.Name = "pipeLengthLayoutControlItem";
-            this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(116, 55);
-            this.pipeLengthLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.pipeLengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы";
-            this.pipeLengthLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.pipeLengthLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // seamTypeLayoutControlItem
-            // 
-            this.seamTypeLayoutControlItem.Control = this.seamType;
-            this.seamTypeLayoutControlItem.CustomizationFormText = "Тип шва";
-            this.seamTypeLayoutControlItem.Location = new System.Drawing.Point(382, 0);
-            this.seamTypeLayoutControlItem.MinSize = new System.Drawing.Size(50, 25);
-            this.seamTypeLayoutControlItem.Name = "seamTypeLayoutControlItem";
-            this.seamTypeLayoutControlItem.Size = new System.Drawing.Size(377, 55);
-            this.seamTypeLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.seamTypeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.seamTypeLayoutControlItem.Text = "Тип &шва";
-            this.seamTypeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.seamTypeLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
-            // 
-            // cloneButtonLayoutControlItem
-            // 
-            this.cloneButtonLayoutControlItem.Control = this.cloneTypeSizeButton;
-            this.cloneButtonLayoutControlItem.CustomizationFormText = "Копировать типоразмер";
-            this.cloneButtonLayoutControlItem.Location = new System.Drawing.Point(0, 432);
-            this.cloneButtonLayoutControlItem.Name = "cloneButtonLayoutControlItem";
-            this.cloneButtonLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 30, 2, 2);
-            this.cloneButtonLayoutControlItem.Size = new System.Drawing.Size(442, 26);
-            this.cloneButtonLayoutControlItem.Text = "cloneButtonLayoutControlItem";
-            this.cloneButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
-            this.cloneButtonLayoutControlItem.TextVisible = false;
-            // 
-            // pipeSplitterItem
-            // 
-            this.pipeSplitterItem.AllowHotTrack = true;
-            this.pipeSplitterItem.CustomizationFormText = "Разделитель";
-            this.pipeSplitterItem.Location = new System.Drawing.Point(437, 0);
-            this.pipeSplitterItem.Name = "pipeSplitterItem";
-            this.pipeSplitterItem.Size = new System.Drawing.Size(5, 432);
-            // 
-            // addTestButtonLayout
-            // 
-            this.addTestButtonLayout.Control = this.addTestButton;
-            this.addTestButtonLayout.CustomizationFormText = "addTestButtonLayout";
-            this.addTestButtonLayout.Location = new System.Drawing.Point(442, 0);
-            this.addTestButtonLayout.Name = "addTestButtonLayout";
-            this.addTestButtonLayout.Size = new System.Drawing.Size(94, 36);
-            this.addTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.addTestButtonLayout.Text = "addTestButtonLayout";
-            this.addTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.addTestButtonLayout.TextVisible = false;
-            // 
-            // testButtonsEmptySpace
-            // 
-            this.testButtonsEmptySpace.AllowHotTrack = false;
-            this.testButtonsEmptySpace.CustomizationFormText = "testButtonsEmptySpace";
-            this.testButtonsEmptySpace.Location = new System.Drawing.Point(659, 0);
-            this.testButtonsEmptySpace.Name = "testButtonsEmptySpace";
-            this.testButtonsEmptySpace.Size = new System.Drawing.Size(572, 36);
-            this.testButtonsEmptySpace.Text = "testButtonsEmptySpace";
-            this.testButtonsEmptySpace.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // editTestButtonLayout
-            // 
-            this.editTestButtonLayout.Control = this.editTestButton;
-            this.editTestButtonLayout.CustomizationFormText = "editTestButtonLayout";
-            this.editTestButtonLayout.Location = new System.Drawing.Point(536, 0);
-            this.editTestButtonLayout.Name = "editTestButtonLayout";
-            this.editTestButtonLayout.Size = new System.Drawing.Size(123, 36);
-            this.editTestButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.editTestButtonLayout.Text = "editTestButtonLayout";
-            this.editTestButtonLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.editTestButtonLayout.TextVisible = false;
             // 
             // lineLayoutControlGroup
             // 
@@ -2661,6 +2628,50 @@ namespace Prizm.Main.Forms.Settings
             this.userSplitterItem.Name = "userSplitterItem";
             this.userSplitterItem.Size = new System.Drawing.Size(5, 458);
             // 
+            // rolesLayoutControlGroup
+            // 
+            this.rolesLayoutControlGroup.CustomizationFormText = "Роли";
+            this.rolesLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.rolesTabLayoutControlItem,
+            this.permissionLayoutControlItem,
+            this.roleSplitterItem});
+            this.rolesLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.rolesLayoutControlGroup.Name = "rolesLayoutControlGroup";
+            this.rolesLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
+            this.rolesLayoutControlGroup.Text = "&Роли";
+            // 
+            // rolesTabLayoutControlItem
+            // 
+            this.rolesTabLayoutControlItem.Control = this.gridControl1;
+            this.rolesTabLayoutControlItem.CustomizationFormText = "Роли";
+            this.rolesTabLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.rolesTabLayoutControlItem.Name = "rolesTabLayoutControlItem";
+            this.rolesTabLayoutControlItem.Size = new System.Drawing.Size(900, 458);
+            this.rolesTabLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.rolesTabLayoutControlItem.Text = "Роли";
+            this.rolesTabLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.rolesTabLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // permissionLayoutControlItem
+            // 
+            this.permissionLayoutControlItem.Control = this.gridControlPermission;
+            this.permissionLayoutControlItem.CustomizationFormText = "Права";
+            this.permissionLayoutControlItem.Location = new System.Drawing.Point(905, 0);
+            this.permissionLayoutControlItem.Name = "permissionLayoutControlItem";
+            this.permissionLayoutControlItem.Size = new System.Drawing.Size(326, 458);
+            this.permissionLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.permissionLayoutControlItem.Text = "Права";
+            this.permissionLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.permissionLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
+            // 
+            // roleSplitterItem
+            // 
+            this.roleSplitterItem.AllowHotTrack = true;
+            this.roleSplitterItem.CustomizationFormText = "Разделитель";
+            this.roleSplitterItem.Location = new System.Drawing.Point(900, 0);
+            this.roleSplitterItem.Name = "roleSplitterItem";
+            this.roleSplitterItem.Size = new System.Drawing.Size(5, 458);
+            // 
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
@@ -2702,7 +2713,6 @@ namespace Prizm.Main.Forms.Settings
             this.editItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.editItem.Name = "editItem";
-
             // 
             // SettingsXtraForm
             // 
@@ -2807,23 +2817,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.seamType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RootGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleSplitterItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plateManLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techParamsLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.extDocumentSizeLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.millNameLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operationsLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maskLabelLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seamsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizesLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsLayoutControlItem)).EndInit();
@@ -2837,6 +2830,19 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.addTestButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testButtonsEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTestButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commonParamsLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTitleLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plateManLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techParamsLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extDocumentSizeLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millNameLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operationsLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maskLabelLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seamsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jointOperationLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsLayoutControlGroup)).EndInit();
@@ -2856,6 +2862,10 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.userLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userSplitterItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesTabLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleSplitterItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEmptySpaceItem)).EndInit();

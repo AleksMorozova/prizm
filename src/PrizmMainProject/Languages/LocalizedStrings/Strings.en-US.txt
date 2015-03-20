@@ -350,8 +350,8 @@ Spool_PipeSearchGroup=Pipe search
 ;Катушка. Данные о катушке
 Spool_SpoolGroup=Spool information
 
-;Катушка. Длины трубы и катушки
-Spool_LenghtGroup=Length
+;Катушка. Длины трубы и катушки, мм
+Spool_LenghtGroup=Length, mm
 
 ;Катушка. Входной контроль
 Spool_IncomingInspectionGroup=Incoming inspection
@@ -367,6 +367,9 @@ Spool_InspectionInspectorsColumn=Inspectors
 
 ;Катушка. Комментарии по результату входного контроля
 Spool_InspectionReasonColumn=Reason
+
+;Катушка. порядок операций входного контроля
+Spool_InspectionOrderColumn=Order
 
 ;Катушка. Кнопка поиска трубы
 Spool_SearchButton=&Edit pipe
@@ -474,7 +477,7 @@ SettingsProject_ClientLabel=Client
 SettingsProject_PlateManufacturerLabel=Plate manufacturers
 
 ;Настройки-Проект. Максимальный размер документа
-SettingsProject_DocumentSizeLabel=Max size of document to be attached
+SettingsProject_DocumentSizeLabel=Max size of document to be attached, Kbytes
 
 ;Настройки-Проект. Название завода
 SettingsProject_MillLabel=Mill
@@ -521,14 +524,14 @@ SettingsPipe_SizesLabel=Pipe size parameters
 ;Настройки-труба. Контрольные операции для типоразмера
 SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
 
-;Настройки-труба. Диаметр трубы с заданым типоразмером
-SettingsPipe_DiameterLabel=Pipe's &diameter
+;Настройки-труба. Наружный диаметр трубы с заданым типоразмером, мм
+SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 
-;Настройки-труба. Толщина стенки для трубы с заданым типоразмером
-SettingsPipe_WallThicknessLabel=Wall &thickness
+;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
+SettingsPipe_WallThicknessLabel=Wall &thickness, mm
 
-;Настройки-труба. Длина трубы для заданного типоразмера
-SettingsPipe_LengthLabel=Pipe l&ength
+;Настройки-труба. Длина трубы для заданного типоразмера, мм
+SettingsPipe_LengthLabel=Pipe l&ength, mm
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
@@ -868,14 +871,14 @@ Audit_NewValueColumnHeader=New value
 ;Аудит. Надпись колонки поля
 Audit_FieldColumnHeader=Field
 
-;Аудит. Надпись колонки номера
-Audit_NumberColumnHeader=Number
+;Аудит. Надпись колонки номера владельца
+Audit_NumberColumnHeader=Owner number
 
 ;Аудит. Надпись панели параметров поиска
 Audit_SearchParametersGroup=Search parameters
 
 ;Аудит. Надпись радиокнопки периода
-Audit_RadioPeriod=Period
+Audit_RadioPeriod=Number
 
 ;Аудит. Надпись радиокнопки пользователя
 Audit_RadioUser=User
@@ -896,7 +899,7 @@ PartSearch_SearchNumberLabel=&Number
 PartSearch_SearchTypeLabel=&Type
 
 ;Поиск элементов трубопровода. Надпись активности элемента
-PartSearch_ActivityLabel=Activity status
+PartSearch_ActivityLabel= &Activity status
 
 ;Поиск элементов трубопровода. Надпись кнопки поиска
 PartSearch_SearchButton=&Search
@@ -1072,6 +1075,9 @@ Import_ArchiveLabel=Archive
 ;Импорт. Надпись кнопки поиска
 Import_BrowseButton=&Browse
 
+;Импорт. Надпись кнопки выхода
+Import_ExitButton=&Close
+
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
 
@@ -1097,7 +1103,7 @@ ComponentNewEdit_TypeLayoutControl=&Type
 ComponentNewEdit_CertificateLayout=Certi&ficate number
 
 ;Длина комплектую&щего, мм
-ComponentNewEdit_ComponentLengthLayout=Component &length
+ComponentNewEdit_ComponentLengthLayout=Component &length, mm
 
 ;&Вложения
 ComponentNewEdit_AttachmentsButton=&Attachments
@@ -1123,11 +1129,14 @@ ComponentNewEdit_ResultColumn=Result
 ;Причина
 ComponentNewEdit_ReasonColumn=Reason
 
-;Диаметр отверстия
-ComponentNewEdit_DiameterGridColumn=Diameter
+;Порядок
+ComponentNewEdit_OrderColumn=Order
 
-;Толщина стенки
-ComponentNewEdit_WallThicknessGridColumn=Wall thickness
+;Наружный диаметр отверстия, мм
+ComponentNewEdit_DiameterGridColumn=External diameter, mm
+
+;Толщина стенки, мм
+ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 
 ;Входно&й контроль
 ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
@@ -1146,6 +1155,15 @@ ComponentNewEdit_SavedHeader=Component has been saved
 
 ;Сообщение об ошибке: Величина диаметра должна быть больше нуля
 ComponentNewEdit_DiameterValueValidation=Diameter value should be greater than 0
+
+;Статус для контрольной операции стыка: Вырезка
+Joint_JointTestResultStatus_Withdraw=Withdraw
+
+;статус для сконтрольной операции стыка: Ремонт
+Joint_JointTestResultStatus_Repair=Repair
+
+;статус для контрольной операции стыка: Принят
+Joint_JointTestResultStatus_Accepted=Accepted
 
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
@@ -1261,14 +1279,14 @@ Joint_Duplicate=Joint already exists, number:
 ;Заголовок сообщения о дублировании стыка: Дублирование номера стыка
 Joint_DuplicateHeader=Joint number duplication
 
-;Сообщение о диаметрах: Отсутствуют подходящие диаметры для формирования стыка.
-Joint_IncorrectDiameter=There are no suitable diameters for the joint formation
+;Сообщение о диаметрах: Отсутствуют подходящие диаметры или толщины для формирования стыка.
+Joint_IncorrectDiameter=There are no suitable diameters or wall thicknesses for the joint formation
 
-;Заголовок сообщения о диаметрах: Не совпадают диаметры стыкуемых элементов
-Joint_IncorrectDiameterHeader=Diameters of the joint elements do not match
+;Заголовок сообщения о диаметрах: Не совпадают диаметры или толщины стыкуемых элементов
+Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint elements do not match
 
 ;Ном&ер стыка
-JointSearch_JointNumber=Joint&Number
+JointSearch_JointNumber=Joint &number
 
 ;С&татус
 JointSearch_ControlStateLayout=S&tatus
@@ -1397,7 +1415,7 @@ JointCutDialog_FirstJoinedPartGroup=First element
 JointCutDialog_FirstJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_FirstJoinedPartLengthLayout=Length
+JointCutDialog_FirstJoinedPartLengthLayout=Length, mm
 
 ;Второй элемент
 JointCutDialog_SecondJoinedPartGroup=Second element
@@ -1406,7 +1424,7 @@ JointCutDialog_SecondJoinedPartGroup=Second element
 JointCutDialog_SecondJoinedPartNumberLayout=Number
 
 ;Длина, мм
-JointCutDialog_SecondJoinedPartLengthLayout=Length
+JointCutDialog_SecondJoinedPartLengthLayout=Length, mm
 
 ;Вырезать
 JointCutDialog_CutJointButton=Withdraw
@@ -1510,6 +1528,9 @@ PartInspection_InspectorColumnHeader=Inspector
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
 
+;Входной контроль элемента. Надпись колонки порядок
+PartInspection_OrderColumnHeader=Order
+
 ;Входной контроль элемента. Надпись панели поиска
 PartInspection_SearchGroup=Search
 
@@ -1546,8 +1567,8 @@ NewEditPipe_PipeStatusLabel=Status on &mill
 ;Труба. Номер листа
 NewEditPipe_PlateNumberLabel=Number
 
-;Труба. Толщина листа
-NewEditPipe_PlateThicknessLabel=Thic&kness
+;Труба. Толщина листа, мм
+NewEditPipe_PlateThicknessLabel=Thic&kness, mm
 
 ;Труба. Производитель листа
 NewEditPipe_PlateManufacturerLabel=Manufacturer
@@ -1555,20 +1576,20 @@ NewEditPipe_PlateManufacturerLabel=Manufacturer
 ;Труба. Марка стали
 NewEditPipe_PlateSteelGradeLabel=Steel grade
 
-;Труба. Длина трубы
-NewEditPipe_PipeLengthLabel=Length
+;Труба. Длина трубы, мм
+NewEditPipe_PipeLengthLabel=Length, mm
 
 ;Труба. Вес трубы
 NewEditPipe_PipeWeightLabel=Weight
 
-;Труба. Длина по типоразмеру
-NewEditPipe_TypeSizeLengthLabel=Length
+;Труба. Длина по типоразмеру, мм
+NewEditPipe_TypeSizeLengthLabel=Length, mm
 
-;Труба. Диаметр по типоразмеру
-NewEditPipe_TypeSizeDiameterLabel=Diameter
+;Труба. Наружный диаметр по типоразмеру, мм
+NewEditPipe_TypeSizeDiameterLabel=External diameter, mm
 
-;Труба. Толщина по типоразмеру
-NewEditPipe_TypeSizeThicknessLabel=Thickness
+;Труба. Толщина по типоразмеру, мм
+NewEditPipe_TypeSizeThicknessLabel=Thickness, mm
 
 ;Труба. Номер вагона
 NewEditPipe_RailcarNumber_Label=Railcar number
@@ -2077,6 +2098,24 @@ Inspection_ExistingCodeError=There is an existing operation with number:
 ;Заголовок сообщения о дублировании кода: Дублирование кода контрольной операции
 Inspection_ExistingCodeErrorHeader=Operation number duplicating
 
+;Просрочено выполнение контрольной операции 
+Notification_NotRequiredControlOperationPipes_Critical = Expired deadline for performance of control operation
+
+;Просрочено выполнение контрольной операции 
+Notification_NotRequiredControlOperationTons_Critical = Expired deadline for performance of control operation
+
+;Просрочено выполнение контрольной операции  
+Notification_NotRequiredControlOperationMeters_Critical = Expired deadline for performance of control operation
+
+;Приближается срок выполнения контрольной операции 
+Notification_NotRequiredControlOperationPipes_Warning =  Approaching deadline for performance of control operation
+
+;Приближается срок выполнения контрольной операции 
+Notification_NotRequiredControlOperationMeters_Warning = Approaching deadline for performance of control operation
+
+;Приближается срок выполнения контрольной операции 
+Notification_NotRequiredControlOperationTons_Warning =  Approaching deadline for performance of control operation
+
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DublicateLogin_Critical = User logins duplicating
 
@@ -2093,10 +2132,10 @@ Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
 PipeTestResultStatus_Scheduled=Scheduled
 
 ;Результат контрольной операции. Принят
-PipeTestResultStatus_Passed=Passed
+PipeTestResultStatus_Accepted=Accepted
 
 ;Результат контрольной операции. Брак
-PipeTestResultStatus_Failed=Failed
+PipeTestResultStatus_Rejected=Rejected
 
 ;Результат контрольной операции. Ремонт
 PipeTestResultStatus_Repair=Repair
@@ -2444,3 +2483,42 @@ MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exi
 
 ;Невозможно импортировать данные. Импортируемый файл был создан не на мастере.
 Import_WrongWorkstationType=Could not import data because importing file was created not at Maste.
+
+;Экспорт
+HistoryExportImport_SynchType_Export=Export
+
+;Импорт
+HistoryExportImport_SynchType_Import=Import
+
+;Не определено
+HistoryExportImport_SynchType_Undefined=Undefined
+
+;История экспорта/импорта
+HistoryExportImport_Title=Export/Import history
+
+;Экспорт/Импорт
+HistoryExportImport_IsExportColumn=Export/Import
+
+;Рабочая станция
+HistoryExportImport_WorkstationColumn=Workstation
+
+;История экспорта/импорта
+Menu_File_HistoryExportImport=Export/Import history
+
+;Просмотр истории экспорта/импорта
+SecurityPrivilege_ViewExportImportHistory=View export/import history
+
+;Добавить колонтитулы
+MillReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+InspectionReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+ConstructionReports_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+WeldDateReport_FootersCheck=Add headers and footers
+
+;Добавить колонтитулы
+PipeConstructionReport_FootersCheck=Add headers and footers

@@ -48,5 +48,9 @@ namespace Prizm.Main.Forms.Notifications.Data
             return DateTime.Now;
         }
 
+        public override float GetTimeToOccur(object[] tuple)
+        {
+            return (float)0;
+        }
     }
 }

@@ -9,26 +9,29 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.ComponentModel;
+using Prizm.Domain.Entity.Security;
 
 namespace Prizm.Main.Forms.Audit
 {
     public class AuditViewModel : ViewModelBase, IDisposable
     {
-        private readonly IAuditLogRepository repo;
+        private readonly IAuditRepository repo;
         private readonly AuditSearchCommand searchCommand;
         private BindingList<AuditLog> auditResults;
         private DateTime startDate = DateTime.Now.Date;
         private DateTime endDate = DateTime.Now.Date;
-        public IEnumerable<string> UsersList;
-        private string selectedUser = "";
+        public Dictionary<Guid,string> UsersList = new Dictionary<Guid, string>();
+        private Guid selectedUser;
         private string number = "";
+        private readonly IUserNotify notify;
 
         [Inject]
-        public AuditViewModel(IAuditLogRepository repo)
+        public AuditViewModel(IAuditRepository repo, IUserNotify notify)
         {
             this.repo = repo;
-            UsersList = repo.GetAllUsers();
-            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand (this, repo));
+            this.notify = notify;
+            UsersList = repo.AuditLogRepo.GetAllUsers();
+            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo, notify));
         }
 
         public ICommand SearchCommand
@@ -89,7 +92,7 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
-        public string SelectedUser
+        public Guid SelectedUser
         {
             get
             {

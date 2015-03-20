@@ -1,30 +1,26 @@
-﻿using System;
-using System.Configuration;
-using System.Windows.Forms;
-
+﻿using DevExpress.XtraSplashScreen;
 using Ninject;
-
+using Prizm.Data.DAL;
 using Prizm.Data.DAL.Hibernate;
-
-
-using Prizm.Main.Forms.MainChildForm;
-using Prizm.Main.Properties;
-using Prizm.Main.Forms.Common;
-using Prizm.Main.Security;
 using Prizm.Data.DAL.Security;
 using Prizm.Domain.Entity.Security;
-using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Common;
+using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.MainChildForm.FirstSetupForm;
 using Prizm.Main.Forms.Settings;
-using DevExpress.XtraSplashScreen;
 using Prizm.Main.Languages;
+using Prizm.Main.Properties;
+using Prizm.Main.Security;
+using System;
 using System.Collections.Generic;
-using Prizm.Main.Common;
-using Prizm.Domain.Entity.Setup;
-using System.Threading;
-using System.Text;
-using System.IO;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 
 namespace Prizm.Main
@@ -83,10 +79,7 @@ namespace Prizm.Main
                 return;
             } 
             #endregion
-
-            Thread.CurrentThread.CurrentCulture = LanguageManager.DefaultCultureInfo;
-            Thread.CurrentThread.CurrentUICulture = LanguageManager.DefaultCultureInfo;
-          
+ 
             foreach (var arg in args)
             {
                 if (arg.Equals("seed"))
@@ -109,6 +102,10 @@ namespace Prizm.Main
 
             bool cmdLineMode = false;
             LanguageManager.LoadTranslation(new CultureInfo(Settings.Default.UsersLanguage));
+            
+            Thread.CurrentThread.CurrentCulture = LanguageManager.CurrentCulture;
+            Thread.CurrentThread.CurrentUICulture = LanguageManager.CurrentCulture; 
+
             try
             {
                 // Splash screen
@@ -260,7 +257,7 @@ namespace Prizm.Main
                 ISecurityContext ctx = Kernel.Get<ISecurityContext>();
                 ctx.LoggedUser = user;
 
-                HibernateUtil.CurrentUser = ctx.GetLoggedPerson();
+                HibernateUtil.CurrentUser = ctx.LoggedUser;
                 return LoginResult.LoggedIn;
             }
             else

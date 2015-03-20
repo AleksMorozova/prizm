@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
@@ -49,9 +48,11 @@
             this.resultColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryInspectionStatus = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.reasonColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.orderColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.componentParameters = new DevExpress.XtraGrid.GridControl();
             this.componentParametersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.positiveFloat = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.wallThicknessGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.componentNewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -69,9 +70,9 @@
             this.newSaveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDeactivation = new DevExpress.XtraLayout.LayoutControlItem();
-            this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.componentBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positiveFloat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).BeginInit();
@@ -157,6 +159,7 @@
             this.type.Name = "type";
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.type.Size = new System.Drawing.Size(143, 20);
             this.type.StyleController = this.newEditPipeLayout;
             this.type.TabIndex = 1;
@@ -167,10 +170,10 @@
             // 
             // deactivated
             // 
-            this.deactivated.Location = new System.Drawing.Point(134, 444);
+            this.deactivated.Location = new System.Drawing.Point(135, 444);
             this.deactivated.Name = "deactivated";
             this.deactivated.Properties.Caption = "Компонент деактивирован";
-            this.deactivated.Size = new System.Drawing.Size(304, 19);
+            this.deactivated.Size = new System.Drawing.Size(301, 19);
             this.deactivated.StyleController = this.newEditPipeLayout;
             this.deactivated.TabIndex = 15;
             // 
@@ -187,9 +190,9 @@
             // saveComponentButton
             // 
             this.saveComponentButton.Image = ((System.Drawing.Image)(resources.GetObject("saveComponentButton.Image")));
-            this.saveComponentButton.Location = new System.Drawing.Point(729, 444);
+            this.saveComponentButton.Location = new System.Drawing.Point(727, 444);
             this.saveComponentButton.Name = "saveComponentButton";
-            this.saveComponentButton.Size = new System.Drawing.Size(94, 22);
+            this.saveComponentButton.Size = new System.Drawing.Size(96, 22);
             this.saveComponentButton.StyleController = this.newEditPipeLayout;
             this.saveComponentButton.TabIndex = 7;
             this.saveComponentButton.Text = "&Сохранить";
@@ -199,7 +202,7 @@
             this.attachmentsButton.Image = ((System.Drawing.Image)(resources.GetObject("attachmentsButton.Image")));
             this.attachmentsButton.Location = new System.Drawing.Point(19, 444);
             this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(91, 22);
+            this.attachmentsButton.Size = new System.Drawing.Size(92, 22);
             this.attachmentsButton.StyleController = this.newEditPipeLayout;
             this.attachmentsButton.TabIndex = 6;
             this.attachmentsButton.Text = "&Вложения";
@@ -226,7 +229,8 @@
             this.inspectionDateColumn,
             this.inspectorColumn,
             this.resultColumn,
-            this.reasonColumn});
+            this.reasonColumn,
+            this.orderColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistoryGrid;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -234,10 +238,13 @@
             this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionHistoryGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.orderColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             this.inspectionHistoryGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
             this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
+            this.inspectionHistoryGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // inspectionDateColumn
             // 
@@ -247,7 +254,7 @@
             this.inspectionDateColumn.Name = "inspectionDateColumn";
             this.inspectionDateColumn.Visible = true;
             this.inspectionDateColumn.VisibleIndex = 0;
-            this.inspectionDateColumn.Width = 98;
+            this.inspectionDateColumn.Width = 86;
             // 
             // repositoryInspectionDate
             // 
@@ -266,8 +273,8 @@
             this.inspectorColumn.Name = "inspectorColumn";
             this.inspectorColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectorColumn.Visible = true;
-            this.inspectorColumn.VisibleIndex = 1;
-            this.inspectorColumn.Width = 217;
+            this.inspectorColumn.VisibleIndex = 2;
+            this.inspectorColumn.Width = 190;
             // 
             // inspectorsPopupContainerEdit
             // 
@@ -287,8 +294,8 @@
             this.resultColumn.FieldName = "Status";
             this.resultColumn.Name = "resultColumn";
             this.resultColumn.Visible = true;
-            this.resultColumn.VisibleIndex = 2;
-            this.resultColumn.Width = 90;
+            this.resultColumn.VisibleIndex = 1;
+            this.resultColumn.Width = 79;
             // 
             // repositoryInspectionStatus
             // 
@@ -309,7 +316,16 @@
             this.reasonColumn.Name = "reasonColumn";
             this.reasonColumn.Visible = true;
             this.reasonColumn.VisibleIndex = 3;
-            this.reasonColumn.Width = 135;
+            this.reasonColumn.Width = 118;
+            // 
+            // orderColumn
+            // 
+            this.orderColumn.Caption = "Порядок";
+            this.orderColumn.FieldName = "Order";
+            this.orderColumn.Name = "orderColumn";
+            this.orderColumn.Visible = true;
+            this.orderColumn.VisibleIndex = 4;
+            this.orderColumn.Width = 50;
             // 
             // componentParameters
             // 
@@ -317,6 +333,8 @@
             this.componentParameters.Location = new System.Drawing.Point(44, 163);
             this.componentParameters.MainView = this.componentParametersView;
             this.componentParameters.Name = "componentParameters";
+            this.componentParameters.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.positiveFloat});
             this.componentParameters.Size = new System.Drawing.Size(325, 110);
             this.componentParameters.TabIndex = 4;
             this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -337,19 +355,31 @@
             // 
             // diameterGridColumn
             // 
-            this.diameterGridColumn.Caption = "Диаметр отверстия";
+            this.diameterGridColumn.Caption = "Наружный диаметр отверстия, мм";
+            this.diameterGridColumn.ColumnEdit = this.positiveFloat;
             this.diameterGridColumn.FieldName = "Diameter";
             this.diameterGridColumn.Name = "diameterGridColumn";
             this.diameterGridColumn.Visible = true;
             this.diameterGridColumn.VisibleIndex = 0;
+            this.diameterGridColumn.Width = 188;
+            // 
+            // positiveFloat
+            // 
+            this.positiveFloat.AutoHeight = false;
+            this.positiveFloat.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.positiveFloat.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.positiveFloat.Mask.UseMaskAsDisplayFormat = true;
+            this.positiveFloat.Name = "positiveFloat";
             // 
             // wallThicknessGridColumn
             // 
-            this.wallThicknessGridColumn.Caption = "Толщина стенки";
+            this.wallThicknessGridColumn.Caption = "Толщина стенки, мм";
+            this.wallThicknessGridColumn.ColumnEdit = this.positiveFloat;
             this.wallThicknessGridColumn.FieldName = "WallThickness";
             this.wallThicknessGridColumn.Name = "wallThicknessGridColumn";
             this.wallThicknessGridColumn.Visible = true;
             this.wallThicknessGridColumn.VisibleIndex = 1;
+            this.wallThicknessGridColumn.Width = 119;
             // 
             // certificateNumber
             // 
@@ -493,7 +523,7 @@
             // 
             this.emptySpaceBetweenButtons.AllowHotTrack = false;
             this.emptySpaceBetweenButtons.CustomizationFormText = "emptySpaceBetweenButtons";
-            this.emptySpaceBetweenButtons.Location = new System.Drawing.Point(435, 425);
+            this.emptySpaceBetweenButtons.Location = new System.Drawing.Point(433, 425);
             this.emptySpaceBetweenButtons.Name = "emptySpaceBetweenButtons";
             this.emptySpaceBetweenButtons.Size = new System.Drawing.Size(267, 40);
             this.emptySpaceBetweenButtons.Text = "emptySpaceBetweenButtons";
@@ -505,7 +535,7 @@
             this.attachmentsButtonLayout.CustomizationFormText = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 425);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
-            this.attachmentsButtonLayout.Size = new System.Drawing.Size(107, 40);
+            this.attachmentsButtonLayout.Size = new System.Drawing.Size(108, 40);
             this.attachmentsButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 5, 7, 7);
             this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -527,9 +557,9 @@
             // 
             this.saveButtonLayoutControl.Control = this.saveComponentButton;
             this.saveButtonLayoutControl.CustomizationFormText = "saveButtonLayoutControl";
-            this.saveButtonLayoutControl.Location = new System.Drawing.Point(702, 425);
+            this.saveButtonLayoutControl.Location = new System.Drawing.Point(700, 425);
             this.saveButtonLayoutControl.Name = "saveButtonLayoutControl";
-            this.saveButtonLayoutControl.Size = new System.Drawing.Size(118, 40);
+            this.saveButtonLayoutControl.Size = new System.Drawing.Size(120, 40);
             this.saveButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.saveButtonLayoutControl.Text = "saveButtonLayoutControl";
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
@@ -539,9 +569,9 @@
             // 
             this.layoutControlDeactivation.Control = this.deactivated;
             this.layoutControlDeactivation.CustomizationFormText = "layoutControlDeactivation";
-            this.layoutControlDeactivation.Location = new System.Drawing.Point(107, 425);
+            this.layoutControlDeactivation.Location = new System.Drawing.Point(108, 425);
             this.layoutControlDeactivation.Name = "layoutControlDeactivation";
-            this.layoutControlDeactivation.Size = new System.Drawing.Size(328, 40);
+            this.layoutControlDeactivation.Size = new System.Drawing.Size(325, 40);
             this.layoutControlDeactivation.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 7, 7);
             this.layoutControlDeactivation.Text = "layoutControlDeactivation";
             this.layoutControlDeactivation.TextSize = new System.Drawing.Size(0, 0);
@@ -575,6 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryInspectionStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParameters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentParametersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positiveFloat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.certificateNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentNewLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InspectionLayoutGroup)).EndInit();
@@ -640,5 +671,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit inspectorsPopupContainerEdit;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButtons;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit positiveFloat;
+        private DevExpress.XtraGrid.Columns.GridColumn orderColumn;
     }
 }

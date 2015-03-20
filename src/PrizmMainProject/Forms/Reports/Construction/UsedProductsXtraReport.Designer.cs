@@ -36,7 +36,8 @@
             this.GroupHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.productTypeLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.productNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
-            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.pageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.dateTimePageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.numberOfPageInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.TableHeader = new DevExpress.XtraReports.UI.XRControlStyle();
             this.groupHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
@@ -46,6 +47,7 @@
             this.EvenStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
@@ -107,21 +109,35 @@
             this.productNumberLabel.SizeF = new System.Drawing.SizeF(325F, 23F);
             this.productNumberLabel.Text = "Номер изделия";
             // 
-            // PageFooter
+            // pageFooter
             // 
-            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.dateTimePageInfo,
             this.numberOfPageInfo});
-            this.PageFooter.HeightF = 25F;
-            this.PageFooter.Name = "PageFooter";
+            this.pageFooter.HeightF = 25F;
+            this.pageFooter.Name = "pageFooter";
+            // 
+            // dateTimePageInfo
+            // 
+            this.dateTimePageInfo.Format = "{0:dddd, d MMMM, yyyy HH:mm:ss}";
+            this.dateTimePageInfo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.dateTimePageInfo.Name = "dateTimePageInfo";
+            this.dateTimePageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.dateTimePageInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.dateTimePageInfo.SizeF = new System.Drawing.SizeF(325F, 23F);
             // 
             // numberOfPageInfo
             // 
-            this.numberOfPageInfo.Format = "Page {0} of {1}";
+            this.numberOfPageInfo.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            this.numberOfPageInfo.Format = "{0} / {1}";
             this.numberOfPageInfo.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
             this.numberOfPageInfo.Name = "numberOfPageInfo";
             this.numberOfPageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.numberOfPageInfo.SizeF = new System.Drawing.SizeF(325.0001F, 23F);
             this.numberOfPageInfo.StyleName = "EvenStyle";
+            this.numberOfPageInfo.StylePriority.UseFont = false;
+            this.numberOfPageInfo.StylePriority.UseTextAlignment = false;
+            this.numberOfPageInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // TableHeader
             // 
@@ -133,13 +149,15 @@
             // groupHeaderLabel
             // 
             this.groupHeaderLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 20F);
-            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.79169F);
             this.groupHeaderLabel.Name = "groupHeaderLabel";
             this.groupHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.groupHeaderLabel.StyleName = "Header";
             this.groupHeaderLabel.StylePriority.UseFont = false;
+            this.groupHeaderLabel.StylePriority.UseTextAlignment = false;
             this.groupHeaderLabel.Text = "Отчет по использованным изделиям";
+            this.groupHeaderLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // Header
             // 
@@ -150,7 +168,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 0F;
+            this.BottomMargin.HeightF = 34.375F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -180,9 +198,21 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.groupHeaderLabel});
-            this.ReportHeader.HeightF = 40.70836F;
+            this.groupHeaderLabel,
+            this.reportDateTimeInfo});
+            this.ReportHeader.HeightF = 58.50005F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // reportDateTimeInfo
+            // 
+            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
+            this.reportDateTimeInfo.Name = "reportDateTimeInfo";
+            this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(324.9999F, 17.79169F);
+            this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
+            this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // PageHeader
             // 
@@ -201,7 +231,9 @@
             this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
             this.pageHeaderLabel.StyleName = "Header";
             this.pageHeaderLabel.StylePriority.UseFont = false;
+            this.pageHeaderLabel.StylePriority.UseTextAlignment = false;
             this.pageHeaderLabel.Text = "Отчет по использованным изделиям";
+            this.pageHeaderLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // sqlDataSource1
             // 
@@ -221,13 +253,13 @@
             this.Detail,
             this.TopMargin,
             this.BottomMargin,
-            this.PageFooter,
+            this.pageFooter,
             this.GroupHeader,
             this.ReportHeader,
             this.PageHeader});
             this.DataMember = "Joint";
             this.DataSource = this.sqlDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 51, 0);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 51, 34);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Header,
             this.TableHeader,
@@ -242,7 +274,7 @@
 
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader;
-        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo numberOfPageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle TableHeader;
         private DevExpress.XtraReports.UI.XRLabel groupHeaderLabel;
@@ -259,6 +291,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel productNumberLabel;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
+        private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
 
     }
 }

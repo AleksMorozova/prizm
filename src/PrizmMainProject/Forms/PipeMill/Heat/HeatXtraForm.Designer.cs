@@ -89,9 +89,9 @@
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(228, 158);
+            this.saveButton.Location = new System.Drawing.Point(233, 158);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(121, 22);
+            this.saveButton.Size = new System.Drawing.Size(106, 22);
             this.saveButton.StyleController = this.masterLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "&Сохранить";
@@ -100,9 +100,9 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(353, 158);
+            this.cancelButton.Location = new System.Drawing.Point(343, 158);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(97, 22);
+            this.cancelButton.Size = new System.Drawing.Size(107, 22);
             this.cancelButton.StyleController = this.masterLayoutControl;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "О&тменить";
@@ -159,9 +159,9 @@
             // 
             this.saveLayoutControl.Control = this.saveButton;
             this.saveLayoutControl.CustomizationFormText = "saveLayoutControl";
-            this.saveLayoutControl.Location = new System.Drawing.Point(206, 136);
+            this.saveLayoutControl.Location = new System.Drawing.Point(211, 136);
             this.saveLayoutControl.Name = "saveLayoutControl";
-            this.saveLayoutControl.Size = new System.Drawing.Size(125, 26);
+            this.saveLayoutControl.Size = new System.Drawing.Size(110, 26);
             this.saveLayoutControl.Text = "saveLayoutControl";
             this.saveLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.saveLayoutControl.TextVisible = false;
@@ -170,9 +170,9 @@
             // 
             this.cancelLayoutControl.Control = this.cancelButton;
             this.cancelLayoutControl.CustomizationFormText = "cancelLayoutControl";
-            this.cancelLayoutControl.Location = new System.Drawing.Point(331, 136);
+            this.cancelLayoutControl.Location = new System.Drawing.Point(321, 136);
             this.cancelLayoutControl.Name = "cancelLayoutControl";
-            this.cancelLayoutControl.Size = new System.Drawing.Size(101, 26);
+            this.cancelLayoutControl.Size = new System.Drawing.Size(111, 26);
             this.cancelLayoutControl.Text = "cancelLayoutControl";
             this.cancelLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.cancelLayoutControl.TextVisible = false;
@@ -183,7 +183,7 @@
             this.buttonsLeftEmptySpace.CustomizationFormText = "buttonsLeftEmptySpace";
             this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(0, 136);
             this.buttonsLeftEmptySpace.Name = "buttonsLeftEmptySpace";
-            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(206, 26);
+            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(211, 26);
             this.buttonsLeftEmptySpace.Text = "buttonsLeftEmptySpace";
             this.buttonsLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 

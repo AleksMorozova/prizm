@@ -13,5 +13,10 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             InitializeComponent();
         }
 
+        public bool FootersVisibility
+        {
+            get { return pageFooter.Visible; }
+            set { pageFooter.Visible = value; }
+        }
     }
 }

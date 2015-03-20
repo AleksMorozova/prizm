@@ -10,16 +10,15 @@ using construction = Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Domain.Entity.Construction
 {
-    public class PartData
+    public class PartData : Item
     {
-        public virtual Guid Id { get; set; }
         public virtual PartType PartType { get; set; }
 
         public string Number { get; set; }
         public string PartTypeDescription { get; set; }
         public int Length { get; set; }
         public float WallThickness { get; set; }
-        public int Diameter { get; set; }
+        public float Diameter { get; set; }
         public IList<Connector> Connectors { get; set; }
         public PartConstructionStatus ConstructionStatus { get; set; }
         public string ConnectorsCount { get; set; }
@@ -44,7 +43,7 @@ namespace Prizm.Domain.Entity.Construction
             Length = row.Field<int>("length");
             PartTypeDescription = row.Field<string>("typeTranslated");
             WallThickness = Convert.ToSingle(row.Field<double>("wallThickness"));
-            Diameter = row.Field<int>("diameter");
+            Diameter = row.Field<float>("diameter");
 
             ConstructionStatus = (PartConstructionStatus)Enum
                     .Parse(typeof(PartConstructionStatus),
@@ -106,7 +105,8 @@ namespace Prizm.Domain.Entity.Construction
 
             if (this.PartType == PartType.Component)
             {
-                cnt.Diameter = row.Field<int>("diameter");
+                cnt.Diameter = row.Field<float>("diameter");
+                cnt.WallThickness = Convert.ToSingle(row.Field<double>("wallThickness"));
 
                 this.Connectors.Add(cnt);
 
@@ -115,6 +115,7 @@ namespace Prizm.Domain.Entity.Construction
             else
             {
                 cnt.Diameter = this.Diameter;
+                cnt.WallThickness = this.WallThickness;
 
                 this.Connectors.Add(cnt);
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Domain.Entity.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,17 +26,22 @@ namespace Prizm.Domain.Entity
         /// </summary>
         public virtual DateTime AuditDate { get; set; }
         /// <summary>
-        /// user who made changes
+        ///Id of user who made changes
         /// </summary>
-        public virtual string User { get; set; }
+        public virtual Guid User { get; set; }
         /// <summary>
+        /// Full name of user who made changes(is not mapped)
+        /// </summary>
+        public virtual string UserName { get; set; }
+        /// <summary>
+        /// 
         /// entity that was changed
         /// </summary>
-        public virtual string TableName { get; set; }
+        public virtual ItemTypes TableName { get; set; }
         /// <summary>
         /// field that was changed
         /// </summary>
-        public virtual string FieldName { get; set; }
+        public virtual FieldNames FieldName { get; set; }
         /// <summary>
         /// previous field state
         /// </summary>
@@ -43,6 +49,10 @@ namespace Prizm.Domain.Entity
         /// <summary>
         /// current field state
         /// </summary>
-        public virtual string NewValue { get; set; } 
+        public virtual string NewValue { get; set; }
+        /// <summary>
+        /// Id of entity that contains edited entity
+        /// </summary>
+        public virtual Guid OwnerId { get; set; }
     }
 }

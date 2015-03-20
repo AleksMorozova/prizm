@@ -41,6 +41,7 @@
             this.colInspector = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.colReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             this.elementType = new DevExpress.XtraEditors.TextEdit();
             this.elementNumber = new DevExpress.XtraEditors.TextEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -147,7 +148,8 @@
             this.colDate,
             this.colResult,
             this.colInspector,
-            this.colReason});
+            this.colReason,
+            this.colOrder});
             this.inspectionsView.GridControl = this.inspections;
             this.inspectionsView.Name = "inspectionsView";
             this.inspectionsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -155,8 +157,12 @@
             this.inspectionsView.OptionsNavigation.UseTabKey = false;
             this.inspectionsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionsView.OptionsView.ShowGroupPanel = false;
+            this.inspectionsView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colOrder, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
             this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
+            this.inspectionsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionsView_KeyDown);
+            this.inspectionsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // colDate
             // 
@@ -226,6 +232,14 @@
             this.colReason.Visible = true;
             this.colReason.VisibleIndex = 3;
             this.colReason.Width = 175;
+            // 
+            // colOrder
+            // 
+            this.colOrder.Caption = "Порядок";
+            this.colOrder.FieldName = "Order";
+            this.colOrder.Name = "colOrder";
+            this.colOrder.Visible = true;
+            this.colOrder.VisibleIndex = 4;
             // 
             // elementType
             // 
@@ -500,5 +514,6 @@
         private DevExpress.XtraLayout.LayoutControlItem saveAndClearLayout;
         private DevExpress.XtraLayout.EmptySpaceItem buttonsEmptySpaceItem;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryInspectionDateEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn colOrder;
     }
 }

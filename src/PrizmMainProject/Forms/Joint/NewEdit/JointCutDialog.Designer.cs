@@ -81,6 +81,7 @@
             this.jointCutDialogLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jointCutDialogLayout.Location = new System.Drawing.Point(0, 0);
             this.jointCutDialogLayout.Name = "jointCutDialogLayout";
+            this.jointCutDialogLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(639, 28, 250, 350);
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.jointCutDialogLayout.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
@@ -100,9 +101,9 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(243, 192);
+            this.cancelButton.Location = new System.Drawing.Point(234, 192);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(97, 22);
+            this.cancelButton.Size = new System.Drawing.Size(106, 22);
             this.cancelButton.StyleController = this.jointCutDialogLayout;
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Отмена";
@@ -145,9 +146,9 @@
             // 
             this.cutJointButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cutJointButton.Image = ((System.Drawing.Image)(resources.GetObject("cutJointButton.Image")));
-            this.cutJointButton.Location = new System.Drawing.Point(143, 192);
+            this.cutJointButton.Location = new System.Drawing.Point(124, 192);
             this.cutJointButton.Name = "cutJointButton";
-            this.cutJointButton.Size = new System.Drawing.Size(96, 22);
+            this.cutJointButton.Size = new System.Drawing.Size(106, 22);
             this.cutJointButton.StyleController = this.jointCutDialogLayout;
             this.cutJointButton.TabIndex = 4;
             this.cutJointButton.Text = "Вырезать";
@@ -177,7 +178,7 @@
             this.underSecondPartEmptySpace.Location = new System.Drawing.Point(0, 180);
             this.underSecondPartEmptySpace.MinSize = new System.Drawing.Size(104, 24);
             this.underSecondPartEmptySpace.Name = "underSecondPartEmptySpace";
-            this.underSecondPartEmptySpace.Size = new System.Drawing.Size(131, 26);
+            this.underSecondPartEmptySpace.Size = new System.Drawing.Size(112, 26);
             this.underSecondPartEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.underSecondPartEmptySpace.Text = "underSecondPartEmptySpace";
             this.underSecondPartEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -296,11 +297,11 @@
             // 
             this.layoutControlItem1.Control = this.cutJointButton;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(131, 180);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(100, 26);
+            this.layoutControlItem1.Location = new System.Drawing.Point(112, 180);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(124, 26);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(100, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(110, 26);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -310,11 +311,11 @@
             // 
             this.layoutControlItem2.Control = this.cancelButton;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(231, 180);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(101, 26);
+            this.layoutControlItem2.Location = new System.Drawing.Point(222, 180);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(124, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(101, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(101, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(110, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);

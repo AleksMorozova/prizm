@@ -31,6 +31,7 @@ using Prizm.Main.Forms.Settings.Inspections;
 using Domain.Entity.Security;
 using Prizm.Main.Security;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.Data;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -153,11 +154,12 @@ namespace Prizm.Main.Forms.Settings
             CreateDuplicateList();
 
             externalDocumentSize.SetMask(Constants.PositiveDigitMask);
-            pipeDiameter.SetMask(Constants.PositiveDigitMask);
             pipeLength.SetMask(Constants.PositiveDigitMask);
 
             categoryColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             certificateTypeColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectionCodeGridColumn.SortOrder = ColumnSortOrder.Ascending;
             
         }
 
@@ -1451,6 +1453,7 @@ namespace Prizm.Main.Forms.Settings
             findDuplicateList.Add(this.certificateTypesView, certificateType);
 
         }
+
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
                  BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes)
         {
@@ -1493,9 +1496,15 @@ namespace Prizm.Main.Forms.Settings
                 {
                     var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes);
 
-                    inspectionForm.ShowDialog();
-                    IsModified = true;
-                    inspectionOperation.RefreshDataSource();
+                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
+                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
+                        
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
+                    }
+                    
 
                 }
             }
@@ -1518,9 +1527,15 @@ namespace Prizm.Main.Forms.Settings
                         inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
                     }
 
-                    inspectionForm.ShowDialog();
-                    inspectionOperation.RefreshDataSource();
+                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
+                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
 
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
+                    }
+                   
                 }
             }
         }

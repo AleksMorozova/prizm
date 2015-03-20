@@ -30,6 +30,20 @@ namespace Prizm.Main.Forms.Reports.Incoming
             previewCommand = ViewModelSource.Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
         }
 
+        private bool isFooterVisible;
+        public bool IsFooterVisible
+        {
+            get { return isFooterVisible; }
+            set
+            {
+                if (value != isFooterVisible)
+                {
+                    isFooterVisible = value;
+                    RaisePropertyChanged("IsFooterVisible");
+                }
+            }
+        }
+
         public object PreviewSource
         {
             get

@@ -155,7 +155,7 @@ namespace Prizm.Main.Forms.Synch
 
       void LoadPortions()
       {
-         IList<Portion> portions = exporter.GetAllPortions();
+         IList<Portion> portions = exporter.GetAllPortions().Where<Portion>(x=>x.IsExport == true).ToList<Portion>();
          if (gridControlHistory.InvokeRequired)
          {
             gridControlHistory.Invoke(new MethodInvoker(() => { gridControlHistory.DataSource = portions; }));

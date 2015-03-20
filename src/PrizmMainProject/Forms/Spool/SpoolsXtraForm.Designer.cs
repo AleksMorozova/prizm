@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -45,6 +44,7 @@
             this.inspectorsPopupContainerEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit();
             this.reasonGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.reasonTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.orderGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pipeLength = new DevExpress.XtraEditors.TextEdit();
             this.spoolNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeNumber = new DevExpress.XtraEditors.LookUpEdit();
@@ -67,8 +67,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SpoolBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
@@ -191,15 +191,20 @@
             this.inspectionDateGridColumn,
             this.inspectionResultGridColumn,
             this.inspectorsGridColumn,
-            this.reasonGridColumn});
+            this.reasonGridColumn,
+            this.orderGridColumn});
             this.inspectionHistoryGridView.GridControl = this.inspectionHistory;
             this.inspectionHistoryGridView.Name = "inspectionHistoryGridView";
             this.inspectionHistoryGridView.OptionsBehavior.FocusLeaveOnTab = true;
             this.inspectionHistoryGridView.OptionsNavigation.UseTabKey = false;
             this.inspectionHistoryGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.inspectionHistoryGridView.OptionsView.ShowGroupPanel = false;
+            this.inspectionHistoryGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.orderGridColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
+            this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
+            this.inspectionHistoryGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // inspectionDateGridColumn
             // 
@@ -272,6 +277,14 @@
             // 
             this.reasonTextEdit.AutoHeight = false;
             this.reasonTextEdit.Name = "reasonTextEdit";
+            // 
+            // orderGridColumn
+            // 
+            this.orderGridColumn.Caption = "Порядок";
+            this.orderGridColumn.FieldName = "Order";
+            this.orderGridColumn.Name = "orderGridColumn";
+            this.orderGridColumn.Visible = true;
+            this.orderGridColumn.VisibleIndex = 4;
             // 
             // pipeLength
             // 
@@ -454,7 +467,7 @@
             this.layoutlengthGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutlengthGroup.Size = new System.Drawing.Size(318, 89);
             this.layoutlengthGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutlengthGroup.Text = "Длина";
+            this.layoutlengthGroup.Text = "Длина, мм";
             // 
             // pipelengthLabel
             // 
@@ -646,5 +659,6 @@
         private DevExpress.XtraEditors.CheckEdit deactivated;
         private DevExpress.XtraLayout.LayoutControlItem deactivatedLayout;
         public DevExpress.XtraEditors.SpinEdit spoolLength;
+        private DevExpress.XtraGrid.Columns.GridColumn orderGridColumn;
     }
 }

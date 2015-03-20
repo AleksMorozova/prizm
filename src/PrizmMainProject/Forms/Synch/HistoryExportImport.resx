@@ -117,22 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0ibnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImNlcnRpZmljYXRlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImRlc3RpbmF0aW9uIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
-  </data>
-  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <data name="customSqlQuery2.Sql" xml:space="preserve">
-    <value>select number, destination, certificate, n.length length,n.weight weight from Railcar r 
-inner join 
-(select SUM (length) length, sum (weight) weight, railcarId from Pipe group by railcarId) n
-on n.railcarId = r.id</value>
-  </data>
-  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0ibnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImRlc3RpbmF0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImNlcnRpZmljYXRlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Imxlbmd0aCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IndlaWdodCIgVHlwZT0iRG91YmxlIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////Af///wH///8B////Af///wH///8B////AQAAAAUAAAANAAAAEQAAABEAAAANAAAABf//
+        /wH///8B////Af///wH///8B////Af///wH///8B////AQAAAAcRD1QvGxiGuRsZju0aGI3vGBWDvw8N
+        VzcAAAAH////Af///wG3f263toBu/7Z/bf+2fm3/tn9s/7+Thf+tmKX/Mi6X/5SLuP/cz9L/4tTT/52T
+        vf8rKJT/FBNqRwAAAAX///8BuYRy//v49f/48Or/0aiZ//jv6f/y7Oj/XFWj/5CGtf/v3dH/8N/T/3FV
+        TP/v39P/nJK5/x8djsUAAAAL////AbyJeP/8+ff/+vTw/9q8sP/58+//8u7s/zg3ov/Xx8P/7dvO/+/g
+        1P9xVUz/7d7P/+XWy/8sKpv9DQwzE////wHAjn3/1bCj/92+tP8gJ87/HiXM/36C2v84Oan/1sK+/0JI
+        uv9ARbf/V0yA//Po3//n1Mb/MDCg/REQPBH///8Bw5SC//z7+f/89/T/JCvR//v29P/38/L/UFO4/5iM
+        tP/48+7/+/f0//v39P/58+7/npK1/zAxn8cAAAAH////AceYh//9/Pr//Pn2/ycx1f/8+PT//Pf1/3+D
+        1/9JSrL/n5jB/+3r9P/y8PX/q6LC/0ZFrP8wMZE9AAAAA////wHJnYz/3Luv/+LJvf8qNNr/KDHW/yYw
+        1f9ZYNv/1MnU/3Rxu/9JTLT/R0qz/25quP/Fsrz/AAAAA////wH///8BzaGQ//79/P/9+vn/5MrA//36
+        +f/9+fn/48q///z5+P/7+Pf/6djS//r49//69/b/066g/////wH///8B////Ac+llP/+/f3//fr5/9/B
+        tP/9+vj//fn4/9/As//8+ff//Pn3/9/As//9+Pf//Pr4/82ikf////8B////Af///wFLU8P/jZ7s/2h8
+        4/9meOL/ZHbh/2Fy4P9fcN//XWze/1tp3P9ZZtv/VmTa/2Jw3f81OKv/////Af///wH///8BTFXE/5Ok
+        7v9sgOb/an7k/2h75P9meOL/Y3Xh/2Fy4P9eb97/XGzd/1pp3P9ndd//Njqs/////wH///8B////AU1W
+        xv+Wp+//labv/5Ok7f+Qou3/j5/t/4ub6/+ImOr/hZXq/4KR5/9/jef/fYnl/zc7rf////8B////Af//
+        /wFPV8a9TVXF/0tTw/9KUcH/SE+//0ZNvv9ES7v/Qkm5/0BGt/8+RLT/PEGz/zo+sP85PK69////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af//
+        /wH///8BAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
+</value>
   </data>
 </root>

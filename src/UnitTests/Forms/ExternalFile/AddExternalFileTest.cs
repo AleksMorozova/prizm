@@ -17,6 +17,7 @@ using Prizm.Domain.Entity;
 using Prizm.Main.Common;
 using System.IO;
 using Prizm.Main.Security;
+using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.UnitTests.Forms.ExternalFile
 {
@@ -66,7 +67,7 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             viewModel.Railcar.Number = "Test Railcar";
             viewModel.ModifiableView = view.Object;
             viewModel.FilesFormViewModel = fileViewModel;
-            viewModel.Railcar.Pipes.Add(new Pipe());
+            viewModel.Railcar.Pipes.Add(new SimplePipe());
             var command = new SaveReleaseNoteCommand(viewModel, repos.Object, notify.Object, ctx.Object);
 
             command.Execute();

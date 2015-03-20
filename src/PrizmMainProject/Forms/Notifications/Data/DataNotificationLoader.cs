@@ -20,6 +20,7 @@ namespace Prizm.Main.Forms.Notifications.Data
         public abstract Guid GetId(object[] tuple);
         public abstract string GetOwnerName(object[] tuple);
         public abstract DateTime GetDateToOccur(object[] tuple);
+        public abstract float GetTimeToOccur(object[] tuple);
 
         public DataNotificationLoader(NotificationManager manager)
         {
@@ -39,7 +40,7 @@ namespace Prizm.Main.Forms.Notifications.Data
 
         public virtual object TransformTuple(object[] tuple, string[] aliases)
         {
-            return manager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple));
+            return manager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetTimeToOccur(tuple));
         }
     }
 }

@@ -463,7 +463,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            int commonDiameter = GetCommonDiameter(firstElement, secondElement);
+            float commonDiameter = GetCommonDiameter(firstElement, secondElement);
 
             if (commonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
             {
@@ -490,7 +490,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (var con in component.Connectors)
                     {
-                        if (con.Diameter == commonDiameter && (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        if (Math.Abs(con.Diameter - commonDiameter)<= Prizm.Main.Common.Constants.DiameterDiffLimit && (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
                             con.Joint = Joint;
                             break;
@@ -624,9 +624,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <param name="firstElement">the first connectable element</param>
         /// <param name="secondElement">the second connectable element</param>
         /// <returns></returns>
-        private int GetCommonDiameter(PartData firstElement, PartData secondElement)
+        private float GetCommonDiameter(PartData firstElement, PartData secondElement)
         {
-            int commonDiameter;
+            float commonDiameter;
 
             var duplicates =
                 firstElement.Connectors
@@ -681,7 +681,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
                     return false;
 
-                return x.Diameter == y.Diameter;
+                return (Math.Abs(x.Diameter - y.Diameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit &&
+                        Math.Abs(x.WallThickness - y.WallThickness) <= Prizm.Main.Common.Constants.ThicknessDiffLimit);
+                
             }
 
             public int GetHashCode(construction.Connector connector)
@@ -689,7 +691,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (Object.ReferenceEquals(connector, null))
                     return 0;
 
-                return connector.Diameter.GetHashCode();
+                return 1;
             }
 
         }
@@ -813,15 +815,21 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             .Connectors
                             .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
                             .Diameter;
+                        connector.WallThickness = ((construction.Component)part)
+                           .Connectors
+                           .First<Connector>(x => x.Joint != null && x.Joint.Id == this.Joint.Id)
+                           .WallThickness;
                     }
                 }
                 else if (part is Pipe)
                 {
                     connector.Diameter = ((Pipe)part).Diameter;
+                    connector.WallThickness = ((Pipe)part).WallThickness;
                 }
                 else
                 {
                     connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
+                    connector.WallThickness = ((construction.Spool)part).Pipe.WallThickness;
                 }
                 
                 PartDataList.First<PartData>(x => x.Id == partData.Id).Connectors.Add(connector);

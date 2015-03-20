@@ -154,7 +154,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     {
                         for (int i = 0; i < value.ConnectorsCount; ++i)
                         {
-                            Connectors.Add(new Connector());
+                            Connectors.Add(new Connector() { Component = this.Component});
                         }
                         RaisePropertyChanged("Type");
                     }
@@ -227,6 +227,21 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     Component.InspectionTestResults = value;
                     RaisePropertyChanged("InspectionTestResults");
                 }
+            }
+        }
+
+        public int InspectionTestResultsMaxOrder()
+        {
+            var max = InspectionTestResults.Max(x => x.Order);
+            return max;
+        }
+
+        public void RecalculateInspectionTestResultsOrder()
+        {
+            int counter = 0;
+            foreach(var item in InspectionTestResults)
+            {
+                item.Order = ++counter;
             }
         }
 

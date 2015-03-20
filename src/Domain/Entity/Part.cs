@@ -27,15 +27,7 @@ namespace Prizm.Domain.Entity
 
             if (this.InspectionTestResults != null && this.InspectionTestResults.Count > 0)
             {
-                if (this.InspectionTestResults.Where(_ => _.Date == this.InspectionTestResults.Max(x => x.Date)).Count() > 1)
-                {
-                    List<InspectionTestResult> oneDayResults = this.InspectionTestResults.Where(_ => _.Date == this.InspectionTestResults.Max(x => x.Date)).ToList();
-                    status = oneDayResults.Any(_ => _.Status == PartInspectionStatus.Accepted) ? PartInspectionStatus.Accepted : oneDayResults.Last().Status;
-                }
-                else
-                {
-                    status = this.InspectionTestResults.Where(_ => _.Date == this.InspectionTestResults.Max(x => x.Date)).Single().Status;
-                }
+                status = (this.InspectionTestResults.OrderByDescending(x => x.Order).First()).Status;
             }
             
             return status;

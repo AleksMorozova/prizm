@@ -13,6 +13,7 @@ using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using DevExpress.XtraEditors.Controls;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -26,28 +27,30 @@ namespace Prizm.Main.Forms.Audit
         {
             InitializeComponent();
             viewModel = (AuditViewModel)Program.Kernel.GetService(typeof(AuditViewModel));
+            viewModel.TracingMode = TracingModeEnum.TracingByNumber;
         }
 
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
+            foreach (var item in EnumWrapper<TracingModeEnum>.EnumerateItems())
+            {
+                radioPeriodUser.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
+            }
             BindCommands();
             BindToViewModel();
-
             startDate.SetLimits();
             endDate.SetLimits();
         }
 
         private void BindToViewModel()
         {
-            foreach(var u in viewModel.UsersList)
-            {
-                user.Properties.Items.Add(u);
-            }
             startDate.DataBindings.Add("EditValue", viewModel, "StartDate");
             endDate.DataBindings.Add("EditValue", viewModel, "EndDate");
-            auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");
-            user.DataBindings.Add("EditValue", viewModel, "SelectedUser");
+            auditResults.DataBindings.Add("DataSource", viewModel, "AuditResults");          
+            userList.Properties.DataSource = viewModel.UsersList.ToList();
+            userList.DataBindings.Add("EditValue", viewModel, "SelectedUser");
             number.DataBindings.Add("EditValue", viewModel, "Number");
+            radioPeriodUser.DataBindings.Add("SelectedIndex", viewModel, "TracingMode");
             number.SetAsIdentifier();
         }
 
@@ -107,19 +110,20 @@ namespace Prizm.Main.Forms.Audit
 
         private void tracingModeRadioGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RadioGroup edit = sender as RadioGroup;
+            if (radioPeriodUser.SelectedIndex < 0)
+                return;
+            var selected = (TracingModeEnum)radioPeriodUser.Properties.Items[radioPeriodUser.SelectedIndex].Value;
+            viewModel.TracingMode = selected;
 
-            if(edit.SelectedIndex == 0)
+            if (radioPeriodUser.SelectedIndex == 0)
             {
                 number.Enabled = true;
-                user.Enabled = false;
-                viewModel.TracingMode = TracingModeEnum.TracingByNumber;
+                userList.Enabled = false;
             }
             else
             {
                 number.Enabled = false;
-                user.Enabled = true;
-                viewModel.TracingMode = TracingModeEnum.TracingByUser;
+                userList.Enabled = true;
             }
         }
 
@@ -127,7 +131,7 @@ namespace Prizm.Main.Forms.Audit
         {
             if(e.Column.Name.Equals(entityGridColumn.Name) || e.Column.Name.Equals(fieldGridColumn.Name))
             {
-                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */(string)e.Value));
+                StringResource? resId = Program.LanguageManager.FindById(typeof(StringResources), (/*"AuditItem_" + */e.Value.ToString()));
                 if(resId != null)
                 {
                     e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);

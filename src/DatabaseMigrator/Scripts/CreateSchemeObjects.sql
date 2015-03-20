@@ -69,7 +69,8 @@ CREATE TABLE [dbo].[SeamType](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
 	[name] [nvarchar](20) NULL,
-
+	[isNative] [bit] NOT NULL DEFAULT 0,
+	[projectId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_SeamType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -87,7 +88,8 @@ CREATE TABLE [dbo].[ComponentType](
 	[isActive] [bit] NULL,
 	[name] [nvarchar](20) NULL,
 	[connectorsCount] [int] NULL,
-
+	[isNative] [bit] NOT NULL DEFAULT 0,
+	[projectId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_ComponentType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -104,7 +106,7 @@ CREATE TABLE [dbo].[Connector](
 
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NULL,
-	[diameter] [int] NULL,
+	[diameter] [real] NULL,
 	[wallThickness] [float] NULL,
 	[jointId] [uniqueidentifier] NULL,
 	[componentId] [uniqueidentifier] NULL,
@@ -248,7 +250,7 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Pipe](
 	[id] [uniqueidentifier] NOT NULL,
 	[wallThickness] [float] NULL,
-	[diameter] [int] NULL,
+	[diameter] [real] NULL,
 	[weight] [real] NULL,
 	[mill] [nvarchar](250) NULL,
 	[pipeMillStatus] [nvarchar](20) NULL,
@@ -305,10 +307,11 @@ CREATE TABLE [dbo].[PipeMillSizeType](
 	[id] [uniqueidentifier] NOT NULL,
 	[type] [nvarchar](50) NULL,
 	[length] [int]  NULL,
-	[diameter] [int] NULL,
-	[thickness] [int]  NULL,
+	[diameter] [real] NULL,
+	[thickness] [real]  NULL,
 	[seamTypeId][uniqueidentifier] NULL,
-
+	[isNative] [bit] NOT NULL DEFAULT 0,
+	[projectId] [uniqueidentifier] NULL,
 	[isActive] [bit] NULL,
  CONSTRAINT [PK_PipeMillSizeType] PRIMARY KEY CLUSTERED 
 (
@@ -375,7 +378,7 @@ CREATE TABLE [dbo].[PipeTestResult](
 	[pipeId] [uniqueidentifier] NULL,
 	[pipeTestId] [uniqueidentifier] NULL,
 	[date] [date] NULL,
-	[order][int] NULL,
+	[pipeOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (100) NULL,
 	[isActive] [bit] NULL,
@@ -428,6 +431,8 @@ CREATE TABLE [dbo].[PlateManufacturer](
 	[id] [uniqueidentifier]NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
 	[isActive] [bit] NOT NULL,
+	[isNative] [bit] NOT NULL DEFAULT 0,
+	[projectId] [uniqueidentifier] NULL,
  CONSTRAINT [PK_PlateManufacturer] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -442,7 +447,7 @@ SET ANSI_PADDING ON
 CREATE TABLE [dbo].[Project](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NOT NULL,
-	[title] [nvarchar] (20) NULL,
+	[title] [nvarchar] (50) NULL,
 	[client] [nvarchar](100) NULL,
 	[millName] [nvarchar](100) NULL,
 	[documentSizeLimit] [int] NULL,
@@ -479,6 +484,22 @@ CREATE TABLE [dbo].[Railcar](
 
 SET ANSI_PADDING OFF
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_Railcar_Number')
+    DROP INDEX IDX_Railcar_Number ON [dbo].[Railcar]
+GO
+CREATE NONCLUSTERED INDEX IDX_Railcar_Number
+    ON [dbo].[Railcar] ([number])
+GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_Railcar_Certificate')
+    DROP INDEX IDX_Railcar_Certificate ON [dbo].[Railcar]
+GO
+CREATE NONCLUSTERED INDEX IDX_Railcar_Certificate
+    ON [dbo].[Railcar] ([certificate])
+GO
+
 /****** Object:  Table [dbo].[ReleaseNote]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
@@ -498,6 +519,22 @@ CREATE TABLE [dbo].[ReleaseNote](
 
 SET ANSI_PADDING OFF
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_ReleaseNote_Number')
+    DROP INDEX IDX_ReleaseNote_Number ON [dbo].[ReleaseNote]
+GO
+CREATE NONCLUSTERED INDEX IDX_ReleaseNote_Number
+    ON [dbo].[ReleaseNote] ([number])
+GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_ReleaseNote_Date')
+    DROP INDEX IDX_ReleaseNote_Date ON [dbo].[ReleaseNote]
+GO
+CREATE NONCLUSTERED INDEX IDX_ReleaseNote_Date
+    ON [dbo].[ReleaseNote] ([date])
+GO
+
 
 /****** Object:  Table [dbo].[InspectionTestResult]    Script Date: 11/4/2014 4:35:49 PM ******/
 SET ANSI_NULLS ON
@@ -511,7 +548,7 @@ CREATE TABLE [dbo].[InspectionTestResult](
 
 	[inspectionDate] [date] NULL,
 
-	[order][int] NULL,
+	[inspectionOrder][int] NULL,
 	[status] [nvarchar] (25) NULL,
 	[value] [nvarchar] (20) NULL,
 
@@ -613,6 +650,21 @@ REFERENCES [dbo].[Pipe] ([id])
 ALTER TABLE [dbo].[Spool] CHECK CONSTRAINT [FK_Spool_Pipe]
 
 
+ALTER TABLE [dbo].[PlateManufacturer]  WITH CHECK ADD  CONSTRAINT [FK_PlateManufacturer_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[PlateManufacturer] CHECK CONSTRAINT [FK_PlateManufacturer_Project]
+
+ALTER TABLE [dbo].[SeamType]  WITH CHECK ADD  CONSTRAINT [FK_SeamType_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[SeamType] CHECK CONSTRAINT [FK_SeamType_Project]
+
+ALTER TABLE [dbo].[PipeMillSizeType]  WITH CHECK ADD  CONSTRAINT [FK_PipeMillSizeType_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[PipeMillSizeType] CHECK CONSTRAINT [FK_PipeMillSizeType_Project]
+
+ALTER TABLE [dbo].[ComponentType]  WITH CHECK ADD  CONSTRAINT [FK_ComponentType_Project] FOREIGN KEY([projectId])
+REFERENCES [dbo].[Project] ([id])
+ALTER TABLE [dbo].[ComponentType] CHECK CONSTRAINT [FK_ComponentType_Project]
 
 
 ALTER TABLE [dbo].[PipeTest]  WITH CHECK ADD  CONSTRAINT [FK_PipeTest_Category] FOREIGN KEY([categoryId])
@@ -694,21 +746,39 @@ CREATE TABLE [dbo].[AuditLog](
 	[id] [uniqueidentifier] NOT NULL,
 	[entityID] [uniqueidentifier] NOT NULL,
 	[auditDate] [datetime] NOT NULL,
-	[userName] [nvarchar](50) NULL,
-	[tableName] [nvarchar](200) NULL,
-	[fieldName] [nvarchar](50) NULL,
+	[userId] [uniqueidentifier] NULL,
+	[tableName] [int] NULL,
+	[fieldName] [int] NULL,
 	[oldValue] [nvarchar](100) NULL,
 	[newValue] [nvarchar](100) NULL,
+	[ownerId] [uniqueidentifier] NULL,
 	CONSTRAINT [PK_AuditLog] PRIMARY KEY NONCLUSTERED ([id]))
 GO
 
 IF EXISTS (SELECT name FROM sys.indexes
-            WHERE name = N'IX_Audit_Date_User')
-    DROP INDEX IX_Audit_Date_User ON [dbo].[AuditLog]
+            WHERE name = N'IX_Audit_Date')
+    DROP INDEX IX_Audit_Date ON [dbo].[AuditLog]
 GO
-CREATE NONCLUSTERED INDEX IX_Audit_Date_User
-    ON [dbo].[AuditLog] ([auditDate], [userName])
+CREATE NONCLUSTERED INDEX IX_Audit_Date
+    ON [dbo].[AuditLog] ([auditDate])
 GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Audit_User')
+    DROP INDEX IX_Audit_User ON [dbo].[AuditLog]
+GO
+CREATE NONCLUSTERED INDEX IX_Audit_User
+    ON [dbo].[AuditLog] ([userId])
+GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_Audit_Owner')
+    DROP INDEX IX_Audit_Owner ON [dbo].[AuditLog]
+GO
+CREATE NONCLUSTERED INDEX IX_Audit_Owner
+    ON [dbo].[AuditLog] ([ownerId])
+GO
+
 /*************** Security **********************************/
 
 CREATE TABLE [dbo].[User] (
@@ -781,13 +851,29 @@ CREATE TABLE [dbo].[Joint](
 
 GO
 
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_Joint_Number')
+    DROP INDEX IDX_Joint_Number ON [dbo].[Joint]
+GO
+CREATE NONCLUSTERED INDEX IDX_Joint_Number
+    ON [dbo].[Joint] ([number])
+GO
+
+IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IDX_Joint_Date')
+    DROP INDEX IDX_Joint_Date ON [dbo].[Joint]
+GO
+CREATE NONCLUSTERED INDEX IDX_Joint_Date
+    ON [dbo].[Joint] ([loweringDate])
+GO
+
 CREATE TABLE [dbo].[JointTestResult](
 	[id] [uniqueidentifier] NOT NULL,
 	[isActive] [bit] NOT NULL,
 	[date] [date] NULL,
 	[value] [nvarchar](20) NULL,
 	[status] [nvarchar](25) NULL,
-	[order] [int] NULL,
+	[jointOrder] [int] NULL,
 	[jointOperationId] [uniqueidentifier] NOT NULL,
 	[jointId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_JointTestResult] PRIMARY KEY CLUSTERED 
@@ -883,7 +969,7 @@ GO
 
 CREATE TABLE [dbo].[Portion] (
   [id] [uniqueidentifier] NOT NULL,
-  [exportDateTime] [date] NOT NULL,
+  [exportDateTime] [datetime] NOT NULL,
   [isExport] [bit] NOT NULL,
   [portionNumber] [int] NOT NULL,
   [projectId] [uniqueidentifier] NOT NULL,

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseNoteSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -37,9 +36,9 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.releasesGrid = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NoteId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteDateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -156,7 +155,7 @@
             // railcarListView
             // 
             this.railcarListView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Id,
+            this.NoteId,
             this.releaseNoteNumberGridColumn,
             this.releaseNoteDateGridColumn,
             this.statusColumn});
@@ -171,11 +170,11 @@
             this.railcarListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.railcarListView_KeyDown);
             this.railcarListView.DoubleClick += new System.EventHandler(this.railcarListView_DoubleClick);
             // 
-            // Id
+            // NoteId
             // 
-            this.Id.Caption = "Id";
-            this.Id.FieldName = "Id";
-            this.Id.Name = "Id";
+            this.NoteId.Caption = "Id";
+            this.NoteId.FieldName = "Id";
+            this.NoteId.Name = "NoteId";
             // 
             // releaseNoteNumberGridColumn
             // 
@@ -225,9 +224,10 @@
             this.searchButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
             this.searchButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.searchButton.Location = new System.Drawing.Point(702, 66);
+            this.searchButton.Location = new System.Drawing.Point(678, 66);
+            this.searchButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(86, 22);
+            this.searchButton.Size = new System.Drawing.Size(110, 22);
             this.searchButton.StyleController = this.generalLayout;
             this.searchButton.TabIndex = 7;
             this.searchButton.Text = "&Поиск";
@@ -457,7 +457,7 @@
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(600, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(75, 52);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(51, 52);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -466,9 +466,9 @@
             this.searchButtonLayout.Control = this.searchButton;
             this.searchButtonLayout.ControlAlignment = System.Drawing.ContentAlignment.BottomLeft;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(675, 16);
+            this.searchButtonLayout.Location = new System.Drawing.Point(651, 16);
             this.searchButtonLayout.Name = "searchButtonLayout";
-            this.searchButtonLayout.Size = new System.Drawing.Size(100, 36);
+            this.searchButtonLayout.Size = new System.Drawing.Size(124, 36);
             this.searchButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.searchButtonLayout.Text = "searchButtonLayout";
             this.searchButtonLayout.TextLocation = DevExpress.Utils.Locations.Bottom;
@@ -479,9 +479,9 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(675, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(651, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(100, 16);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(124, 16);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -604,7 +604,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn releaseNoteNumberGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn releaseNoteDateGridColumn;
         private DevExpress.XtraLayout.EmptySpaceItem searchButtonButtomEmptySpace;
-        private DevExpress.XtraGrid.Columns.GridColumn Id;
+        private DevExpress.XtraGrid.Columns.GridColumn NoteId;
         private DevExpress.XtraGrid.Columns.GridColumn statusColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryShippedStatus;
         private DevExpress.XtraEditors.DateEdit endDate;

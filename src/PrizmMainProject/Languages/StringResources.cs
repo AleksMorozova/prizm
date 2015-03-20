@@ -265,15 +265,15 @@ namespace Prizm.Main.Languages
             Description = "Результат контрольной операции. Ожидается"
         };
 
-        public static StringResource PipeTestResultStatus_Passed = new StringResource
+        public static StringResource PipeTestResultStatus_Accepted = new StringResource
         {
-            Id = "PipeTestResultStatus_Passed",
+            Id = "PipeTestResultStatus_Accepted",
             Description = "Результат контрольной операции. Принят"
         };
 
-        public static StringResource PipeTestResultStatus_Failed = new StringResource
+        public static StringResource PipeTestResultStatus_Rejected = new StringResource
         {
-            Id = "PipeTestResultStatus_Failed",
+            Id = "PipeTestResultStatus_Rejected",
             Description = "Результат контрольной операции. Брак"
         };
 
@@ -535,6 +535,11 @@ namespace Prizm.Main.Languages
          {
              Id = "Menu_File_Import",
              Description = "Главное меню, пункт Импорт"
+         };
+         public static StringResource Menu_File_HistoryExportImport = new StringResource
+         {
+             Id = "Menu_File_HistoryExportImport",
+             Description = "Главное меню, пункт История экспорта/импорта"
          };
          public static StringResource Menu_File_Exit = new StringResource
          {
@@ -804,6 +809,12 @@ namespace Prizm.Main.Languages
             Description = "Отчет"
         };
 
+        public static StringResource MillReport_FootersCheck = new StringResource
+        {
+            Id = "MillReport_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource MillReport_ReportTypesLabel = new StringResource
         {
             Id = "MillReport_ReportTypesLabel",
@@ -888,6 +899,12 @@ namespace Prizm.Main.Languages
         {
             Id = "InspectionReport_Title",
             Description = "Отчет по входному контролю"
+        };
+
+        public static StringResource InspectionReport_FootersCheck = new StringResource
+        {
+            Id = "InspectionReport_FootersCheck",
+            Description = "Добавить колонтитулы"
         };
 
         public static StringResource InspectionReport_DateLabel = new StringResource
@@ -1048,6 +1065,12 @@ namespace Prizm.Main.Languages
         {
             Id = "Spool_InspectionReasonColumn",
             Description = "Катушка. Комментарии по результату входного контроля"
+        };
+
+        public static StringResource Spool_InspectionOrderColumn = new StringResource
+        {
+            Id = "Spool_InspectionOrderColumn",
+            Description = "Катушка. порядок операций входного контроля"
         };
 
         public static StringResource Spool_SearchButton = new StringResource
@@ -1400,12 +1423,12 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsPipe_DiameterLabel = new StringResource
         {
             Id = "SettingsPipe_DiameterLabel",
-            Description = "Настройки-труба. Диаметр трубы с заданым типоразмером"
+            Description = "Настройки-труба. Диаметр трубы с заданым типоразмером,мм"
         };
         public static StringResource SettingsPipe_WallThicknessLabel = new StringResource
         {
             Id = "SettingsPipe_WallThicknessLabel",
-            Description = "Настройки-труба. Толщина стенки для трубы с заданым типоразмером"
+            Description = "Настройки-труба. Толщина стенки для трубы с заданым типоразмером, мм"
         };
         public static StringResource SettingsPipe_LengthLabel = new StringResource
         {
@@ -2063,6 +2086,11 @@ namespace Prizm.Main.Languages
             Description = "Название соответствующей привилегии доступа"
         };
 
+        public static StringResource SecurityPrivilege_ViewExportImportHistory = new StringResource
+        {
+            Id = "SecurityPrivilege_ViewExportImportHistory",
+            Description = "Название соответствующей привилегии доступа"
+        };
 
         #endregion Settings
 
@@ -2373,6 +2401,41 @@ namespace Prizm.Main.Languages
             Description = "Сообщение: Импортирование прогресс тип"
         };
 
+        public static StringResource HistoryExportImport_SynchType_Undefined = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Undefined",
+            Description = "Экспорт"
+        };
+
+        public static StringResource HistoryExportImport_SynchType_Export = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Export",
+            Description = "Экспорт"
+        };
+
+        public static StringResource HistoryExportImport_SynchType_Import = new StringResource
+        {
+            Id = "HistoryExportImport_SynchType_Import",
+            Description = "Импорт"
+        };
+
+        public static StringResource HistoryExportImport_IsExportColumn = new StringResource
+        {
+            Id = "HistoryExportImport_IsExportColumn",
+            Description = "Экспорт / Импорт"
+        };
+
+        public static StringResource HistoryExportImport_WorkstationColumn = new StringResource
+        {
+            Id = "HistoryExportImport_WorkstationColumn",
+            Description = "Рабочая станция"
+        };
+
+        public static StringResource HistoryExportImport_Title = new StringResource
+        {
+            Id = "HistoryExportImport_Title",
+            Description = "История экспорта / импорта"
+        };
 
         #endregion // --- Export/Import ---
 
@@ -2529,6 +2592,12 @@ namespace Prizm.Main.Languages
             Id = "Import_ImportButton", 
             Description = "Импорт. Надпись кнопки импорта"};
 
+        public static StringResource Import_ExitButton = new StringResource
+        {
+            Id = "Import_ExitButton",
+            Description = "Импорт. Надпись кнопки выхода"
+        };
+
         public static StringResource Import_WrongWorkstationType = new StringResource
         {
             Id = "Import_WrongWorkstationType",
@@ -2632,16 +2701,22 @@ namespace Prizm.Main.Languages
             Description = "Причина"
         };
 
+        public static StringResource ComponentNewEdit_OrderColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_OrderColumn",
+            Description = "Порядок"
+        };
+
         public static StringResource ComponentNewEdit_DiameterGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_DiameterGridColumn",
-            Description = "Диаметр отверстия"
+            Description = "Диаметр отверстия, мм"
         };
 
         public static StringResource ComponentNewEdit_WallThicknessGridColumn = new StringResource
         {
             Id = "ComponentNewEdit_WallThicknessGridColumn",
-            Description = "Толщина стенки"
+            Description = "Толщина стенки, мм"
         };
 
         public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
@@ -2701,6 +2776,22 @@ namespace Prizm.Main.Languages
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
+
+        public static StringResource Joint_JointTestResultStatus_Withdraw = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Withdraw",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Repair = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Repair",
+            Description = "статус контрольной операции для стыка"
+        };
+        public static StringResource Joint_JointTestResultStatus_Accepted = new StringResource
+        {
+            Id = "Joint_JointTestResultStatus_Accepted",
+            Description = "статус контрольной операции для стыка"
+        };
 
         public static StringResource JointNew_JointNumberLayout = new StringResource
         {
@@ -3083,6 +3174,13 @@ namespace Prizm.Main.Languages
             Id = "ConstructionReport_Title",
             Description = "Отчет по сварке участка между пикетами"
         };
+
+        public static StringResource ConstructionReports_FootersCheck = new StringResource
+        {
+            Id = "ConstructionReports_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource ConstructionReports_ReportTypeLayout = new StringResource
         {
             Id = "ConstructionReports_ReportTypeLayout",
@@ -3166,6 +3264,13 @@ namespace Prizm.Main.Languages
             Id = "PipeConstructionReport_Title",
             Description = "Отчеты по трубам на стройке"
         };
+
+        public static StringResource PipeConstructionReport_FootersCheck = new StringResource
+        {
+            Id = "PipeConstructionReport_FootersCheck",
+            Description = "Добавить колонтитулы"
+        };
+
         public static StringResource PipeConstructionReport_PipeNumberLayout = new StringResource
         {
             Id = "PipeConstructionReport_PipeNumberLayout",
@@ -3228,6 +3333,12 @@ namespace Prizm.Main.Languages
         {
             Id = "WeldDateReport_Title",
             Description = "Отчет по сварке (по дате)"
+        };
+
+        public static StringResource WeldDateReport_FootersCheck = new StringResource
+        {
+            Id = "WeldDateReport_FootersCheck",
+            Description = "Добавить колонтитулы"
         };
 
         public static StringResource WeldDateReport_WeldDateFromLayout = new StringResource {
@@ -3470,6 +3581,12 @@ namespace Prizm.Main.Languages
             Id = "PartInspection_ReasonColumnHeader", 
             Description = "Входной контроль элемента. Надпись колонки причины"};
 
+        public static StringResource PartInspection_OrderColumnHeader = new StringResource
+        {
+            Id = "PartInspection_OrderColumnHeader",
+            Description = "Входной контроль элемента. Надпись колонки порядок"
+        };
+
         public static StringResource PartInspection_SearchGroup = new StringResource { 
             Id = "PartInspection_SearchGroup", 
             Description = "Входной контроль элемента. Надпись панели поиска"};
@@ -3548,7 +3665,7 @@ namespace Prizm.Main.Languages
         public static StringResource NewEditPipe_PlateThicknessLabel = new StringResource
         {
             Id = "NewEditPipe_PlateThicknessLabel",
-            Description = "Труба. Толщина листа"
+            Description = "Труба. Толщина листа, мм"
         };
         public static StringResource NewEditPipe_PlateManufacturerLabel = new StringResource
         {
@@ -3578,12 +3695,12 @@ namespace Prizm.Main.Languages
         public static StringResource NewEditPipe_TypeSizeDiameterLabel = new StringResource
         {
             Id = "NewEditPipe_TypeSizeDiameterLabel",
-            Description = "Труба. Диаметр по типоразмеру"
+            Description = "Труба. Диаметр по типоразмеру,мм"
         };
         public static StringResource NewEditPipe_TypeSizeThicknessLabel = new StringResource
         {
             Id = "NewEditPipe_TypeSizeThicknessLabel",
-            Description = "Труба. Толщина по типоразмеру"
+            Description = "Труба. Толщина по типоразмеру, мм"
         };
         public static StringResource NewEditPipe_ReleaseNoteNumber_Label = new StringResource
         {
@@ -4586,7 +4703,41 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
-        
+        //Notification_NotRequiredControlOperation_Critical
+        public static StringResource Notification_NotRequiredControlOperationPipes_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationPipes_Critical",
+            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationTons_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationTons_Critical",
+            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationMeters_Critical = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationMeters_Critical",
+            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
+        };
+        public static StringResource Notification_NotRequiredControlOperationPipes_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationPipes_Warning",
+            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationTons_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationTons_Warning",
+            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
+        };
+
+        public static StringResource Notification_NotRequiredControlOperationMeters_Warning = new StringResource
+        {
+            Id = "Notification_NotRequiredControlOperationMeters_Warning",
+            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
+        };
         public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
         {
             Id = "NotificationXtraForm_LayoutControlItemNotification",
