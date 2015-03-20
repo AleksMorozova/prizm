@@ -23,12 +23,14 @@ namespace Prizm.Main.Forms.Reports.Construction
     [System.ComponentModel.DesignerCategory("Form")] 
     public partial class ConstructionReportsXtraForm : ChildForm
     {
+        DateTime temp;
         private ConstructionReportViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
 
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
+            temp = DateTime.Now;
         }
 
         private void BindToViewModel()
@@ -130,12 +132,14 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel.LoadData();
 
-            foreach (var joint in viewModel.Joints)
-            {
-                start.Properties.Items.Add(joint);
-                end.Properties.Items.Add(joint);
-            }
+            Console.WriteLine("1 - " + (DateTime.Now - temp).TotalMilliseconds);
 
+
+            start.Properties.Items.AddRange(viewModel.Joints.ToArray<object>());
+            end.Properties.Items.AddRange(viewModel.Joints.ToArray<object>());
+
+
+            Console.WriteLine("2 - " + (DateTime.Now - temp).TotalMilliseconds);
             foreach (var kp in viewModel.AllKP)
             {
                 startKPComboBox.Properties.Items.Add(kp);
@@ -145,7 +149,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             BindToViewModel();
             BindCommands();
             RefreshTypes();
-
+            Console.WriteLine("3 - " + (DateTime.Now - temp).TotalMilliseconds);
             startKPComboBox.SelectedIndex = 0;
             viewModel.StartPK = (startKPComboBox.EditValue != null) ? (int)startKPComboBox.EditValue: default(int);
 
@@ -155,6 +159,8 @@ namespace Prizm.Main.Forms.Reports.Construction
             viewModel.ReportTypeIndex = reportType.SelectedIndex = 0;
 
             tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
+
+            Console.WriteLine("4 - " + (DateTime.Now - temp).TotalMilliseconds);
         }
 
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)

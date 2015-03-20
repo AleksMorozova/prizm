@@ -11,6 +11,7 @@ namespace Prizm.Data.DAL.Construction
     {
         IList<Joint> GetActiveByNumber(Joint joint);
         IList<Joint> GetJointsToExport();
+        IList<Joint> GetJointsForTracing();
 
         IList<Joint> SearchJoint(
             string jointNumber, 

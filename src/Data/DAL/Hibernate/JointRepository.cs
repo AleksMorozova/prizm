@@ -93,6 +93,31 @@ namespace Prizm.Data.DAL.Hibernate
             return q.List<Joint>();
         }
 
+
+        public IList<Joint> GetJointsForTracing()
+        {
+            try
+            {
+                return 
+                    session.CreateCriteria<Joint>()
+                    .SetProjection(Projections.ProjectionList()
+                        .Add(Projections.Property("FirstElement"), "FirstElement")
+                        .Add(Projections.Property("SecondElement"), "SecondElement")
+                        .Add(Projections.Property("Number"), "Number")
+                        .Add(Projections.Property("Id"), "Id")
+                        .Add(Projections.Property("IsActive"), "IsActive")
+                        .Add(Projections.Property("Status"), "Status")
+                        .Add(Projections.Property("LoweringDate"), "LoweringDate")
+                        .Add(Projections.Property("DistanceFromKP"), "DistanceFromKP")
+                        .Add(Projections.Property("NumberKP"), "NumberKP"))
+                     .SetResultTransformer(Transformers.AliasToBean<Joint>()).List<Joint>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsForTracing", ex);
+            }
+        }
+
         #endregion
     }
 }
