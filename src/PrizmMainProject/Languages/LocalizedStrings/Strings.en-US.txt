@@ -1075,6 +1075,9 @@ Import_ArchiveLabel=Archive
 ;Импорт. Надпись кнопки поиска
 Import_BrowseButton=&Browse
 
+;Импорт. Надпись кнопки выхода
+Import_ExitButton=&Close
+
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
 

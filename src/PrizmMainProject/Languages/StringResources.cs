@@ -2592,6 +2592,12 @@ namespace Prizm.Main.Languages
             Id = "Import_ImportButton", 
             Description = "Импорт. Надпись кнопки импорта"};
 
+        public static StringResource Import_ExitButton = new StringResource
+        {
+            Id = "Import_ExitButton",
+            Description = "Импорт. Надпись кнопки выхода"
+        };
+
         public static StringResource Import_WrongWorkstationType = new StringResource
         {
             Id = "Import_WrongWorkstationType",
