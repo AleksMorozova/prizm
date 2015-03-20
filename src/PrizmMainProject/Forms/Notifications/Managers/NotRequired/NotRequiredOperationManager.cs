@@ -14,7 +14,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 {
     class NotRequiredOperationManager : NotificationManager,  INotRequiredOperationManager
     {
-        readonly INORNotificationRepository repo = new NORNotificationRepository();
+        readonly INRONotificationRepository repo = new NRONotificationRepository();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotRequiredOperationManager));
         private NotRequiredCache cache = new NotRequiredCache();
 
@@ -76,24 +76,6 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, producedUnits.Value.ToString()));
                     }
                 }
-
-
-                /*
-                 * 0) Clear the cache
-                 * 1) DB sql request: Read size types + not required inspection operations, from settings. Use internalCache.Add to add all information (except for UnitsLeft)
-                 *      (INPUT: none)
-                 *      (OUTPUT: pipe size type name (!), pipe test id, operation code, operation name, Frequency, Frequency Measure)
-                 * 2) DB sql request: Read all MAX dates including NULL, ordering by not required inspection operations, in pipe test result. 
-                 *      (INPUT: none)
-                 *      (OUTPUT: pipe test id, date (can be NULL))
-                 * 3) DB sql request: Read all "unitsProducedSinceLastDate" for all not required inspection operations.
-                 *      (INPUT: pipe test id, MAX date, Frequency Measure)
-                 *      (OUTPUT: pipe test id, unitsProducedSinceLastDate)
-                 * 4) modify for each cache entry: UnitsLeft = Frequency - unitsProducedSinceLastDate (use SetUnits)
-                 * 
-                 * 5) iterate cache and use IsGoingToExpire to determine whether to create Notification (use this.CreateNotification)
-                 * 
-                 */
             }
             catch (Exception ex)
             {
@@ -150,7 +132,6 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             private List<PipeTestResult> initialPipeTestResult = new List<PipeTestResult>();
             private List<NROInfo> initialNROList = new List<NROInfo>();
             private bool isProperlyCreated = true;
-            private bool isAlreadyUpdated = false;
 
             #endregion //--- Previous state of pipe ---
 
@@ -264,7 +245,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
-                if (isProperlyCreated)//&& !isAlreadyUpdated
+                if (isProperlyCreated)
                 {
                     //* What can happen at Save Pipe: (NRO - non required inspection operation)
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
@@ -317,12 +298,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         ProcessPipeTestResults(pipeSavingState.PipeTestResult);
                         ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
                     }
-
-                    isAlreadyUpdated = true;
                 }
-                // NotRequiredOperationManager.CreateNotification(Guid ownerId, string ownerName, float UnitsLeft, string information);
-                // manager.cache. // TODO: what is required from cache, to update the information
-                // manager.notifications.Find( match operation id )  // in case when notification has to be removed
             }
         }
 

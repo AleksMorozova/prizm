@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL
 {
-    public interface INORNotificationRepository
+    public interface INRONotificationRepository
     {
         List<NotRequiredOperation> GetAllNotRequiredOperation();
         List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult();

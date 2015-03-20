@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\ADO\MillReportsRepository.cs" />
-    <Compile Include="DAL\ADO\NORNotificationRepository.cs" />
+    <Compile Include="DAL\ADO\NRONotificationRepository.cs" />
     <Compile Include="DAL\ADO\SQLQueryString.cs" />
     <Compile Include="DAL\Construction\IComponentTypeRepository.cs" />
     <Compile Include="DAL\Construction\IComponentRepository.cs" />
@@ -103,7 +103,7 @@
     <Compile Include="DAL\IFileRepository.cs" />
     <Compile Include="DAL\IInspectionTestResultRepository.cs" />
     <Compile Include="DAL\IMillReportsRepository.cs" />
-    <Compile Include="DAL\INORNotificationRepository.cs" />
+    <Compile Include="DAL\INRONotificationRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\ISQLFlexible.cs" />

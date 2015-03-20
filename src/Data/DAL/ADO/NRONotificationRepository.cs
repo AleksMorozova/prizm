@@ -10,9 +10,19 @@ using System.Threading.Tasks;
 
 namespace Prizm.Data.DAL.ADO
 {
-    public class NORNotificationRepository : INORNotificationRepository, IDisposable
+    public class NRONotificationRepository : INRONotificationRepository, IDisposable
     {
         private SqlConnection connection = null;
+
+        /// <summary>
+        ///  Read size types + not required inspection operations, from settings.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns>
+        /// List of NotRequiredOperation
+        /// </returns>
         public List<NotRequiredOperation> GetAllNotRequiredOperation()
         {
             CreateConnection();
@@ -62,6 +72,15 @@ namespace Prizm.Data.DAL.ADO
             return inspectionOperations;
         }
 
+        /// <summary>
+        /// Read all MAX dates including NULL, ordering by not required inspection operations, in pipe test result
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns>
+        /// List of KeyValuePair contains: date of last inspection result and id of not required inspection operations
+        /// </returns>
         public List<KeyValuePair<DateTime, Guid>> GetAllNotRequiredOperationResult()
         {
             CreateConnection();
@@ -105,6 +124,21 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
             return inspectionOperationsResult;
         }
 
+        /// <summary>
+        /// Read all "unitsProducedSinceLastDate" for not required inspection operations.
+        /// </summary>
+        /// <param name="testId">
+        /// Id of not required inspection operations
+        /// </param>
+        /// <param name="maxDate">
+        /// date of last result of not required inspection operations
+        /// </param>
+        /// <param name="measure">
+        /// Frequency measure of not required inspection operations
+        /// </param>
+        /// <returns>
+        /// KeyValuePair contains id of not required inspection operations and units left since last inspection result
+        /// </returns>
         public KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, FrequencyMeasure measure)
         {
             CreateConnection();
@@ -224,7 +258,18 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
             }
         }
 
-
+        /// <summary>
+        /// Find last date of inspection operation result and read all "unitsProducedSinceLastDate" for not required inspection operations.
+        /// </summary>
+        /// <param name="testId">
+        /// Id of not required inspection operations
+        /// </param>
+        /// <param name="measure">
+        /// Frequency measure of not required inspection operations
+        /// </param>
+        /// <returns>
+        /// KeyValuePair contains id of not required inspection operations and units left since last inspection result 
+        /// </returns>
         public KeyValuePair<Guid, float> GetUnitsProducedSinceLastDateTest(Guid testId, FrequencyMeasure measure)
         {
             CreateConnection();
