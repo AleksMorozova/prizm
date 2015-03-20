@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointSelectDialog));
             this.JointSearchLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.editButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.resultsGrid = new DevExpress.XtraGrid.GridControl();
             this.resultsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.resultsGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.numberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.resultsGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.CancelButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.editButton = new DevExpress.XtraEditors.SimpleButton();
             this.editButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.JointSearchLayout)).BeginInit();
             this.JointSearchLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGridLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CancelButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editButtonLayout)).BeginInit();
@@ -74,21 +74,25 @@
             this.JointSearchLayout.TabIndex = 0;
             this.JointSearchLayout.Text = "layoutControl1";
             // 
-            // Root
+            // editButton
             // 
-            this.Root.CustomizationFormText = "Root";
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.resultsGridLayout,
-            this.CancelButtonLayout,
-            this.editButtonLayout,
-            this.buttonsEmptySpaceItem});
-            this.Root.Location = new System.Drawing.Point(0, 0);
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(337, 272);
-            this.Root.Text = "Root";
-            this.Root.TextVisible = false;
+            this.editButton.Location = new System.Drawing.Point(224, 238);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(101, 22);
+            this.editButton.StyleController = this.JointSearchLayout;
+            this.editButton.TabIndex = 6;
+            this.editButton.Text = "Редактировать";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(12, 238);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(110, 22);
+            this.cancelButton.StyleController = this.JointSearchLayout;
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Отменить";
             // 
             // resultsGrid
             // 
@@ -112,6 +116,30 @@
             this.resultsGridView.OptionsView.ShowGroupPanel = false;
             this.resultsGridView.OptionsView.ShowIndicator = false;
             // 
+            // numberGridColumn
+            // 
+            this.numberGridColumn.Caption = "Номер стыка";
+            this.numberGridColumn.FieldName = "Number";
+            this.numberGridColumn.Name = "numberGridColumn";
+            this.numberGridColumn.Visible = true;
+            this.numberGridColumn.VisibleIndex = 0;
+            // 
+            // Root
+            // 
+            this.Root.CustomizationFormText = "Root";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.resultsGridLayout,
+            this.CancelButtonLayout,
+            this.editButtonLayout,
+            this.buttonsEmptySpaceItem});
+            this.Root.Location = new System.Drawing.Point(0, 0);
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(337, 272);
+            this.Root.Text = "Root";
+            this.Root.TextVisible = false;
+            // 
             // resultsGridLayout
             // 
             this.resultsGridLayout.Control = this.resultsGrid;
@@ -122,23 +150,6 @@
             this.resultsGridLayout.Text = "Результаты поиска";
             this.resultsGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.resultsGridLayout.TextSize = new System.Drawing.Size(99, 13);
-            // 
-            // numberGridColumn
-            // 
-            this.numberGridColumn.Caption = "Номер стыка";
-            this.numberGridColumn.Name = "numberGridColumn";
-            this.numberGridColumn.Visible = true;
-            this.numberGridColumn.VisibleIndex = 0;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(12, 238);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(110, 22);
-            this.cancelButton.StyleController = this.JointSearchLayout;
-            this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Отменить";
             // 
             // CancelButtonLayout
             // 
@@ -151,15 +162,6 @@
             this.CancelButtonLayout.Text = "CancelButtonLayout";
             this.CancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.CancelButtonLayout.TextVisible = false;
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(224, 238);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(101, 22);
-            this.editButton.StyleController = this.JointSearchLayout;
-            this.editButton.TabIndex = 6;
-            this.editButton.Text = "Редактировать";
             // 
             // editButtonLayout
             // 
@@ -194,11 +196,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JointSelectDialog";
             this.Text = "Выбор стыка";
+            this.Load += new System.EventHandler(this.JointSelectDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.JointSearchLayout)).EndInit();
             this.JointSearchLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultsGridLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CancelButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editButtonLayout)).EndInit();

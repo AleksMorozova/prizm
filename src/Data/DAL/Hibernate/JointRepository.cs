@@ -48,19 +48,14 @@ namespace Prizm.Data.DAL.Hibernate
            }
         }
 
-        public IList<JointBindingObject> QuickSearchByNumber(string number)
+        public IList<Joint> QuickSearchByNumber(string number)
         {
-           //var result = session.QueryOver<Joint>().WhereRestrictionOn(n => n.Number).IsLike(number, MatchMode.Start)
-           //    .Select(Projections.ProjectionList()
-           //                 .Add(Projections.Property("Id"), "id")
-           //                 .Add(Projections.Property("Number"), "number"));
-           //return result.List<Joint>;
-            ICriteria crit = session.CreateCriteria<Joint>()
-                        .SetProjection(Projections.ProjectionList()
-                            .Add(Projections.Property("Id"), "id")
-                            .Add(Projections.Property("Number"), "Number"))
-                        .SetResultTransformer(Transformers.AliasToBean<JointBindingObject>());
-            IList<JointBindingObject> results = crit.List<JointBindingObject>();
+            ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number",number,MatchMode.Start))
+                .SetProjection(Projections.ProjectionList()
+                             .Add(Projections.Property("Id"), "Id")
+                             .Add(Projections.Property("Number"), "Number"))
+                             .SetResultTransformer(Transformers.AliasToBean<Joint>());
+            IList<Joint> results = crit.List<Joint>();
             return results;
         }
 
@@ -113,11 +108,5 @@ namespace Prizm.Data.DAL.Hibernate
         }
 
         #endregion
-    }
-
-    public class JointBindingObject
-    {
-        public virtual Guid Id { get; set; }
-        public virtual string Number { get; set; }
     }
 }

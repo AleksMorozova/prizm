@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -102,11 +101,11 @@
             this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.weldersDataSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -677,7 +676,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.loweringDate.Size = new System.Drawing.Size(70, 20);
+            this.loweringDate.Size = new System.Drawing.Size(90, 20);
             this.loweringDate.StyleController = this.newJointLayoutControl;
             this.loweringDate.TabIndex = 5;
             // 
@@ -787,7 +786,7 @@
             this.loweringDateLayout.Name = "loweringDateLayout";
             this.loweringDateLayout.Size = new System.Drawing.Size(134, 47);
             this.loweringDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 60, 0, 7);
+            this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 40, 0, 7);
             this.loweringDateLayout.Text = "Дата &укладки";
             this.loweringDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.loweringDateLayout.TextSize = new System.Drawing.Size(120, 13);

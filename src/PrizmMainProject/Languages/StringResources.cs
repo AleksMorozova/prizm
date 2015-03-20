@@ -4816,5 +4816,37 @@ namespace Prizm.Main.Languages
             Description = "Сообщение о дублировании логинов"
         };
         #endregion //--- Notification ---
+
+        #region --- JointSelectDialog ---
+        public static StringResource JointSelectDialog_Header = new StringResource
+        {
+            Id = "JointSelectDialog_Header",
+            Description = "Заголовок: выбор стыка"
+        };
+
+        public static StringResource JointSelectDialog_CancelButton = new StringResource
+        {
+            Id = "JointSelectDialog_CancelButton",
+            Description = "Отменить"
+        };
+
+        public static StringResource JointSelectDialog_EditButton = new StringResource
+        {
+            Id = "JointSelectDialog_EditButton",
+            Description = "Редактировать"
+        };
+
+        public static StringResource JointSelectDialog_ResultsLayout = new StringResource
+        {
+            Id = "JointSelectDialog_ResultsLayout",
+            Description = "Результаты поиска"
+        };
+
+        public static StringResource JointSelectDialog_NumberGridColumn = new StringResource
+        {
+            Id = "JointSelectDialog_NumberGridColumn",
+            Description = "Колонка номера стыка"
+        };
+        #endregion
     }
 } 

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm.DataAnnotations;
 using Ninject;
 using Prizm.Data.DAL.Construction;
+using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     {
         private readonly IJointRepository repo;
         private readonly JointNewEditViewModel viewModel;
+        JointSelectDialog dialog = null;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
         [Inject]
         public QuickSearchCommand(JointNewEditViewModel vm, IJointRepository repo)
@@ -25,7 +27,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            IList<Prizm.Domain.Entity.Construction.Joint> list = repo.QuickSearchByNumber(viewModel.Number);
+            IList<Prizm.Domain.Entity.Construction.Joint> list = repo.QuickSearchByNumber(viewModel.SearchNumber);
+            if (dialog == null)
+            {
+                dialog = new JointSelectDialog(list, viewModel);
+            }
+            else
+            {
+                dialog.SetupForm(list, viewModel);
+            }
+
+            dialog.ShowDialog();
         }
 
         public bool CanExecute()

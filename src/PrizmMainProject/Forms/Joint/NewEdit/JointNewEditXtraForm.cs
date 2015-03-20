@@ -77,6 +77,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
+            searchNumber.SetAsIdentifier();
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
             attachmentsButton.Enabled = true;
@@ -124,6 +125,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
+
+            searchNumber.DataBindings.
+                Add("EditValue", jointNewEditBindingSoure, "SearchNumber");
 
 
             jointStatus.DataBindings.Add(
@@ -220,6 +224,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     if(eve.PropertyName != "Pieces")
                     {
                         IsModified = true;
+                    }
+                    if (eve.PropertyName == "Joint")
+                    {
+                        jointNewEditBindingSoure.ResetBindings(false);
                     }
                 };
             IsEditMode = viewModel.JointIsActive;
