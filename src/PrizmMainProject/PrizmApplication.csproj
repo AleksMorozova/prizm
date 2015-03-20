@@ -435,6 +435,7 @@
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\ReleaseNote\IReleaseNoteRepositories.cs" />
     <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteProjection.cs" />
+    <Compile Include="Forms\Reports\Construction\JointProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />

@@ -21,6 +21,7 @@ using System.Data;
 using Prizm.Main.Properties;
 using Prizm.Data.DAL.ADO;
 using Prizm.Main.Common;
+using NHibernate.Transform;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -28,6 +29,7 @@ namespace Prizm.Main.Forms.Reports.Construction
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ConstructionReportViewModel));
 
+        private readonly IJointRepository repoJoint;
         private readonly IMillReportsRepository repo;
         private readonly IUserNotify notify;
 
@@ -35,9 +37,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         private readonly PreviewReportCommand previewCommand;
         private readonly ReportCommand reportCommand;
 
-        private DataTable data;
-        private construct.Joint startJoint;
-        private construct.Joint endJoint;
+        private JointProjection startJoint;
+        private JointProjection endJoint;
         private ReportType reportType;
         private IList<PartData> partDataList;
 
@@ -55,7 +56,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         public Object ReportDataSource { get; set; }
         public BindingList<int> AllKP { get; set; }
 
-        public IList<construct.Joint> Joints { get; set; }
+        public IList<JointProjection> JointsProjections { get; set; }
 
         [Inject]
         public ConstructionReportViewModel(
@@ -65,20 +66,18 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             this.repo = repo;
             this.notify = notify;
+            this.repoJoint = repoJoint;
 
-            this.data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
-            if (this.data == null || this.data.Rows.Count <= 0)
-                log.Warn( "Report at Construction: Data Table of Pieces is NULL or empty." );
+            var temp = DateTime.Now;
 
-            this.partDataList = FormWeldedParts(data);
+            this.JointsProjections = repoJoint
+                .GetJointsProjections()
+                .SetResultTransformer(Transformers.AliasToBean<JointProjection>())
+                .List<JointProjection>();
 
-            this.Joints = repoJoint.GetJointsForTracing()//GetAll()
-                .Where<construct.Joint>(x => x.FirstElement != null && x.SecondElement != null 
-                    && x.IsActive == true && x.Status != JointStatus.Withdrawn).OrderBy(_ => _.Number)
-                .ToList<construct.Joint>();
-
-            if (this.Joints == null || this.Joints.Count <= 0)
+            if (this.JointsProjections == null || this.JointsProjections.Count <= 0)
                 log.Warn( "Report at Construction: List of Joints is NULL or empty." );
+            Console.WriteLine("================== " + (DateTime.Now - temp).TotalMilliseconds + " ==================");
 
 
             createCommand = ViewModelSource
@@ -88,7 +87,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 .Create<PreviewReportCommand>(() => new PreviewReportCommand(this, repo, notify));
 
             reportCommand = ViewModelSource
-                .Create<ReportCommand>(() => new ReportCommand(this, repo, notify));
+                .Create<ReportCommand>(() => new ReportCommand(this, repo, repoJoint, notify));
 
         }
 
@@ -109,25 +108,11 @@ namespace Prizm.Main.Forms.Reports.Construction
         public void LoadData()
         {
             this.AllKP = new BindingList<int>();
-            foreach(var kp in Joints.Select<construct.Joint, int>(x => x.NumberKP))
+            foreach(var kp in JointsProjections.Select<JointProjection, int>(x => x.NumberKP))
             {
                 if (!AllKP.Contains(kp))
                 {
                     AllKP.Add(kp);
-                }
-            }
-        }
-
-        private BindingList<Part> parts = new BindingList<Part>();
-        public BindingList<Part> Parts
-        {
-            get { return parts; }
-            set
-            {
-                if (value != parts)
-                {
-                    parts = value;
-                    RaisePropertyChanged("Parts");
                 }
             }
         }
@@ -194,7 +179,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-        public construct.Joint StartJoint
+        public JointProjection StartJoint
         {
             get
             {
@@ -210,7 +195,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-        public construct.Joint EndJoint
+        public JointProjection EndJoint
         {
             get
             {
@@ -254,8 +239,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public TracingModeEnum TracingMode { get; set; }
 
-
-
         public ICommand CreateCommand
         {
             get
@@ -280,61 +263,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-        public IList<PartData> PartDataList 
-        {
-            get
-            {
-                return partDataList;
-            }
-            set
-            {
-                if (value != partDataList)
-                {
-                    partDataList = value;
-                    RaisePropertyChanged("PartDataList");
-                }
-            }
-        }
-
-        private IList<PartData> FormWeldedParts(DataTable dataTable)
-        {
-            List<PartData> list = new List<PartData>();
-
-            dataTable.Columns.Add("typeTranslated", typeof(String));
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                if (row.Field<string>("type") != "Component")
-                {
-                    row.SetField(
-                        "typeTranslated",
-                        Resources.ResourceManager.GetString(row.Field<string>("type")));
-                }
-                else
-                {
-                    row.SetField(
-                        "typeTranslated",
-                        row.Field<string>("componentTypeName"));
-                }
-
-                PartData p = new PartData()
-                {
-                    Id = row.Field<Guid>("id"),
-                    Number = row.Field<string>("number"),
-                    PartType = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type")),
-                    Length = row.Field<int>("length"),
-                    PartTypeDescription = row.Field<string>("typeTranslated")
-                };
-
-                list.Add(p);
-            }
-
-            return list;
-        }
-
         public void Dispose()
         {
             repo.Dispose();
+            repoJoint.Dispose();
         }
     }
 }

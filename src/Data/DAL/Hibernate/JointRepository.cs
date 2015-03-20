@@ -109,8 +109,37 @@ namespace Prizm.Data.DAL.Hibernate
                         .Add(Projections.Property("Status"), "Status")
                         .Add(Projections.Property("LoweringDate"), "LoweringDate")
                         .Add(Projections.Property("DistanceFromKP"), "DistanceFromKP")
-                        .Add(Projections.Property("NumberKP"), "NumberKP"))
-                     .SetResultTransformer(Transformers.AliasToBean<Joint>()).List<Joint>();
+                        .Add(Projections.Property("NumberKP"), "NumberKP")
+                     ).SetResultTransformer(Transformers.AliasToBean<Joint>())
+                     .Add(Restrictions.Eq("IsActive", true))
+                     .Add(Restrictions.IsNotNull("FirstElement"))
+                     .Add(Restrictions.IsNotNull("SecondElement"))
+                     .Add(Restrictions.Not(Restrictions.Eq("Status", JointStatus.Withdrawn)))
+                     .AddOrder(Order.Asc("Number"))
+                     .List<Joint>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsForTracing", ex);
+            }
+        }
+
+        public ICriteria GetJointsProjections()
+        {
+            try
+            {
+                return
+                    session.CreateCriteria<Joint>()
+                    .Add(Restrictions.Eq("IsActive", true))
+                    .Add(Restrictions.IsNotNull("FirstElement"))
+                    .Add(Restrictions.IsNotNull("SecondElement"))
+                    .Add(Restrictions.Not(Restrictions.Eq("Status", JointStatus.Withdrawn)))
+                    .AddOrder(Order.Asc("Number"))
+                    .SetProjection(Projections.ProjectionList()
+                        .Add(Projections.Property("Number"), "Number")
+                        .Add(Projections.Property("Id"), "Id")
+                        .Add(Projections.Property("NumberKP"), "NumberKP")
+                     );
             }
             catch (GenericADOException ex)
             {
