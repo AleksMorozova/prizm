@@ -165,7 +165,7 @@ right join PipeTest t on r.pipeTestId=t.id where t.isRequired=0
                         {
                             unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
                                 ((Guid)dr[1],
-                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]);
+                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
                         }
                     }
                     else 

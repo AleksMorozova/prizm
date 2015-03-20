@@ -14,7 +14,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         private class NotRequiredCachePack
         {
             public Guid OperationId { get; set; }
-
+            public Guid PipeSizeTypeId { get; set; }
             private float warningBoundary = 0;
             private int frequency = 0;
             public int Frequency

@@ -13,6 +13,7 @@ using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -103,6 +104,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         {
                             repo.Commit();
                             viewModel.PipeNotifier.UpdateNotifications(viewModel.Pipe);
+                            NotificationService.Instance.UpdateNotification();
                         }
                         
                         repo.RepoPipe.Evict(viewModel.Pipe);

@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Notifications
             : this(ownerId, ownerName, typeNotification, information)
         {
             UnitsLeft = unitsLeft;
-            Status = UnitsLeft <= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
+            Status = UnitsLeft >= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
         }
 
         // TODO: move screen representation to Form
