@@ -28,12 +28,14 @@
       /// </summary>
       private void InitializeComponent()
       {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportForm));
             this.archive = new System.Windows.Forms.Label();
             this.txtArchive = new DevExpress.XtraEditors.TextEdit();
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
             this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnImport = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtArchive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +70,7 @@
             // 
             this.progressBarControl.Location = new System.Drawing.Point(15, 81);
             this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(638, 25);
+            this.progressBarControl.Size = new System.Drawing.Size(636, 25);
             this.progressBarControl.TabIndex = 3;
             // 
             // lblStatus
@@ -84,18 +86,32 @@
             this.btnImport.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImport.Appearance.Options.UseFont = true;
             this.btnImport.Image = global::Prizm.Main.Properties.Resources.import;
-            this.btnImport.Location = new System.Drawing.Point(542, 112);
+            this.btnImport.Location = new System.Drawing.Point(420, 112);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(111, 35);
             this.btnImport.TabIndex = 5;
             this.btnImport.Text = "&Импорт";
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(539, 112);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(111, 35);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "&Закрыть";
+            // 
             // ImportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(665, 159);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.progressBarControl);
@@ -123,5 +139,6 @@
       private DevExpress.XtraEditors.ProgressBarControl progressBarControl;
       private System.Windows.Forms.Label lblStatus;
       private DevExpress.XtraEditors.SimpleButton btnImport;
+      private DevExpress.XtraEditors.SimpleButton btnClose;
    }
 }
