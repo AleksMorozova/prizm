@@ -24,6 +24,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public void RefreshNotifications()
         {
             LoadNotifications();
+            // TODO: NotifyInterested
         }
 
     }

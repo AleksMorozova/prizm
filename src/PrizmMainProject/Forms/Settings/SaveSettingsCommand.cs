@@ -115,7 +115,6 @@ namespace Prizm.Main.Forms.Settings
                     NotificationService.Instance.ExpiredWelderCertificateManager.RefreshNotifications();
                     NotificationService.Instance.ExpiredInspectorCertificateManager.RefreshNotifications();
                     NotificationService.Instance.DuplicateLoginManager.RefreshNotifications();
-                    NotificationService.Instance.UpdateNotification();
 
                     notify.ShowNotify(
                          Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),

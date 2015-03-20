@@ -10,8 +10,9 @@ namespace Prizm.Main.Forms.Notifications
 {
     class NotificationService
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationService));
         // Events
-        public event EventHandler NotificationReload;
+        public event EventHandler NotificationsChanged;
 
         #region --- Managers Properties ---
         public IDuplicateNumberManager DuplicateNumberManager 
@@ -67,62 +68,70 @@ namespace Prizm.Main.Forms.Notifications
         #endregion // --- Managers Properties ---
 
         // Fields
-        private static NotificationService StaticInstance;
+        private static NotificationService staticInstance = new NotificationService();
         private Dictionary<TypeNotification, INotificationManager> managers;
 
-        // Methods
+        /// <summary>
+        /// All types of managers, used in Managers Properties, must registered in this method.
+        /// 
+        /// </summary>
         private NotificationService()
         {
+            log.Info("Registering notification managers...");
+
             managers = new Dictionary<TypeNotification, INotificationManager>();
 
             RegisterManager(new DuplicateLoginManager());
             RegisterManager(new DuplicateNumberManager());
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
-            RegisterManager(new NotRequiredOperationManager());
+            
+            if (Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Mill)
+            {
+                RegisterManager(new NotRequiredOperationManager());
+            }
+            else
+            {
+                RegisterManager(new EmptyNROManager());
+            }
         }
 
+        /// <summary>
+        /// Registers one manager
+        /// </summary>
+        /// <param name="manager">notification manager to be registered</param>
         private void RegisterManager(INotificationManager manager)
         {
             managers.Add(manager.Type, manager);
         }
 
-        public void RequestAllNotification()
+        /// <summary>
+        /// 
+        /// </summary>
+        public void LoadAllNotifications()
         {
             foreach (var item in managers)
             {
                 item.Value.LoadNotifications();
             }
-
-            EventHandler eventRefresh = this.NotificationReload;
-            if (eventRefresh != null)
-            {
-                eventRefresh(this, EventArgs.Empty);
-            }
+            NotifyInterested();
         }
 
-        public void UpdateNotification() 
+        /// <summary>
+        /// Notify about reloading
+        /// </summary>
+        private void NotifyInterested() 
         {
-            EventHandler eventRefresh = this.NotificationReload;
-            if (eventRefresh != null)
+            if (NotificationsChanged != null)
             {
-                eventRefresh(this, EventArgs.Empty);
+                NotificationsChanged(this, EventArgs.Empty);
             }
         }
-        public static NotificationService Instance
-        {
-            get
-            {
-                if (StaticInstance == null)
-                {
-                    StaticInstance = new NotificationService();
-                }
-                return StaticInstance;
-            }
-        }
+        public static NotificationService Instance { get { return staticInstance; } }
 
-
-        // Properties
+        /// <summary>
+        /// List of all notifications in system
+        /// </summary>
         public List<Notification> Notifications
         {
             get
@@ -133,6 +142,9 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
+        /// <summary>
+        /// Count of all notifications in system
+        /// </summary>
         public int NotificationCount
         {
             get

@@ -14,6 +14,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public DuplicateLoginManager()
             : base(new DuplicateLoginLoader())
         { 
+            
         }
 
         public override TypeNotification Type { get { return TypeNotification.DuplicateLogin; } }
@@ -27,6 +28,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public void RefreshNotifications()
         {
             LoadNotifications();
+            // TODO: NotifyInterested
         }
     }
 }
