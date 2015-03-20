@@ -204,10 +204,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 switch (measure)
                 {
                     case FrequencyMeasure.Meters:
-                        ret = weight;
+                        ret = length;
                         break;
                     case FrequencyMeasure.Tons:
-                        ret = length;
+                        ret =weight;
                         break;
                     case FrequencyMeasure.Pipes:
                         ret = 1;
@@ -243,7 +243,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             {
                 foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(sizeTypeId))
                 {
-                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id), weight, length));
+                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id), initialPipeWeight, initialPipeLength));
                     manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), weight, length));
                     UpdateNotification(id);
                 }
