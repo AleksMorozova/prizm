@@ -1471,7 +1471,7 @@
     <value>Значение обязательно</value>
   </data>
   <data name="MainWindow_SecondCopyNotification" xml:space="preserve">
-    <value>Вы пытаетесь запустить другую копию программы. Пожалуйста закройте предидущую.</value>
+    <value>Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую.</value>
   </data>
   <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
     <value>Программа уже запущена</value>
