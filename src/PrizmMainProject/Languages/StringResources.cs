@@ -712,6 +712,19 @@ namespace Prizm.Main.Languages
              Id = "MainWindow_StatusNotificationsHeader",
              Description = "Текст на панели статуса: Важные сообщения "
          };
+
+         public static StringResource MainWindow_SecondCopyNotification = new StringResource
+         {
+             Id = "MainWindow_SecondCopyNotification",
+             Description = "Уведомление о запуске второго клиента"
+         };
+
+         public static StringResource MainWindow_SecondCopyNotificationHeader = new StringResource
+         {
+             Id = "MainWindow_SecondCopyNotificationHeader",
+             Description = "Уведомление о запуске второго клиента, заголовок "
+         };
+
          #endregion //--- Main Window ---
 
         #region PurchaseOrderForm

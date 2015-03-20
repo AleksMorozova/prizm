@@ -1470,4 +1470,10 @@
   <data name="Value_Required" xml:space="preserve">
     <value>Значение обязательно</value>
   </data>
+  <data name="MainWindow_SecondCopyNotification" xml:space="preserve">
+    <value>Вы пытаетесь запустить другую копию программы. Пожалуйста закройте предидущую.</value>
+  </data>
+  <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
+    <value>Программа уже запущена</value>
+  </data>
 </root>
