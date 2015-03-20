@@ -40,8 +40,8 @@
             this.acceptButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.questionLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.numberLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.numberLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutControl)).BeginInit();
             this.generalLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partRadioGroup.Properties)).BeginInit();
@@ -50,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionLabelLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayoutControl
@@ -66,14 +66,14 @@
             this.generalLayoutControl.Name = "generalLayoutControl";
             this.generalLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.generalLayoutControl.Root = this.generalLayoutControlGroup;
-            this.generalLayoutControl.Size = new System.Drawing.Size(321, 151);
+            this.generalLayoutControl.Size = new System.Drawing.Size(284, 202);
             this.generalLayoutControl.TabIndex = 0;
             // 
             // numberLabel
             // 
-            this.numberLabel.Location = new System.Drawing.Point(308, 12);
+            this.numberLabel.Location = new System.Drawing.Point(155, 29);
             this.numberLabel.Name = "numberLabel";
-            this.numberLabel.Size = new System.Drawing.Size(1, 13);
+            this.numberLabel.Size = new System.Drawing.Size(117, 13);
             this.numberLabel.StyleController = this.generalLayoutControl;
             this.numberLabel.TabIndex = 8;
             // 
@@ -81,25 +81,25 @@
             // 
             this.questionLabel.Location = new System.Drawing.Point(155, 12);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(6, 13);
+            this.questionLabel.Size = new System.Drawing.Size(117, 13);
             this.questionLabel.StyleController = this.generalLayoutControl;
             this.questionLabel.TabIndex = 7;
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.cancelButton.Location = new System.Drawing.Point(12, 117);
+            this.cancelButton.Location = new System.Drawing.Point(12, 168);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(96, 22);
+            this.cancelButton.Size = new System.Drawing.Size(82, 22);
             this.cancelButton.StyleController = this.generalLayoutControl;
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "О&тмена";
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(214, 117);
+            this.acceptButton.Location = new System.Drawing.Point(190, 168);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(95, 22);
+            this.acceptButton.Size = new System.Drawing.Size(82, 22);
             this.acceptButton.StyleController = this.generalLayoutControl;
             this.acceptButton.TabIndex = 5;
             this.acceptButton.Text = "&Создать";
@@ -107,13 +107,13 @@
             // 
             // partRadioGroup
             // 
-            this.partRadioGroup.EditValue = "spool";
-            this.partRadioGroup.Location = new System.Drawing.Point(12, 29);
+            this.partRadioGroup.EditValue = "";
+            this.partRadioGroup.Location = new System.Drawing.Point(12, 46);
             this.partRadioGroup.Name = "partRadioGroup";
             this.partRadioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("spool", "Катушка"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("component", "Компонент")});
-            this.partRadioGroup.Size = new System.Drawing.Size(297, 54);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("Spool", "Катушка"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("Component", "Компонент")});
+            this.partRadioGroup.Size = new System.Drawing.Size(260, 88);
             this.partRadioGroup.StyleController = this.generalLayoutControl;
             this.partRadioGroup.TabIndex = 4;
             // 
@@ -127,11 +127,11 @@
             this.acceptButtonLayout,
             this.cancelButtonLayout,
             this.questionLabelLayout,
-            this.numberLabelLayout,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.numberLabelLayout});
             this.generalLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.generalLayoutControlGroup.Name = "generalLayoutControlGroup";
-            this.generalLayoutControlGroup.Size = new System.Drawing.Size(321, 151);
+            this.generalLayoutControlGroup.Size = new System.Drawing.Size(284, 202);
             this.generalLayoutControlGroup.Text = "generalLayoutControlGroup";
             this.generalLayoutControlGroup.TextVisible = false;
             // 
@@ -139,9 +139,9 @@
             // 
             this.partRadioGroupLayout.Control = this.partRadioGroup;
             this.partRadioGroupLayout.CustomizationFormText = "Создать элемент с номером ";
-            this.partRadioGroupLayout.Location = new System.Drawing.Point(0, 17);
+            this.partRadioGroupLayout.Location = new System.Drawing.Point(0, 34);
             this.partRadioGroupLayout.Name = "partRadioGroupLayout";
-            this.partRadioGroupLayout.Size = new System.Drawing.Size(301, 73);
+            this.partRadioGroupLayout.Size = new System.Drawing.Size(264, 107);
             this.partRadioGroupLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 15);
             this.partRadioGroupLayout.Text = "partRadioGroupLayout";
             this.partRadioGroupLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -152,9 +152,9 @@
             // 
             this.acceptButtonLayout.Control = this.acceptButton;
             this.acceptButtonLayout.CustomizationFormText = "acceptButtonLayout";
-            this.acceptButtonLayout.Location = new System.Drawing.Point(192, 90);
+            this.acceptButtonLayout.Location = new System.Drawing.Point(168, 141);
             this.acceptButtonLayout.Name = "acceptButtonLayout";
-            this.acceptButtonLayout.Size = new System.Drawing.Size(109, 41);
+            this.acceptButtonLayout.Size = new System.Drawing.Size(96, 41);
             this.acceptButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 0, 15, 0);
             this.acceptButtonLayout.Text = "acceptButtonLayout";
             this.acceptButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -164,9 +164,9 @@
             // 
             this.cancelButtonLayout.Control = this.cancelButton;
             this.cancelButtonLayout.CustomizationFormText = "cancelButtonLayout";
-            this.cancelButtonLayout.Location = new System.Drawing.Point(0, 90);
+            this.cancelButtonLayout.Location = new System.Drawing.Point(0, 141);
             this.cancelButtonLayout.Name = "cancelButtonLayout";
-            this.cancelButtonLayout.Size = new System.Drawing.Size(110, 41);
+            this.cancelButtonLayout.Size = new System.Drawing.Size(96, 41);
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 15, 0);
             this.cancelButtonLayout.Text = "cancelButtonLayout";
             this.cancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -178,29 +178,29 @@
             this.questionLabelLayout.CustomizationFormText = "questionLabelLayout";
             this.questionLabelLayout.Location = new System.Drawing.Point(0, 0);
             this.questionLabelLayout.Name = "questionLabelLayout";
-            this.questionLabelLayout.Size = new System.Drawing.Size(153, 17);
+            this.questionLabelLayout.Size = new System.Drawing.Size(264, 17);
             this.questionLabelLayout.Text = "Создать элемент с номером";
             this.questionLabelLayout.TextSize = new System.Drawing.Size(140, 13);
-            // 
-            // numberLabelLayout
-            // 
-            this.numberLabelLayout.Control = this.numberLabel;
-            this.numberLabelLayout.CustomizationFormText = " ";
-            this.numberLabelLayout.Location = new System.Drawing.Point(153, 0);
-            this.numberLabelLayout.Name = "numberLabelLayout";
-            this.numberLabelLayout.Size = new System.Drawing.Size(148, 17);
-            this.numberLabelLayout.Text = " ";
-            this.numberLabelLayout.TextSize = new System.Drawing.Size(140, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(110, 90);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(96, 141);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(82, 41);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(72, 41);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // numberLabelLayout
+            // 
+            this.numberLabelLayout.Control = this.numberLabel;
+            this.numberLabelLayout.CustomizationFormText = " ";
+            this.numberLabelLayout.Location = new System.Drawing.Point(0, 17);
+            this.numberLabelLayout.Name = "numberLabelLayout";
+            this.numberLabelLayout.Size = new System.Drawing.Size(264, 17);
+            this.numberLabelLayout.Text = " ";
+            this.numberLabelLayout.TextSize = new System.Drawing.Size(140, 13);
             // 
             // CreateSpoolComponentDialog
             // 
@@ -208,8 +208,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(321, 151);
+            this.ClientSize = new System.Drawing.Size(284, 202);
             this.Controls.Add(this.generalLayoutControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateSpoolComponentDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -222,8 +223,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.acceptButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionLabelLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberLabelLayout)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -22,6 +22,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         {
             InitializeComponent();
             this.SetupForm(elementNumber);
+            partRadioGroup.SelectedIndex = 0;
         }
 
         public void SetupForm(string elementNumber) 
@@ -55,7 +56,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         /// </summary>
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            if (partRadioGroup.EditValue.ToString() == "spool")
+            if (partRadioGroup.EditValue.ToString() == "Spool")
             {
                 this.DialogResult = DialogResult.Yes;
             }
