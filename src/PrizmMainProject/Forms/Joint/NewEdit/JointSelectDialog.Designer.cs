@@ -81,7 +81,7 @@
             this.editButton.Size = new System.Drawing.Size(101, 22);
             this.editButton.StyleController = this.JointSearchLayout;
             this.editButton.TabIndex = 6;
-            this.editButton.Text = "Редактировать";
+            this.editButton.Text = "Ре&дактировать";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // cancelButton
@@ -92,7 +92,7 @@
             this.cancelButton.Size = new System.Drawing.Size(110, 22);
             this.cancelButton.StyleController = this.JointSearchLayout;
             this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "О&тменить";
             // 
             // resultsGrid
             // 

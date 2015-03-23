@@ -2542,10 +2542,10 @@ PipeConstructionReport_FootersCheck=Add headers and footers
 JointSelectDialog_Header=Select joint
 
 ;Отменить
-JointSelectDialog_CancelButton=Cancel
+JointSelectDialog_CancelButton=Ca&ncel
 
 ;Редактировать
-JointSelectDialog_EditButton=Edit
+JointSelectDialog_EditButton=E&dit
 
 ;Результаты поиска
 JointSelectDialog_ResultsLayout=Search results
