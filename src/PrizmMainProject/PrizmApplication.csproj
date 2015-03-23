@@ -571,6 +571,7 @@
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Synch\SynchType.cs" />
+    <Compile Include="Languages\DataSetExtention.cs" />
     <Compile Include="Languages\ILocalizable.cs" />
     <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
       <SubType>Form</SubType>
