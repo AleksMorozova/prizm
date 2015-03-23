@@ -122,7 +122,6 @@
             this.includeCheckedList.StyleController = this.searchGroupLayout;
             this.includeCheckedList.TabIndex = 13;
             this.includeCheckedList.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.includeCheckedList_ItemCheck);
-            this.includeCheckedList.SelectedIndexChanged += new System.EventHandler(this.includeCheckedList_SelectedIndexChanged);
             // 
             // userList
             // 

@@ -65,6 +65,8 @@ namespace Prizm.Main.Forms.Audit
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(search);
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            commandManager.RefreshVisualState();
         }
 
         #region --- Localization ---
@@ -155,18 +157,6 @@ namespace Prizm.Main.Forms.Audit
             }
         }
 
-        private void includeCheckedList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<string> operationList = new List<string>();
-            foreach (var item in includeCheckedList.CheckedItems)
-            {
-                var operation = item as EnumWrapper<AuditRecordType>;
-                if (operation != null)
-                    operationList.Add(operation.Value.ToString());
-            }
-            viewModel.OperationTypes = operationList;
-        }
-
         private void includeCheckedList_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
             List<string> operationList = new List<string>();
@@ -179,6 +169,7 @@ namespace Prizm.Main.Forms.Audit
                }
             }
             viewModel.OperationTypes = operationList;
+            commandManager.RefreshVisualState();
         }
 
     }

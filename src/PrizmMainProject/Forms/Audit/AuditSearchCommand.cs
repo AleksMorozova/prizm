@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Audit
         }
         public bool CanExecute()
         {
-            return true;
+            return viewModel.OperationTypes.Count > 0;
         }
 
     }
