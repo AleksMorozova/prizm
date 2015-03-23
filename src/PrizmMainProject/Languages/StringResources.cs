@@ -2793,6 +2793,24 @@ namespace Prizm.Main.Languages
             Description = "статус контрольной операции для стыка"
         };
 
+        public static StringResource JointNew_SearchGroupLayout = new StringResource
+        {
+            Id = "JointNew_SearchGroupLayout",
+            Description = "Поиск и редактирование стыка"
+        };
+
+        public static StringResource JointNew_SearchButton = new StringResource
+        {
+            Id = "JointNew_SearchButton",
+            Description = "Найти и открыть для редактирования"
+        };
+
+        public static StringResource JointNew_SearchNumberLayout = new StringResource
+        {
+            Id = "JointNew_SearchNumberLayout",
+            Description = "&Номер искомого стыка"
+        };
+        
         public static StringResource JointNew_JointNumberLayout = new StringResource
         {
             Id = "JointNew_JointNumberLayout",
@@ -4804,5 +4822,37 @@ namespace Prizm.Main.Languages
             Description = "Сообщение о дублировании логинов"
         };
         #endregion //--- Notification ---
+
+        #region --- JointSelectDialog ---
+        public static StringResource JointSelectDialog_Header = new StringResource
+        {
+            Id = "JointSelectDialog_Header",
+            Description = "Заголовок: выбор стыка"
+        };
+
+        public static StringResource JointSelectDialog_CancelButton = new StringResource
+        {
+            Id = "JointSelectDialog_CancelButton",
+            Description = "Отменить"
+        };
+
+        public static StringResource JointSelectDialog_EditButton = new StringResource
+        {
+            Id = "JointSelectDialog_EditButton",
+            Description = "Редактировать"
+        };
+
+        public static StringResource JointSelectDialog_ResultsLayout = new StringResource
+        {
+            Id = "JointSelectDialog_ResultsLayout",
+            Description = "Результаты поиска"
+        };
+
+        public static StringResource JointSelectDialog_NumberGridColumn = new StringResource
+        {
+            Id = "JointSelectDialog_NumberGridColumn",
+            Description = "Колонка номера стыка"
+        };
+        #endregion
     }
 } 

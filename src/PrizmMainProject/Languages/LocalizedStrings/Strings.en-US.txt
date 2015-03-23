@@ -1165,6 +1165,15 @@ Joint_JointTestResultStatus_Repair=Repair
 ;статус для контрольной операции стыка: Принят
 Joint_JointTestResultStatus_Accepted=Accepted
 
+;Поиск и редактирование стыка
+JointNew_SearchGroupLayout=Joint search and editing
+
+;Номер искомого стыка
+JointNew_SearchNumberLayout= Searc&h number
+
+;Найти и открыть для редактирования
+JointNew_SearchButton = Search and &open for editing 
+
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
 
@@ -2522,3 +2531,18 @@ WeldDateReport_FootersCheck=Add headers and footers
 
 ;Добавить колонтитулы
 PipeConstructionReport_FootersCheck=Add headers and footers
+
+;Заголовок: выбор стыка
+JointSelectDialog_Header=Select joint
+
+;Отменить
+JointSelectDialog_CancelButton=Cancel
+
+;Редактировать
+JointSelectDialog_EditButton=Edit
+
+;Результаты поиска
+JointSelectDialog_ResultsLayout=Search results
+
+;Колонка номера стыка
+JointSelectDialog_NumberGridColumn = Joint number
