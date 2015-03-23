@@ -68,8 +68,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.notify = notify;
             this.repoJoint = repoJoint;
 
-            var temp = DateTime.Now;
-
             this.JointsProjections = repoJoint
                 .GetJointsProjections()
                 .SetResultTransformer(Transformers.AliasToBean<JointProjection>())
@@ -77,8 +75,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             if (this.JointsProjections == null || this.JointsProjections.Count <= 0)
                 log.Warn( "Report at Construction: List of Joints is NULL or empty." );
-            Console.WriteLine("================== " + (DateTime.Now - temp).TotalMilliseconds + " ==================");
-
 
             createCommand = ViewModelSource
                 .Create<CreateReportCommand>(() => new CreateReportCommand(this, repo, notify));
