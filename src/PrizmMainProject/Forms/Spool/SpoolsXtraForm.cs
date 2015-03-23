@@ -126,10 +126,8 @@ namespace Prizm.Main.Forms.Spool
 
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
-            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllInspectionStatus.Add(item.Item2);
-            }
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+
             BindToViewModel();
 
             attachmentsButton.Enabled =

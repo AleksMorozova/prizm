@@ -128,14 +128,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllPipeTestResultStatus.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
-            {
-                localizedAllPipeMillStatus.Add(item.Item2);
-            }
+            EnumWrapper<PipeTestResultStatus>.LoadItems(localizedAllPipeTestResultStatus, skip0: true);
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus, skip0 : true);
+
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
