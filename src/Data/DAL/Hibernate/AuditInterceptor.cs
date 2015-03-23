@@ -53,7 +53,7 @@ namespace Prizm.Data.DAL.Hibernate
             string[] propertyNames, 
             NHibernate.Type.IType[] types)
         {
-            LogAudit(entity, propertyNames, Actions.Insert, state);
+            LogAudit(entity, propertyNames, HibernateUtil.Import ? AuditRecordType.I : AuditRecordType.C, state);
             return base.OnSave(entity, id, state, propertyNames, types);
         }
 
@@ -102,7 +102,7 @@ namespace Prizm.Data.DAL.Hibernate
 
                         if (newValue != oldValue)
                         {
-                            NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
+                            NewAuditRecord(curentity, propertyNames[i], newValue, oldValue, AuditRecordType.E);
                         }
                     }
                 }
@@ -113,7 +113,7 @@ namespace Prizm.Data.DAL.Hibernate
         /// <summary>
         /// Creating log record and saving it to DB
         /// </summary>
-        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue)
+        private void NewAuditRecord(Item curentity, string fieldName, string newValue, string oldValue, AuditRecordType operationType)
         {
             string entityType = curentity.GetType().ToString();
             string stringTableName = entityType.Substring(entityType.LastIndexOf('.') + 1);
@@ -132,7 +132,8 @@ namespace Prizm.Data.DAL.Hibernate
                 FieldName = enumFieldName,
                 NewValue = newValue,
                 OldValue = oldValue,
-                OwnerId = curentity.OwnerId
+                OwnerId = curentity.OwnerId,
+                OperationType = operationType
             };
             LogRepo.BeginTransaction();
             LogRepo.Save(record);
@@ -150,7 +151,7 @@ namespace Prizm.Data.DAL.Hibernate
             string[] propertyNames, 
             NHibernate.Type.IType[] types)
         {
-            LogAudit(entity, propertyNames, Actions.Delete, state);
+            LogAudit(entity, propertyNames, AuditRecordType.D, state);
             base.OnDelete(entity, id, state, propertyNames, types);
         }
 
@@ -160,7 +161,7 @@ namespace Prizm.Data.DAL.Hibernate
         private void LogAudit(
             object entity, 
             string[] propertyNames, 
-            Actions actionType, 
+            AuditRecordType actionType, 
             params object[] state)
         {
             string oldValue = null;
@@ -182,20 +183,20 @@ namespace Prizm.Data.DAL.Hibernate
 
                         switch (actionType)
                         {
-                            case Actions.Insert:
+                            case AuditRecordType.I:
+                            case AuditRecordType.C:
                                 newValue = (state[i] is Item) ? ((Item)state[i]).Id.ToString() : state[i].ToString();
                                 break;
 
-                            case Actions.Delete:
+                            case AuditRecordType.D:
                                 oldValue = (state[i] is Item) ? ((Item)state[i]).Id.ToString() : state[i].ToString();
-                                newValue = "deleted";
                                 break;
 
                             default:
                                 break;
                         }
 
-                        NewAuditRecord(curentity, propertyNames[i], newValue, oldValue);
+                        NewAuditRecord(curentity, propertyNames[i], newValue, oldValue, actionType);
                     }
                 }
             }
@@ -219,7 +220,7 @@ namespace Prizm.Data.DAL.Hibernate
                 || obj is PipeTestFrequency;
         }
 
-        private void LogAuditEntityMapLikeComponent(object entity, Actions actionType)
+        private void LogAuditEntityMapLikeComponent(object entity, AuditRecordType operationType)
         {
             List<string> tempNames = new List<string>();
             List<object> tempState = new List<object>();
@@ -232,7 +233,7 @@ namespace Prizm.Data.DAL.Hibernate
                 tempState.Add(property.GetValue(entity));
             }
 
-            this.LogAudit(entity, tempNames.ToArray(), actionType, tempState.ToArray());
+            this.LogAudit(entity, tempNames.ToArray(), operationType, tempState.ToArray());
         }
 
         private void FlushDirtyEntityMapLikeComponent(

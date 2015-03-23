@@ -54,5 +54,9 @@ namespace Prizm.Domain.Entity
         /// Id of entity that contains edited entity
         /// </summary>
         public virtual Guid OwnerId { get; set; }
+        /// <summary>
+        /// Audit operation type : inserted, edited, created, deleted
+        /// </summary>
+        public virtual AuditRecordType OperationType{get;set;}
     }
 }
