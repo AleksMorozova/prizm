@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.endKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
             this.startKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
@@ -183,6 +182,10 @@
             // 
             // infoLabel
             // 
+            this.infoLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.infoLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.infoLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.infoLabel.Location = new System.Drawing.Point(606, 43);
             this.infoLabel.Location = new System.Drawing.Point(750, 43);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(0, 82);

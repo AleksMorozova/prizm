@@ -20,7 +20,7 @@ namespace Prizm.Data.DAL.Hibernate
 
         }
 
-        public IList<Inspector> GetAll()
+        public override IList<Inspector> GetAll()
         {
             try
             {
