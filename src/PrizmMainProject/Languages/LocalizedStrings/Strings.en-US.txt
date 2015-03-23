@@ -2326,6 +2326,12 @@ Menu_Help_About=&About
 ;Текст на панели статуса: Важные сообщения 
 MainWindow_StatusNotificationsHeader=Important messages 
 
+;Уведомление о запуске второго клиента
+MainWindow_SecondCopyNotification=Program already running please stop or restart first  
+
+;Уведомление о запуске второго клиента, заголовок
+MainWindow_SecondCopyNotificationHeader=Program already running 
+
 ;Комплектующее изделие деактивировано. Комплектующее изделие #
 ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
 
