@@ -1,4 +1,5 @@
-﻿using Prizm.Domain.Entity.Construction;
+﻿using NHibernate;
+using Prizm.Domain.Entity.Construction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Prizm.Data.DAL.Construction
         IList<Joint> GetActiveByNumber(Joint joint);
         IList<Joint> GetJointsToExport();
         IList<Joint> QuickSearchByNumber(string number);
+        IList<Joint> GetJointsForTracing();
+        ICriteria GetJointsProjections();
 
         IList<Joint> SearchJoint(
             string jointNumber, 
