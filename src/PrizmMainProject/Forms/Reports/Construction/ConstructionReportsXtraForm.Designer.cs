@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
             this.endKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
             this.startKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
@@ -119,13 +120,13 @@
             // 
             // endKPLookUp
             // 
-            this.endKPLookUp.Location = new System.Drawing.Point(544, 99);
+            this.endKPLookUp.Location = new System.Drawing.Point(501, 99);
             this.endKPLookUp.Name = "endKPLookUp";
             this.endKPLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.endKPLookUp.Properties.NullText = "";
             this.endKPLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.endKPLookUp.Size = new System.Drawing.Size(187, 20);
+            this.endKPLookUp.Size = new System.Drawing.Size(146, 20);
             this.endKPLookUp.StyleController = this.generalLayout;
             this.endKPLookUp.TabIndex = 81;
             // 
@@ -137,13 +138,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.startKPLookUp.Properties.NullText = "";
             this.startKPLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.startKPLookUp.Size = new System.Drawing.Size(189, 20);
+            this.startKPLookUp.Size = new System.Drawing.Size(146, 20);
             this.startKPLookUp.StyleController = this.generalLayout;
             this.startKPLookUp.TabIndex = 80;
             // 
             // end
             // 
-            this.end.Location = new System.Drawing.Point(544, 59);
+            this.end.Location = new System.Drawing.Point(501, 59);
             this.end.Name = "end";
             this.end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -151,7 +152,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер стыка")});
             this.end.Properties.NullText = "";
             this.end.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.end.Size = new System.Drawing.Size(187, 20);
+            this.end.Size = new System.Drawing.Size(146, 20);
             this.end.StyleController = this.generalLayout;
             this.end.TabIndex = 79;
             // 
@@ -165,7 +166,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер стыка")});
             this.start.Properties.NullText = "";
             this.start.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.start.Size = new System.Drawing.Size(189, 20);
+            this.start.Size = new System.Drawing.Size(146, 20);
             this.start.StyleController = this.generalLayout;
             this.start.TabIndex = 78;
             // 
@@ -185,10 +186,9 @@
             this.infoLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.infoLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.infoLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.infoLabel.Location = new System.Drawing.Point(606, 43);
-            this.infoLabel.Location = new System.Drawing.Point(750, 43);
+            this.infoLabel.Location = new System.Drawing.Point(666, 43);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(0, 82);
+            this.infoLabel.Size = new System.Drawing.Size(84, 82);
             this.infoLabel.StyleController = this.generalLayout;
             this.infoLabel.TabIndex = 76;
             // 
@@ -357,7 +357,7 @@
             // 
             this.startJointEmptySpace.AllowHotTrack = false;
             this.startJointEmptySpace.CustomizationFormText = "startJointEmptySpace";
-            this.startJointEmptySpace.Location = new System.Drawing.Point(500, 0);
+            this.startJointEmptySpace.Location = new System.Drawing.Point(457, 0);
             this.startJointEmptySpace.MaxSize = new System.Drawing.Size(20, 86);
             this.startJointEmptySpace.MinSize = new System.Drawing.Size(20, 86);
             this.startJointEmptySpace.Name = "startJointEmptySpace";
@@ -398,10 +398,10 @@
             // 
             this.infoLabelLayout.Control = this.infoLabel;
             this.infoLabelLayout.CustomizationFormText = "layoutControlItem1";
-            this.infoLabelLayout.Location = new System.Drawing.Point(711, 0);
+            this.infoLabelLayout.Location = new System.Drawing.Point(627, 0);
             this.infoLabelLayout.MinSize = new System.Drawing.Size(34, 17);
             this.infoLabelLayout.Name = "infoLabelLayout";
-            this.infoLabelLayout.Size = new System.Drawing.Size(34, 86);
+            this.infoLabelLayout.Size = new System.Drawing.Size(118, 86);
             this.infoLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.infoLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.infoLabelLayout.Text = "infoLabelLayout";
@@ -458,8 +458,11 @@
             this.startJointLayout.Control = this.start;
             this.startJointLayout.CustomizationFormText = "layoutControlItem1";
             this.startJointLayout.Location = new System.Drawing.Point(307, 0);
+            this.startJointLayout.MaxSize = new System.Drawing.Size(150, 40);
+            this.startJointLayout.MinSize = new System.Drawing.Size(150, 40);
             this.startJointLayout.Name = "startJointLayout";
-            this.startJointLayout.Size = new System.Drawing.Size(193, 40);
+            this.startJointLayout.Size = new System.Drawing.Size(150, 40);
+            this.startJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.startJointLayout.Text = "Начальный стык";
             this.startJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.startJointLayout.TextSize = new System.Drawing.Size(90, 13);
@@ -468,9 +471,12 @@
             // 
             this.endJointLayout.Control = this.end;
             this.endJointLayout.CustomizationFormText = "layoutControlItem2";
-            this.endJointLayout.Location = new System.Drawing.Point(520, 0);
+            this.endJointLayout.Location = new System.Drawing.Point(477, 0);
+            this.endJointLayout.MaxSize = new System.Drawing.Size(150, 40);
+            this.endJointLayout.MinSize = new System.Drawing.Size(150, 40);
             this.endJointLayout.Name = "endJointLayout";
-            this.endJointLayout.Size = new System.Drawing.Size(191, 40);
+            this.endJointLayout.Size = new System.Drawing.Size(150, 40);
+            this.endJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.endJointLayout.Text = "Конечный стык";
             this.endJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.endJointLayout.TextSize = new System.Drawing.Size(90, 13);
@@ -481,7 +487,7 @@
             this.startKPComboBoxLayoutControl.CustomizationFormText = "Начальный пикет";
             this.startKPComboBoxLayoutControl.Location = new System.Drawing.Point(307, 40);
             this.startKPComboBoxLayoutControl.Name = "startKPComboBoxLayoutControl";
-            this.startKPComboBoxLayoutControl.Size = new System.Drawing.Size(193, 46);
+            this.startKPComboBoxLayoutControl.Size = new System.Drawing.Size(150, 46);
             this.startKPComboBoxLayoutControl.Text = "Начальный пикет";
             this.startKPComboBoxLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.startKPComboBoxLayoutControl.TextSize = new System.Drawing.Size(90, 13);
@@ -490,9 +496,9 @@
             // 
             this.endKPLayout.Control = this.endKPLookUp;
             this.endKPLayout.CustomizationFormText = "layoutControlItem2";
-            this.endKPLayout.Location = new System.Drawing.Point(520, 40);
+            this.endKPLayout.Location = new System.Drawing.Point(477, 40);
             this.endKPLayout.Name = "endKPLayout";
-            this.endKPLayout.Size = new System.Drawing.Size(191, 46);
+            this.endKPLayout.Size = new System.Drawing.Size(150, 46);
             this.endKPLayout.Text = "Конечный пикет";
             this.endKPLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.endKPLayout.TextSize = new System.Drawing.Size(90, 13);
