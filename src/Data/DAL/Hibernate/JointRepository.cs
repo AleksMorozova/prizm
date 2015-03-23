@@ -48,6 +48,17 @@ namespace Prizm.Data.DAL.Hibernate
            }
         }
 
+        public IList<Joint> QuickSearchByNumber(string number)
+        {
+            ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number",number,MatchMode.Start))
+                .SetProjection(Projections.ProjectionList()
+                             .Add(Projections.Property("Id"), "Id")
+                             .Add(Projections.Property("Number"), "Number"))
+                             .SetResultTransformer(Transformers.AliasToBean<Joint>());
+            IList<Joint> results = crit.List<Joint>();
+            return results;
+        }
+
         public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, string peg, bool? status)
         {
 
@@ -71,7 +82,10 @@ namespace Prizm.Data.DAL.Hibernate
                 q.WhereRestrictionOn(n => n.Number).IsLike(jointNumber, MatchMode.Start);
             }
             // statuses
-            q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
+            if (statuses != null)
+            {
+                q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
+            }
             // status
             if(status != null)
             {
