@@ -117,41 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSourceForReport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>select InspectionTestResult.[order], Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
-          from  InspectionTestResult InspectionTestResult 
-		  inner join Pipe on (Pipe.id = InspectionTestResult.partId)
-          left join Plate on (Plate.id = Pipe.plateId)
-          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
-          left  join Heat on (Heat.id = Plate.heatId)</value>
-  </data>
-  <data name="sqlDataSourceForReport.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZUZvclJlcG9ydCI+PFZpZXcgTmFtZT0iQ3VzdG9tU3FsUXVlcnkiPjxGaWVsZCBOYW1lPSJvcmRlciIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Im51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0eXBlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IndhbGxUaGlja25lc3MiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJsZW5ndGgiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJIZWF0X251bWJlciIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
-  </data>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <data name="customSqlQuery2.Sql" xml:space="preserve">
-    <value>select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, 
-Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status as status
-          from  InspectionTestResult InspectionTestResult
-
-          INNER JOIN 
-		    (SELECT partId,MAX (inspectionDate) as insprctionDate, MAX (inspectionOrder) as lastOrder FROM InspectionTestResult 
-			    
-				GROUP BY partId) a
-				ON InspectionTestResult.partId = a.partId AND InspectionTestResult.inspectionDate = a.insprctionDate AND InspectionTestResult.inspectionOrder = a.lastOrder
-
-		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
-          left join Plate on (Plate.id = Pipe.plateId)
-          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
-          left  join Heat on (Heat.id = Plate.heatId)
-            WHERE  Pipe.isActive=1</value>
-  </data>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0ibnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InR5cGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0id2FsbFRoaWNrbmVzcyIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJsZW5ndGgiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJIZWF0X251bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJzdGF0dXMiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AGkk
+        AABpJAD/////AP///wD///8A////AP///wD///8A////AP///wBpJABmaSQApWkkANVpJAD/aSQA/2kk
+        AP9pJAD/aSQA/////wD///8A////AP///wD///8A////AGkkAAxpJAC3aSQA/2kkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP////8A////AP///wD///8A////AP///wBpJAB4aSQA/2kkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP9pJAD/////AP///wD///8A////AP///wD///8AaSQA3mkkAP9pJAD/aSQA/2kk
+        AP9pJAD/aSQA/2kkAP9pJAD/aSQA/////wD///8A////AP///wD///8A////AGkkAP9pJAD/aSQA/2kk
+        AP9pJABd////AP///wD///8AaSQAAGkkAP////8A////AP///wD///8A////AP///wBpJAD/aSQA/2kk
+        AP9pJAD/aSQAA////wD///8A////AGkkAABpJAAA////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wBpJAAAaSQAAP///wD///8A////AP///wD///8A////AFew
+        ADNXsAAzV7AAM1ewADP///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wBXsAD/V7AA/1ewAP9XsAD/////AP///wD///8A////AP///wD///8AV7AA/////wD///8A////AP//
+        /wBXsAA2V7AA/1ewAP9XsAD/V7AA/P///wD///8A////AP///wD///8A////AFewAP9XsAD/V7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewANv///8A////AP///wD///8A////AP///wBXsAD/V7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewAP9XsAB4////AP///wD///8A////AP///wD///8AV7AA/1ew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA/1ewAP9XsAC3V7AACf///wD///8A////AP///wD///8A////AFew
+        AP9XsAD/V7AA/1ewAP9XsAD/V7AA0lewAKJXsABm////AP///wD///8A////AP///wD///8A////AP//
+        /wBXsAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A//4AAP+AAAD+AAAA/gAAAPwAAAD8PgAA/D8AAP//AAD//wAA/D8AAHw/AAAAPwAAAH8AAAB/
+        AAAB/wAAf/8AAA==
+</value>
   </data>
 </root>

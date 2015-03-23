@@ -1513,6 +1513,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую..
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotification {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Программа уже запущена.
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotificationHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotificationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строительство.
         /// </summary>
         internal static string MainWindowHeader_Construction {

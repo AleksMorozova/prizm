@@ -112,7 +112,7 @@ namespace Prizm.Main.Forms.Parts.Search
         {
             if (!string.IsNullOrWhiteSpace(number))
             {
-                number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ", number.EscapeCharacters());
+                number = string.Format(@"WHERE number LIKE N'{0}%' ESCAPE '\' ", number.EscapeCharacters());
             }
             return string.Format(
                                 @"SELECT id, number, isActive,'{1}' FROM Pipe {0}
