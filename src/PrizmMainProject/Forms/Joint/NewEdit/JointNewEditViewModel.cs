@@ -431,7 +431,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 if (Joint.JointWeldResults
                     .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
-                    .Any(x => x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
+                    .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
                 {
                     Joint.Status = JointStatus.Withdrawn;
                 }
