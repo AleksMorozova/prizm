@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.Notifications
             : this(ownerId, ownerName, typeNotification, information)
         {
             DateToOccur = dayToOccur;
-            Status = DaysLeft < 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
+            Status = DaysLeft <= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
         }
 
         public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, float unitsLeft)
@@ -125,7 +125,7 @@ namespace Prizm.Main.Forms.Notifications
 
                 if (DateToOccur != default(DateTime))
                 {
-                    retVal = (int)(DateToOccur - DateTime.Now).TotalDays;
+                    retVal = (int)(DateToOccur.Date - DateTime.Now.Date).TotalDays;
                 }
                 return retVal;
             }
