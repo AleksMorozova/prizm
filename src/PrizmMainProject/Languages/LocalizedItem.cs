@@ -509,10 +509,6 @@ namespace Prizm.Main.Languages
                     break;
                 case ItemType.RadioGroup:
                     var radio = (DevExpress.XtraEditors.RadioGroup)obj;
-                    if (radio.SelectedIndex >= 0)
-                    { 
-                        radio.EditValue = radio.Properties.Items[radio.SelectedIndex]; 
-                    }
                     radio.Refresh();
                     break;
                 case ItemType.TextEditOneWayStatus:
