@@ -81,7 +81,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             {
                 log.Error("Unable to load Not Required Operation Notifications: ", ex);
             }
-            // TODO: NotifyInterested
+            NotificationService.Instance.NotifyInterested();
         }
 
         #endregion // --- Loading ---
@@ -300,7 +300,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
                     }
                 }
-                // TODO: NotifyInterested
+                NotificationService.Instance.NotifyInterested();
             }
         }
 

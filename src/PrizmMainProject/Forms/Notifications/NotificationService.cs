@@ -120,7 +120,7 @@ namespace Prizm.Main.Forms.Notifications
         /// <summary>
         /// Notify about reloading
         /// </summary>
-        private void NotifyInterested() 
+        public void NotifyInterested() 
         {
             if (NotificationsChanged != null)
             {
