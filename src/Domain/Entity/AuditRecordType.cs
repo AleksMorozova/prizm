@@ -8,10 +8,10 @@ namespace Prizm.Domain.Entity
 {
     public enum AuditRecordType
     {
-        E = 0,
-        I = 1,
-        C = 2,
-        D = 3
+        E = 0, //Edited
+        I = 1, //Imported
+        C = 2, //Created
+        D = 3  //Deleted
        
     }
 }

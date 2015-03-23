@@ -13,6 +13,8 @@ namespace Prizm.DatabaseMigrator.Migrations
         public override void Up()
         {
             Alter.Table("AuditLog").AddColumn("operationType").AsFixedLengthString(1).Nullable();
+            Alter.Table("AuditLog").AlterColumn("oldValue").AsString(300).Nullable()
+                                   .AlterColumn("newValue").AsString(300).Nullable();
             Execute.Sql(@"UPDATE [AuditLog] SET operationType = 'C' WHERE oldValue IS NULL
                           UPDATE [AuditLog] SET operationType = 'D' WHERE newValue IS NULL
                           UPDATE [AuditLog] SET operationType = 'E' WHERE newValue IS NOT NULL AND oldValue IS NOT NULL");
