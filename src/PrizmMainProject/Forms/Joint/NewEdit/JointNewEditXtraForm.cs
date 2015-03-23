@@ -559,12 +559,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(repairTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Date == null)
+            else if(jointWeldResult.Date == null)
             {
                 gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
+            else if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
@@ -681,6 +681,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void secondJointElement_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+        private void JointNewEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AutoValidate = AutoValidate.Disable;
         }
     }
 }
