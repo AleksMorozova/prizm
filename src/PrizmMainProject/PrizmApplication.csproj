@@ -276,6 +276,13 @@
     <Compile Include="Forms\Joint\NewEdit\JointCutDialog.Designer.cs">
       <DependentUpon>JointCutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointSelectDialog.Designer.cs">
+      <DependentUpon>JointSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\QuickSearchCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\SaveOrUpdateJointCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\SelectDiameterDialog.cs">
       <SubType>Form</SubType>
@@ -768,6 +775,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\NewEdit\JointCutDialog.resx">
       <DependentUpon>JointCutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Joint\NewEdit\JointSelectDialog.resx">
+      <DependentUpon>JointSelectDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\NewEdit\SelectDiameterDialog.resx">
       <DependentUpon>SelectDiameterDialog.cs</DependentUpon>
