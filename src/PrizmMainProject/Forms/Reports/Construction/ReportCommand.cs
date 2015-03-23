@@ -114,7 +114,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void PipelineTracing()
         {
-            var temp = DateTime.Now;
             if (joints == null)
             {
                 this.joints = repoJoint.GetJointsForTracing().ToList<construct.Joint>();
@@ -129,7 +128,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                 this.partDataList = this.FormWeldedParts(data);
             }
-            Console.WriteLine("================== " + (DateTime.Now - temp).TotalMilliseconds + " ==================");
 
             graph = new PipelineGraph(partDataList.Count);
             tracingDataList = new List<TracingData>();
