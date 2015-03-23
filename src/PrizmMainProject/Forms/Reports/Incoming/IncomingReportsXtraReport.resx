@@ -131,4 +131,27 @@
   <data name="sqlDataSourceForReport.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZUZvclJlcG9ydCI+PFZpZXcgTmFtZT0iQ3VzdG9tU3FsUXVlcnkiPjxGaWVsZCBOYW1lPSJvcmRlciIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Im51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0eXBlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IndhbGxUaGlja25lc3MiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJsZW5ndGgiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJIZWF0X251bWJlciIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="customSqlQuery2.Sql" xml:space="preserve">
+    <value>select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, 
+Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status as status
+          from  InspectionTestResult InspectionTestResult
+
+          INNER JOIN 
+		    (SELECT partId,MAX (inspectionDate) as insprctionDate, MAX (inspectionOrder) as lastOrder FROM InspectionTestResult 
+			    
+				GROUP BY partId) a
+				ON InspectionTestResult.partId = a.partId AND InspectionTestResult.inspectionDate = a.insprctionDate AND InspectionTestResult.inspectionOrder = a.lastOrder
+
+		  inner join Pipe on (Pipe.id = InspectionTestResult.[partId])
+          left join Plate on (Plate.id = Pipe.plateId)
+          left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
+          left  join Heat on (Heat.id = Plate.heatId)
+            WHERE  Pipe.isActive=1</value>
+  </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkN1c3RvbVNxbFF1ZXJ5Ij48RmllbGQgTmFtZT0ibnVtYmVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InR5cGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0id2FsbFRoaWNrbmVzcyIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJsZW5ndGgiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJIZWF0X251bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJzdGF0dXMiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  </data>
 </root>
