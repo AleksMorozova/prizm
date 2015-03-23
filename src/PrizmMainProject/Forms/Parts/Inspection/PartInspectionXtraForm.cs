@@ -286,5 +286,14 @@ namespace Prizm.Main.Forms.Parts.Inspection
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
+        private void searchNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                viewModel.SearchNumber = searchNumber.Text;
+                viewModel.SearchCommand.Execute();
+            }
+        }
+
     }
 }
