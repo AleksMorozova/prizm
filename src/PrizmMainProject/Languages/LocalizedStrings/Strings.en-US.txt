@@ -528,7 +528,7 @@ SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe s
 SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 
 ;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
-SettingsPipe_WallThicknessLabel=Wall &thickness, mm
+SettingsPipe_WallThicknessLabel=&Wall thickness, mm
 
 ;Настройки-труба. Длина трубы для заданного типоразмера, мм
 SettingsPipe_LengthLabel=Pipe l&ength, mm
@@ -899,7 +899,7 @@ About_AcceptButton=OK
 PartSearch_SearchNumberLabel=&Number
 
 ;Поиск элементов трубопровода. Надпись типа элемента
-PartSearch_SearchTypeLabel=&Type
+PartSearch_SearchTypeLabel=T&ype
 
 ;Поиск элементов трубопровода. Надпись активности элемента
 PartSearch_ActivityLabel= &Activity status
@@ -1100,7 +1100,7 @@ ComponentNewEdit_NewComponentLayoutGroup=Component
 ComponentNewEdit_ComponentNumberLayout=N&umber
 
 ;&Тип изделия
-ComponentNewEdit_TypeLayoutControl=&Type
+ComponentNewEdit_TypeLayoutControl=T&ype
 
 ;Номер се&ртификата
 ComponentNewEdit_CertificateLayout=Certi&ficate number
@@ -1196,7 +1196,7 @@ JointNew_JointParametersLayoutGroup=Joint parameters
 JointNew_LoweringLayoutGroup=Lowering parameters
 
 ;Дата &укладки
-JointNew_LoweringDateLayout=&Lowering date
+JointNew_LoweringDateLayout=Lo&wering date
 
 ;PK
 JointNew_PKLabelLayout=&KP
@@ -1211,7 +1211,7 @@ JointNew_DistanceFromPKLayout=&Distance from KP
 JointNew_GPSLabelLayout=GPS
 
 ;&Широта
-JointNew_GPSLatLayout=La&t
+JointNew_GPSLatLayout=&Lat
 
 ;До&лгота
 JointNew_GPSLongLayout=Lon&g
@@ -1223,7 +1223,7 @@ JointNew_ElevationLayout=Ele&vation
 JointNew_InspectionLayoutGroup=Operations
 
 ;Сварка и ре&монт
-JointNew_RepairOperationLayout=&Weld and repair
+JointNew_RepairOperationLayout=Weld and &repair
 
 ;Контрольные опера&ции
 JointNew_ControlOperationsLayout=&Inspection operations
@@ -1301,7 +1301,7 @@ Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint element
 JointSearch_JointNumber=Joint &number
 
 ;С&татус
-JointSearch_ControlStateLayout=S&tatus
+JointSearch_ControlStateLayout=Stat&us
 
 ;Дата сварки
 JointSearch_WeldingDateLabel=Welding date
@@ -1517,7 +1517,7 @@ PartInspection_SearchNumberLabel=Search &number
 PartInspection_ElementNumberLabel=E&lement number
 
 ;Входной контроль элемента. Надпись типа элемента
-PartInspection_ElementTypeLabel=Element &type
+PartInspection_ElementTypeLabel=Element t&ype
 
 ;Входной контроль элемента. Надпись кнопки поиска
 PartInspection_SearchButton=Search and &open for editing
@@ -1568,7 +1568,7 @@ NewEditPipe_HeatsComboLabel=&Heat
 NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
 
 ;Труба. Дата наряд-заказа
-NewEditPipe_PurchaseOrederDateLabel=Purchase order da&te
+NewEditPipe_PurchaseOrederDateLabel=&Purchase order date
 
 ;Труба. Дата создания трубы
 NewEditPipe_PipeCreationLabel=Creat&ion date
@@ -1682,7 +1682,7 @@ NewEditPipe_FactSizeGroup=Act&ual parameters
 NewEditPipe_TypeSizeGroup=Size t&ype parameters
 
 ;Труба. Группа отправка
-NewEditPipe_ShippingGroup=Shipping &parameters
+NewEditPipe_ShippingGroup=Shipping param&eters
 
 ;Труба. Группа покрытие
 NewEditPipe_CoverGroup=Coatin&g parameters
@@ -1799,7 +1799,7 @@ SearchPipe_NumberLabel=Pipe &number
 SearchPipe_TypeSizeLabel=Si&ze type
 
 ;Поиск труб. Статус трубы
-SearchPipe_StatusLabel=S&tatus
+SearchPipe_StatusLabel=Stat&us
 
 ;Поиск труб. Активность трубы
 SearchPipe_ActivityLabel=&Activity status
@@ -1838,10 +1838,10 @@ SearchPipe_SearchGroup=Search parameters
 SearchPipe_ResultGroup=Search res&ults
 
 ;Разрешение на отгрузку. Номер разрешения
-ReleaseNoteNewEdit_ReleaseNumberLabel=Number
+ReleaseNoteNewEdit_ReleaseNumberLabel=&Number
 
 ;Разрешение на отгрузку. Дата разрешения
-ReleaseNoteNewEdit_ReleaseDateLabel=Date
+ReleaseNoteNewEdit_ReleaseDateLabel=&Date
 
 ;Разрешение на отгрузку. Номер вагона
 ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
@@ -1850,7 +1850,7 @@ ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
 ReleaseNoteNewEdit_CertificateLabel=Certi&ficate number
 
 ;Разрешение на отгрузку. Получатель
-ReleaseNoteNewEdit_DestinationLabel=Des&tination
+ReleaseNoteNewEdit_DestinationLabel=Destinati&on
 
 ;Разрешение на отгрузку. Кнопка добавления трубы
 ReleaseNoteNewEdit_AddPipeButton=Add p&ipe
@@ -1940,7 +1940,7 @@ ReleaseSearch_NumberLabel=Release note &number
 ReleaseSearch_StartDateLabel=&From
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_EndDateLabel=&To
+ReleaseSearch_EndDateLabel=T&o
 
 ;Поиск разрешений на отгрузку. Получатель
 ReleaseSearch_DestinationLabel=Dest&ination
@@ -2273,10 +2273,10 @@ Menu_Construction_PipeReports=&Pipe reports
 Menu_Construction_WeldReports=&Weld reports
 
 ;Главное меню, пункт Отчёты по сварке участка между пикетами
-Menu_Construction_JointPKReports=&Tracing reports
+Menu_Construction_JointPKReports=T&racing reports
 
 ;Главное меню, пункт Настройки
-Menu_Settings=&Settings
+Menu_Settings=Se&ttings
 
 ;Главное меню, настройки, пункт Проект
 Menu_Settings_Project=Pro&ject
