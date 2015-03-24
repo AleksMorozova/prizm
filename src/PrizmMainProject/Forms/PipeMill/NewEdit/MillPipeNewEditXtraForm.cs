@@ -129,7 +129,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
             EnumWrapper<PipeTestResultStatus>.LoadItems(localizedAllPipeTestResultStatus, skip0: true);
-            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus, skip0 : true);
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
 
             BindCommands();
             BindToViewModel();
