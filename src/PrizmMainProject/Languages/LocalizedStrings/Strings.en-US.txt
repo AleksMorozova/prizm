@@ -2557,10 +2557,10 @@ Audit_IncludeToSearchLayout=Include to search results
 JointSelectDialog_Header=Select joint
 
 ;Отменить
-JointSelectDialog_CancelButton=Cancel
+JointSelectDialog_CancelButton=&Cancel
 
 ;Редактировать
-JointSelectDialog_EditButton=Edit
+JointSelectDialog_EditButton=&Edit
 
 ;Результаты поиска
 JointSelectDialog_ResultsLayout=Search results
