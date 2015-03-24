@@ -11,6 +11,7 @@ namespace Prizm.Domain.Entity
        }
 
         private bool isActive = true;
+        private Guid ownerId;
 
         public virtual Guid Id { get; set; }
         public virtual bool IsActive { get { return isActive; } set {isActive=value ;} }
@@ -19,7 +20,7 @@ namespace Prizm.Domain.Entity
             get
             { return this.Id; }
             set
-            { this.OwnerId = value; }
+            { ownerId = value; }
         }
     }
 }

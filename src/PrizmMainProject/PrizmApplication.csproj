@@ -194,6 +194,7 @@
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\DateExtension.cs" />
+    <Compile Include="Common\InspectorsPopUpExtensions.cs" />
     <Compile Include="Controls\DateEditExtension.cs" />
     <Compile Include="Common\Directories.cs" />
     <Compile Include="Common\StringExtensions.cs" />
@@ -275,6 +276,13 @@
     <Compile Include="Forms\Joint\NewEdit\JointCutDialog.Designer.cs">
       <DependentUpon>JointCutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\JointSelectDialog.Designer.cs">
+      <DependentUpon>JointSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Joint\NewEdit\QuickSearchCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\SaveOrUpdateJointCommand.cs" />
     <Compile Include="Forms\Joint\NewEdit\SelectDiameterDialog.cs">
       <SubType>Form</SubType>
@@ -434,6 +442,7 @@
     <Compile Include="Forms\PipeMill\Search\PipeQuery.cs" />
     <Compile Include="Forms\ReleaseNote\IReleaseNoteRepositories.cs" />
     <Compile Include="Forms\ReleaseNote\Search\ReleaseNoteProjection.cs" />
+    <Compile Include="Forms\Reports\Construction\JointProjection.cs" />
     <Compile Include="Forms\Reports\Construction\PipelineGraph.cs" />
     <Compile Include="Forms\Reports\Construction\ConstructionReportViewModel.cs" />
     <Compile Include="Forms\Reports\Construction\CreateReportCommand.cs" />
@@ -562,6 +571,7 @@
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Synch\SynchType.cs" />
+    <Compile Include="Languages\DataSetExtention.cs" />
     <Compile Include="Languages\ILocalizable.cs" />
     <Compile Include="Forms\Synch\MissingPortionsDialog.cs">
       <SubType>Form</SubType>
@@ -766,6 +776,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\NewEdit\JointCutDialog.resx">
       <DependentUpon>JointCutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Joint\NewEdit\JointSelectDialog.resx">
+      <DependentUpon>JointSelectDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Joint\NewEdit\SelectDiameterDialog.resx">
       <DependentUpon>SelectDiameterDialog.cs</DependentUpon>

@@ -1075,6 +1075,9 @@ Import_ArchiveLabel=Archive
 ;Импорт. Надпись кнопки поиска
 Import_BrowseButton=&Browse
 
+;Импорт. Надпись кнопки выхода
+Import_ExitButton=&Close
+
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
 
@@ -1161,6 +1164,15 @@ Joint_JointTestResultStatus_Repair=Repair
 
 ;статус для контрольной операции стыка: Принят
 Joint_JointTestResultStatus_Accepted=Accepted
+
+;Поиск и редактирование стыка
+JointNew_SearchGroupLayout=Joint search and editing
+
+;Номер искомого стыка
+JointNew_SearchNumberLayout= Searc&h number
+
+;Найти и открыть для редактирования
+JointNew_SearchButton = Search and &open for editing 
 
 ;Ном&ер стыка
 JointNew_JointNumberLayout=Joint &number
@@ -1522,11 +1534,11 @@ PartInspection_ResultColumnHeader=Result
 ;Входной контроль элемента. Надпись колонки инспектора
 PartInspection_InspectorColumnHeader=Inspector
 
-;Входной контроль элемента. Надпись колонки порядок
-PartInspection_InspectorColumnHeader=Order
-
 ;Входной контроль элемента. Надпись колонки причины
 PartInspection_ReasonColumnHeader=Reason
+
+;Входной контроль элемента. Надпись колонки порядок
+PartInspection_OrderColumnHeader=Order
 
 ;Входной контроль элемента. Надпись панели поиска
 PartInspection_SearchGroup=Search
@@ -2314,6 +2326,12 @@ Menu_Help_About=&About
 ;Текст на панели статуса: Важные сообщения 
 MainWindow_StatusNotificationsHeader=Important messages 
 
+;Уведомление о запуске второго клиента
+MainWindow_SecondCopyNotification=Program already running please stop or restart first  
+
+;Уведомление о запуске второго клиента, заголовок
+MainWindow_SecondCopyNotificationHeader=Program already running 
+
 ;Комплектующее изделие деактивировано. Комплектующее изделие #
 ComponentNewEdit_DeactivatedAction=Component have been deactivated. The component #
 
@@ -2519,3 +2537,18 @@ WeldDateReport_FootersCheck=Add headers and footers
 
 ;Добавить колонтитулы
 PipeConstructionReport_FootersCheck=Add headers and footers
+
+;Заголовок: выбор стыка
+JointSelectDialog_Header=Select joint
+
+;Отменить
+JointSelectDialog_CancelButton=Cancel
+
+;Редактировать
+JointSelectDialog_EditButton=Edit
+
+;Результаты поиска
+JointSelectDialog_ResultsLayout=Search results
+
+;Колонка номера стыка
+JointSelectDialog_NumberGridColumn = Joint number

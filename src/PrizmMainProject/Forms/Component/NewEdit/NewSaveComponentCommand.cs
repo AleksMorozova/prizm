@@ -45,6 +45,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 viewModel.NewComponent();
                 viewModel.ModifiableView.Id = viewModel.Component.Id;
+                viewModel.ModifiableView.IsModified = false;
             }
             RefreshVisualStateEvent();
         }

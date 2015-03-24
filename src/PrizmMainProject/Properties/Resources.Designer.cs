@@ -369,9 +369,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные
-        ///элементы расположенные между заданными точками
-        ///не зависимо от их связности..
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные между заданными точками не зависимо от их связности..
         /// </summary>
         internal static string ConstructionReport_TracingReportInfoLabelText {
             get {
@@ -1475,6 +1473,24 @@ namespace Prizm.Main.Properties {
         internal static string MainWindow_OpenReleaseNoteReadOnly {
             get {
                 return ResourceManager.GetString("MainWindow_OpenReleaseNoteReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую..
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotification {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Программа уже запущена.
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotificationHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotificationHeader", resourceCulture);
             }
         }
         
@@ -3947,6 +3963,15 @@ namespace Prizm.Main.Properties {
         internal static string Validation_ValueRequired {
             get {
                 return ResourceManager.GetString("Validation_ValueRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Значение обязательно.
+        /// </summary>
+        internal static string Value_Required {
+            get {
+                return ResourceManager.GetString("Value_Required", resourceCulture);
             }
         }
         

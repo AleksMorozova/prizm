@@ -86,5 +86,10 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
         }
 
+        private void searchResultsView_DoubleClick(object sender, EventArgs e)
+        {
+            acceptButton_Click(sender, e);
+        }
+
     }
 }

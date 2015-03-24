@@ -38,7 +38,7 @@ namespace Prizm.Data.DAL.Hibernate
             }
         }
 
-        public IList<TEntity> GetAll()
+        public virtual IList<TEntity> GetAll()
         {
             try
             {

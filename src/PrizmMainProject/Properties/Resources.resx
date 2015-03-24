@@ -1073,9 +1073,7 @@
     <value>По использованным изделиям</value>
   </data>
   <data name="ConstructionReport_TracingReportInfoLabelText" xml:space="preserve">
-    <value>Данный тип отчета содержит все сваренные
-элементы расположенные между заданными точками
-не зависимо от их связности.</value>
+    <value>Данный тип отчета содержит все сваренные элементы расположенные между заданными точками не зависимо от их связности.</value>
   </data>
   <data name="PartTypeComponent" xml:space="preserve">
     <value>Комплектующее</value>
@@ -1466,5 +1464,14 @@
   </data>
   <data name="Joint_JointTestResultStatus_Withdraw" xml:space="preserve">
     <value>Вырезка</value>
+  </data>
+  <data name="Value_Required" xml:space="preserve">
+    <value>Значение обязательно</value>
+  </data>
+  <data name="MainWindow_SecondCopyNotification" xml:space="preserve">
+    <value>Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую.</value>
+  </data>
+  <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
+    <value>Программа уже запущена</value>
   </data>
 </root>

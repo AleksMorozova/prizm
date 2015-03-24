@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private List<string> localizedResults = new List<string>();
-        
+
         private void UpdateTextEdit()
         {
             jointNewEditBindingSoure.CancelEdit();
@@ -77,6 +77,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             secondJointElement.SetRequiredText();
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
+            searchNumber.SetAsIdentifier();
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
             attachmentsButton.Enabled = true;
@@ -124,6 +125,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                .Add("DataSource", jointNewEditBindingSoure, "JointTestResults");
             repairOperations.DataBindings
                .Add("DataSource", jointNewEditBindingSoure, "JointWeldResults");
+
+            searchNumber.DataBindings.
+                Add("EditValue", jointNewEditBindingSoure, "SearchNumber");
 
 
             jointStatus.DataBindings.Add(
@@ -190,6 +194,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             commandManager["Save"].Executor(viewModel.SaveJointCommand).AttachTo(saveButton);
             commandManager["SaveAndNew"].Executor(viewModel.NewSaveJointCommand).AttachTo(saveAndCreateButton);
             commandManager["Deactivate"].Executor(viewModel.JointDeactivationCommand).AttachTo(deactivated);
+            commandManager["QuickSearch"].Executor(viewModel.QuickSearchCommand).AttachTo(searchButton);
 
             SaveCommand = viewModel.SaveJointCommand;
 
@@ -207,7 +212,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 localizedAllJointStatus.Add(item.Item2);
             }
 
-            foreach (var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
+            foreach(var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
             {
                 localizedResults.Add(item.Item2);
             }
@@ -219,6 +224,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     if(eve.PropertyName != "Pieces")
                     {
                         IsModified = true;
+                    }
+                    if (eve.PropertyName == "Joint")
+                    {
+                        jointNewEditBindingSoure.ResetBindings(false);
                     }
                 };
             IsEditMode = viewModel.JointIsActive;
@@ -233,6 +242,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
+            weldersPopupContainerEdit.SetSize();
         }
 
         #region --- Localization ---
@@ -241,6 +253,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
+                new LocalizedItem(searchLayoutGroup, StringResources.JointNew_SearchGroupLayout.Id),
+                new LocalizedItem(searchNumberLayout, StringResources.JointNew_SearchNumberLayout.Id),
+                new LocalizedItem(searchButton, StringResources.JointNew_SearchButton.Id),
                 new LocalizedItem(jointNumberLayout, StringResources.JointNew_JointNumberLayout.Id),
                 new LocalizedItem(jointStatusLayout, StringResources.JointNew_JointStatusLayout.Id),
                 new LocalizedItem(firstJointElementLayout, StringResources.JointNew_FirstJointElementLayout.Id),
@@ -257,7 +272,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 new LocalizedItem(GPSLongLayout, StringResources.JointNew_GPSLongLayout.Id),
                 new LocalizedItem(elevationLayout, StringResources.JointNew_ElevationLayout.Id),      
          
-                new LocalizedItem(inspectionLayoutGroup, StringResources.JointNew_InspectionLayoutGroup.Id),
                 new LocalizedItem(repairOperationLayout, StringResources.JointNew_RepairOperationLayout.Id),    
                 new LocalizedItem(controlOperationsLayout, StringResources.JointNew_ControlOperationsLayout.Id),
 
@@ -365,10 +379,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void resultStatusLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
             JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-            if (e.Value != null)
+            if(e.Value != null)
             {
                 JointTestResultStatus result;
-                if (Enum.TryParse<JointTestResultStatus>(e.Value.ToString(), out result))
+                if(Enum.TryParse<JointTestResultStatus>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = (result == JointTestResultStatus.Undefined) ? "" : localizedResults[(int)result - 1];
                 }
@@ -381,26 +395,26 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void resultStatusLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             LookUpEdit lookup = sender as LookUpEdit;
-            if (lookup.ItemIndex != -1)
+            if(lookup.ItemIndex != -1)
             {
                 lookup.EditValue = (JointTestResultStatus)lookup.ItemIndex + 1;
             }
         }
         private void resultStatusLookUpEdit_QueryPopUp(object sender, CancelEventArgs e)
         {
-            if (controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
+            if(controlOperationsView.IsValidRowHandle(controlOperationsView.FocusedRowHandle))
             {
                 availableResults.Clear();
                 JointTestResult jointTestResult = controlOperationsView.GetRow(controlOperationsView.FocusedRowHandle) as JointTestResult;
-                if (jointTestResult != null && jointTestResult.Operation != null)
+                if(jointTestResult != null && jointTestResult.Operation != null)
                 {
-                    if (jointTestResult.Operation.TestHasAccepted)
+                    if(jointTestResult.Operation.TestHasAccepted)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Accepted - 1]));
 
-                    if (jointTestResult.Operation.TestHasToRepair)
+                    if(jointTestResult.Operation.TestHasToRepair)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Repair - 1]));
 
-                    if (jointTestResult.Operation.TestHasToWithdraw)
+                    if(jointTestResult.Operation.TestHasToWithdraw)
                         availableResults.Add((localizedResults[(int)JointTestResultStatus.Withdraw - 1]));
 
                     resultStatusLookUpEdit.DataSource = availableResults;
@@ -545,12 +559,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(repairTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Date == null)
+            else if(jointWeldResult.Date == null)
             {
                 gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
+            else if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
@@ -667,6 +681,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void secondJointElement_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+        private void JointNewEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AutoValidate = AutoValidate.Disable;
         }
     }
 }

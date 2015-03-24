@@ -25,14 +25,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             this.CategoryTypes = CategoryTypes;
 
-            if (current == null)
-            {
-                pipeTest = new PipeTest();
-            }
-            else
-            {
-                pipeTest = current;
+            pipeTest = new PipeTest();
 
+            if (current != null)
+            {
+                pipeTest.CustomShallowCopy(current);
             }
         }
 

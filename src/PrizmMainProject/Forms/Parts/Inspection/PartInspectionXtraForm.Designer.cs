@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartInspectionXtraForm));
             this.inspectionLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveAndClearButton = new DevExpress.XtraEditors.SimpleButton();
@@ -60,8 +59,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveAndClearLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionLayoutControl)).BeginInit();
             this.inspectionLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspections)).BeginInit();
@@ -161,6 +160,7 @@
             this.inspectionsView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colOrder, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionsView_InitNewRow);
+            this.inspectionsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.inspectionsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionsView_ValidateRow);
             this.inspectionsView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionsView_KeyDown);
             // 
@@ -238,6 +238,8 @@
             this.colOrder.Caption = "Порядок";
             this.colOrder.FieldName = "Order";
             this.colOrder.Name = "colOrder";
+            this.colOrder.OptionsColumn.AllowEdit = false;
+            this.colOrder.OptionsColumn.ReadOnly = true;
             this.colOrder.Visible = true;
             this.colOrder.VisibleIndex = 4;
             // 
@@ -277,6 +279,7 @@
             this.searchNumber.Size = new System.Drawing.Size(200, 20);
             this.searchNumber.StyleController = this.inspectionLayoutControl;
             this.searchNumber.TabIndex = 4;
+            this.searchNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchNumber_KeyDown);
             // 
             // InspectionLayoutControlGroup
             // 

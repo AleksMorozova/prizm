@@ -143,6 +143,8 @@ namespace Prizm.Main.Forms.Spool
             spoolNumber.SetAsIdentifier();
 
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+
+            inspectorsPopupContainerEdit.SetSize();
         }
 
         #region --- Localization ---
@@ -358,9 +360,15 @@ namespace Prizm.Main.Forms.Spool
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
+        }
+
+        private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }
