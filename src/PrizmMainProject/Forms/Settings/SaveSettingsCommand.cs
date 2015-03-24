@@ -117,9 +117,6 @@ namespace Prizm.Main.Forms.Settings
                     notify.ShowNotify(
                          Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
                         Program.LanguageManager.GetString(StringResources.Settings_SetupSavedHeader));
-
-                    NotificationService.Instance.ExpiredWelderCertificateManager.RefreshNotifications();
-                    NotificationService.Instance.ExpiredInspectorCertificateManager.RefreshNotifications();
                 }
                 catch (RepositoryException ex)
                 {
