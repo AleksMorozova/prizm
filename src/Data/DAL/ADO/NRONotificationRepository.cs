@@ -49,7 +49,7 @@ namespace Prizm.Data.DAL.ADO
                             OperationCode=(string)dr[2],
                             OperationName = (string)dr[3],
                             Frequency = (int)dr[4],
-                            Measure = (string)dr[5],// problem with convertation to enum type
+                            Measure = (string)dr[5],// EnumWrapper not available there
                             PipeSizeTypeName = (string)dr[6]
                         });
                     }

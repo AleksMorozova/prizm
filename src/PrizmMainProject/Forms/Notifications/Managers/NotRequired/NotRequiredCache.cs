@@ -146,7 +146,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
         }
 
-        public FrequencyMeasure GetMeasure(Guid pipeTestId) // TODO return enum type back
+        public FrequencyMeasure GetMeasure(Guid pipeTestId)
         {
             try
             {
