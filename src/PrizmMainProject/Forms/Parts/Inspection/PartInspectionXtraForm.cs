@@ -48,14 +48,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PartType>.EnumerateItems())
-            {
-                localizedAllPartTypes.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllInspectionStatus.Add(item.Item2);
-            }
+            EnumWrapper<PartType>.LoadItems(localizedAllPartTypes);
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
             viewModel.ModifiableView = this;

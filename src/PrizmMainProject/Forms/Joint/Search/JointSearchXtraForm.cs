@@ -49,22 +49,22 @@ namespace Prizm.Main.Forms.Joint.Search
         {
             BindCommands();
             BindToViewModel();
-            foreach(var item in EnumWrapper<ActivityCriteria>.EnumerateItems())
-            {
-                activity.Properties.Items.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems(skip0: true))
-            {
-                controlState.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled: true);
-                localizedJointStatuses.Add(item.Item2);
-            }
+
+            EnumWrapper<ActivityCriteria>.LoadItems(activity.Properties.Items);
+            EnumWrapper<JointStatus>.LoadItems(controlState.Properties.Items, CheckState.Checked, enabled : true, skip0: true);
+            EnumWrapper<JointStatus>.LoadItems(localizedJointStatuses, skip0: true);
+
             activity.SelectedIndex = 0;
             viewModel.Activity = ActivityCriteria.StatusActive;
             controlState_CloseUp(controlState, new DevExpress.XtraEditors.Controls.CloseUpEventArgs(true));
 
             weldingDateFrom.SetLimits();
             weldingDateTo.SetLimits();
-            localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
+
+            if (localizedSearchResultGroup.Count == 0)
+            {
+                localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
+            }
         }
 
         private void BindToViewModel()

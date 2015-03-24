@@ -71,14 +71,8 @@ namespace Prizm.Main.Forms.Synch
 
         private void HistoryExportImport_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<WorkstationType>.EnumerateItems())
-            {
-                localizedAllWorkstations.Add(item.Item2);
-            }
-            foreach (var item in EnumWrapper<SynchType>.EnumerateItems())
-            {
-                localizedSynchType.Add(item.Item2);
-            }
+            EnumWrapper<WorkstationType>.LoadItems(localizedAllWorkstations);
+            EnumWrapper<SynchType>.LoadItems(localizedSynchType);
 
             gridControlHistory.DataSource = exporter.GetAllPortions();
         }

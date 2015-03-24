@@ -57,14 +57,9 @@ namespace Prizm.Main.Forms.Reports.Mill
 
         private void MillReportsXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<MillReportType>.EnumerateItems())
-            {
-                reportTypes.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
-            }
-            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                statuses.Items.Add(item.Item2);
-            }
+            EnumWrapper<MillReportType>.LoadItems(reportTypes.Properties.Items);
+            EnumWrapper<PipeTestResultStatus>.LoadItems(statuses.Items, skip0: true);
+
             viewModel = (MillReportsViewModel)Program.Kernel.GetService(typeof(MillReportsViewModel));
             BindToViewModel();
             BindCommands();
