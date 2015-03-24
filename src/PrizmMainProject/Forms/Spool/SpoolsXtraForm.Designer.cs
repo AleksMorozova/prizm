@@ -202,9 +202,9 @@
             this.inspectionHistoryGridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.orderGridColumn, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.inspectionHistoryGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.inspectionHistoryGridView_InitNewRow);
+            this.inspectionHistoryGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.inspectionHistoryGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.inspectionHistoryGridView_ValidateRow);
             this.inspectionHistoryGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inspectionHistoryGridView_KeyDown);
-            this.inspectionHistoryGridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             // 
             // inspectionDateGridColumn
             // 
@@ -283,6 +283,8 @@
             this.orderGridColumn.Caption = "Порядок";
             this.orderGridColumn.FieldName = "Order";
             this.orderGridColumn.Name = "orderGridColumn";
+            this.orderGridColumn.OptionsColumn.AllowEdit = false;
+            this.orderGridColumn.OptionsColumn.ReadOnly = true;
             this.orderGridColumn.Visible = true;
             this.orderGridColumn.VisibleIndex = 4;
             // 

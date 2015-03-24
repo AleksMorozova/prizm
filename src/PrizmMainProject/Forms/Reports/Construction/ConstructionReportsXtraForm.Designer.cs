@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionReportsXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.generalLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.endKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
+            this.startKPLookUp = new DevExpress.XtraEditors.LookUpEdit();
+            this.end = new DevExpress.XtraEditors.LookUpEdit();
+            this.start = new DevExpress.XtraEditors.LookUpEdit();
             this.footersCheck = new DevExpress.XtraEditors.CheckEdit();
             this.infoLabel = new DevExpress.XtraEditors.LabelControl();
             this.tracingModeRadioGroup = new DevExpress.XtraEditors.RadioGroup();
-            this.start = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.end = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.endKPComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.startKPComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.reportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
             this.previewButton = new DevExpress.XtraEditors.SimpleButton();
@@ -49,26 +50,26 @@
             this.createReportaLyoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.typeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.reportTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.startKPComboBoxLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.startJointEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.reportTypeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.endKPLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.endJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.startJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.footersCheckLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.createButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endJointLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startKPComboBoxLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endKPLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).BeginInit();
             this.generalLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.endKPLookUp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startKPLookUp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeRadioGroup.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endKPComboBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).BeginInit();
@@ -77,17 +78,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.createReportaLyoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBoxLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startJointEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endKPLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheckLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBoxLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endKPLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSource
@@ -96,13 +97,13 @@
             // 
             // generalLayout
             // 
+            this.generalLayout.Controls.Add(this.endKPLookUp);
+            this.generalLayout.Controls.Add(this.startKPLookUp);
+            this.generalLayout.Controls.Add(this.end);
+            this.generalLayout.Controls.Add(this.start);
             this.generalLayout.Controls.Add(this.footersCheck);
             this.generalLayout.Controls.Add(this.infoLabel);
             this.generalLayout.Controls.Add(this.tracingModeRadioGroup);
-            this.generalLayout.Controls.Add(this.start);
-            this.generalLayout.Controls.Add(this.end);
-            this.generalLayout.Controls.Add(this.endKPComboBox);
-            this.generalLayout.Controls.Add(this.startKPComboBox);
             this.generalLayout.Controls.Add(this.reportType);
             this.generalLayout.Controls.Add(this.createReportButton);
             this.generalLayout.Controls.Add(this.previewButton);
@@ -116,6 +117,58 @@
             this.generalLayout.Size = new System.Drawing.Size(1100, 450);
             this.generalLayout.TabIndex = 70;
             this.generalLayout.Text = "layoutControl1";
+            // 
+            // endKPLookUp
+            // 
+            this.endKPLookUp.Location = new System.Drawing.Point(501, 99);
+            this.endKPLookUp.Name = "endKPLookUp";
+            this.endKPLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.endKPLookUp.Properties.NullText = "";
+            this.endKPLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.endKPLookUp.Size = new System.Drawing.Size(146, 20);
+            this.endKPLookUp.StyleController = this.generalLayout;
+            this.endKPLookUp.TabIndex = 81;
+            // 
+            // startKPLookUp
+            // 
+            this.startKPLookUp.Location = new System.Drawing.Point(331, 99);
+            this.startKPLookUp.Name = "startKPLookUp";
+            this.startKPLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.startKPLookUp.Properties.NullText = "";
+            this.startKPLookUp.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.startKPLookUp.Size = new System.Drawing.Size(146, 20);
+            this.startKPLookUp.StyleController = this.generalLayout;
+            this.startKPLookUp.TabIndex = 80;
+            // 
+            // end
+            // 
+            this.end.Location = new System.Drawing.Point(501, 59);
+            this.end.Name = "end";
+            this.end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.end.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер стыка")});
+            this.end.Properties.NullText = "";
+            this.end.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.end.Size = new System.Drawing.Size(146, 20);
+            this.end.StyleController = this.generalLayout;
+            this.end.TabIndex = 79;
+            // 
+            // start
+            // 
+            this.start.Location = new System.Drawing.Point(331, 59);
+            this.start.Name = "start";
+            this.start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.start.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер стыка")});
+            this.start.Properties.NullText = "";
+            this.start.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.start.Size = new System.Drawing.Size(146, 20);
+            this.start.StyleController = this.generalLayout;
+            this.start.TabIndex = 78;
             // 
             // footersCheck
             // 
@@ -133,9 +186,9 @@
             this.infoLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.infoLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.infoLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.infoLabel.Location = new System.Drawing.Point(606, 43);
+            this.infoLabel.Location = new System.Drawing.Point(666, 43);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(144, 82);
+            this.infoLabel.Size = new System.Drawing.Size(84, 82);
             this.infoLabel.StyleController = this.generalLayout;
             this.infoLabel.TabIndex = 76;
             // 
@@ -153,46 +206,6 @@
             this.tracingModeRadioGroup.StyleController = this.generalLayout;
             this.tracingModeRadioGroup.TabIndex = 75;
             this.tracingModeRadioGroup.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
-            // 
-            // start
-            // 
-            this.start.Location = new System.Drawing.Point(331, 59);
-            this.start.Name = "start";
-            this.start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.start.Size = new System.Drawing.Size(116, 20);
-            this.start.StyleController = this.generalLayout;
-            this.start.TabIndex = 74;
-            // 
-            // end
-            // 
-            this.end.Location = new System.Drawing.Point(471, 59);
-            this.end.Name = "end";
-            this.end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.end.Size = new System.Drawing.Size(116, 20);
-            this.end.StyleController = this.generalLayout;
-            this.end.TabIndex = 73;
-            // 
-            // endKPComboBox
-            // 
-            this.endKPComboBox.Location = new System.Drawing.Point(471, 99);
-            this.endKPComboBox.Name = "endKPComboBox";
-            this.endKPComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.endKPComboBox.Size = new System.Drawing.Size(116, 20);
-            this.endKPComboBox.StyleController = this.generalLayout;
-            this.endKPComboBox.TabIndex = 72;
-            // 
-            // startKPComboBox
-            // 
-            this.startKPComboBox.Location = new System.Drawing.Point(331, 99);
-            this.startKPComboBox.Name = "startKPComboBox";
-            this.startKPComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.startKPComboBox.Size = new System.Drawing.Size(116, 20);
-            this.startKPComboBox.StyleController = this.generalLayout;
-            this.startKPComboBox.TabIndex = 71;
             // 
             // reportType
             // 
@@ -295,17 +308,17 @@
             this.createReportaLyoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.typeLayout,
             this.reportTypeLayout,
-            this.startKPComboBoxLayoutControl,
             this.startJointEmptySpace,
             this.reportTypeEmptySpace,
-            this.endKPLayout,
-            this.endJointLayout,
-            this.startJointLayout,
             this.tracingModeLayoutControl,
             this.infoLabelLayout,
             this.footersCheckLayout,
             this.previewButtonLayout,
-            this.createButtonLayout});
+            this.createButtonLayout,
+            this.startJointLayout,
+            this.endJointLayout,
+            this.startKPComboBoxLayoutControl,
+            this.endKPLayout});
             this.createReportaLyoutGroup.Location = new System.Drawing.Point(0, 0);
             this.createReportaLyoutGroup.Name = "createReportaLyoutGroup";
             this.createReportaLyoutGroup.Size = new System.Drawing.Size(1080, 129);
@@ -340,24 +353,11 @@
             this.reportTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.reportTypeLayout.TextSize = new System.Drawing.Size(90, 13);
             // 
-            // startKPComboBoxLayoutControl
-            // 
-            this.startKPComboBoxLayoutControl.Control = this.startKPComboBox;
-            this.startKPComboBoxLayoutControl.CustomizationFormText = "С";
-            this.startKPComboBoxLayoutControl.Location = new System.Drawing.Point(307, 40);
-            this.startKPComboBoxLayoutControl.MinSize = new System.Drawing.Size(97, 40);
-            this.startKPComboBoxLayoutControl.Name = "startKPComboBoxLayoutControl";
-            this.startKPComboBoxLayoutControl.Size = new System.Drawing.Size(120, 46);
-            this.startKPComboBoxLayoutControl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.startKPComboBoxLayoutControl.Text = "Начальный пикет";
-            this.startKPComboBoxLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.startKPComboBoxLayoutControl.TextSize = new System.Drawing.Size(90, 13);
-            // 
             // startJointEmptySpace
             // 
             this.startJointEmptySpace.AllowHotTrack = false;
             this.startJointEmptySpace.CustomizationFormText = "startJointEmptySpace";
-            this.startJointEmptySpace.Location = new System.Drawing.Point(427, 0);
+            this.startJointEmptySpace.Location = new System.Drawing.Point(457, 0);
             this.startJointEmptySpace.MaxSize = new System.Drawing.Size(20, 86);
             this.startJointEmptySpace.MinSize = new System.Drawing.Size(20, 86);
             this.startJointEmptySpace.Name = "startJointEmptySpace";
@@ -379,47 +379,6 @@
             this.reportTypeEmptySpace.Text = "reportTypeEmptySpace";
             this.reportTypeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // endKPLayout
-            // 
-            this.endKPLayout.Control = this.endKPComboBox;
-            this.endKPLayout.CustomizationFormText = "Конечный пикет";
-            this.endKPLayout.Location = new System.Drawing.Point(447, 40);
-            this.endKPLayout.MinSize = new System.Drawing.Size(97, 40);
-            this.endKPLayout.Name = "endKPLayout";
-            this.endKPLayout.Size = new System.Drawing.Size(120, 46);
-            this.endKPLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.endKPLayout.Text = "Конечный пикет";
-            this.endKPLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.endKPLayout.TextSize = new System.Drawing.Size(90, 13);
-            // 
-            // endJointLayout
-            // 
-            this.endJointLayout.Control = this.end;
-            this.endJointLayout.CustomizationFormText = "Конечный стык";
-            this.endJointLayout.Location = new System.Drawing.Point(447, 0);
-            this.endJointLayout.MaxSize = new System.Drawing.Size(120, 40);
-            this.endJointLayout.MinSize = new System.Drawing.Size(120, 40);
-            this.endJointLayout.Name = "endJointLayout";
-            this.endJointLayout.Size = new System.Drawing.Size(120, 40);
-            this.endJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.endJointLayout.Text = "Конечный стык";
-            this.endJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.endJointLayout.TextSize = new System.Drawing.Size(90, 13);
-            // 
-            // startJointLayout
-            // 
-            this.startJointLayout.Control = this.start;
-            this.startJointLayout.CustomizationFormText = "Начальный стык";
-            this.startJointLayout.Location = new System.Drawing.Point(307, 0);
-            this.startJointLayout.MaxSize = new System.Drawing.Size(120, 40);
-            this.startJointLayout.MinSize = new System.Drawing.Size(120, 40);
-            this.startJointLayout.Name = "startJointLayout";
-            this.startJointLayout.Size = new System.Drawing.Size(120, 40);
-            this.startJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.startJointLayout.Text = "Начальный стык";
-            this.startJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.startJointLayout.TextSize = new System.Drawing.Size(90, 13);
-            // 
             // tracingModeLayoutControl
             // 
             this.tracingModeLayoutControl.Control = this.tracingModeRadioGroup;
@@ -439,10 +398,10 @@
             // 
             this.infoLabelLayout.Control = this.infoLabel;
             this.infoLabelLayout.CustomizationFormText = "layoutControlItem1";
-            this.infoLabelLayout.Location = new System.Drawing.Point(567, 0);
+            this.infoLabelLayout.Location = new System.Drawing.Point(627, 0);
             this.infoLabelLayout.MinSize = new System.Drawing.Size(34, 17);
             this.infoLabelLayout.Name = "infoLabelLayout";
-            this.infoLabelLayout.Size = new System.Drawing.Size(178, 86);
+            this.infoLabelLayout.Size = new System.Drawing.Size(118, 86);
             this.infoLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.infoLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.infoLabelLayout.Text = "infoLabelLayout";
@@ -494,6 +453,56 @@
             this.createButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.createButtonLayout.TextVisible = false;
             // 
+            // startJointLayout
+            // 
+            this.startJointLayout.Control = this.start;
+            this.startJointLayout.CustomizationFormText = "layoutControlItem1";
+            this.startJointLayout.Location = new System.Drawing.Point(307, 0);
+            this.startJointLayout.MaxSize = new System.Drawing.Size(150, 40);
+            this.startJointLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.startJointLayout.Name = "startJointLayout";
+            this.startJointLayout.Size = new System.Drawing.Size(150, 40);
+            this.startJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.startJointLayout.Text = "Начальный стык";
+            this.startJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.startJointLayout.TextSize = new System.Drawing.Size(90, 13);
+            // 
+            // endJointLayout
+            // 
+            this.endJointLayout.Control = this.end;
+            this.endJointLayout.CustomizationFormText = "layoutControlItem2";
+            this.endJointLayout.Location = new System.Drawing.Point(477, 0);
+            this.endJointLayout.MaxSize = new System.Drawing.Size(150, 40);
+            this.endJointLayout.MinSize = new System.Drawing.Size(150, 40);
+            this.endJointLayout.Name = "endJointLayout";
+            this.endJointLayout.Size = new System.Drawing.Size(150, 40);
+            this.endJointLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.endJointLayout.Text = "Конечный стык";
+            this.endJointLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.endJointLayout.TextSize = new System.Drawing.Size(90, 13);
+            // 
+            // startKPComboBoxLayoutControl
+            // 
+            this.startKPComboBoxLayoutControl.Control = this.startKPLookUp;
+            this.startKPComboBoxLayoutControl.CustomizationFormText = "Начальный пикет";
+            this.startKPComboBoxLayoutControl.Location = new System.Drawing.Point(307, 40);
+            this.startKPComboBoxLayoutControl.Name = "startKPComboBoxLayoutControl";
+            this.startKPComboBoxLayoutControl.Size = new System.Drawing.Size(150, 46);
+            this.startKPComboBoxLayoutControl.Text = "Начальный пикет";
+            this.startKPComboBoxLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.startKPComboBoxLayoutControl.TextSize = new System.Drawing.Size(90, 13);
+            // 
+            // endKPLayout
+            // 
+            this.endKPLayout.Control = this.endKPLookUp;
+            this.endKPLayout.CustomizationFormText = "layoutControlItem2";
+            this.endKPLayout.Location = new System.Drawing.Point(477, 40);
+            this.endKPLayout.Name = "endKPLayout";
+            this.endKPLayout.Size = new System.Drawing.Size(150, 46);
+            this.endKPLayout.Text = "Конечный пикет";
+            this.endKPLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.endKPLayout.TextSize = new System.Drawing.Size(90, 13);
+            // 
             // ConstructionReportsXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,12 +518,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayout)).EndInit();
             this.generalLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.endKPLookUp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startKPLookUp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeRadioGroup.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.start.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.end.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endKPComboBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generalLayoutGroup)).EndInit();
@@ -523,17 +532,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.createReportaLyoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBoxLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startJointEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endKPLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheckLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startJointLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endJointLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startKPComboBoxLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endKPLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -559,21 +568,21 @@
 
         private DevExpress.XtraEditors.CheckedComboBoxEdit type;
         private System.Windows.Forms.BindingSource bindingSource;
-        private DevExpress.XtraEditors.ComboBoxEdit endKPComboBox;
-        private DevExpress.XtraEditors.ComboBoxEdit startKPComboBox;
-        private DevExpress.XtraLayout.LayoutControlItem startKPComboBoxLayoutControl;
-        private DevExpress.XtraLayout.LayoutControlItem endKPLayout;
         private DevExpress.XtraLayout.EmptySpaceItem startJointEmptySpace;
-        private DevExpress.XtraEditors.ComboBoxEdit start;
-        private DevExpress.XtraEditors.ComboBoxEdit end;
         private DevExpress.XtraLayout.EmptySpaceItem reportTypeEmptySpace;
-        private DevExpress.XtraLayout.LayoutControlItem endJointLayout;
-        private DevExpress.XtraLayout.LayoutControlItem startJointLayout;
         private DevExpress.XtraEditors.RadioGroup tracingModeRadioGroup;
         private DevExpress.XtraLayout.LayoutControlItem tracingModeLayoutControl;
         private DevExpress.XtraEditors.CheckEdit footersCheck;
         private DevExpress.XtraLayout.LayoutControlItem footersCheckLayout;
         private DevExpress.XtraEditors.LabelControl infoLabel;
         private DevExpress.XtraLayout.LayoutControlItem infoLabelLayout;
+        private DevExpress.XtraEditors.LookUpEdit end;
+        private DevExpress.XtraEditors.LookUpEdit start;
+        private DevExpress.XtraLayout.LayoutControlItem startJointLayout;
+        private DevExpress.XtraLayout.LayoutControlItem endJointLayout;
+        private DevExpress.XtraEditors.LookUpEdit endKPLookUp;
+        private DevExpress.XtraEditors.LookUpEdit startKPLookUp;
+        private DevExpress.XtraLayout.LayoutControlItem startKPComboBoxLayoutControl;
+        private DevExpress.XtraLayout.LayoutControlItem endKPLayout;
     }
 }
