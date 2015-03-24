@@ -78,6 +78,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                     default:
                         break;
                 }
+                date = current.Date;
                 status = current.Status;
             }
             if (testResult.Value == null)
@@ -256,13 +257,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        DateTime date = DateTime.Now;
-        public DateTime Date
+        DateTime? date = DateTime.Now;
+        public DateTime? Date
         {
-            get { return (testResult.Date == null) ? date : (DateTime)testResult.Date; }
+            get { return (testResult.Date == null) ? (DateTime)testResult.Date : date; }
             set
             {
-                if(value != date)
+                if (value != date)
                 {
                     date = value;
                     RaisePropertyChanged("Date");
