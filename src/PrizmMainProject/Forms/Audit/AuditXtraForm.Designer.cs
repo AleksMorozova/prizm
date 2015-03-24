@@ -45,6 +45,7 @@
             this.newValueGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fieldGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.numberColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.operationTypeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.endDate = new DevExpress.XtraEditors.DateEdit();
             this.startDate = new DevExpress.XtraEditors.DateEdit();
             this.generalAuditLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -196,7 +197,8 @@
             this.oldValueGridColumn,
             this.newValueGridColumn,
             this.fieldGridColumn,
-            this.numberColumn});
+            this.numberColumn,
+            this.operationTypeColumn});
             this.auditResultsView.GridControl = this.auditResults;
             this.auditResultsView.GroupCount = 2;
             this.auditResultsView.Name = "auditResultsView";
@@ -273,6 +275,14 @@
             this.numberColumn.Name = "numberColumn";
             this.numberColumn.Visible = true;
             this.numberColumn.VisibleIndex = 4;
+            // 
+            // operationTypeColumn
+            // 
+            this.operationTypeColumn.Caption = "Тип записи";
+            this.operationTypeColumn.FieldName = "OperationType";
+            this.operationTypeColumn.Name = "operationTypeColumn";
+            this.operationTypeColumn.Visible = true;
+            this.operationTypeColumn.VisibleIndex = 5;
             // 
             // endDate
             // 
@@ -589,5 +599,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraEditors.CheckedListBoxControl includeCheckedList;
         private DevExpress.XtraLayout.LayoutControlItem includeCheckedListLayout;
+        private DevExpress.XtraGrid.Columns.GridColumn operationTypeColumn;
     }
 }
