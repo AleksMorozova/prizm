@@ -624,6 +624,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void JointNewEditXtraForm_Activated(object sender, EventArgs e)
         {
             viewModel.RefreshJointComponents();
+            RefreshJointLookUpDataSource();
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             firstJointElement.Refresh();
             secondJointElement.Refresh();

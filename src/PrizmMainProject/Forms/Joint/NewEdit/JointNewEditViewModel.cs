@@ -917,7 +917,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void RefreshJointComponents()
         {
-            Pieces = adoRepo.GetPipelineElements();
+            this.list = null;
+            this.Pieces = adoRepo.GetPipelineElements();
         }
 
         public void JointCut()
