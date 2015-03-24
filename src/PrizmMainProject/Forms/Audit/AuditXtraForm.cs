@@ -23,6 +23,7 @@ namespace Prizm.Main.Forms.Audit
     {
         private AuditViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AuditXtraForm));
 
         public AuditXtraForm()
         {
@@ -162,6 +163,7 @@ namespace Prizm.Main.Forms.Audit
                     case "D": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckDeleted);
                         break;
                     default: e.DisplayText = String.Empty;
+                        log.Warn(string.Format("String resource for {O} audit operation type is missing", e.Value.ToString()));
                         break;
                 }
             }
