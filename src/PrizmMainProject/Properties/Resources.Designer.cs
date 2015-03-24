@@ -125,6 +125,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Созданные.
+        /// </summary>
+        internal static string Audit_CheckCreated {
+            get {
+                return ResourceManager.GetString("Audit_CheckCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удаленные.
+        /// </summary>
+        internal static string Audit_CheckDeleted {
+            get {
+                return ResourceManager.GetString("Audit_CheckDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактированные.
+        /// </summary>
+        internal static string Audit_CheckEdited {
+            get {
+                return ResourceManager.GetString("Audit_CheckEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импортированные.
+        /// </summary>
+        internal static string Audit_CheckImported {
+            get {
+                return ResourceManager.GetString("Audit_CheckImported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер элемента.
         /// </summary>
         internal static string Audit_RadioPeriod {

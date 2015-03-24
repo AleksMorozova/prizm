@@ -24,6 +24,7 @@ namespace Prizm.Main.Forms.Audit
         private Guid selectedUser;
         private string number = "";
         private readonly IUserNotify notify;
+        public List<string> OperationTypes { get; set; }
 
         [Inject]
         public AuditViewModel(IAuditRepository repo, IUserNotify notify)

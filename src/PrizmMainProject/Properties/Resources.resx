@@ -1468,6 +1468,18 @@
   <data name="Value_Required" xml:space="preserve">
     <value>Значение обязательно</value>
   </data>
+  <data name="Audit_CheckCreated" xml:space="preserve">
+    <value>Созданные</value>
+  </data>
+  <data name="Audit_CheckDeleted" xml:space="preserve">
+    <value>Удаленные</value>
+  </data>
+  <data name="Audit_CheckEdited" xml:space="preserve">
+    <value>Отредактированные</value>
+  </data>
+  <data name="Audit_CheckImported" xml:space="preserve">
+    <value>Импортированные</value>
+  </data>
   <data name="MainWindow_SecondCopyNotification" xml:space="preserve">
     <value>Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую.</value>
   </data>

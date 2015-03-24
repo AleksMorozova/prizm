@@ -2497,7 +2497,7 @@ MissingPortionsDialog_SequenceIsBroken=The imported data sequence is broken. Wor
 MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exist:
 
 ;Невозможно импортировать данные. Импортируемый файл был создан не на мастере.
-Import_WrongWorkstationType=Could not import data because importing file was created not at Maste.
+Import_WrongWorkstationType=Could not import data because importing file was created not at Master.
 
 ;Экспорт
 HistoryExportImport_SynchType_Export=Export
@@ -2537,6 +2537,21 @@ WeldDateReport_FootersCheck=Add headers and footers
 
 ;Добавить колонтитулы
 PipeConstructionReport_FootersCheck=Add headers and footers
+
+;Аудит. Надпись чекбокса Отредактированные
+Audit_CheckEdited=Edited
+
+;Аудит. Надпись чекбокса Импортированные
+Audit_CheckImported=Imported
+
+;Аудит. Надпись чекбокса Созданные
+Audit_CheckCreated=Created
+
+;Аудит. Надпись чекбокса Удаленные
+Audit_CheckDeleted=Deleted
+
+;Аудит. Надпись Включить в результаты поиска
+Audit_IncludeToSearchLayout=Include to search results
 
 ;Заголовок: выбор стыка
 JointSelectDialog_Header=Select joint

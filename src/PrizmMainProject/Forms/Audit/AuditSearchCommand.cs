@@ -35,12 +35,12 @@ namespace Prizm.Main.Forms.Audit
             {
                 if (viewModel.TracingMode == TracingModeEnum.TracingByNumber)
                 {
-                    var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate);
+                    var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
                     viewModel.AuditResults = new BindingList<AuditLog>(results);
                 }
                 else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
                 {
-                    var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate);
+                    var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
                     viewModel.AuditResults = new BindingList<AuditLog>(results);
                 }
             }
@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Audit
         }
         public bool CanExecute()
         {
-            return true;
+            return viewModel.OperationTypes.Count > 0;
         }
 
     }

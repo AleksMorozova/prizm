@@ -2179,6 +2179,35 @@ namespace Prizm.Main.Languages
             Description = "Заголовок: Аудит"
         };
 
+        public static StringResource Audit_CheckEdited = new StringResource
+        {
+            Id = "Audit_CheckEdited",
+            Description = "Аудит. Надпись чекбокса Отредактированные"
+        };
+
+        public static StringResource Audit_CheckImported = new StringResource
+        {
+            Id = "Audit_CheckImported",
+            Description = "Аудит. Надпись чекбокса Импортированные"
+        };
+
+        public static StringResource Audit_CheckCreated = new StringResource
+        {
+            Id = "Audit_CheckCreated",
+            Description = "Аудит. Надпись чекбокса Созданные"
+        };
+
+        public static StringResource Audit_CheckDeleted = new StringResource
+        {
+            Id = "Audit_CheckDeleted",
+            Description = "Аудит. Надпись чекбокса Удаленные"
+        };
+
+        public static StringResource Audit_IncludeToSearchLayout= new StringResource
+        {
+            Id = "Audit_IncludeToSearchLayout",
+            Description = "Аудит. Надпись Включить в результаты поиска"
+        };
         #endregion //--- Audit --
 
         #region --- About ---
