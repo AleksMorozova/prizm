@@ -1,7 +1,9 @@
-type .\markdown\*.md >> .\markdown\combine.markdown
+set MOD=..\..\prizm_external\external\Documentation\Modules
 
-node run.js
-.\node_modules\bin\wkhtmltopdf .\markdown\result.html documentation.pdf
+type .\content\*.md >> .\content\combine.markdown
 
-del .\markdown\combine.markdown
-del .\markdown\result.html
+node htmlconverter.js
+%MOD%\Wkh\wkhtmltopdf .\content\result.html ".\Documentation\PRISM v.2 Users Guide.pdf"
+
+del .\content\combine.markdown
+del .\content\result.html
