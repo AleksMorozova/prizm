@@ -20,6 +20,7 @@ using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Security;
 using Prizm.Main.Forms.Notifications.Managers.NotRequired;
+using Prizm.Main.Forms.Notifications;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -672,6 +673,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             this.Pipe.Mill = mill;
             this.Pipe.ToExport = false;
+
+            PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
         }
 
         public void Dispose()

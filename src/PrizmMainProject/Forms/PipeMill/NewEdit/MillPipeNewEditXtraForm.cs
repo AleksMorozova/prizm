@@ -165,8 +165,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             pipeNewEditBindingSource.DataSource = viewModel;
 
-            viewModel.PipeNotifier=NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(viewModel.Pipe);
-
             #region ComboBox filling
 
             foreach(var t in viewModel.PipeTypes)

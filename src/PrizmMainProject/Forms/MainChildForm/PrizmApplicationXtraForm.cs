@@ -361,7 +361,7 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Update progress on wait form, should be called on each processing step
+        /// SavePipeState progress on wait form, should be called on each processing step
         /// of the long processing with known number of steps.
         /// To init progress on the wait form you should previously call ShowProcessing(, , steps) 
         /// </summary>
@@ -437,7 +437,7 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Update count system notification on status bar
+        /// SavePipeState count system notification on status bar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

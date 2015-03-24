@@ -157,18 +157,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             public static PipeNotificationInfo Create(NotRequiredOperationManager manager, Pipe pipeInitialState)
             {
                 PipeNotificationInfo info = new PipeNotificationInfo(manager);
-                if (pipeInitialState.Type != null)
-                {
-                    info.initialPipeSizeTypeId = pipeInitialState.Type.Id;
-                    info.initialPipeLength = pipeInitialState.Length;
-                    info.initialPipeWeight = pipeInitialState.Weight;
-                    info.initialPipeTestResult.AddRange(pipeInitialState.PipeTestResult);
-                }
-                if (pipeInitialState.PipeTestResult != null)
-                {
-                    info.initialNROList.AddRange(GetNROInfoListFromPipeTestResultList(pipeInitialState.PipeTestResult));
-                }
+                info.SavePipeState(pipeInitialState);
                 return info;
+            }
+
+            private void SavePipeState(Pipe pipeState)
+            {
+                if (pipeState.Type != null)
+                {
+                    this.initialPipeSizeTypeId = pipeState.Type.Id;
+                    this.initialPipeLength = pipeState.Length;
+                    this.initialPipeWeight = pipeState.Weight;
+                    this.initialPipeTestResult.AddRange(pipeState.PipeTestResult);
+                }
+                if (pipeState.PipeTestResult != null)
+                {
+                    this.initialNROList.AddRange(GetNROInfoListFromPipeTestResultList(pipeState.PipeTestResult));
+                }
             }
 
             private void UpdateNotification(Guid operationId)
@@ -310,6 +315,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     }
                 }
                 NotificationService.Instance.NotifyInterested();
+                SavePipeState(pipeSavingState);
             }
         }
 
