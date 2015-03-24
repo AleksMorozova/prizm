@@ -75,18 +75,10 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
-            {
-                localizedPipeTestControlTypes.Add(item.Item2);
-            }
-            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
-            {
-                localizedPipeTestResultTypes.Add(item.Item2);
-            }
-            foreach (var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0: true))
-            {
-                localizedJointOperationTypes.Add(item.Item2);
-            }
+            EnumWrapper<PipeTestControlType>.LoadItems(localizedPipeTestControlTypes, skip0: true);
+            EnumWrapper<PipeTestResultType>.LoadItems(localizedPipeTestResultTypes, skip0: true);
+            EnumWrapper<JointOperationType>.LoadItems(localizedJointOperationTypes, skip0: true);
+
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;

@@ -32,10 +32,7 @@ namespace Prizm.Main.Forms.Audit
 
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<TracingModeEnum>.EnumerateItems())
-            {
-                radioPeriodUser.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
-            }
+            EnumWrapper<TracingModeEnum>.LoadItems(radioPeriodUser.Properties.Items);
             BindCommands();
             BindToViewModel();
             startDate.SetLimits();

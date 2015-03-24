@@ -71,10 +71,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void RailcarNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
-            {
-                localizedAllPipeMillStatus.Add(item.Item2);
-            }
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
 
             BindCommands();
             BindToViewModel();

@@ -207,15 +207,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems())
-            {
-                localizedAllJointStatus.Add(item.Item2);
-            }
-
-            foreach(var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                localizedResults.Add(item.Item2);
-            }
+            EnumWrapper<JointStatus>.LoadItems(localizedAllJointStatus);
+            EnumWrapper<JointTestResultStatus>.LoadItems(localizedResults, skip0: true);
 
             BindCommands();
             BindToViewModel();
