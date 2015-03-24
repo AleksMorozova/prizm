@@ -112,9 +112,7 @@ namespace Prizm.Main.Forms.Settings
                     EvictSeamType();
                     viewModel.ModifiableView.IsModified = false;
                     // Refresh list of notification
-                    NotificationService.Instance.ExpiredWelderCertificateManager.RefreshNotifications();
-                    NotificationService.Instance.ExpiredInspectorCertificateManager.RefreshNotifications();
-                    NotificationService.Instance.DuplicateLoginManager.RefreshNotifications();
+                    NotificationService.Instance.LoadAllNotifications();
 
                     notify.ShowNotify(
                          Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),
