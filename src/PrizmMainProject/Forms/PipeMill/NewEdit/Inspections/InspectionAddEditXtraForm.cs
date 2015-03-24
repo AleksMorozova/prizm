@@ -85,10 +85,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
             status.Properties.Items.Clear();
-            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                status.Properties.Items.Add(item.Item2);
-            }
+            EnumWrapper<PipeTestResultStatus>.LoadItems(status.Properties.Items, skip0: true);
+
             BindToViewModel();
 
             factBool_CheckedChanged(null, null);

@@ -125,6 +125,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Созданные.
+        /// </summary>
+        internal static string Audit_CheckCreated {
+            get {
+                return ResourceManager.GetString("Audit_CheckCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удаленные.
+        /// </summary>
+        internal static string Audit_CheckDeleted {
+            get {
+                return ResourceManager.GetString("Audit_CheckDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактированные.
+        /// </summary>
+        internal static string Audit_CheckEdited {
+            get {
+                return ResourceManager.GetString("Audit_CheckEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импортированные.
+        /// </summary>
+        internal static string Audit_CheckImported {
+            get {
+                return ResourceManager.GetString("Audit_CheckImported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер элемента.
         /// </summary>
         internal static string Audit_RadioPeriod {
@@ -369,9 +405,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные
-        ///элементы расположенные между заданными точками
-        ///не зависимо от их связности..
+        ///   Looks up a localized string similar to Данный тип отчета содержит все сваренные элементы расположенные между заданными точками не зависимо от их связности..
         /// </summary>
         internal static string ConstructionReport_TracingReportInfoLabelText {
             get {
@@ -1475,6 +1509,24 @@ namespace Prizm.Main.Properties {
         internal static string MainWindow_OpenReleaseNoteReadOnly {
             get {
                 return ResourceManager.GetString("MainWindow_OpenReleaseNoteReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы пытаетесь запустить другую копию программы. Пожалуйста закройте текущую..
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotification {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Программа уже запущена.
+        /// </summary>
+        internal static string MainWindow_SecondCopyNotificationHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_SecondCopyNotificationHeader", resourceCulture);
             }
         }
         

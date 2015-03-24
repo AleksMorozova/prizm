@@ -88,10 +88,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         {
             viewModel = (MillPipeSearchViewModel)Program.Kernel.GetService(typeof(MillPipeSearchViewModel));
 
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
-            {
-                localizedAllPipeMillStatus.Add(item.Item2);
-            }
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
 
             BindCommands();
             BindToViewModel();

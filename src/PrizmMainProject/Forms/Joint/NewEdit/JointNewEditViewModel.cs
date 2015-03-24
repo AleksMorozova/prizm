@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly JointDeactivationCommand jointdeactivationCommand;
         private readonly JointCutCommand jointCutCommand;
         private readonly SaveOrUpdateJointCommand saveOrUpdateJointCommand;
+        private readonly QuickSearchCommand quickSearchCommand;
         private IModifiable modifiableView;
         private IValidatable validatableView;
         private DataTable pieces;
@@ -89,6 +90,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
+            quickSearchCommand =
+                ViewModelSource.Create(() => new QuickSearchCommand(this, repoConstruction.RepoJoint));
             #endregion
 
             Inspectors = repoConstruction.RepoInspector.GetAll();
@@ -113,40 +116,45 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.Joint = repoConstruction.RepoJoint.Get(id);
 
-                if (Joint.FirstElement != null
-                    && Joint.SecondElement != null
-                    && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
-                {
-                    this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                    this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                RefreshJointData();
+            }
+        }
 
-                    Joint.FirstElement = this.firstElement;
-                    Joint.SecondElement = this.secondElement;
-                }
-                else
-                {
-                    log.Warn(string.Format("Joint #{0} do not has connected Parts or is Withdrawn.", Joint.Number));
-                }
+        private void RefreshJointData()
+        {
+            if (Joint.FirstElement != null
+                && Joint.SecondElement != null
+                && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
+            {
+                this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
 
-                var weldResults = repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
-                if (weldResults != null)
-                {
-                    jointWeldResults = new BindingList<JointWeldResult>(weldResults);
-                }
-                else
-                {
-                    log.Warn(string.Format("Joint #{0} do not have Welding Results.", Joint.Number));
-                }
+                Joint.FirstElement = this.firstElement;
+                Joint.SecondElement = this.secondElement;
+            }
+            else
+            {
+                log.Warn(string.Format("Joint #{0} do not has connected Parts or is Withdrawn.", Joint.Number));
+            }
 
-                var testResults = repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
-                if (testResults != null)
-                {
-                    jointTestResults = new BindingList<JointTestResult>(testResults);
-                }
-                else
-                {
-                    log.Warn(string.Format("Joint #{0} do not have Test Results.", Joint.Number));
-                }
+            var weldResults = this.repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
+            if (weldResults != null)
+            {
+                jointWeldResults = new BindingList<JointWeldResult>(weldResults);
+            }
+            else
+            {
+                log.Warn(string.Format("Joint #{0} do not have Welding Results.", Joint.Number));
+            }
+
+            var testResults = this.repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
+            if (testResults != null)
+            {
+                jointTestResults = new BindingList<JointTestResult>(testResults);
+            }
+            else
+            {
+                log.Warn(string.Format("Joint #{0} do not have Test Results.", Joint.Number));
             }
         }
 
@@ -225,7 +233,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get { return saveOrUpdateJointCommand; }
         }
+
+        public ICommand QuickSearchCommand
+        {
+            get { return quickSearchCommand; }
+        }
         #endregion
+
+        public string SearchNumber { get; set; }
 
         # region Joint
 
@@ -431,7 +446,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 if (Joint.JointWeldResults
                     .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
-                    .Any(x => x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
+                    .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
                 {
                     Joint.Status = JointStatus.Withdrawn;
                 }
@@ -903,5 +918,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointCutDialog.InitializeJointCut(part1, part2);
         }
 
+        public void ChangeJoint(construction.Joint joint)
+        {
+            this.Joint = repoConstruction.RepoJoint.Get(joint.Id);
+            RefreshJointData();
+            RaisePropertyChanged("Joint");
+        }
     }
 }

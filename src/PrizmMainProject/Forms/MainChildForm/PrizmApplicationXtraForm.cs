@@ -656,6 +656,8 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             // Insert code here to make your form show itself.
             WinApi.ShowToFront(this.Handle);
+            ShowInfo(Program.LanguageManager.GetString(StringResources.MainWindow_SecondCopyNotification),
+                Program.LanguageManager.GetString(StringResources.MainWindow_SecondCopyNotificationHeader));
         } 
         #endregion
 

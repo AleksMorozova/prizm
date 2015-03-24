@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
@@ -43,6 +44,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
                     data = repo.GetPipesFromInspection(viewModel.StartDate, viewModel.EndDate);
                     IncomingReportsXtraReport report = new IncomingReportsXtraReport();
                     SetDataSortByColumn("number");
+                    data.TranslateStatus<PartInspectionStatus>(SQLProvider.TableNameForInspectionReport, SQLProvider.ColumnNameForInspectionStatus, viewModel.localizedInspectionStatus);
                     report.DataSource = data;
                     report.FootersVisibility = viewModel.IsFooterVisible;
                     report.CreateDocument();

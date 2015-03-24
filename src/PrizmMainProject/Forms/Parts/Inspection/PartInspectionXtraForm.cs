@@ -48,14 +48,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
         private void PartInspectionXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PartType>.EnumerateItems())
-            {
-                localizedAllPartTypes.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllInspectionStatus.Add(item.Item2);
-            }
+            EnumWrapper<PartType>.LoadItems(localizedAllPartTypes);
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+
             viewModel = (PartInspectionViewModel)Program.Kernel.GetService(typeof(PartInspectionViewModel));
             viewModel.CurrentForm = this;
             viewModel.ModifiableView = this;
@@ -275,14 +270,24 @@ namespace Prizm.Main.Forms.Parts.Inspection
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
         }
 
         private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void searchNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                viewModel.SearchNumber = searchNumber.Text;
+                viewModel.SearchCommand.Execute();
+            }
         }
 
     }

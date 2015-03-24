@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuditXtraForm));
             this.searchGroupLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.includeCheckedList = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.userList = new DevExpress.XtraEditors.LookUpEdit();
             this.number = new DevExpress.XtraEditors.TextEdit();
             this.radioPeriodUser = new DevExpress.XtraEditors.RadioGroup();
@@ -59,9 +60,11 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.userLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.includeCheckedListLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.auditResultsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).BeginInit();
             this.searchGroupLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.includeCheckedList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userList.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioPeriodUser.Properties)).BeginInit();
@@ -84,11 +87,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.includeCheckedListLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // searchGroupLayout
             // 
+            this.searchGroupLayout.Controls.Add(this.includeCheckedList);
             this.searchGroupLayout.Controls.Add(this.userList);
             this.searchGroupLayout.Controls.Add(this.number);
             this.searchGroupLayout.Controls.Add(this.radioPeriodUser);
@@ -103,13 +108,24 @@
             this.searchGroupLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(217, 323, 250, 350);
             this.searchGroupLayout.OptionsView.UseDefaultDragAndDropRendering = false;
             this.searchGroupLayout.Root = this.generalAuditLayoutGroup;
-            this.searchGroupLayout.Size = new System.Drawing.Size(796, 436);
+            this.searchGroupLayout.Size = new System.Drawing.Size(1275, 550);
             this.searchGroupLayout.TabIndex = 0;
             this.searchGroupLayout.Text = "layoutControl1";
             // 
+            // includeCheckedList
+            // 
+            this.includeCheckedList.CheckOnClick = true;
+            this.includeCheckedList.Location = new System.Drawing.Point(163, 59);
+            this.includeCheckedList.Name = "includeCheckedList";
+            this.includeCheckedList.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.includeCheckedList.Size = new System.Drawing.Size(232, 80);
+            this.includeCheckedList.StyleController = this.searchGroupLayout;
+            this.includeCheckedList.TabIndex = 13;
+            this.includeCheckedList.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.includeCheckedList_ItemCheck);
+            // 
             // userList
             // 
-            this.userList.Location = new System.Drawing.Point(130, 99);
+            this.userList.Location = new System.Drawing.Point(414, 99);
             this.userList.Name = "userList";
             this.userList.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -124,7 +140,7 @@
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(130, 59);
+            this.number.Location = new System.Drawing.Point(414, 59);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(170, 20);
             this.number.StyleController = this.searchGroupLayout;
@@ -132,12 +148,12 @@
             // 
             // radioPeriodUser
             // 
-            this.radioPeriodUser.Location = new System.Drawing.Point(24, 43);
+            this.radioPeriodUser.Location = new System.Drawing.Point(24, 58);
             this.radioPeriodUser.MaximumSize = new System.Drawing.Size(120, 76);
             this.radioPeriodUser.Name = "radioPeriodUser";
             this.radioPeriodUser.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioPeriodUser.Properties.Appearance.Options.UseBackColor = true;
-            this.radioPeriodUser.Size = new System.Drawing.Size(87, 76);
+            this.radioPeriodUser.Size = new System.Drawing.Size(120, 76);
             this.radioPeriodUser.StyleController = this.searchGroupLayout;
             this.radioPeriodUser.TabIndex = 10;
             this.radioPeriodUser.SelectedIndexChanged += new System.EventHandler(this.tracingModeRadioGroup_SelectedIndexChanged);
@@ -145,7 +161,7 @@
             // search
             // 
             this.search.Image = ((System.Drawing.Image)(resources.GetObject("search.Image")));
-            this.search.Location = new System.Drawing.Point(579, 58);
+            this.search.Location = new System.Drawing.Point(863, 58);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(110, 22);
             this.search.StyleController = this.searchGroupLayout;
@@ -154,19 +170,19 @@
             // 
             // periodLabel
             // 
-            this.periodLabel.Location = new System.Drawing.Point(433, 43);
+            this.periodLabel.Location = new System.Drawing.Point(798, 43);
             this.periodLabel.Name = "periodLabel";
-            this.periodLabel.Size = new System.Drawing.Size(142, 13);
+            this.periodLabel.Size = new System.Drawing.Size(61, 13);
             this.periodLabel.StyleController = this.searchGroupLayout;
             this.periodLabel.TabIndex = 7;
             // 
             // auditResults
             // 
             this.auditResults.Cursor = System.Windows.Forms.Cursors.Default;
-            this.auditResults.Location = new System.Drawing.Point(12, 135);
+            this.auditResults.Location = new System.Drawing.Point(12, 155);
             this.auditResults.MainView = this.auditResultsView;
             this.auditResults.Name = "auditResults";
-            this.auditResults.Size = new System.Drawing.Size(772, 289);
+            this.auditResults.Size = new System.Drawing.Size(1251, 383);
             this.auditResults.TabIndex = 6;
             this.auditResults.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.auditResultsView});
@@ -261,7 +277,7 @@
             // endDate
             // 
             this.endDate.EditValue = null;
-            this.endDate.Location = new System.Drawing.Point(460, 60);
+            this.endDate.Location = new System.Drawing.Point(744, 60);
             this.endDate.Name = "endDate";
             this.endDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -274,7 +290,7 @@
             // startDate
             // 
             this.startDate.EditValue = null;
-            this.startDate.Location = new System.Drawing.Point(333, 60);
+            this.startDate.Location = new System.Drawing.Point(617, 60);
             this.startDate.Name = "startDate";
             this.startDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -294,7 +310,7 @@
             this.auditResultsLayout});
             this.generalAuditLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.generalAuditLayoutGroup.Name = "Root";
-            this.generalAuditLayoutGroup.Size = new System.Drawing.Size(796, 436);
+            this.generalAuditLayoutGroup.Size = new System.Drawing.Size(1275, 550);
             this.generalAuditLayoutGroup.Text = "Root";
             this.generalAuditLayoutGroup.TextVisible = false;
             // 
@@ -312,10 +328,11 @@
             this.emptySpaceItem2,
             this.emptySpaceItem1,
             this.emptySpaceItem4,
-            this.userLayout});
+            this.userLayout,
+            this.includeCheckedListLayout});
             this.searchParametersLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.searchParametersLayoutGroup.Name = "searchParametersLayoutGroup";
-            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(776, 123);
+            this.searchParametersLayoutGroup.Size = new System.Drawing.Size(1255, 143);
             this.searchParametersLayoutGroup.Text = "Параметры поиска";
             // 
             // layoutControlItem1
@@ -323,8 +340,12 @@
             this.layoutControlItem1.Control = this.radioPeriodUser;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(124, 100);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(124, 100);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(91, 80);
+            this.layoutControlItem1.Size = new System.Drawing.Size(124, 100);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 15, 0);
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -333,18 +354,21 @@
             // 
             this.periodLabelLayout.Control = this.periodLabel;
             this.periodLabelLayout.CustomizationFormText = "periodLabelLayout";
-            this.periodLabelLayout.Location = new System.Drawing.Point(295, 0);
+            this.periodLabelLayout.Location = new System.Drawing.Point(579, 0);
+            this.periodLabelLayout.MaxSize = new System.Drawing.Size(0, 17);
+            this.periodLabelLayout.MinSize = new System.Drawing.Size(118, 17);
             this.periodLabelLayout.Name = "periodLabelLayout";
             this.periodLabelLayout.Size = new System.Drawing.Size(260, 17);
+            this.periodLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.periodLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(30, 0, 0, 0);
             this.periodLabelLayout.Text = "За период";
-            this.periodLabelLayout.TextSize = new System.Drawing.Size(81, 13);
+            this.periodLabelLayout.TextSize = new System.Drawing.Size(162, 13);
             // 
             // startDateLayout
             // 
             this.startDateLayout.Control = this.startDate;
             this.startDateLayout.CustomizationFormText = "&С";
-            this.startDateLayout.Location = new System.Drawing.Point(295, 17);
+            this.startDateLayout.Location = new System.Drawing.Point(579, 17);
             this.startDateLayout.MaxSize = new System.Drawing.Size(118, 24);
             this.startDateLayout.MinSize = new System.Drawing.Size(118, 24);
             this.startDateLayout.Name = "startDateLayout";
@@ -360,7 +384,7 @@
             // 
             this.endDateLayout.Control = this.endDate;
             this.endDateLayout.CustomizationFormText = "По";
-            this.endDateLayout.Location = new System.Drawing.Point(413, 17);
+            this.endDateLayout.Location = new System.Drawing.Point(697, 17);
             this.endDateLayout.MaxSize = new System.Drawing.Size(142, 24);
             this.endDateLayout.MinSize = new System.Drawing.Size(142, 24);
             this.endDateLayout.Name = "endDateLayout";
@@ -376,22 +400,21 @@
             // 
             this.numberLayout.Control = this.number;
             this.numberLayout.CustomizationFormText = "Номер элемента";
-            this.numberLayout.Location = new System.Drawing.Point(91, 0);
-            this.numberLayout.MaxSize = new System.Drawing.Size(204, 40);
-            this.numberLayout.MinSize = new System.Drawing.Size(204, 40);
+            this.numberLayout.Location = new System.Drawing.Point(375, 0);
+            this.numberLayout.MinSize = new System.Drawing.Size(196, 40);
             this.numberLayout.Name = "numberLayout";
             this.numberLayout.Size = new System.Drawing.Size(204, 40);
             this.numberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.numberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.numberLayout.Text = "Номер элемента";
             this.numberLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.numberLayout.TextSize = new System.Drawing.Size(81, 13);
+            this.numberLayout.TextSize = new System.Drawing.Size(162, 13);
             // 
             // searchButtonLayout
             // 
             this.searchButtonLayout.Control = this.search;
             this.searchButtonLayout.CustomizationFormText = "searchButtonLayout";
-            this.searchButtonLayout.Location = new System.Drawing.Point(555, 15);
+            this.searchButtonLayout.Location = new System.Drawing.Point(839, 15);
             this.searchButtonLayout.MaxSize = new System.Drawing.Size(114, 26);
             this.searchButtonLayout.MinSize = new System.Drawing.Size(114, 26);
             this.searchButtonLayout.Name = "searchButtonLayout";
@@ -405,11 +428,11 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(295, 41);
-            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(0, 39);
-            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 39);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(579, 41);
+            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(260, 59);
+            this.emptySpaceItem3.MinSize = new System.Drawing.Size(260, 59);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(260, 39);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(260, 59);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -418,9 +441,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(555, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(839, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(197, 15);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(392, 15);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -428,11 +451,10 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(555, 41);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(197, 39);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(197, 39);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(839, 41);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(197, 39);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(392, 59);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -441,9 +463,9 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(669, 15);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(953, 15);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(83, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(278, 26);
             this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -451,21 +473,38 @@
             // 
             this.userLayout.Control = this.userList;
             this.userLayout.CustomizationFormText = "Пользователь";
-            this.userLayout.Location = new System.Drawing.Point(91, 40);
+            this.userLayout.Location = new System.Drawing.Point(375, 40);
+            this.userLayout.MinSize = new System.Drawing.Size(196, 40);
             this.userLayout.Name = "userLayout";
-            this.userLayout.Size = new System.Drawing.Size(204, 40);
+            this.userLayout.Size = new System.Drawing.Size(204, 60);
+            this.userLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.userLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
             this.userLayout.Text = "Пользователь";
             this.userLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.userLayout.TextSize = new System.Drawing.Size(81, 13);
+            this.userLayout.TextSize = new System.Drawing.Size(162, 13);
+            // 
+            // includeCheckedListLayout
+            // 
+            this.includeCheckedListLayout.Control = this.includeCheckedList;
+            this.includeCheckedListLayout.CustomizationFormText = "layoutControlItem2";
+            this.includeCheckedListLayout.Location = new System.Drawing.Point(124, 0);
+            this.includeCheckedListLayout.MaxSize = new System.Drawing.Size(251, 100);
+            this.includeCheckedListLayout.MinSize = new System.Drawing.Size(251, 100);
+            this.includeCheckedListLayout.Name = "includeCheckedListLayout";
+            this.includeCheckedListLayout.Size = new System.Drawing.Size(251, 100);
+            this.includeCheckedListLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.includeCheckedListLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 0, 0, 0);
+            this.includeCheckedListLayout.Text = "Включить в результаты поиска";
+            this.includeCheckedListLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.includeCheckedListLayout.TextSize = new System.Drawing.Size(162, 13);
             // 
             // auditResultsLayout
             // 
             this.auditResultsLayout.Control = this.auditResults;
             this.auditResultsLayout.CustomizationFormText = "auditResultsLayout";
-            this.auditResultsLayout.Location = new System.Drawing.Point(0, 123);
+            this.auditResultsLayout.Location = new System.Drawing.Point(0, 143);
             this.auditResultsLayout.Name = "auditResultsLayout";
-            this.auditResultsLayout.Size = new System.Drawing.Size(776, 293);
+            this.auditResultsLayout.Size = new System.Drawing.Size(1255, 387);
             this.auditResultsLayout.Text = "auditResultsLayout";
             this.auditResultsLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.auditResultsLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -476,7 +515,7 @@
             this.AcceptButton = this.search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 436);
+            this.ClientSize = new System.Drawing.Size(1275, 550);
             this.Controls.Add(this.searchGroupLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -486,6 +525,7 @@
             this.Load += new System.EventHandler(this.AuditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchGroupLayout)).EndInit();
             this.searchGroupLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.includeCheckedList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userList.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioPeriodUser.Properties)).EndInit();
@@ -508,6 +548,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.includeCheckedListLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auditResultsLayout)).EndInit();
             this.ResumeLayout(false);
 
@@ -543,8 +584,10 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraEditors.LookUpEdit userList;
         private DevExpress.XtraLayout.LayoutControlItem userLayout;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraEditors.CheckedListBoxControl includeCheckedList;
+        private DevExpress.XtraLayout.LayoutControlItem includeCheckedListLayout;
     }
 }

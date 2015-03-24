@@ -134,7 +134,11 @@ group by productionDate  ";
             
             ORDER BY number";
 
-        private const string GetAllPipesFromInspection = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, Pipe.length as length, Heat.number as Heat_number
+        public const string ColumnNameForInspectionStatus = "status";
+        public const string TableNameForInspectionReport = "Pipe";
+
+        private const string GetAllPipesFromInspection = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, 
+Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status as " + ColumnNameForInspectionStatus + @"
           from  InspectionTestResult InspectionTestResult
 
           INNER JOIN 

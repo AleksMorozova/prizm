@@ -35,10 +35,8 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
         private void NumbersDialog_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
-            {
-                localizedPartTypes.Add(item.Item2);
-            }
+            EnumWrapper<PartType>.LoadItems(localizedPartTypes, skip0: true);
+
             searchResults.DataSource = parts;
         }
 
@@ -84,6 +82,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
                     e.DisplayText = (result == PartType.Undefined) ? "" : localizedPartTypes[(int)result - 1]; //-1 because we skip 0
                 }
             }
+        }
+
+        private void searchResultsView_DoubleClick(object sender, EventArgs e)
+        {
+            acceptButton_Click(sender, e);
         }
 
     }

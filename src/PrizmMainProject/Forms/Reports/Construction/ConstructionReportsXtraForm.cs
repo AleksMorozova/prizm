@@ -29,6 +29,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         public ConstructionReportsXtraForm()
         {
             InitializeComponent();
+            start.SetAsLookUpIdentifier();
+            end.SetAsLookUpIdentifier();
         }
 
         private void BindToViewModel()
@@ -47,10 +49,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             end.DataBindings
                 .Add("EditValue", bindingSource, "EndJoint");
 
-            startKPComboBox.DataBindings
+            startKPLookUp.DataBindings
                 .Add("EditValue", bindingSource, "StartPK");
 
-            endKPComboBox.DataBindings
+            endKPLookUp.DataBindings
                 .Add("EditValue", bindingSource, "EndPK");
 
             footersCheck.DataBindings
@@ -119,38 +121,20 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0:true))
-            {
-                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, true);
-            }
-            foreach(var item in EnumWrapper<ReportType>.EnumerateItems())
-            {
-                reportType.Properties.Items.Add(item.Item2);
-            }
+            EnumWrapper<PartType>.LoadItems(type.Properties.Items, CheckState.Checked, enabled: true, skip0: true);
+            EnumWrapper<ReportType>.LoadItems(reportType.Properties.Items);
 
             viewModel.LoadData();
 
-            foreach (var joint in viewModel.Joints)
-            {
-                start.Properties.Items.Add(joint);
-                end.Properties.Items.Add(joint);
-            }
+            start.Properties.DataSource = viewModel.JointsProjections;
+            end.Properties.DataSource = viewModel.JointsProjections;
 
-            foreach (var kp in viewModel.AllKP)
-            {
-                startKPComboBox.Properties.Items.Add(kp);
-                endKPComboBox.Properties.Items.Add(kp);
-            }
+            startKPLookUp.Properties.DataSource = viewModel.AllKP;
+            endKPLookUp.Properties.DataSource = viewModel.AllKP;
 
             BindToViewModel();
             BindCommands();
             RefreshTypes();
-
-            startKPComboBox.SelectedIndex = 0;
-            viewModel.StartPK = (startKPComboBox.EditValue != null) ? (int)startKPComboBox.EditValue: default(int);
-
-            endKPComboBox.SelectedIndex = 0;
-            viewModel.EndPK = (endKPComboBox.EditValue != null) ? (int)endKPComboBox.EditValue : default(int);
 
             viewModel.ReportTypeIndex = reportType.SelectedIndex = 0;
 
@@ -192,8 +176,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 start.Enabled = true;
                 end.Enabled = true;
 
-                startKPComboBox.Enabled = false;
-                endKPComboBox.Enabled = false;
+                startKPLookUp.Enabled = false;
+                endKPLookUp.Enabled = false;
 
                 viewModel.TracingMode = TracingModeEnum.TracingByJoints;
             }
@@ -202,8 +186,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 start.Enabled = false;
                 end.Enabled = false;
 
-                startKPComboBox.Enabled = true;
-                endKPComboBox.Enabled = true;
+                startKPLookUp.Enabled = true;
+                endKPLookUp.Enabled = true;
 
                 viewModel.TracingMode = TracingModeEnum.TracingByKP;
             }

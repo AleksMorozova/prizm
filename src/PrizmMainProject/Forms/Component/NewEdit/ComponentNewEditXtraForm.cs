@@ -133,10 +133,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllInspectionStatus.Add(item.Item2);
-            }
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
             BindCommands();
             BindToViewModel();
 
@@ -341,9 +338,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
             if(e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
             {
                 viewModel.RecalculateInspectionTestResultsOrder();
+                view.RefreshData();
             }
 
-            view.RefreshData();
+            
         }
 
         private void ComponentNewEditXtraForm_FormClosed(object sender, FormClosedEventArgs e)
