@@ -727,26 +727,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             set
             {
-                if (value != pieces)
+                value.Columns.Add("typeTranslated", typeof(String));
+
+                foreach (DataRow record in value.Rows)
                 {
-                    value.Columns.Add("typeTranslated", typeof(String));
-                    foreach (DataRow record in value.Rows)
+                    string typeResourceValue;
+
+                    if (record.Field<string>("type") != "Component")
                     {
-                        string typeResourceValue;
-
-                        if (record.Field<string>("type") != "Component")
-                        {
-                            typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
-                        }
-                        else
-                        {
-                            typeResourceValue = record.Field<string>("componentTypeName");
-                        }
-
-                        record.SetField("typeTranslated", typeResourceValue);
-                        pieces = value;
-                        RaisePropertyChanged("Pieces");
+                        typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
                     }
+                    else
+                    {
+                        typeResourceValue = record.Field<string>("componentTypeName");
+                    }
+
+                    record.SetField("typeTranslated", typeResourceValue);
+
+                    pieces = value;
                 }
             }
         }
