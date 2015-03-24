@@ -34,10 +34,7 @@ namespace Prizm.Main.Forms.Audit
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
             EnumWrapper<TracingModeEnum>.LoadItems(radioPeriodUser.Properties.Items);
-            foreach (var item in EnumWrapper<AuditRecordType>.EnumerateItems())
-            {
-                includeCheckedList.Items.Add(item.Item2);
-            }
+            EnumWrapper<AuditRecordType>.LoadItems(includeCheckedList.Items);
             includeCheckedList.SetItemChecked(0, true);
             BindCommands();
             BindToViewModel();
