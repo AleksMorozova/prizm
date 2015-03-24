@@ -67,10 +67,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
                 {
                     viewModel.SaveOrUpdateJointCommand.Execute();
+
+                    viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
+                    viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
                 }
                 else if (viewModel.MakeTheConnection())
                 {
                     viewModel.SaveOrUpdateJointCommand.Execute();
+
+                    viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
+                    viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
                 }
                 else
                 {

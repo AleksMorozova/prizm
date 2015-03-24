@@ -202,6 +202,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.NewSaveJointCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.JointDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
 
+            viewModel.NewSaveJointCommand.RefreshVisualStateEvent += RefreshJointLookUpDataSource;
+
             commandManager.RefreshVisualState();
         }
 
@@ -622,6 +624,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void JointNewEditXtraForm_Activated(object sender, EventArgs e)
         {
             viewModel.RefreshJointComponents();
+            RefreshJointLookUpDataSource();
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             firstJointElement.Refresh();
             secondJointElement.Refresh();
@@ -679,6 +682,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void JointNewEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             AutoValidate = AutoValidate.Disable;
+        }
+
+        public void RefreshJointLookUpDataSource()
+        {
+            firstJointElement.Properties.DataSource = null;
+            secondJointElement.Properties.DataSource = null;
+
+            firstJointElement.Properties.DataSource = viewModel.PartDataList;
+            secondJointElement.Properties.DataSource = viewModel.PartDataList;
         }
     }
 }

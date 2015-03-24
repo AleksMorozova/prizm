@@ -52,6 +52,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private SelectDiameterDialog selectDiameterDialog = null;
         private JointCutDialog jointCutDialog = null;
 
+        private float partsCommonDiameter;
+
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
         public BindingList<JointOperation> ControlOperations;
@@ -478,9 +480,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>The method retuns ability of joint creation</returns>
         public bool MakeTheConnection()
         {
-            float commonDiameter = GetCommonDiameter(firstElement, secondElement);
+            partsCommonDiameter = GetCommonDiameter(firstElement, secondElement);
 
-            if (commonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
+            if (partsCommonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
             {
                 return false;
             }
@@ -505,7 +507,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (var con in component.Connectors)
                     {
-                        if (Math.Abs(con.Diameter - commonDiameter)<= Prizm.Main.Common.Constants.DiameterDiffLimit && (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        if (Math.Abs(con.Diameter - partsCommonDiameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit && (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
                             con.Joint = Joint;
                             break;
@@ -725,26 +727,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             set
             {
-                if (value != pieces)
+                value.Columns.Add("typeTranslated", typeof(String));
+
+                foreach (DataRow record in value.Rows)
                 {
-                    value.Columns.Add("typeTranslated", typeof(String));
-                    foreach (DataRow record in value.Rows)
+                    string typeResourceValue;
+
+                    if (record.Field<string>("type") != "Component")
                     {
-                        string typeResourceValue;
-
-                        if (record.Field<string>("type") != "Component")
-                        {
-                            typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
-                        }
-                        else
-                        {
-                            typeResourceValue = record.Field<string>("componentTypeName");
-                        }
-
-                        record.SetField("typeTranslated", typeResourceValue);
-                        pieces = value;
-                        RaisePropertyChanged("Pieces");
+                        typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
                     }
+                    else
+                    {
+                        typeResourceValue = record.Field<string>("componentTypeName");
+                    }
+
+                    record.SetField("typeTranslated", typeResourceValue);
+
+                    pieces = value;
                 }
             }
         }
@@ -853,6 +853,30 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return PartDataList.First<PartData>(x => x.Id == partData.Id);
         }
 
+        public void RemovePartDataFromList(PartData partData)
+        {
+            if (list.Any<PartData>(x => x.Id == partData.Id))
+            {
+                var part = this.GetPart(partData);
+
+                if ((part is Pipe || part is construction.Spool) 
+                            && !((Pipe)part).IsAvailableToJoint
+                    || 
+                    part is construction.Component
+                            && !((construction.Component)part).Connectors
+                                    .Any<Connector>(x => x.Joint == null || x.Joint.Id == Guid.Empty))
+                {
+                    list.Remove(list.First<PartData>(x => x.Id == partData.Id));
+                }
+                else
+                {
+                    partData.Connectors
+                        .Remove(partData.Connectors.First<Connector>
+                        (x => Math.Abs(x.Diameter - partsCommonDiameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit));
+                }
+            }
+        }
+
         public void NewJoint()
         {
             this.Joint = new construction.Joint();
@@ -891,7 +915,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void RefreshJointComponents()
         {
-            Pieces = adoRepo.GetPipelineElements();
+            this.list = null;
+            this.Pieces = adoRepo.GetPipelineElements();
         }
 
         public void JointCut()
