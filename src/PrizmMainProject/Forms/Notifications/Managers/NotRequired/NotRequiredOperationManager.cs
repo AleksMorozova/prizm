@@ -222,8 +222,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 return ret;
             }
 
-            private enum ProcessPipeTestResultsAction { Add, Remove };
-
+      
             private void ProcessPipeTestResults(IList<PipeTestResult> results)
             {
                 foreach (PipeTestResult result in results)
@@ -234,15 +233,25 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     }
                 }
             }
-            private void ProcessNROForPipeSizeType(Guid sizeTypeId, Pipe pipe) 
+
+            private enum NROWhatToDo { Add, Remove, EditOperations };
+
+            private void ProcessNROForPipeSizeType(Guid sizeTypeId, Pipe pipe, NROWhatToDo what)
             {
                 foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(sizeTypeId))
                 {
-                    manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
-                    manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipe));
+                    if (what != NROWhatToDo.Add)
+                    {
+                        manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
+                    }
+                    if (what != NROWhatToDo.Remove)
+                    {
+                        manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipe));
+                    }
                     UpdateNotification(id);
                 }
             }
+
 
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
@@ -250,10 +259,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 {
                     //* What can happen at Save Pipe: (NRO - non required inspection operation)
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
-                    if (initialPipeSizeTypeId == null)
+                    if (initialPipeSizeTypeId == Guid.Empty)
                     {
                         ProcessPipeTestResults(pipeSavingState.PipeTestResult);
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState, NROWhatToDo.Add);
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
@@ -288,16 +297,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                             {
                                 manager.UpdateUnits(result.OperationId); 
                             }
-                        }   
-             
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
+                        }
+
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState, NROWhatToDo.EditOperations);
                     }
 
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     {
                         ProcessPipeTestResults(pipeSavingState.PipeTestResult);
-                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState);
+                        ProcessNROForPipeSizeType(pipeSavingState.Type.Id, pipeSavingState, NROWhatToDo.Remove);
                     }
                 }
                 NotificationService.Instance.NotifyInterested();
