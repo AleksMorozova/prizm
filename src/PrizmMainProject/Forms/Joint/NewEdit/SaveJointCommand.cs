@@ -105,6 +105,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                 notify.ShowInfo(
                                 Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
                                 Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+
+                                log.Info(string.Format("There are no suitable diameters or wall thicknesses for the joint #{0}, id:{1} formation",
+                                    viewModel.Joint.Number,
+                                    viewModel.Joint.Id));
                             }
                         }
                         RefreshVisualStateEvent();
@@ -115,6 +119,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
                             Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
                         numberOfControlOperationWithoutInspectors = 0;
+
+                        log.Warn(string.Format("There are no inspectors for appropriate control operations for the joint #{0}, id:{1} formation",
+                            viewModel.Joint.Number,
+                            viewModel.Joint.Id));
                     }
                 }
                 else
@@ -123,6 +131,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
                                            Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
                     numberOfWeldOperationWithoutWelders = 0;
+
+
+                    log.Warn(string.Format("There are no welders for appropriate weld operations for the joint #{0}, id:{1} formation",
+                        viewModel.Joint.Number,
+                        viewModel.Joint.Id));
                 }
             }
         }
