@@ -77,7 +77,7 @@ namespace Prizm.Main.Forms.Notifications.Data
                     FROM  InspectorCertificate 
                     LEFT OUTER JOIN Inspector ON 
                     InspectorCertificate.inspectorId = Inspector.id
-                    WHERE (InspectorCertificate.isActive = 1) 
+                    WHERE (InspectorCertificate.isActive = 1 and Inspector.isActive=1) 
                     AND (DATEDIFF(day, GETDATE(), InspectorCertificate.expirationDate) < " + Constants.DaysToExpirationWarning + ")");
                 sqlCache = sb.ToString();
             }

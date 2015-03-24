@@ -113,6 +113,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 extractPipeTypeCommand.Execute();
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
+                PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
             }
 
             Welders = repoMill.WelderRepo.GetAll();
