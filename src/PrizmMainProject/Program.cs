@@ -302,6 +302,7 @@ namespace Prizm.Main
                 result = true;
             }
             workstationType = pj.WorkstationType;
+            log.Info("Project data has been " + (result ? "created" : "retrieved"));
             return result;
         }
 

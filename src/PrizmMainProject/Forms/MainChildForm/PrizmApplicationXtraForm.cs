@@ -361,7 +361,7 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Update progress on wait form, should be called on each processing step
+        /// SavePipeState progress on wait form, should be called on each processing step
         /// of the long processing with known number of steps.
         /// To init progress on the wait form you should previously call ShowProcessing(, , steps) 
         /// </summary>
@@ -387,11 +387,10 @@ namespace Prizm.Main.Forms.MainChildForm
             CreateLanguageBarListItem();
             ProvideAccessToMenuItems();
             localizedNotificationPanelButton.Add(barButtonStatusNotifications.Caption);
-            NotificationService.Instance.NotificationReload += OnNotificationRefresh;
-            NotificationService.Instance.RequestAllNotification();
-
+            NotificationService.Instance.LoadAllNotifications();
+            NotificationService.Instance.NotificationsChanged += OnNotificationRefresh;
         }
-
+        
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
             AboutXtraForm form = new AboutXtraForm();
@@ -438,13 +437,14 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
         /// <summary>
-        /// Update count system notification on status bar
+        /// SavePipeState count system notification on status bar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnNotificationRefresh(object sender, EventArgs e)
         {
             int NotificationCount = NotificationService.Instance.NotificationCount;
+            UpdateNumberOfNotification();
         }
 
         private void importantMessages_ItemClick(object sender, ItemClickEventArgs e)

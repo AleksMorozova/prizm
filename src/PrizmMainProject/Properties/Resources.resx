@@ -259,7 +259,7 @@
   <data name="Joint_Duplicate" xml:space="preserve">
     <value>Уже существует стык с номером:</value>
   </data>
-  <data name="Notification_ExpiredCertificate_Warning" xml:space="preserve">
+  <data name="Notification_ExpiredInspectorCertificate_Warning" xml:space="preserve">
     <value>Заканчивается срок сертификата</value>
   </data>
   <data name="PlateManufacturer" xml:space="preserve">
@@ -717,7 +717,7 @@
   <data name="Stocked" xml:space="preserve">
     <value>На складе</value>
   </data>
-  <data name="Notification_ExpiredCertificate_Critical" xml:space="preserve">
+  <data name="Notification_ExpiredInspectorCertificate_Critical" xml:space="preserve">
     <value>Сертификат просрочен</value>
   </data>
   <data name="JointTestResultStatus_Accepted" xml:space="preserve">
@@ -994,13 +994,13 @@
   <data name="Settings_SetupSavedHeader" xml:space="preserve">
     <value>Сохранение настроек</value>
   </data>
-  <data name="Notification_WelderCertificateExpired_Critical" xml:space="preserve">
+  <data name="Notification_ExpiredWelderCertificate_Critical" xml:space="preserve">
     <value>Сообщение об окончании срока: Сертификат просрочен</value>
   </data>
   <data name="Settings_SetupSaves" xml:space="preserve">
     <value>Настройки успешно сохранены.</value>
   </data>
-  <data name="Notification_WelderCertificateExpired_Warning" xml:space="preserve">
+  <data name="Notification_ExpiredWelderCertificate_Warning" xml:space="preserve">
     <value>Заканчивается срок сертификата</value>
   </data>
   <data name="WorkstationType_Construction" xml:space="preserve">
@@ -1396,22 +1396,10 @@
   <data name="SettingsProject_DocumentSizeLabel" xml:space="preserve">
     <value>Допустимый размер внешнего документа, Kbytes</value>
   </data>
-  <data name="Notification_NotRequiredControlOperationPipes_Critical" xml:space="preserve">
+  <data name="Notification_NotRequiredInspectionOperation_Critical" xml:space="preserve">
     <value>Просрочено выполнение контрольной операции</value>
   </data>
-  <data name="Notification_NotRequiredControlOperationMeters_Critical" xml:space="preserve">
-    <value>Просрочено выполнение контрольной операции</value>
-  </data>
-  <data name="Notification_NotRequiredControlOperationTons_Critical" xml:space="preserve">
-    <value>Просрочено выполнение контрольной операции</value>
-  </data>
-  <data name="Notification_NotRequiredControlOperationMeters_Warning" xml:space="preserve">
-    <value>Приближается срок выполнения контрольной операции</value>
-  </data>
-  <data name="Notification_NotRequiredControlOperationPipes_Warning" xml:space="preserve">
-    <value>Приближается срок выполнения контрольной операции</value>
-  </data>
-  <data name="Notification_NotRequiredControlOperationTons_Warning" xml:space="preserve">
+  <data name="Notification_NotRequiredInspectionOperation_Warning" xml:space="preserve">
     <value>Приближается срок выполнения контрольной операции</value>
   </data>
   <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">

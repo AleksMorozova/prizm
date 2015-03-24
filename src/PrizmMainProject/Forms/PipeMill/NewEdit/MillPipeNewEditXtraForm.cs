@@ -32,6 +32,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.DXErrorProvider;
 using Prizm.Main.Languages;
 using DevExpress.Data;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -597,7 +598,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
+        /// Check if it possible to change size type if yes refreshes list of required pipe test result if size type was changed
         /// </summary>
         private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {

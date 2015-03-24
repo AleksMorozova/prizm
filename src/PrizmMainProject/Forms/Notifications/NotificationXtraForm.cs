@@ -66,30 +66,22 @@ namespace PrizmMain.Forms.Notifications
             int page = -1;
             switch (typeNotification)
             {
-                case TypeNotification.DublicatePipeNumber:
+                case TypeNotification.DuplicatePipeNumber:
                     typeEditor = typeof(MillPipeNewEditXtraForm);
                     break;
-                case TypeNotification.DublicateLogin:
+                case TypeNotification.DuplicateLogin:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 6;
                     break;
-                case TypeNotification.ExpiredCertificate:
+case TypeNotification.ExpiredInspectorCertificate:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 5;
                     break;
-                case TypeNotification.WelderCertificateExpired:
+                case TypeNotification.ExpiredWelderCertificate:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 4;
                     break;
-                case TypeNotification.NotRequiredControlOperationMeters:
-                    typeEditor = typeof(SettingsXtraForm);
-                    page = 1;
-                    break;
-                case TypeNotification.NotRequiredControlOperationPipes:
-                    typeEditor = typeof(SettingsXtraForm);
-                    page = 1;
-                    break;
-                case TypeNotification.NotRequiredControlOperationTons:
+                case TypeNotification.NotRequiredInspectionOperation:
                     typeEditor = typeof(SettingsXtraForm);
                     page = 1;
                     break;

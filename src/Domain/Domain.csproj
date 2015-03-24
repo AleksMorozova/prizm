@@ -53,6 +53,7 @@
     <Compile Include="Entity\Mill\CannedMessage.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Mill\ReleaseNote.cs" />
+    <Compile Include="Entity\NotRequiredOperation.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\FixedCategory.cs" />

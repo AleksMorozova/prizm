@@ -1,16 +1,19 @@
-﻿using NHibernate.Transform;
-using Prizm.Main.Forms.Notifications.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prizm.Data.DAL.Notifications;
+using Prizm.Main.Forms.Notifications;
+using Ninject;
+using NHibernate.Transform;
+using Prizm.Main.Forms.Notifications.Managers;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
-    public class DuplicateLoginLoader : DataNotificationLoader
+    class DuplicateNumberLoader : DataNotificationLoader
     {
-        class DuplicateLoginResultTransformer : IResultTransformer
+        class DuplicateNumberTransformer : IResultTransformer
         {
 
             public System.Collections.IList TransformList(System.Collections.IList collection)
@@ -20,8 +23,10 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateLoginManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), "");
+                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), "");
             }
+
+
             public Guid GetId(object[] tuple)
             {
                 return (Guid)tuple[0];
@@ -29,18 +34,16 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public string GetOwnerName(object[] tuple)
             {
-                return tuple[1].ToString() + ": " + tuple[2].ToString() + " " + tuple[3].ToString();
+                return tuple[1].ToString() + "/" + tuple[2].ToString();
             }
+
         }
-        
         // Methods
-        public DuplicateLoginLoader()
-            : base(new DuplicateLoginResultTransformer())
+        public DuplicateNumberLoader()
+            : base(new DuplicateNumberTransformer())
         {
 
         }
-
-        #region --- building sql... ---
 
         protected string sqlCache = null;
 
@@ -52,17 +55,14 @@ namespace Prizm.Main.Forms.Notifications.Data
                 sb.Append(
                     @"  select 
                                 id,
-                                login,
-                                firstName,
-                                lastName 
-                                from [User]
-                                where login  in 
-                                (select login from [User] group by login having count(*) >1)");
-                sqlCache = sb.ToString();
+                                mill,
+                                number 
+                                from Pipe
+                                where number  in 
+                                (select number from Pipe group by number having count(*) >1)");
+                sqlCache=sb.ToString();
             }
             return sqlCache;
         }
-        #endregion // --- building sql... ---
-
     }
 }
