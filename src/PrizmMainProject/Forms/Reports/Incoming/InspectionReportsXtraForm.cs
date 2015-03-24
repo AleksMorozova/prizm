@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Commands;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.MainChildForm;
@@ -15,6 +16,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
     {
         private InspectionReportsViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private List<string> localizedAllInspectionStatus = new List<string>();
 
         public InspectionReportsXtraForm()
         {
@@ -44,10 +46,15 @@ namespace Prizm.Main.Forms.Reports.Incoming
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
 
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+
             startDate.SetLimits();
             endDate.SetLimits();
         }
-
+        private void GetTranslation()
+        {
+            viewModel.localizedInspectionStatus = localizedAllInspectionStatus;
+        }
         #region --- Localization ---
 
         protected override List<LocalizedItem> CreateLocalizedItems()
@@ -67,6 +74,13 @@ namespace Prizm.Main.Forms.Reports.Incoming
 
                 new LocalizedItem(footersCheck, StringResources.InspectionReport_FootersCheck.Id),
 
+                new LocalizedItem(GetTranslation, localizedAllInspectionStatus,new string []
+                                                                                      {
+                                                                                        StringResources.PartInspectionStatus_Pending.Id,
+                                                                                        StringResources.PartInspectionStatus_Hold.Id,
+                                                                                        StringResources.PartInspectionStatus_Rejected.Id,
+                                                                                        StringResources.PartInspectionStatus_Accepted.Id
+                                                                                      }),
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.InspectionReport_Title.Id} )
             };
         }

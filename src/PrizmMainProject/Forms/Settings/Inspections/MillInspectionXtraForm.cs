@@ -73,18 +73,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
             controlType.Properties.Items.Clear();
             frequencyMeasure.Properties.Items.Clear();
 
-            foreach(var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
-            {
-                resultType.Properties.Items.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
-            {
-                controlType.Properties.Items.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<FrequencyMeasure>.EnumerateItems(skip0: true))
-            {
-                frequencyMeasure.Properties.Items.Add(item.Item2);
-            }
+            EnumWrapper<PipeTestResultType>.LoadItems(resultType.Properties.Items, skip0: true);
+            EnumWrapper<PipeTestControlType>.LoadItems(controlType.Properties.Items, skip0: true);
+            EnumWrapper<FrequencyMeasure>.LoadItems(frequencyMeasure.Properties.Items, skip0: true);
+
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
 

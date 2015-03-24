@@ -243,7 +243,7 @@ namespace Prizm.Data.DAL.ADO
                     using (SqlCommand command = new System.Data.SqlClient.SqlCommand())
                     {
                         connection.Open();
-                        adapter.TableMappings.Add("Table", "Pipe");
+                        adapter.TableMappings.Add("Table", SQLProvider.TableNameForInspectionReport);
                         command.Connection = connection;
                         command.Parameters.AddWithValue("@startDate", startDate);
                         command.Parameters.AddWithValue("@finalDate", finalDate);

@@ -121,14 +121,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
-            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0:true))
-            {
-                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, true);
-            }
-            foreach(var item in EnumWrapper<ReportType>.EnumerateItems())
-            {
-                reportType.Properties.Items.Add(item.Item2);
-            }
+            EnumWrapper<PartType>.LoadItems(type.Properties.Items, CheckState.Checked, enabled: true, skip0: true);
+            EnumWrapper<ReportType>.LoadItems(reportType.Properties.Items);
 
             viewModel.LoadData();
 

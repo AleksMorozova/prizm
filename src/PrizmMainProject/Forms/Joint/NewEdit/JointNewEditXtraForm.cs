@@ -209,15 +209,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems())
-            {
-                localizedAllJointStatus.Add(item.Item2);
-            }
-
-            foreach(var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                localizedResults.Add(item.Item2);
-            }
+            EnumWrapper<JointStatus>.LoadItems(localizedAllJointStatus);
+            EnumWrapper<JointTestResultStatus>.LoadItems(localizedResults, skip0: true);
 
             BindCommands();
             BindToViewModel();
@@ -561,12 +554,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(repairTypeGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Date == null)
+            else if(jointWeldResult.Date == null)
             {
                 gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            if(jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
+            else if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
@@ -683,6 +676,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void secondJointElement_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+        private void JointNewEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AutoValidate = AutoValidate.Disable;
         }
 
         public void RefreshJointLookUpDataSource()

@@ -87,6 +87,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 viewModel.NewJoint();
                 viewModel.ModifiableView.Id = viewModel.Joint.Id;
+                viewModel.ModifiableView.IsModified = false;
             }
 
             RefreshVisualStateEvent();

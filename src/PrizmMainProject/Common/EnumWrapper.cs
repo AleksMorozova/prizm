@@ -54,7 +54,74 @@ namespace Prizm.Main.Common
 
         #endregion // --- Enumerator ---
 
-        #region --- Conversion --- 
+        #region --- Loading items ---
+        public static void LoadItems(List<string> list, bool skip0 = false)
+        {
+            if (list != null)
+            {
+                if (list.Count == 0)
+                {
+                    foreach (var item in EnumWrapper<TEnum>.EnumerateItems(skip0))
+                    {
+                        list.Add(item.Item2);
+                    }
+                }
+            }
+        }
+
+        public static void LoadItems(DevExpress.XtraEditors.Controls.RadioGroupItemCollection radioCollection, bool skip0 = false)
+        {
+            if (radioCollection != null)
+            {
+                if (radioCollection.Count == 0)
+                {
+                    foreach (var item in EnumWrapper<TEnum>.EnumerateItems(skip0))
+                    {
+                        radioCollection.Add(new DevExpress.XtraEditors.Controls.RadioGroupItem(item.Item1, item.Item2));
+                    }
+                }
+            }
+        }
+
+        public static void LoadItems(DevExpress.XtraEditors.Controls.ComboBoxItemCollection comboCollection, bool skip0 = false)
+        {
+            if (comboCollection != null)
+            {
+                if (comboCollection.Count == 0)
+                {
+                    foreach (var item in EnumWrapper<TEnum>.EnumerateItems(skip0))
+                    {
+                        comboCollection.Add(item.Item2);
+                    }
+                }
+            }
+        }
+
+        public static void LoadItems(DevExpress.XtraEditors.Controls.CheckedListBoxItemCollection listCollection, 
+            System.Windows.Forms.CheckState? state = null, bool? enabled = null, bool skip0 = false)
+        {
+            if (listCollection != null)
+            {
+                if (listCollection.Count == 0)
+                {
+                    foreach (var item in EnumWrapper<TEnum>.EnumerateItems(skip0))
+                    {
+                        if (state != null && enabled != null)
+                        {
+                            listCollection.Add(item.Item1, item.Item2, state.Value, enabled.Value);
+                        }
+                        else 
+                        {
+                            listCollection.Add(item.Item1, item.Item2);
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion //--- Loading items ---
+
+        #region --- Conversion ---
 
         private System.Type type;
 
