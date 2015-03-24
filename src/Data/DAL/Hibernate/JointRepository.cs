@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using NHibernate.Transform;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -105,6 +106,53 @@ namespace Prizm.Data.DAL.Hibernate
 
 
             return q.List<Joint>();
+        }
+
+
+        public IList<Joint> GetJointsForTracing()
+        {
+            try
+            {
+                JointWeldResult weldResult = null;
+                JointTestResult testResult = null;
+                List<Welder> welders = null;
+
+                return 
+                    session.QueryOver<Joint>()
+                    .Where(x => x.IsActive == true && x.FirstElement != null && x.SecondElement != null && x.Status != JointStatus.Withdrawn)
+                    .JoinAlias(j => j.JointWeldResults, () => weldResult, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => weldResult.Welders, () => welders, JoinType.LeftOuterJoin)
+                    .JoinAlias(j => j.JointTestResults, () => testResult, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity)
+                    .List<Joint>();
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsForTracing", ex);
+            }
+        }
+
+        public ICriteria GetJointsProjections()
+        {
+            try
+            {
+                return
+                    session.CreateCriteria<Joint>()
+                    .Add(Restrictions.Eq("IsActive", true))
+                    .Add(Restrictions.IsNotNull("FirstElement"))
+                    .Add(Restrictions.IsNotNull("SecondElement"))
+                    .Add(Restrictions.Not(Restrictions.Eq("Status", JointStatus.Withdrawn)))
+                    .AddOrder(Order.Asc("Number"))
+                    .SetProjection(Projections.ProjectionList()
+                        .Add(Projections.Property<Joint>(x => x.Number), "Number")
+                        .Add(Projections.Property<Joint>(x => x.Id), "Id")
+                        .Add(Projections.Property<Joint>(x => x.NumberKP), "NumberKP")
+                     );
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsForTracing", ex);
+            }
         }
 
         #endregion

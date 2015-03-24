@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JointNewEditXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -101,11 +102,11 @@
             this.searchLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.searchNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource();
-            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.weldersDataSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.jointNewEditBindingSoure = new System.Windows.Forms.BindingSource(this.components);
+            this.pipelinePiecesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weldersDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newJointLayoutControl)).BeginInit();
             this.newJointLayoutControl.SuspendLayout();
@@ -1066,6 +1067,7 @@
             this.ShowIcon = false;
             this.Text = "Стык";
             this.Activated += new System.EventHandler(this.JointNewEditXtraForm_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JointNewEditXtraForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JointNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.JointNewEditXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jointNumber.Properties)).EndInit();

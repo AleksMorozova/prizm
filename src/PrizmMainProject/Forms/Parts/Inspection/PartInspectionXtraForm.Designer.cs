@@ -238,6 +238,8 @@
             this.colOrder.Caption = "Порядок";
             this.colOrder.FieldName = "Order";
             this.colOrder.Name = "colOrder";
+            this.colOrder.OptionsColumn.AllowEdit = false;
+            this.colOrder.OptionsColumn.ReadOnly = true;
             this.colOrder.Visible = true;
             this.colOrder.VisibleIndex = 4;
             // 

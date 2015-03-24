@@ -20,6 +20,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
         readonly CreateReportCommand createCommand;
         readonly PreviewReportCommand previewCommand;
         public object previewSource;
+        public List<string> localizedInspectionStatus = new List<string>();
 
         [Inject]
         public InspectionReportsViewModel(IMillReportsRepository repo, IUserNotify notify)
