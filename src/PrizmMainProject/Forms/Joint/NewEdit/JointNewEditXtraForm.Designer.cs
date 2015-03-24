@@ -227,7 +227,7 @@
             this.searchButton.Size = new System.Drawing.Size(266, 22);
             this.searchButton.StyleController = this.newJointLayoutControl;
             this.searchButton.TabIndex = 18;
-            this.searchButton.Text = "Найти и открыть для редактирования";
+            this.searchButton.Text = "На&йти и открыть для редактирования";
             // 
             // searchNumber
             // 
