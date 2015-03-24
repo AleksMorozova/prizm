@@ -853,6 +853,24 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return PartDataList.First<PartData>(x => x.Id == partData.Id);
         }
 
+        public void RemovePartDataFromList(PartData partData)
+        {
+            if (list.Any<PartData>(x => x.Id == partData.Id))
+            {
+                var part = this.GetPart(partData);
+
+                if ((part is Pipe || part is construction.Spool) 
+                            && !((Pipe)part).IsAvailableToJoint
+                    || 
+                    part is construction.Component
+                            && !((construction.Component)part).Connectors
+                                    .Any<Connector>(x => x.Joint == null || x.Joint.Id == Guid.Empty))
+                {
+                    list.Remove(list.First<PartData>(x => x.Id == partData.Id));
+                }
+            }
+        }
+
         public void NewJoint()
         {
             this.Joint = new construction.Joint();

@@ -202,6 +202,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.NewSaveJointCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.JointDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
 
+            viewModel.NewSaveJointCommand.RefreshVisualStateEvent += RefreshJointLookUpDataSource;
+
             commandManager.RefreshVisualState();
         }
 
@@ -681,6 +683,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void secondJointElement_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+        public void RefreshJointLookUpDataSource()
+        {
+            firstJointElement.Properties.DataSource = null;
+            secondJointElement.Properties.DataSource = null;
+
+            firstJointElement.Properties.DataSource = viewModel.PartDataList;
+            secondJointElement.Properties.DataSource = viewModel.PartDataList;
         }
     }
 }
