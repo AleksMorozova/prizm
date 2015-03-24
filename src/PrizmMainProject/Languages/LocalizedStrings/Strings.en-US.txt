@@ -877,6 +877,9 @@ Audit_NumberColumnHeader=Owner number
 ;Аудит. Надпись панели параметров поиска
 Audit_SearchParametersGroup=Search parameters
 
+;Аудит. Надпись колонки типа операции
+Audit_OperationTypeColumnHeader=Operation type
+
 ;Аудит. Надпись радиокнопки периода
 Audit_RadioPeriod=Number
 

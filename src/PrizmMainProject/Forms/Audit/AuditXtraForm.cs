@@ -90,6 +90,7 @@ namespace Prizm.Main.Forms.Audit
                     new LocalizedItem(newValueGridColumn, StringResources.Audit_NewValueColumnHeader.Id),
                     new LocalizedItem(fieldGridColumn, StringResources.Audit_FieldColumnHeader.Id),
                     new LocalizedItem(numberColumn, StringResources.Audit_NumberColumnHeader.Id),
+                    new LocalizedItem(operationTypeColumn, StringResources.Audit_OperationTypeColumnHeader.Id),
 
                     // layout control groups
                     new LocalizedItem(searchParametersLayoutGroup, StringResources.Audit_SearchParametersGroup.Id),
@@ -147,7 +148,22 @@ namespace Prizm.Main.Forms.Audit
                 {
                     e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
                 }
-
+            }
+            if (e.Column.Name.Equals(operationTypeColumn.Name))
+            {
+                switch (e.Value.ToString())
+                {
+                    case "E": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckEdited);
+                        break;
+                    case "I": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckImported);
+                        break;
+                    case "C": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckCreated);
+                        break;
+                    case "D": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckDeleted);
+                        break;
+                    default: e.DisplayText = String.Empty;
+                        break;
+                }
             }
         }
 

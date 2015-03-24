@@ -2161,6 +2161,12 @@ namespace Prizm.Main.Languages
             Id = "Audit_NumberColumnHeader", 
             Description = "Аудит. Надпись колонки номера"};
 
+        public static StringResource Audit_OperationTypeColumnHeader = new StringResource
+        {
+            Id = "Audit_OperationTypeColumnHeader",
+            Description = "Аудит. Надпись колонки типа операции"
+        };
+
         public static StringResource Audit_SearchParametersGroup = new StringResource { 
             Id = "Audit_SearchParametersGroup", 
             Description = "Аудит. Надпись панели параметров поиска"};

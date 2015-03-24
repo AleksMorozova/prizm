@@ -163,9 +163,9 @@ namespace Prizm.Data.DAL.Hibernate
                 User = (Guid)tuple[3],
                 TableName = (ItemTypes)tuple[4],
                 FieldName = (FieldNames)tuple[5],
-                OldValue = (tuple[6] == null) ? ((HibernateUtil.Import) ? "imported" : "created" ): tuple[6].ToString(),
-                NewValue = (tuple[7] == null) ? "deleted" : tuple[7].ToString(),
-                Number = (tuple[10] == null) ? "" : tuple[10].ToString(),
+                OldValue = (tuple[6] == null) ? String.Empty : tuple[6].ToString(),
+                NewValue = (tuple[7] == null) ? String.Empty : tuple[7].ToString(),
+                Number = (tuple[10] == null) ? String.Empty : tuple[10].ToString(),
                 UserName = Users.Where(_ => _.Id == (Guid)tuple[3]).SingleOrDefault().Name.GetFullName(),
                 OwnerId = (tuple[8]==null) ? Guid.Empty : (Guid)tuple[8],
                 OperationType = (AuditRecordType)Enum.Parse(typeof(AuditRecordType), tuple[9].ToString())
