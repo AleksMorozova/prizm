@@ -266,6 +266,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 if (value != date)
                 {
                     date = value;
+                    testResult.Date = date;
                     RaisePropertyChanged("Date");
                 }
             }
