@@ -49,6 +49,7 @@
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -69,11 +70,11 @@
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel15,
             this.xrLabel14,
-            this.xrLabel13,
             this.xrLabel12,
             this.xrLabel11,
             this.xrLabel4,
-            this.xrLabel3});
+            this.xrLabel3,
+            this.xrLabel13});
             this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -109,7 +110,7 @@
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(452.641F, 0F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel13.SizeF = new System.Drawing.SizeF(94.49249F, 23F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(94.49243F, 23F);
             this.xrLabel13.Text = "xrLabel13";
             // 
             // xrLabel12
@@ -209,7 +210,7 @@
             this.pageFooterBand.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1,
             this.xrPageInfo2});
-            this.pageFooterBand.HeightF = 23.79166F;
+            this.pageFooterBand.HeightF = 23.79168F;
             this.pageFooterBand.Name = "pageFooterBand";
             // 
             // xrPageInfo1
@@ -225,7 +226,7 @@
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "{0} / {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(547.1334F, 0F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(547.1332F, 0.7916768F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(189.8666F, 23F);
@@ -235,20 +236,31 @@
             // reportHeaderBand1
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageHeaderLabel,
             this.reportDateTimeInfo,
             this.xrLabel5});
-            this.reportHeaderBand1.HeightF = 52.45833F;
+            this.reportHeaderBand1.HeightF = 73.95832F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
+            // 
+            // pageHeaderLabel
+            // 
+            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 52.45832F);
+            this.pageHeaderLabel.Name = "pageHeaderLabel";
+            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(736.9999F, 21.5F);
+            this.pageHeaderLabel.StyleName = "Title";
+            this.pageHeaderLabel.StylePriority.UseForeColor = false;
             // 
             // reportDateTimeInfo
             // 
             this.reportDateTimeInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
-            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(451.0906F, 0F);
+            this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(452.6411F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(285.9094F, 19.45833F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(284.3588F, 19.45833F);
             this.reportDateTimeInfo.StylePriority.UseFont = false;
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -313,8 +325,8 @@
             this.xrLabel6,
             this.xrLabel2,
             this.xrLabel1,
-            this.xrLabel9,
-            this.xrLabel10});
+            this.xrLabel10,
+            this.xrLabel9});
             this.GroupHeader1.HeightF = 36F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
@@ -325,7 +337,7 @@
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(98.44965F, 36F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(100F, 36F);
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.Text = "Сертификат";
@@ -358,10 +370,10 @@
             // 
             this.xrLabel9.BorderColor = System.Drawing.Color.Black;
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(451.0906F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(452.641F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(96.04285F, 36F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(94.49249F, 36F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseBorderColor = false;
             this.xrLabel9.StylePriority.UseForeColor = false;
@@ -453,5 +465,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
         private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
+        private DevExpress.XtraReports.UI.XRLabel pageHeaderLabel;
     }
 }
