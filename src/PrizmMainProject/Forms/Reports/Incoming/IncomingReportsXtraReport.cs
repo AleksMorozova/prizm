@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
-    public partial class IncomingReportsXtraReport : LocalizableXtraReport
+    public partial class IncomingReportsXtraReport : DevExpress.XtraReports.UI.XtraReport, ILocalizable
     {
         public IncomingReportsXtraReport()
         {
@@ -31,16 +31,29 @@ namespace Prizm.Main.Forms.Reports.Incoming
             {
                 new LocalizedItem(pipeNumberLabel, StringResources.IncomingReportsXtraReport_PipeNumberLabel.Id),
                 new LocalizedItem(reportHeaderLabel, StringResources.IncomingReportsXtraReport_ReportHeaderLabel.Id),
-
                 new LocalizedItem(pipeTypeLabel, StringResources.IncomingReportsXtraReport_PipeTypeLabel.Id),
                 new LocalizedItem(pipeLengthLabel, StringResources.IncomingReportsXtraReport_PipeLengthLabel.Id),
                 new LocalizedItem(pipeWallThicknessLabel, StringResources.IncomingReportsXtraReport_PipeWallThicknessLabel.Id),
                 new LocalizedItem(heatNumberLabel, StringResources.IncomingReportsXtraReport_HeatNumberLabel.Id),
                 new LocalizedItem(inspectionStatusLabel, StringResources.IncomingReportsXtraReport_InspectionStatusLabel.Id),
-                //new LocalizedItem(reportDateTimeInfo, StringResources.IncomingReportsXtraReport_ReportDateTimeInfo.Id) 
             };
         }
 
+
+        private List<LocalizedItem> localizedItems = null;
+        public IEnumerator<ILocalizedItem> GetEnumerator()
+        {
+            if (localizedItems == null)
+            {
+                localizedItems = CreateLocalizedItems();
+            }
+            return localizedItems.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
         #endregion // --- Localization ---
     }
 }
