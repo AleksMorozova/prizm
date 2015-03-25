@@ -896,6 +896,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     IsActive = true,
                     Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
+                    // first weld operation should be always completed
+                    IsCompleted=true,
                     Joint = this.Joint
                 };
                 jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
