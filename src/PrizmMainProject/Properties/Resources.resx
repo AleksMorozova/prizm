@@ -1474,4 +1474,11 @@
   <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
     <value>Программа уже запущена</value>
   </data>
+  <data name="Message_DeactivationConectedComponent" xml:space="preserve">
+    <value>Соединенный компонент не может быть деактивирован.
+Для деактивации компонента необходимо его отсоеденить.</value>
+  </data>
+  <data name="Message_DeactivationConectedComponentHeader" xml:space="preserve">
+    <value>Комплектующее имеет соединение</value>
+  </data>
 </root>

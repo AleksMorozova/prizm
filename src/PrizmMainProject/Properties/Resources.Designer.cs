@@ -1641,6 +1641,25 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Соединенный компонент не может быть деактивирован.
+        ///Для деактивации компонента необходимо его отсоеденить..
+        /// </summary>
+        internal static string Message_DeactivationConectedComponent {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConectedComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Комплектующее имеет соединение.
+        /// </summary>
+        internal static string Message_DeactivationConectedComponentHeader {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConectedComponentHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Удалить запись?.
         /// </summary>
         internal static string Message_DeleteRecord {

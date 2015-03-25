@@ -11,6 +11,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -41,46 +42,68 @@ namespace Prizm.Main.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (notify.ShowYesNo(
-                Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestion),
-                Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestionHeader)))
+            if (!IsComponentsConected(viewModel.Component))
             {
-                try
+                if (notify.ShowYesNo(
+                    Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestion),
+                    Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestionHeader)))
                 {
-                    viewModel.ComponentIsActive = false;
+                    try
+                    {
+                        viewModel.ComponentIsActive = false;
 
-                    repos.BeginTransaction();
-                    repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
-                    repos.Commit();
+                        repos.BeginTransaction();
+                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
+                        repos.Commit();
 
-                    repos.ComponentRepo.Evict(viewModel.Component);
+                        repos.ComponentRepo.Evict(viewModel.Component);
 
-                    viewModel.ModifiableView.IsModified = false;
-                    viewModel.ModifiableView.IsEditMode = false;
-                    viewModel.ModifiableView.UpdateState();
+                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.IsEditMode = false;
+                        viewModel.ModifiableView.UpdateState();
 
-                    notify.ShowSuccess(
-                                string.Concat(Program.LanguageManager.GetString(
-                                    StringResources.ComponentNewEdit_DeactivatedAction), viewModel.Number),
-                                Program.LanguageManager.GetString(
-                                    StringResources.ComponentNewEdit_DeactivatedActionHeader));
+                        notify.ShowSuccess(
+                                    string.Concat(Program.LanguageManager.GetString(
+                                        StringResources.ComponentNewEdit_DeactivatedAction), viewModel.Number),
+                                    Program.LanguageManager.GetString(
+                                        StringResources.ComponentNewEdit_DeactivatedActionHeader));
 
-                    log.Info(string.Format("The entity #{0}, id:{1} has been deactivated.",
-                        viewModel.Component.Number, viewModel.Component.Id));
+                        log.Info(string.Format("The entity #{0}, id:{1} has been deactivated.",
+                            viewModel.Component.Number, viewModel.Component.Id));
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        log.Error(ex.Message);
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                catch (RepositoryException ex)
+                else
                 {
-                    log.Error(ex.Message);
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    //Refresh property so that binded control become unchecked
+                    viewModel.ComponentIsActive = false;
+                    viewModel.ComponentIsActive = true;
                 }
             }
             else
             {
+                notify.ShowInfo(
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedComponent),
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedComponentHeader));
+
                 //Refresh property so that binded control become unchecked
                 viewModel.ComponentIsActive = false;
                 viewModel.ComponentIsActive = true;
             }
             RefreshVisualStateEvent();
+        }
+
+
+        private bool IsComponentsConected(Prizm.Domain.Entity.Construction.Component component)
+        {
+            return 
+                component
+                .Connectors
+                .Any<Connector>(x => x.Joint != null && x.Joint.Id != Guid.Empty);
         }
 
         public bool CanExecute()

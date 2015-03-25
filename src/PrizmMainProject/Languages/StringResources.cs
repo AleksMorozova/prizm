@@ -2821,6 +2821,18 @@ namespace Prizm.Main.Languages
             Description = "Комплектующее изделие"
         };
 
+        public static StringResource Message_DeactivationConectedComponent = new StringResource
+        {
+            Id = "Message_DeactivationConectedComponent",
+            Description = "Соедененный компонент не может быть деактивирован. Для деактивации компонента необходимо его отсоеденить."
+        };
+
+        public static StringResource Message_DeactivationConectedComponentHeader = new StringResource
+        {
+            Id = "Message_DeactivationConectedComponentHeader",
+            Description = "Комплектующее имеет соединение"
+        };
+
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---

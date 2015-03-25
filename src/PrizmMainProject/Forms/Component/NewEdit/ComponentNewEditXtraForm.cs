@@ -139,6 +139,14 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName == "ComponentIsActive" && viewModel.ComponentIsActive == true)
+                {
+                    deactivated.Reset();
+                }
+            };
+
             IsEditMode = viewModel.ComponentIsActive;
 
             IsModified = false;
