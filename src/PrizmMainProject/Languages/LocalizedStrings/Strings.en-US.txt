@@ -2570,3 +2570,9 @@ Message_DeactivationConectedComponent=Connected component cannot be deactivated 
 
 ;Комплектующее имеет соединение
 Message_DeactivationConectedComponentHeader=Component has a connection
+
+;Соединена катушка не может быть деактивирована. Для деактивации катушки необходимо ее отсоеденить.
+Message_DeactivationConectedSpool=Connected Spool cannot be deactivated and it must be unconnected from Joint, before.
+
+;Катушка имеет соединение
+Message_DeactivationConectedSpoolHeader=Spool has a connection

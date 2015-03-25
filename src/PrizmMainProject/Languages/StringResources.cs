@@ -1152,7 +1152,17 @@ namespace Prizm.Main.Languages
             Description = "Катушка не сохранена"
         };
 
+        public static StringResource Message_DeactivationConectedSpool = new StringResource
+        {
+            Id = "Message_DeactivationConectedSpool",
+            Description = "Соединена катушка не может быть деактивирован. Для деактивации катушки необходимо ее отсоеденить."
+        };
 
+        public static StringResource Message_DeactivationConectedSpoolHeader = new StringResource
+        {
+            Id = "Message_DeactivationConectedSpoolHeader",
+            Description = "Катушка имеет соединение"
+        };
         
         #endregion Spool
 

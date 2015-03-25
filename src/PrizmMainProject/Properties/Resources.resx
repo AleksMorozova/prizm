@@ -1481,4 +1481,11 @@
   <data name="Message_DeactivationConectedComponentHeader" xml:space="preserve">
     <value>Комплектующее имеет соединение</value>
   </data>
+  <data name="Message_DeactivationConectedSpool" xml:space="preserve">
+    <value>Соединенная катушка не может быть деактивирована. 
+Для деактивации катушки необходимо ее отсоеденить.</value>
+  </data>
+  <data name="Message_DeactivationConectedSpoolHeader" xml:space="preserve">
+    <value>Катушка имеет соединение</value>
+  </data>
 </root>

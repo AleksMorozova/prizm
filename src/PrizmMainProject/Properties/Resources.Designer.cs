@@ -1660,6 +1660,25 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Соединенная катушка не может быть деактивирована. 
+        ///Для деактивации катушки необходимо ее отсоеденить..
+        /// </summary>
+        internal static string Message_DeactivationConectedSpool {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConectedSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка имеет соединение.
+        /// </summary>
+        internal static string Message_DeactivationConectedSpoolHeader {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConectedSpoolHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Удалить запись?.
         /// </summary>
         internal static string Message_DeleteRecord {
