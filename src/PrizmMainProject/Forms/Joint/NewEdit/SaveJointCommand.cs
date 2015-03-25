@@ -149,8 +149,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 else 
                 {
                     notify.ShowError(
-                       "стык не сварен",
-                       "стык не сварен");
+                        Program.LanguageManager.GetString(StringResources.JointNewNotAllWeldOperationCompleted),
+                       Program.LanguageManager.GetString(StringResources.JointNewNotAllWeldOperationCompletedHeader));
                     jointWasWeld = false;
                 }
             }
