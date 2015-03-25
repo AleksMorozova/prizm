@@ -1022,6 +1022,69 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_HeatNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Результат.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_InspectionStatusLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_InspectionStatusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeLengthLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeLengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заводской номер трубы.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeNumberLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип трубы.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeTypeLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeWallThicknessLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeWallThicknessLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по входному контролю.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_ReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_ReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap inControl_icon {

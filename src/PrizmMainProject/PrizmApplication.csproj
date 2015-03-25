@@ -503,12 +503,11 @@
     <Compile Include="Forms\Reports\Incoming\CreateReportCommand.cs" />
     <Compile Include="Forms\Reports\Incoming\InspectionReportsViewModel.cs" />
     <Compile Include="Forms\Reports\Incoming\PreviewReportCommand.cs" />
-    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.cs" />
     <Compile Include="Forms\Reports\Incoming\IncomingReportsXtraReport.Designer.cs">
       <DependentUpon>IncomingReportsXtraReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\LocalizableXtraReport.cs" />
     <Compile Include="Forms\Reports\Mill\AdditionToTheReport.cs">
       <SubType>Component</SubType>
     </Compile>

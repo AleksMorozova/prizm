@@ -31,7 +31,8 @@ namespace Prizm.Main.Languages
             GridView,
             FormHeader,
             RepositoryLookupEdit,
-            CheckedListBox
+            CheckedListBox,
+            XRControl
         };
 
         public LocalizedItem(System.Windows.Forms.Control control, string resourceId)
@@ -272,6 +273,16 @@ namespace Prizm.Main.Languages
             }
         }
 
+        public LocalizedItem(DevExpress.XtraReports.UI.XRControl control, string resourceId)
+        {
+            const int TextsCount = 1;
+            this.resourceIds = new string[TextsCount] { resourceId };
+            this.obj = (object)control;
+            this.type = ItemType.XRControl;
+            this.defaultValues = new string[TextsCount] { control.Text };
+        }
+        
+
         public string Text
         {
             set
@@ -309,6 +320,9 @@ namespace Prizm.Main.Languages
                         break;
                     case ItemType.FormHeader:
                         ((Tuple<PrizmForm, List<string>>)obj).Item2[this.Count - 1] = value;
+                        break;
+                    case ItemType.XRControl:
+                        ((DevExpress.XtraReports.UI.XRControl)obj).Text = value;
                         break;
                     default:
                         break;
@@ -522,6 +536,9 @@ namespace Prizm.Main.Languages
                     break;
                 case ItemType.CheckedListBox:
                     ((DevExpress.XtraEditors.CheckedListBoxControl)obj).Refresh();
+                    break;
+                case ItemType.XRControl:
+                    // ??
                     break;
                 default:
                     break;

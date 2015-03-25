@@ -1474,4 +1474,25 @@
   <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
     <value>Программа уже запущена</value>
   </data>
+  <data name="IncomingReportsXtraReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="IncomingReportsXtraReport_InspectionStatusLabel" xml:space="preserve">
+    <value>Результат</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeLengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeNumberLabel" xml:space="preserve">
+    <value>Заводской номер трубы</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeTypeLabel" xml:space="preserve">
+    <value>Тип трубы</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeWallThicknessLabel" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="IncomingReportsXtraReport_ReportHeaderLabel" xml:space="preserve">
+    <value>Отчет по входному контролю</value>
+  </data>
 </root>

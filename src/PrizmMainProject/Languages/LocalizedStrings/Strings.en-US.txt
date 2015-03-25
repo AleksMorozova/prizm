@@ -2564,3 +2564,24 @@ JointSelectDialog_ResultsLayout=Search results
 
 ;Колонка номера стыка
 JointSelectDialog_NumberGridColumn = Joint number
+
+;Заводской номер трубы
+IncomingReportsXtraReport_PipeNumberLabel=Mill pipe number
+
+;Отчет по входному контролю
+IncomingReportsXtraReport_ReportHeaderLabel=Incoming inspection report
+
+;Тип трубы
+IncomingReportsXtraReport_PipeTypeLabel=Pipe type
+
+;Длина
+IncomingReportsXtraReport_PipeLengthLabel=Length
+
+;Толщина
+IncomingReportsXtraReport_PipeWallThicknessLabel=Thickness
+
+;Номер плавки
+IncomingReportsXtraReport_HeatNumberLabel=Heat number
+
+;Результат
+IncomingReportsXtraReport_InspectionStatusLabel=Result

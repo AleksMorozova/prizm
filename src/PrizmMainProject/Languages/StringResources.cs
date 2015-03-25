@@ -961,6 +961,46 @@ namespace Prizm.Main.Languages
             Id = "InspectionReport_CreateButton",
             Description = "Отчет на входном контроле. Кнопка создания отчета"
         };
+
+
+
+        public static StringResource IncomingReportsXtraReport_PipeNumberLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeNumberLabel",
+            Description = "Заводской номер трубы"
+        };
+        public static StringResource IncomingReportsXtraReport_ReportHeaderLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_ReportHeaderLabel",
+            Description = "Отчет по входному контролю"
+        };
+
+        public static StringResource IncomingReportsXtraReport_PipeTypeLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeTypeLabel",
+            Description = "Тип трубы"
+        };
+        public static StringResource IncomingReportsXtraReport_PipeLengthLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeLengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource IncomingReportsXtraReport_PipeWallThicknessLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeWallThicknessLabel",
+            Description = "Толщина"
+        };
+        public static StringResource IncomingReportsXtraReport_HeatNumberLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource IncomingReportsXtraReport_InspectionStatusLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_InspectionStatusLabel",
+            Description = "Результат"
+        };
+        
         #endregion IncomingInspectionReport
 
         #region Spool
