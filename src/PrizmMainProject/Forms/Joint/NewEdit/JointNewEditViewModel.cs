@@ -758,7 +758,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (list == null && Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
-                    string tempNumber = string.Empty;
 
                     list = new BindingList<PartData>();
 
@@ -766,8 +765,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (DataRow row in Pieces.Rows)
                     {
-                        if (tempId != row.Field<Guid>("id")
-                            && tempNumber != row.Field<string>("number"))
+                        if (tempId != row.Field<Guid>("id"))
                         {
                             partData = new PartData(row);
 
@@ -776,7 +774,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             list.Add(partData);
 
                             tempId = row.Field<Guid>("id");
-                            tempNumber = row.Field<string>("number");
                         }
                         else
                         {
