@@ -113,7 +113,7 @@ namespace Prizm.Main.Controls
             }
         }
 
-        public void inspectorsGridView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void inspectorsGridView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as Inspector;
