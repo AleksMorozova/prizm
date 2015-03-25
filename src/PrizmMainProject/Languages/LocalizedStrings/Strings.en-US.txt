@@ -1079,7 +1079,7 @@ Import_ArchiveLabel=Archive
 Import_BrowseButton=&Browse
 
 ;Импорт. Надпись кнопки выхода
-Import_ExitButton=&Close
+Import_ExitButton=&Cancel
 
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
