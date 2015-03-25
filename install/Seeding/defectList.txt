@@ -24,7 +24,7 @@ ru-RU	240	Дефект по линии сплавления (плазма)
 ru-RU	241	Извилистый шов (плазма)
 ru-RU	280	Дефект УЗК концов (плазма)
 ru-RU	282	Дефект металла (фрезерный станок)
-ru-RU	283	Дефект сварногосоединения (фрезерный станок)
+ru-RU	283	Дефект сварного соединения (фрезерный станок)
 ru-RU	29	Плоскость (экспандер)
 ru-RU	293	Раковины цеховые (плазма)
 ru-RU	30	Крыша (экспандер)
@@ -64,7 +64,7 @@ ru-RU	347	Расслой в торце (плазма)
 ru-RU	348	Дефект МПК (плазма)
 ru-RU	349	Дефект ручного УЗК (плазма)
 ru-RU	35	Кривая (экспандер)
-ru-RU	350	Ремонтныйучасток на конце (плазма)
+ru-RU	350	Ремонтный участок на конце (плазма)
 ru-RU	351	Дефект РТК-2
 ru-RU	352	Раковины
 ru-RU	354	Подрезы
@@ -227,7 +227,7 @@ en-US	46	Hydro test machine (no test)
 en-US	49	For washing
 en-US	5	Defects RT-2 (plasma)
 en-US	6	Indent after expanding machine (plasma)
-en-US	601	Ritted surface (cleaning)
+en-US	601	Pitted surface (cleaning)
 en-US	602	Metal splashing and spatters (cleaning)
 en-US	69	Lip (expanding machine)
 en-US	7	Deep grinding
