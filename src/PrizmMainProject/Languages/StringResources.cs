@@ -2767,6 +2767,12 @@ namespace Prizm.Main.Languages
             Description = "Толщина стенки, мм"
         };
 
+        public static StringResource ComponentNewEdit_IsConnectedGridColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_IsConnectedGridColumn",
+            Description = "Соединен"
+        };
+
         public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
         {
             Id = "ComponentNewEdit_InspectionLayoutGroup",
