@@ -141,146 +141,146 @@ ru-RU	M8	Провал калибровки
 ru-RU	M9	Экструдер
 ru-RU	S0	Нарушение норм складирования
 ru-RU	S01	Не испытаны используемые материалы
-En-US	000	No defects
-En-US	10	Longitudinal crack RT-2 (plasma)
-En-US	11	Pores RT-2 (plasma)
-En-US	12	Remove reinforcement (milling machine)
-En-US	13	Cracks in butt end (plasma)
-En-US	162	Clearance after repair with dressing (RT-2)
-En-US	163	Insufficient perimeter (expanding machine)
-En-US	181	Reinforcement poorly removed (milling machine)
-En-US	183	Roots not overlapping (plasma)
-En-US	186	Clearance: no UT interpretation (RT-2)
-En-US	197	After repair welding (RT-1)
-En-US	198	No UT interpretation (RT-1)
-En-US	203	Out-of-roundness
-En-US	204	Roofing (roundness correcting machine)
-En-US	213	Low spot (plasma)
-En-US	214	Weld displacement (plasma)
-En-US	215	Overcut by milling machine (plasma)
-En-US	217	Overcut by big plasma (plasma)
-En-US	219	Indent (expanding machine)
-En-US	220	Indent on weld
-En-US	221	Indent on body
-En-US	235	Overcut (grinding)
-En-US	240	Defect on fusion line (plasma)
-En-US	241	Twisted bead (plasma)
-En-US	280	UT defect of ends (plasma)
-En-US	282	Metal defect (milling machine)
-En-US	283	Welded joint defect (milling machine)
-En-US	29	Flatness (expanding machine)
-En-US	293	Shop cavities (plasma)
-En-US	30	Roofing (expanding machine)
-En-US	31	Pass (expanding machine)
-En-US	310	Cavities by metal Manufacturer
-En-US	311	Crop ends for plates (plasma)
-En-US	316	Flay mark (KZ)
-En-US	317	Undercut (KZ)
-En-US	318	No blunt face (KZ)
-En-US	319	Slag in butt end (KZ)
-En-US	32	Heart-shape (expanding machine)
-En-US	320	Nonconforming form (KZ)
-En-US	321	Excessive blunt face (KZ)
-En-US	322	Crack in butt end (KZ)
-En-US	323	Flash (KZ)
-En-US	324	Bevel indent (KZ)
-En-US	325	Indent by milling machine (KZ)
-En-US	326	Bevel burr (KZ)
-En-US	327	Undercut by big plasma (KZ)
-En-US	328	Undercut by big plasma (plasma)
-En-US	329	Visible crack (plasma)
-En-US	33	Out-of-roundness (expanding machine)
-En-US	330	Skin (plasma)
-En-US	331	Undercuts (plasma)
-En-US	332	Indent defect (plasma)
-En-US	333	Crack in reinforcement (plasma)
-En-US	334	Wide weld (plasma)
-En-US	335	Bur (plasma)
-En-US	336	Samples (plasma)
-En-US	339	Shrinkage porosity (plasma)
-En-US	34	Rolling mark (expanding machine)
-En-US	340	Excessive perimeter (plasma)
-En-US	342	Crater (plasma)
-En-US	344	Tear by expanding machine (plasma)
-En-US	346	No fusion along the edge (plasma)
-En-US	347	Lamination at butt end (plasma)
-En-US	348	Defect from MT (plasma)
-En-US	349	Defect from manual UT (plasma)
-En-US	35	Out-of-straightness (expanding machine)
-En-US	350	Repaired area at the end (plasma)
-En-US	351	Defects RT-2
-En-US	352	Cavities
-En-US	354	Undercuts
-En-US	355	Low spot
-En-US	356	Excessive thickness (plasma)
-En-US	357	No mark (UT of ends)
-En-US	358	Burr
-En-US	359	Out-of-straightness at end (expanding machine)
-En-US	36	RT-2
-En-US	360	Out-of-straightness at pipe end (plasma)
-En-US	361	Undercut by big plasma machine (plasma)
-En-US	4	Slag in butt end (plasma)
-En-US	401	Narrow weld (plasma)
-En-US	402	Not overlapping roots (KZ)
-En-US	405	Manual UT after repair with grinding
-En-US	46	Hydro test machine (no test)
-En-US	49	For washing
-En-US	5	Defects RT-2 (plasma)
-En-US	6	Indent after expanding machine (plasma)
-En-US	601	Ritted surface (cleaning)
-En-US	602	Metal splashing and spatters (cleaning)
-En-US	69	Lip (expanding machine)
-En-US	7	Deep grinding
-En-US	70	Without RT after plasma (RT-2)
-En-US	71	Without RT (RT-2)
-En-US	8	Edge displacement (plasma)
-En-US	9	Crack RT (plasma)
-En-US	999	Intertek
-En-US	C0	No defect
-En-US	C1	Lamination
-En-US	C10	Break
-En-US	C101	Lamination - start
-En-US	C103	Lamination - end
-En-US	C11	Partially coated
-En-US	C13	Overlaps
-En-US	C14	Sags (drops)
-En-US	C17	Cavity (coating)
-En-US	C18	Cavity from chips
-En-US	C19	Skin
-En-US	C20	Wet
-En-US	C201	Peeling - start
-En-US	C203	Peeling - end
-En-US	C21	Poor repair
-En-US	C22	Buckling
-En-US	C3	Indents and burrs T-4
-En-US	C4	Indents and burrs T-2
-En-US	C5	Pores
-En-US	C51	Blisters - start
-En-US	C52	Blisters - middle
-En-US	C53	Blisters - end
-En-US	C6	Wrinkles 
-En-US	C600	Inclusions
-En-US	C601	Weld reinforcement (ext./internal coating)
-En-US	C602	Lamination (coating)
-En-US	C603	Repair area above limits
-En-US	C604	Peeling (coating)
-En-US	C605	Coating bur
-En-US	C7	Thin coating
-En-US	C8	Tear
-En-US	C801	Brushing - start
-En-US	C803	Brushing  - end
-En-US	C888	Bevel
-En-US	C9	Test failure
-En-US	M1	End cutting after mechanical tests
-En-US	M10	Report does not comply with Logbook
-En-US	M11	Platform went off the tracks
-En-US	M2	Coating repair after mechanical tests
-En-US	M3	Failed mechanical tests
-En-US	M4	Not examined by flaw detection unit
-En-US	M5	Nonconforming temperature parameter (coating)
-En-US	M6	Not examined during shot-blasting
-En-US	M7	Sa 2,5 (cleaning level is lower than required)
-En-US	M8	Calibration failure
-En-US	M9	Extruding machine
-En-US	S0	Nonconforming storage conditions
-En-US	S01	Applied materials were not tested
+en-US	000	No defects
+en-US	10	Longitudinal crack RT-2 (plasma)
+en-US	11	Pores RT-2 (plasma)
+en-US	12	Remove reinforcement (milling machine)
+en-US	13	Cracks in butt end (plasma)
+en-US	162	Clearance after repair with dressing (RT-2)
+en-US	163	Insufficient perimeter (expanding machine)
+en-US	181	Reinforcement poorly removed (milling machine)
+en-US	183	Roots not overlapping (plasma)
+en-US	186	Clearance: no UT interpretation (RT-2)
+en-US	197	After repair welding (RT-1)
+en-US	198	No UT interpretation (RT-1)
+en-US	203	Out-of-roundness
+en-US	204	Roofing (roundness correcting machine)
+en-US	213	Low spot (plasma)
+en-US	214	Weld displacement (plasma)
+en-US	215	Overcut by milling machine (plasma)
+en-US	217	Overcut by big plasma (plasma)
+en-US	219	Indent (expanding machine)
+en-US	220	Indent on weld
+en-US	221	Indent on body
+en-US	235	Overcut (grinding)
+en-US	240	Defect on fusion line (plasma)
+en-US	241	Twisted bead (plasma)
+en-US	280	UT defect of ends (plasma)
+en-US	282	Metal defect (milling machine)
+en-US	283	Welded joint defect (milling machine)
+en-US	29	Flatness (expanding machine)
+en-US	293	Shop cavities (plasma)
+en-US	30	Roofing (expanding machine)
+en-US	31	Pass (expanding machine)
+en-US	310	Cavities by metal Manufacturer
+en-US	311	Crop ends for plates (plasma)
+en-US	316	Flay mark (KZ)
+en-US	317	Undercut (KZ)
+en-US	318	No blunt face (KZ)
+en-US	319	Slag in butt end (KZ)
+en-US	32	Heart-shape (expanding machine)
+en-US	320	Nonconforming form (KZ)
+en-US	321	Excessive blunt face (KZ)
+en-US	322	Crack in butt end (KZ)
+en-US	323	Flash (KZ)
+en-US	324	Bevel indent (KZ)
+en-US	325	Indent by milling machine (KZ)
+en-US	326	Bevel burr (KZ)
+en-US	327	Undercut by big plasma (KZ)
+en-US	328	Undercut by big plasma (plasma)
+en-US	329	Visible crack (plasma)
+en-US	33	Out-of-roundness (expanding machine)
+en-US	330	Skin (plasma)
+en-US	331	Undercuts (plasma)
+en-US	332	Indent defect (plasma)
+en-US	333	Crack in reinforcement (plasma)
+en-US	334	Wide weld (plasma)
+en-US	335	Bur (plasma)
+en-US	336	Samples (plasma)
+en-US	339	Shrinkage porosity (plasma)
+en-US	34	Rolling mark (expanding machine)
+en-US	340	Excessive perimeter (plasma)
+en-US	342	Crater (plasma)
+en-US	344	Tear by expanding machine (plasma)
+en-US	346	No fusion along the edge (plasma)
+en-US	347	Lamination at butt end (plasma)
+en-US	348	Defect from MT (plasma)
+en-US	349	Defect from manual UT (plasma)
+en-US	35	Out-of-straightness (expanding machine)
+en-US	350	Repaired area at the end (plasma)
+en-US	351	Defects RT-2
+en-US	352	Cavities
+en-US	354	Undercuts
+en-US	355	Low spot
+en-US	356	Excessive thickness (plasma)
+en-US	357	No mark (UT of ends)
+en-US	358	Burr
+en-US	359	Out-of-straightness at end (expanding machine)
+en-US	36	RT-2
+en-US	360	Out-of-straightness at pipe end (plasma)
+en-US	361	Undercut by big plasma machine (plasma)
+en-US	4	Slag in butt end (plasma)
+en-US	401	Narrow weld (plasma)
+en-US	402	Not overlapping roots (KZ)
+en-US	405	Manual UT after repair with grinding
+en-US	46	Hydro test machine (no test)
+en-US	49	For washing
+en-US	5	Defects RT-2 (plasma)
+en-US	6	Indent after expanding machine (plasma)
+en-US	601	Ritted surface (cleaning)
+en-US	602	Metal splashing and spatters (cleaning)
+en-US	69	Lip (expanding machine)
+en-US	7	Deep grinding
+en-US	70	Without RT after plasma (RT-2)
+en-US	71	Without RT (RT-2)
+en-US	8	Edge displacement (plasma)
+en-US	9	Crack RT (plasma)
+en-US	999	Intertek
+en-US	C0	No defect
+en-US	C1	Lamination
+en-US	C10	Break
+en-US	C101	Lamination - start
+en-US	C103	Lamination - end
+en-US	C11	Partially coated
+en-US	C13	Overlaps
+en-US	C14	Sags (drops)
+en-US	C17	Cavity (coating)
+en-US	C18	Cavity from chips
+en-US	C19	Skin
+en-US	C20	Wet
+en-US	C201	Peeling - start
+en-US	C203	Peeling - end
+en-US	C21	Poor repair
+en-US	C22	Buckling
+en-US	C3	Indents and burrs T-4
+en-US	C4	Indents and burrs T-2
+en-US	C5	Pores
+en-US	C51	Blisters - start
+en-US	C52	Blisters - middle
+en-US	C53	Blisters - end
+en-US	C6	Wrinkles 
+en-US	C600	Inclusions
+en-US	C601	Weld reinforcement (ext./internal coating)
+en-US	C602	Lamination (coating)
+en-US	C603	Repair area above limits
+en-US	C604	Peeling (coating)
+en-US	C605	Coating bur
+en-US	C7	Thin coating
+en-US	C8	Tear
+en-US	C801	Brushing - start
+en-US	C803	Brushing  - end
+en-US	C888	Bevel
+en-US	C9	Test failure
+en-US	M1	End cutting after mechanical tests
+en-US	M10	Report does not comply with Logbook
+en-US	M11	Platform went off the tracks
+en-US	M2	Coating repair after mechanical tests
+en-US	M3	Failed mechanical tests
+en-US	M4	Not examined by flaw detection unit
+en-US	M5	Nonconforming temperature parameter (coating)
+en-US	M6	Not examined during shot-blasting
+en-US	M7	Sa 2,5 (cleaning level is lower than required)
+en-US	M8	Calibration failure
+en-US	M9	Extruding machine
+en-US	S0	Nonconforming storage conditions
+en-US	S01	Applied materials were not tested
