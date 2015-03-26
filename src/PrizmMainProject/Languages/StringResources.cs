@@ -3139,6 +3139,18 @@ namespace Prizm.Main.Languages
             Description = "Стык"
         };
 
+        public static StringResource JointNewNotAllWeldOperationCompleted = new StringResource
+        {
+            Id = "JointNewNotAllWeldOperationCompleted_Title",
+            Description = "Сообщение о том, что не все сварочные операции выполнены"
+        };
+
+        public static StringResource JointNewNotAllWeldOperationCompletedHeader = new StringResource
+        {
+            Id = "JointNewNotAllWeldOperationCompletedHeader_Title",
+            Description = "Сообщение о том, что не все сварочные операции выполнены"
+        };
+
         #endregion //--- JointNew ---
 
         #region --- JointSearch ---

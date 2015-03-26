@@ -75,6 +75,7 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -240,7 +241,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 53F;
+            this.BottomMargin.HeightF = 55.00005F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -257,7 +258,9 @@
             // 
             // pageHeaderBand1
             // 
-            this.pageHeaderBand1.HeightF = 28.49998F;
+            this.pageHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.pageHeaderLabel});
+            this.pageHeaderBand1.HeightF = 21.5F;
             this.pageHeaderBand1.Name = "pageHeaderBand1";
             // 
             // xrLabel7
@@ -411,7 +414,7 @@
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 23.00002F);
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel42.SizeF = new System.Drawing.SizeF(71.02338F, 57.87497F);
+            this.xrLabel42.SizeF = new System.Drawing.SizeF(72.06506F, 57.87497F);
             this.xrLabel42.StyleName = "FieldCaption";
             this.xrLabel42.StylePriority.UseForeColor = false;
             this.xrLabel42.Text = "Принято";
@@ -550,6 +553,16 @@
             this.GroupHeader1.HeightF = 80.87505F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
+            // pageHeaderLabel
+            // 
+            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pageHeaderLabel.Name = "pageHeaderLabel";
+            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(1033F, 21.5F);
+            this.pageHeaderLabel.StyleName = "Title";
+            this.pageHeaderLabel.StylePriority.UseForeColor = false;
+            // 
             // GeneralInformationXtraReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -564,7 +577,7 @@
             this.DataMember = "Pipe";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(67, 69, 51, 53);
+            this.Margins = new System.Drawing.Printing.Margins(67, 69, 51, 55);
             this.PageHeight = 827;
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -625,5 +638,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel34;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
+        private DevExpress.XtraReports.UI.XRLabel pageHeaderLabel;
     }
 }

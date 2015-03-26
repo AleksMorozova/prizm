@@ -1332,6 +1332,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не все сварочные операции были закончены.
+        /// </summary>
+        internal static string JointNewNotAllWeldOperationCompleted {
+            get {
+                return ResourceManager.GetString("JointNewNotAllWeldOperationCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сварочные операции.
+        /// </summary>
+        internal static string JointNewNotAllWeldOperationCompletedHeader {
+            get {
+                return ResourceManager.GetString("JointNewNotAllWeldOperationCompletedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Стык.
         /// </summary>
         internal static string JointNewXtraForm_Title {
