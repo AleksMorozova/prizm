@@ -1141,6 +1141,9 @@ ComponentNewEdit_DiameterGridColumn=External diameter, mm
 ;Толщина стенки, мм
 ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 
+;Соединен
+ComponentNewEdit_IsConnectedGridColumn = Is connected
+
 ;Входно&й контроль
 ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
 

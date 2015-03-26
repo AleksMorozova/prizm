@@ -18,6 +18,12 @@ namespace Prizm.Domain.Entity.Construction
         {
             return Convert.ToString(Diameter);
         }
+
+        public virtual bool IsConnected
+        {
+            get { return this.Joint != null; } 
+        }
+
         public override Guid OwnerId
         {
             get
