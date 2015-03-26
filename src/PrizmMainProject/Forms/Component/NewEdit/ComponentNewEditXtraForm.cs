@@ -160,7 +160,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             inspectorsPopupContainerEdit.SetSize();
             type.ReadOnly = !IsEditMode || viewModel.HasConnectedConnectors;
-            inspectionHistoryGridView.OptionsBehavior.Editable = IsEditMode && viewModel.HasConnectedConnectors == false;
+            inspectionHistoryGridView.OptionsBehavior.Editable = !type.ReadOnly;
         }
 
         private void BindToViewModel()
