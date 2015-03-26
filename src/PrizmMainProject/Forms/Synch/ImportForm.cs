@@ -80,7 +80,7 @@ namespace Prizm.Main.Forms.Synch
          }
       }
 
-      void EnableImportBrowseButtons(bool enabled)
+      void EnableButtons(bool enabled)
       {
          if (btnImport.InvokeRequired)
          {
@@ -97,6 +97,14 @@ namespace Prizm.Main.Forms.Synch
          else
          {
              btnBrowse.Enabled = enabled;
+         }
+         if (btnClose.InvokeRequired)
+         {
+             btnClose.Invoke(new MethodInvoker(() => btnClose.Enabled = enabled));
+         }
+         else
+         {
+             btnClose.Enabled = enabled;
          }
       }
 
@@ -186,7 +194,7 @@ namespace Prizm.Main.Forms.Synch
       {
          SetProgressBar(0);
          SetStatusLabel(string.Empty);
-         EnableImportBrowseButtons(true);
+         EnableButtons(true);
       }
 
       void importer_OnDone()
@@ -203,7 +211,8 @@ namespace Prizm.Main.Forms.Synch
 
       private void OnDoneMessageCreation()
       {
-          XtraMessageBox.Show(Program.LanguageManager.GetString(StringResources.ImportMessage_IsFinished));
+          string message = Program.LanguageManager.GetString(StringResources.ImportMessage_IsFinished);
+          XtraMessageBox.Show(message, message);
           ResetControls();
       }
 
@@ -228,7 +237,7 @@ namespace Prizm.Main.Forms.Synch
       {
           if (txtArchive.Text != string.Empty)
           {
-              EnableImportBrowseButtons(false);
+              EnableButtons(false);
               new Task(() => importer.Import(txtArchive.Text)).Start();
           }
       }

@@ -93,6 +93,7 @@
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
+            this.barVersionInfo = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -170,9 +171,10 @@
             this.barButtonItemImportantMessages,
             this.weldConstructionRepoBarButton,
             this.pipeConstructionRepoBarButton,
-            this.btnHistoryExportImport});
+            this.btnHistoryExportImport,
+            this.barVersionInfo});
             this.barManager1.MainMenu = this.barMenu;
-            this.barManager1.MaxItemId = 66;
+            this.barManager1.MaxItemId = 67;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.languageRepositoryComboBox});
             this.barManager1.StatusBar = this.barStatus;
@@ -189,7 +191,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemConstruction),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemSettings),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemMisc),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemHelp)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItemHelp),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barVersionInfo)});
             this.barMenu.OptionsBar.AllowQuickCustomization = false;
             this.barMenu.OptionsBar.DisableClose = true;
             this.barMenu.OptionsBar.DisableCustomization = true;
@@ -679,6 +682,13 @@
             this.workspaceManager.TargetControl = this;
             this.workspaceManager.TransitionType = pushTransition1;
             // 
+            // barVersionInfo
+            // 
+            this.barVersionInfo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barVersionInfo.Id = 66;
+            this.barVersionInfo.Name = "barVersionInfo";
+            this.barVersionInfo.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -776,6 +786,7 @@
         private DevExpress.XtraBars.BarButtonItem weldConstructionRepoBarButton;
         private DevExpress.XtraBars.BarButtonItem pipeConstructionRepoBarButton;
         private DevExpress.XtraBars.BarButtonItem btnHistoryExportImport;
+        private DevExpress.XtraBars.BarStaticItem barVersionInfo;
 
 
 

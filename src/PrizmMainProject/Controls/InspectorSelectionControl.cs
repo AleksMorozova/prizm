@@ -18,6 +18,7 @@ namespace Prizm.Main.Controls
     {
         private bool checkNotActiveSelection = true;
         public DateTime? inspectionDate = DateTime.Now.Date;
+
         public InspectorSelectionControl()
         {
             InitializeComponent();
@@ -32,6 +33,21 @@ namespace Prizm.Main.Controls
             set
             {
                 inspectorsGridControl.DataSource = value;
+            }
+        }
+
+        
+        public DateTime? InspectionDate
+        {
+            get 
+            { 
+                return inspectionDate; 
+            }
+            set 
+            { 
+                inspectionDate=value;
+                inspectorsGridView.LayoutChanged();
+                inspectorsGridControl.Refresh();
             }
         }
 
@@ -113,6 +129,10 @@ namespace Prizm.Main.Controls
                     if (c.Certificate.ExpirationDate < inspectionDate && data.IsActive)
                     {
                         e.Appearance.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        e.Appearance.ForeColor = Color.Black;
                     }
                 }
             }

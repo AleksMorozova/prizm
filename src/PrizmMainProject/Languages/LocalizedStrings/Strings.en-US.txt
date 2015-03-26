@@ -1079,7 +1079,7 @@ Import_ArchiveLabel=Archive
 Import_BrowseButton=&Browse
 
 ;Импорт. Надпись кнопки выхода
-Import_ExitButton=&Close
+Import_ExitButton=&Cancel
 
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
@@ -1170,6 +1170,12 @@ Joint_JointTestResultStatus_Repair=Repair
 
 ;статус для контрольной операции стыка: Принят
 Joint_JointTestResultStatus_Accepted=Accepted
+
+;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompleted = Not all weld operations were completed
+
+;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompletedHeader = Weld operations
 
 ;Поиск и редактирование стыка
 JointNew_SearchGroupLayout=Joint search and editing
@@ -2567,3 +2573,15 @@ JointSelectDialog_ResultsLayout=Search results
 
 ;Колонка номера стыка
 JointSelectDialog_NumberGridColumn = Joint number
+
+;Соединенный компонент не может быть деактивирован. Для деактивации компонента необходимо его отсоединить.
+Message_DeactivationConnectedComponent=Connected component cannot be deactivated and it must be unconnected from Joint, before.
+
+;Комплектующее имеет соединение
+Message_DeactivationConnectedComponentHeader=Component has a connection
+
+;Соединена катушка не может быть деактивирована. Для деактивации катушки необходимо ее отсоединить.
+Message_DeactivationConnectedSpool=Connected Spool cannot be deactivated and it must be unconnected from Joint, before.
+
+;Катушка имеет соединение
+Message_DeactivationConnectedSpoolHeader=Spool has a connection

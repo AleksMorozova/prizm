@@ -238,7 +238,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         private bool ValidateCode(string code)
         {
             var testList = pipeTestList.Where(g => g.Code==code).ToList();
-            return !(testList.Count >= 2);
+            return !(testList.Count >= 1);
         }
     }
 }
