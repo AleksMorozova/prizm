@@ -995,6 +995,93 @@ namespace Prizm.Main.Languages
             Description = "Кол-во труб"
         };
 
+        // ---- GeneralInformationXtraReport ----
+        public static StringResource GeneralInformationXtraReport_GeneralReportHeaderLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_GeneralReportHeaderLabel",
+            Description = "Отчет по заводу"
+        };
+        public static StringResource GeneralInformationXtraReport_BARLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARLabel",
+            Description = "BAR (Производство готовой трубы)"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCLabel",
+            Description = "EXC (Наружнее покрытие)"
+        };
+        public static StringResource GeneralInformationXtraReport_COALabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COALabel",
+            Description = "COA (Внутреннее покрытие)"
+        };
+        public static StringResource GeneralInformationXtraReport_ProductionDateLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_ProductionDateLabel",
+            Description = "Дата производства"
+        };
+        public static StringResource GeneralInformationXtraReport_BARAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_BARRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARRepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_BARAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_BARRejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARRejectedLabel",
+            Description = "Брак"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCRepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCRejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCRejectedLabel",
+            Description = "Брак"
+        };
+        public static StringResource GeneralInformationXtraReport_COAAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COAAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_COARepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COARepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_COAAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COAAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_COARejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COARejectedLabel",
+            Description = "Брак"
+        };
+
         #endregion MillReport
 
         #region IncomingInspectionReport

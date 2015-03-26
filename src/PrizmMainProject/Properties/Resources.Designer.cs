@@ -795,6 +795,159 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BAR (Производство готовой трубы).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARRejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARRejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COAAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COAAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COAAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COAAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to COA (Внутреннее покрытие).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COALabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COALabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COARejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COARejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COARepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COARepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXC (Наружнее покрытие).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCRejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCRejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по заводу.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_GeneralReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_GeneralReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата производства.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_ProductionDateLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_ProductionDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {

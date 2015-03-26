@@ -1569,6 +1569,57 @@
   <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
     <value>Тип изделия</value>
   </data>
+  <data name="GeneralInformationXtraReport_BARAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARLabel" xml:space="preserve">
+    <value>BAR (Производство готовой трубы)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARRejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARRepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COAAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COAAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COALabel" xml:space="preserve">
+    <value>COA (Внутреннее покрытие)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COARejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COARepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCLabel" xml:space="preserve">
+    <value>EXC (Наружнее покрытие)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCRejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCRepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_GeneralReportHeaderLabel" xml:space="preserve">
+    <value>Отчет по заводу</value>
+  </data>
+  <data name="GeneralInformationXtraReport_ProductionDateLabel" xml:space="preserve">
+    <value>Дата производства</value>
+  </data>
   <data name="LoadingXtraReport_CertificateLabel" xml:space="preserve">
     <value>Сертификат</value>
   </data>

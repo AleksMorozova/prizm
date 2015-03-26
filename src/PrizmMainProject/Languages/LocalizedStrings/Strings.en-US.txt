@@ -2685,55 +2685,111 @@ WeldDateXtraReport_SecondPartLengthHeader=Second part length
 
 
 ;Отчет по трубам на строительстве
-PipeConstructionXtraReport_PipeConstructionReportHeader=
+PipeConstructionXtraReport_PipeConstructionReportHeader=Pipe construction repor
 
 ;Номер трубы
-PipeConstructionXtraReport_PipeNumberHeader=
+PipeConstructionXtraReport_PipeNumberHeader=Pipe number
 
 ;Диаметр, мм
-PipeConstructionXtraReport_DiameterHeader=
+PipeConstructionXtraReport_DiameterHeader=Diameter, mm
 
 ;Длина, мм
-PipeConstructionXtraReport_LengthHeader=
+PipeConstructionXtraReport_LengthHeader=Length, mm
 
 ;Толщина, мм
-PipeConstructionXtraReport_ThicknessHeader=
+PipeConstructionXtraReport_ThicknessHeader=Thickness, mm
 
 ;Тип шва
-PipeConstructionXtraReport_SeamTypeHeader=
+PipeConstructionXtraReport_SeamTypeHeader=Seam type
 
 ;Марка стали
-PipeConstructionXtraReport_GradeHeader=
+PipeConstructionXtraReport_GradeHeader=Grade
 
 ;Первый стык
-PipeConstructionXtraReport_FirstJointHeader=
+PipeConstructionXtraReport_FirstJointHeader=First joint
 
 ;Второй стык
-PipeConstructionXtraReport_SecondJointHeader=
+PipeConstructionXtraReport_SecondJointHeader=Second joint
     
 
 
 ;Рапорт по отгрузке
-LoadingXtraReport_LoadingReportLabel=
+LoadingXtraReport_LoadingReportLabel=Shipment report
 
 ;Номер разрешения на отгрузку
-LoadingXtraReport_ReleaseNoteNumberLabel=
+LoadingXtraReport_ReleaseNoteNumberLabel=Release note number
 
 ;Номер вагона
-LoadingXtraReport_RailcarNumberLabel=
+LoadingXtraReport_RailcarNumberLabel=Railcar number
 
 ;Станция назначения
-LoadingXtraReport_DestinationLabel=
+LoadingXtraReport_DestinationLabel=Destination
 
 ;Сертификат
-LoadingXtraReport_CertificateLabel=
+LoadingXtraReport_CertificateLabel=Certificate
 
 ;Кол-во метров
-LoadingXtraReport_MetersCountLabel
+LoadingXtraReport_MetersCountLabel=Meters count
 
 ;Вес
-LoadingXtraReport_WeightCountLabel=
+LoadingXtraReport_WeightCountLabel=Weight
 
 ;Кол-во труб
-LoadingXtraReport_PipesCountLabel=
+LoadingXtraReport_PipesCountLabel=Pipes count
+
+
+
+
+;Отчет по заводу
+GeneralInformationXtraReport_GeneralReportHeaderLabel=
+
+;BAR (Производство готовой трубы)
+GeneralInformationXtraReport_BARLabel=BAR (Completed pipe production)
+
+;EXC (Наружнее покрытие)
+GeneralInformationXtraReport_EXCLabel=EXC (outer coating)
+
+;COA (Внутреннее покрытие)
+GeneralInformationXtraReport_COALabel=COA (internal coating)
+
+;Дата производства
+GeneralInformationXtraReport_ProductionDateLabel=Production date
+
+;Принято
+GeneralInformationXtraReport_BARAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_BARRepairLabel=Repair
+
+;Принято после ремонта
+GeneralInformationXtraReport_BARAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_BARRejectedLabel=Rejected
+
+;Принято
+GeneralInformationXtraReport_EXCAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_EXCRepairLabel=Rejected
+
+;Принято после ремонта
+GeneralInformationXtraReport_EXCAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_EXCRejectedLabel=Rejected
+
+;Принято
+GeneralInformationXtraReport_COAAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_COARepairLabel=Rejected
+
+;Принято после ремонта
+GeneralInformationXtraReport_COAAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_COARejectedLabel=Rejected
+
+
 
