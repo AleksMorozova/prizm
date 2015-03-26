@@ -1494,7 +1494,10 @@
   <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
     <value>Катушка имеет соединение</value>
   </data>
-    <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
+<data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера</value>
+  </data>
+      <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
     <value>Периодичная</value>
   </data>
   <data name="InspectionFrequencyType_Required" xml:space="preserve">
