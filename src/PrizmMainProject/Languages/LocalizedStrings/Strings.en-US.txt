@@ -575,7 +575,7 @@ SettingsPipe_InspectionsMinExpectedColumn=Expected min value
 ;Настройки-труба. Максимальный результат контрольной операции
 SettingsPipe_InspectionsMaxExpectedColumn=Expected max value
 ;Настройки-труба. Обязательная контрольная операция
-SettingsPipe_InspectionsIsReqiredColumn=Is required
+SettingsPipe_InspectionsIsReqiredColumn=Frequency
 
 ;Настройки-труба. Активность контрольной операции
 SettingsPipe_InspectionsIsActiveColumn=Is active
