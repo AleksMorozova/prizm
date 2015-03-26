@@ -1474,4 +1474,10 @@
   <data name="MainWindow_SecondCopyNotificationHeader" xml:space="preserve">
     <value>Программа уже запущена</value>
   </data>
+  <data name="JointNewNotAllWeldOperationCompleted" xml:space="preserve">
+    <value>Не все сварочные операции были закончены</value>
+  </data>
+  <data name="JointNewNotAllWeldOperationCompletedHeader" xml:space="preserve">
+    <value>Сварочные операции</value>
+  </data>
 </root>

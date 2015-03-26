@@ -564,6 +564,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
+            else if (!jointWeldResult.IsCompleted)
+            {
+                gv.SetColumnError(completedGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
+                e.Valid = false;
+            }
         }
 
         #region IValidatable Members

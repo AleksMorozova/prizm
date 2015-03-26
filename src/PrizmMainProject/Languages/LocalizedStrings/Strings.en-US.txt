@@ -1169,6 +1169,12 @@ Joint_JointTestResultStatus_Repair=Repair
 Joint_JointTestResultStatus_Accepted=Accepted
 
 ;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompleted = Not all weld operations were completed
+
+;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompletedHeader = Weld operations
+
+;Поиск и редактирование стыка
 JointNew_SearchGroupLayout=Joint search and editing
 
 ;Номер искомого стыка
