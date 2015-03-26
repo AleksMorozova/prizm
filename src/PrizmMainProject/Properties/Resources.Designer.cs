@@ -88,6 +88,87 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Приложение к отчету.
+        /// </summary>
+        internal static string AdditionToTheReport_AdditionToTheReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_AdditionToTheReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string AdditionToTheReport_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_HeatNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string AdditionToTheReport_LengthLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_LengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string AdditionToTheReport_NumberLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_NumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общая длина:.
+        /// </summary>
+        internal static string AdditionToTheReport_PipesLengthLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_PipesLengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общий вес:.
+        /// </summary>
+        internal static string AdditionToTheReport_PipesWeightLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_PipesWeightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата отгрузки.
+        /// </summary>
+        internal static string AdditionToTheReport_ShippingDateLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_ShippingDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество:.
+        /// </summary>
+        internal static string AdditionToTheReport_TotalCountLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_TotalCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string AdditionToTheReport_WeightLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_WeightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Администратор.
         /// </summary>
         internal static string Administrator {
@@ -4469,6 +4550,132 @@ namespace Prizm.Main.Properties {
         internal static string TracingReport {
             get {
                 return ResourceManager.GetString("TracingReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string TracingReport_FirstPartLengthHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartLengthHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер элемента 1.
+        /// </summary>
+        internal static string TracingReport_FirstPartNumberHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип элемента 1.
+        /// </summary>
+        internal static string TracingReport_FirstPartTypeHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartTypeHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер стыка.
+        /// </summary>
+        internal static string TracingReport_JointNumberHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_JointNumberHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество компонентов.
+        /// </summary>
+        internal static string TracingReport_PipelineComponentHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineComponentHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество стыков.
+        /// </summary>
+        internal static string TracingReport_PipelineJointCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineJointCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общая длина, мм.
+        /// </summary>
+        internal static string TracingReport_PipelineLengthHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество труб.
+        /// </summary>
+        internal static string TracingReport_PipelinePipeCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelinePipeCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество катушек.
+        /// </summary>
+        internal static string TracingReport_PipelineSpoolCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineSpoolCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string TracingReport_SecondPartLengthHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartLengthHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер элемента 2.
+        /// </summary>
+        internal static string TracingReport_SecondPartNumberHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип элемента 2.
+        /// </summary>
+        internal static string TracingReport_SecondPartTypeHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartTypeHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Трассировка трубопровода.
+        /// </summary>
+        internal static string TracingReport_TracingPageHeaderXrLabel {
+            get {
+                return ResourceManager.GetString("TracingReport_TracingPageHeaderXrLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата сварки.
+        /// </summary>
+        internal static string TracingReport_WeldingDate {
+            get {
+                return ResourceManager.GetString("TracingReport_WeldingDate", resourceCulture);
             }
         }
         

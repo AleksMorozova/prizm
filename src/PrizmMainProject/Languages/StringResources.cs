@@ -1082,6 +1082,127 @@ namespace Prizm.Main.Languages
             Description = "Брак"
         };
 
+        //--- AdditionToTheReport ---
+        public static StringResource AdditionToTheReport_AdditionToTheReportHeaderLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_AdditionToTheReportHeaderLabel",
+            Description = "Приложение к отчету"
+        };
+        public static StringResource AdditionToTheReport_NumberLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_NumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource AdditionToTheReport_HeatNumberLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource AdditionToTheReport_WeightLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_WeightLabel",
+            Description = "Вес"
+        };
+        public static StringResource AdditionToTheReport_LengthLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_LengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource AdditionToTheReport_ShippingDateLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_ShippingDateLabel",
+            Description = "Дата отгрузки"
+        };
+        public static StringResource AdditionToTheReport_TotalCountLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_TotalCountLabel",
+            Description = "Количество:"
+        };
+        public static StringResource AdditionToTheReport_PipesLengthLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_PipesLengthLabel",
+            Description = "Общая длина:"
+        };
+        public static StringResource AdditionToTheReport_PipesWeightLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_PipesWeightLabel",
+            Description = "Общий вес:"
+        };
+
+
+        //--- TracingReport ---
+        public static StringResource TracingReport_TracingPageHeaderXrLabel = new StringResource
+        {
+            Id = "TracingReport_TracingPageHeaderXrLabel",
+            Description = "Трассировка трубопровода"
+        };
+        public static StringResource TracingReport_JointNumberHeder = new StringResource
+        {
+            Id = "TracingReport_JointNumberHeder",
+            Description = "Номер стыка"
+        };
+        public static StringResource TracingReport_WeldingDate = new StringResource
+        {
+            Id = "TracingReport_WeldingDate",
+            Description = "Дата сварки"
+        };
+        public static StringResource TracingReport_FirstPartNumberHeader = new StringResource
+        {
+            Id = "TracingReport_FirstPartNumberHeader",
+            Description = "Номер элемента 1"
+        };
+        public static StringResource TracingReport_FirstPartTypeHeder = new StringResource
+        {
+            Id = "TracingReport_FirstPartTypeHeder",
+            Description = "Тип элемента 1"
+        };
+        public static StringResource TracingReport_FirstPartLengthHeder = new StringResource
+        {
+            Id = "TracingReport_FirstPartLengthHeder",
+            Description = "Длина, мм"
+        };
+        public static StringResource TracingReport_SecondPartNumberHeader = new StringResource
+        {
+            Id = "TracingReport_SecondPartNumberHeader",
+            Description = "Номер элемента 2"
+        };
+        public static StringResource TracingReport_SecondPartTypeHeder = new StringResource
+        {
+            Id = "TracingReport_SecondPartTypeHeder",
+            Description = "Тип элемента 2"
+        };
+        public static StringResource TracingReport_SecondPartLengthHeder = new StringResource
+        {
+            Id = "TracingReport_SecondPartLengthHeder",
+            Description = "Длина, мм"
+        };
+        public static StringResource TracingReport_PipelineJointCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineJointCountHeader",
+            Description = "Количество стыков"
+        };
+        public static StringResource TracingReport_PipelinePipeCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelinePipeCountHeader",
+            Description = "Количество труб"
+        };
+        public static StringResource TracingReport_PipelineSpoolCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineSpoolCountHeader",
+            Description = "Количество катушек"
+        };
+        public static StringResource TracingReport_PipelineComponentHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineComponentHeader",
+            Description = "Количество компонентов"
+        };
+        public static StringResource TracingReport_PipelineLengthHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineLengthHeader",
+            Description = "Общая длина, мм"
+        };
+
+
         #endregion MillReport
 
         #region IncomingInspectionReport

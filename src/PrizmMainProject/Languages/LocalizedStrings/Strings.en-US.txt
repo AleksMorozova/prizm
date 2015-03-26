@@ -2793,3 +2793,75 @@ GeneralInformationXtraReport_COARejectedLabel=Rejected
 
 
 
+;Приложение к отчету
+AdditionToTheReport_AdditionToTheReportHeaderLabel=Appendix to the report
+
+;Номер
+AdditionToTheReport_NumberLabel=Number
+
+;Номер плавки
+AdditionToTheReport_HeatNumberLabel=HeatNumber
+
+;Вес
+AdditionToTheReport_WeightLabel=Weight
+
+;Длина
+AdditionToTheReport_LengthLabel=Length
+
+;Дата отгрузки
+AdditionToTheReport_ShippingDateLabel=Shipping date
+
+;Количество:
+AdditionToTheReport_TotalCountLabel=Total count:
+
+;Общая длина:
+AdditionToTheReport_PipesLengthLabel=Total length:
+
+;Общий вес:
+AdditionToTheReport_PipesWeightLabel=Total weight:
+
+
+
+;Трассировка трубопровода
+TracingReport_TracingPageHeaderXrLabel=Pipeline tracing
+
+;Номер стыка
+TracingReport_JointNumberHeder=Joint number
+
+;Дата сварки
+TracingReport_WeldingDate=Welding date
+
+;Номер элемента 1
+TracingReport_FirstPartNumberHeader=Part 1 #
+
+;Тип элемента 1
+TracingReport_FirstPartTypeHeder=Part 1 type
+
+;Длина, мм
+TracingReport_FirstPartLengthHeder=Length, mm
+
+;Номер элемента 2
+TracingReport_SecondPartNumberHeader=Part 2 #
+
+;Тип элемента 2
+TracingReport_SecondPartTypeHeder=Part 2 type
+
+;Длина, мм
+TracingReport_SecondPartLengthHeder=Length, mm
+
+;Количество стыков
+TracingReport_PipelineJointCountHeader=Joints count
+
+;Количество труб
+TracingReport_PipelinePipeCountHeader=Pipes count
+
+;Количество катушек
+TracingReport_PipelineSpoolCountHeader=Spools count
+
+;Количество компонентов
+TracingReport_PipelineComponentHeader=Componentry count
+
+;Общая длина, мм
+TracingReport_PipelineLengthHeader=Total length, mm
+
+

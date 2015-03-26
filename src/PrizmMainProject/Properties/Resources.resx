@@ -1692,4 +1692,73 @@
   <data name="WeldDateXtraReport_WeldReportByDateHeader" xml:space="preserve">
     <value>Отчет по сварке (по дате)</value>
   </data>
+  <data name="AdditionToTheReport_AdditionToTheReportHeaderLabel" xml:space="preserve">
+    <value>Приложение к отчету</value>
+  </data>
+  <data name="AdditionToTheReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="AdditionToTheReport_LengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="AdditionToTheReport_NumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="AdditionToTheReport_PipesLengthLabel" xml:space="preserve">
+    <value>Общая длина:</value>
+  </data>
+  <data name="AdditionToTheReport_PipesWeightLabel" xml:space="preserve">
+    <value>Общий вес:</value>
+  </data>
+  <data name="AdditionToTheReport_ShippingDateLabel" xml:space="preserve">
+    <value>Дата отгрузки</value>
+  </data>
+  <data name="AdditionToTheReport_TotalCountLabel" xml:space="preserve">
+    <value>Количество:</value>
+  </data>
+  <data name="AdditionToTheReport_WeightLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="TracingReport_FirstPartLengthHeder" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="TracingReport_FirstPartNumberHeader" xml:space="preserve">
+    <value>Номер элемента 1</value>
+  </data>
+  <data name="TracingReport_FirstPartTypeHeder" xml:space="preserve">
+    <value>Тип элемента 1</value>
+  </data>
+  <data name="TracingReport_JointNumberHeder" xml:space="preserve">
+    <value>Номер стыка</value>
+  </data>
+  <data name="TracingReport_PipelineComponentHeader" xml:space="preserve">
+    <value>Количество компонентов</value>
+  </data>
+  <data name="TracingReport_PipelineJointCountHeader" xml:space="preserve">
+    <value>Количество стыков</value>
+  </data>
+  <data name="TracingReport_PipelineLengthHeader" xml:space="preserve">
+    <value>Общая длина, мм</value>
+  </data>
+  <data name="TracingReport_PipelinePipeCountHeader" xml:space="preserve">
+    <value>Количество труб</value>
+  </data>
+  <data name="TracingReport_PipelineSpoolCountHeader" xml:space="preserve">
+    <value>Количество катушек</value>
+  </data>
+  <data name="TracingReport_SecondPartLengthHeder" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="TracingReport_SecondPartNumberHeader" xml:space="preserve">
+    <value>Номер элемента 2</value>
+  </data>
+  <data name="TracingReport_SecondPartTypeHeder" xml:space="preserve">
+    <value>Тип элемента 2</value>
+  </data>
+  <data name="TracingReport_TracingPageHeaderXrLabel" xml:space="preserve">
+    <value>Трассировка трубопровода</value>
+  </data>
+  <data name="TracingReport_WeldingDate" xml:space="preserve">
+    <value>Дата сварки</value>
+  </data>
 </root>
