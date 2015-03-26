@@ -2777,6 +2777,12 @@ namespace Prizm.Main.Languages
             Description = "Толщина стенки, мм"
         };
 
+        public static StringResource ComponentNewEdit_IsConnectedGridColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_IsConnectedGridColumn",
+            Description = "Соединен"
+        };
+
         public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
         {
             Id = "ComponentNewEdit_InspectionLayoutGroup",
@@ -4939,6 +4945,12 @@ namespace Prizm.Main.Languages
         {
             Id = "Notification_DublicateLogin_Critical",
             Description = "Сообщение о дублировании логинов"
+        };
+
+        public static StringResource Notification_DuplicatePipeNumber_Critical = new StringResource
+        {
+            Id = "Notification_DuplicatePipeNumber_Critical",
+            Description = "Сообщение о дублировании"
         };
         #endregion //--- Notification ---
 

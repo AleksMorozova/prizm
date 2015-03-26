@@ -1141,6 +1141,9 @@ ComponentNewEdit_DiameterGridColumn=External diameter, mm
 ;Толщина стенки, мм
 ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 
+;Соединен
+ComponentNewEdit_IsConnectedGridColumn = Is connected
+
 ;Входно&й контроль
 ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
 
@@ -2154,6 +2157,9 @@ Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for 
 
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DublicateLogin_Critical = User logins duplicating
+
+;Сообщение о дублировании
+Notification_DuplicatePipeNumber_Critical = Duplicated number
 
 ;Сообщение о дублировании номеров труб: Дубликат номера труб
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
