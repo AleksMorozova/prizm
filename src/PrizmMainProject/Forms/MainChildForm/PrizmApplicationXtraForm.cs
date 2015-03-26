@@ -389,6 +389,9 @@ namespace Prizm.Main.Forms.MainChildForm
             localizedNotificationPanelButton.Add(barButtonStatusNotifications.Caption);
             NotificationService.Instance.LoadAllNotifications();
             NotificationService.Instance.NotificationsChanged += OnNotificationRefresh;
+
+            barVersionInfo.Caption = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            
         }
         
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
