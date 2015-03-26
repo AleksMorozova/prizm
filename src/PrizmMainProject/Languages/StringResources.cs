@@ -904,6 +904,9 @@ namespace Prizm.Main.Languages
             Id = "MillReport_TypeGeneral",
             Description = "Отчеты на заводе. Тип отчета - Общий отчет"
         };
+
+
+
         #endregion MillReport
 
         #region IncomingInspectionReport
@@ -3604,6 +3607,39 @@ namespace Prizm.Main.Languages
             Id = "WeldDateReport_JointReportViewerGroup",
             Description = "Предварительный просмотр отчёта"
         };
+
+
+        //--- Weld Date XtraReport ---
+        public static StringResource WeldDateXtraReport_WeldReportByDateHeader = new StringResource {
+            Id = "WeldDateXtraReport_WeldReportByDateHeader",
+            Description = "Отчет по сварке (по дате)"
+        };
+        public static StringResource WeldDateXtraReport_DateHeader = new StringResource {
+            Id = "WeldDateXtraReport_DateHeader",
+            Description = "Дата сварки"
+        };
+        public static StringResource WeldDateXtraReport_JointNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_JointNumberHeader",
+            Description = "Номер стыка"
+        };
+        public static StringResource WeldDateXtraReport_FirstPartNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_FirstPartNumberHeader",
+            Description = "Номер первой части"
+        };
+        public static StringResource WeldDateXtraReport_SecondPartNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_SecondPartNumberHeader",
+            Description = "Номер второй части"
+        };
+        public static StringResource WeldDateXtraReport_FirstPartLengthHeader = new StringResource {
+            Id = "WeldDateXtraReport_FirstPartLengthHeader",
+            Description = "Длина первой части"
+        };
+        public static StringResource WeldDateXtraReport_SecondPartLengthHeader = new StringResource {
+            Id = "WeldDateXtraReport_SecondPartLengthHeader",
+            Description = "Длина второй части"
+        };
+
+
 
         #endregion //--- WeldDateReport ---
 

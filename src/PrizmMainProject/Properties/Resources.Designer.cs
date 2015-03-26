@@ -4330,6 +4330,69 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата сварки.
+        /// </summary>
+        internal static string WeldDateXtraReport_DateHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_DateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина первой части.
+        /// </summary>
+        internal static string WeldDateXtraReport_FirstPartLengthHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_FirstPartLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер первой части.
+        /// </summary>
+        internal static string WeldDateXtraReport_FirstPartNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_FirstPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер стыка.
+        /// </summary>
+        internal static string WeldDateXtraReport_JointNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_JointNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина второй части.
+        /// </summary>
+        internal static string WeldDateXtraReport_SecondPartLengthHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_SecondPartLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер второй части.
+        /// </summary>
+        internal static string WeldDateXtraReport_SecondPartNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_SecondPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по сварке (по дате).
+        /// </summary>
+        internal static string WeldDateXtraReport_WeldReportByDateHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_WeldReportByDateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сварщик.
         /// </summary>
         internal static string Welder {

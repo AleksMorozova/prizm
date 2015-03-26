@@ -1569,4 +1569,25 @@
   <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
     <value>Тип изделия</value>
   </data>
+  <data name="WeldDateXtraReport_DateHeader" xml:space="preserve">
+    <value>Дата сварки</value>
+  </data>
+  <data name="WeldDateXtraReport_FirstPartLengthHeader" xml:space="preserve">
+    <value>Длина первой части</value>
+  </data>
+  <data name="WeldDateXtraReport_FirstPartNumberHeader" xml:space="preserve">
+    <value>Номер первой части</value>
+  </data>
+  <data name="WeldDateXtraReport_JointNumberHeader" xml:space="preserve">
+    <value>Номер стыка</value>
+  </data>
+  <data name="WeldDateXtraReport_SecondPartLengthHeader" xml:space="preserve">
+    <value>Длина второй части</value>
+  </data>
+  <data name="WeldDateXtraReport_SecondPartNumberHeader" xml:space="preserve">
+    <value>Номер второй части</value>
+  </data>
+  <data name="WeldDateXtraReport_WeldReportByDateHeader" xml:space="preserve">
+    <value>Отчет по сварке (по дате)</value>
+  </data>
 </root>

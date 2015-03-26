@@ -2658,3 +2658,28 @@ UsedProductsXtraReport_ProductNumberLabel=Product number
 ;Тип изделия
 UsedProductsXtraReport_ProductTypeLabel=Product type
 
+
+
+
+;Отчет по сварке (по дате)
+WeldDateXtraReport_WeldReportByDateHeader=Welding report by date
+
+;Дата сварки
+WeldDateXtraReport_DateHeader=Date of welding
+
+;Номер стыка
+WeldDateXtraReport_JointNumberHeader=Joint number
+
+;Номер первой части
+WeldDateXtraReport_FirstPartNumberHeader=First part number
+
+;Номер второй части
+WeldDateXtraReport_SecondPartNumberHeader=Second part number
+
+;Длина первой части
+WeldDateXtraReport_FirstPartLengthHeader=First part length
+
+;Длина второй части
+WeldDateXtraReport_SecondPartLengthHeader=Second part length
+
+
