@@ -5,6 +5,7 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.Notifications;
 using Prizm.Main.Forms.Synch;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
@@ -82,6 +83,7 @@ namespace Prizm.Main.Synch.Import
 
                 FireMessage(Program.LanguageManager.GetString(StringResources.Import_Data));
                 ImportData(tempDir);
+                NotificationService.Instance.DuplicateNumberManager.RefreshNotifications();
                 FireOnDone();
             }
             catch (Exception e)
@@ -792,7 +794,6 @@ namespace Prizm.Main.Synch.Import
                             break;
                         case ConflictDecision.Postpone:
                             Dump(pipeObj, manifest.PortionID, tempDir);
-                            CreateNotification(pipeObj);
                             break;
                     }
                     progress += step;
@@ -841,11 +842,6 @@ namespace Prizm.Main.Synch.Import
             {
                 serializer.Serialize(fs, conflict);
             }
-        }
-
-        void CreateNotification(PipeObject pipeObj)
-        {
-            //TODO: Notification should be created here.
         }
 
         private Plate ImportPlate(PlateObject plateObj)

@@ -8,7 +8,9 @@ namespace Prizm.Main.Forms.Notifications
 {
     interface INotificationManager
     {
-        IList<Notification> LoadNotificationFromDB();
-        Notification CreateNotification(Guid ownerId, string representation, DateTime dateToOccur, float timeToOccur);
+        void LoadNotifications();
+        List<Notification> Notifications { get; }
+        TypeNotification Type { get; }
+        int Count { get; }
     }
 }

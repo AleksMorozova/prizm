@@ -528,7 +528,7 @@ SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe s
 SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 
 ;Настройки-труба. Толщина стенки для трубы с заданым типоразмером, mm
-SettingsPipe_WallThicknessLabel=Wall &thickness, mm
+SettingsPipe_WallThicknessLabel=&Wall thickness, mm
 
 ;Настройки-труба. Длина трубы для заданного типоразмера, мм
 SettingsPipe_LengthLabel=Pipe l&ength, mm
@@ -877,6 +877,9 @@ Audit_NumberColumnHeader=Owner number
 ;Аудит. Надпись панели параметров поиска
 Audit_SearchParametersGroup=Search parameters
 
+;Аудит. Надпись колонки типа операции
+Audit_OperationTypeColumnHeader=Operation type
+
 ;Аудит. Надпись радиокнопки периода
 Audit_RadioPeriod=Number
 
@@ -896,7 +899,7 @@ About_AcceptButton=OK
 PartSearch_SearchNumberLabel=&Number
 
 ;Поиск элементов трубопровода. Надпись типа элемента
-PartSearch_SearchTypeLabel=&Type
+PartSearch_SearchTypeLabel=T&ype
 
 ;Поиск элементов трубопровода. Надпись активности элемента
 PartSearch_ActivityLabel= &Activity status
@@ -1076,7 +1079,7 @@ Import_ArchiveLabel=Archive
 Import_BrowseButton=&Browse
 
 ;Импорт. Надпись кнопки выхода
-Import_ExitButton=&Close
+Import_ExitButton=&Cancel
 
 ;Импорт. Надпись кнопки импорта
 Import_ImportButton=&Import
@@ -1097,7 +1100,7 @@ ComponentNewEdit_NewComponentLayoutGroup=Component
 ComponentNewEdit_ComponentNumberLayout=N&umber
 
 ;&Тип изделия
-ComponentNewEdit_TypeLayoutControl=&Type
+ComponentNewEdit_TypeLayoutControl=T&ype
 
 ;Номер се&ртификата
 ComponentNewEdit_CertificateLayout=Certi&ficate number
@@ -1166,6 +1169,12 @@ Joint_JointTestResultStatus_Repair=Repair
 Joint_JointTestResultStatus_Accepted=Accepted
 
 ;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompleted = Not all weld operations were completed
+
+;Поиск и редактирование стыка
+JointNewNotAllWeldOperationCompletedHeader = Weld operations
+
+;Поиск и редактирование стыка
 JointNew_SearchGroupLayout=Joint search and editing
 
 ;Номер искомого стыка
@@ -1193,7 +1202,7 @@ JointNew_JointParametersLayoutGroup=Joint parameters
 JointNew_LoweringLayoutGroup=Lowering parameters
 
 ;Дата &укладки
-JointNew_LoweringDateLayout=&Lowering date
+JointNew_LoweringDateLayout=Lo&wering date
 
 ;PK
 JointNew_PKLabelLayout=&KP
@@ -1208,7 +1217,7 @@ JointNew_DistanceFromPKLayout=&Distance from KP
 JointNew_GPSLabelLayout=GPS
 
 ;&Широта
-JointNew_GPSLatLayout=La&t
+JointNew_GPSLatLayout=&Lat
 
 ;До&лгота
 JointNew_GPSLongLayout=Lon&g
@@ -1220,7 +1229,7 @@ JointNew_ElevationLayout=Ele&vation
 JointNew_InspectionLayoutGroup=Operations
 
 ;Сварка и ре&монт
-JointNew_RepairOperationLayout=&Weld and repair
+JointNew_RepairOperationLayout=Weld and &repair
 
 ;Контрольные опера&ции
 JointNew_ControlOperationsLayout=&Inspection operations
@@ -1298,7 +1307,7 @@ Joint_IncorrectDiameterHeader=Diameters or wall thicknesses of the joint element
 JointSearch_JointNumber=Joint &number
 
 ;С&татус
-JointSearch_ControlStateLayout=S&tatus
+JointSearch_ControlStateLayout=Stat&us
 
 ;Дата сварки
 JointSearch_WeldingDateLabel=Welding date
@@ -1514,7 +1523,7 @@ PartInspection_SearchNumberLabel=Search &number
 PartInspection_ElementNumberLabel=E&lement number
 
 ;Входной контроль элемента. Надпись типа элемента
-PartInspection_ElementTypeLabel=Element &type
+PartInspection_ElementTypeLabel=Element t&ype
 
 ;Входной контроль элемента. Надпись кнопки поиска
 PartInspection_SearchButton=Search and &open for editing
@@ -1565,7 +1574,7 @@ NewEditPipe_HeatsComboLabel=&Heat
 NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
 
 ;Труба. Дата наряд-заказа
-NewEditPipe_PurchaseOrederDateLabel=Purchase order da&te
+NewEditPipe_PurchaseOrederDateLabel=&Purchase order date
 
 ;Труба. Дата создания трубы
 NewEditPipe_PipeCreationLabel=Creat&ion date
@@ -1679,7 +1688,7 @@ NewEditPipe_FactSizeGroup=Act&ual parameters
 NewEditPipe_TypeSizeGroup=Size t&ype parameters
 
 ;Труба. Группа отправка
-NewEditPipe_ShippingGroup=Shipping &parameters
+NewEditPipe_ShippingGroup=Shipping param&eters
 
 ;Труба. Группа покрытие
 NewEditPipe_CoverGroup=Coatin&g parameters
@@ -1796,7 +1805,7 @@ SearchPipe_NumberLabel=Pipe &number
 SearchPipe_TypeSizeLabel=Si&ze type
 
 ;Поиск труб. Статус трубы
-SearchPipe_StatusLabel=S&tatus
+SearchPipe_StatusLabel=Stat&us
 
 ;Поиск труб. Активность трубы
 SearchPipe_ActivityLabel=&Activity status
@@ -1835,10 +1844,10 @@ SearchPipe_SearchGroup=Search parameters
 SearchPipe_ResultGroup=Search res&ults
 
 ;Разрешение на отгрузку. Номер разрешения
-ReleaseNoteNewEdit_ReleaseNumberLabel=Number
+ReleaseNoteNewEdit_ReleaseNumberLabel=&Number
 
 ;Разрешение на отгрузку. Дата разрешения
-ReleaseNoteNewEdit_ReleaseDateLabel=Date
+ReleaseNoteNewEdit_ReleaseDateLabel=&Date
 
 ;Разрешение на отгрузку. Номер вагона
 ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
@@ -1847,7 +1856,7 @@ ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
 ReleaseNoteNewEdit_CertificateLabel=Certi&ficate number
 
 ;Разрешение на отгрузку. Получатель
-ReleaseNoteNewEdit_DestinationLabel=Des&tination
+ReleaseNoteNewEdit_DestinationLabel=Destinati&on
 
 ;Разрешение на отгрузку. Кнопка добавления трубы
 ReleaseNoteNewEdit_AddPipeButton=Add p&ipe
@@ -1937,7 +1946,7 @@ ReleaseSearch_NumberLabel=Release note &number
 ReleaseSearch_StartDateLabel=&From
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_EndDateLabel=&To
+ReleaseSearch_EndDateLabel=T&o
 
 ;Поиск разрешений на отгрузку. Получатель
 ReleaseSearch_DestinationLabel=Dest&ination
@@ -2108,22 +2117,10 @@ Inspection_ExistingCodeError=There is an existing operation with number:
 Inspection_ExistingCodeErrorHeader=Operation number duplicating
 
 ;Просрочено выполнение контрольной операции 
-Notification_NotRequiredControlOperationPipes_Critical = Expired deadline for performance of control operation
-
-;Просрочено выполнение контрольной операции 
-Notification_NotRequiredControlOperationTons_Critical = Expired deadline for performance of control operation
-
-;Просрочено выполнение контрольной операции  
-Notification_NotRequiredControlOperationMeters_Critical = Expired deadline for performance of control operation
+Notification_NotRequiredInspectionOperation_Critical = Expired deadline for performance of control operation
 
 ;Приближается срок выполнения контрольной операции 
-Notification_NotRequiredControlOperationPipes_Warning =  Approaching deadline for performance of control operation
-
-;Приближается срок выполнения контрольной операции 
-Notification_NotRequiredControlOperationMeters_Warning = Approaching deadline for performance of control operation
-
-;Приближается срок выполнения контрольной операции 
-Notification_NotRequiredControlOperationTons_Warning =  Approaching deadline for performance of control operation
+Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of control operation
 
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DublicateLogin_Critical = User logins duplicating
@@ -2132,10 +2129,16 @@ Notification_DublicateLogin_Critical = User logins duplicating
 Notification_DublicatePipeNumber_Critical=Pipe numbers duplicating
 
 ;Сообщение об окончании срока: Сертификат просрочен
-Notification_ExpiredCertificate_Critical=Certificate's date is expired
+Notification_ExpiredInspectorCertificate_Critical=Certificate's date is expired
 
 ;Сообщение о приближении окончания срока: Заканчивается срок сертификата
-Notification_ExpiredCertificate_Warning=Certificate's date will be expired soon
+Notification_ExpiredInspectorCertificate_Warning=Certificate's date will be expired soon
+
+;Сообщение об окончании срока: Сертификат просрочен
+Notification_ExpiredWelderCertificate_Critical=Certificate's date is expired
+
+;Сообщение о приближении окончания срока: Заканчивается срок сертификата
+Notification_ExpiredWelderCertificate_Warning=Certificate's date will be expired soon
 
 ;Результат контрольной операции. Ожидается
 PipeTestResultStatus_Scheduled=Scheduled
@@ -2276,10 +2279,10 @@ Menu_Construction_PipeReports=&Pipe reports
 Menu_Construction_WeldReports=&Weld reports
 
 ;Главное меню, пункт Отчёты по сварке участка между пикетами
-Menu_Construction_JointPKReports=&Tracing reports
+Menu_Construction_JointPKReports=T&racing reports
 
 ;Главное меню, пункт Настройки
-Menu_Settings=&Settings
+Menu_Settings=Se&ttings
 
 ;Главное меню, настройки, пункт Проект
 Menu_Settings_Project=Pro&ject
@@ -2471,7 +2474,7 @@ WaitScreen_Description=Loading...
 NotificationXtraForm_LayoutControlItemNotification=Notifications
 
 ;Дата
-NotificationXtraForm_ColDate=Date
+NotificationXtraForm_ColDate=Data
 
 ;Сообщение
 NotificationXtraForm_ColNotification=Message
@@ -2497,7 +2500,7 @@ MissingPortionsDialog_SequenceIsBroken=The imported data sequence is broken. Wor
 MissingPortionsDialog_PortionsAlreadyExist=The portions with numbers already exist:
 
 ;Невозможно импортировать данные. Импортируемый файл был создан не на мастере.
-Import_WrongWorkstationType=Could not import data because importing file was created not at Maste.
+Import_WrongWorkstationType=Could not import data because importing file was created not at Master.
 
 ;Экспорт
 HistoryExportImport_SynchType_Export=Export
@@ -2538,14 +2541,29 @@ WeldDateReport_FootersCheck=Add headers and footers
 ;Добавить колонтитулы
 PipeConstructionReport_FootersCheck=Add headers and footers
 
+;Аудит. Надпись чекбокса Отредактированные
+Audit_CheckEdited=Edited
+
+;Аудит. Надпись чекбокса Импортированные
+Audit_CheckImported=Imported
+
+;Аудит. Надпись чекбокса Созданные
+Audit_CheckCreated=Created
+
+;Аудит. Надпись чекбокса Удаленные
+Audit_CheckDeleted=Deleted
+
+;Аудит. Надпись Включить в результаты поиска
+Audit_IncludeToSearchLayout=Include to search results
+
 ;Заголовок: выбор стыка
 JointSelectDialog_Header=Select joint
 
 ;Отменить
-JointSelectDialog_CancelButton=Cancel
+JointSelectDialog_CancelButton=&Cancel
 
 ;Редактировать
-JointSelectDialog_EditButton=Edit
+JointSelectDialog_EditButton=&Edit
 
 ;Результаты поиска
 JointSelectDialog_ResultsLayout=Search results

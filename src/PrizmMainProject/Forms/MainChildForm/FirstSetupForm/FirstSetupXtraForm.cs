@@ -39,10 +39,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private void FirstSetupXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<WorkstationType>.EnumerateItems())
-            {
-                localizedAllWorkstations.Add(item.Item2);
-            }
+            EnumWrapper<WorkstationType>.LoadItems(localizedAllWorkstations);
+
             BindToViewModel();
             pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
             localizedHeader.Clear();

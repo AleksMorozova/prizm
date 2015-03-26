@@ -319,14 +319,27 @@
     <Compile Include="Forms\MainChildForm\FormManager.cs" />
     <Compile Include="Forms\MainChildForm\PrizmForm.cs" />
     <Compile Include="Forms\Notifications\Data\DataNotificationLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\DublicateNumberLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\DuplicateNumberLoader.cs" />
     <Compile Include="Forms\Notifications\Data\DuplicateLoginLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\InspectorCertificateLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationMetersLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationPipesLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\NotRequiredControlOperationTonsLoader.cs" />
-    <Compile Include="Forms\Notifications\Data\WelderCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\ExpiredInspectorCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationMetersLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationPipesLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationTonsLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\ExpiredWelderCertificateLoader.cs" />
+    <Compile Include="Forms\Notifications\Data\NotRequiredOperationTransformer.cs" />
     <Compile Include="Forms\Notifications\INotificationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\DuplicateLoginManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\DuplicateNumberManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\ExpiredInspectorCertificateManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\ExpiredWelderCertificateManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\IDuplicateLoginManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\IDuplicateNumberManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\IExpiredInspectorCertificateManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\IExpiredWelderCertificateManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\EmptyNROManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\INotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredCache.cs" />
+    <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredOperationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
     <Compile Include="Forms\Notifications\NotificationManager.cs" />
     <Compile Include="Forms\Notifications\NotificationService.cs" />
@@ -337,14 +350,6 @@
     <Compile Include="Forms\Notifications\NotificationXtraForm.Designer.cs">
       <DependentUpon>NotificationXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Notifications\Strategy\DublicateLoginFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\DublicateNumberFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\InspectorCertificateFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationMetersFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationPipesFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\NotRequiredControlOperationTonsFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\StrategyNotificationFill.cs" />
-    <Compile Include="Forms\Notifications\Strategy\WelderCertificateFill.cs" />
     <Compile Include="Forms\Parts\Inspection\CreateSpoolComponentDialog.cs">
       <SubType>Form</SubType>
     </Compile>

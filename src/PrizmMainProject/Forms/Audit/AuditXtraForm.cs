@@ -14,6 +14,7 @@ using Prizm.Main.Common;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
 using DevExpress.XtraEditors.Controls;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -22,6 +23,7 @@ namespace Prizm.Main.Forms.Audit
     {
         private AuditViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AuditXtraForm));
 
         public AuditXtraForm()
         {
@@ -32,10 +34,9 @@ namespace Prizm.Main.Forms.Audit
 
         private void AuditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<TracingModeEnum>.EnumerateItems())
-            {
-                radioPeriodUser.Properties.Items.Add(new RadioGroupItem(item.Item1, item.Item2));
-            }
+            EnumWrapper<TracingModeEnum>.LoadItems(radioPeriodUser.Properties.Items);
+            EnumWrapper<AuditRecordType>.LoadItems(includeCheckedList.Items);
+            includeCheckedList.SetItemChecked(0, true);
             BindCommands();
             BindToViewModel();
             startDate.SetLimits();
@@ -52,11 +53,15 @@ namespace Prizm.Main.Forms.Audit
             number.DataBindings.Add("EditValue", viewModel, "Number");
             radioPeriodUser.DataBindings.Add("SelectedIndex", viewModel, "TracingMode");
             number.SetAsIdentifier();
+            includeCheckedList.DisplayMember = "Text";
+            includeCheckedList.ValueMember = "Name";
         }
 
         private void BindCommands()
         {
             commandManager["Search"].Executor(viewModel.SearchCommand).AttachTo(search);
+            viewModel.SearchCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
+            commandManager.RefreshVisualState();
         }
 
         #region --- Localization ---
@@ -73,6 +78,7 @@ namespace Prizm.Main.Forms.Audit
                     new LocalizedItem(startDateLayout,StringResources.Audit_StartDateLabel.Id),
                     new LocalizedItem(endDateLayout,StringResources.Audit_EndDateLabel.Id),
                     new LocalizedItem(userLayout, StringResources.Audit_UserLabel.Id),
+                    new LocalizedItem(includeCheckedListLayout, StringResources.Audit_IncludeToSearchLayout.Id),
 
                     // controls
                     new LocalizedItem(search, StringResources.Audit_SearchButton.Id),
@@ -85,6 +91,7 @@ namespace Prizm.Main.Forms.Audit
                     new LocalizedItem(newValueGridColumn, StringResources.Audit_NewValueColumnHeader.Id),
                     new LocalizedItem(fieldGridColumn, StringResources.Audit_FieldColumnHeader.Id),
                     new LocalizedItem(numberColumn, StringResources.Audit_NumberColumnHeader.Id),
+                    new LocalizedItem(operationTypeColumn, StringResources.Audit_OperationTypeColumnHeader.Id),
 
                     // layout control groups
                     new LocalizedItem(searchParametersLayoutGroup, StringResources.Audit_SearchParametersGroup.Id),
@@ -94,7 +101,13 @@ namespace Prizm.Main.Forms.Audit
 
                     // header
                     new LocalizedItem(this, localizedHeader, new string[] {
-                        StringResources.AuditXtraForm_Title.Id} )
+                        StringResources.AuditXtraForm_Title.Id} ),
+
+                    new LocalizedItem (includeCheckedList, new string[] 
+                                                            {StringResources.Audit_CheckEdited.Id,
+                                                            StringResources.Audit_CheckImported.Id,
+                                                            StringResources.Audit_CheckCreated.Id,
+                                                            StringResources.Audit_CheckDeleted.Id})
                 };
         }
 
@@ -136,8 +149,39 @@ namespace Prizm.Main.Forms.Audit
                 {
                     e.DisplayText = Program.LanguageManager.GetString((StringResource)resId);
                 }
-
             }
+            if (e.Column.Name.Equals(operationTypeColumn.Name))
+            {
+                switch (e.Value.ToString())
+                {
+                    case "E": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckEdited);
+                        break;
+                    case "I": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckImported);
+                        break;
+                    case "C": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckCreated);
+                        break;
+                    case "D": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckDeleted);
+                        break;
+                    default: e.DisplayText = String.Empty;
+                        log.Warn(string.Format("String resource for {O} audit operation type is missing", e.Value.ToString()));
+                        break;
+                }
+            }
+        }
+
+        private void includeCheckedList_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            List<string> operationList = new List<string>();
+            foreach (ListBoxItem item in includeCheckedList.CheckedItems)
+            {
+               AuditRecordType operation;
+               if (Enum.TryParse<AuditRecordType>(item.Value.ToString(), out operation))
+               {
+                   operationList.Add(operation.ToString());
+               }
+            }
+            viewModel.OperationTypes = operationList;
+            commandManager.RefreshVisualState();
         }
 
     }

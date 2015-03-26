@@ -9,38 +9,25 @@ using Ninject;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
-    public abstract class DataNotificationLoader : IResultTransformer
+    public abstract class DataNotificationLoader
     {
         // Fields
-        private INotificationManager manager;
         private INotificationRepository repo;
+        private IResultTransformer transformer;
 
         // Methods
         public abstract string BuildSql();
-        public abstract Guid GetId(object[] tuple);
-        public abstract string GetOwnerName(object[] tuple);
-        public abstract DateTime GetDateToOccur(object[] tuple);
-        public abstract float GetTimeToOccur(object[] tuple);
 
-        public DataNotificationLoader(NotificationManager manager)
+        public DataNotificationLoader(IResultTransformer transformer)
         {
-            this.manager = manager;
+            this.transformer = transformer;
             repo = Program.Kernel.Get<INotificationRepository>();
         }
 
-        public IList<Notification> LoadNotificationFromDB()
+        public IList<Notification> LoadNotifications()
         {
-            return repo.CreateSQLQuery(BuildSql()).SetResultTransformer(this).List<Notification>();
+            return repo.CreateSQLQuery(BuildSql()).SetResultTransformer(transformer).List<Notification>();
         }
 
-        public System.Collections.IList TransformList(System.Collections.IList collection)
-        {
-            return collection;
-        }
-
-        public virtual object TransformTuple(object[] tuple, string[] aliases)
-        {
-            return manager.CreateNotification(GetId(tuple), GetOwnerName(tuple), GetDateToOccur(tuple), GetTimeToOccur(tuple));
-        }
     }
 }

@@ -44,7 +44,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetPipesByStatus", ex);
+                throw new RepositoryException("GetReleaseNotes", ex);
             }
             finally
             {
@@ -179,7 +179,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetPipesFromInspection", ex);
+                throw new RepositoryException("GetPipes", ex);
             }
             finally
             {
@@ -218,7 +218,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetPipesFromInspection", ex);
+                throw new RepositoryException("CountWeldInf", ex);
             }
             finally
             {
@@ -334,7 +334,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("GetAuditResults", ex);
+                throw new RepositoryException("GetPipelineElements", ex);
             }
             finally
             {
@@ -380,7 +380,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("Get Used Products", ex);
+                throw new RepositoryException("GetAllKP", ex);
             }
             finally
             {
@@ -422,7 +422,7 @@ namespace Prizm.Data.DAL.ADO
             }
             catch (SqlException ex)
             {
-                throw new RepositoryException("Get Used Products", ex);
+                throw new RepositoryException("CountPipe", ex);
             }
             finally
             {

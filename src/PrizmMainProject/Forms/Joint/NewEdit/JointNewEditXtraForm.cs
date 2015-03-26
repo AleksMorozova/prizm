@@ -202,20 +202,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.NewSaveJointCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
             viewModel.JointDeactivationCommand.RefreshVisualStateEvent += commandManager.RefreshVisualState;
 
+            viewModel.NewSaveJointCommand.RefreshVisualStateEvent += RefreshJointLookUpDataSource;
+
             commandManager.RefreshVisualState();
         }
 
         private void JointNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<JointStatus>.EnumerateItems())
-            {
-                localizedAllJointStatus.Add(item.Item2);
-            }
-
-            foreach(var item in EnumWrapper<JointTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                localizedResults.Add(item.Item2);
-            }
+            EnumWrapper<JointStatus>.LoadItems(localizedAllJointStatus);
+            EnumWrapper<JointTestResultStatus>.LoadItems(localizedResults, skip0: true);
 
             BindCommands();
             BindToViewModel();
@@ -569,6 +564,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
+            else if (!jointWeldResult.IsCompleted)
+            {
+                gv.SetColumnError(completedGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
+                e.Valid = false;
+            }
         }
 
         #region IValidatable Members
@@ -629,6 +629,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void JointNewEditXtraForm_Activated(object sender, EventArgs e)
         {
             viewModel.RefreshJointComponents();
+            RefreshJointLookUpDataSource();
             pipelinePiecesBindingSource.DataSource = viewModel.PartDataList;
             firstJointElement.Refresh();
             secondJointElement.Refresh();
@@ -686,6 +687,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void JointNewEditXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             AutoValidate = AutoValidate.Disable;
+        }
+
+        public void RefreshJointLookUpDataSource()
+        {
+            firstJointElement.Properties.DataSource = null;
+            secondJointElement.Properties.DataSource = null;
+
+            firstJointElement.Properties.DataSource = viewModel.PartDataList;
+            secondJointElement.Properties.DataSource = viewModel.PartDataList;
         }
     }
 }

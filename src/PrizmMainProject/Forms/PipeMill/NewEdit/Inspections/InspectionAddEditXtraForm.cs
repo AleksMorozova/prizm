@@ -85,12 +85,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void InspectionAddEditXtraForm_Load(object sender, EventArgs e)
         {
             status.Properties.Items.Clear();
-            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                status.Properties.Items.Add(item.Item2);
-            }
-            BindToViewModel();
+            EnumWrapper<PipeTestResultStatus>.LoadItems(status.Properties.Items, skip0: true);
 
+            BindToViewModel();
+            inspectors.InspectionDate = viewModel.Date;
             factBool_CheckedChanged(null, null);
 
             date.SetLimits();
@@ -274,6 +272,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.CannedMessages.Add(newFactString);
             factString.EditValue = viewModel.FactString = newFactString;
             e.Handled = true;
+        }
+
+        private void date_EditValueChanged(object sender, EventArgs e)
+        {
+            inspectors.InspectionDate = date.DateTime;
+            inspectors.Refresh();
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
         private IList<string> cannedMessageStrings = new BindingList<string>();
         private PipeTestResult testResult;
         public IList<EnumWrapper<PipeTestResultStatus>> statuses;
-
         public InspectionAddEditViewModel(IList<PipeTest> tests, IList<Inspector> inspectors,
             PipeTestResult current, IList<Main.Common.EnumWrapper<PipeTestResultStatus>> statuses)
         {
@@ -55,6 +54,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 TestResult.Status = PipeTestResultStatus.Scheduled;
                 this.status = TestResult.Status;
                 this.factBool = false;
+                this.date = DateTime.Now;
 
                 if (this.availableTests != null && this.availableTests.Count > 0)
                     TestResult.Operation = this.availableTests[0];
@@ -78,6 +78,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                     default:
                         break;
                 }
+
+                date = (current.Date == null) ? DateTime.Now : current.Date.Value;
+
                 status = current.Status;
             }
             if (testResult.Value == null)
@@ -256,13 +259,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
             }
         }
 
-        DateTime date = DateTime.Now;
+        DateTime date;
         public DateTime Date
         {
-            get { return (testResult.Date == null) ? date : (DateTime)testResult.Date; }
+            get { return date; }
             set
             {
-                if(value != date)
+                if (value != date)
                 {
                     date = value;
                     RaisePropertyChanged("Date");

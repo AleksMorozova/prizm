@@ -132,7 +132,7 @@ group by productionDate  ";
                     con.jointId = CAST(CAST(0 AS BINARY) AS UNIQUEIDENTIFIER))
                     AND c.[inspectionStatus] = 'Accepted'
             
-            ORDER BY number";
+            ORDER BY number, id";
 
         public const string ColumnNameForInspectionStatus = "status";
         public const string TableNameForInspectionReport = "Pipe";

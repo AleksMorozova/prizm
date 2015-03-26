@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\M20150323_AuditAddTypeColumn.cs" />
     <Compile Include="Migrations\M20141119_CreateBaseSchemeFromFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

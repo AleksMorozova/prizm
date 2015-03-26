@@ -45,10 +45,9 @@ namespace Prizm.Main.Forms.Reports.Incoming
             BindCommands();
             viewModel.StartDate = DateTime.Now.Date;
             viewModel.EndDate = DateTime.Now.Date;
-            foreach (var item in EnumWrapper<PartInspectionStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllInspectionStatus.Add(item.Item2);
-            }
+
+            EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+
             startDate.SetLimits();
             endDate.SetLimits();
         }

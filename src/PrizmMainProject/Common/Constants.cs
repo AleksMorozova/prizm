@@ -17,9 +17,19 @@ namespace Prizm.Main.Common
 
         public const string PositiveDigitMask = "\\d+";
 
-        public const int MinSpoolCut = 20; // in millimeters
+        /// <summary>
+        /// Minimal length which can be cut from pipe, in millimeters
+        /// </summary>
+        public const int MinSpoolCut = 20;
 
-        // period in percents for remaining about execution of control operation
-        public const string PercentForControlOperation = "*0.90";
+        /// <summary>
+        /// period in percents for remaining about execution of control operation
+        /// </summary>
+        public const float PercentForInspectionOperation = 0.90f;
+
+        /// <summary>
+        /// Warning should be shown this amount of days before expiration
+        /// </summary>
+        public const int DaysToExpirationWarning = 30;
     }
 }

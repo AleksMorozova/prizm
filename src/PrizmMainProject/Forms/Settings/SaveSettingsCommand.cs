@@ -17,6 +17,7 @@ using Prizm.Domain.Entity.Security;
 using Prizm.Main.Security;
 using Ninject;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.Settings
 {
@@ -110,6 +111,8 @@ namespace Prizm.Main.Forms.Settings
                     EvictInspectorCertificateType();
                     EvictSeamType();
                     viewModel.ModifiableView.IsModified = false;
+                    // Refresh list of notification
+                    NotificationService.Instance.LoadAllNotifications();
 
                     notify.ShowNotify(
                          Program.LanguageManager.GetString(StringResources.Settings_SetupSaves),

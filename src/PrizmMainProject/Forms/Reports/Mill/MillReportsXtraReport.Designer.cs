@@ -449,7 +449,7 @@
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.reportDateTimeInfo.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(285.2504F, 23.91666F);
+            this.reportDateTimeInfo.SizeF = new System.Drawing.SizeF(284.2507F, 23.91666F);
             this.reportDateTimeInfo.StylePriority.UseFont = false;
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -510,7 +510,7 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageHeaderLabel});
-            this.PageHeader.HeightF = 33F;
+            this.PageHeader.HeightF = 21.5F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
             // 
@@ -520,10 +520,9 @@
             this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pageHeaderLabel.Name = "pageHeaderLabel";
             this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(1015F, 33F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(1015F, 21.5F);
             this.pageHeaderLabel.StyleName = "Title";
             this.pageHeaderLabel.StylePriority.UseForeColor = false;
-            this.pageHeaderLabel.Text = "Отчет на заводе";
             // 
             // heatNumberLabel
             // 

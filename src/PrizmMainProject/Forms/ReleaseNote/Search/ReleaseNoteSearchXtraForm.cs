@@ -57,7 +57,10 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             startDate.SetLimits();
             endDate.SetLimits();
 
-            localizedSearchResultGroup.Add(resultParametersLayoutGroup.Text);
+            if (localizedSearchResultGroup.Count == 0)
+            {
+                localizedSearchResultGroup.Add(resultParametersLayoutGroup.Text);
+            }
         }
 
         private void BindToViewModel()

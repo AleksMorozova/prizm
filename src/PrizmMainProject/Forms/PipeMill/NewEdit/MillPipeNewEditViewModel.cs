@@ -19,6 +19,8 @@ using Prizm.Main.Common;
 using Prizm.Main.Documents;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Security;
+using Prizm.Main.Forms.Notifications.Managers.NotRequired;
+using Prizm.Main.Forms.Notifications;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -111,6 +113,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 extractPipeTypeCommand.Execute();
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
+                PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
             }
 
             Welders = repoMill.WelderRepo.GetAll();
@@ -245,6 +248,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         #endregion
 
         #region Pipe
+
+        public IPipeNotifier pipeNotifier;
+        public IPipeNotifier PipeNotifier
+        {
+            get { return pipeNotifier; }
+            set
+            {
+                if (value != pipeNotifier)
+                {
+                    pipeNotifier = value;
+                    RaisePropertyChanged("PipeNotifier");
+                }
+            }
+        }
 
         public bool PipeIsActive
         {
@@ -657,6 +674,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
             this.Pipe.Mill = mill;
             this.Pipe.ToExport = false;
+
+            PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
         }
 
         public void Dispose()
@@ -671,7 +690,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Gets for current pipe all linked pipe test results and sets them to its property
+        /// Gets for current pipe all linked pipe test result and sets them to its property
         /// </summary>
         void GetAllPipeTestResults()
         {
@@ -723,7 +742,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Creates predefined pipe test results for all active required availableTests for concrete pipe mill size type
+        /// Creates predefined pipe test result for all active required availableTests for concrete pipe mill size type
         /// </summary>
         /// <param name="millSizeType"></param>
         public BindingList<PipeTestResult> GetRequired(PipeMillSizeType millSizeType)
@@ -820,7 +839,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Change Pipe status according to pipe test results
+        /// Change Pipe status according to pipe test result
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
@@ -839,7 +858,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Returns list of ordered Pipe test results
+        /// Returns list of ordered Pipe test result
         /// </summary>
         public List<string> orderTestResult()
         {

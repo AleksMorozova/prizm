@@ -2161,6 +2161,12 @@ namespace Prizm.Main.Languages
             Id = "Audit_NumberColumnHeader", 
             Description = "Аудит. Надпись колонки номера"};
 
+        public static StringResource Audit_OperationTypeColumnHeader = new StringResource
+        {
+            Id = "Audit_OperationTypeColumnHeader",
+            Description = "Аудит. Надпись колонки типа операции"
+        };
+
         public static StringResource Audit_SearchParametersGroup = new StringResource { 
             Id = "Audit_SearchParametersGroup", 
             Description = "Аудит. Надпись панели параметров поиска"};
@@ -2179,6 +2185,35 @@ namespace Prizm.Main.Languages
             Description = "Заголовок: Аудит"
         };
 
+        public static StringResource Audit_CheckEdited = new StringResource
+        {
+            Id = "Audit_CheckEdited",
+            Description = "Аудит. Надпись чекбокса Отредактированные"
+        };
+
+        public static StringResource Audit_CheckImported = new StringResource
+        {
+            Id = "Audit_CheckImported",
+            Description = "Аудит. Надпись чекбокса Импортированные"
+        };
+
+        public static StringResource Audit_CheckCreated = new StringResource
+        {
+            Id = "Audit_CheckCreated",
+            Description = "Аудит. Надпись чекбокса Созданные"
+        };
+
+        public static StringResource Audit_CheckDeleted = new StringResource
+        {
+            Id = "Audit_CheckDeleted",
+            Description = "Аудит. Надпись чекбокса Удаленные"
+        };
+
+        public static StringResource Audit_IncludeToSearchLayout= new StringResource
+        {
+            Id = "Audit_IncludeToSearchLayout",
+            Description = "Аудит. Надпись Включить в результаты поиска"
+        };
         #endregion //--- Audit --
 
         #region --- About ---
@@ -3080,6 +3115,18 @@ namespace Prizm.Main.Languages
         {
             Id = "JointNewXtraForm_Title",
             Description = "Стык"
+        };
+
+        public static StringResource JointNewNotAllWeldOperationCompleted = new StringResource
+        {
+            Id = "JointNewNotAllWeldOperationCompleted_Title",
+            Description = "Сообщение о том, что не все сварочные операции выполнены"
+        };
+
+        public static StringResource JointNewNotAllWeldOperationCompletedHeader = new StringResource
+        {
+            Id = "JointNewNotAllWeldOperationCompletedHeader_Title",
+            Description = "Сообщение о том, что не все сварочные операции выполнены"
         };
 
         #endregion //--- JointNew ---
@@ -4735,40 +4782,18 @@ namespace Prizm.Main.Languages
 
         #region --- Notification ---
         //Notification_NotRequiredControlOperation_Critical
-        public static StringResource Notification_NotRequiredControlOperationPipes_Critical = new StringResource
+        public static StringResource Notification_NotRequiredInspectionOperation_Critical = new StringResource
         {
-            Id = "Notification_NotRequiredControlOperationPipes_Critical",
+            Id = "Notification_NotRequiredInspectionOperation_Critical",
             Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
         };
 
-        public static StringResource Notification_NotRequiredControlOperationTons_Critical = new StringResource
+        public static StringResource Notification_NotRequiredInspectionOperation_Warning = new StringResource
         {
-            Id = "Notification_NotRequiredControlOperationTons_Critical",
-            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
-        };
-
-        public static StringResource Notification_NotRequiredControlOperationMeters_Critical = new StringResource
-        {
-            Id = "Notification_NotRequiredControlOperationMeters_Critical",
-            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
-        };
-        public static StringResource Notification_NotRequiredControlOperationPipes_Warning = new StringResource
-        {
-            Id = "Notification_NotRequiredControlOperationPipes_Warning",
+            Id = "Notification_NotRequiredInspectionOperation_Warning",
             Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
         };
 
-        public static StringResource Notification_NotRequiredControlOperationTons_Warning = new StringResource
-        {
-            Id = "Notification_NotRequiredControlOperationTons_Warning",
-            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
-        };
-
-        public static StringResource Notification_NotRequiredControlOperationMeters_Warning = new StringResource
-        {
-            Id = "Notification_NotRequiredControlOperationMeters_Warning",
-            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
-        };
         public static StringResource NotificationXtraForm_LayoutControlItemNotification = new StringResource
         {
             Id = "NotificationXtraForm_LayoutControlItemNotification",
@@ -4778,7 +4803,7 @@ namespace Prizm.Main.Languages
         public static StringResource NotificationXtraForm_ColDate = new StringResource
         {
             Id = "NotificationXtraForm_ColDate",
-            Description = "Дата"
+            Description = "Данные"
         };
 
         public static StringResource NotificationXtraForm_ColNotification = new StringResource
@@ -4805,27 +4830,27 @@ namespace Prizm.Main.Languages
             Description = "Сообщение о дублировании номеров труб: Дубликат номера труб"
         };
 
-        public static StringResource Notification_ExpiredCertificate_Critical = new StringResource
+        public static StringResource Notification_ExpiredInspectorCertificate_Critical = new StringResource
         {
-            Id = "Notification_ExpiredCertificate_Critical",
+            Id = "Notification_ExpiredInspectorCertificate_Critical",
             Description = "Сообщение об окончании срока: Сертификат просрочен"
         };
 
-        public static StringResource Notification_ExpiredCertificate_Warning = new StringResource
+        public static StringResource Notification_ExpiredInspectorCertificate_Warning = new StringResource
         {
-            Id = "Notification_ExpiredCertificate_Warning",
+            Id = "Notification_ExpiredInspectorCertificate_Warning",
             Description = "Сообщение о приближении окончания срока: Заканчивается срок сертификата"
         };
 
-        public static StringResource Notification_WelderCertificateExpired_Critical = new StringResource
+        public static StringResource Notification_ExpiredWelderCertificate_Critical = new StringResource
         {
-            Id = "Notification_WelderCertificateExpired_Critical",
+            Id = "Notification_ExpiredWelderCertificate_Critical",
             Description = "Сообщение об окончании срока: Сертификат просрочен"
         };
 
-        public static StringResource Notification_WelderCertificateExpired_Warning = new StringResource
+        public static StringResource Notification_ExpiredWelderCertificate_Warning = new StringResource
         {
-            Id = "Notification_WelderCertificateExpired_Warning",
+            Id = "Notification_ExpiredWelderCertificate_Warning",
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
 

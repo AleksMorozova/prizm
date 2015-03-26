@@ -23,6 +23,23 @@ namespace Prizm.Domain.Entity.Construction
         public PartConstructionStatus ConstructionStatus { get; set; }
         public string ConnectorsCount { get; set; }
 
+        public int NumberOfConnectors { get { return Connectors.Count; } }
+        public string AvailableDiameters
+        {
+            get
+            {
+                string str = string.Empty;
+
+                foreach (var c in Connectors)
+                {
+                    if (!string.IsNullOrEmpty(str)) str += ", ";
+
+                    str += Convert.ToString(c.Diameter);
+                }
+
+                return str;
+            }
+        }
 
         public PartData() 
         {
@@ -150,6 +167,5 @@ namespace Prizm.Domain.Entity.Construction
 
             partData.ConnectorsCount = string.Concat(partData.Connectors.Count, "(", diameterList, ")");
         }
-
     }
 }

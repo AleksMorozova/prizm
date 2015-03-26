@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\AuditLog.cs" />
+    <Compile Include="Entity\AuditRecordType.cs" />
     <Compile Include="Entity\Certificate.cs" />
     <Compile Include="Entity\Construction\ComponentType.cs" />
     <Compile Include="Entity\Construction\Connector.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Entity\Mill\CannedMessage.cs" />
     <Compile Include="Entity\Mill\PipeMillSubStatus.cs" />
     <Compile Include="Entity\Mill\ReleaseNote.cs" />
+    <Compile Include="Entity\NotRequiredOperation.cs" />
     <Compile Include="Entity\Portion.cs" />
     <Compile Include="Entity\Security\Privileges.cs" />
     <Compile Include="Entity\Setup\FixedCategory.cs" />

@@ -75,19 +75,10 @@ namespace Prizm.Main.Forms.Settings
 
         private void SettingsXtraForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in EnumWrapper<PipeTestControlType>.EnumerateItems(skip0: true))
-            {
-                localizedPipeTestControlTypes.Add(item.Item2);
-            }
-            foreach (var item in EnumWrapper<PipeTestResultType>.EnumerateItems(skip0: true))
-            {
-                localizedPipeTestResultTypes.Add(item.Item2);
-            }
-            foreach (var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0: true))
-            {
-                localizedJointOperationTypes.Add(item.Item2);
-            }
-            pipeNumberMaskRulesLabel.Text = Program.LanguageManager.GetString(StringResources.Mask_Label);
+            EnumWrapper<PipeTestControlType>.LoadItems(localizedPipeTestControlTypes, skip0: true);
+            EnumWrapper<PipeTestResultType>.LoadItems(localizedPipeTestResultTypes, skip0: true);
+            EnumWrapper<JointOperationType>.LoadItems(localizedJointOperationTypes, skip0: true);
+
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -261,7 +252,7 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(extDocumentSizeLayoutControlItem, StringResources.SettingsProject_DocumentSizeLabel.Id),
                 new LocalizedItem(millNameLayoutControlItem, StringResources.SettingsProject_MillLabel.Id),
                 new LocalizedItem(maskLayoutControlItem, StringResources.SettingsProject_MaskEditLabel.Id),
-                new LocalizedItem(maskLabelLayoutControlItem, StringResources.Mask_Label.Id),
+                new LocalizedItem(pipeNumberMaskRulesLabel, StringResources.Mask_Label.Id),
                 new LocalizedItem(operationsLayoutControlItem, StringResources.SettingsProject_OperationsLabel.Id),
                 new LocalizedItem(seamsLayoutControlItem, StringResources.SettingsProject_SeamsLabel.Id),
 

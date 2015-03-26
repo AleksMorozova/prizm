@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NHibernate.Transform;
+using Prizm.Main.Forms.Notifications.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +10,47 @@ namespace Prizm.Main.Forms.Notifications.Data
 {
     public class DuplicateLoginLoader : DataNotificationLoader
     {
-                // Methods
-        public DuplicateLoginLoader(NotificationManager manager)
-            : base(manager)
+        class DuplicateLoginResultTransformer : IResultTransformer
+        {
+
+            public System.Collections.IList TransformList(System.Collections.IList collection)
+            {
+                return collection;
+            }
+
+            public object TransformTuple(object[] tuple, string[] aliases)
+            {
+                return DuplicateLoginManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), "");
+            }
+            public Guid GetId(object[] tuple)
+            {
+                return (Guid)tuple[0];
+            }
+
+            public string GetOwnerName(object[] tuple)
+            {
+                return tuple[1].ToString() + ": " + tuple[2].ToString() + " " + tuple[3].ToString();
+            }
+        }
+        
+        // Methods
+        public DuplicateLoginLoader()
+            : base(new DuplicateLoginResultTransformer())
         {
 
         }
 
+        #region --- building sql... ---
+
+        protected string sqlCache = null;
+
         public override string BuildSql()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(
-                @"  select 
+            if (sqlCache == null)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(
+                    @"  select 
                                 id,
                                 login,
                                 firstName,
@@ -27,26 +58,11 @@ namespace Prizm.Main.Forms.Notifications.Data
                                 from [User]
                                 where login  in 
                                 (select login from [User] group by login having count(*) >1)");
-            return sb.ToString();
+                sqlCache = sb.ToString();
+            }
+            return sqlCache;
         }
+        #endregion // --- building sql... ---
 
-        public override Guid GetId(object[] tuple)
-        {
-            return (Guid)tuple[0];
-        }
-
-        public override string GetOwnerName(object[] tuple)
-        {
-            return tuple[1].ToString() + ": " + tuple[2].ToString() + " " + tuple[3].ToString();
-        }
-
-        public override DateTime GetDateToOccur(object[] tuple)
-        {
-            return DateTime.Now;
-        }
-        public override float GetTimeToOccur(object[] tuple)
-        {
-            return (float)0;
-        }
     }
 }

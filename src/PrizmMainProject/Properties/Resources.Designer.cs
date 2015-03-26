@@ -125,6 +125,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Созданные.
+        /// </summary>
+        internal static string Audit_CheckCreated {
+            get {
+                return ResourceManager.GetString("Audit_CheckCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удаленные.
+        /// </summary>
+        internal static string Audit_CheckDeleted {
+            get {
+                return ResourceManager.GetString("Audit_CheckDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактированные.
+        /// </summary>
+        internal static string Audit_CheckEdited {
+            get {
+                return ResourceManager.GetString("Audit_CheckEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Импортированные.
+        /// </summary>
+        internal static string Audit_CheckImported {
+            get {
+                return ResourceManager.GetString("Audit_CheckImported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Номер элемента.
         /// </summary>
         internal static string Audit_RadioPeriod {
@@ -1296,6 +1332,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не все сварочные операции были закончены.
+        /// </summary>
+        internal static string JointNewNotAllWeldOperationCompleted {
+            get {
+                return ResourceManager.GetString("JointNewNotAllWeldOperationCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сварочные операции.
+        /// </summary>
+        internal static string JointNewNotAllWeldOperationCompletedHeader {
+            get {
+                return ResourceManager.GetString("JointNewNotAllWeldOperationCompletedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Стык.
         /// </summary>
         internal static string JointNewXtraForm_Title {
@@ -2238,90 +2292,54 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Сертификат просрочен.
         /// </summary>
-        internal static string Notification_ExpiredCertificate_Critical {
+        internal static string Notification_ExpiredInspectorCertificate_Critical {
             get {
-                return ResourceManager.GetString("Notification_ExpiredCertificate_Critical", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredInspectorCertificate_Critical", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Заканчивается срок сертификата.
         /// </summary>
-        internal static string Notification_ExpiredCertificate_Warning {
+        internal static string Notification_ExpiredInspectorCertificate_Warning {
             get {
-                return ResourceManager.GetString("Notification_ExpiredCertificate_Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationMeters_Critical {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Critical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationMeters_Warning {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationMeters_Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationPipes_Critical {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Critical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationPipes_Warning {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationPipes_Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationTons_Critical {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Critical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
-        /// </summary>
-        internal static string Notification_NotRequiredControlOperationTons_Warning {
-            get {
-                return ResourceManager.GetString("Notification_NotRequiredControlOperationTons_Warning", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredInspectorCertificate_Warning", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Сообщение об окончании срока: Сертификат просрочен.
         /// </summary>
-        internal static string Notification_WelderCertificateExpired_Critical {
+        internal static string Notification_ExpiredWelderCertificate_Critical {
             get {
-                return ResourceManager.GetString("Notification_WelderCertificateExpired_Critical", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredWelderCertificate_Critical", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Заканчивается срок сертификата.
         /// </summary>
-        internal static string Notification_WelderCertificateExpired_Warning {
+        internal static string Notification_ExpiredWelderCertificate_Warning {
             get {
-                return ResourceManager.GetString("Notification_WelderCertificateExpired_Warning", resourceCulture);
+                return ResourceManager.GetString("Notification_ExpiredWelderCertificate_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredInspectionOperation_Critical {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredInspectionOperation_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_NotRequiredInspectionOperation_Warning {
+            get {
+                return ResourceManager.GetString("Notification_NotRequiredInspectionOperation_Warning", resourceCulture);
             }
         }
         

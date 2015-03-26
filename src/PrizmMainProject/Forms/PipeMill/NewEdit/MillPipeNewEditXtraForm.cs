@@ -32,6 +32,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors.DXErrorProvider;
 using Prizm.Main.Languages;
 using DevExpress.Data;
+using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -128,14 +129,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void MillPipeNewEditXtraForm_Load(object sender, EventArgs e)
         {
-            foreach(var item in EnumWrapper<PipeTestResultStatus>.EnumerateItems(skip0: true))
-            {
-                localizedAllPipeTestResultStatus.Add(item.Item2);
-            }
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems())
-            {
-                localizedAllPipeMillStatus.Add(item.Item2);
-            }
+            EnumWrapper<PipeTestResultStatus>.LoadItems(localizedAllPipeTestResultStatus, skip0: true);
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
+
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -602,7 +598,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         /// <summary>
-        /// Check if it possible to change size type if yes refreshes list of required pipe test results if size type was changed
+        /// Check if it possible to change size type if yes refreshes list of required pipe test result if size type was changed
         /// </summary>
         private void pipeSize_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {

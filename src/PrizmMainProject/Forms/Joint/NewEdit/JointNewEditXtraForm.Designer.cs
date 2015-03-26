@@ -228,7 +228,7 @@
             this.searchButton.Size = new System.Drawing.Size(266, 22);
             this.searchButton.StyleController = this.newJointLayoutControl;
             this.searchButton.TabIndex = 18;
-            this.searchButton.Text = "Найти и открыть для редактирования";
+            this.searchButton.Text = "На&йти и открыть для редактирования";
             // 
             // searchNumber
             // 
@@ -634,7 +634,8 @@
             this.secondJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumberOfConnectors", "Количество коннекторов"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("AvailableDiameters", "Доступные диаметры")});
             this.secondJointElement.Properties.NullText = "";
             this.secondJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.secondJointElement.Size = new System.Drawing.Size(268, 20);
@@ -657,7 +658,8 @@
             this.firstJointElement.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Number", "Номер"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PartTypeDescription", "Тип"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ConnectorsCount", "Свободные коннекторы (диаметры)")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NumberOfConnectors", "Количество коннекторов"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("AvailableDiameters", "Доступные диаметры")});
             this.firstJointElement.Properties.NullText = "";
             this.firstJointElement.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.firstJointElement.Size = new System.Drawing.Size(258, 20);

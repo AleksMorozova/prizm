@@ -48,13 +48,16 @@ namespace Prizm.Main.Forms.Parts.Search
             viewModel = (PartSearchViewModel)Program.Kernel.GetService(typeof(PartSearchViewModel));
             BindCommands();
             BindToViewModel();
-            foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0: true))
-            {
-                type.Properties.Items.Add(item.Item1, item.Item2, CheckState.Checked, enabled:true);
-                localizedPartTypes.Add(item.Item2);
-            }
+
+            EnumWrapper<PartType>.LoadItems(type.Properties.Items, CheckState.Checked, enabled:true, skip0: true);
+            EnumWrapper<PartType>.LoadItems(localizedPartTypes, skip0: true);
+
             RefreshTypes();
-            localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
+
+            if (localizedSearchResultGroup.Count == 0)
+            {
+                localizedSearchResultGroup.Add(searchResultLayoutGroup.Text);
+            }
         }
 
         private void BindToViewModel()
