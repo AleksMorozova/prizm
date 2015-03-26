@@ -129,6 +129,11 @@ case TypeNotification.ExpiredInspectorCertificate:
             viewModel = null;
         }
 
+        private void NotificationXtraForm_Activated(object sender, EventArgs e)
+        {
+            gridControlMessage.DataSource = NotificationService.Instance.Notifications;
+        }
+
 
 
 
