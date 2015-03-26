@@ -1480,4 +1480,18 @@
   <data name="JointNewNotAllWeldOperationCompletedHeader" xml:space="preserve">
     <value>Сварочные операции</value>
   </data>
+  <data name="Message_DeactivationConnectedComponent" xml:space="preserve">
+    <value>Соединенный компонент не может быть деактивирован.
+Для деактивации компонента необходимо его отсоеденить.</value>
+  </data>
+  <data name="Message_DeactivationConnectedComponentHeader" xml:space="preserve">
+    <value>Комплектующее имеет соединение</value>
+  </data>
+  <data name="Message_DeactivationConnectedSpool" xml:space="preserve">
+    <value>Соединенная катушка не может быть деактивирована. 
+Для деактивации катушки необходимо ее отсоеденить.</value>
+  </data>
+  <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
+    <value>Катушка имеет соединение</value>
+  </data>
 </root>
