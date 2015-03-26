@@ -93,70 +93,84 @@
             // 
             this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.pipes")});
+            this.xrLabel15.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(650.25F, 0F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel15.SizeF = new System.Drawing.SizeF(86.75F, 23F);
+            this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.Text = "xrLabel15";
             // 
             // xrLabel14
             // 
             this.xrLabel14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.weight")});
+            this.xrLabel14.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(547.1335F, 0F);
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel14.SizeF = new System.Drawing.SizeF(103.1165F, 23F);
+            this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.Text = "xrLabel14";
             // 
             // xrLabel12
             // 
             this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.railcarCertificate")});
+            this.xrLabel12.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(352.641F, 0F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel12.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.Text = "xrLabel12";
             // 
             // xrLabel11
             // 
             this.xrLabel11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.railcarDestination")});
+            this.xrLabel11.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(251.0661F, 0F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(101.5749F, 23F);
+            this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.Text = "xrLabel11";
             // 
             // xrLabel4
             // 
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.railcarNumber")});
+            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(139.0747F, 0F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(111.9914F, 23F);
+            this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.Text = "xrLabel4";
             // 
             // xrLabel3
             // 
             this.xrLabel3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.releaseNote")});
+            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(139.0747F, 23F);
+            this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.Text = "xrLabel3";
             // 
             // xrLabel13
             // 
             this.xrLabel13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.length")});
+            this.xrLabel13.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(452.641F, 0F);
             this.xrLabel13.Name = "xrLabel13";
             this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(94.49243F, 23F);
+            this.xrLabel13.StylePriority.UseFont = false;
             this.xrLabel13.Text = "xrLabel13";
             // 
             // TopMargin

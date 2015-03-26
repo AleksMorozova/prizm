@@ -76,82 +76,93 @@
             this.pipeType,
             this.heatNumber,
             this.length});
-            this.Detail.HeightF = 26.00001F;
+            this.Detail.HeightF = 22F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.StyleName = "DataField";
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.Detail.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.Detail_BeforePrint);
             // 
             // inspectionStatus
             // 
             this.inspectionStatus.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.status")});
+            this.inspectionStatus.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.inspectionStatus.LocationFloat = new DevExpress.Utils.PointFloat(655.2914F, 0F);
             this.inspectionStatus.Multiline = true;
             this.inspectionStatus.Name = "inspectionStatus";
             this.inspectionStatus.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.inspectionStatus.SizeF = new System.Drawing.SizeF(92.70825F, 26.00001F);
+            this.inspectionStatus.SizeF = new System.Drawing.SizeF(92.70825F, 22F);
+            this.inspectionStatus.StylePriority.UseFont = false;
             this.inspectionStatus.Text = "inspectionStatus";
             // 
             // pipeNumber
             // 
             this.pipeNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.number")});
+            this.pipeNumber.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.pipeNumber.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pipeNumber.Multiline = true;
             this.pipeNumber.Name = "pipeNumber";
             this.pipeNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeNumber.SizeF = new System.Drawing.SizeF(176.4731F, 26F);
+            this.pipeNumber.SizeF = new System.Drawing.SizeF(176.4731F, 22F);
             this.pipeNumber.StyleName = "DataField";
+            this.pipeNumber.StylePriority.UseFont = false;
             this.pipeNumber.Text = "pipeNumber";
             // 
             // wallThickness
             // 
             this.wallThickness.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.wallThickness")});
+            this.wallThickness.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.wallThickness.LocationFloat = new DevExpress.Utils.PointFloat(437.5537F, 0F);
             this.wallThickness.Multiline = true;
             this.wallThickness.Name = "wallThickness";
             this.wallThickness.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.wallThickness.SizeF = new System.Drawing.SizeF(97.39648F, 26F);
+            this.wallThickness.SizeF = new System.Drawing.SizeF(97.39648F, 22F);
             this.wallThickness.StyleName = "DataField";
+            this.wallThickness.StylePriority.UseFont = false;
             this.wallThickness.Text = "wallThickness";
             // 
             // pipeType
             // 
             this.pipeType.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.type")});
+            this.pipeType.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.pipeType.LocationFloat = new DevExpress.Utils.PointFloat(176.4732F, 0F);
             this.pipeType.Multiline = true;
             this.pipeType.Name = "pipeType";
             this.pipeType.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeType.SizeF = new System.Drawing.SizeF(167.0066F, 26F);
+            this.pipeType.SizeF = new System.Drawing.SizeF(167.0066F, 22F);
             this.pipeType.StyleName = "DataField";
+            this.pipeType.StylePriority.UseFont = false;
             this.pipeType.Text = "pipeType";
             // 
             // heatNumber
             // 
             this.heatNumber.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.Heat_number")});
+            this.heatNumber.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.heatNumber.LocationFloat = new DevExpress.Utils.PointFloat(534.9502F, 0F);
             this.heatNumber.Multiline = true;
             this.heatNumber.Name = "heatNumber";
             this.heatNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.heatNumber.SizeF = new System.Drawing.SizeF(120.3413F, 26.00001F);
+            this.heatNumber.SizeF = new System.Drawing.SizeF(120.3413F, 22F);
             this.heatNumber.StyleName = "DataField";
+            this.heatNumber.StylePriority.UseFont = false;
             this.heatNumber.Text = "heatNumber";
             // 
             // length
             // 
             this.length.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.length")});
+            this.length.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.length.LocationFloat = new DevExpress.Utils.PointFloat(343.4798F, 0F);
             this.length.Multiline = true;
             this.length.Name = "length";
             this.length.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.length.SizeF = new System.Drawing.SizeF(94.07391F, 26F);
+            this.length.SizeF = new System.Drawing.SizeF(94.07391F, 22F);
             this.length.StyleName = "DataField";
+            this.length.StylePriority.UseFont = false;
             this.length.Text = "length";
             // 
             // TopMargin
