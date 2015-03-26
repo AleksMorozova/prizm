@@ -48,34 +48,46 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
             this.pageHeaderBand1 = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel36 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel34 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel35 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel39 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel38 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel44 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.BARRepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.productionDateLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.BARAfterRepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.BARAcceptedLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.BARRejectedLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.COALabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.BARLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.EXCLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.EXCRepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.EXCAfterRepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.EXCAcceptedLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.EXCRejectedLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.COARepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.COAAfterRepairLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.COAAcceptedLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.COARejectedLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.pageFooterBand = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
+            this.generalReportHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -259,176 +271,318 @@
             // pageHeaderBand1
             // 
             this.pageHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel20,
+            this.xrLabel16,
+            this.xrLabel15,
+            this.xrLabel13,
+            this.xrLabel9,
+            this.xrLabel8,
+            this.xrLabel6,
+            this.xrLabel5,
+            this.xrLabel4,
+            this.xrLabel3,
+            this.xrLabel2,
+            this.xrLabel1,
             this.pageHeaderLabel});
             this.pageHeaderBand1.HeightF = 21.5F;
             this.pageHeaderBand1.Name = "pageHeaderBand1";
             // 
-            // xrLabel7
+            // xrLabel20
             // 
-            this.xrLabel7.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(183.964F, 23F);
-            this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(94.0833F, 57.87499F);
-            this.xrLabel7.StyleName = "FieldCaption";
-            this.xrLabel7.StylePriority.UseForeColor = false;
-            this.xrLabel7.Text = "Временный брак ";
+            this.xrLabel20.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(948.2664F, 0F);
+            this.xrLabel20.Name = "xrLabel20";
+            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(84.73346F, 21.5F);
+            this.xrLabel20.StyleName = "Title";
+            this.xrLabel20.StylePriority.UseForeColor = false;
             // 
-            // xrLabel10
+            // xrLabel16
             // 
-            this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.00001F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(111.8989F, 57.87499F);
-            this.xrLabel10.StyleName = "FieldCaption";
-            this.xrLabel10.StylePriority.UseForeColor = false;
-            this.xrLabel10.Text = "Дата производства";
+            this.xrLabel16.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 0F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(81.9585F, 21.5F);
+            this.xrLabel16.StyleName = "Title";
+            this.xrLabel16.StylePriority.UseForeColor = false;
             // 
-            // xrLabel11
+            // xrLabel15
             // 
-            this.xrLabel11.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(278.0472F, 23F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(70.50015F, 57.875F);
-            this.xrLabel11.StyleName = "FieldCaption";
-            this.xrLabel11.StylePriority.UseForeColor = false;
-            this.xrLabel11.Text = "Принято после ремонта";
+            this.xrLabel15.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(772.2245F, 0F);
+            this.xrLabel15.Name = "xrLabel15";
+            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(94.08337F, 21.5F);
+            this.xrLabel15.StyleName = "Title";
+            this.xrLabel15.StylePriority.UseForeColor = false;
             // 
-            // xrLabel12
+            // xrLabel13
             // 
-            this.xrLabel12.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(111.8989F, 23F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(72.06506F, 57.87498F);
-            this.xrLabel12.StyleName = "FieldCaption";
-            this.xrLabel12.StylePriority.UseForeColor = false;
-            this.xrLabel12.Text = "Принято";
+            this.xrLabel13.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(700.1597F, 0F);
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(72.06488F, 21.5F);
+            this.xrLabel13.StyleName = "Title";
+            this.xrLabel13.StylePriority.UseForeColor = false;
             // 
-            // xrLabel14
+            // xrLabel9
             // 
-            this.xrLabel14.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(348.5474F, 23.00002F);
-            this.xrLabel14.Name = "xrLabel14";
-            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(57.48178F, 57.87498F);
-            this.xrLabel14.StyleName = "FieldCaption";
-            this.xrLabel14.StylePriority.UseForeColor = false;
-            this.xrLabel14.Text = "Брак";
+            this.xrLabel9.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(642.6776F, 0F);
+            this.xrLabel9.Name = "xrLabel9";
+            this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(57.48199F, 21.5F);
+            this.xrLabel9.StyleName = "Title";
+            this.xrLabel9.StylePriority.UseForeColor = false;
             // 
-            // xrLabel36
+            // xrLabel8
             // 
-            this.xrLabel36.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 0F);
-            this.xrLabel36.Name = "xrLabel36";
-            this.xrLabel36.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel36.SizeF = new System.Drawing.SizeF(332.8405F, 23F);
-            this.xrLabel36.Text = "COA (Внутреннее покрытие)";
+            this.xrLabel8.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(572.1776F, 0F);
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(70.50024F, 21.5F);
+            this.xrLabel8.StyleName = "Title";
+            this.xrLabel8.StylePriority.UseForeColor = false;
             // 
-            // xrLabel34
+            // xrLabel6
             // 
-            this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(111.8989F, 0F);
-            this.xrLabel34.Name = "xrLabel34";
-            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel34.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
-            this.xrLabel34.Text = "BAR (Производство готовой трубы)";
+            this.xrLabel6.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(478.0942F, 0F);
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(94.08313F, 21.5F);
+            this.xrLabel6.StyleName = "Title";
+            this.xrLabel6.StylePriority.UseForeColor = false;
             // 
-            // xrLabel35
+            // xrLabel5
             // 
-            this.xrLabel35.LocationFloat = new DevExpress.Utils.PointFloat(406.0292F, 0F);
-            this.xrLabel35.Name = "xrLabel35";
-            this.xrLabel35.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel35.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
-            this.xrLabel35.Text = "EXC (Наружнее покрытие)";
+            this.xrLabel5.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(406.0292F, 0F);
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(72.06503F, 21.5F);
+            this.xrLabel5.StyleName = "Title";
+            this.xrLabel5.StylePriority.UseForeColor = false;
             // 
-            // xrLabel40
+            // xrLabel4
             // 
-            this.xrLabel40.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(478.0942F, 23.00002F);
-            this.xrLabel40.Name = "xrLabel40";
-            this.xrLabel40.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel40.SizeF = new System.Drawing.SizeF(94.08325F, 57.87502F);
-            this.xrLabel40.StyleName = "FieldCaption";
-            this.xrLabel40.StylePriority.UseForeColor = false;
-            this.xrLabel40.Text = "Временный брак ";
+            this.xrLabel4.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(348.5474F, 0F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(57.48178F, 21.5F);
+            this.xrLabel4.StyleName = "Title";
+            this.xrLabel4.StylePriority.UseForeColor = false;
             // 
-            // xrLabel39
+            // xrLabel3
             // 
-            this.xrLabel39.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(572.1776F, 23.00001F);
-            this.xrLabel39.Name = "xrLabel39";
-            this.xrLabel39.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel39.SizeF = new System.Drawing.SizeF(70.50015F, 57.875F);
-            this.xrLabel39.StyleName = "FieldCaption";
-            this.xrLabel39.StylePriority.UseForeColor = false;
-            this.xrLabel39.Text = "Принято после ремонта";
+            this.xrLabel3.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(278.0473F, 0F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(70.50009F, 21.5F);
+            this.xrLabel3.StyleName = "Title";
+            this.xrLabel3.StylePriority.UseForeColor = false;
             // 
-            // xrLabel38
+            // xrLabel2
             // 
-            this.xrLabel38.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel38.LocationFloat = new DevExpress.Utils.PointFloat(406.0292F, 23.00002F);
-            this.xrLabel38.Name = "xrLabel38";
-            this.xrLabel38.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel38.SizeF = new System.Drawing.SizeF(72.06506F, 57.87502F);
-            this.xrLabel38.StyleName = "FieldCaption";
-            this.xrLabel38.StylePriority.UseForeColor = false;
-            this.xrLabel38.Text = "Принято";
+            this.xrLabel2.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(183.964F, 0F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(94.0833F, 21.5F);
+            this.xrLabel2.StyleName = "Title";
+            this.xrLabel2.StylePriority.UseForeColor = false;
             // 
-            // xrLabel37
+            // xrLabel1
             // 
-            this.xrLabel37.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel37.LocationFloat = new DevExpress.Utils.PointFloat(642.6777F, 23.00002F);
-            this.xrLabel37.Name = "xrLabel37";
-            this.xrLabel37.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel37.SizeF = new System.Drawing.SizeF(57.48181F, 57.875F);
-            this.xrLabel37.StyleName = "FieldCaption";
-            this.xrLabel37.StylePriority.UseForeColor = false;
-            this.xrLabel37.Text = "Брак";
+            this.xrLabel1.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(111.8989F, 0F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(72.06506F, 21.5F);
+            this.xrLabel1.StyleName = "Title";
+            this.xrLabel1.StylePriority.UseForeColor = false;
             // 
-            // xrLabel44
+            // pageHeaderLabel
             // 
-            this.xrLabel44.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(772.2246F, 23.00002F);
-            this.xrLabel44.Name = "xrLabel44";
-            this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel44.SizeF = new System.Drawing.SizeF(94.08325F, 57.87497F);
-            this.xrLabel44.StyleName = "FieldCaption";
-            this.xrLabel44.StylePriority.UseForeColor = false;
-            this.xrLabel44.Text = "Временный брак ";
+            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pageHeaderLabel.Name = "pageHeaderLabel";
+            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(111.8989F, 21.5F);
+            this.pageHeaderLabel.StyleName = "Title";
+            this.pageHeaderLabel.StylePriority.UseForeColor = false;
             // 
-            // xrLabel43
+            // BARRepairLabel
             // 
-            this.xrLabel43.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 23.00002F);
-            this.xrLabel43.Name = "xrLabel43";
-            this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel43.SizeF = new System.Drawing.SizeF(81.9585F, 57.875F);
-            this.xrLabel43.StyleName = "FieldCaption";
-            this.xrLabel43.StylePriority.UseForeColor = false;
-            this.xrLabel43.Text = "Принято после ремонта";
+            this.BARRepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.BARRepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(183.964F, 23F);
+            this.BARRepairLabel.Name = "BARRepairLabel";
+            this.BARRepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.BARRepairLabel.SizeF = new System.Drawing.SizeF(94.0833F, 57.87499F);
+            this.BARRepairLabel.StyleName = "FieldCaption";
+            this.BARRepairLabel.StylePriority.UseForeColor = false;
+            this.BARRepairLabel.Text = "Временный брак ";
             // 
-            // xrLabel42
+            // productionDateLabel
             // 
-            this.xrLabel42.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 23.00002F);
-            this.xrLabel42.Name = "xrLabel42";
-            this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel42.SizeF = new System.Drawing.SizeF(72.06506F, 57.87497F);
-            this.xrLabel42.StyleName = "FieldCaption";
-            this.xrLabel42.StylePriority.UseForeColor = false;
-            this.xrLabel42.Text = "Принято";
+            this.productionDateLabel.ForeColor = System.Drawing.Color.Black;
+            this.productionDateLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.00001F);
+            this.productionDateLabel.Name = "productionDateLabel";
+            this.productionDateLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.productionDateLabel.SizeF = new System.Drawing.SizeF(111.8989F, 57.87499F);
+            this.productionDateLabel.StyleName = "FieldCaption";
+            this.productionDateLabel.StylePriority.UseForeColor = false;
+            this.productionDateLabel.Text = "Дата производства";
             // 
-            // xrLabel41
+            // BARAfterRepairLabel
             // 
-            this.xrLabel41.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel41.LocationFloat = new DevExpress.Utils.PointFloat(948.2664F, 23.00008F);
-            this.xrLabel41.Name = "xrLabel41";
-            this.xrLabel41.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel41.SizeF = new System.Drawing.SizeF(84.73364F, 57.87497F);
-            this.xrLabel41.StyleName = "FieldCaption";
-            this.xrLabel41.StylePriority.UseForeColor = false;
-            this.xrLabel41.Text = "Брак";
+            this.BARAfterRepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.BARAfterRepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(278.0472F, 23F);
+            this.BARAfterRepairLabel.Name = "BARAfterRepairLabel";
+            this.BARAfterRepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.BARAfterRepairLabel.SizeF = new System.Drawing.SizeF(70.50015F, 57.875F);
+            this.BARAfterRepairLabel.StyleName = "FieldCaption";
+            this.BARAfterRepairLabel.StylePriority.UseForeColor = false;
+            this.BARAfterRepairLabel.Text = "Принято после ремонта";
+            // 
+            // BARAcceptedLabel
+            // 
+            this.BARAcceptedLabel.ForeColor = System.Drawing.Color.Black;
+            this.BARAcceptedLabel.LocationFloat = new DevExpress.Utils.PointFloat(111.8989F, 23F);
+            this.BARAcceptedLabel.Name = "BARAcceptedLabel";
+            this.BARAcceptedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.BARAcceptedLabel.SizeF = new System.Drawing.SizeF(72.06506F, 57.87498F);
+            this.BARAcceptedLabel.StyleName = "FieldCaption";
+            this.BARAcceptedLabel.StylePriority.UseForeColor = false;
+            this.BARAcceptedLabel.Text = "Принято";
+            // 
+            // BARRejectedLabel
+            // 
+            this.BARRejectedLabel.ForeColor = System.Drawing.Color.Black;
+            this.BARRejectedLabel.LocationFloat = new DevExpress.Utils.PointFloat(348.5474F, 23.00002F);
+            this.BARRejectedLabel.Name = "BARRejectedLabel";
+            this.BARRejectedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.BARRejectedLabel.SizeF = new System.Drawing.SizeF(57.48178F, 57.87498F);
+            this.BARRejectedLabel.StyleName = "FieldCaption";
+            this.BARRejectedLabel.StylePriority.UseForeColor = false;
+            this.BARRejectedLabel.Text = "Брак";
+            // 
+            // COALabel
+            // 
+            this.COALabel.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 0F);
+            this.COALabel.Name = "COALabel";
+            this.COALabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.COALabel.SizeF = new System.Drawing.SizeF(332.8405F, 23F);
+            this.COALabel.Text = "COA (Внутреннее покрытие)";
+            // 
+            // BARLabel
+            // 
+            this.BARLabel.LocationFloat = new DevExpress.Utils.PointFloat(111.8989F, 0F);
+            this.BARLabel.Name = "BARLabel";
+            this.BARLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.BARLabel.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
+            this.BARLabel.Text = "BAR (Производство готовой трубы)";
+            // 
+            // EXCLabel
+            // 
+            this.EXCLabel.LocationFloat = new DevExpress.Utils.PointFloat(406.0292F, 0F);
+            this.EXCLabel.Name = "EXCLabel";
+            this.EXCLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.EXCLabel.SizeF = new System.Drawing.SizeF(294.1303F, 23F);
+            this.EXCLabel.Text = "EXC (Наружнее покрытие)";
+            // 
+            // EXCRepairLabel
+            // 
+            this.EXCRepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.EXCRepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(478.0942F, 23.00002F);
+            this.EXCRepairLabel.Name = "EXCRepairLabel";
+            this.EXCRepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.EXCRepairLabel.SizeF = new System.Drawing.SizeF(94.08325F, 57.87502F);
+            this.EXCRepairLabel.StyleName = "FieldCaption";
+            this.EXCRepairLabel.StylePriority.UseForeColor = false;
+            this.EXCRepairLabel.Text = "Временный брак ";
+            // 
+            // EXCAfterRepairLabel
+            // 
+            this.EXCAfterRepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.EXCAfterRepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(572.1776F, 23.00001F);
+            this.EXCAfterRepairLabel.Name = "EXCAfterRepairLabel";
+            this.EXCAfterRepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.EXCAfterRepairLabel.SizeF = new System.Drawing.SizeF(70.50015F, 57.875F);
+            this.EXCAfterRepairLabel.StyleName = "FieldCaption";
+            this.EXCAfterRepairLabel.StylePriority.UseForeColor = false;
+            this.EXCAfterRepairLabel.Text = "Принято после ремонта";
+            // 
+            // EXCAcceptedLabel
+            // 
+            this.EXCAcceptedLabel.ForeColor = System.Drawing.Color.Black;
+            this.EXCAcceptedLabel.LocationFloat = new DevExpress.Utils.PointFloat(406.0292F, 23.00002F);
+            this.EXCAcceptedLabel.Name = "EXCAcceptedLabel";
+            this.EXCAcceptedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.EXCAcceptedLabel.SizeF = new System.Drawing.SizeF(72.06506F, 57.87502F);
+            this.EXCAcceptedLabel.StyleName = "FieldCaption";
+            this.EXCAcceptedLabel.StylePriority.UseForeColor = false;
+            this.EXCAcceptedLabel.Text = "Принято";
+            // 
+            // EXCRejectedLabel
+            // 
+            this.EXCRejectedLabel.ForeColor = System.Drawing.Color.Black;
+            this.EXCRejectedLabel.LocationFloat = new DevExpress.Utils.PointFloat(642.6777F, 23.00002F);
+            this.EXCRejectedLabel.Name = "EXCRejectedLabel";
+            this.EXCRejectedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.EXCRejectedLabel.SizeF = new System.Drawing.SizeF(57.48181F, 57.875F);
+            this.EXCRejectedLabel.StyleName = "FieldCaption";
+            this.EXCRejectedLabel.StylePriority.UseForeColor = false;
+            this.EXCRejectedLabel.Text = "Брак";
+            // 
+            // COARepairLabel
+            // 
+            this.COARepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.COARepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(772.2246F, 23.00002F);
+            this.COARepairLabel.Name = "COARepairLabel";
+            this.COARepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.COARepairLabel.SizeF = new System.Drawing.SizeF(94.08325F, 57.87497F);
+            this.COARepairLabel.StyleName = "FieldCaption";
+            this.COARepairLabel.StylePriority.UseForeColor = false;
+            this.COARepairLabel.Text = "Временный брак ";
+            // 
+            // COAAfterRepairLabel
+            // 
+            this.COAAfterRepairLabel.ForeColor = System.Drawing.Color.Black;
+            this.COAAfterRepairLabel.LocationFloat = new DevExpress.Utils.PointFloat(866.3079F, 23.00002F);
+            this.COAAfterRepairLabel.Name = "COAAfterRepairLabel";
+            this.COAAfterRepairLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.COAAfterRepairLabel.SizeF = new System.Drawing.SizeF(81.9585F, 57.875F);
+            this.COAAfterRepairLabel.StyleName = "FieldCaption";
+            this.COAAfterRepairLabel.StylePriority.UseForeColor = false;
+            this.COAAfterRepairLabel.Text = "Принято после ремонта";
+            // 
+            // COAAcceptedLabel
+            // 
+            this.COAAcceptedLabel.ForeColor = System.Drawing.Color.Black;
+            this.COAAcceptedLabel.LocationFloat = new DevExpress.Utils.PointFloat(700.1595F, 23.00002F);
+            this.COAAcceptedLabel.Name = "COAAcceptedLabel";
+            this.COAAcceptedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.COAAcceptedLabel.SizeF = new System.Drawing.SizeF(72.06506F, 57.87497F);
+            this.COAAcceptedLabel.StyleName = "FieldCaption";
+            this.COAAcceptedLabel.StylePriority.UseForeColor = false;
+            this.COAAcceptedLabel.Text = "Принято";
+            // 
+            // COARejectedLabel
+            // 
+            this.COARejectedLabel.ForeColor = System.Drawing.Color.Black;
+            this.COARejectedLabel.LocationFloat = new DevExpress.Utils.PointFloat(948.2664F, 23.00008F);
+            this.COARejectedLabel.Name = "COARejectedLabel";
+            this.COARejectedLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.COARejectedLabel.SizeF = new System.Drawing.SizeF(84.73364F, 57.87497F);
+            this.COARejectedLabel.StyleName = "FieldCaption";
+            this.COARejectedLabel.StylePriority.UseForeColor = false;
+            this.COARejectedLabel.Text = "Брак";
             // 
             // pageFooterBand
             // 
@@ -462,7 +616,7 @@
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.reportDateTimeInfo,
-            this.xrLabel33});
+            this.generalReportHeaderLabel});
             this.reportHeaderBand1.HeightF = 48.29166F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             // 
@@ -479,16 +633,16 @@
             this.reportDateTimeInfo.StylePriority.UseTextAlignment = false;
             this.reportDateTimeInfo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
-            // xrLabel33
+            // generalReportHeaderLabel
             // 
-            this.xrLabel33.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(0F, 15.29166F);
-            this.xrLabel33.Name = "xrLabel33";
-            this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel33.SizeF = new System.Drawing.SizeF(1033F, 33F);
-            this.xrLabel33.StyleName = "Title";
-            this.xrLabel33.StylePriority.UseForeColor = false;
-            this.xrLabel33.Text = "Отчет по заводу";
+            this.generalReportHeaderLabel.ForeColor = System.Drawing.Color.Black;
+            this.generalReportHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 15.29166F);
+            this.generalReportHeaderLabel.Name = "generalReportHeaderLabel";
+            this.generalReportHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.generalReportHeaderLabel.SizeF = new System.Drawing.SizeF(1033F, 33F);
+            this.generalReportHeaderLabel.StyleName = "Title";
+            this.generalReportHeaderLabel.StylePriority.UseForeColor = false;
+            this.generalReportHeaderLabel.Text = "Отчет по заводу";
             // 
             // Title
             // 
@@ -534,34 +688,24 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel7,
-            this.xrLabel42,
-            this.xrLabel43,
-            this.xrLabel44,
-            this.xrLabel37,
-            this.xrLabel38,
-            this.xrLabel39,
-            this.xrLabel40,
-            this.xrLabel35,
-            this.xrLabel41,
-            this.xrLabel11,
-            this.xrLabel12,
-            this.xrLabel14,
-            this.xrLabel34,
-            this.xrLabel36,
-            this.xrLabel10});
+            this.BARRepairLabel,
+            this.COAAcceptedLabel,
+            this.COAAfterRepairLabel,
+            this.COARepairLabel,
+            this.EXCRejectedLabel,
+            this.EXCAcceptedLabel,
+            this.EXCAfterRepairLabel,
+            this.EXCRepairLabel,
+            this.EXCLabel,
+            this.COARejectedLabel,
+            this.BARAfterRepairLabel,
+            this.BARAcceptedLabel,
+            this.BARRejectedLabel,
+            this.BARLabel,
+            this.COALabel,
+            this.productionDateLabel});
             this.GroupHeader1.HeightF = 80.87505F;
             this.GroupHeader1.Name = "GroupHeader1";
-            // 
-            // pageHeaderLabel
-            // 
-            this.pageHeaderLabel.ForeColor = System.Drawing.Color.Black;
-            this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.pageHeaderLabel.Name = "pageHeaderLabel";
-            this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(1033F, 21.5F);
-            this.pageHeaderLabel.StyleName = "Title";
-            this.pageHeaderLabel.StylePriority.UseForeColor = false;
             // 
             // GeneralInformationXtraReport
             // 
@@ -598,11 +742,11 @@
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.PageHeaderBand pageHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
+        private DevExpress.XtraReports.UI.XRLabel BARRepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel productionDateLabel;
+        private DevExpress.XtraReports.UI.XRLabel BARAfterRepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel BARAcceptedLabel;
+        private DevExpress.XtraReports.UI.XRLabel BARRejectedLabel;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel19;
@@ -620,24 +764,36 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel33;
+        private DevExpress.XtraReports.UI.XRLabel generalReportHeaderLabel;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRControlStyle DataField;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel41;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel42;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel43;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel44;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel37;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel38;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel39;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel40;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel36;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel35;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel34;
+        private DevExpress.XtraReports.UI.XRLabel COARejectedLabel;
+        private DevExpress.XtraReports.UI.XRLabel COAAcceptedLabel;
+        private DevExpress.XtraReports.UI.XRLabel COAAfterRepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel COARepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel EXCRejectedLabel;
+        private DevExpress.XtraReports.UI.XRLabel EXCAcceptedLabel;
+        private DevExpress.XtraReports.UI.XRLabel EXCAfterRepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel EXCRepairLabel;
+        private DevExpress.XtraReports.UI.XRLabel COALabel;
+        private DevExpress.XtraReports.UI.XRLabel EXCLabel;
+        private DevExpress.XtraReports.UI.XRLabel BARLabel;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
         private DevExpress.XtraReports.UI.XRLabel pageHeaderLabel;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel20;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel15;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }
 }
