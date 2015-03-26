@@ -55,6 +55,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 && viewModel.EndJoint != null)
             {
                 PipelineTracing();
+
                 viewModel.ReportDataSource = tracingDataList;
             }
             else if (viewModel.ReportType == ReportType.UsedProductReport)
@@ -248,9 +249,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if (row.Field<string>("type") != "Component")
                 {
+                    PartType result = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type"));
                     row.SetField(
                         "typeTranslated",
-                        Resources.ResourceManager.GetString(row.Field<string>("type")));
+                        viewModel.localizedPartType[(int)((object)result) - 1]);
                 }
                 else
                 {
