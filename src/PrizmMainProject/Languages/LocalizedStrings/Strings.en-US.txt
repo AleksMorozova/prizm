@@ -2658,9 +2658,6 @@ UsedProductsXtraReport_ProductNumberLabel=Product number
 ;Тип изделия
 UsedProductsXtraReport_ProductTypeLabel=Product type
 
-
-
-
 ;Отчет по сварке (по дате)
 WeldDateXtraReport_WeldReportByDateHeader=Welding report by date
 
@@ -2681,8 +2678,6 @@ WeldDateXtraReport_FirstPartLengthHeader=First part length
 
 ;Длина второй части
 WeldDateXtraReport_SecondPartLengthHeader=Second part length
-
-
 
 ;Отчет по трубам на строительстве
 PipeConstructionXtraReport_PipeConstructionReportHeader=Pipe construction repor
@@ -2711,8 +2706,6 @@ PipeConstructionXtraReport_FirstJointHeader=First joint
 ;Второй стык
 PipeConstructionXtraReport_SecondJointHeader=Second joint
     
-
-
 ;Рапорт по отгрузке
 LoadingXtraReport_LoadingReportLabel=Shipment report
 
@@ -2736,9 +2729,6 @@ LoadingXtraReport_WeightCountLabel=Weight
 
 ;Кол-во труб
 LoadingXtraReport_PipesCountLabel=Pipes count
-
-
-
 
 ;Отчет по заводу
 GeneralInformationXtraReport_GeneralReportHeaderLabel=
@@ -2791,8 +2781,6 @@ GeneralInformationXtraReport_COAAfterRepairLabel=Accepted after repair
 ;Брак
 GeneralInformationXtraReport_COARejectedLabel=Rejected
 
-
-
 ;Приложение к отчету
 AdditionToTheReport_AdditionToTheReportHeaderLabel=Appendix to the report
 
@@ -2819,8 +2807,6 @@ AdditionToTheReport_PipesLengthLabel=Total length:
 
 ;Общий вес:
 AdditionToTheReport_PipesWeightLabel=Total weight:
-
-
 
 ;Трассировка трубопровода
 TracingReport_TracingPageHeaderXrLabel=Pipeline tracing
