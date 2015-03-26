@@ -56,53 +56,5 @@ namespace Prizm.Main.Forms.Reports.Incoming
         }
         #endregion // --- Localization ---
 
-        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            float maxHeightforDataLabel = 0;
-
-            foreach (var c in Detail.Controls)
-            {
-                if (c is XRLabel)
-                {
-                    if (((XRLabel)c).SizeF.Height > maxHeightforDataLabel)
-                    {
-                    
-                        maxHeightforDataLabel = ((XRLabel)c).SizeF.Height;
-                    }
-                }
-            }
-
-            float maxHeightforHeaderLabel = 0;
-
-            foreach (var c in groupHeader.Controls)
-            {
-                if (c is XRLabel)
-                {
-                    if (((XRLabel)c).SizeF.Height > maxHeightforHeaderLabel)
-                    {
-                        maxHeightforHeaderLabel = ((XRLabel)c).SizeF.Height;
-                    }
-                }
-            }
-
-            // set max height for all label
-            // for data label
-            foreach (var c in Detail.Controls)
-            {
-                if (c is XRLabel)
-                {
-                    ((XRLabel)c).SizeF = new SizeF(((XRLabel)c).SizeF.Width, maxHeightforDataLabel);
-                }
-            }
-
-            // for column header
-            foreach (var c in groupHeader.Controls)
-            {
-                if (c is XRLabel)
-                {
-                    ((XRLabel)c).SizeF = new SizeF(((XRLabel)c).SizeF.Width, maxHeightforHeaderLabel);
-                }
-            }
-        }
     }
 }
