@@ -1495,4 +1495,58 @@
   <data name="IncomingReportsXtraReport_ReportHeaderLabel" xml:space="preserve">
     <value>Отчет по входному контролю</value>
   </data>
+  <data name="MillReportsXtraReport_ActiveLabel" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="MillReportsXtraReport_DiameterLabel" xml:space="preserve">
+    <value>Диаметр</value>
+  </data>
+  <data name="MillReportsXtraReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="MillReportsXtraReport_LengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="MillReportsXtraReport_NumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="MillReportsXtraReport_PageHeaderLabel" xml:space="preserve">
+    <value>Отчет на заводе</value>
+  </data>
+  <data name="MillReportsXtraReport_PlateNumberLabel" xml:space="preserve">
+    <value>Номер листа</value>
+  </data>
+  <data name="MillReportsXtraReport_PurchaseOrderDateLabel" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="MillReportsXtraReport_PurchaseOrderNumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="MillReportsXtraReport_ReportHeaderLabel" xml:space="preserve">
+    <value>Отчет на заводе</value>
+  </data>
+  <data name="MillReportsXtraReport_StatusLabel" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="MillReportsXtraReport_TypeLabel" xml:space="preserve">
+    <value>Тип трубы</value>
+  </data>
+  <data name="MillReportsXtraReport_WallThicknessLabel" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="MillReportsXtraReport_WeightLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="UsedProductsXtraReport_GroupHeaderLabel" xml:space="preserve">
+    <value>Отчет по использованным изделиям</value>
+  </data>
+  <data name="UsedProductsXtraReport_PageHeaderLabel" xml:space="preserve">
+    <value>Отчет по использованным изделиям</value>
+  </data>
+  <data name="UsedProductsXtraReport_ProductNumberLabel" xml:space="preserve">
+    <value>Номер изделия</value>
+  </data>
+  <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
+    <value>Тип изделия</value>
+  </data>
 </root>

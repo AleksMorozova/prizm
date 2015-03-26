@@ -2585,3 +2585,58 @@ IncomingReportsXtraReport_HeatNumberLabel=Heat number
 
 ;Результат
 IncomingReportsXtraReport_InspectionStatusLabel=Result
+
+;Отчет на заводе
+MillReportsXtraReport_ReportHeaderLabel=Mill report
+ 
+;Отчет на заводе
+MillReportsXtraReport_PageHeaderLabel=Mill report
+       
+;Номер
+MillReportsXtraReport_NumberLabel=Number
+       
+;Тип трубы
+MillReportsXtraReport_TypeLabel=Pipe type
+
+;Статус
+MillReportsXtraReport_StatusLabel=Status
+
+;Дата
+MillReportsXtraReport_PurchaseOrderDateLabel=Date
+
+;Номер
+MillReportsXtraReport_PurchaseOrderNumberLabel=Number
+
+;Толщина
+MillReportsXtraReport_WallThicknessLabel=Wall thickness
+
+;Вес
+MillReportsXtraReport_WeightLabel=Weight
+
+;Длина
+MillReportsXtraReport_LengthLabel=Length
+
+;Диаметр
+MillReportsXtraReport_DiameterLabel=Diameter
+
+;Номер листа
+MillReportsXtraReport_PlateNumberLabel=Plate number
+
+;Номер плавки
+MillReportsXtraReport_HeatNumberLabel=Heat number
+
+;Состояние
+MillReportsXtraReport_ActiveLabel=Active
+
+;Отчет по использованным изделиям
+UsedProductsXtraReport_GroupHeaderLabel=Used products report
+
+;Отчет по использованным изделиям
+UsedProductsXtraReport_PageHeaderLabel=Used products report
+
+;Номер изделия
+UsedProductsXtraReport_ProductNumberLabel=Product number
+
+;Тип изделия
+UsedProductsXtraReport_ProductTypeLabel=Product type
+

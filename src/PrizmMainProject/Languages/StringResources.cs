@@ -1072,6 +1072,29 @@ namespace Prizm.Main.Languages
             Id = "MillReportsXtraReport_ActiveLabel",
             Description = "Состояние"
         };
+
+        //--- Used Product Report ---
+        public static StringResource UsedProductsXtraReport_GroupHeaderLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_GroupHeaderLabel",
+            Description = "Отчет по использованным изделиям"
+        };
+        public static StringResource UsedProductsXtraReport_PageHeaderLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_PageHeaderLabel",
+            Description = "Отчет по использованным изделиям"
+        };
+        public static StringResource UsedProductsXtraReport_ProductNumberLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_ProductNumberLabel",
+            Description = "Номер изделия"
+        };
+        public static StringResource UsedProductsXtraReport_ProductTypeLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_ProductTypeLabel",
+            Description = "Тип изделия"
+        };
+        
         #endregion IncomingInspectionReport
 
         #region Spool

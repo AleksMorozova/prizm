@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    public partial class MillReportsXtraReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class MillReportsXtraReport : DevExpress.XtraReports.UI.XtraReport, ILocalizable
     {
         public MillReportsXtraReport()
         {
