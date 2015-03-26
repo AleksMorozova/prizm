@@ -70,7 +70,7 @@ namespace Prizm.Domain.Entity.Construction
         /// Creates the PartData element on the corresponding jointing 
         /// element Part and respective joint Id 
         /// </summary>
-        /// <param name="part">Conected part of Joint</param>
+        /// <param name="part">Connected part of Joint</param>
         /// <param name="jointId">Guid of Joint</param>
         public PartData(Part part, Guid jointId)
             : this()

@@ -281,6 +281,7 @@ namespace Prizm.Main.Forms.Spool
             Spool.Pipe = new Pipe();
             Spool.ConstructionStatus = PartConstructionStatus.Pending;
             Spool.InspectionStatus = PartInspectionStatus.Pending;
+            Spool.IsAvailableToJoint = true;
             Pipe = new Pipe();
             if(this.FilesFormViewModel != null)
             {
