@@ -25,7 +25,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
 
         #region --- Localization ---
 
-        protected override List<LocalizedItem> CreateLocalizedItems()
+        protected List<LocalizedItem> CreateLocalizedItems()
         {
             return new List<LocalizedItem>()
             {

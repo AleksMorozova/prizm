@@ -1000,7 +1000,78 @@ namespace Prizm.Main.Languages
             Id = "IncomingReportsXtraReport_InspectionStatusLabel",
             Description = "Результат"
         };
-        
+
+        // --- MillReportsXtraReport ---
+        public static StringResource MillReportsXtraReport_ReportHeaderLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_ReportHeaderLabel",
+            Description = "Отчет на заводе"
+        };
+        public static StringResource MillReportsXtraReport_PageHeaderLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PageHeaderLabel",
+            Description = "Отчет на заводе"
+        };
+        public static StringResource MillReportsXtraReport_NumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_NumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource MillReportsXtraReport_TypeLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_TypeLabel",
+            Description = "Тип трубы"
+        };
+        public static StringResource MillReportsXtraReport_StatusLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_StatusLabel",
+            Description = "Статус"
+        };
+        public static StringResource MillReportsXtraReport_PurchaseOrderDateLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PurchaseOrderDateLabel",
+            Description = "Дата"
+        };
+        public static StringResource MillReportsXtraReport_PurchaseOrderNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PurchaseOrderNumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource MillReportsXtraReport_WallThicknessLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_WallThicknessLabel",
+            Description = "Толщина"
+        };
+        public static StringResource MillReportsXtraReport_WeightLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_WeightLabel",
+            Description = "Вес"
+        };
+        public static StringResource MillReportsXtraReport_LengthLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_LengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource MillReportsXtraReport_DiameterLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_DiameterLabel",
+            Description = "Диаметр"
+        };
+        public static StringResource MillReportsXtraReport_PlateNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PlateNumberLabel",
+            Description = "Номер листа"
+        };
+        public static StringResource MillReportsXtraReport_HeatNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource MillReportsXtraReport_ActiveLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_ActiveLabel",
+            Description = "Состояние"
+        };
         #endregion IncomingInspectionReport
 
         #region Spool
