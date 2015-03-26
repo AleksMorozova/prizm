@@ -25,15 +25,18 @@ namespace Prizm.Main.Forms.Settings.Inspections
         public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes, IReadOnlyList<PipeTest> pipeTests) 
         {
             this.CategoryTypes = CategoryTypes;
-            IList<PipeTest> list = pipeTests.Where(_ => _.IsActive).OrderBy(x => x.Code).ToList<PipeTest>();
+            IList<PipeTest> list = pipeTests.Where(_ => _.IsActive && !String.IsNullOrEmpty( _.Code)).OrderBy(x => x.Code).ToList<PipeTest>();
             RepeatTestCandidates = new BindingList<Domain.Entity.Setup.PipeTest>(list);
             pipeTest = new PipeTest();
 
             if (current != null)
             {
                 pipeTest.CustomShallowCopy(current);
-                PipeTest curr = RepeatTestCandidates.Where(s => s.Id == pipeTest.Id).SingleOrDefault();
-                RepeatTestCandidates.Remove(curr);
+                if (current.Id != Guid.Empty)
+                {
+                    PipeTest curr = RepeatTestCandidates.Where(s => s.Id == pipeTest.Id).SingleOrDefault();
+                    RepeatTestCandidates.Remove(curr);
+                }
             }
         }
 
