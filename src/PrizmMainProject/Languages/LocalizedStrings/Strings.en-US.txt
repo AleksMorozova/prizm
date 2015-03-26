@@ -2135,7 +2135,7 @@ InspectionAddEdit_FactBoolGroup=Actual result
 InspectionAddEdit_FactLimitGroup=Actual result
 
 ;Контрольная операция. Кнопка сохранить
-InspectionAddEdit_SaveButton=Accept
+InspectionAddEdit_SaveButton=&Accept
 
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
