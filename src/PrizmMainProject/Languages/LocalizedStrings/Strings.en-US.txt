@@ -2767,7 +2767,7 @@ LoadingXtraReport_WeightCountLabel=Weight
 LoadingXtraReport_PipesCountLabel=Pipes count
 
 ;Отчет по заводу
-GeneralInformationXtraReport_GeneralReportHeaderLabel=
+GeneralInformationXtraReport_GeneralReportHeaderLabel=Mill report
 
 ;BAR (Производство готовой трубы)
 GeneralInformationXtraReport_BARLabel=BAR (Completed pipe production)
