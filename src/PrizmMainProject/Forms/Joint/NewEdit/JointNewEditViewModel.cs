@@ -947,6 +947,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint = repoConstruction.RepoJoint.Get(joint.Id);
             RefreshJointData();
             RaisePropertyChanged("Joint");
+            ModifiableView.IsModified = false;
         }
     }
 }
