@@ -1493,7 +1493,7 @@ MillInspection_CategoryLabel=Category
 MillInspection_ResultTypeLabel=Result type
 
 ;Настройка контрольных опрераций завода. Надпись типа контроля
-MillInspection_ControlTypeLabel=Control type
+MillInspection_ControlTypeLabel=Inspection type
 
 ;Настройка контрольных опрераций завода. Надпись нижней границы значения
 MillInspection_FromLabel=From
@@ -1508,13 +1508,43 @@ MillInspection_FrequencyLabel=Frequency
 MillInspection_FrequencyMeasureLabel=Unit of measure
 
 ;Настройка контрольных опрераций завода. Надпись панели контрольного значения диапазон
-MillInspection_RangeControlValueGroup=Control value
+MillInspection_RangeControlValueGroup=Inspection value
 
 ;Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения
 MillInspection_BoolControlValueGroup=Control value
 
-;Настройка контрольных опрераций завода. Надпись панели частоты
-MillInspection_FrequencyGroup=Frequency
+;Настройка контрольных опрераций завода. Надпись панели периодической частоты
+MillInspection_FrequencyGroup=Recurring frequency
+
+;Настройка контрольных опрераций завода. Надпись повторяемых операций
+MillInspection_RepeatedOperationsLabel=Repeated operations
+
+;Настройка контрольных опрераций завода. Надпись колонки кода
+MillInspection_CodeGridColumn=Code
+
+;Настройка контрольных опрераций завода. Надпись колонки названия
+MillInspection_NameGridColumn=Name
+
+;Настройка контрольных опрераций завода. Надпись группы частоты выполнения операции
+MillInspection_OperationFrequencyGroup=Operation frequency
+
+;Настройка контрольных опрераций завода. Надпись типа частоты
+MillInspection_FrequencyTypeLayout=Type
+
+;Настройка контрольных опрераций завода. Надпись группы выборочной частоты
+MillInspection_SelectiveFrequencyGroup=Selective frequency
+
+;Настройка контрольных опрераций завода. Надпись процента проверяемых труб
+MillInspection_PercentOfSelectLayout=Pipes % to be checked
+
+;Тип частоты контрольной операции. Обязательная
+InspectionFrequencyType_Required=Required
+
+;Тип частоты контрольной операции. Периодичная
+InspectionFrequencyType_Recurring=Recurring
+
+;Тип частоты контрольной операции. Выборочная
+InspectionFrequencyType_Selective=Selective
 
 ;Входной контроль элемента. Надпись искомого номера
 PartInspection_SearchNumberLabel=Search &number

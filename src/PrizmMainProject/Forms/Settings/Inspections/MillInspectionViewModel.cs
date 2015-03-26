@@ -14,22 +14,26 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public class MillInspectionViewModel : ViewModelBase
     {
         private PipeTest pipeTest;
+        public BindingList<PipeTest> RepeatTestCandidates{get;set;}
         public BindingList<Category> CategoryTypes;
 
-        public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes)
+        public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes, IReadOnlyList<PipeTest> pipeTests)
         {
-            SetupViewModel(current, CategoryTypes);
+            SetupViewModel(current, CategoryTypes, pipeTests);
         }
 
-        public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes) 
+        public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes, IReadOnlyList<PipeTest> pipeTests) 
         {
             this.CategoryTypes = CategoryTypes;
-
+            IList<PipeTest> list = pipeTests.Where(_ => _.IsActive).OrderBy(x => x.Code).ToList<PipeTest>();
+            RepeatTestCandidates = new BindingList<Domain.Entity.Setup.PipeTest>(list);
             pipeTest = new PipeTest();
 
             if (current != null)
             {
                 pipeTest.CustomShallowCopy(current);
+                PipeTest curr = RepeatTestCandidates.Where(s => s.Id == pipeTest.Id).SingleOrDefault();
+                RepeatTestCandidates.Remove(curr);
             }
         }
 
@@ -241,7 +245,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 }
             }
         }
-
         #endregion
     }
 }

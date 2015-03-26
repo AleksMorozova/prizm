@@ -1480,4 +1480,13 @@
   <data name="JointNewNotAllWeldOperationCompletedHeader" xml:space="preserve">
     <value>Сварочные операции</value>
   </data>
+  <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
+    <value>Периодичная</value>
+  </data>
+  <data name="InspectionFrequencyType_Required" xml:space="preserve">
+    <value>Обязательная</value>
+  </data>
+  <data name="InspectionFrequencyType_Selective" xml:space="preserve">
+    <value>Выборочная</value>
+  </data>
 </root>
