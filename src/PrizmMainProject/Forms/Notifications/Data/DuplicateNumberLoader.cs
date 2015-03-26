@@ -36,9 +36,9 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public string GetOwnerName(object[] tuple)
             {
-                var mill = (tuple[1] == null) ? string.Empty : tuple[1].ToString() + "/";
                 var number = (tuple[2] == null) ? string.Empty : tuple[2].ToString();
-                return mill+number;
+                var mill = (tuple[1] == null) ? string.Empty : tuple[1].ToString() ;
+                return number + "/" + mill;
             }
 
         }
