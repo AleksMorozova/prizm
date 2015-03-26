@@ -2907,6 +2907,87 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Диаметр, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_DiameterHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_DiameterHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Первый стык.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_FirstJointHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_FirstJointHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Марка стали.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_GradeHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_GradeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_LengthHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_LengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по трубам на строительстве.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_PipeConstructionReportHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_PipeConstructionReportHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер трубы.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_PipeNumberHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_PipeNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип шва.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_SeamTypeHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_SeamTypeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Второй стык.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_SecondJointHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_SecondJointHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_ThicknessHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_ThicknessHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Протяженность трубопровода.
         /// </summary>
         internal static string PipelineLengthReport {

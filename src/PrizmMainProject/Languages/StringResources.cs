@@ -905,7 +905,53 @@ namespace Prizm.Main.Languages
             Description = "Отчеты на заводе. Тип отчета - Общий отчет"
         };
 
-
+        //--- PipeConstructionXtraReport ---
+        
+        public static StringResource PipeConstructionXtraReport_PipeConstructionReportHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_PipeConstructionReportHeader",
+            Description = "Отчет по трубам на строительстве"
+        };
+        public static StringResource PipeConstructionXtraReport_PipeNumberHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_PipeNumberHeader",
+            Description = "Номер трубы"
+        };
+        public static StringResource PipeConstructionXtraReport_DiameterHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_DiameterHeader",
+            Description = "Диаметр, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_LengthHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_LengthHeader",
+            Description = "Длина, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_ThicknessHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_ThicknessHeader",
+            Description = "Толщина, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_SeamTypeHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_SeamTypeHeader",
+            Description = "Тип шва"
+        };
+        public static StringResource PipeConstructionXtraReport_GradeHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_GradeHeader",
+            Description = "Марка стали"
+        };
+        public static StringResource PipeConstructionXtraReport_FirstJointHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_FirstJointHeader",
+            Description = "Первый стык"
+        };
+        public static StringResource PipeConstructionXtraReport_SecondJointHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_SecondJointHeader",
+            Description = "Второй стык"
+        };
 
         #endregion MillReport
 

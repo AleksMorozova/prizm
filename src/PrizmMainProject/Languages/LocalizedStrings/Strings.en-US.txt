@@ -2683,3 +2683,32 @@ WeldDateXtraReport_FirstPartLengthHeader=First part length
 WeldDateXtraReport_SecondPartLengthHeader=Second part length
 
 
+
+;Отчет по трубам на строительстве
+PipeConstructionXtraReport_PipeConstructionReportHeader=
+
+;Номер трубы
+PipeConstructionXtraReport_PipeNumberHeader=
+
+;Диаметр, мм
+PipeConstructionXtraReport_DiameterHeader=
+
+;Длина, мм
+PipeConstructionXtraReport_LengthHeader=
+
+;Толщина, мм
+PipeConstructionXtraReport_ThicknessHeader=
+
+;Тип шва
+PipeConstructionXtraReport_SeamTypeHeader=
+
+;Марка стали
+PipeConstructionXtraReport_GradeHeader=
+
+;Первый стык
+PipeConstructionXtraReport_FirstJointHeader=
+
+;Второй стык
+PipeConstructionXtraReport_SecondJointHeader=
+    
+

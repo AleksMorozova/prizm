@@ -1569,6 +1569,33 @@
   <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
     <value>Тип изделия</value>
   </data>
+  <data name="PipeConstructionXtraReport_DiameterHeader" xml:space="preserve">
+    <value>Диаметр, мм</value>
+  </data>
+  <data name="PipeConstructionXtraReport_FirstJointHeader" xml:space="preserve">
+    <value>Первый стык</value>
+  </data>
+  <data name="PipeConstructionXtraReport_GradeHeader" xml:space="preserve">
+    <value>Марка стали</value>
+  </data>
+  <data name="PipeConstructionXtraReport_LengthHeader" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="PipeConstructionXtraReport_PipeConstructionReportHeader" xml:space="preserve">
+    <value>Отчет по трубам на строительстве</value>
+  </data>
+  <data name="PipeConstructionXtraReport_PipeNumberHeader" xml:space="preserve">
+    <value>Номер трубы</value>
+  </data>
+  <data name="PipeConstructionXtraReport_SeamTypeHeader" xml:space="preserve">
+    <value>Тип шва</value>
+  </data>
+  <data name="PipeConstructionXtraReport_SecondJointHeader" xml:space="preserve">
+    <value>Второй стык</value>
+  </data>
+  <data name="PipeConstructionXtraReport_ThicknessHeader" xml:space="preserve">
+    <value>Толщина, мм</value>
+  </data>
   <data name="WeldDateXtraReport_DateHeader" xml:space="preserve">
     <value>Дата сварки</value>
   </data>
