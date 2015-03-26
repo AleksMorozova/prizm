@@ -2328,6 +2328,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дубликат номера.
+        /// </summary>
+        internal static string Notification_DuplicatePipeNumber_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DuplicatePipeNumber_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сертификат просрочен.
         /// </summary>
         internal static string Notification_ExpiredInspectorCertificate_Critical {

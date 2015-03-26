@@ -1494,4 +1494,7 @@
   <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
     <value>Катушка имеет соединение</value>
   </data>
+  <data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера</value>
+  </data>
 </root>

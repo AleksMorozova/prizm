@@ -4881,6 +4881,12 @@ namespace Prizm.Main.Languages
             Id = "Notification_DublicateLogin_Critical",
             Description = "Сообщение о дублировании логинов"
         };
+
+        public static StringResource Notification_DuplicatePipeNumber_Critical = new StringResource
+        {
+            Id = "Notification_DuplicatePipeNumber_Critical",
+            Description = "Сообщение о дублировании"
+        };
         #endregion //--- Notification ---
 
         #region --- JointSelectDialog ---
