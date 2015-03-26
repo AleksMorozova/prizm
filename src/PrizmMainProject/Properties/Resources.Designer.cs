@@ -1078,6 +1078,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Периодичная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Recurring {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Recurring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обязательная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Required {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выборочная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Selective {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Selective", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить колонтитулы.
         /// </summary>
         internal static string InspectionReport_FootersCheck {
