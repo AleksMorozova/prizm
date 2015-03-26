@@ -18,5 +18,16 @@ namespace Prizm.Main.Forms.Reports.Incoming
             get { return pageFooter.Visible; }
             set { pageFooter.Visible = value; }
         }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            foreach (var c in Detail.Controls)
+            {
+                if (c is XRLabel)
+                {
+                    ((XRLabel)c).SizeF = new SizeF(((XRLabel)c).SizeF.Width, 100f);
+                }
+            }
+        }
     }
 }
