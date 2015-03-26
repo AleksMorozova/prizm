@@ -155,9 +155,9 @@
             // 
             this.status.Location = new System.Drawing.Point(32, 466);
             this.status.Name = "status";
-            this.status.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.status.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.status.Size = new System.Drawing.Size(325, 20);
             this.status.StyleController = this.rootLayoutControl;
             this.status.TabIndex = 16;
@@ -208,6 +208,7 @@
             // inspectors
             // 
             this.inspectors.DataSource = null;
+            this.inspectors.InspectionDate = new System.DateTime(2015, 3, 25, 0, 0, 0, 0);
             this.inspectors.Location = new System.Drawing.Point(371, 166);
             this.inspectors.Name = "inspectors";
             this.inspectors.Size = new System.Drawing.Size(413, 361);
@@ -225,6 +226,7 @@
             this.date.Size = new System.Drawing.Size(325, 20);
             this.date.StyleController = this.rootLayoutControl;
             this.date.TabIndex = 10;
+            this.date.EditValueChanged += new System.EventHandler(this.date_EditValueChanged);
             // 
             // expected
             // 

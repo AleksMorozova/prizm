@@ -99,11 +99,11 @@
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(539, 112);
+            this.btnClose.Location = new System.Drawing.Point(542, 124);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(111, 35);
+            this.btnClose.Size = new System.Drawing.Size(111, 23);
             this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "&Закрыть";
+            this.btnClose.Text = "&Отменить";
             // 
             // ImportForm
             // 

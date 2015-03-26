@@ -257,6 +257,7 @@ namespace PrizmMain.Forms.Notifications
             this.Name = "NotificationXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Окно уведомлений";
+            this.Activated += new System.EventHandler(this.NotificationXtraForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NotificationXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.NotificationXtraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();

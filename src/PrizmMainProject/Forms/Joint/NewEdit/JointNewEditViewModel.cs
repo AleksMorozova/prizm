@@ -758,7 +758,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (list == null && Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
-                    string tempNumber = string.Empty;
 
                     list = new BindingList<PartData>();
 
@@ -766,8 +765,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     foreach (DataRow row in Pieces.Rows)
                     {
-                        if (tempId != row.Field<Guid>("id")
-                            && tempNumber != row.Field<string>("number"))
+                        if (tempId != row.Field<Guid>("id"))
                         {
                             partData = new PartData(row);
 
@@ -776,7 +774,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             list.Add(partData);
 
                             tempId = row.Field<Guid>("id");
-                            tempNumber = row.Field<string>("number");
                         }
                         else
                         {
@@ -896,6 +893,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     IsActive = true,
                     Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
+                    // first weld operation should be always completed
+                    IsCompleted=true,
                     Joint = this.Joint
                 };
                 jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
@@ -948,6 +947,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.Joint = repoConstruction.RepoJoint.Get(joint.Id);
             RefreshJointData();
             RaisePropertyChanged("Joint");
+            ModifiableView.IsModified = false;
         }
     }
 }
