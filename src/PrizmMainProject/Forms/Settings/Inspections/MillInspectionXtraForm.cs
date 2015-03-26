@@ -220,7 +220,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ValidateCode(viewModel.Code))
+            if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
             {
                 string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
                 string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
@@ -235,9 +235,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
         /// <param name="code">code TestPipe</param>
         /// <param name="id">id TestPipe</param>
         /// <returns>true if uniqueness</returns>
-        private bool ValidateCode(string code)
+        private bool ValidateCode(string code, Guid id)
         {
-            var testList = pipeTestList.Where(g => g.Code==code).ToList();
+            var testList = pipeTestList.Where(g => g.Code==code && g.Id != id).ToList();
             return !(testList.Count >= 1);
         }
     }
