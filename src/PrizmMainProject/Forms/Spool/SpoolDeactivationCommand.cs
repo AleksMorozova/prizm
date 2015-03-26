@@ -10,6 +10,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
 using Prizm.Data.DAL;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -35,46 +36,59 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (notify.ShowYesNo(
-                  Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestion),
-                  Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestionHeader)))
+            if (viewModel.Spool.IsAvailableToJoint && viewModel.Spool.ConstructionStatus != PartConstructionStatus.Welded)
             {
-                try
+                if (notify.ShowYesNo(
+                      Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestion),
+                      Program.LanguageManager.GetString(StringResources.Spool_DeactivationQuestionHeader)))
                 {
-                    viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;
+                    try
+                    {
+                        viewModel.PipeLength = viewModel.PipeLength + viewModel.SpoolLength;
 
-                    viewModel.Spool.IsActive = false;
+                        viewModel.Spool.IsActive = false;
 
-                    repo.BeginTransaction();
-                    repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-                    repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
+                        repo.BeginTransaction();
+                        repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                        repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
 
-                    repo.Commit();
+                        repo.Commit();
 
-                    repo.PipeRepo.Evict(viewModel.Pipe);
-                    repo.SpoolRepo.Evict(viewModel.Spool);
+                        repo.PipeRepo.Evict(viewModel.Pipe);
+                        repo.SpoolRepo.Evict(viewModel.Spool);
 
-                    viewModel.ModifiableView.IsEditMode = false;
-                    viewModel.ModifiableView.IsModified = false;
-                    viewModel.ModifiableView.UpdateState();
+                        viewModel.ModifiableView.IsEditMode = false;
+                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.UpdateState();
 
-                    notify.ShowSuccess(
-                        string.Concat(Program.LanguageManager.GetString(
-                            StringResources.Spool_Deactivated), viewModel.SpoolNumber),
-                        Program.LanguageManager.GetString(
-                            StringResources.Spool_DeactivatedHeader));
+                        notify.ShowSuccess(
+                            string.Concat(Program.LanguageManager.GetString(
+                                StringResources.Spool_Deactivated), viewModel.SpoolNumber),
+                            Program.LanguageManager.GetString(
+                                StringResources.Spool_DeactivatedHeader));
 
-                    log.Info(string.Format("The Spool #{0}, id:{1} has been deactivated.",
-                        viewModel.Pipe.Number, viewModel.Pipe.Id));
+                        log.Info(string.Format("The Spool #{0}, id:{1} has been deactivated.",
+                            viewModel.Pipe.Number, viewModel.Pipe.Id));
+                    }
+                    catch (RepositoryException ex)
+                    {
+                        log.Error(ex.Message);
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                catch (RepositoryException ex)
+                else
                 {
-                    log.Error(ex.Message);
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    //Refresh property so that binded control become unchecked
+                    viewModel.SpoolIsActive = false;
+                    viewModel.SpoolIsActive = true;
                 }
             }
             else
             {
+                notify.ShowInfo(
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedSpool),
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedSpoolHeader));
+
                 //Refresh property so that binded control become unchecked
                 viewModel.SpoolIsActive = false;
                 viewModel.SpoolIsActive = true;

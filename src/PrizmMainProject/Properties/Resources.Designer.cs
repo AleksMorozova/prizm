@@ -1078,6 +1078,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Периодичная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Recurring {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Recurring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обязательная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Required {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выборочная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Selective {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Selective", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить колонтитулы.
         /// </summary>
         internal static string InspectionReport_FootersCheck {
@@ -1655,6 +1682,44 @@ namespace Prizm.Main.Properties {
         internal static string Message_ComponentDeactivationQuestionHeader {
             get {
                 return ResourceManager.GetString("Message_ComponentDeactivationQuestionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Соединенный компонент не может быть деактивирован.
+        ///Для деактивации компонента необходимо его отсоеденить..
+        /// </summary>
+        internal static string Message_DeactivationConnectedComponent {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConnectedComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Комплектующее имеет соединение.
+        /// </summary>
+        internal static string Message_DeactivationConnectedComponentHeader {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConnectedComponentHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Соединенная катушка не может быть деактивирована. 
+        ///Для деактивации катушки необходимо ее отсоеденить..
+        /// </summary>
+        internal static string Message_DeactivationConnectedSpool {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConnectedSpool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Катушка имеет соединение.
+        /// </summary>
+        internal static string Message_DeactivationConnectedSpoolHeader {
+            get {
+                return ResourceManager.GetString("Message_DeactivationConnectedSpoolHeader", resourceCulture);
             }
         }
         

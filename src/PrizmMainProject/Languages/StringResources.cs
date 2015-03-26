@@ -1152,7 +1152,17 @@ namespace Prizm.Main.Languages
             Description = "Катушка не сохранена"
         };
 
+        public static StringResource Message_DeactivationConnectedSpool = new StringResource
+        {
+            Id = "Message_DeactivationConnectedSpool",
+            Description = "Соединена катушка не может быть деактивирован. Для деактивации катушки необходимо ее отсоединить."
+        };
 
+        public static StringResource Message_DeactivationConnectedSpoolHeader = new StringResource
+        {
+            Id = "Message_DeactivationConnectedSpoolHeader",
+            Description = "Катушка имеет соединение"
+        };
         
         #endregion Spool
 
@@ -2821,6 +2831,18 @@ namespace Prizm.Main.Languages
             Description = "Комплектующее изделие"
         };
 
+        public static StringResource Message_DeactivationConnectedComponent = new StringResource
+        {
+            Id = "Message_DeactivationConnectedComponent",
+            Description = "Соединенный компонент не может быть деактивирован. Для деактивации компонента необходимо его отсоединить."
+        };
+
+        public static StringResource Message_DeactivationConnectedComponentHeader = new StringResource
+        {
+            Id = "Message_DeactivationConnectedComponentHeader",
+            Description = "Комплектующее имеет соединение"
+        };
+
         #endregion //--- ComponentNewEdit ---
 
         #region --- JointNew ---
@@ -3613,8 +3635,67 @@ namespace Prizm.Main.Languages
 
         public static StringResource MillInspection_FrequencyGroup = new StringResource { 
             Id = "MillInspection_FrequencyGroup", 
-            Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
+            Description = "Настройка контрольных опрераций завода. Надпись панели периодической частоты"};
 
+        public static StringResource MillInspection_RepeatedOperationsLabel = new StringResource
+        {
+            Id = "MillInspection_RepeatedOperationsLabel",
+            Description = "Настройка контрольных опрераций завода. Надпись повторяемых операций"
+        };
+
+        public static StringResource MillInspection_CodeGridColumn = new StringResource
+        {
+            Id = "MillInspection_CodeGridColumn",
+            Description = "Настройка контрольных опрераций завода. Надпись колонки кода"
+        };
+
+        public static StringResource MillInspection_NameGridColumn = new StringResource
+        {
+            Id = "MillInspection_NameGridColumn",
+            Description = "Настройка контрольных опрераций завода. Надпись колонки названия"
+        };
+
+        public static StringResource MillInspection_OperationFrequencyGroup = new StringResource
+        {
+            Id = "MillInspection_OperationFrequencyGroup",
+            Description = "Настройка контрольных опрераций завода. Надпись группы частоты выполнения операции"
+        };
+
+        public static StringResource MillInspection_FrequencyTypeLayout = new StringResource
+        {
+            Id = "MillInspection_FrequencyTypeLayout",
+            Description = "Настройка контрольных опрераций завода. Надпись типа частоты"
+        };
+
+        public static StringResource MillInspection_SelectiveFrequencyGroup = new StringResource
+        {
+            Id = "MillInspection_SelectiveFrequencyGroup",
+            Description = "Настройка контрольных опрераций завода. Надпись группы выборочной частоты"
+        };
+
+        public static StringResource MillInspection_PercentOfSelectLayout = new StringResource
+        {
+            Id = "MillInspection_PercentOfSelectLayout",
+            Description = "Настройка контрольных опрераций завода. Надпись процента проверяемых труб"
+        };
+
+        public static StringResource InspectionFrequencyType_Required = new StringResource
+        {
+            Id = "InspectionFrequencyType_Required",
+            Description = "Тип частоты контрольной операции. Обязательная"
+        };
+
+        public static StringResource InspectionFrequencyType_Recurring = new StringResource
+        {
+            Id = "InspectionFrequencyType_Recurring",
+            Description = "Тип частоты контрольной операции. Периодичная"
+        };
+
+        public static StringResource InspectionFrequencyType_Selective = new StringResource
+        {
+            Id = "InspectionFrequencyType_Selective",
+            Description = "Тип частоты контрольной операции. Выборочная"
+        }; 
         #endregion
 
         #region --- PartInspectionXtraForm ---
