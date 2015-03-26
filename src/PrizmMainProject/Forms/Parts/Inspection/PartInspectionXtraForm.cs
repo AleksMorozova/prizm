@@ -23,14 +23,14 @@ using DevExpress.XtraGrid.Views.Base;
 namespace Prizm.Main.Forms.Parts.Inspection
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class PartInspectionXtraForm : ChildForm
+    public partial class PartInspectionXtraForm : ChildEditableForm
     {
         private PartInspectionViewModel viewModel;
         ICommandManager commandManager = new CommandManager();
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
         private List<string> localizedAllPartTypes = new List<string>();
         private List<string> localizedAllInspectionStatus = new List<string>();
-        private PartType originalPart = PartType.Undefined;
+
         private void UpdateTextEdit()
         {
             bindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 

@@ -134,8 +134,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             {
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "NoteId");
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.OpenChildForm(DocumentTypes.MillReleaseNote, id);
+                FormManager.Instance.OpenChildForm(DocumentTypes.MillReleaseNote, id);
             }
         }
 

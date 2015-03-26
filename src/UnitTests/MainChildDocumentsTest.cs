@@ -121,24 +121,6 @@ namespace Prizm.UnitTests
         }
 
 
-        [TestCase(typeof(MillPipeNewEditXtraForm))]
-        [TestCase(typeof(ReleaseNoteNewEditXtraForm))]
-        [TestCase(typeof(ComponentNewEditXtraForm))]
-        [TestCase(typeof(JointNewEditXtraForm))]
-        [TestCase(typeof(SpoolsXtraForm))]
-        public void TestMainForm(System.Type type)
-        {
-            var filter = new TypeFilter(InterfaceFilter);
-
-            var typeArr = type.FindInterfaces(filter, typeof(INewEditEntityForm));
-
-            Assert.IsTrue(typeArr.Contains<System.Type>(typeof(INewEditEntityForm)));
-        }
-
-        public bool InterfaceFilter(System.Type typeObj, System.Object criteriaObj)
-        {
-            return typeObj.ToString() == criteriaObj.ToString();
-        }
     }
 
 }

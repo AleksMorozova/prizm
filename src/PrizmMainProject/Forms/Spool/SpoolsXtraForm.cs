@@ -24,7 +24,7 @@ using DevExpress.XtraGrid.Columns;
 namespace Prizm.Main.Forms.Spool
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class SpoolsXtraForm : ChildForm, INewEditEntityForm
+    public partial class SpoolsXtraForm : ChildEditableForm
     {
         private SpoolViewModel viewModel;
         private ExternalFilesXtraForm filesForm = null;

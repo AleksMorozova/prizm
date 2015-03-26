@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity.Security
 {
+    /// <summary>
+    /// Changing the names of items, string resources ids also should be changed
+    /// </summary>
     public enum Privileges
     {
+        NullPrivilegeRestricted,
+        NullPrivilegeAllowed,
         Audit,
         CreatePipe,
         CreateJoint,
@@ -44,10 +49,11 @@ namespace Domain.Entity.Security
         DeactivateJoint,
         DeactivateSpool,
         DeactivateComponent,
+        ViewExportImportHistory,
         /// <summary>
         /// This element is used in one of the database migration version. 
         /// The name change can lead to fatal errors!
         /// </summary>
-        ViewExportImportHistory
+        Notifications
     }
 }

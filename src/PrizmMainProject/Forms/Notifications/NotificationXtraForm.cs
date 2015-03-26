@@ -70,10 +70,10 @@ namespace PrizmMain.Forms.Notifications
                     typeEditor = DocumentTypes.MillPipe;
                     break;
                 case TypeNotification.DuplicateLogin:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 6;
                     break;
-case TypeNotification.ExpiredInspectorCertificate:
+                case TypeNotification.ExpiredInspectorCertificate:
                     typeEditor = DocumentTypes.Settings;
                     page = 5;
                     break;
@@ -82,25 +82,23 @@ case TypeNotification.ExpiredInspectorCertificate:
                     page = 4;
                     break;
                 case TypeNotification.NotRequiredInspectionOperation:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 1;
                     break;
                 default:
-                    var ex = new NotImplementedException();
+                    var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
                     log.Error(ex.Message);
                     throw ex;
                     //break; // unreachable code
             }
 
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-
             if (typeEditor == DocumentTypes.Settings && page >= 0)
             {
-                parent.CreateSettingsChildForm(page);
+                FormManager.Instance.OpenSettingsChildForm(page);
             }
             else
             {
-                parent.OpenChildForm(typeEditor, id);
+                FormManager.Instance.OpenChildForm(typeEditor, id);
             }
         }
 

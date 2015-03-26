@@ -142,21 +142,26 @@ namespace Prizm.Main.Forms.Parts.Search
             int selectedPart = partsView.GetFocusedDataSourceRowIndex();
             if (selectedPart >= 0)
             {
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
                 switch (viewModel.Parts[selectedPart].Type.Value)
                 {
                     case PartType.Component:
                         {
-                            parent.OpenChildForm(DocumentTypes.ConstructionComponent, 
-                                viewModel.Parts[selectedPart].Id, viewModel.Parts[selectedPart].Number);
+                            if (viewModel.Parts[selectedPart].Id != Guid.Empty)
+                            {
+                                FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionComponent, viewModel.Parts[selectedPart].Id);
+                            }
+                            else
+                            {
+                                FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionComponent, viewModel.Parts[selectedPart].Number);
+                            }
                         } break;
                     case PartType.Pipe:
                         {
-                            parent.OpenChildForm(DocumentTypes.MillPipe, viewModel.Parts[selectedPart].Id);
+                            FormManager.Instance.OpenChildForm(DocumentTypes.MillPipe, viewModel.Parts[selectedPart].Id);
                         } break;
                     case PartType.Spool:
                         {
-                            parent.OpenChildForm(DocumentTypes.ConstructionSpool, viewModel.Parts[selectedPart].Id);
+                            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionSpool, viewModel.Parts[selectedPart].Id);
                         } break;
                     default: break;
                 }

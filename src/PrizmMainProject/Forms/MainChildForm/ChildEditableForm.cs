@@ -160,7 +160,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <summary>
         /// Set/clear edit mode for the form. It is about all form controls.
         /// </summary>
-        public bool IsEditMode
+        public override bool IsEditMode
         {
             get
             {
@@ -318,7 +318,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public Guid Id { get; set; }
 
-        public virtual bool Is(Guid id) { return id == this.Id; }
+        public override bool Is(Guid id) { return id == this.Id; }
 
     }
 

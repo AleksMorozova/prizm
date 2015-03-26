@@ -19,9 +19,14 @@ namespace Prizm.Data.DAL.Hibernate
       public void SeedPermissions()
       {
           BeginTransaction();
-          foreach (string privilege in Enum.GetNames(typeof(Privileges)))
+          foreach (Privileges p in Enum.GetValues(typeof(Privileges)))
           {
-              Permission permission = new Permission() { Name = privilege };          
+              // Null privileges won't seed.
+              if (p == Privileges.NullPrivilegeAllowed || p == Privileges.NullPrivilegeRestricted)
+              {
+                  continue;
+              }
+              Permission permission = new Permission() { Name = p.ToString() };
               Save(permission);
           }
           Commit();

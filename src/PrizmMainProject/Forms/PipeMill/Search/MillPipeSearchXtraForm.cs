@@ -176,8 +176,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             {
 
                 Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
-                var parent = this.MdiParent as PrizmApplicationXtraForm;
-                parent.OpenChildForm(DocumentTypes.MillPipe, id);
+                FormManager.Instance.OpenChildForm(DocumentTypes.MillPipe, id);
             }
         }
 

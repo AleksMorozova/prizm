@@ -37,7 +37,7 @@ using Prizm.Main.Forms.Notifications;
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable
+    public partial class MillPipeNewEditXtraForm : ChildEditableForm, IValidatable
     {
         private InspectionAddEditXtraForm inspectionForm;
         ICommandManager commandManager = new CommandManager();
@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
-        private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
+
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 

@@ -75,14 +75,13 @@ namespace Prizm.Main.Forms.Parts.Inspection
                 }
 
                 dialog.ShowDialog();
-                var parent = viewModel.CurrentForm.MdiParent as PrizmApplicationXtraForm;
-                if (parent != null && dialog.DialogResult == DialogResult.Yes)
+                if (dialog.DialogResult == DialogResult.Yes)
                 {
-                    parent.OpenChildForm(DocumentTypes.ConstructionSpool, Guid.Empty, viewModel.SearchNumber);
+                    FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionSpool, viewModel.SearchNumber);
                 }
-                else if (parent != null && dialog.DialogResult == DialogResult.No)
+                else if (dialog.DialogResult == DialogResult.No)
                 {
-                    parent.OpenChildForm(DocumentTypes.ConstructionComponent, Guid.Empty, viewModel.SearchNumber);
+                    FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionComponent, viewModel.SearchNumber);
                 }
             }
             RefreshVisualStateEvent();

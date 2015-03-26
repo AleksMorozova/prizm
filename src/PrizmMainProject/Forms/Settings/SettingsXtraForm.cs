@@ -36,7 +36,7 @@ using DevExpress.Data;
 namespace Prizm.Main.Forms.Settings
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class SettingsXtraForm : ChildForm, IValidatable
+    public partial class SettingsXtraForm : ChildEditableForm, IValidatable
     {
         private Dictionary<GridView, DuplicatesList> findDuplicateList;
         private SettingsViewModel viewModel;

@@ -12,10 +12,20 @@ namespace Prizm.Main.Security
    {
       public bool HasAccess(Privileges privilege)
       {
-         if (LoggedUser == null)
-            return false;
-
-         return (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
+          bool granted = false;
+          if (LoggedUser == null || privilege == Privileges.NullPrivilegeRestricted)
+          {
+              granted = false;
+          }
+          else if (privilege == Privileges.NullPrivilegeAllowed)
+          {
+              granted = true;
+          }
+          else
+          {
+              granted = (from r in LoggedUser.Roles where RoleHasPermission(r, privilege) select r).Count() > 0;
+          }
+          return granted;
       }
 
       private bool RoleHasPermission(Role r, Privileges privilege)
