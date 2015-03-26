@@ -1644,18 +1644,18 @@ namespace Prizm.Main.Properties {
         ///   Looks up a localized string similar to Соединенный компонент не может быть деактивирован.
         ///Для деактивации компонента необходимо его отсоеденить..
         /// </summary>
-        internal static string Message_DeactivationConectedComponent {
+        internal static string Message_DeactivationConnectedComponent {
             get {
-                return ResourceManager.GetString("Message_DeactivationConectedComponent", resourceCulture);
+                return ResourceManager.GetString("Message_DeactivationConnectedComponent", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Комплектующее имеет соединение.
         /// </summary>
-        internal static string Message_DeactivationConectedComponentHeader {
+        internal static string Message_DeactivationConnectedComponentHeader {
             get {
-                return ResourceManager.GetString("Message_DeactivationConectedComponentHeader", resourceCulture);
+                return ResourceManager.GetString("Message_DeactivationConnectedComponentHeader", resourceCulture);
             }
         }
         
@@ -1663,18 +1663,18 @@ namespace Prizm.Main.Properties {
         ///   Looks up a localized string similar to Соединенная катушка не может быть деактивирована. 
         ///Для деактивации катушки необходимо ее отсоеденить..
         /// </summary>
-        internal static string Message_DeactivationConectedSpool {
+        internal static string Message_DeactivationConnectedSpool {
             get {
-                return ResourceManager.GetString("Message_DeactivationConectedSpool", resourceCulture);
+                return ResourceManager.GetString("Message_DeactivationConnectedSpool", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Катушка имеет соединение.
         /// </summary>
-        internal static string Message_DeactivationConectedSpoolHeader {
+        internal static string Message_DeactivationConnectedSpoolHeader {
             get {
-                return ResourceManager.GetString("Message_DeactivationConectedSpoolHeader", resourceCulture);
+                return ResourceManager.GetString("Message_DeactivationConnectedSpoolHeader", resourceCulture);
             }
         }
         

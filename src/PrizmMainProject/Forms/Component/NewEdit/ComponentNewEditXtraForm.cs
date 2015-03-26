@@ -141,7 +141,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) =>
             {
-                if (eve.PropertyName == "ComponentIsActive" && viewModel.ComponentIsActive == true)
+                if (eve.PropertyName == "ComponentIsActive" && viewModel.ComponentIsActive)
                 {
                     deactivated.Reset();
                 }

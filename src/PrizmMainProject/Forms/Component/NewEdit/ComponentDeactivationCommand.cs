@@ -42,7 +42,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (!IsComponentsConected(viewModel.Component))
+            if (!IsComponentsConnected(viewModel.Component))
             {
                 if (notify.ShowYesNo(
                     Program.LanguageManager.GetString(StringResources.Message_ComponentDeactivationQuestion),
@@ -87,8 +87,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             else
             {
                 notify.ShowInfo(
-                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedComponent),
-                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedComponentHeader));
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedComponent),
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedComponentHeader));
 
                 //Refresh property so that binded control become unchecked
                 viewModel.ComponentIsActive = false;
@@ -98,7 +98,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         }
 
 
-        private bool IsComponentsConected(Prizm.Domain.Entity.Construction.Component component)
+        private bool IsComponentsConnected(Prizm.Domain.Entity.Construction.Component component)
         {
             return 
                 component

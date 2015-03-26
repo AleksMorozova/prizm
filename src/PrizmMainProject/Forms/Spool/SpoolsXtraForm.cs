@@ -136,7 +136,7 @@ namespace Prizm.Main.Forms.Spool
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
             viewModel.PropertyChanged += (s, eve) =>
             {
-                if (eve.PropertyName == "SpoolIsActive" && viewModel.SpoolIsActive == true)
+                if (eve.PropertyName == "SpoolIsActive" && viewModel.SpoolIsActive)
                 {
                     deactivated.Reset();
                 }

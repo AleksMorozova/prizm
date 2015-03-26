@@ -86,8 +86,8 @@ namespace Prizm.Main.Forms.Spool
             else
             {
                 notify.ShowInfo(
-                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedSpool),
-                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConectedSpoolHeader));
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedSpool),
+                    Program.LanguageManager.GetString(StringResources.Message_DeactivationConnectedSpoolHeader));
 
                 //Refresh property so that binded control become unchecked
                 viewModel.SpoolIsActive = false;
