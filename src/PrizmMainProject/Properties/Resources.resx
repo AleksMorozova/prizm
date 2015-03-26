@@ -1569,6 +1569,30 @@
   <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
     <value>Тип изделия</value>
   </data>
+  <data name="LoadingXtraReport_CertificateLabel" xml:space="preserve">
+    <value>Сертификат</value>
+  </data>
+  <data name="LoadingXtraReport_DestinationLabel" xml:space="preserve">
+    <value>Станция назначения</value>
+  </data>
+  <data name="LoadingXtraReport_LoadingReportLabel" xml:space="preserve">
+    <value>Рапорт по отгрузке</value>
+  </data>
+  <data name="LoadingXtraReport_MetersCountLabel" xml:space="preserve">
+    <value>Кол-во метров</value>
+  </data>
+  <data name="LoadingXtraReport_PipesCountLabel" xml:space="preserve">
+    <value>Кол-во труб</value>
+  </data>
+  <data name="LoadingXtraReport_RailcarNumberLabel" xml:space="preserve">
+    <value>Номер вагона</value>
+  </data>
+  <data name="LoadingXtraReport_ReleaseNoteNumberLabel" xml:space="preserve">
+    <value>Номер разрешения на отгрузку</value>
+  </data>
+  <data name="LoadingXtraReport_WeightCountLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
   <data name="PipeConstructionXtraReport_DiameterHeader" xml:space="preserve">
     <value>Диаметр, мм</value>
   </data>

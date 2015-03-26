@@ -2712,3 +2712,28 @@ PipeConstructionXtraReport_FirstJointHeader=
 PipeConstructionXtraReport_SecondJointHeader=
     
 
+
+;Рапорт по отгрузке
+LoadingXtraReport_LoadingReportLabel=
+
+;Номер разрешения на отгрузку
+LoadingXtraReport_ReleaseNoteNumberLabel=
+
+;Номер вагона
+LoadingXtraReport_RailcarNumberLabel=
+
+;Станция назначения
+LoadingXtraReport_DestinationLabel=
+
+;Сертификат
+LoadingXtraReport_CertificateLabel=
+
+;Кол-во метров
+LoadingXtraReport_MetersCountLabel
+
+;Вес
+LoadingXtraReport_WeightCountLabel=
+
+;Кол-во труб
+LoadingXtraReport_PipesCountLabel=
+

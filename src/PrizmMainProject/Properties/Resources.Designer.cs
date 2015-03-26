@@ -1566,6 +1566,78 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сертификат.
+        /// </summary>
+        internal static string LoadingXtraReport_CertificateLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_CertificateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Станция назначения.
+        /// </summary>
+        internal static string LoadingXtraReport_DestinationLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_DestinationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рапорт по отгрузке.
+        /// </summary>
+        internal static string LoadingXtraReport_LoadingReportLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_LoadingReportLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Кол-во метров.
+        /// </summary>
+        internal static string LoadingXtraReport_MetersCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_MetersCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Кол-во труб.
+        /// </summary>
+        internal static string LoadingXtraReport_PipesCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_PipesCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер вагона.
+        /// </summary>
+        internal static string LoadingXtraReport_RailcarNumberLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_RailcarNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер разрешения на отгрузку.
+        /// </summary>
+        internal static string LoadingXtraReport_ReleaseNoteNumberLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_ReleaseNoteNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string LoadingXtraReport_WeightCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_WeightCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap main_logo_03 {

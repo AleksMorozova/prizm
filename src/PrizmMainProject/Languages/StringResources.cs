@@ -953,6 +953,48 @@ namespace Prizm.Main.Languages
             Description = "Второй стык"
         };
 
+        //--- LoadingXtraReport ---
+        public static StringResource LoadingXtraReport_LoadingReportLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_LoadingReportLabel",
+            Description = "Рапорт по отгрузке"
+        };
+        public static StringResource LoadingXtraReport_ReleaseNoteNumberLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_ReleaseNoteNumberLabel",
+            Description = "Номер разрешения на отгрузку"
+        };
+        public static StringResource LoadingXtraReport_RailcarNumberLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_RailcarNumberLabel",
+            Description = "Номер вагона"
+        };
+        public static StringResource LoadingXtraReport_DestinationLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_DestinationLabel",
+            Description = "Станция назначения"
+        };
+        public static StringResource LoadingXtraReport_CertificateLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_CertificateLabel",
+            Description = "Сертификат"
+        };
+        public static StringResource LoadingXtraReport_MetersCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_MetersCountLabel",
+            Description = "Кол-во метров"
+        };
+        public static StringResource LoadingXtraReport_WeightCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_WeightCountLabel",
+            Description = "Вес"
+        };
+        public static StringResource LoadingXtraReport_PipesCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_PipesCountLabel",
+            Description = "Кол-во труб"
+        };
+
         #endregion MillReport
 
         #region IncomingInspectionReport

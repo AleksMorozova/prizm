@@ -29,14 +29,14 @@ namespace Prizm.Main.Forms.Reports.Mill
         {
             return new List<LocalizedItem>()
             {
-                //new LocalizedItem(xrLabel5, StringResources.LoadingXtraReport_xrReportHeader.Id),
-                //new LocalizedItem(pageHeaderLabel, StringResources.LoadingXtraReport__PageHeaderLabel.Id),
-                //new LocalizedItem(numberLabel, StringResources.LoadingXtraReport__NumberLabel.Id),
-                //new LocalizedItem(typeLabel, StringResources.LoadingXtraReport_TypeLabel.Id),
-                //new LocalizedItem(statusLabel, StringResources.LoadingXtraReport__StatusLabel.Id),
-                //new LocalizedItem(purchaseOrderDateLabel, StringResources.LoadingXtraReport__PurchaseOrderDateLabel.Id),
-                //new LocalizedItem(purchaseOrderNumberLabel, StringResources.LoadingXtraReport__PurchaseOrderNumberLabel.Id),
-                //new LocalizedItem(wallThicknessLabel, StringResources.LoadingXtraReport__WallThicknessLabel.Id),
+                new LocalizedItem(loadingReportLabel, StringResources.LoadingXtraReport_LoadingReportLabel.Id),
+                new LocalizedItem(releaseNoteNumberLabel, StringResources.LoadingXtraReport_ReleaseNoteNumberLabel.Id),
+                new LocalizedItem(railcarNumberLabel, StringResources.LoadingXtraReport_RailcarNumberLabel.Id),
+                new LocalizedItem(destinationLabel, StringResources.LoadingXtraReport_DestinationLabel.Id),
+                new LocalizedItem(certificateLabel, StringResources.LoadingXtraReport_CertificateLabel.Id),
+                new LocalizedItem(metersCountLabel, StringResources.LoadingXtraReport_MetersCountLabel.Id),
+                new LocalizedItem(weightCountLabel, StringResources.LoadingXtraReport_WeightCountLabel.Id),
+                new LocalizedItem(pipesCountLabel, StringResources.LoadingXtraReport_PipesCountLabel.Id),
             };
         }
 
