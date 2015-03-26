@@ -57,7 +57,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         public BindingList<int> AllKP { get; set; }
 
         public IList<JointProjection> JointsProjections { get; set; }
-
+        public List<string> localizedPartType = new List<string>();
         [Inject]
         public ConstructionReportViewModel(
             IMillReportsRepository repo, 

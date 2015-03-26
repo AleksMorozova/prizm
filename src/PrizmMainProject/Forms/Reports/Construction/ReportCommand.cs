@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construct = Prizm.Domain.Entity.Construction;
-
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -102,6 +102,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
 
                     data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                    data.TranslateStatus<PartType>(SQLProvider.TableNameForUsedProductsReport, SQLProvider.ColumnNameForUsedProductsReport, viewModel.localizedPartType);
+                   
                     SetDataSortByColumn("number");
                 }
             }

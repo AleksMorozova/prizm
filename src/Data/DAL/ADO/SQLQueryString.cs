@@ -54,6 +54,9 @@ group by r.number, n.number, r.certificate, r.destination";
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
 
+        public const string ColumnNameForMillReport = "pipeMillStatus";
+        public const string TableNameForMillReport = "Pipe";
+
         private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
@@ -88,7 +91,7 @@ group by r.number, n.number, r.certificate, r.destination";
  from Pipe pipe WHERE pipe.productionDate >=  @startDate  and pipe.productionDate <= @finalDate
 group by productionDate  ";
 
-        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
               LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
               LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -97,7 +100,7 @@ group by productionDate  ";
 	          WHERE productionDate >=  @startDate  and productionDate <= @finalDate
               {where_options}";
 
-        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as pipeMillStatus, PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
             FROM Pipe 
             LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
             LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -152,6 +155,9 @@ Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status a
           left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
           left  join Heat on (Heat.id = Plate.heatId)
             WHERE  Pipe.isActive=1";
+
+        public const string ColumnNameForUsedProductsReport = "type";
+        public const string TableNameForUsedProductsReport = "Joint";
 
         private const string GetAllUsedPipe = @"select Pipe.number as number, Joint.part1Type as type, Joint.numberKP
           from  Joint Joint

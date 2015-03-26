@@ -1,4 +1,5 @@
 ﻿using Prizm.Data.DAL;
+using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Commands;
 using Prizm.Main.Languages;
@@ -75,7 +76,9 @@ namespace Prizm.Main.Forms.Reports.Mill
                     {
                         data = repo.GetPipesByStatus(viewModel.StartDate, viewModel.EndDate, viewModel.SearchIds, viewModel.SelectedReportType, viewModel.SearchStatuses, true);
                         MillReportsXtraReport report = new MillReportsXtraReport();
-                        SetDataSortByColumn("number"); 
+                        SetDataSortByColumn("number");
+                        data.TranslateStatus<PipeMillStatus>(SQLProvider.TableNameForMillReport, SQLProvider.ColumnNameForMillReport, viewModel.localizedPipeStatus);
+
                         report.DataSource = data;
                         report.FootersVisibility = viewModel.IsFooterVisible;
                         report.CreateDocument();
