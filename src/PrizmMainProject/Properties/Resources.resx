@@ -1494,6 +1494,18 @@
   <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
     <value>Катушка имеет соединение</value>
   </data>
+<data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера</value>
+  </data>
+      <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
+    <value>Периодичная</value>
+  </data>
+  <data name="InspectionFrequencyType_Required" xml:space="preserve">
+    <value>Обязательная</value>
+  </data>
+  <data name="InspectionFrequencyType_Selective" xml:space="preserve">
+    <value>Выборочная</value>
+  </data>
   <data name="IncomingReportsXtraReport_HeatNumberLabel" xml:space="preserve">
     <value>Номер плавки</value>
   </data>

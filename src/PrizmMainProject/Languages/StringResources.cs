@@ -3210,6 +3210,12 @@ namespace Prizm.Main.Languages
             Description = "Толщина стенки, мм"
         };
 
+        public static StringResource ComponentNewEdit_IsConnectedGridColumn = new StringResource
+        {
+            Id = "ComponentNewEdit_IsConnectedGridColumn",
+            Description = "Соединен"
+        };
+
         public static StringResource ComponentNewEdit_InspectionLayoutGroup = new StringResource
         {
             Id = "ComponentNewEdit_InspectionLayoutGroup",
@@ -4101,8 +4107,67 @@ namespace Prizm.Main.Languages
 
         public static StringResource MillInspection_FrequencyGroup = new StringResource { 
             Id = "MillInspection_FrequencyGroup", 
-            Description = "Настройка контрольных опрераций завода. Надпись панели частоты"};
+            Description = "Настройка контрольных опрераций завода. Надпись панели периодической частоты"};
 
+        public static StringResource MillInspection_RepeatedOperationsLabel = new StringResource
+        {
+            Id = "MillInspection_RepeatedOperationsLabel",
+            Description = "Настройка контрольных опрераций завода. Надпись повторяемых операций"
+        };
+
+        public static StringResource MillInspection_CodeGridColumn = new StringResource
+        {
+            Id = "MillInspection_CodeGridColumn",
+            Description = "Настройка контрольных опрераций завода. Надпись колонки кода"
+        };
+
+        public static StringResource MillInspection_NameGridColumn = new StringResource
+        {
+            Id = "MillInspection_NameGridColumn",
+            Description = "Настройка контрольных опрераций завода. Надпись колонки названия"
+        };
+
+        public static StringResource MillInspection_OperationFrequencyGroup = new StringResource
+        {
+            Id = "MillInspection_OperationFrequencyGroup",
+            Description = "Настройка контрольных опрераций завода. Надпись группы частоты выполнения операции"
+        };
+
+        public static StringResource MillInspection_FrequencyTypeLayout = new StringResource
+        {
+            Id = "MillInspection_FrequencyTypeLayout",
+            Description = "Настройка контрольных опрераций завода. Надпись типа частоты"
+        };
+
+        public static StringResource MillInspection_SelectiveFrequencyGroup = new StringResource
+        {
+            Id = "MillInspection_SelectiveFrequencyGroup",
+            Description = "Настройка контрольных опрераций завода. Надпись группы выборочной частоты"
+        };
+
+        public static StringResource MillInspection_PercentOfSelectLayout = new StringResource
+        {
+            Id = "MillInspection_PercentOfSelectLayout",
+            Description = "Настройка контрольных опрераций завода. Надпись процента проверяемых труб"
+        };
+
+        public static StringResource InspectionFrequencyType_Required = new StringResource
+        {
+            Id = "InspectionFrequencyType_Required",
+            Description = "Тип частоты контрольной операции. Обязательная"
+        };
+
+        public static StringResource InspectionFrequencyType_Recurring = new StringResource
+        {
+            Id = "InspectionFrequencyType_Recurring",
+            Description = "Тип частоты контрольной операции. Периодичная"
+        };
+
+        public static StringResource InspectionFrequencyType_Selective = new StringResource
+        {
+            Id = "InspectionFrequencyType_Selective",
+            Description = "Тип частоты контрольной операции. Выборочная"
+        }; 
         #endregion
 
         #region --- PartInspectionXtraForm ---
@@ -5346,6 +5411,12 @@ namespace Prizm.Main.Languages
         {
             Id = "Notification_DublicateLogin_Critical",
             Description = "Сообщение о дублировании логинов"
+        };
+
+        public static StringResource Notification_DuplicatePipeNumber_Critical = new StringResource
+        {
+            Id = "Notification_DuplicatePipeNumber_Critical",
+            Description = "Сообщение о дублировании"
         };
         #endregion //--- Notification ---
 

@@ -1375,6 +1375,33 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Периодичная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Recurring {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Recurring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обязательная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Required {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выборочная.
+        /// </summary>
+        internal static string InspectionFrequencyType_Selective {
+            get {
+                return ResourceManager.GetString("InspectionFrequencyType_Selective", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить колонтитулы.
         /// </summary>
         internal static string InspectionReport_FootersCheck {
@@ -2819,6 +2846,15 @@ namespace Prizm.Main.Properties {
         internal static string Notification_DublicatePipeNumber_Critical {
             get {
                 return ResourceManager.GetString("Notification_DublicatePipeNumber_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дубликат номера.
+        /// </summary>
+        internal static string Notification_DuplicatePipeNumber_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DuplicatePipeNumber_Critical", resourceCulture);
             }
         }
         

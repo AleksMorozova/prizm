@@ -54,6 +54,7 @@
             this.diameterGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.positiveFloat = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.wallThicknessGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isConnectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.certificateNumber = new DevExpress.XtraEditors.TextEdit();
             this.componentNewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.InspectionLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -149,7 +150,7 @@
             this.componentLength.Name = "componentLength";
             this.componentLength.Properties.Mask.EditMask = "d";
             this.componentLength.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.componentLength.Size = new System.Drawing.Size(143, 20);
+            this.componentLength.Size = new System.Drawing.Size(183, 20);
             this.componentLength.StyleController = this.newEditPipeLayout;
             this.componentLength.TabIndex = 3;
             // 
@@ -160,7 +161,7 @@
             this.type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.type.Size = new System.Drawing.Size(143, 20);
+            this.type.Size = new System.Drawing.Size(183, 20);
             this.type.StyleController = this.newEditPipeLayout;
             this.type.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -211,14 +212,14 @@
             // inspectionHistoryGrid
             // 
             this.inspectionHistoryGrid.Cursor = System.Windows.Forms.Cursors.Default;
-            this.inspectionHistoryGrid.Location = new System.Drawing.Point(422, 48);
+            this.inspectionHistoryGrid.Location = new System.Drawing.Point(462, 48);
             this.inspectionHistoryGrid.MainView = this.inspectionHistoryGridView;
             this.inspectionHistoryGrid.Name = "inspectionHistoryGrid";
             this.inspectionHistoryGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryInspectionDate,
             this.repositoryInspectionStatus,
             this.inspectorsPopupContainerEdit});
-            this.inspectionHistoryGrid.Size = new System.Drawing.Size(558, 373);
+            this.inspectionHistoryGrid.Size = new System.Drawing.Size(518, 373);
             this.inspectionHistoryGrid.TabIndex = 5;
             this.inspectionHistoryGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.inspectionHistoryGridView});
@@ -337,7 +338,7 @@
             this.componentParameters.Name = "componentParameters";
             this.componentParameters.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.positiveFloat});
-            this.componentParameters.Size = new System.Drawing.Size(325, 110);
+            this.componentParameters.Size = new System.Drawing.Size(365, 110);
             this.componentParameters.TabIndex = 4;
             this.componentParameters.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.componentParametersView});
@@ -346,12 +347,14 @@
             // 
             this.componentParametersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.diameterGridColumn,
-            this.wallThicknessGridColumn});
+            this.wallThicknessGridColumn,
+            this.isConnectedGridColumn});
             this.componentParametersView.GridControl = this.componentParameters;
             this.componentParametersView.Name = "componentParametersView";
             this.componentParametersView.OptionsBehavior.FocusLeaveOnTab = true;
             this.componentParametersView.OptionsNavigation.UseTabKey = false;
             this.componentParametersView.OptionsView.ShowGroupPanel = false;
+            this.componentParametersView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.componentParametersView_ShowingEditor);
             this.componentParametersView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.componentParametersView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.componentParametersView_ValidateRow);
             // 
@@ -382,6 +385,15 @@
             this.wallThicknessGridColumn.Visible = true;
             this.wallThicknessGridColumn.VisibleIndex = 1;
             this.wallThicknessGridColumn.Width = 119;
+            // 
+            // isConnectedGridColumn
+            // 
+            this.isConnectedGridColumn.Caption = "Соединен";
+            this.isConnectedGridColumn.FieldName = "IsConnected";
+            this.isConnectedGridColumn.Name = "isConnectedGridColumn";
+            this.isConnectedGridColumn.OptionsColumn.AllowEdit = false;
+            this.isConnectedGridColumn.Visible = true;
+            this.isConnectedGridColumn.VisibleIndex = 2;
             // 
             // certificateNumber
             // 
@@ -415,9 +427,9 @@
             this.InspectionLayoutGroup.CustomizationFormText = "Inspection";
             this.InspectionLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.inspectionHistoryGridLayout});
-            this.InspectionLayoutGroup.Location = new System.Drawing.Point(393, 0);
+            this.InspectionLayoutGroup.Location = new System.Drawing.Point(433, 0);
             this.InspectionLayoutGroup.Name = "InspectionLayoutGroup";
-            this.InspectionLayoutGroup.Size = new System.Drawing.Size(596, 425);
+            this.InspectionLayoutGroup.Size = new System.Drawing.Size(556, 425);
             this.InspectionLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 2);
             this.InspectionLayoutGroup.Text = "Входно&й контроль";
             // 
@@ -427,7 +439,7 @@
             this.inspectionHistoryGridLayout.CustomizationFormText = "Входно&й контроль";
             this.inspectionHistoryGridLayout.Location = new System.Drawing.Point(0, 0);
             this.inspectionHistoryGridLayout.Name = "inspectionHistoryGridLayout";
-            this.inspectionHistoryGridLayout.Size = new System.Drawing.Size(562, 377);
+            this.inspectionHistoryGridLayout.Size = new System.Drawing.Size(522, 377);
             this.inspectionHistoryGridLayout.Text = "Входно&й контроль";
             this.inspectionHistoryGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.inspectionHistoryGridLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -446,7 +458,7 @@
             this.newComponentLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.newComponentLayoutGroup.Name = "newComponentLayoutGroup";
             this.newComponentLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 9, 0);
-            this.newComponentLayoutGroup.Size = new System.Drawing.Size(393, 425);
+            this.newComponentLayoutGroup.Size = new System.Drawing.Size(433, 425);
             this.newComponentLayoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 2);
             this.newComponentLayoutGroup.Text = "Комплектующее изделие";
             // 
@@ -480,7 +492,7 @@
             this.parametersGridLayout.CustomizationFormText = "parametersGridLayout";
             this.parametersGridLayout.Location = new System.Drawing.Point(0, 108);
             this.parametersGridLayout.Name = "parametersGridLayout";
-            this.parametersGridLayout.Size = new System.Drawing.Size(359, 128);
+            this.parametersGridLayout.Size = new System.Drawing.Size(399, 128);
             this.parametersGridLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.parametersGridLayout.Text = "parametersGridLayout";
             this.parametersGridLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -493,7 +505,7 @@
             this.typeLayoutControl.CustomizationFormText = "Type";
             this.typeLayoutControl.Location = new System.Drawing.Point(182, 0);
             this.typeLayoutControl.Name = "typeLayoutControl";
-            this.typeLayoutControl.Size = new System.Drawing.Size(177, 54);
+            this.typeLayoutControl.Size = new System.Drawing.Size(217, 54);
             this.typeLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.typeLayoutControl.Text = "&Тип изделия";
             this.typeLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
@@ -505,7 +517,7 @@
             this.componentLengthLayout.CustomizationFormText = "Длина комплектующего, мм";
             this.componentLengthLayout.Location = new System.Drawing.Point(182, 54);
             this.componentLengthLayout.Name = "componentLengthLayout";
-            this.componentLengthLayout.Size = new System.Drawing.Size(177, 54);
+            this.componentLengthLayout.Size = new System.Drawing.Size(217, 54);
             this.componentLengthLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 7, 7);
             this.componentLengthLayout.Text = "Длина комплектую&щего, мм";
             this.componentLengthLayout.TextLocation = DevExpress.Utils.Locations.Top;
@@ -517,7 +529,7 @@
             this.emptySpaceUnderButtons.CustomizationFormText = "emptySpaceUnderButtons";
             this.emptySpaceUnderButtons.Location = new System.Drawing.Point(0, 236);
             this.emptySpaceUnderButtons.Name = "emptySpaceUnderButtons";
-            this.emptySpaceUnderButtons.Size = new System.Drawing.Size(359, 150);
+            this.emptySpaceUnderButtons.Size = new System.Drawing.Size(399, 150);
             this.emptySpaceUnderButtons.Text = "emptySpaceUnderButtons";
             this.emptySpaceUnderButtons.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -675,5 +687,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceUnderButtons;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit positiveFloat;
         private DevExpress.XtraGrid.Columns.GridColumn orderColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn isConnectedGridColumn;
     }
 }

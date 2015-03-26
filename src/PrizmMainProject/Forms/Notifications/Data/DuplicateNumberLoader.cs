@@ -8,6 +8,7 @@ using Prizm.Main.Forms.Notifications;
 using Ninject;
 using NHibernate.Transform;
 using Prizm.Main.Forms.Notifications.Managers;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Notifications.Data
 {
@@ -23,7 +24,8 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), "");
+                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), 
+                    Program.LanguageManager.GetString(StringResources.Notification_DuplicatePipeNumber_Critical));
             }
 
 
@@ -34,7 +36,9 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public string GetOwnerName(object[] tuple)
             {
-                return tuple[1].ToString() + "/" + tuple[2].ToString();
+                var number = (tuple[2] == null) ? string.Empty : tuple[2].ToString();
+                var mill = (tuple[1] == null) ? string.Empty : tuple[1].ToString() ;
+                return number + "/" + mill;
             }
 
         }
