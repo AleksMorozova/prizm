@@ -260,7 +260,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         public bool HasConnectedConnectors
         {
-            get { return (this.Component.Connectors == null) ? false :  this.Component.Connectors.Any(x => x.IsConnected == true); }
+            get { return (this.Component.Connectors == null) ? false :  this.Component.Connectors.Any(x => x.IsConnected); }
         }
 
         #region ---- Commands ----
