@@ -1,4 +1,7 @@
 ﻿using NHibernate;
+using NHibernate.Criterion;
+using NHibernate.Exceptions;
+using NHibernate.Transform;
 using Ninject;
 using Prizm.Data.DAL.Synch;
 using Prizm.Domain.Entity;
@@ -18,8 +21,15 @@ namespace Prizm.Data.DAL.Hibernate
       }
       public int GetPortionNumber(Project currentProject)
       {      
-          IList<Portion> portionList =  session.QueryOver<Portion>().Where(_ => _.IsExport == true && _.Project == currentProject).List<Portion>();
-          return (portionList.Count == 0) ? 1 : portionList.Max(_ => _.PortionNumber) + 1;
+          var maxIndex = session.QueryOver<Portion>()
+              .Where(x => x.IsExport == true)
+              .Where(x => x.Project == currentProject)
+              .Select
+              (
+              Projections.Max<Portion>(x => x.PortionNumber)
+              ).SingleOrDefault<int>();
+          return maxIndex + 1;
+
       }
 
       public List<int> CheckPortionSequence(Project importProject)
@@ -31,6 +41,30 @@ namespace Prizm.Data.DAL.Hibernate
 
           return (result.Count == 0) ? new List<int>() { 0 } : sorted;
  
+      }
+
+      public override IList<Portion> GetAll()
+      {
+          try
+          {
+              var q = session.QueryOver<Portion>()
+                  .Select
+                  (
+                    p => p.Id,
+                    p => p.ExportDateTime,
+                    p => p.IsExport,
+                    p => p.Project,
+                    p => p.PortionNumber
+                  )
+                  .TransformUsing(Transformers.AliasToBean<Portion>())
+                  .List<Portion>();
+              return q;
+              //return session.CreateCriteria<Portion>().List<Portion>();
+          }
+          catch(GenericADOException ex)
+          {
+              throw new RepositoryException("GetAll", ex);
+          }
       }
    }
 }

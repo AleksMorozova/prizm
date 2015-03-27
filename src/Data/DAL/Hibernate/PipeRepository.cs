@@ -14,6 +14,7 @@ using NHibernate.Linq;
 using NHibernate.Criterion;
 using NHibernate.Transform;
 using NHibernate.SqlCommand;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -91,27 +92,56 @@ namespace Prizm.Data.DAL.Hibernate
         {
            try
            {
-               //Pipe p = null;
-               //PipeTestResult ptr = null;
-               //Inspector ins = null;
+              // PipeTestResult result = null;
+              // Inspector inspector = null;
+              // Certificate certificate = null;
+              // var q = session.QueryOver<Pipe>()
+              //     .Where(n => ((n.ToExport == true)))
+              //     .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
+              //     .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
+              //     .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+              //     .TransformUsing(Transformers.DistinctRootEntity)
+              //     .List<Pipe>();
+              //return q;
 
-              //var q = session
-              //   .QueryOver<Pipe>(() => p)
-              //   .Left.JoinAlias(() => p.PipeTestResult, () => ptr)
-              //   .Left.JoinAlias(() => ptr.Inspectors, () => ins)
-              //   .Where(_ => _.ToExport)
-              //   .List<Pipe>();
+               Plate plate = null;
+               Heat heat = null;
+               PlateManufacturer plateMan = null;
+               PipeMillSizeType type = null;
+               PipeTest tests = null;
                PipeTestResult result = null;
                Inspector inspector = null;
                Certificate certificate = null;
+               Project proj = null;
+               SeamType seam = null;
+               Spool spool = null;
+               File attach = null;
+               
                var q = session.QueryOver<Pipe>()
                    .Where(n => ((n.ToExport == true)))
+
                    .JoinAlias(r => r.PipeTestResult, () => result, JoinType.LeftOuterJoin)
                    .JoinAlias(() => result.Inspectors, () => inspector, JoinType.LeftOuterJoin)
                    .JoinAlias(() => inspector.Certificates, () => certificate, JoinType.LeftOuterJoin)
+
+                   .JoinAlias(p => p.Plate, () => plate, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => plate.Heat, () => heat, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => heat.PlateManufacturer, () => plateMan, JoinType.LeftOuterJoin)
+
+                   .JoinAlias(t => t.Type, () => type, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => type.SeamType, () => seam, JoinType.LeftOuterJoin)
+                   .JoinAlias(() => type.PipeTests, () => tests, JoinType.LeftOuterJoin)
+
+                   .JoinAlias(t => t.Spools, () => spool, JoinType.LeftOuterJoin)
+                   .JoinAlias(t => t.Attachments, () => attach, JoinType.LeftOuterJoin)
+                   .JoinAlias(t => t.Project, () => proj, JoinType.LeftOuterJoin)
+
+                   .Fetch(o => o.PurchaseOrder).Eager
+                   .Fetch(r => r.Railcar).Eager
+
                    .TransformUsing(Transformers.DistinctRootEntity)
                    .List<Pipe>();
-              return q;
+               return q;
            }
            catch (GenericADOException ex)
            {
