@@ -62,7 +62,7 @@ namespace Prizm.Domain.Entity.Setup
             get { return FrequencyType == InspectionFrequencyType.R; } 
         }
 
-        public virtual List<PipeTest> RepeatedInspections { get; set; }
+        public virtual IList<PipeTest> RepeatedInspections { get; set; }
 
         public virtual string DisplayExpectedResult
         {
@@ -79,7 +79,22 @@ namespace Prizm.Domain.Entity.Setup
                 }
             } 
         }
-        //string test
+
+        private string displayText = null;
+        public virtual string DisplayRepeatedInspections
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(displayText))
+                {
+                    foreach (var insp in RepeatedInspections)
+                    {
+                        displayText += string.IsNullOrEmpty(displayText) ? insp.Code : string.Concat(", ", insp.Code);
+                    }
+                }
+                return displayText;
+            }
+        }
 
         public virtual void CustomShallowCopy(PipeTest original)
         {
