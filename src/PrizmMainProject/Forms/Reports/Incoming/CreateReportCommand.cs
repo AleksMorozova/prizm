@@ -24,7 +24,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
         readonly IMillReportsRepository repo;
         readonly InspectionReportsViewModel viewModel;
         readonly IUserNotify notify;
-        System.Data.DataSet data;
+        DataSet data;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
