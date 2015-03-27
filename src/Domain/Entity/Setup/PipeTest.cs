@@ -5,31 +5,31 @@ namespace Prizm.Domain.Entity.Setup
 {
     public class PipeTest : Item
     {
-        public PipeTest(string code, string subject, bool isRequired, string expected)
-            : this(code, subject, isRequired)
+        public PipeTest(string code, string subject, InspectionFrequencyType frequencyType, string expected)
+            : this(code, subject, frequencyType)
         {
             this.StringExpected = expected;
         }
 
         //diapasone test
-        public PipeTest(string code, string subject, bool isRequired, int min, int max)
-            : this(code, subject, isRequired)
+        public PipeTest(string code, string subject, InspectionFrequencyType frequencyType, int min, int max)
+            : this(code, subject, frequencyType)
         {
             this.MinExpected = min;
             this.MaxExpected = max;
         }
 
         //bool test
-        public PipeTest(string code, string subject, bool isRequired, bool expected)
-            : this(code, subject, isRequired)
+        public PipeTest(string code, string subject, InspectionFrequencyType frequencyType, bool expected)
+            : this(code, subject, frequencyType)
         {
             this.BoolExpected = expected;
         }
 
-        public PipeTest(string code, string subject, bool isRequired)
+        public PipeTest(string code, string subject, InspectionFrequencyType frequencyType)
         {
             this.Code = code;
-            this.IsRequired = isRequired;
+            this.FrequencyType = frequencyType;
             this.PipeTestResults = new List<PipeTestResult>();
         }
 
@@ -47,8 +47,8 @@ namespace Prizm.Domain.Entity.Setup
         public virtual int MaxExpected { get; set; }
         public virtual string StringExpected { get; set; }
         public virtual bool BoolExpected { get; set; }
-        public virtual bool IsRequired { get; set; }
 
+        public virtual InspectionFrequencyType FrequencyType { get; set; }
         public virtual PipeMillSizeType pipeType { get; set; }
         public virtual PipeTestFrequency Frequency { get; set; }
         //enums
@@ -56,6 +56,10 @@ namespace Prizm.Domain.Entity.Setup
         public virtual PipeTestResultType ResultType { get; set; }
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
+        public virtual bool IsRequired
+        { 
+            get { return FrequencyType == InspectionFrequencyType.R; } 
+        }
 
         public virtual string DisplayExpectedResult
         {
@@ -83,7 +87,7 @@ namespace Prizm.Domain.Entity.Setup
             this.Frequency = original.Frequency;
             this.Id = original.Id;
             this.IsActive = original.IsActive;
-            this.IsRequired = original.IsRequired;
+            this.FrequencyType = original.FrequencyType;
             this.MaxExpected = original.MaxExpected;
             this.MinExpected = original.MinExpected;
             this.Name = original.Name;

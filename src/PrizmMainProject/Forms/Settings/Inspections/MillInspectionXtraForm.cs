@@ -94,6 +94,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             controlType.DataBindings.Add("SelectedIndex", bindingSource, "ControlTypeIndex");
             resultType.DataBindings.Add("SelectedIndex", bindingSource, "ResultTypeIndex");
+            frequencyType.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyTypeIndex");
             frequencyMeasure.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyMeasureIndex");
 
             category.Properties.DataSource = viewModel.CategoryTypes;

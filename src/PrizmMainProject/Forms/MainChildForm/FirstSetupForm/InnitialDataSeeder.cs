@@ -151,7 +151,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -163,7 +163,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -175,7 +175,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -187,7 +187,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -199,7 +199,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -211,7 +211,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -223,7 +223,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -235,7 +235,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -247,7 +247,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -259,7 +259,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -271,7 +271,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -285,7 +285,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     MaxExpected = 1221,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -299,7 +299,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     MaxExpected = 12400,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -311,7 +311,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -323,7 +323,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -335,7 +335,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[0],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 }, 
 	            #endregion
 
@@ -349,7 +349,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -361,7 +361,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -373,7 +373,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -385,7 +385,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -397,7 +397,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -409,7 +409,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -421,7 +421,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -433,7 +433,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -445,7 +445,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -457,7 +457,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -469,7 +469,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.String,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -483,7 +483,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     MaxExpected = 1221,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -497,7 +497,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     MaxExpected = 12400,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -509,7 +509,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -521,7 +521,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 },
 
                 new PipeTest 
@@ -533,7 +533,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     ResultType = PipeTestResultType.Boolean,
                     pipeType = types[1],
                     IsActive = true,
-                    IsRequired = true
+                    FrequencyType = InspectionFrequencyType.R
                 } 
 	#endregion
             };

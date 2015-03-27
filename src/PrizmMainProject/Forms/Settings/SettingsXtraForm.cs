@@ -503,7 +503,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 if (c.Fixed && c.ResultType == "int")
                 {
-                    CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason, pipeType = CurrentPipeMillSizeType, IsRequired = true });
+                    CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason, pipeType = CurrentPipeMillSizeType, FrequencyType = InspectionFrequencyType.R });
                 }
             }
         }
