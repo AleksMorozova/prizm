@@ -707,7 +707,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region Sorting inspections
             var sheduledResult = from result in foundTestResults
                                  orderby result.Operation.Code
-                                 where result.Status == PipeTestResultStatus.Scheduled
+                                 where result.Status == PipeTestResultStatus.Scheduled && result.Operation.IsActive
                                  select result;
 
             var otherResult = from result in foundTestResults
