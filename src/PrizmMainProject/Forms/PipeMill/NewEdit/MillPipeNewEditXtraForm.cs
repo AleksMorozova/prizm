@@ -986,41 +986,27 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
 
-            if(e.Column.Name == expectedResultGridColumn.Name)
+            if (e.Column.Name == expectedResultGridColumn.Name)
             {
-                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
-                if(pipeTestResult != null
-                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
+                if (e.Value.ToString() == Boolean.FalseString)
+                { 
+                    e.DisplayText = Program.LanguageManager.GetString(StringResources.No); 
+                }
+                else if (e.Value.ToString() == Boolean.TrueString)
                 {
-                    if(pipeTestResult.Operation.BoolExpected)
-                    {
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
-                    }
-                    else
-                    {
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
-                    }
+                    e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                 }
             }
 
-            if(e.Column.Name == valueGridColumn.Name)
+            if(e.Column.Name == valueGridColumn.Name && e.Value!=null)
             {
-                bool tmpResult;
-
-                PipeTestResult pipeTestResult = inspectionsGridView.GetRow(e.ListSourceRowIndex) as PipeTestResult;
-
-                if(pipeTestResult != null
-                    && bool.TryParse(e.DisplayText, out tmpResult)
-                    && pipeTestResult.Operation.ResultType == PipeTestResultType.Boolean)
+                if (e.Value.ToString() == Boolean.FalseString)
                 {
-                    if(tmpResult)
-                    {
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
-                    }
-                    else
-                    {
-                        e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
-                    }
+                    e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
+                }
+                else if (e.Value.ToString() == Boolean.TrueString)
+                {
+                    e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                 }
             }
         }
