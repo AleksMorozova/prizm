@@ -316,7 +316,7 @@
             this.saveButton.Size = new System.Drawing.Size(87, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 17;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Принять";
             // 
             // frequency
             // 
