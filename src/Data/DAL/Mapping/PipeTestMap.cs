@@ -36,7 +36,7 @@ namespace Prizm.Data.DAL.Mapping
             HasManyToMany<PipeTest>(x => x.RepeatedInspections)
                 .Table("Inspection_RepeatedInspection")
                 .ParentKeyColumn("inspectionId")
-                .ChildKeyColumn("repeatedInspectionId").Not.LazyLoad();
+                .ChildKeyColumn("repeatedInspectionId").Cascade.All().Not.LazyLoad();
         }
     }
 }

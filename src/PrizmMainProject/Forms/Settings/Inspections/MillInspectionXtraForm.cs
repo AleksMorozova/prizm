@@ -106,7 +106,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
-            inspectionCodeRepositoryLookUp.DataSource = viewModel.RepeatTestCandidates;
+
+            repeatedInspectionsLookUp.Properties.DataSource = pipeTestList;
+            repeatedOperationsGrid.DataSource = viewModel.PipeTest.RepeatedInspections;
         }
 
         private void ChangeExpected()
@@ -257,6 +259,28 @@ namespace Prizm.Main.Forms.Settings.Inspections
         private void frequencyType_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeFrequency();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var pipeTest = repeatedInspectionsLookUp.EditValue as PipeTest;
+
+            if (pipeTest != null)
+            {
+                viewModel.PipeTest.RepeatedInspections.Add(pipeTest);
+                repeatedOperationsGrid.RefreshDataSource();
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            var pipeTest = repeatedOperationsView.GetFocusedRow() as PipeTest;
+
+            if (pipeTest != null)
+            {
+                viewModel.PipeTest.RepeatedInspections.Remove(pipeTest);
+                repeatedOperationsGrid.RefreshDataSource();
+            }
         }
 
     }

@@ -37,6 +37,7 @@ namespace Prizm.Domain.Entity.Setup
         public PipeTest()
         {
             this.PipeTestResults = new List<PipeTestResult>();
+            this.RepeatedInspections = new List<PipeTest>();
         }
 
         //category of test
@@ -81,17 +82,15 @@ namespace Prizm.Domain.Entity.Setup
             } 
         }
 
-        private string displayText = null;
+        
         public virtual string DisplayRepeatedInspections
         {
             get
             {
-                if (string.IsNullOrEmpty(displayText))
+                string displayText = null;
+                foreach (var insp in RepeatedInspections)
                 {
-                    foreach (var insp in RepeatedInspections)
-                    {
-                        displayText += string.IsNullOrEmpty(displayText) ? insp.Code : string.Concat(", ", insp.Code);
-                    }
+                    displayText += string.IsNullOrEmpty(displayText) ? insp.Code : string.Concat(", ", insp.Code);
                 }
                 return displayText;
             }
@@ -116,6 +115,7 @@ namespace Prizm.Domain.Entity.Setup
             this.ResultType = original.ResultType;
             this.StringExpected = original.StringExpected;
             this.SelectivePercent = original.SelectivePercent;
+            this.RepeatedInspections = new List<PipeTest>(original.RepeatedInspections);
         }
     }
 }
