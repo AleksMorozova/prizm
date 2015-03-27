@@ -8,8 +8,8 @@ namespace Prizm.Domain.Entity.Setup
 {
     public enum InspectionFrequencyType
     {
-        Required = 0,
-        Recurring = 1,
-        Selective = 2
+        R= 0,//Required 
+        U = 1,//Recurring 
+        S = 2//Selective
     }
 }

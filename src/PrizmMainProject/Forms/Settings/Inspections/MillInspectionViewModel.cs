@@ -80,19 +80,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        public bool IsRequired
-        {
-            get { return pipeTest.IsRequired; }
-            set
-            {
-                if (value != pipeTest.IsRequired)
-                {
-                    pipeTest.IsRequired = value;
-                    RaisePropertyChanged("IsRequired");
-                }
-            }
-        }
-
         public bool IsActive
         {
             get { return pipeTest.IsActive; }
@@ -248,6 +235,20 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 }
             }
         }
+
+        public int FrequencyTypeIndex
+        {
+            get { return (int)pipeTest.FrequencyType; }
+            set
+            {
+                if (value != (int)pipeTest.FrequencyType)
+                {
+                    pipeTest.FrequencyType = (InspectionFrequencyType)value;
+                    RaisePropertyChanged("FrequencyTypeIndex");
+                }
+            }
+        }
+
         #endregion
     }
 }

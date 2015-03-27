@@ -575,7 +575,7 @@ SettingsPipe_InspectionsMinExpectedColumn=Expected min value
 ;Настройки-труба. Максимальный результат контрольной операции
 SettingsPipe_InspectionsMaxExpectedColumn=Expected max value
 ;Настройки-труба. Обязательная контрольная операция
-SettingsPipe_InspectionsIsReqiredColumn=Is required
+SettingsPipe_InspectionsIsReqiredColumn=Frequency
 
 ;Настройки-труба. Активность контрольной операции
 SettingsPipe_InspectionsIsActiveColumn=Is active
@@ -1473,9 +1473,6 @@ MillInspection_SaveButton=&Save
 
 ;Настройка контрольных опрераций завода. Надпись кнопки отмены
 MillInspection_CancelButton=&Cancel
-
-;Настройка контрольных опрераций завода. Надпись чекбокса Обязательна
-MillInspection_IsRequiredCheckbox=Is required
 
 ;Настройка контрольных опрераций завода. Надпись чекбокса Активна
 MillInspection_IsActiveCheckbox=Is active
