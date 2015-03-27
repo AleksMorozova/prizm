@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using construct = Prizm.Domain.Entity.Construction;
-
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
@@ -55,6 +55,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                 && viewModel.EndJoint != null)
             {
                 PipelineTracing();
+
                 viewModel.ReportDataSource = tracingDataList;
             }
             else if (viewModel.ReportType == ReportType.UsedProductReport)
@@ -102,6 +103,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
 
                     data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
+                    data.TranslateStatus<PartType>(SQLProvider.TableNameForUsedProductsReport, SQLProvider.ColumnNameForUsedProductsReport, viewModel.localizedPartType);
+                   
                     SetDataSortByColumn("number");
                 }
             }
@@ -246,9 +249,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if (row.Field<string>("type") != "Component")
                 {
+                    PartType result = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type"));
                     row.SetField(
                         "typeTranslated",
-                        Resources.ResourceManager.GetString(row.Field<string>("type")));
+                        viewModel.localizedPartType[(int)((object)result) - 1]);
                 }
                 else
                 {
