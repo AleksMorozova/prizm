@@ -16,13 +16,20 @@ namespace Prizm.DatabaseMigrator.Migrations
             Execute.Sql(@"UPDATE [PipeTest] SET frequencyType = 'R' WHERE isRequired = 1
                           UPDATE [PipeTest] SET frequencyType = 'U' WHERE isRequired = 0");
             Delete.Column("isRequired").FromTable("PipeTest");
+
+            Create.Table("Inspection_RepeatedInspection")
+                .WithColumn("inspectionId").AsGuid().PrimaryKey().Identity()
+                .WithColumn("repeatedInspectionId").AsGuid();
         }
+
         public override void Down()
         {
             Alter.Table("PipeTest").AddColumn("isRequired").AsBoolean().Nullable();
             Execute.Sql(@"UPDATE [PipeTest] SET isRequired = 1 WHERE frequencyType = 'R'
                           UPDATE [PipeTest] SET isRequired = 0 WHERE frequencyType = 'U'");
             Delete.Column("frequencyType").FromTable("PipeTest");
+
+            Delete.Table("Inspection_RepeatedInspection");
         }
     }
 }
