@@ -88,6 +88,87 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Приложение к отчету.
+        /// </summary>
+        internal static string AdditionToTheReport_AdditionToTheReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_AdditionToTheReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string AdditionToTheReport_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_HeatNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string AdditionToTheReport_LengthLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_LengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string AdditionToTheReport_NumberLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_NumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общая длина:.
+        /// </summary>
+        internal static string AdditionToTheReport_PipesLengthLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_PipesLengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общий вес:.
+        /// </summary>
+        internal static string AdditionToTheReport_PipesWeightLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_PipesWeightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата отгрузки.
+        /// </summary>
+        internal static string AdditionToTheReport_ShippingDateLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_ShippingDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество:.
+        /// </summary>
+        internal static string AdditionToTheReport_TotalCountLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_TotalCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string AdditionToTheReport_WeightLabel {
+            get {
+                return ResourceManager.GetString("AdditionToTheReport_WeightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Администратор.
         /// </summary>
         internal static string Administrator {
@@ -795,6 +876,159 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BAR (Производство готовой трубы).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARRejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARRejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_BARRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_BARRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COAAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COAAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COAAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COAAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to COA (Внутреннее покрытие).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COALabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COALabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COARejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COARejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_COARepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_COARepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCAcceptedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCAcceptedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Принято после ремонта.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCAfterRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCAfterRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXC (Наружнее покрытие).
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCRejectedLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCRejectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Временный брак.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_EXCRepairLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_EXCRepairLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по заводу.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_GeneralReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_GeneralReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата производства.
+        /// </summary>
+        internal static string GeneralInformationXtraReport_ProductionDateLabel {
+            get {
+                return ResourceManager.GetString("GeneralInformationXtraReport_ProductionDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Разряд.
         /// </summary>
         internal static string Grade {
@@ -1018,6 +1252,69 @@ namespace Prizm.Main.Properties {
         internal static string ImportMessage_IsFinished {
             get {
                 return ResourceManager.GetString("ImportMessage_IsFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_HeatNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Результат.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_InspectionStatusLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_InspectionStatusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeLengthLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeLengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заводской номер трубы.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeNumberLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип трубы.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeTypeLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_PipeWallThicknessLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_PipeWallThicknessLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по входному контролю.
+        /// </summary>
+        internal static string IncomingReportsXtraReport_ReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("IncomingReportsXtraReport_ReportHeaderLabel", resourceCulture);
             }
         }
         
@@ -1526,6 +1823,78 @@ namespace Prizm.Main.Properties {
         internal static string Length {
             get {
                 return ResourceManager.GetString("Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сертификат.
+        /// </summary>
+        internal static string LoadingXtraReport_CertificateLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_CertificateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Станция назначения.
+        /// </summary>
+        internal static string LoadingXtraReport_DestinationLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_DestinationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Рапорт по отгрузке.
+        /// </summary>
+        internal static string LoadingXtraReport_LoadingReportLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_LoadingReportLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Кол-во метров.
+        /// </summary>
+        internal static string LoadingXtraReport_MetersCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_MetersCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Кол-во труб.
+        /// </summary>
+        internal static string LoadingXtraReport_PipesCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_PipesCountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер вагона.
+        /// </summary>
+        internal static string LoadingXtraReport_RailcarNumberLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_RailcarNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер разрешения на отгрузку.
+        /// </summary>
+        internal static string LoadingXtraReport_ReleaseNoteNumberLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_ReleaseNoteNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string LoadingXtraReport_WeightCountLabel {
+            get {
+                return ResourceManager.GetString("LoadingXtraReport_WeightCountLabel", resourceCulture);
             }
         }
         
@@ -2220,6 +2589,132 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Состояние.
+        /// </summary>
+        internal static string MillReportsXtraReport_ActiveLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_ActiveLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Диаметр.
+        /// </summary>
+        internal static string MillReportsXtraReport_DiameterLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_DiameterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string MillReportsXtraReport_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_HeatNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина.
+        /// </summary>
+        internal static string MillReportsXtraReport_LengthLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_LengthLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string MillReportsXtraReport_NumberLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_NumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет на заводе.
+        /// </summary>
+        internal static string MillReportsXtraReport_PageHeaderLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_PageHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер листа.
+        /// </summary>
+        internal static string MillReportsXtraReport_PlateNumberLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_PlateNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        internal static string MillReportsXtraReport_PurchaseOrderDateLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_PurchaseOrderDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string MillReportsXtraReport_PurchaseOrderNumberLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_PurchaseOrderNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет на заводе.
+        /// </summary>
+        internal static string MillReportsXtraReport_ReportHeaderLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_ReportHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        internal static string MillReportsXtraReport_StatusLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_StatusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип трубы.
+        /// </summary>
+        internal static string MillReportsXtraReport_TypeLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_TypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина.
+        /// </summary>
+        internal static string MillReportsXtraReport_WallThicknessLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_WallThicknessLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вес.
+        /// </summary>
+        internal static string MillReportsXtraReport_WeightLabel {
+            get {
+                return ResourceManager.GetString("MillReportsXtraReport_WeightLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Минимальный ожидаемый результат.
         /// </summary>
         internal static string MinExpected {
@@ -2351,6 +2846,15 @@ namespace Prizm.Main.Properties {
         internal static string Notification_DublicatePipeNumber_Critical {
             get {
                 return ResourceManager.GetString("Notification_DublicatePipeNumber_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дубликат номера.
+        /// </summary>
+        internal static string Notification_DuplicatePipeNumber_Critical {
+            get {
+                return ResourceManager.GetString("Notification_DuplicatePipeNumber_Critical", resourceCulture);
             }
         }
         
@@ -2741,6 +3245,87 @@ namespace Prizm.Main.Properties {
         internal static string PipeConstructionReport_Title {
             get {
                 return ResourceManager.GetString("PipeConstructionReport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Диаметр, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_DiameterHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_DiameterHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Первый стык.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_FirstJointHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_FirstJointHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Марка стали.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_GradeHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_GradeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_LengthHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_LengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по трубам на строительстве.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_PipeConstructionReportHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_PipeConstructionReportHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер трубы.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_PipeNumberHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_PipeNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип шва.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_SeamTypeHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_SeamTypeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Второй стык.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_SecondJointHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_SecondJointHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Толщина, мм.
+        /// </summary>
+        internal static string PipeConstructionXtraReport_ThicknessHeader {
+            get {
+                return ResourceManager.GetString("PipeConstructionXtraReport_ThicknessHeader", resourceCulture);
             }
         }
         
@@ -4005,6 +4590,132 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string TracingReport_FirstPartLengthHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartLengthHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер элемента 1.
+        /// </summary>
+        internal static string TracingReport_FirstPartNumberHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип элемента 1.
+        /// </summary>
+        internal static string TracingReport_FirstPartTypeHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_FirstPartTypeHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер стыка.
+        /// </summary>
+        internal static string TracingReport_JointNumberHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_JointNumberHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество компонентов.
+        /// </summary>
+        internal static string TracingReport_PipelineComponentHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineComponentHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество стыков.
+        /// </summary>
+        internal static string TracingReport_PipelineJointCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineJointCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общая длина, мм.
+        /// </summary>
+        internal static string TracingReport_PipelineLengthHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество труб.
+        /// </summary>
+        internal static string TracingReport_PipelinePipeCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelinePipeCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество катушек.
+        /// </summary>
+        internal static string TracingReport_PipelineSpoolCountHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PipelineSpoolCountHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина, мм.
+        /// </summary>
+        internal static string TracingReport_SecondPartLengthHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartLengthHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер элемента 2.
+        /// </summary>
+        internal static string TracingReport_SecondPartNumberHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип элемента 2.
+        /// </summary>
+        internal static string TracingReport_SecondPartTypeHeder {
+            get {
+                return ResourceManager.GetString("TracingReport_SecondPartTypeHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Трассировка трубопровода.
+        /// </summary>
+        internal static string TracingReport_TracingPageHeaderXrLabel {
+            get {
+                return ResourceManager.GetString("TracingReport_TracingPageHeaderXrLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата сварки.
+        /// </summary>
+        internal static string TracingReport_WeldingDate {
+            get {
+                return ResourceManager.GetString("TracingReport_WeldingDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Тип.
         /// </summary>
         internal static string Type {
@@ -4019,6 +4730,42 @@ namespace Prizm.Main.Properties {
         internal static string UsedProductReport {
             get {
                 return ResourceManager.GetString("UsedProductReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по использованным изделиям.
+        /// </summary>
+        internal static string UsedProductsXtraReport_GroupHeaderLabel {
+            get {
+                return ResourceManager.GetString("UsedProductsXtraReport_GroupHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по использованным изделиям.
+        /// </summary>
+        internal static string UsedProductsXtraReport_PageHeaderLabel {
+            get {
+                return ResourceManager.GetString("UsedProductsXtraReport_PageHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер изделия.
+        /// </summary>
+        internal static string UsedProductsXtraReport_ProductNumberLabel {
+            get {
+                return ResourceManager.GetString("UsedProductsXtraReport_ProductNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип изделия.
+        /// </summary>
+        internal static string UsedProductsXtraReport_ProductTypeLabel {
+            get {
+                return ResourceManager.GetString("UsedProductsXtraReport_ProductTypeLabel", resourceCulture);
             }
         }
         
@@ -4128,6 +4875,69 @@ namespace Prizm.Main.Properties {
         internal static string WeldDateReport_Title {
             get {
                 return ResourceManager.GetString("WeldDateReport_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата сварки.
+        /// </summary>
+        internal static string WeldDateXtraReport_DateHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_DateHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина первой части.
+        /// </summary>
+        internal static string WeldDateXtraReport_FirstPartLengthHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_FirstPartLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер первой части.
+        /// </summary>
+        internal static string WeldDateXtraReport_FirstPartNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_FirstPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер стыка.
+        /// </summary>
+        internal static string WeldDateXtraReport_JointNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_JointNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Длина второй части.
+        /// </summary>
+        internal static string WeldDateXtraReport_SecondPartLengthHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_SecondPartLengthHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер второй части.
+        /// </summary>
+        internal static string WeldDateXtraReport_SecondPartNumberHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_SecondPartNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчет по сварке (по дате).
+        /// </summary>
+        internal static string WeldDateXtraReport_WeldReportByDateHeader {
+            get {
+                return ResourceManager.GetString("WeldDateXtraReport_WeldReportByDateHeader", resourceCulture);
             }
         }
         

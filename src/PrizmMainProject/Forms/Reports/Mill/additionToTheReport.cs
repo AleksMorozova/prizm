@@ -5,15 +5,17 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    public partial class AdditionToTheReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class AdditionToTheReport : DevExpress.XtraReports.UI.XtraReport, ILocalizable
     {
         private IList<Pipe> pipes;
         public AdditionToTheReport()
         {
             InitializeComponent();
+            Program.LanguageManager.ChangeLanguage(this as ILocalizable);
             pipes = this.DataSource as List<Pipe>;
         }
 
@@ -41,5 +43,40 @@ namespace Prizm.Main.Forms.Reports.Mill
             set { pageFooterBand.Visible = value; }
         }
 
+
+        #region --- Localization ---
+
+        protected List<LocalizedItem> CreateLocalizedItems()
+        {
+            return new List<LocalizedItem>()
+            {
+                new LocalizedItem(additionToTheReportHeaderLabel, StringResources.AdditionToTheReport_AdditionToTheReportHeaderLabel.Id),            
+                new LocalizedItem(numberLabel, StringResources.AdditionToTheReport_NumberLabel.Id),
+                new LocalizedItem(heatNumberLabel, StringResources.AdditionToTheReport_HeatNumberLabel.Id),
+                new LocalizedItem(weightLabel, StringResources.AdditionToTheReport_WeightLabel.Id),
+                new LocalizedItem(lengthLabel, StringResources.AdditionToTheReport_LengthLabel.Id),
+                new LocalizedItem(shippingDateLabel, StringResources.AdditionToTheReport_ShippingDateLabel.Id),
+                new LocalizedItem(totalCountLabel, StringResources.AdditionToTheReport_TotalCountLabel.Id),
+                new LocalizedItem(pipesLengthLabel, StringResources.AdditionToTheReport_PipesLengthLabel.Id),
+                new LocalizedItem(pipesWeightLabel, StringResources.AdditionToTheReport_PipesWeightLabel.Id),
+            };
+        }
+
+
+        private List<LocalizedItem> localizedItems = null;
+        public IEnumerator<ILocalizedItem> GetEnumerator()
+        {
+            if (localizedItems == null)
+            {
+                localizedItems = CreateLocalizedItems();
+            }
+            return localizedItems.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+        #endregion // --- Localization ---
     }
 }
