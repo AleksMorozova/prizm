@@ -975,9 +975,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return inspectionForm;
         }
 
-        string falseValue = Boolean.FalseString;
-        string trueValue = Boolean.TrueString;
-
         private void inspectionsGridView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
         {
             if(e.Column.Name == inspectionResultGridColumn.Name && e.Value != null)
@@ -991,11 +988,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if (e.Column.Name == expectedResultGridColumn.Name)
             {
-                if (e.Value.ToString() == falseValue)
+                if (e.Value.ToString() == Boolean.FalseString)
                 { 
                     e.DisplayText = Program.LanguageManager.GetString(StringResources.No); 
                 }
-                else if (e.Value.ToString() == trueValue)
+                else if (e.Value.ToString() == Boolean.TrueString)
                 {
                     e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                 }
@@ -1003,11 +1000,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             if(e.Column.Name == valueGridColumn.Name && e.Value!=null)
             {
-                if (e.Value.ToString() == falseValue)
+                if (e.Value.ToString() == Boolean.FalseString)
                 {
                     e.DisplayText = Program.LanguageManager.GetString(StringResources.No);
                 }
-                else if (e.Value.ToString() == trueValue)
+                else if (e.Value.ToString() == Boolean.TrueString)
                 {
                     e.DisplayText = Program.LanguageManager.GetString(StringResources.Yes);
                 }
