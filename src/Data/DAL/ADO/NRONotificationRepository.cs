@@ -35,9 +35,9 @@ namespace Prizm.Data.DAL.ADO
                     connection.Open();
                     command.Connection = connection;
 
-                    command.CommandText = @"Select s.id, t.id, t.code,t.name,t.frequency,t.frequencyMeasure, s.type
+                    command.CommandText = String.Format( @"Select s.id, t.id, t.code,t.name,t.frequency,t.frequencyMeasure, s.type
                                                     From PipeTest t, PipeMillSizeType s 
-                                                    where t.frequencyType = 'U' and t.pipeMillSizeTypeId=s.id";
+                                                    where t.frequencyType = '{0}' and t.pipeMillSizeTypeId=s.id", InspectionFrequencyType.U.ToString() );
 
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
@@ -93,9 +93,9 @@ namespace Prizm.Data.DAL.ADO
                     connection.Open();
                     command.Connection = connection;
 
-                    command.CommandText = @"Select Max(r.Date), t.id From PipeTestResult r
-right join PipeTest t on r.pipeTestId=t.id where t.frequencyType = 'U'
-  group by t.id";
+                    command.CommandText = String.Format (@"Select Max(r.Date), t.id From PipeTestResult r
+right join PipeTest t on r.pipeTestId=t.id where t.frequencyType = '{0}'
+  group by t.id", InspectionFrequencyType.U.ToString());
 
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())

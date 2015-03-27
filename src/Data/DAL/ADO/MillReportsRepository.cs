@@ -9,6 +9,7 @@ using System.Configuration;
 using Ninject;
 using Prizm.Domain.Entity.Mill;
 using System.ComponentModel;
+using Prizm.Domain.Entity.Setup;
 
 namespace Prizm.Data.DAL.ADO
 {
@@ -98,7 +99,8 @@ namespace Prizm.Data.DAL.ADO
                                         command.Parameters.AddWithValue(statusParameters[j], statuses[j]);
                                     }
 
-                                    tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllActivePipesByDate).WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.frequencyType", "=", "'R'");
+                                    string requiredFrequency = "'" + InspectionFrequencyType.R.ToString() + "'";
+                                    tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllActivePipesByDate).WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.frequencyType", "=", requiredFrequency);
 
                                     if (previewFlag)
                                     {

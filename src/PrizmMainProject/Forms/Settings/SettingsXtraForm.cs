@@ -1651,13 +1651,15 @@ namespace Prizm.Main.Forms.Settings
             }
             if (e.Column.Name == isRequiredGridColumn.Name && e.Value != null)
             {
-                switch (e.Value.ToString())
+                InspectionFrequencyType frequencyType;
+                Enum.TryParse<InspectionFrequencyType>(e.Value.ToString(),out frequencyType);
+                switch(frequencyType)
                 {
-                    case "R": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Required);
+                    case InspectionFrequencyType.R: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Required);
                         break;
-                    case "U": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Recurring);
+                    case InspectionFrequencyType.U: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Recurring);
                         break;
-                    case "S": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
+                    case  InspectionFrequencyType.S: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
                         break;
                     default: e.DisplayText = String.Empty;
                         log.Warn(string.Format("String resource for {O} inspection frequency type is missing", e.Value.ToString()));
