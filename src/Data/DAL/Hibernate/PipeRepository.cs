@@ -156,7 +156,7 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 return session
                     .QueryOver<Pipe>()
-                    .Where(x => (x.ConstructionStatus == PartConstructionStatus.Pending) && (x.InspectionStatus == PartInspectionStatus.Accepted) && x.IsActive == true)
+                    .Where(x => (x.ConstructionStatus == PartConstructionStatus.Pending) && (x.InspectionStatus == PartInspectionStatus.Accepted) && x.IsActive)
                     .List<Pipe>();
             }
             catch (GenericADOException ex)

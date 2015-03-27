@@ -28,7 +28,7 @@ namespace Prizm.Data.DAL.Hibernate
         public int GetPortionNumber(Project currentProject)
         {
             var maxIndex = session.QueryOver<Portion>()
-                .Where(x => x.IsExport == true)
+                .Where(x => x.IsExport)
                 .Where(x => x.Project == currentProject)
                 .Select
                 (
@@ -40,7 +40,7 @@ namespace Prizm.Data.DAL.Hibernate
 
         public List<int> CheckPortionSequence(Project importProject)
         {
-            IList<int> result = session.QueryOver<Portion>().Where(_ => _.IsExport == false && _.Project == importProject)
+            IList<int> result = session.QueryOver<Portion>().Where(_ => !_.IsExport && _.Project == importProject)
                                                                    .Select(_ => _.PortionNumber).List<int>();
             List<int> sorted = new List<int>(result);
             sorted.Sort();
@@ -111,7 +111,7 @@ namespace Prizm.Data.DAL.Hibernate
         }
     }
 
-    public class FlatPortionDTO
+    private class FlatPortionDTO
     {
         public virtual Guid Id { get; set; }
         public virtual DateTime ExportDateTime { get; set; }
