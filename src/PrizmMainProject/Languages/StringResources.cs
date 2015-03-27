@@ -4049,10 +4049,6 @@ namespace Prizm.Main.Languages
             Id = "MillInspection_CancelButton", 
             Description = "Настройка контрольных опрераций завода. Надпись кнопки отмены"};
 
-        public static StringResource MillInspection_IsRequiredCheckbox = new StringResource { 
-            Id = "MillInspection_IsRequiredCheckbox", 
-            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Обязательна"};
-
         public static StringResource MillInspection_IsActiveCheckbox = new StringResource { 
             Id = "MillInspection_IsActiveCheckbox", 
             Description = "Настройка контрольных опрераций завода. Надпись чекбокса Активна"};
