@@ -249,6 +249,19 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
+        public int SelectivePercent
+        {
+            get { return pipeTest.SelectivePercent; }
+            set
+            {
+                if (value != pipeTest.SelectivePercent)
+                {
+                    pipeTest.SelectivePercent = value;
+                    RaisePropertyChanged("SelectivePercent");
+                }
+            }
+        }
+
         #endregion
     }
 }

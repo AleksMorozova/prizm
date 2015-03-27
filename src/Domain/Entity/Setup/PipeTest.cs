@@ -48,6 +48,7 @@ namespace Prizm.Domain.Entity.Setup
         public virtual int MaxExpected { get; set; }
         public virtual string StringExpected { get; set; }
         public virtual bool BoolExpected { get; set; }
+        public virtual int SelectivePercent { get; set; }
 
         public virtual InspectionFrequencyType FrequencyType { get; set; }
         public virtual PipeMillSizeType pipeType { get; set; }
@@ -114,6 +115,7 @@ namespace Prizm.Domain.Entity.Setup
             this.pipeType = original.pipeType;
             this.ResultType = original.ResultType;
             this.StringExpected = original.StringExpected;
+            this.SelectivePercent = original.SelectivePercent;
         }
     }
 }
