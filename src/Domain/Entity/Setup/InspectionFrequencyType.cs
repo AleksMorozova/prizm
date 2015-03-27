@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity.Setup
 {
+    /// <summary>
+    /// Existing names and order of that enum should not be changed.
+    /// New items should be added only to the end of list
+    /// </summary>
     public enum InspectionFrequencyType
     {
-        Required = 0,
-        Recurring = 1,
-        Selective = 2
+        R= 0,//Required 
+        U = 1,//Recurring 
+        S = 2//Selective
     }
 }

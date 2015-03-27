@@ -47,7 +47,7 @@ namespace Prizm.Domain.Entity.Setup
                     MaxExpected = item.MaxExpected,
                     StringExpected = item.StringExpected,
                     BoolExpected = item.BoolExpected,
-                    IsRequired = item.IsRequired,
+                    FrequencyType = item.FrequencyType,
                     pipeType = clone,
                     ControlType = item.ControlType,
                     ResultType = item.ResultType,

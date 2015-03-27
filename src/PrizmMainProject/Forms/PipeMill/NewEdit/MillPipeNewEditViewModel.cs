@@ -750,7 +750,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindingList<PipeTestResult> requiredTestResults = new BindingList<PipeTestResult>();
             var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<PipeTest>()
-                .Add(Restrictions.Eq("IsRequired", true))
+                .Add(Restrictions.Eq("FrequencyType", InspectionFrequencyType.R))
                 .Add(Restrictions.Eq("pipeType", millSizeType))
                 .Add(Restrictions.Eq("IsActive", true));
             IList<PipeTest> requiredTests = repoMill.RepoPipeTest.GetByCriteria(criteria);

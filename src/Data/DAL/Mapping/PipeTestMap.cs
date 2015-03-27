@@ -20,7 +20,8 @@ namespace Prizm.Data.DAL.Mapping
             Map(_ => _.MinExpected, "minExpected");
             Map(_ => _.MaxExpected, "maxExpected");
             Map(_ => _.BoolExpected, "boolExpected");
-            Map(_ => _.IsRequired, "isRequired");
+            Map(_ => _.FrequencyType, "frequencyType");
+            Map(_ => _.SelectivePercent, "selectivePercent");
             Component<PipeTestFrequency>(x => x.Frequency, m =>
             {
                 m.Map(x => x.Quantaty).Column("frequency");

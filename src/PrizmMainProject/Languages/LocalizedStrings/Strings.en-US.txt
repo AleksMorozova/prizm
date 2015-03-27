@@ -575,7 +575,7 @@ SettingsPipe_InspectionsMinExpectedColumn=Expected min value
 ;Настройки-труба. Максимальный результат контрольной операции
 SettingsPipe_InspectionsMaxExpectedColumn=Expected max value
 ;Настройки-труба. Обязательная контрольная операция
-SettingsPipe_InspectionsIsReqiredColumn=Is required
+SettingsPipe_InspectionsIsReqiredColumn=Frequency
 
 ;Настройки-труба. Активность контрольной операции
 SettingsPipe_InspectionsIsActiveColumn=Is active
@@ -1473,9 +1473,6 @@ MillInspection_SaveButton=&Save
 
 ;Настройка контрольных опрераций завода. Надпись кнопки отмены
 MillInspection_CancelButton=&Cancel
-
-;Настройка контрольных опрераций завода. Надпись чекбокса Обязательна
-MillInspection_IsRequiredCheckbox=Is required
 
 ;Настройка контрольных опрераций завода. Надпись чекбокса Активна
 MillInspection_IsActiveCheckbox=Is active
@@ -2618,3 +2615,272 @@ Message_DeactivationConnectedSpool=Connected Spool cannot be deactivated and it 
 
 ;Катушка имеет соединение
 Message_DeactivationConnectedSpoolHeader=Spool has a connection
+
+;Заводской номер трубы
+IncomingReportsXtraReport_PipeNumberLabel=Mill pipe number
+
+;Отчет по входному контролю
+IncomingReportsXtraReport_ReportHeaderLabel=Incoming inspection report
+
+;Тип трубы
+IncomingReportsXtraReport_PipeTypeLabel=Pipe type
+
+;Длина
+IncomingReportsXtraReport_PipeLengthLabel=Length
+
+;Толщина
+IncomingReportsXtraReport_PipeWallThicknessLabel=Thickness
+
+;Номер плавки
+IncomingReportsXtraReport_HeatNumberLabel=Heat number
+
+;Результат
+IncomingReportsXtraReport_InspectionStatusLabel=Result
+
+;Отчет на заводе
+MillReportsXtraReport_ReportHeaderLabel=Mill report
+ 
+;Отчет на заводе
+MillReportsXtraReport_PageHeaderLabel=Mill report
+       
+;Номер
+MillReportsXtraReport_NumberLabel=Number
+       
+;Тип трубы
+MillReportsXtraReport_TypeLabel=Pipe type
+
+;Статус
+MillReportsXtraReport_StatusLabel=Status
+
+;Дата
+MillReportsXtraReport_PurchaseOrderDateLabel=Date
+
+;Номер
+MillReportsXtraReport_PurchaseOrderNumberLabel=Number
+
+;Толщина
+MillReportsXtraReport_WallThicknessLabel=Wall thickness
+
+;Вес
+MillReportsXtraReport_WeightLabel=Weight
+
+;Длина
+MillReportsXtraReport_LengthLabel=Length
+
+;Диаметр
+MillReportsXtraReport_DiameterLabel=Diameter
+
+;Номер листа
+MillReportsXtraReport_PlateNumberLabel=Plate number
+
+;Номер плавки
+MillReportsXtraReport_HeatNumberLabel=Heat number
+
+;Состояние
+MillReportsXtraReport_ActiveLabel=Active
+
+;Отчет по использованным изделиям
+UsedProductsXtraReport_GroupHeaderLabel=Used products report
+
+;Отчет по использованным изделиям
+UsedProductsXtraReport_PageHeaderLabel=Used products report
+
+;Номер изделия
+UsedProductsXtraReport_ProductNumberLabel=Product number
+
+;Тип изделия
+UsedProductsXtraReport_ProductTypeLabel=Product type
+
+;Отчет по сварке (по дате)
+WeldDateXtraReport_WeldReportByDateHeader=Welding report by date
+
+;Дата сварки
+WeldDateXtraReport_DateHeader=Date of welding
+
+;Номер стыка
+WeldDateXtraReport_JointNumberHeader=Joint number
+
+;Номер первой части
+WeldDateXtraReport_FirstPartNumberHeader=First part number
+
+;Номер второй части
+WeldDateXtraReport_SecondPartNumberHeader=Second part number
+
+;Длина первой части
+WeldDateXtraReport_FirstPartLengthHeader=First part length
+
+;Длина второй части
+WeldDateXtraReport_SecondPartLengthHeader=Second part length
+
+;Отчет по трубам на строительстве
+PipeConstructionXtraReport_PipeConstructionReportHeader=Pipe construction repor
+
+;Номер трубы
+PipeConstructionXtraReport_PipeNumberHeader=Pipe number
+
+;Диаметр, мм
+PipeConstructionXtraReport_DiameterHeader=Diameter, mm
+
+;Длина, мм
+PipeConstructionXtraReport_LengthHeader=Length, mm
+
+;Толщина, мм
+PipeConstructionXtraReport_ThicknessHeader=Thickness, mm
+
+;Тип шва
+PipeConstructionXtraReport_SeamTypeHeader=Seam type
+
+;Марка стали
+PipeConstructionXtraReport_GradeHeader=Grade
+
+;Первый стык
+PipeConstructionXtraReport_FirstJointHeader=First joint
+
+;Второй стык
+PipeConstructionXtraReport_SecondJointHeader=Second joint
+    
+;Рапорт по отгрузке
+LoadingXtraReport_LoadingReportLabel=Shipment report
+
+;Номер разрешения на отгрузку
+LoadingXtraReport_ReleaseNoteNumberLabel=Release note number
+
+;Номер вагона
+LoadingXtraReport_RailcarNumberLabel=Railcar number
+
+;Станция назначения
+LoadingXtraReport_DestinationLabel=Destination
+
+;Сертификат
+LoadingXtraReport_CertificateLabel=Certificate
+
+;Кол-во метров
+LoadingXtraReport_MetersCountLabel=Meters count
+
+;Вес
+LoadingXtraReport_WeightCountLabel=Weight
+
+;Кол-во труб
+LoadingXtraReport_PipesCountLabel=Pipes count
+
+;Отчет по заводу
+GeneralInformationXtraReport_GeneralReportHeaderLabel=Mill report
+
+;BAR (Производство готовой трубы)
+GeneralInformationXtraReport_BARLabel=BAR (Completed pipe production)
+
+;EXC (Наружнее покрытие)
+GeneralInformationXtraReport_EXCLabel=EXC (outer coating)
+
+;COA (Внутреннее покрытие)
+GeneralInformationXtraReport_COALabel=COA (internal coating)
+
+;Дата производства
+GeneralInformationXtraReport_ProductionDateLabel=Production date
+
+;Принято
+GeneralInformationXtraReport_BARAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_BARRepairLabel=Repair
+
+;Принято после ремонта
+GeneralInformationXtraReport_BARAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_BARRejectedLabel=Rejected
+
+;Принято
+GeneralInformationXtraReport_EXCAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_EXCRepairLabel=Rejected
+
+;Принято после ремонта
+GeneralInformationXtraReport_EXCAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_EXCRejectedLabel=Rejected
+
+;Принято
+GeneralInformationXtraReport_COAAcceptedLabel=Accepted
+
+;Временный брак
+GeneralInformationXtraReport_COARepairLabel=Rejected
+
+;Принято после ремонта
+GeneralInformationXtraReport_COAAfterRepairLabel=Accepted after repair
+
+;Брак
+GeneralInformationXtraReport_COARejectedLabel=Rejected
+
+;Приложение к отчету
+AdditionToTheReport_AdditionToTheReportHeaderLabel=Appendix to the report
+
+;Номер
+AdditionToTheReport_NumberLabel=Number
+
+;Номер плавки
+AdditionToTheReport_HeatNumberLabel=HeatNumber
+
+;Вес
+AdditionToTheReport_WeightLabel=Weight
+
+;Длина
+AdditionToTheReport_LengthLabel=Length
+
+;Дата отгрузки
+AdditionToTheReport_ShippingDateLabel=Shipping date
+
+;Количество:
+AdditionToTheReport_TotalCountLabel=Total count:
+
+;Общая длина:
+AdditionToTheReport_PipesLengthLabel=Total length:
+
+;Общий вес:
+AdditionToTheReport_PipesWeightLabel=Total weight:
+
+;Трассировка трубопровода
+TracingReport_TracingPageHeaderXrLabel=Pipeline tracing
+
+;Номер стыка
+TracingReport_JointNumberHeder=Joint number
+
+;Дата сварки
+TracingReport_WeldingDate=Welding date
+
+;Номер элемента 1
+TracingReport_FirstPartNumberHeader=Part 1 #
+
+;Тип элемента 1
+TracingReport_FirstPartTypeHeder=Part 1 type
+
+;Длина, мм
+TracingReport_FirstPartLengthHeder=Length, mm
+
+;Номер элемента 2
+TracingReport_SecondPartNumberHeader=Part 2 #
+
+;Тип элемента 2
+TracingReport_SecondPartTypeHeder=Part 2 type
+
+;Длина, мм
+TracingReport_SecondPartLengthHeder=Length, mm
+
+;Количество стыков
+TracingReport_PipelineJointCountHeader=Joints count
+
+;Количество труб
+TracingReport_PipelinePipeCountHeader=Pipes count
+
+;Количество катушек
+TracingReport_PipelineSpoolCountHeader=Spools count
+
+;Количество компонентов
+TracingReport_PipelineComponentHeader=Componentry count
+
+;Общая длина, мм
+TracingReport_PipelineLengthHeader=Total length, mm
+
+

@@ -48,6 +48,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
+            ChangeFrequency();
             if(current != null)
             {
                 this.Text = current.Name;
@@ -91,10 +92,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
             code.DataBindings.Add("EditValue", bindingSource, "Code");
             operationName.DataBindings.Add("EditValue", bindingSource, "Name");
             isActive.DataBindings.Add("EditValue", bindingSource, "IsActive");
-
+            percentOfSelect.DataBindings.Add("EditValue", bindingSource, "SelectivePercent");
             controlType.DataBindings.Add("SelectedIndex", bindingSource, "ControlTypeIndex");
             resultType.DataBindings.Add("SelectedIndex", bindingSource, "ResultTypeIndex");
             frequencyMeasure.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyMeasureIndex");
+            frequencyType.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyTypeIndex");
 
             category.Properties.DataSource = viewModel.CategoryTypes;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
@@ -196,7 +198,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
             controlType.DataBindings.Clear();
             resultType.DataBindings.Clear();
             frequencyMeasure.DataBindings.Clear();
-
+            frequencyType.DataBindings.Clear();
+            percentOfSelect.DataBindings.Clear();
             category.DataBindings.Clear();
 
             boolExpected.DataBindings.Clear();
@@ -228,5 +231,33 @@ namespace Prizm.Main.Forms.Settings.Inspections
             var testList = pipeTestList.Where(g => g.Code==code && g.Id != id).ToList();
             return !(testList.Count >= 1);
         }
+
+        private void ChangeFrequency()
+        {
+            frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            switch ((InspectionFrequencyType)frequencyType.SelectedIndex)
+            {
+                case InspectionFrequencyType.R:
+                    viewModel.PipeTest.Frequency = null;
+                    break;
+                case InspectionFrequencyType.S:
+                    selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case InspectionFrequencyType.U:
+                    frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    if (viewModel.PipeTest.Frequency == null)
+                        viewModel.PipeTest.Frequency = new PipeTestFrequency();
+                    break;
+                default: break;
+            }
+        }
+
+        private void frequencyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeFrequency();
+        }
+
     }
 }

@@ -904,6 +904,305 @@ namespace Prizm.Main.Languages
             Id = "MillReport_TypeGeneral",
             Description = "Отчеты на заводе. Тип отчета - Общий отчет"
         };
+
+        //--- PipeConstructionXtraReport ---
+        
+        public static StringResource PipeConstructionXtraReport_PipeConstructionReportHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_PipeConstructionReportHeader",
+            Description = "Отчет по трубам на строительстве"
+        };
+        public static StringResource PipeConstructionXtraReport_PipeNumberHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_PipeNumberHeader",
+            Description = "Номер трубы"
+        };
+        public static StringResource PipeConstructionXtraReport_DiameterHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_DiameterHeader",
+            Description = "Диаметр, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_LengthHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_LengthHeader",
+            Description = "Длина, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_ThicknessHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_ThicknessHeader",
+            Description = "Толщина, мм"
+        };
+        public static StringResource PipeConstructionXtraReport_SeamTypeHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_SeamTypeHeader",
+            Description = "Тип шва"
+        };
+        public static StringResource PipeConstructionXtraReport_GradeHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_GradeHeader",
+            Description = "Марка стали"
+        };
+        public static StringResource PipeConstructionXtraReport_FirstJointHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_FirstJointHeader",
+            Description = "Первый стык"
+        };
+        public static StringResource PipeConstructionXtraReport_SecondJointHeader = new StringResource
+        {
+            Id = "PipeConstructionXtraReport_SecondJointHeader",
+            Description = "Второй стык"
+        };
+
+        //--- LoadingXtraReport ---
+        public static StringResource LoadingXtraReport_LoadingReportLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_LoadingReportLabel",
+            Description = "Рапорт по отгрузке"
+        };
+        public static StringResource LoadingXtraReport_ReleaseNoteNumberLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_ReleaseNoteNumberLabel",
+            Description = "Номер разрешения на отгрузку"
+        };
+        public static StringResource LoadingXtraReport_RailcarNumberLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_RailcarNumberLabel",
+            Description = "Номер вагона"
+        };
+        public static StringResource LoadingXtraReport_DestinationLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_DestinationLabel",
+            Description = "Станция назначения"
+        };
+        public static StringResource LoadingXtraReport_CertificateLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_CertificateLabel",
+            Description = "Сертификат"
+        };
+        public static StringResource LoadingXtraReport_MetersCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_MetersCountLabel",
+            Description = "Кол-во метров"
+        };
+        public static StringResource LoadingXtraReport_WeightCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_WeightCountLabel",
+            Description = "Вес"
+        };
+        public static StringResource LoadingXtraReport_PipesCountLabel = new StringResource
+        {
+            Id = "LoadingXtraReport_PipesCountLabel",
+            Description = "Кол-во труб"
+        };
+
+        // ---- GeneralInformationXtraReport ----
+        public static StringResource GeneralInformationXtraReport_GeneralReportHeaderLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_GeneralReportHeaderLabel",
+            Description = "Отчет по заводу"
+        };
+        public static StringResource GeneralInformationXtraReport_BARLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARLabel",
+            Description = "BAR (Производство готовой трубы)"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCLabel",
+            Description = "EXC (Наружнее покрытие)"
+        };
+        public static StringResource GeneralInformationXtraReport_COALabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COALabel",
+            Description = "COA (Внутреннее покрытие)"
+        };
+        public static StringResource GeneralInformationXtraReport_ProductionDateLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_ProductionDateLabel",
+            Description = "Дата производства"
+        };
+        public static StringResource GeneralInformationXtraReport_BARAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_BARRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARRepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_BARAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_BARRejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_BARRejectedLabel",
+            Description = "Брак"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCRepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_EXCRejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_EXCRejectedLabel",
+            Description = "Брак"
+        };
+        public static StringResource GeneralInformationXtraReport_COAAcceptedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COAAcceptedLabel",
+            Description = "Принято"
+        };
+        public static StringResource GeneralInformationXtraReport_COARepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COARepairLabel",
+            Description = "Временный брак"
+        };
+        public static StringResource GeneralInformationXtraReport_COAAfterRepairLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COAAfterRepairLabel",
+            Description = "Принято после ремонта"
+        };
+        public static StringResource GeneralInformationXtraReport_COARejectedLabel = new StringResource
+        {
+            Id = "GeneralInformationXtraReport_COARejectedLabel",
+            Description = "Брак"
+        };
+
+        //--- AdditionToTheReport ---
+        public static StringResource AdditionToTheReport_AdditionToTheReportHeaderLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_AdditionToTheReportHeaderLabel",
+            Description = "Приложение к отчету"
+        };
+        public static StringResource AdditionToTheReport_NumberLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_NumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource AdditionToTheReport_HeatNumberLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource AdditionToTheReport_WeightLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_WeightLabel",
+            Description = "Вес"
+        };
+        public static StringResource AdditionToTheReport_LengthLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_LengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource AdditionToTheReport_ShippingDateLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_ShippingDateLabel",
+            Description = "Дата отгрузки"
+        };
+        public static StringResource AdditionToTheReport_TotalCountLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_TotalCountLabel",
+            Description = "Количество:"
+        };
+        public static StringResource AdditionToTheReport_PipesLengthLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_PipesLengthLabel",
+            Description = "Общая длина:"
+        };
+        public static StringResource AdditionToTheReport_PipesWeightLabel = new StringResource
+        {
+            Id = "AdditionToTheReport_PipesWeightLabel",
+            Description = "Общий вес:"
+        };
+
+
+        //--- TracingReport ---
+        public static StringResource TracingReport_TracingPageHeaderXrLabel = new StringResource
+        {
+            Id = "TracingReport_TracingPageHeaderXrLabel",
+            Description = "Трассировка трубопровода"
+        };
+        public static StringResource TracingReport_JointNumberHeder = new StringResource
+        {
+            Id = "TracingReport_JointNumberHeder",
+            Description = "Номер стыка"
+        };
+        public static StringResource TracingReport_WeldingDate = new StringResource
+        {
+            Id = "TracingReport_WeldingDate",
+            Description = "Дата сварки"
+        };
+        public static StringResource TracingReport_FirstPartNumberHeader = new StringResource
+        {
+            Id = "TracingReport_FirstPartNumberHeader",
+            Description = "Номер элемента 1"
+        };
+        public static StringResource TracingReport_FirstPartTypeHeder = new StringResource
+        {
+            Id = "TracingReport_FirstPartTypeHeder",
+            Description = "Тип элемента 1"
+        };
+        public static StringResource TracingReport_FirstPartLengthHeder = new StringResource
+        {
+            Id = "TracingReport_FirstPartLengthHeder",
+            Description = "Длина, мм"
+        };
+        public static StringResource TracingReport_SecondPartNumberHeader = new StringResource
+        {
+            Id = "TracingReport_SecondPartNumberHeader",
+            Description = "Номер элемента 2"
+        };
+        public static StringResource TracingReport_SecondPartTypeHeder = new StringResource
+        {
+            Id = "TracingReport_SecondPartTypeHeder",
+            Description = "Тип элемента 2"
+        };
+        public static StringResource TracingReport_SecondPartLengthHeder = new StringResource
+        {
+            Id = "TracingReport_SecondPartLengthHeder",
+            Description = "Длина, мм"
+        };
+        public static StringResource TracingReport_PipelineJointCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineJointCountHeader",
+            Description = "Количество стыков"
+        };
+        public static StringResource TracingReport_PipelinePipeCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelinePipeCountHeader",
+            Description = "Количество труб"
+        };
+        public static StringResource TracingReport_PipelineSpoolCountHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineSpoolCountHeader",
+            Description = "Количество катушек"
+        };
+        public static StringResource TracingReport_PipelineComponentHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineComponentHeader",
+            Description = "Количество компонентов"
+        };
+        public static StringResource TracingReport_PipelineLengthHeader = new StringResource
+        {
+            Id = "TracingReport_PipelineLengthHeader",
+            Description = "Общая длина, мм"
+        };
+
+
         #endregion MillReport
 
         #region IncomingInspectionReport
@@ -961,6 +1260,140 @@ namespace Prizm.Main.Languages
             Id = "InspectionReport_CreateButton",
             Description = "Отчет на входном контроле. Кнопка создания отчета"
         };
+
+
+
+        public static StringResource IncomingReportsXtraReport_PipeNumberLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeNumberLabel",
+            Description = "Заводской номер трубы"
+        };
+        public static StringResource IncomingReportsXtraReport_ReportHeaderLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_ReportHeaderLabel",
+            Description = "Отчет по входному контролю"
+        };
+
+        public static StringResource IncomingReportsXtraReport_PipeTypeLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeTypeLabel",
+            Description = "Тип трубы"
+        };
+        public static StringResource IncomingReportsXtraReport_PipeLengthLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeLengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource IncomingReportsXtraReport_PipeWallThicknessLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_PipeWallThicknessLabel",
+            Description = "Толщина"
+        };
+        public static StringResource IncomingReportsXtraReport_HeatNumberLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource IncomingReportsXtraReport_InspectionStatusLabel = new StringResource
+        {
+            Id = "IncomingReportsXtraReport_InspectionStatusLabel",
+            Description = "Результат"
+        };
+
+        // --- MillReportsXtraReport ---
+        public static StringResource MillReportsXtraReport_ReportHeaderLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_ReportHeaderLabel",
+            Description = "Отчет на заводе"
+        };
+        public static StringResource MillReportsXtraReport_PageHeaderLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PageHeaderLabel",
+            Description = "Отчет на заводе"
+        };
+        public static StringResource MillReportsXtraReport_NumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_NumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource MillReportsXtraReport_TypeLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_TypeLabel",
+            Description = "Тип трубы"
+        };
+        public static StringResource MillReportsXtraReport_StatusLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_StatusLabel",
+            Description = "Статус"
+        };
+        public static StringResource MillReportsXtraReport_PurchaseOrderDateLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PurchaseOrderDateLabel",
+            Description = "Дата"
+        };
+        public static StringResource MillReportsXtraReport_PurchaseOrderNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PurchaseOrderNumberLabel",
+            Description = "Номер"
+        };
+        public static StringResource MillReportsXtraReport_WallThicknessLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_WallThicknessLabel",
+            Description = "Толщина"
+        };
+        public static StringResource MillReportsXtraReport_WeightLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_WeightLabel",
+            Description = "Вес"
+        };
+        public static StringResource MillReportsXtraReport_LengthLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_LengthLabel",
+            Description = "Длина"
+        };
+        public static StringResource MillReportsXtraReport_DiameterLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_DiameterLabel",
+            Description = "Диаметр"
+        };
+        public static StringResource MillReportsXtraReport_PlateNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_PlateNumberLabel",
+            Description = "Номер листа"
+        };
+        public static StringResource MillReportsXtraReport_HeatNumberLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_HeatNumberLabel",
+            Description = "Номер плавки"
+        };
+        public static StringResource MillReportsXtraReport_ActiveLabel = new StringResource
+        {
+            Id = "MillReportsXtraReport_ActiveLabel",
+            Description = "Состояние"
+        };
+
+        //--- Used Product Report ---
+        public static StringResource UsedProductsXtraReport_GroupHeaderLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_GroupHeaderLabel",
+            Description = "Отчет по использованным изделиям"
+        };
+        public static StringResource UsedProductsXtraReport_PageHeaderLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_PageHeaderLabel",
+            Description = "Отчет по использованным изделиям"
+        };
+        public static StringResource UsedProductsXtraReport_ProductNumberLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_ProductNumberLabel",
+            Description = "Номер изделия"
+        };
+        public static StringResource UsedProductsXtraReport_ProductTypeLabel = new StringResource
+        {
+            Id = "UsedProductsXtraReport_ProductTypeLabel",
+            Description = "Тип изделия"
+        };
+        
         #endregion IncomingInspectionReport
 
         #region Spool
@@ -3477,6 +3910,39 @@ namespace Prizm.Main.Languages
             Description = "Предварительный просмотр отчёта"
         };
 
+
+        //--- Weld Date XtraReport ---
+        public static StringResource WeldDateXtraReport_WeldReportByDateHeader = new StringResource {
+            Id = "WeldDateXtraReport_WeldReportByDateHeader",
+            Description = "Отчет по сварке (по дате)"
+        };
+        public static StringResource WeldDateXtraReport_DateHeader = new StringResource {
+            Id = "WeldDateXtraReport_DateHeader",
+            Description = "Дата сварки"
+        };
+        public static StringResource WeldDateXtraReport_JointNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_JointNumberHeader",
+            Description = "Номер стыка"
+        };
+        public static StringResource WeldDateXtraReport_FirstPartNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_FirstPartNumberHeader",
+            Description = "Номер первой части"
+        };
+        public static StringResource WeldDateXtraReport_SecondPartNumberHeader = new StringResource {
+            Id = "WeldDateXtraReport_SecondPartNumberHeader",
+            Description = "Номер второй части"
+        };
+        public static StringResource WeldDateXtraReport_FirstPartLengthHeader = new StringResource {
+            Id = "WeldDateXtraReport_FirstPartLengthHeader",
+            Description = "Длина первой части"
+        };
+        public static StringResource WeldDateXtraReport_SecondPartLengthHeader = new StringResource {
+            Id = "WeldDateXtraReport_SecondPartLengthHeader",
+            Description = "Длина второй части"
+        };
+
+
+
         #endregion //--- WeldDateReport ---
 
         #region --- JointCutDialog ---
@@ -3582,10 +4048,6 @@ namespace Prizm.Main.Languages
         public static StringResource MillInspection_CancelButton = new StringResource { 
             Id = "MillInspection_CancelButton", 
             Description = "Настройка контрольных опрераций завода. Надпись кнопки отмены"};
-
-        public static StringResource MillInspection_IsRequiredCheckbox = new StringResource { 
-            Id = "MillInspection_IsRequiredCheckbox", 
-            Description = "Настройка контрольных опрераций завода. Надпись чекбокса Обязательна"};
 
         public static StringResource MillInspection_IsActiveCheckbox = new StringResource { 
             Id = "MillInspection_IsActiveCheckbox", 

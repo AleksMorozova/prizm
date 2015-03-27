@@ -157,6 +157,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             var cd = code.EditValue;
             viewModel.ChangeTest(cd.ToString());
+            if (viewModel.TestResult.Operation != null)
             ChangeFact();
         }
 

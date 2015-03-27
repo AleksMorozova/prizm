@@ -26,6 +26,7 @@ namespace Prizm.Main.Forms.Reports.Mill
     {
         private MillReportsViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private List<string> localizedAllPipeStatus = new List<string>();
 
         public MillReportsXtraForm()
         {
@@ -59,6 +60,8 @@ namespace Prizm.Main.Forms.Reports.Mill
         {
             EnumWrapper<MillReportType>.LoadItems(reportTypes.Properties.Items);
             EnumWrapper<PipeTestResultStatus>.LoadItems(statuses.Items, skip0: true);
+
+            EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeStatus, skip0: true);
 
             viewModel = (MillReportsViewModel)Program.Kernel.GetService(typeof(MillReportsViewModel));
             BindToViewModel();
@@ -106,10 +109,22 @@ namespace Prizm.Main.Forms.Reports.Mill
                                                            StringResources.PipeTestResultStatus_Rejected.Id,
                                                            StringResources.PipeTestResultStatus_Repair.Id }),
 
+                                                           
+                new LocalizedItem(GetTranslation, localizedAllPipeStatus, new string[] { 
+                  
+                            StringResources.NewEditPipe_PipeStatusProduced.Id, 
+                            StringResources.NewEditPipe_PipeStatusStocked.Id, 
+                            StringResources.NewEditPipe_PipeStatusShipped.Id,
+                            StringResources.NewEditPipe_ReadyToShip.Id }),
+
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillReport_Title.Id} )
             };
         }
 
+        private void GetTranslation()
+        {
+            viewModel.localizedPipeStatus = localizedAllPipeStatus;
+        }
         #endregion // --- Localization ---
 
         private void generalReportTypes_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
