@@ -31,6 +31,7 @@ namespace Prizm.Domain.Entity.Setup
             this.Code = code;
             this.IsRequired = isRequired;
             this.PipeTestResults = new List<PipeTestResult>();
+            this.RepeatedInspections = new List<PipeTest>();
         }
 
         public PipeTest()
@@ -56,6 +57,8 @@ namespace Prizm.Domain.Entity.Setup
         public virtual PipeTestResultType ResultType { get; set; }
 
         public virtual ICollection<PipeTestResult> PipeTestResults { get; set; }
+
+        public virtual List<PipeTest> RepeatedInspections { get; set; }
 
         public virtual string DisplayExpectedResult
         {

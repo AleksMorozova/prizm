@@ -31,6 +31,11 @@ namespace Prizm.Data.DAL.Mapping
 
             References(_ => _.pipeType).Column("pipeMillSizeTypeId");
             HasMany(_ => _.PipeTestResults).KeyColumn("pipeTestId").Inverse();
+
+            HasManyToMany<PipeTest>(x => x.RepeatedInspections)
+                .Table("Inspection_RepeatedInspection")
+                .ParentKeyColumn("inspectionId")
+                .ChildKeyColumn("repeatedInspectionId").Not.LazyLoad();
         }
     }
 }
