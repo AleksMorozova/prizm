@@ -94,8 +94,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             controlType.DataBindings.Add("SelectedIndex", bindingSource, "ControlTypeIndex");
             resultType.DataBindings.Add("SelectedIndex", bindingSource, "ResultTypeIndex");
-            frequencyType.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyTypeIndex");
             frequencyMeasure.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyMeasureIndex");
+            frequencyType.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyTypeIndex");
 
             category.Properties.DataSource = viewModel.CategoryTypes;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
@@ -197,6 +197,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             controlType.DataBindings.Clear();
             resultType.DataBindings.Clear();
             frequencyMeasure.DataBindings.Clear();
+            frequencyType.DataBindings.Clear();
 
             category.DataBindings.Clear();
 

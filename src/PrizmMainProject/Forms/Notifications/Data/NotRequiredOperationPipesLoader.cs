@@ -27,7 +27,7 @@ namespace Prizm.Main.Forms.Notifications.Data
                 StringBuilder sb = new StringBuilder();
                 sb.Append(
                     @"  select * from (Select t.name,  t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id From pipeTest t, PipeMillSizeType s
-                            where t.isRequired = 0 and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Pipes') b
+                            where t.frequencyType != 'R' and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Pipes') b
                             right join 
                     (Select Count(p.number) number, p.typeId From Pipe p 
                         group by p.typeId) a

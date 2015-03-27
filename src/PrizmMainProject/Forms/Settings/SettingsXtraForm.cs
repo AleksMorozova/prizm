@@ -59,6 +59,7 @@ namespace Prizm.Main.Forms.Settings
         private bool inspectorsCertificateTypeValidate = true;
         private bool usersValidate = true;
         private bool roleValidate = true;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingsXtraForm));
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -1646,6 +1647,21 @@ namespace Prizm.Main.Forms.Settings
                 if (Enum.TryParse<PipeTestResultType>(e.Value.ToString(), out result))
                 {
                     e.DisplayText = (result == PipeTestResultType.Undefined) ? "" : localizedPipeTestResultTypes[(int)result - 1]; //-1 because we skip 0
+                }
+            }
+            if (e.Column.Name == isRequiredGridColumn.Name && e.Value != null)
+            {
+                switch (e.Value.ToString())
+                {
+                    case "R": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Required);
+                        break;
+                    case "U": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Recurring);
+                        break;
+                    case "S": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
+                        break;
+                    default: e.DisplayText = String.Empty;
+                        log.Warn(string.Format("String resource for {O} inspection frequency type is missing", e.Value.ToString()));
+                        break;
                 }
             }
         }

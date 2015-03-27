@@ -1795,7 +1795,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionCodeGridColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 60;
+            this.inspectionCodeGridColumn.Width = 50;
             // 
             // inspectionNameGridColumn
             // 
@@ -1805,7 +1805,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 240;
+            this.inspectionNameGridColumn.Width = 200;
             // 
             // controlTypeGridColumn
             // 
@@ -1815,7 +1815,7 @@ namespace Prizm.Main.Forms.Settings
             this.controlTypeGridColumn.OptionsColumn.AllowEdit = false;
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 3;
-            this.controlTypeGridColumn.Width = 120;
+            this.controlTypeGridColumn.Width = 100;
             // 
             // resultTypeGridColumn
             // 
@@ -1825,7 +1825,7 @@ namespace Prizm.Main.Forms.Settings
             this.resultTypeGridColumn.OptionsColumn.AllowEdit = false;
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 4;
-            this.resultTypeGridColumn.Width = 120;
+            this.resultTypeGridColumn.Width = 87;
             // 
             // boolExpectedGridColumn
             // 
@@ -1837,7 +1837,7 @@ namespace Prizm.Main.Forms.Settings
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
             this.boolExpectedGridColumn.VisibleIndex = 5;
-            this.boolExpectedGridColumn.Width = 50;
+            this.boolExpectedGridColumn.Width = 43;
             // 
             // minExpectedGridColumn
             // 
@@ -1847,7 +1847,7 @@ namespace Prizm.Main.Forms.Settings
             this.minExpectedGridColumn.OptionsColumn.AllowEdit = false;
             this.minExpectedGridColumn.Visible = true;
             this.minExpectedGridColumn.VisibleIndex = 6;
-            this.minExpectedGridColumn.Width = 50;
+            this.minExpectedGridColumn.Width = 43;
             // 
             // maxExpectedGridColumn
             // 
@@ -1858,7 +1858,7 @@ namespace Prizm.Main.Forms.Settings
             this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
             this.maxExpectedGridColumn.VisibleIndex = 7;
-            this.maxExpectedGridColumn.Width = 50;
+            this.maxExpectedGridColumn.Width = 43;
             // 
             // isRequiredGridColumn
             // 
@@ -1869,7 +1869,7 @@ namespace Prizm.Main.Forms.Settings
             this.isRequiredGridColumn.OptionsColumn.AllowEdit = false;
             this.isRequiredGridColumn.Visible = true;
             this.isRequiredGridColumn.VisibleIndex = 8;
-            this.isRequiredGridColumn.Width = 40;
+            this.isRequiredGridColumn.Width = 49;
             // 
             // testIsActiveGridColumn
             // 
@@ -1880,7 +1880,7 @@ namespace Prizm.Main.Forms.Settings
             this.testIsActiveGridColumn.OptionsColumn.AllowEdit = false;
             this.testIsActiveGridColumn.Visible = true;
             this.testIsActiveGridColumn.VisibleIndex = 9;
-            this.testIsActiveGridColumn.Width = 43;
+            this.testIsActiveGridColumn.Width = 30;
             // 
             // categoryColumn
             // 
@@ -1892,7 +1892,7 @@ namespace Prizm.Main.Forms.Settings
             this.categoryColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.categoryColumn.Visible = true;
             this.categoryColumn.VisibleIndex = 2;
-            this.categoryColumn.Width = 135;
+            this.categoryColumn.Width = 112;
             // 
             // repositoryItemsСategory
             // 

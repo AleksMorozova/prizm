@@ -236,26 +236,14 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        public InspectionFrequencyType FrequencyType
-        {
-            get { return pipeTest.FrequencyType; }
-            set
-            {
-                if (value != pipeTest.FrequencyType)
-                {
-                    pipeTest.FrequencyType = value;
-                    RaisePropertyChanged("FrequencyType");
-                }
-            }
-        }
         public int FrequencyTypeIndex
         {
-            get { return (int)FrequencyType; }
+            get { return (int)pipeTest.FrequencyType; }
             set
             {
-                if (value != (int)FrequencyType)
+                if (value != (int)pipeTest.FrequencyType)
                 {
-                    FrequencyType = (InspectionFrequencyType)value;
+                    pipeTest.FrequencyType = (InspectionFrequencyType)value;
                     RaisePropertyChanged("FrequencyTypeIndex");
                 }
             }

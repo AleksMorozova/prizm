@@ -98,7 +98,7 @@ namespace Prizm.Data.DAL.ADO
                                         command.Parameters.AddWithValue(statusParameters[j], statuses[j]);
                                     }
 
-                                    tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllActivePipesByDate).WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.isRequired", "=", "1");
+                                    tempSQLObject = SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllActivePipesByDate).WhereAnd().Where("Pipe.isActive", "=", "1").WhereAnd().Where("PipeTest.frequencyType", "=", "'R'");
 
                                     if (previewFlag)
                                     {
