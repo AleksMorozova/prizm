@@ -1480,4 +1480,10 @@
   <data name="JointNewNotAllWeldOperationCompletedHeader" xml:space="preserve">
     <value>Сварочные операции</value>
   </data>
+  <data name="FormManager_AccessForbidden" xml:space="preserve">
+    <value>Доступ к указанному типу документов запрещён</value>
+  </data>
+  <data name="FormManager_AccessHeader" xml:space="preserve">
+    <value>Ошибка доступа</value>
+  </data>
 </root>

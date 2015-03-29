@@ -156,6 +156,7 @@ namespace Prizm.Main.Forms.MainChildForm
         #region --- Edit mode ---
 
         private bool isEditMode = false;
+        private bool? latestEditModeUpdatedState = null;
 
         /// <summary>
         /// Set/clear edit mode for the form. It is about all form controls.
@@ -168,12 +169,12 @@ namespace Prizm.Main.Forms.MainChildForm
             }
             set
             {
-                bool previous = isEditMode;
                 isEditMode = value;
 
-                if(isEditMode != previous)
+                if (latestEditModeUpdatedState == null || latestEditModeUpdatedState.Value != isEditMode)
                 {
                     SetEditModeAllChildren(this, isEditMode);
+                    latestEditModeUpdatedState = isEditMode;
                 }
             }
         }

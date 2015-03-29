@@ -60,7 +60,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-            FormManager.Initialize(this);
         }
 
         #region Menu buttons

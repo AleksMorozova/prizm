@@ -60,8 +60,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             this.railcarNumber.SetAsLookUpIdentifier();
 
             SetAlwaysReadOnly(textEditReleaseNoteStatus);
-            IsEditMode = true; //do not remove until IsEditMode logic is changed
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
+            IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             attachmentsButton.Enabled = true;
 
             CannotOpenForViewing = id == Guid.Empty;
@@ -76,7 +75,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             BindCommands();
             BindToViewModel();
             IsModified = false;
-            IsEditMode = !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
+            IsEditMode &= !viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
 
             releaseNoteDate.SetLimits();
         }

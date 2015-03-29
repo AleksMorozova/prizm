@@ -758,7 +758,7 @@ namespace Prizm.Main.Forms.Settings
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
                         if (viewModel.RoleHasPermission(role, perm)
-                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(perm))
+                            && SecurityUtil.ExistOnCurrentWorkstation(perm))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -787,7 +787,7 @@ namespace Prizm.Main.Forms.Settings
                 switch (e.Action)
                 {
                     case CollectionChangeAction.Add:
-                        if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+                        if (!SecurityUtil.ExistOnCurrentWorkstation(p))
                         {
                             view.UnselectRow(e.ControllerRow);
                         }
@@ -1537,7 +1537,7 @@ namespace Prizm.Main.Forms.Settings
 
             Permission p = view.GetRow(e.RowHandle) as Permission;
 
-            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+            if (!SecurityUtil.ExistOnCurrentWorkstation(p))
             {
                 e.Appearance.ForeColor = Color.Gray;
             }

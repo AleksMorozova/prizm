@@ -18,19 +18,9 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("")]
     public class ChildForm : PrizmForm
     {
-        public virtual bool Is(Guid id) { return false; } // to store all documents in one container. Always false for non-editable documents and for settings.
+        public virtual bool Is(Guid id) { return false; } // to store all existingDocuments in one container. Always false for non-editable existingDocuments and for settings.
 
-        public virtual bool IsEditMode
-        {
-            get
-            {
-                return false;
-            }
-            set
-            { 
-                // setting edit mode isn't allowed in base child form
-            }
-        }
+        public virtual bool IsEditMode { get { return false; } set { } }
     }
 
 

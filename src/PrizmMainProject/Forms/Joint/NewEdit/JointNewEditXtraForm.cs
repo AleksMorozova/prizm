@@ -74,7 +74,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
             searchNumber.SetAsIdentifier();
             firstJointElement.SetAsLookUpIdentifier();
@@ -224,7 +223,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         jointNewEditBindingSoure.ResetBindings(false);
                     }
                 };
-            IsEditMode = viewModel.JointIsActive;
+            IsEditMode &= viewModel.JointIsActive;
             IsModified = false;
 
             loweringDate.SetLimits();

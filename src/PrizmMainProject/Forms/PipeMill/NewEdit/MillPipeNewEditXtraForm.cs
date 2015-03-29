@@ -100,7 +100,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
             attachmentsButton.Enabled = true;
             #endregion //--- Read-only controls ---
 
@@ -116,13 +115,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             // Allow change focus or close while heatsLookUp or ordersLookUp validation error
             AutoValidate = AutoValidate.EnableAllowFocusChange;
 
-            IsEditMode = true;
-
             // Select tab depending on is new pipe or existed
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
-
-            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -136,7 +131,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
+            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped)
+                && SecurityUtil.ExistOnCurrentWorkstation(global::Domain.Entity.Security.Privileges.EditPipe) 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
 

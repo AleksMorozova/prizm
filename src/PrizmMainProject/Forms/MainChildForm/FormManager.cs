@@ -10,6 +10,8 @@ using Ninject;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using log4net;
+using Prizm.Main.Security;
+using System.Collections;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -47,28 +49,20 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private readonly FormsReference childForms = new FormsReference();
         private static uint FramesCanOpen = 20;
-        private static FormManager InstanceField;
+
+        #region --- Instance, initialization, notify, context ---
+        private static FormManager InstanceField = (FormManager)Program.Kernel.GetService(typeof(FormManager));
         private IUserNotify notify;
+        private readonly ISecurityContext ctx;
 
-        #region --- Instance ---
-        public static FormManager Instance
-        {
-            get
-            {
-                if (InstanceField == null)
-                {
-                    throw new ApplicationException("FormManager was not initialized!");
-                }
-                return InstanceField;
-            }
-        }
+        public static FormManager Instance { get { return InstanceField; } }
 
-        public static void Initialize(IUserNotify notify)
+        public FormManager(IUserNotify notify, ISecurityContext ctx)
         {
-            InstanceField = new FormManager();
-            Instance.notify = notify;
+            this.notify = notify;
+            this.ctx = ctx;
         }
-        #endregion // --- Instance ---
+        #endregion // --- Instance, initialization, notify, context ---
 
         private class FormsReference : IEnumerable<DocumentTypes>
         {
@@ -207,8 +201,8 @@ namespace Prizm.Main.Forms.MainChildForm
                 formsDictionary.Add(DocumentTypes.Notifications, new PrizmFormProperties()
                 {
                     type = typeof(PrizmMain.Forms.Notifications.NotificationXtraForm),
-                    readPrivilege = global::Domain.Entity.Security.Privileges.Notifications,
-                    editPrivilege = global::Domain.Entity.Security.Privileges.Notifications
+                    readPrivilege = global::Domain.Entity.Security.Privileges.NullPrivilegeAllowed,
+                    editPrivilege = global::Domain.Entity.Security.Privileges.NullPrivilegeAllowed
                 });
 
                 formsDictionary.Add(DocumentTypes.Export, new PrizmFormProperties()
@@ -318,15 +312,19 @@ namespace Prizm.Main.Forms.MainChildForm
             public bool Remove(ChildForm childForm)
             {
                 bool removed = false;
-                foreach (var type in formsDictionary)
+                foreach (var entry in formsDictionary)
                 {
-                    foreach (var form in type.Value.forms)
+                    foreach (var form in GetChildFormList(entry.Key))
                     {
                         if (form == childForm)
                         {
-                            removed = type.Value.forms.Remove(childForm);
+                            removed = entry.Value.forms.Remove(childForm);
                             break;
                         }
+                    }
+                    if (removed)
+                    {
+                        break;
                     }
                 }
                 return removed;
@@ -336,6 +334,12 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 CheckDocumentTypePresence(documentType);
                 return formsDictionary[documentType].type;
+            }
+
+            public global::Domain.Entity.Security.Privileges GetAccessOption(DocumentTypes documentType, bool editMode)
+            {
+                CheckDocumentTypePresence(documentType);
+                return editMode ? formsDictionary[documentType].editPrivilege : formsDictionary[documentType].readPrivilege;
             }
 
             public IReadOnlyList<ChildForm> this[DocumentTypes documentType]
@@ -397,7 +401,20 @@ namespace Prizm.Main.Forms.MainChildForm
                 case DocumentTypes.Settings:
                 case DocumentTypes.Notifications:
                 case DocumentTypes.ExportImportHistory:
-                case DocumentTypes.MillReleaseNote: // edut mode!
+                    result = true;
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+
+        private bool IsSingleEditModeDocument(DocumentTypes type)
+        {
+            bool result = false;
+            switch (type)
+            {
+                case DocumentTypes.MillReleaseNote:
                     result = true;
                     break;
                 default:
@@ -516,7 +533,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void OpenChildForm(DocumentTypes documentType, Guid id = default(Guid))
         {
-            OpenReturnChildForm(documentType, null, id);
+            List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
+            parameters.Add(new KeyValuePair<string, object>("id", id));
+            OpenReturnChildForm(documentType, parameters, id);
         }
 
         public void OpenChildForm(DocumentTypes documentType, string number)
@@ -524,6 +543,77 @@ namespace Prizm.Main.Forms.MainChildForm
             List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
             parameters.Add(new KeyValuePair<string, object>("number", number));
             OpenReturnChildForm(documentType, parameters);
+        }
+
+
+        [Flags]
+        private enum FormFlags
+        {
+            Nothing = 0,
+            CanEditAtThisWorkstation = 1,
+            CanReadAtThisWorkstation = 2,
+            EditAccessDenied = 4,
+            ReadAccessDenied = 8,
+            SingleEditAlreadyOpened = 16,
+            EditConflict = 32
+        }
+
+        private FormFlags GetSecurityRestrictionReasons(DocumentTypes documentType)
+        {
+            FormFlags reasons = FormFlags.Nothing;
+
+            reasons |= SecurityUtil.ExistOnCurrentWorkstation(childForms.GetAccessOption(documentType, editMode: true))
+                            ? FormFlags.CanEditAtThisWorkstation : FormFlags.Nothing;
+
+            reasons |= SecurityUtil.ExistOnCurrentWorkstation(childForms.GetAccessOption(documentType, editMode: false))
+                            ? FormFlags.CanReadAtThisWorkstation : FormFlags.Nothing;
+
+            if (!ctx.HasAccess(childForms.GetAccessOption(documentType, editMode: true)))
+            {
+                reasons |= FormFlags.EditAccessDenied;
+            }
+            if (!ctx.HasAccess(childForms.GetAccessOption(documentType, editMode: false)))
+            {
+                reasons |= FormFlags.ReadAccessDenied;
+            }
+            return reasons;
+        }
+
+        private bool CanOpen(DocumentTypes type, bool isNew, FormFlags flags, out bool editMode)
+        {
+            editMode = !flags.HasFlag(FormFlags.EditAccessDenied) && flags.HasFlag(FormFlags.CanEditAtThisWorkstation);
+            bool canOpen = true;
+
+            if (flags.HasFlag(FormFlags.EditConflict))
+            {
+                if (type == DocumentTypes.Settings)
+                {
+                    canOpen &= notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenSettingsForViewingHeader));
+                }
+                else
+                {
+                    canOpen &= notify.ShowYesNo(Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewing),
+                        Program.LanguageManager.GetString(StringResources.Message_OpenFormForViewingHeader));
+                }
+                editMode = false;
+            }
+            if (flags.HasFlag(FormFlags.SingleEditAlreadyOpened))
+            {
+                if (isNew)
+                {
+                    string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
+                    notify.ShowWarning(text, "");
+                    canOpen = false;
+                }
+                else
+                {
+                    string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
+                    canOpen &= notify.ShowYesNo(text, "");
+                    editMode = false;
+                }
+            }
+            return canOpen;
         }
 
         /// <summary>
@@ -539,40 +629,60 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 notify.ShowProcessing();
 
-                if(id != Guid.Empty)
+                FormFlags flags = FormFlags.Nothing;
+                flags |= GetSecurityRestrictionReasons(documentType);
+
+                // is possible for this option to open for this user, at all
+                if (flags.HasFlag(FormFlags.CanReadAtThisWorkstation) && !flags.HasFlag(FormFlags.ReadAccessDenied)
+                    || flags.HasFlag(FormFlags.CanEditAtThisWorkstation) && !flags.HasFlag(FormFlags.EditAccessDenied))
                 {
-                    formToActivate = childForms.GetById(id);
+                    if (id != Guid.Empty)
+                    {
+                        formToActivate = childForms.GetById(id);
+                    }
+                    if (formToActivate == null)
+                    {
+                        IReadOnlyList<ChildForm> existingDocuments = childForms[documentType];
+
+                        if (IsSingleDocumentPerProgram(documentType) && existingDocuments.Count > 0)
+                        {
+                            formToActivate = existingDocuments.First();
+                        }
+                        if(formToActivate == null)
+                        {
+                            flags |= (IsSingleEditModeDocument(documentType) && existingDocuments.Any((form) => { return form.IsEditMode; }))
+                                ? FormFlags.SingleEditAlreadyOpened : FormFlags.Nothing;
+
+                            Main.Forms.Settings.SettingsXtraForm settingsForm = GetSettingsForm();
+
+                            if (( settingsForm != null && settingsForm.IsEditMode && IsEditConflictWithSettings(documentType)
+                                    || documentType == DocumentTypes.Settings && SettingsConflictedDocumentsOpened().Any((form) => { return form.IsEditMode; }) 
+                                  )
+                                )
+                            {
+                                flags |= FormFlags.EditConflict;
+                            }
+
+                            bool editMode;
+                            if (CanOpen(documentType, id == Guid.Empty, flags, out editMode))
+                            {
+                                formToActivate = CreateChildForm(documentType, parameters);
+                                formToActivate.IsEditMode = editMode;
+                                ShowChildForm(formToActivate);
+                            }
+                        }
+                    }
+                    if (formToActivate != null)
+                    {
+                        formToActivate.Activate();
+                    }
                 }
                 else
                 {
-                    IReadOnlyList<ChildForm> documents = childForms[documentType];
-                    Main.Forms.Settings.SettingsXtraForm settingsForm = GetSettingsForm();
-
-                    if (IsSingleDocumentPerProgram(documentType) && documents.Count > 0)
-                    {
-                        formToActivate = documents.First();
-                    }
-                    else if (settingsForm != null && settingsForm.IsEditMode && IsEditConflictWithSettings(documentType))
-                    { 
-                        // can not open in edit mode while settings are editable. Open in read mode?
-                    }
-                    else if (documentType == DocumentTypes.Settings && SettingsConflictedDocumentsOpened().Any((form)=>{ return form.IsEditMode; }))
-                    {
-                        // can not open settings in edit mode. Open in read mode?
-                    }
-                    else // create new document
-                    {
-                        if (parameters != null && id != Guid.Empty)
-                        {
-                            parameters.Add(new KeyValuePair<string, object>("id", id));
-                        }
-                        formToActivate = CreateChildForm(documentType, parameters);
-                        ShowChildForm(formToActivate);
-                    }
-                }
-                if (formToActivate != null)
-                {
-                    formToActivate.Activate();
+                    notify.ShowError(
+                         Program.LanguageManager.GetString(StringResources.FormManager_AccessForbidden),
+                        Program.LanguageManager.GetString(StringResources.FormManager_AccessHeader));
+                    log.Warn("Attempt to open form with restricted access to it");
                 }
             }
             finally
@@ -618,9 +728,9 @@ namespace Prizm.Main.Forms.MainChildForm
         /// Based on @formType returns 
         /// whether form can be opened for editing
         /// </summary>
-        private bool CanOpenFormForEditing(DocumentTypes documentType)
-        {
-            bool cannotOpenFormForEditing = false;
+//        private bool CanOpenFormForEditing(DocumentTypes documentType)
+//        {
+//            bool cannotOpenFormForEditing = false;
             /*
             foreach (var form in childForms)
             {
@@ -633,8 +743,8 @@ namespace Prizm.Main.Forms.MainChildForm
                         break;
                 }
             }*/
-            return !cannotOpenFormForEditing;
-        }
+ //           return !cannotOpenFormForEditing;
+ //       }
 
         /// <summary>
         /// If form can be opened for viewing, asks user if we

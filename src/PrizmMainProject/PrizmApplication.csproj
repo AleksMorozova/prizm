@@ -705,6 +705,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\SecurityContext.cs" />
+    <Compile Include="Security\SecurityUtil.cs" />
     <Compile Include="Synch\Conflict.cs" />
     <Compile Include="Synch\Data.cs" />
     <Compile Include="Synch\Encryptor.cs" />

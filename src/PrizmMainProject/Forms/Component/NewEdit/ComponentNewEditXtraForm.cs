@@ -53,7 +53,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
             viewModel.Number = number;
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent);
             attachmentsButton.Enabled = true;
             CannotOpenForViewing = id == Guid.Empty;
 
@@ -139,7 +138,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = viewModel.ComponentIsActive;
+            IsEditMode &= viewModel.ComponentIsActive;
 
             IsModified = false;
 

@@ -152,6 +152,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         Program.LanguageManager.GetString(StringResources.JointNewNotAllWeldOperationCompleted),
                        Program.LanguageManager.GetString(StringResources.JointNewNotAllWeldOperationCompletedHeader));
                     jointWasWeld = false;
+                    log.Warn(string.Format("Not all weld operations completed for the joint #{0}, id:{1}.",
+                                viewModel.Joint.Number,
+                                viewModel.Joint.Id));
                 }
             }
         }
