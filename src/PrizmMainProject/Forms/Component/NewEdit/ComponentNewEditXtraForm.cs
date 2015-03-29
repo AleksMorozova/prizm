@@ -19,6 +19,7 @@ using Prizm.Main.Security;
 using DevExpress.XtraGrid.Views.Base;
 using Prizm.Main.Languages;
 using System.Drawing;
+using DevExpress.XtraGrid.Columns;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -96,6 +97,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 new LocalizedItem(resultColumn, StringResources.ComponentNewEdit_ResultColumn.Id),
                 new LocalizedItem(reasonColumn, StringResources.ComponentNewEdit_ReasonColumn.Id),
                 new LocalizedItem(orderColumn, StringResources.ComponentNewEdit_OrderColumn.Id),
+                new LocalizedItem(isConnectedGridColumn,StringResources.ComponentNewEdit_IsConnectedGridColumn.Id),
 
                 new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
                 new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id),
@@ -138,7 +140,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName == "ComponentIsActive" && viewModel.ComponentIsActive)
+                {
+                    deactivated.Reset();
+                }
+            };
             IsEditMode &= viewModel.ComponentIsActive;
+          
 
             IsModified = false;
 
@@ -148,6 +158,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             inspectorColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
 
             inspectorsPopupContainerEdit.SetSize();
+            type.ReadOnly = !IsEditMode || viewModel.HasConnectedConnectors;
+            inspectionHistoryGridView.OptionsBehavior.Editable = !type.ReadOnly;
         }
 
         private void BindToViewModel()
@@ -425,6 +437,22 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private void HandleInvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void componentParametersView_ShowingEditor(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if ((view.FocusedColumn.Name == diameterGridColumn.Name || view.FocusedColumn.Name == wallThicknessGridColumn.Name)
+                && IsConnected(view, view.FocusedRowHandle))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private bool IsConnected (GridView view, int row)
+        {
+            GridColumn col = view.Columns["IsConnected"];
+            return Convert.ToBoolean(view.GetRowCellValue(row, col));
         }
     }
 }

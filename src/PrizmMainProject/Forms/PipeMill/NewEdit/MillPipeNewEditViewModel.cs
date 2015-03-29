@@ -707,7 +707,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             #region Sorting inspections
             var sheduledResult = from result in foundTestResults
                                  orderby result.Operation.Code
-                                 where result.Status == PipeTestResultStatus.Scheduled
+                                 where result.Status == PipeTestResultStatus.Scheduled && result.Operation.IsActive
                                  select result;
 
             var otherResult = from result in foundTestResults
@@ -750,7 +750,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindingList<PipeTestResult> requiredTestResults = new BindingList<PipeTestResult>();
             var criteria = NHibernate.Criterion.DetachedCriteria
                 .For<PipeTest>()
-                .Add(Restrictions.Eq("IsRequired", true))
+                .Add(Restrictions.Eq("FrequencyType", InspectionFrequencyType.R))
                 .Add(Restrictions.Eq("pipeType", millSizeType))
                 .Add(Restrictions.Eq("IsActive", true));
             IList<PipeTest> requiredTests = repoMill.RepoPipeTest.GetByCriteria(criteria);

@@ -33,11 +33,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             if(viewModel == null)
             {
-                viewModel = new MillInspectionViewModel(current, categoryTypes);
+                viewModel = new MillInspectionViewModel(current, categoryTypes, pipeTestList);
             }
             else
             {
-                viewModel.SetupViewModel(current, categoryTypes);
+                viewModel.SetupViewModel(current, categoryTypes, pipeTestList);
             }
 
             return viewModel;
@@ -72,10 +72,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
             resultType.Properties.Items.Clear();
             controlType.Properties.Items.Clear();
             frequencyMeasure.Properties.Items.Clear();
+            frequencyType.Properties.Items.Clear();
 
             EnumWrapper<PipeTestResultType>.LoadItems(resultType.Properties.Items, skip0: true);
             EnumWrapper<PipeTestControlType>.LoadItems(controlType.Properties.Items, skip0: true);
             EnumWrapper<FrequencyMeasure>.LoadItems(frequencyMeasure.Properties.Items, skip0: true);
+            EnumWrapper<InspectionFrequencyType>.LoadItems(frequencyType.Properties.Items);
 
             BindToViewModel();
             boolExpected_CheckedChanged(null, null);
@@ -89,12 +91,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
             bindingSource.DataSource = viewModel;
             code.DataBindings.Add("EditValue", bindingSource, "Code");
             operationName.DataBindings.Add("EditValue", bindingSource, "Name");
-            isRequired.DataBindings.Add("EditValue", bindingSource, "IsRequired");
             isActive.DataBindings.Add("EditValue", bindingSource, "IsActive");
-
+            percentOfSelect.DataBindings.Add("EditValue", bindingSource, "SelectivePercent");
             controlType.DataBindings.Add("SelectedIndex", bindingSource, "ControlTypeIndex");
             resultType.DataBindings.Add("SelectedIndex", bindingSource, "ResultTypeIndex");
             frequencyMeasure.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyMeasureIndex");
+            frequencyType.DataBindings.Add("SelectedIndex", bindingSource, "FrequencyTypeIndex");
 
             category.Properties.DataSource = viewModel.CategoryTypes;
             category.DataBindings.Add("EditValue", bindingSource, "Category");
@@ -104,7 +106,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             minExpected.DataBindings.Add("EditValue", bindingSource, "MinExpected");
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
-
+            inspectionCodeRepositoryLookUp.DataSource = viewModel.RepeatTestCandidates;
         }
 
         private void ChangeExpected()
@@ -127,27 +129,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        private void ChangeFrequency()
-        {
-            frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-            if(!viewModel.IsRequired)
-            {
-                frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                if(viewModel.PipeTest.Frequency == null)
-                    viewModel.PipeTest.Frequency = new PipeTestFrequency();
-            }
-            else
-            {
-                viewModel.PipeTest.Frequency = null;
-            }
-        }
-
-        private void isRequired_CheckedChanged(object sender, EventArgs e)
-        {
-            viewModel.IsRequired = isRequired.Checked;
-            ChangeFrequency();
-        }
 
         #region --- Localization ---
 
@@ -160,9 +141,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
                   new LocalizedItem(resultType, new  string [] {StringResources.TestResultTypeBoolean.Id, StringResources.TestResultTypeRange.Id, StringResources.TestResultTypeString.Id }),
                   new LocalizedItem(controlType, new  string [] {StringResources.ControlTypeWitness.Id, StringResources.ControlTypeReview.Id, StringResources.ControlTypeMonitor.Id, StringResources.ControlTypeHold.Id }),
                   new LocalizedItem(frequencyMeasure, new  string [] {StringResources.MillInspection_FrequencyMeasureMeters.Id, StringResources.MillInspection_FrequencyMeasureTons.Id, StringResources.MillInspection_FrequencyMeasurePipes.Id }),
+                  new LocalizedItem(frequencyType, new string [] {StringResources.InspectionFrequencyType_Required.Id, StringResources.InspectionFrequencyType_Recurring.Id, StringResources.InspectionFrequencyType_Selective.Id}),
                   new LocalizedItem(saveButton, StringResources.MillInspection_SaveButton.Id),
                   new LocalizedItem(cancelButton, StringResources.MillInspection_CancelButton.Id),
-                  new LocalizedItem(isRequired, StringResources.MillInspection_IsRequiredCheckbox.Id),
                   new LocalizedItem(isActive, StringResources.MillInspection_IsActiveCheckbox.Id),
                   new LocalizedItem(boolExpected, StringResources.MillInspection_YesNoExpectedCheckbox.Id),
 
@@ -176,11 +157,21 @@ namespace Prizm.Main.Forms.Settings.Inspections
                   new LocalizedItem(maxExpectedLayout, StringResources.MillInspection_ToLabel.Id),
                   new LocalizedItem(frequencyLayout, StringResources.MillInspection_FrequencyLabel.Id),
                   new LocalizedItem(frequencyMeasureLayout, StringResources.MillInspection_FrequencyMeasureLabel.Id),
+                  new LocalizedItem(repeatedOperationsLayout, StringResources.MillInspection_RepeatedOperationsLabel.Id),
+                  new LocalizedItem(frequencyTypeLayout, StringResources.MillInspection_FrequencyTypeLayout.Id),
+                  new LocalizedItem(percentOfSelectLayout, StringResources.MillInspection_PercentOfSelectLayout.Id),
+
+                  //grid columns
+                  new LocalizedItem(inspectionCodeGridColumn, StringResources.MillInspection_CodeGridColumn.Id),
+                  new LocalizedItem(inspectionNameGridColumn, StringResources.MillInspection_NameGridColumn.Id),
 
                    // layout control groups
                    new LocalizedItem(rangeExpectedGroup, StringResources.MillInspection_RangeControlValueGroup.Id),
                    new LocalizedItem(boolExpectedGroup, StringResources.MillInspection_BoolControlValueGroup.Id),
                    new LocalizedItem(frequencyGroup, StringResources.MillInspection_FrequencyGroup.Id),
+                   new LocalizedItem(operationFrequencyGroup,StringResources.MillInspection_OperationFrequencyGroup.Id),
+                   new LocalizedItem(selectiveFrequencyGroup, StringResources.MillInspection_SelectiveFrequencyGroup.Id),
+
 
                    new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillInspection_Title.Id} )
             };
@@ -202,13 +193,13 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             code.DataBindings.Clear();
             operationName.DataBindings.Clear();
-            isRequired.DataBindings.Clear();
             isActive.DataBindings.Clear();
 
             controlType.DataBindings.Clear();
             resultType.DataBindings.Clear();
             frequencyMeasure.DataBindings.Clear();
-
+            frequencyType.DataBindings.Clear();
+            percentOfSelect.DataBindings.Clear();
             category.DataBindings.Clear();
 
             boolExpected.DataBindings.Clear();
@@ -220,7 +211,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ValidateCode(viewModel.Code))
+            if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
             {
                 string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
                 string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
@@ -235,10 +226,38 @@ namespace Prizm.Main.Forms.Settings.Inspections
         /// <param name="code">code TestPipe</param>
         /// <param name="id">id TestPipe</param>
         /// <returns>true if uniqueness</returns>
-        private bool ValidateCode(string code)
+        private bool ValidateCode(string code, Guid id)
         {
-            var testList = pipeTestList.Where(g => g.Code==code).ToList();
+            var testList = pipeTestList.Where(g => g.Code==code && g.Id != id).ToList();
             return !(testList.Count >= 1);
         }
+
+        private void ChangeFrequency()
+        {
+            frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            switch ((InspectionFrequencyType)frequencyType.SelectedIndex)
+            {
+                case InspectionFrequencyType.R:
+                    viewModel.PipeTest.Frequency = null;
+                    break;
+                case InspectionFrequencyType.S:
+                    selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case InspectionFrequencyType.U:
+                    frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    if (viewModel.PipeTest.Frequency == null)
+                        viewModel.PipeTest.Frequency = new PipeTestFrequency();
+                    break;
+                default: break;
+            }
+        }
+
+        private void frequencyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeFrequency();
+        }
+
     }
 }

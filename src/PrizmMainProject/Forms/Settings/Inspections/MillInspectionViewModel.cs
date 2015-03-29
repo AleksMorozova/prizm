@@ -14,22 +14,29 @@ namespace Prizm.Main.Forms.Settings.Inspections
     public class MillInspectionViewModel : ViewModelBase
     {
         private PipeTest pipeTest;
+        public BindingList<PipeTest> RepeatTestCandidates{get;set;}
         public BindingList<Category> CategoryTypes;
 
-        public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes)
+        public MillInspectionViewModel(PipeTest current, BindingList<Category> CategoryTypes, IReadOnlyList<PipeTest> pipeTests)
         {
-            SetupViewModel(current, CategoryTypes);
+            SetupViewModel(current, CategoryTypes, pipeTests);
         }
 
-        public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes) 
+        public void SetupViewModel(PipeTest current, BindingList<Category> CategoryTypes, IReadOnlyList<PipeTest> pipeTests) 
         {
             this.CategoryTypes = CategoryTypes;
-
+            IList<PipeTest> list = pipeTests.Where(_ => _.IsActive && !String.IsNullOrEmpty( _.Code)).OrderBy(x => x.Code).ToList<PipeTest>();
+            RepeatTestCandidates = new BindingList<Domain.Entity.Setup.PipeTest>(list);
             pipeTest = new PipeTest();
 
             if (current != null)
             {
                 pipeTest.CustomShallowCopy(current);
+                if (current.Id != Guid.Empty)
+                {
+                    PipeTest curr = RepeatTestCandidates.Where(s => s.Id == pipeTest.Id).SingleOrDefault();
+                    RepeatTestCandidates.Remove(curr);
+                }
             }
         }
 
@@ -69,19 +76,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 {
                     pipeTest.Name = value;
                     RaisePropertyChanged("Name");
-                }
-            }
-        }
-
-        public bool IsRequired
-        {
-            get { return pipeTest.IsRequired; }
-            set
-            {
-                if (value != pipeTest.IsRequired)
-                {
-                    pipeTest.IsRequired = value;
-                    RaisePropertyChanged("IsRequired");
                 }
             }
         }
@@ -238,6 +232,32 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 {
                     FrequencyMeasure = (FrequencyMeasure)value + 1;
                     RaisePropertyChanged("FrequencyMeasureIndex");
+                }
+            }
+        }
+
+        public int FrequencyTypeIndex
+        {
+            get { return (int)pipeTest.FrequencyType; }
+            set
+            {
+                if (value != (int)pipeTest.FrequencyType)
+                {
+                    pipeTest.FrequencyType = (InspectionFrequencyType)value;
+                    RaisePropertyChanged("FrequencyTypeIndex");
+                }
+            }
+        }
+
+        public int SelectivePercent
+        {
+            get { return pipeTest.SelectivePercent; }
+            set
+            {
+                if (value != pipeTest.SelectivePercent)
+                {
+                    pipeTest.SelectivePercent = value;
+                    RaisePropertyChanged("SelectivePercent");
                 }
             }
         }

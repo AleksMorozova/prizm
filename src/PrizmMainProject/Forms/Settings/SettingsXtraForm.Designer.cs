@@ -26,7 +26,6 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
@@ -36,18 +35,18 @@ namespace Prizm.Main.Forms.Settings
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.millGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,7 +156,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -167,7 +166,6 @@ namespace Prizm.Main.Forms.Settings
             this.minExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.maxExpectedGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isRequiredGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.isRequired = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.testIsActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.categoryColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemsСategory = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
@@ -240,14 +238,14 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -325,7 +323,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isRequired)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).BeginInit();
@@ -1752,7 +1749,6 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionOperation.MainView = this.inspectionView;
             this.inspectionOperation.Name = "inspectionOperation";
             this.inspectionOperation.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.isRequired,
             this.controlTypeItems,
             this.resultTypeItems,
             this.repositoryItemsСategory});
@@ -1799,7 +1795,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionCodeGridColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 60;
+            this.inspectionCodeGridColumn.Width = 50;
             // 
             // inspectionNameGridColumn
             // 
@@ -1809,7 +1805,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectionNameGridColumn.OptionsColumn.AllowEdit = false;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
-            this.inspectionNameGridColumn.Width = 240;
+            this.inspectionNameGridColumn.Width = 200;
             // 
             // controlTypeGridColumn
             // 
@@ -1819,7 +1815,7 @@ namespace Prizm.Main.Forms.Settings
             this.controlTypeGridColumn.OptionsColumn.AllowEdit = false;
             this.controlTypeGridColumn.Visible = true;
             this.controlTypeGridColumn.VisibleIndex = 3;
-            this.controlTypeGridColumn.Width = 120;
+            this.controlTypeGridColumn.Width = 100;
             // 
             // resultTypeGridColumn
             // 
@@ -1829,7 +1825,7 @@ namespace Prizm.Main.Forms.Settings
             this.resultTypeGridColumn.OptionsColumn.AllowEdit = false;
             this.resultTypeGridColumn.Visible = true;
             this.resultTypeGridColumn.VisibleIndex = 4;
-            this.resultTypeGridColumn.Width = 120;
+            this.resultTypeGridColumn.Width = 87;
             // 
             // boolExpectedGridColumn
             // 
@@ -1841,7 +1837,7 @@ namespace Prizm.Main.Forms.Settings
             this.boolExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.boolExpectedGridColumn.Visible = true;
             this.boolExpectedGridColumn.VisibleIndex = 5;
-            this.boolExpectedGridColumn.Width = 50;
+            this.boolExpectedGridColumn.Width = 43;
             // 
             // minExpectedGridColumn
             // 
@@ -1851,7 +1847,7 @@ namespace Prizm.Main.Forms.Settings
             this.minExpectedGridColumn.OptionsColumn.AllowEdit = false;
             this.minExpectedGridColumn.Visible = true;
             this.minExpectedGridColumn.VisibleIndex = 6;
-            this.minExpectedGridColumn.Width = 50;
+            this.minExpectedGridColumn.Width = 43;
             // 
             // maxExpectedGridColumn
             // 
@@ -1862,24 +1858,18 @@ namespace Prizm.Main.Forms.Settings
             this.maxExpectedGridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.maxExpectedGridColumn.Visible = true;
             this.maxExpectedGridColumn.VisibleIndex = 7;
-            this.maxExpectedGridColumn.Width = 50;
+            this.maxExpectedGridColumn.Width = 43;
             // 
             // isRequiredGridColumn
             // 
-            this.isRequiredGridColumn.Caption = "Обязательное";
-            this.isRequiredGridColumn.ColumnEdit = this.isRequired;
-            this.isRequiredGridColumn.FieldName = "IsRequired";
+            this.isRequiredGridColumn.Caption = "Частота";
+            this.isRequiredGridColumn.FieldName = "FrequencyType";
             this.isRequiredGridColumn.MaxWidth = 50;
             this.isRequiredGridColumn.Name = "isRequiredGridColumn";
             this.isRequiredGridColumn.OptionsColumn.AllowEdit = false;
             this.isRequiredGridColumn.Visible = true;
             this.isRequiredGridColumn.VisibleIndex = 8;
-            this.isRequiredGridColumn.Width = 40;
-            // 
-            // isRequired
-            // 
-            this.isRequired.AutoHeight = false;
-            this.isRequired.Name = "isRequired";
+            this.isRequiredGridColumn.Width = 49;
             // 
             // testIsActiveGridColumn
             // 
@@ -1890,7 +1880,7 @@ namespace Prizm.Main.Forms.Settings
             this.testIsActiveGridColumn.OptionsColumn.AllowEdit = false;
             this.testIsActiveGridColumn.Visible = true;
             this.testIsActiveGridColumn.VisibleIndex = 9;
-            this.testIsActiveGridColumn.Width = 43;
+            this.testIsActiveGridColumn.Width = 30;
             // 
             // categoryColumn
             // 
@@ -1902,7 +1892,7 @@ namespace Prizm.Main.Forms.Settings
             this.categoryColumn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.categoryColumn.Visible = true;
             this.categoryColumn.VisibleIndex = 2;
-            this.categoryColumn.Width = 135;
+            this.categoryColumn.Width = 112;
             // 
             // repositoryItemsСategory
             // 
@@ -2803,7 +2793,6 @@ namespace Prizm.Main.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.inspectionOperation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isRequired)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemsСategoryView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeItems)).EndInit();
@@ -2902,7 +2891,6 @@ namespace Prizm.Main.Forms.Settings
         private DevExpress.XtraGrid.Columns.GridColumn maxExpectedGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn boolExpectedGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn isRequiredGridColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit isRequired;
         private System.Windows.Forms.BindingSource inspectionBindingSource;
         private DevExpress.XtraGrid.GridControl pipesSizeList;
         private DevExpress.XtraGrid.Views.Grid.GridView pipesSizeListGridView;

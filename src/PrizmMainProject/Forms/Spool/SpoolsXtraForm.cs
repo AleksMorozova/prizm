@@ -134,6 +134,14 @@ namespace Prizm.Main.Forms.Spool
                 (!viewModel.IsNew || viewModel.SpoolNumber != String.Empty);
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName == "SpoolIsActive" && viewModel.SpoolIsActive)
+                {
+                    deactivated.Reset();
+                }
+            };
+
             IsEditMode = ((this.Id != Guid.Empty || viewModel.SpoolNumber != String.Empty) && viewModel.SpoolIsActive);
             BindCommands();
 

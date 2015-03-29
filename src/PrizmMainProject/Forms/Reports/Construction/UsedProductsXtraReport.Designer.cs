@@ -49,6 +49,7 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.reportDateTimeInfo = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.pageHeaderLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -58,7 +59,7 @@
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel2,
             this.xrLabel1});
-            this.Detail.HeightF = 23.74999F;
+            this.Detail.HeightF = 23F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -152,7 +153,7 @@
             this.groupHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 17.79169F);
             this.groupHeaderLabel.Name = "groupHeaderLabel";
             this.groupHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
+            this.groupHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 33F);
             this.groupHeaderLabel.StyleName = "Header";
             this.groupHeaderLabel.StylePriority.UseFont = false;
             this.groupHeaderLabel.StylePriority.UseTextAlignment = false;
@@ -200,7 +201,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.groupHeaderLabel,
             this.reportDateTimeInfo});
-            this.ReportHeader.HeightF = 58.50005F;
+            this.ReportHeader.HeightF = 50.79169F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // reportDateTimeInfo
@@ -217,10 +218,20 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel3,
             this.pageHeaderLabel});
-            this.PageHeader.HeightF = 41.66667F;
+            this.PageHeader.HeightF = 21.5F;
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader;
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(324.9999F, 21.5F);
+            this.xrLabel3.StylePriority.UseForeColor = false;
             // 
             // pageHeaderLabel
             // 
@@ -228,11 +239,10 @@
             this.pageHeaderLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.pageHeaderLabel.Name = "pageHeaderLabel";
             this.pageHeaderLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(649.9999F, 40.70836F);
+            this.pageHeaderLabel.SizeF = new System.Drawing.SizeF(325F, 21.5F);
             this.pageHeaderLabel.StyleName = "Header";
             this.pageHeaderLabel.StylePriority.UseFont = false;
             this.pageHeaderLabel.StylePriority.UseTextAlignment = false;
-            this.pageHeaderLabel.Text = "Отчет по использованным изделиям";
             this.pageHeaderLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // sqlDataSource1
@@ -293,6 +303,7 @@
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRPageInfo dateTimePageInfo;
         private DevExpress.XtraReports.UI.XRPageInfo reportDateTimeInfo;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
 
     }
 }

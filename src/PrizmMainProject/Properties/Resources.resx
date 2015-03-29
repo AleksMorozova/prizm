@@ -1486,4 +1486,297 @@
   <data name="FormManager_AccessHeader" xml:space="preserve">
     <value>Ошибка доступа</value>
   </data>
+  <data name="Message_DeactivationConnectedComponent" xml:space="preserve">
+    <value>Соединенный компонент не может быть деактивирован.
+Для деактивации компонента необходимо его отсоединить.</value>
+  </data>
+  <data name="Message_DeactivationConnectedComponentHeader" xml:space="preserve">
+    <value>Комплектующее имеет соединение</value>
+  </data>
+  <data name="Message_DeactivationConnectedSpool" xml:space="preserve">
+    <value>Соединенная катушка не может быть деактивирована. 
+Для деактивации катушки необходимо ее отсоеденить.</value>
+  </data>
+  <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
+    <value>Катушка имеет соединение</value>
+  </data>
+<data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
+    <value>Дубликат номера</value>
+  </data>
+      <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
+    <value>Периодичная</value>
+  </data>
+  <data name="InspectionFrequencyType_Required" xml:space="preserve">
+    <value>Обязательная</value>
+  </data>
+  <data name="InspectionFrequencyType_Selective" xml:space="preserve">
+    <value>Выборочная</value>
+  </data>
+  <data name="IncomingReportsXtraReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="IncomingReportsXtraReport_InspectionStatusLabel" xml:space="preserve">
+    <value>Результат</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeLengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeNumberLabel" xml:space="preserve">
+    <value>Заводской номер трубы</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeTypeLabel" xml:space="preserve">
+    <value>Тип трубы</value>
+  </data>
+  <data name="IncomingReportsXtraReport_PipeWallThicknessLabel" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="IncomingReportsXtraReport_ReportHeaderLabel" xml:space="preserve">
+    <value>Отчет по входному контролю</value>
+  </data>
+  <data name="MillReportsXtraReport_ActiveLabel" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="MillReportsXtraReport_DiameterLabel" xml:space="preserve">
+    <value>Диаметр</value>
+  </data>
+  <data name="MillReportsXtraReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="MillReportsXtraReport_LengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="MillReportsXtraReport_NumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="MillReportsXtraReport_PageHeaderLabel" xml:space="preserve">
+    <value>Отчет на заводе</value>
+  </data>
+  <data name="MillReportsXtraReport_PlateNumberLabel" xml:space="preserve">
+    <value>Номер листа</value>
+  </data>
+  <data name="MillReportsXtraReport_PurchaseOrderDateLabel" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="MillReportsXtraReport_PurchaseOrderNumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="MillReportsXtraReport_ReportHeaderLabel" xml:space="preserve">
+    <value>Отчет на заводе</value>
+  </data>
+  <data name="MillReportsXtraReport_StatusLabel" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="MillReportsXtraReport_TypeLabel" xml:space="preserve">
+    <value>Тип трубы</value>
+  </data>
+  <data name="MillReportsXtraReport_WallThicknessLabel" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="MillReportsXtraReport_WeightLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="UsedProductsXtraReport_GroupHeaderLabel" xml:space="preserve">
+    <value>Отчет по использованным изделиям</value>
+  </data>
+  <data name="UsedProductsXtraReport_PageHeaderLabel" xml:space="preserve">
+    <value>Отчет по использованным изделиям</value>
+  </data>
+  <data name="UsedProductsXtraReport_ProductNumberLabel" xml:space="preserve">
+    <value>Номер изделия</value>
+  </data>
+  <data name="UsedProductsXtraReport_ProductTypeLabel" xml:space="preserve">
+    <value>Тип изделия</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARLabel" xml:space="preserve">
+    <value>BAR (Производство готовой трубы)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARRejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_BARRepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COAAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COAAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COALabel" xml:space="preserve">
+    <value>COA (Внутреннее покрытие)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COARejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_COARepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCAcceptedLabel" xml:space="preserve">
+    <value>Принято</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCAfterRepairLabel" xml:space="preserve">
+    <value>Принято после ремонта</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCLabel" xml:space="preserve">
+    <value>EXC (Наружнее покрытие)</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCRejectedLabel" xml:space="preserve">
+    <value>Брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_EXCRepairLabel" xml:space="preserve">
+    <value>Временный брак</value>
+  </data>
+  <data name="GeneralInformationXtraReport_GeneralReportHeaderLabel" xml:space="preserve">
+    <value>Отчет по заводу</value>
+  </data>
+  <data name="GeneralInformationXtraReport_ProductionDateLabel" xml:space="preserve">
+    <value>Дата производства</value>
+  </data>
+  <data name="LoadingXtraReport_CertificateLabel" xml:space="preserve">
+    <value>Сертификат</value>
+  </data>
+  <data name="LoadingXtraReport_DestinationLabel" xml:space="preserve">
+    <value>Станция назначения</value>
+  </data>
+  <data name="LoadingXtraReport_LoadingReportLabel" xml:space="preserve">
+    <value>Рапорт по отгрузке</value>
+  </data>
+  <data name="LoadingXtraReport_MetersCountLabel" xml:space="preserve">
+    <value>Кол-во метров</value>
+  </data>
+  <data name="LoadingXtraReport_PipesCountLabel" xml:space="preserve">
+    <value>Кол-во труб</value>
+  </data>
+  <data name="LoadingXtraReport_RailcarNumberLabel" xml:space="preserve">
+    <value>Номер вагона</value>
+  </data>
+  <data name="LoadingXtraReport_ReleaseNoteNumberLabel" xml:space="preserve">
+    <value>Номер разрешения на отгрузку</value>
+  </data>
+  <data name="LoadingXtraReport_WeightCountLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="PipeConstructionXtraReport_DiameterHeader" xml:space="preserve">
+    <value>Диаметр, мм</value>
+  </data>
+  <data name="PipeConstructionXtraReport_FirstJointHeader" xml:space="preserve">
+    <value>Первый стык</value>
+  </data>
+  <data name="PipeConstructionXtraReport_GradeHeader" xml:space="preserve">
+    <value>Марка стали</value>
+  </data>
+  <data name="PipeConstructionXtraReport_LengthHeader" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="PipeConstructionXtraReport_PipeConstructionReportHeader" xml:space="preserve">
+    <value>Отчет по трубам на строительстве</value>
+  </data>
+  <data name="PipeConstructionXtraReport_PipeNumberHeader" xml:space="preserve">
+    <value>Номер трубы</value>
+  </data>
+  <data name="PipeConstructionXtraReport_SeamTypeHeader" xml:space="preserve">
+    <value>Тип шва</value>
+  </data>
+  <data name="PipeConstructionXtraReport_SecondJointHeader" xml:space="preserve">
+    <value>Второй стык</value>
+  </data>
+  <data name="PipeConstructionXtraReport_ThicknessHeader" xml:space="preserve">
+    <value>Толщина, мм</value>
+  </data>
+  <data name="WeldDateXtraReport_DateHeader" xml:space="preserve">
+    <value>Дата сварки</value>
+  </data>
+  <data name="WeldDateXtraReport_FirstPartLengthHeader" xml:space="preserve">
+    <value>Длина первой части</value>
+  </data>
+  <data name="WeldDateXtraReport_FirstPartNumberHeader" xml:space="preserve">
+    <value>Номер первой части</value>
+  </data>
+  <data name="WeldDateXtraReport_JointNumberHeader" xml:space="preserve">
+    <value>Номер стыка</value>
+  </data>
+  <data name="WeldDateXtraReport_SecondPartLengthHeader" xml:space="preserve">
+    <value>Длина второй части</value>
+  </data>
+  <data name="WeldDateXtraReport_SecondPartNumberHeader" xml:space="preserve">
+    <value>Номер второй части</value>
+  </data>
+  <data name="WeldDateXtraReport_WeldReportByDateHeader" xml:space="preserve">
+    <value>Отчет по сварке (по дате)</value>
+  </data>
+  <data name="AdditionToTheReport_AdditionToTheReportHeaderLabel" xml:space="preserve">
+    <value>Приложение к отчету</value>
+  </data>
+  <data name="AdditionToTheReport_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="AdditionToTheReport_LengthLabel" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="AdditionToTheReport_NumberLabel" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="AdditionToTheReport_PipesLengthLabel" xml:space="preserve">
+    <value>Общая длина:</value>
+  </data>
+  <data name="AdditionToTheReport_PipesWeightLabel" xml:space="preserve">
+    <value>Общий вес:</value>
+  </data>
+  <data name="AdditionToTheReport_ShippingDateLabel" xml:space="preserve">
+    <value>Дата отгрузки</value>
+  </data>
+  <data name="AdditionToTheReport_TotalCountLabel" xml:space="preserve">
+    <value>Количество:</value>
+  </data>
+  <data name="AdditionToTheReport_WeightLabel" xml:space="preserve">
+    <value>Вес</value>
+  </data>
+  <data name="TracingReport_FirstPartLengthHeder" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="TracingReport_FirstPartNumberHeader" xml:space="preserve">
+    <value>Номер элемента 1</value>
+  </data>
+  <data name="TracingReport_FirstPartTypeHeder" xml:space="preserve">
+    <value>Тип элемента 1</value>
+  </data>
+  <data name="TracingReport_JointNumberHeder" xml:space="preserve">
+    <value>Номер стыка</value>
+  </data>
+  <data name="TracingReport_PipelineComponentHeader" xml:space="preserve">
+    <value>Количество компонентов</value>
+  </data>
+  <data name="TracingReport_PipelineJointCountHeader" xml:space="preserve">
+    <value>Количество стыков</value>
+  </data>
+  <data name="TracingReport_PipelineLengthHeader" xml:space="preserve">
+    <value>Общая длина, мм</value>
+  </data>
+  <data name="TracingReport_PipelinePipeCountHeader" xml:space="preserve">
+    <value>Количество труб</value>
+  </data>
+  <data name="TracingReport_PipelineSpoolCountHeader" xml:space="preserve">
+    <value>Количество катушек</value>
+  </data>
+  <data name="TracingReport_SecondPartLengthHeder" xml:space="preserve">
+    <value>Длина, мм</value>
+  </data>
+  <data name="TracingReport_SecondPartNumberHeader" xml:space="preserve">
+    <value>Номер элемента 2</value>
+  </data>
+  <data name="TracingReport_SecondPartTypeHeder" xml:space="preserve">
+    <value>Тип элемента 2</value>
+  </data>
+  <data name="TracingReport_TracingPageHeaderXrLabel" xml:space="preserve">
+    <value>Трассировка трубопровода</value>
+  </data>
+  <data name="TracingReport_WeldingDate" xml:space="preserve">
+    <value>Дата сварки</value>
+  </data>
 </root>
