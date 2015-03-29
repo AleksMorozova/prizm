@@ -1480,9 +1480,15 @@
   <data name="JointNewNotAllWeldOperationCompletedHeader" xml:space="preserve">
     <value>Сварочные операции</value>
   </data>
+  <data name="FormManager_AccessForbidden" xml:space="preserve">
+    <value>Доступ к указанному типу документов запрещён</value>
+  </data>
+  <data name="FormManager_AccessHeader" xml:space="preserve">
+    <value>Ошибка доступа</value>
+  </data>
   <data name="Message_DeactivationConnectedComponent" xml:space="preserve">
     <value>Соединенный компонент не может быть деактивирован.
-Для деактивации компонента необходимо его отсоеденить.</value>
+Для деактивации компонента необходимо его отсоединить.</value>
   </data>
   <data name="Message_DeactivationConnectedComponentHeader" xml:space="preserve">
     <value>Комплектующее имеет соединение</value>

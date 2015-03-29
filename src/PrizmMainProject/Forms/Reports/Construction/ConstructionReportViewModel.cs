@@ -40,7 +40,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         private JointProjection startJoint;
         private JointProjection endJoint;
         private ReportType reportType;
-        private IList<PartData> partDataList;
 
         public int PipelineJointCount { get; set; }
         public int PipelinePipeCount { get; set; }

@@ -37,7 +37,7 @@ using Prizm.Main.Forms.Notifications;
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class MillPipeNewEditXtraForm : ChildEditableForm, IValidatable
     {
         private InspectionAddEditXtraForm inspectionForm;
         ICommandManager commandManager = new CommandManager();
@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
-        private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
+
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
@@ -100,7 +100,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
             attachmentsButton.Enabled = true;
             #endregion //--- Read-only controls ---
 
@@ -116,13 +115,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             // Allow change focus or close while heatsLookUp or ordersLookUp validation error
             AutoValidate = AutoValidate.EnableAllowFocusChange;
 
-            IsEditMode = true;
-
             // Select tab depending on is new pipe or existed
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
-
-            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -136,7 +131,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
+            IsEditMode &= viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped)
+                && SecurityUtil.ExistOnCurrentWorkstation(global::Domain.Entity.Security.Privileges.EditPipe) 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
 

@@ -15,7 +15,6 @@ using Prizm.Main.Controls;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using Prizm.Domain.Entity;
-using Prizm.Main.Common;
 using System.Data;
 using Prizm.Main.Commands;
 using System.Reflection;
@@ -33,7 +32,7 @@ using System.Drawing;
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class JointNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class JointNewEditXtraForm : ChildEditableForm, IValidatable
     {
         private JointNewEditViewModel viewModel;
         private JointTestResult currentJointTestResult;
@@ -75,7 +74,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
             secondJointElement.SetRequiredText();
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
             jointNumber.SetAsIdentifier();
             searchNumber.SetAsIdentifier();
             firstJointElement.SetAsLookUpIdentifier();
@@ -225,7 +223,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         jointNewEditBindingSoure.ResetBindings(false);
                     }
                 };
-            IsEditMode = viewModel.JointIsActive;
+            IsEditMode &= viewModel.JointIsActive;
             IsModified = false;
 
             loweringDate.SetLimits();
