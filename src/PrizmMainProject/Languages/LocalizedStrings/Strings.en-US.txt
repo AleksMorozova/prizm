@@ -2883,4 +2883,9 @@ TracingReport_PipelineComponentHeader=Componentry count
 ;Общая длина, мм
 TracingReport_PipelineLengthHeader=Total length, mm
 
+; Сообщение о невозможности доступа
+FormManager_AccessForbidden=Access to this type of documents is denied.
+
+; Заголовок сообщения о правах доступа
+FormManager_AccessHeader=Access error
 
