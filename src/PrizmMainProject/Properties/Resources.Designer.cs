@@ -1375,6 +1375,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Данная контрольная операция уже выполнена, создайте новую или выберите запланированную.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_InspectionTestCompleted {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_InspectionTestCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная операция выполнена.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_InspectionTestCompletedHeader {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_InspectionTestCompletedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная контрольная операция уже запланирована и содержится в списке инспекций.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_SameCodeTestResultPlanned {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_SameCodeTestResultPlanned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование контрольной операции.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Периодичная.
         /// </summary>
         internal static string InspectionFrequencyType_Recurring {
