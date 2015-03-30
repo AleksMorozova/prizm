@@ -1050,8 +1050,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if (pipeTestResult.Status != PipeTestResultStatus.Accepted
                     && pipeTestResult.Status != PipeTestResultStatus.Scheduled
-                    && viewModel.PipeTestResults.Where<PipeTestResult>(x => x.Operation.Code == pipeTestResult.Operation.Code
-                        && x.Status == PipeTestResultStatus.Scheduled).Count() == 0)
+                    && !viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
+                        && x.Status == PipeTestResultStatus.Scheduled))
                 {
                     viewModel.PipeTestResults.Add(new PipeTestResult()
                     {
