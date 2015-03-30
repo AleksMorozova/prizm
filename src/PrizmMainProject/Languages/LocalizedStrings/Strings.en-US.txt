@@ -2894,3 +2894,12 @@ InspectionAddEditXtraForm_InspectionTestCompleted=Add new operation or find Sche
 
 ;Контрольная операция выполнена
 InspectionAddEditXtraForm_InspectionTestCompletedHeader=Inspection has been completed
+
+;Добавить
+MillInspection_BtnAdd=Add
+
+;Удалить
+MillInspection_BtnRemove=Remove
+
+;Повтор
+SettingsPipe_RepeatedInspectionsGridColumn=Repeat

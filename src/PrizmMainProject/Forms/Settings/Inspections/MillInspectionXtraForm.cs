@@ -159,7 +159,6 @@ namespace Prizm.Main.Forms.Settings.Inspections
                   new LocalizedItem(maxExpectedLayout, StringResources.MillInspection_ToLabel.Id),
                   new LocalizedItem(frequencyLayout, StringResources.MillInspection_FrequencyLabel.Id),
                   new LocalizedItem(frequencyMeasureLayout, StringResources.MillInspection_FrequencyMeasureLabel.Id),
-                  new LocalizedItem(repeatedOperationsLayout, StringResources.MillInspection_RepeatedOperationsLabel.Id),
                   new LocalizedItem(frequencyTypeLayout, StringResources.MillInspection_FrequencyTypeLayout.Id),
                   new LocalizedItem(percentOfSelectLayout, StringResources.MillInspection_PercentOfSelectLayout.Id),
 
@@ -173,6 +172,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
                    new LocalizedItem(frequencyGroup, StringResources.MillInspection_FrequencyGroup.Id),
                    new LocalizedItem(operationFrequencyGroup,StringResources.MillInspection_OperationFrequencyGroup.Id),
                    new LocalizedItem(selectiveFrequencyGroup, StringResources.MillInspection_SelectiveFrequencyGroup.Id),
+                   new LocalizedItem(repeatedInspectionsLayoutControlGroup, StringResources.MillInspection_RepeatedOperationsLabel.Id),
+
+                   //btn
+                   new LocalizedItem(btnAdd, StringResources.MillInspection_BtnAdd.Id),
+                   new LocalizedItem(btnRemove, StringResources.MillInspection_BtnRemove.Id),
 
 
                    new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillInspection_Title.Id} )

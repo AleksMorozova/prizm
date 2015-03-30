@@ -2014,6 +2014,12 @@ namespace Prizm.Main.Languages
             Description = "Настройки-труба. Группа параметров типоразмера"
         };
 
+        public static StringResource SettingsPipe_RepeatedInspectionsGridColumn = new StringResource
+        {
+            Id = "SettingsPipe_RepeatedInspectionsGridColumn",
+            Description = "Повтор"
+        };
+
         
         //pipeline page
         public static StringResource SettingsLine_LineGroup = new StringResource
@@ -4187,7 +4193,20 @@ namespace Prizm.Main.Languages
         {
             Id = "InspectionFrequencyType_Selective",
             Description = "Тип частоты контрольной операции. Выборочная"
+        };
+
+        public static StringResource MillInspection_BtnAdd = new StringResource
+        {
+            Id = "MillInspection_BtnAdd",
+            Description = "Добавить"
+        };
+        public static StringResource MillInspection_BtnRemove = new StringResource
+        {
+            Id = "MillInspection_BtnRemove",
+            Description = "Удалить"
         }; 
+
+        
         #endregion
 
         #region --- PartInspectionXtraForm ---

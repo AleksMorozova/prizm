@@ -205,8 +205,8 @@
             this.repeatedInspectionsLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repeatedInspectionsLookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Код"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Название")});
             this.repeatedInspectionsLookUp.Properties.DisplayMember = "Code";
             this.repeatedInspectionsLookUp.Properties.NullText = "";
             this.repeatedInspectionsLookUp.Size = new System.Drawing.Size(184, 20);
