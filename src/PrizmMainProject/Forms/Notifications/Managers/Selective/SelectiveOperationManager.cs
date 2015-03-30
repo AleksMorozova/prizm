@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Ninject;
+using Prizm.Data.DAL;
+using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +10,54 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Managers.Selective
 {
-    class SelectiveOperationManager
+    class SelectiveOperationManager : NotificationManager, ISelectiveOperationManager
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SelectiveOperationManager));
         private SelectiveCache cache = new SelectiveCache();
+        readonly SelectiveNotificationRepository repo = new SelectiveNotificationRepository();
 
-        public void LoadNotifications()
+        [Inject]
+        public SelectiveOperationManager()
+            : base(null)
+        {
+        }
+
+        public override TypeNotification Type { get { return TypeNotification.SelectiveInspectionOperation; } }
+
+        public static Notification CreateNotification(Guid ownerId, string ownerName, float unitsLeft, string information)
+        {
+            return new Notification(ownerId, ownerName, TypeNotification.NotRequiredInspectionOperation, information, unitsLeft);
+        }
+
+        public override void LoadNotifications()
         {
             try
             {
                 cache.Clear();
 
-               //1) typeSize - Selective operations - pipe with this operation
-                //2) all pipe for type size
+                IList<SelectiveOperation> selectiveOperations = repo.GetAllSelectiveOperation();
+                IList<KeyValuePair<Guid, int>> generalPipeAmount = repo.GetPipesCountPerMillSizeType();
 
-             //3) for selective operation set general pipe amount
-                //4) for selective operation call isExpired 
+                foreach (SelectiveOperation s in selectiveOperations)
+                {
+                    cache.AddOrReplace(s.PipeSizeTypeId,s.PipeSizeTypeName, s.OperationId, s.OperationCode, s.OperationName, s.SelectivePercent, s.PipesCount,0);
+
+                    cache.SetPipeAmount(s.OperationId, generalPipeAmount.First(kvp => kvp.Key == s.PipeSizeTypeId).Value);
+
+                    if (cache.IsExpired(s.OperationId))
+                    {
+                        notifications.Add(
+                        CreateNotification(s.OperationId, cache.GetOwnerName(s.OperationId), cache.GetCheckValue(s.OperationId), cache.GetCheckValue(s.OperationId).ToString()));
+                    }
+                }
             }
             catch (Exception ex)
             {
-                log.Error("Unable to load Not Required Operation Notifications: ", ex);
+                log.Error("Unable to load Selective Operation Notifications: ", ex);
             }
-            //NotificationService.Instance.NotifyInterested();
+
+            NotificationService.Instance.NotifyInterested();
         }
+
     }
 }

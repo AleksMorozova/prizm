@@ -107,6 +107,7 @@
     <Compile Include="DAL\INRONotificationRepository.cs" />
     <Compile Include="DAL\IProjectRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\ISelectiveNotificationRepository.cs" />
     <Compile Include="DAL\ISQLFlexible.cs" />
     <Compile Include="DAL\Mapping\AuditLogMap.cs" />
     <Compile Include="DAL\Mapping\CannedMessageMap.cs" />

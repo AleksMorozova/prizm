@@ -15,25 +15,34 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
             public Guid OperationId { get; set; }
             public Guid PipeSizeTypeId { get; set; }
 
-            public int selectivePercent { get; set; }
-            public int pipeAmount { get; set; }
+            public int SelectivePercent { get; set; }
+            public int PipeAmount { get; set; }
+            public int AllPipeAmount { get; set; }
 
             public string OperationCode { get; set; }
             public string OperationName { get; set; }
             public string PipeSizeTypeName { get; set; }
+
+            public int checkValue { get; set; }
         }
 
 
         private Dictionary<Guid, SelectiveCachePack> internalCache = new Dictionary<Guid, SelectiveCachePack>();
 
-        public void AddOrReplace(Guid pipeSizeTypeId,
-            Guid selectiveOperationId)
+        public void AddOrReplace(Guid pipeSizeTypeId,string pipeSizeTypeName ,
+            Guid selectiveOperationId, string operationCode, string operationName, int selectivePercent, int pipeAmount, int allPipeAmount)
         {
             internalCache[selectiveOperationId] =
                 new SelectiveCachePack()
                 {
-                    OperationId = selectiveOperationId
-                    //TODO all filds
+                    PipeSizeTypeId = pipeSizeTypeId,
+                    PipeSizeTypeName = pipeSizeTypeName,
+                    OperationId = selectiveOperationId,
+                    OperationName = operationName,
+                    SelectivePercent = selectivePercent,
+                    PipeAmount = pipeAmount,
+                    AllPipeAmount = allPipeAmount,
+                    OperationCode = operationCode
                 };
         }
 
@@ -55,12 +64,24 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
             }
         }
 
+        public int GetCheckValue(Guid pipeTestId)
+        {
+            try
+            {
+                return (internalCache[pipeTestId].PipeAmount / internalCache[pipeTestId].AllPipeAmount * 100);
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetCheckValue called for wrong pipe test. id: " + pipeTestId);
+                return 0;
+            }
+        }
+
         public bool IsExpired(Guid pipeTestId)
         {
             try
             {
-                //implment logic
-                return false;
+                return (internalCache[pipeTestId].AllPipeAmount==0)? false : (int)(internalCache[pipeTestId].PipeAmount / internalCache[pipeTestId].AllPipeAmount * 100) < internalCache[pipeTestId].SelectivePercent;
             }
             catch (KeyNotFoundException)
             {
@@ -69,11 +90,11 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
             }
         }
 
-        public void SetPipeAmount(Guid pipeTestId)
+        public void SetPipeAmount(Guid pipeTestId, int amount)
         {
             try
             {
-                //pipeAmount
+                internalCache[pipeTestId].AllPipeAmount = amount;
             }
             catch (KeyNotFoundException)
             {

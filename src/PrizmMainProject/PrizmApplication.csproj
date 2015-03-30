@@ -340,6 +340,7 @@
     <Compile Include="Forms\Notifications\Managers\NotRequired\INotRequiredOperationManager.cs" />
     <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredCache.cs" />
     <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\Selective\ISelectiveOperationManager.cs" />
     <Compile Include="Forms\Notifications\Managers\Selective\SelectiveCache.cs" />
     <Compile Include="Forms\Notifications\Managers\Selective\SelectiveOperationManager.cs" />
     <Compile Include="Forms\Notifications\Notification.cs" />
