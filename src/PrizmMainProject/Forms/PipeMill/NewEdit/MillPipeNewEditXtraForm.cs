@@ -1029,19 +1029,28 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddRepeatedInspections(PipeTestResult pipeTestResult)
         {
-            foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
+            if (pipeTestResult.Status != PipeTestResultStatus.Accepted
+                    && pipeTestResult.Status != PipeTestResultStatus.Scheduled)
             {
-                if (pipeTestResult.Status != PipeTestResultStatus.Accepted
-                    && pipeTestResult.Status != PipeTestResultStatus.Scheduled
-                    && !viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
-                        && x.Status == PipeTestResultStatus.Scheduled))
+                viewModel.PipeTestResults.Add(new PipeTestResult()
                 {
-                    viewModel.PipeTestResults.Add(new PipeTestResult()
+                    Pipe = viewModel.Pipe,
+                    Status = PipeTestResultStatus.Scheduled,
+                    Operation = pipeTestResult.Operation
+                });
+
+                foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
+                {
+                    if (!viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
+                            && x.Status == PipeTestResultStatus.Scheduled))
                     {
-                        Pipe = viewModel.Pipe,
-                        Status = PipeTestResultStatus.Scheduled,
-                        Operation = operation
-                    });
+                        viewModel.PipeTestResults.Add(new PipeTestResult()
+                        {
+                            Pipe = viewModel.Pipe,
+                            Status = PipeTestResultStatus.Scheduled,
+                            Operation = operation
+                        });
+                    }
                 }
             }
         }
