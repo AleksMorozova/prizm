@@ -123,6 +123,23 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
+            private struct TestResultInfo
+            {
+                public TestResultInfo(Guid id, bool status)
+                {
+                    operationId = id;
+                    resultStatus = status;
+                }
+                private Guid operationId;
+                private bool resultStatus;
+
+                public Guid OperationId { get { return operationId; } }
+                public bool ResultStatus { get { return resultStatus; } }
+
+
+            }
+
+
             private NotRequiredOperationManager manager;
 
             #region --- Previous state of pipe ---
@@ -132,6 +149,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             private float initialPipeWeight = 0;
             private List<PipeTestResult> initialPipeTestResult = new List<PipeTestResult>();
             private List<NROInfo> initialNROList = new List<NROInfo>();
+            private List<TestResultInfo> initialTestResultList = new List<TestResultInfo>();
+
             private bool isProperlyCreated = true;
 
             #endregion //--- Previous state of pipe ---
@@ -154,6 +173,19 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 return list;
             }
 
+            private static List<TestResultInfo> GetInitialTestResult(IList<PipeTestResult> results)
+            {
+                List<TestResultInfo> list = new List<TestResultInfo>();
+                foreach (var testResult in results)
+                {
+                    if (!testResult.Operation.IsRequired)
+                    {
+                        list.Add(new TestResultInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
+                    }
+                }
+                return list;
+            }
+
             public static PipeNotificationInfo Create(NotRequiredOperationManager manager, Pipe pipeInitialState)
             {
                 PipeNotificationInfo info = new PipeNotificationInfo(manager);
@@ -173,6 +205,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 if (pipeState.PipeTestResult != null)
                 {
                     this.initialNROList.AddRange(GetNROInfoListFromPipeTestResultList(pipeState.PipeTestResult));
+                    this.initialTestResultList.AddRange(GetInitialTestResult((pipeState.PipeTestResult)));
                 }
             }
 
@@ -273,7 +306,11 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
-                        ProcessPipeTestResults(initialPipeTestResult);
+                        foreach (TestResultInfo t in initialTestResultList)
+                        {
+                            manager.UpdateUnits(t.OperationId);
+                        }
+
                         foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(initialPipeSizeTypeId))
                         {
                             manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
