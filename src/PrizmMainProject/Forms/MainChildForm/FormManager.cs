@@ -538,6 +538,11 @@ namespace Prizm.Main.Forms.MainChildForm
             }
         }
 
+        /// <summary>
+        /// to activate (or create if not exist) child form with appropriate id
+        /// </summary>
+        /// <param name="documentType">type of document to be created</param>
+        /// <param name="id">id of entity to be opened</param>
         public void OpenChildForm(DocumentTypes documentType, Guid id = default(Guid))
         {
             List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
@@ -545,6 +550,11 @@ namespace Prizm.Main.Forms.MainChildForm
             OpenReturnChildForm(documentType, parameters, id);
         }
 
+        /// <summary>
+        /// to create child form with new entity and this number should be as proposed number
+        /// </summary>
+        /// <param name="documentType">type of document</param>
+        /// <param name="number">number</param>
         public void OpenChildForm(DocumentTypes documentType, string number)
         {
             List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
@@ -565,6 +575,11 @@ namespace Prizm.Main.Forms.MainChildForm
             EditConflict = 32
         }
 
+        /// <summary>
+        /// helper method to determine security issues about document to be opened
+        /// </summary>
+        /// <param name="documentType">type of document</param>
+        /// <returns>pack of flags</returns>
         private FormFlags GetSecurityRestrictionReasons(DocumentTypes documentType)
         {
             FormFlags reasons = FormFlags.Nothing;
@@ -586,6 +601,15 @@ namespace Prizm.Main.Forms.MainChildForm
             return reasons;
         }
 
+        /// <summary>
+        /// helper method to determine the possibility to open/create document.
+        /// Can show questions to user.
+        /// </summary>
+        /// <param name="type">type of document</param>
+        /// <param name="isNew">is entity supposed to be new</param>
+        /// <param name="flags">flags pack</param>
+        /// <param name="editMode">can/should this document to be opened in edit mode.</param>
+        /// <returns></returns>
         private bool CanOpen(DocumentTypes type, bool isNew, FormFlags flags, out bool editMode)
         {
             editMode = !flags.HasFlag(FormFlags.EditAccessDenied) && flags.HasFlag(FormFlags.CanEditAtThisWorkstation);
