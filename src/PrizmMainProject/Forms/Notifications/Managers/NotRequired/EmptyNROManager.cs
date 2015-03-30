@@ -9,7 +9,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
     /// <summary>
     /// Use this class instead of real NotRequiredOperationManager, when non-required operation notifications are not needed.
     /// </summary>
-    class EmptyNROManager : INotRequiredOperationManager, INotificationManager
+    class EmptyNROManager : IPipeNotifierCreator, INotificationManager
     {
         private class EmptyNotifier : IPipeNotifier
         {

@@ -104,6 +104,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         {
                             repo.Commit();
                             viewModel.PipeNotifier.UpdateNotifications(viewModel.Pipe);
+                            viewModel.SelectiveOperationPipeNotifier.UpdateNotifications(viewModel.Pipe);
                         }
                         
                         repo.RepoPipe.Evict(viewModel.Pipe);
