@@ -1500,10 +1500,10 @@
   <data name="Message_DeactivationConnectedSpoolHeader" xml:space="preserve">
     <value>Катушка имеет соединение</value>
   </data>
-<data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
+  <data name="Notification_DuplicatePipeNumber_Critical" xml:space="preserve">
     <value>Дубликат номера</value>
   </data>
-      <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
+  <data name="InspectionFrequencyType_Recurring" xml:space="preserve">
     <value>Периодичная</value>
   </data>
   <data name="InspectionFrequencyType_Required" xml:space="preserve">
@@ -1778,5 +1778,17 @@
   </data>
   <data name="TracingReport_WeldingDate" xml:space="preserve">
     <value>Дата сварки</value>
+  </data>
+  <data name="InspectionAddEditXtraForm_InspectionTestCompleted" xml:space="preserve">
+    <value>Данная контрольная операция уже выполнена, создайте новую или выберите запланированную</value>
+  </data>
+  <data name="InspectionAddEditXtraForm_InspectionTestCompletedHeader" xml:space="preserve">
+    <value>Контрольная операция выполнена</value>
+  </data>
+  <data name="InspectionAddEditXtraForm_SameCodeTestResultPlanned" xml:space="preserve">
+    <value>Данная контрольная операция уже запланирована и содержится в списке инспекций</value>
+  </data>
+  <data name="InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader" xml:space="preserve">
+    <value>Дублирование контрольной операции</value>
   </data>
 </root>

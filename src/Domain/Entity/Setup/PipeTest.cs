@@ -1,5 +1,6 @@
 ﻿using Prizm.Domain.Entity.Mill;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Prizm.Domain.Entity.Setup
 {
@@ -31,11 +32,13 @@ namespace Prizm.Domain.Entity.Setup
             this.Code = code;
             this.FrequencyType = frequencyType;
             this.PipeTestResults = new List<PipeTestResult>();
+            this.RepeatedInspections = new List<PipeTest>();
         }
 
         public PipeTest()
         {
             this.PipeTestResults = new List<PipeTestResult>();
+            this.RepeatedInspections = new List<PipeTest>();
         }
 
         //category of test
@@ -62,6 +65,8 @@ namespace Prizm.Domain.Entity.Setup
             get { return FrequencyType == InspectionFrequencyType.R; } 
         }
 
+        public virtual IList<PipeTest> RepeatedInspections { get; set; }
+
         public virtual string DisplayExpectedResult
         {
             get 
@@ -77,7 +82,20 @@ namespace Prizm.Domain.Entity.Setup
                 }
             } 
         }
-        //string test
+
+
+        public virtual string DisplayRepeatedInspections
+        {
+            get
+            {
+                string displayText = null;
+                foreach (var insp in RepeatedInspections.Where<PipeTest>(x => x.IsActive))
+                {
+                    displayText += string.IsNullOrEmpty(displayText) ? insp.Code : string.Concat(", ", insp.Code);
+                }
+                return displayText;
+            }
+        }
 
         public virtual void CustomShallowCopy(PipeTest original)
         {
@@ -98,6 +116,7 @@ namespace Prizm.Domain.Entity.Setup
             this.ResultType = original.ResultType;
             this.StringExpected = original.StringExpected;
             this.SelectivePercent = original.SelectivePercent;
+            this.RepeatedInspections = new List<PipeTest>(original.RepeatedInspections);
         }
     }
 }

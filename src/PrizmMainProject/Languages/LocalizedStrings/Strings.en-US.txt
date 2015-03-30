@@ -2885,7 +2885,26 @@ TracingReport_PipelineLengthHeader=Total length, mm
 
 ; Сообщение о невозможности доступа
 FormManager_AccessForbidden=Access to this type of documents is denied.
+;Данная контрольная операция уже запланирована и содержится в списке инспекций.
+InspectionAddEditXtraForm_SameCodeTestResultPlanned=Scheduled operation with this code already exists, please set it's result.
 
 ; Заголовок сообщения о правах доступа
 FormManager_AccessHeader=Access error
 
+;Дублирование контрольной операции
+InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader=Scheduled operation already exists
+
+;Данная контрольная операция уже выполнена, создайте новую или выберите запланированную.
+InspectionAddEditXtraForm_InspectionTestCompleted=Add new operation or find Scheduled operation in grid.
+
+;Контрольная операция выполнена
+InspectionAddEditXtraForm_InspectionTestCompletedHeader=Inspection has been completed
+
+;Добавить
+MillInspection_BtnAdd=Add
+
+;Удалить
+MillInspection_BtnRemove=Remove
+
+;Повтор
+SettingsPipe_RepeatedInspectionsGridColumn=Repeat

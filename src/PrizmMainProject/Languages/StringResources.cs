@@ -125,6 +125,30 @@ namespace Prizm.Main.Languages
             Description = "Текст перед версией программы на всплывающем окне при загрузке программы"
         };
 
+        //--- InspectionAddEditXtraForm ---
+        public static StringResource InspectionAddEditXtraForm_SameCodeTestResultPlanned = new StringResource
+        {
+            Id = "InspectionAddEditXtraForm_SameCodeTestResultPlanned",
+            Description = "Данная контрольная операция уже запланирована и содержится в списке инспекций"
+        };
+        public static StringResource InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader = new StringResource
+        {
+            Id = "InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader",
+            Description = "Дублирование контрольной операции"
+        };
+
+        public static StringResource InspectionAddEditXtraForm_InspectionTestCompleted = new StringResource
+        {
+            Id = "InspectionAddEditXtraForm_InspectionTestCompleted",
+            Description = "Данная контрольная операция уже выполнена, создайте новую или выберите запланированную"
+        };
+        public static StringResource InspectionAddEditXtraForm_InspectionTestCompletedHeader = new StringResource
+        {
+            Id = "InspectionAddEditXtraForm_InspectionTestCompletedHeader",
+            Description = "Контрольная операция выполнена"
+        };
+
+
         #region --- PartType ---
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
@@ -2004,6 +2028,12 @@ namespace Prizm.Main.Languages
         {
             Id = "SettingsPipe_sizeParamsLayoutControlGroup",
             Description = "Настройки-труба. Группа параметров типоразмера"
+        };
+
+        public static StringResource SettingsPipe_RepeatedInspectionsGridColumn = new StringResource
+        {
+            Id = "SettingsPipe_RepeatedInspectionsGridColumn",
+            Description = "Повтор"
         };
 
         
@@ -4179,7 +4209,20 @@ namespace Prizm.Main.Languages
         {
             Id = "InspectionFrequencyType_Selective",
             Description = "Тип частоты контрольной операции. Выборочная"
+        };
+
+        public static StringResource MillInspection_BtnAdd = new StringResource
+        {
+            Id = "MillInspection_BtnAdd",
+            Description = "Добавить"
+        };
+        public static StringResource MillInspection_BtnRemove = new StringResource
+        {
+            Id = "MillInspection_BtnRemove",
+            Description = "Удалить"
         }; 
+
+        
         #endregion
 
         #region --- PartInspectionXtraForm ---

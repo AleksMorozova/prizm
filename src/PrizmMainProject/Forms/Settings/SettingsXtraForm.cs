@@ -299,7 +299,8 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(isRequiredGridColumn, StringResources.SettingsPipe_InspectionsIsReqiredColumn.Id),
                 new LocalizedItem(testIsActiveGridColumn, StringResources.SettingsPipe_InspectionsIsActiveColumn.Id),
                 new LocalizedItem(sizeParamsLayoutControlGroup, StringResources.SettingsPipe_sizeParamsLayoutControlGroup.Id),
-
+                new LocalizedItem(repeatedInspectionsGridColumn, StringResources.SettingsPipe_RepeatedInspectionsGridColumn.Id),
+                
                 // pipe line page
                 new LocalizedItem(lineLayoutControlGroup, StringResources.SettingsLine_LineGroup.Id),
 

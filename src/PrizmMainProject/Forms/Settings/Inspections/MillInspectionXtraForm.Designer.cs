@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.repeatedInspectionsLookUp = new DevExpress.XtraEditors.LookUpEdit();
             this.frequencyType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.percentOfSelect = new DevExpress.XtraEditors.SpinEdit();
             this.repeatedOperationsGrid = new DevExpress.XtraGrid.GridControl();
             this.repeatedOperationsView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.inspectionCodeRepositoryLookUp = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.frequencyMeasure = new DevExpress.XtraEditors.ComboBoxEdit();
             this.controlType = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -63,7 +66,6 @@
             this.controlTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.boolExpectedGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.boolExpectedLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.repeatedOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.centerEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.operationFrequencyGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.frequencyTypeLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -79,14 +81,19 @@
             this.rangeExpectedGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.maxExpectedLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.minExpectedLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repeatedInspectionsLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.repeatedInspectionsLookUpLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnAddLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnRemoveLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repeatedOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLookUp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.percentOfSelect.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeRepositoryLookUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyMeasure.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultType.Properties)).BeginInit();
@@ -110,7 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boolExpectedGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boolExpectedLayout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.centerEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationFrequencyGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyTypeLayout)).BeginInit();
@@ -126,10 +132,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.rangeExpectedGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxExpectedLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minExpectedLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLookUpLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRemoveLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
             // 
+            this.mainLayoutControl.Controls.Add(this.btnRemove);
+            this.mainLayoutControl.Controls.Add(this.btnAdd);
+            this.mainLayoutControl.Controls.Add(this.repeatedInspectionsLookUp);
             this.mainLayoutControl.Controls.Add(this.frequencyType);
             this.mainLayoutControl.Controls.Add(this.percentOfSelect);
             this.mainLayoutControl.Controls.Add(this.repeatedOperationsGrid);
@@ -164,14 +178,49 @@
             this.mainLayoutControl.TabIndex = 0;
             this.mainLayoutControl.Text = "layoutControl1";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(319, 246);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(79, 22);
+            this.btnRemove.StyleController = this.mainLayoutControl;
+            this.btnRemove.TabIndex = 30;
+            this.btnRemove.Text = "Удалить";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(227, 246);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(78, 22);
+            this.btnAdd.StyleController = this.mainLayoutControl;
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // repeatedInspectionsLookUp
+            // 
+            this.repeatedInspectionsLookUp.Location = new System.Drawing.Point(29, 246);
+            this.repeatedInspectionsLookUp.Name = "repeatedInspectionsLookUp";
+            this.repeatedInspectionsLookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repeatedInspectionsLookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Код"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Название")});
+            this.repeatedInspectionsLookUp.Properties.DisplayMember = "Code";
+            this.repeatedInspectionsLookUp.Properties.NullText = "";
+            this.repeatedInspectionsLookUp.Size = new System.Drawing.Size(184, 20);
+            this.repeatedInspectionsLookUp.StyleController = this.mainLayoutControl;
+            this.repeatedInspectionsLookUp.TabIndex = 28;
+            // 
             // frequencyType
             // 
-            this.frequencyType.Location = new System.Drawing.Point(446, 263);
+            this.frequencyType.Location = new System.Drawing.Point(437, 263);
             this.frequencyType.Name = "frequencyType";
             this.frequencyType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.frequencyType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.frequencyType.Size = new System.Drawing.Size(219, 20);
+            this.frequencyType.Size = new System.Drawing.Size(224, 20);
             this.frequencyType.StyleController = this.mainLayoutControl;
             this.frequencyType.TabIndex = 27;
             this.frequencyType.SelectedIndexChanged += new System.EventHandler(this.frequencyType_SelectedIndexChanged);
@@ -183,25 +232,23 @@
             0,
             0,
             0});
-            this.percentOfSelect.Location = new System.Drawing.Point(717, 339);
+            this.percentOfSelect.Location = new System.Drawing.Point(714, 339);
             this.percentOfSelect.Name = "percentOfSelect";
             this.percentOfSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.percentOfSelect.Properties.IsFloatValue = false;
             this.percentOfSelect.Properties.Mask.EditMask = "(1?[0-9])|([1-9][0-9])";
             this.percentOfSelect.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.percentOfSelect.Size = new System.Drawing.Size(120, 20);
+            this.percentOfSelect.Size = new System.Drawing.Size(123, 20);
             this.percentOfSelect.StyleController = this.mainLayoutControl;
             this.percentOfSelect.TabIndex = 26;
             // 
             // repeatedOperationsGrid
             // 
-            this.repeatedOperationsGrid.Location = new System.Drawing.Point(12, 213);
+            this.repeatedOperationsGrid.Location = new System.Drawing.Point(24, 277);
             this.repeatedOperationsGrid.MainView = this.repeatedOperationsView;
             this.repeatedOperationsGrid.Name = "repeatedOperationsGrid";
-            this.repeatedOperationsGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.inspectionCodeRepositoryLookUp});
-            this.repeatedOperationsGrid.Size = new System.Drawing.Size(402, 196);
+            this.repeatedOperationsGrid.Size = new System.Drawing.Size(379, 120);
             this.repeatedOperationsGrid.TabIndex = 25;
             this.repeatedOperationsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.repeatedOperationsView});
@@ -213,31 +260,19 @@
             this.inspectionNameGridColumn});
             this.repeatedOperationsView.GridControl = this.repeatedOperationsGrid;
             this.repeatedOperationsView.Name = "repeatedOperationsView";
-            this.repeatedOperationsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.repeatedOperationsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.repeatedOperationsView.OptionsBehavior.Editable = false;
             this.repeatedOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.repeatedOperationsView.OptionsView.ShowGroupPanel = false;
             // 
             // inspectionCodeGridColumn
             // 
             this.inspectionCodeGridColumn.Caption = "Код";
-            this.inspectionCodeGridColumn.ColumnEdit = this.inspectionCodeRepositoryLookUp;
             this.inspectionCodeGridColumn.FieldName = "Code";
             this.inspectionCodeGridColumn.Name = "inspectionCodeGridColumn";
             this.inspectionCodeGridColumn.Visible = true;
             this.inspectionCodeGridColumn.VisibleIndex = 0;
-            this.inspectionCodeGridColumn.Width = 76;
-            // 
-            // inspectionCodeRepositoryLookUp
-            // 
-            this.inspectionCodeRepositoryLookUp.AutoHeight = false;
-            this.inspectionCodeRepositoryLookUp.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.inspectionCodeRepositoryLookUp.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", " ")});
-            this.inspectionCodeRepositoryLookUp.DisplayMember = "Code";
-            this.inspectionCodeRepositoryLookUp.Name = "inspectionCodeRepositoryLookUp";
-            this.inspectionCodeRepositoryLookUp.NullText = "";
-            this.inspectionCodeRepositoryLookUp.ValueMember = "Id";
+            this.inspectionCodeGridColumn.Width = 185;
             // 
             // inspectionNameGridColumn
             // 
@@ -248,15 +283,16 @@
             this.inspectionNameGridColumn.OptionsColumn.ReadOnly = true;
             this.inspectionNameGridColumn.Visible = true;
             this.inspectionNameGridColumn.VisibleIndex = 1;
+            this.inspectionNameGridColumn.Width = 190;
             // 
             // frequencyMeasure
             // 
-            this.frequencyMeasure.Location = new System.Drawing.Point(578, 344);
+            this.frequencyMeasure.Location = new System.Drawing.Point(572, 344);
             this.frequencyMeasure.Name = "frequencyMeasure";
             this.frequencyMeasure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.frequencyMeasure.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.frequencyMeasure.Size = new System.Drawing.Size(110, 20);
+            this.frequencyMeasure.Size = new System.Drawing.Size(113, 20);
             this.frequencyMeasure.StyleController = this.mainLayoutControl;
             this.frequencyMeasure.TabIndex = 24;
             // 
@@ -320,11 +356,11 @@
             // 
             // frequency
             // 
-            this.frequency.Location = new System.Drawing.Point(454, 344);
+            this.frequency.Location = new System.Drawing.Point(445, 344);
             this.frequency.Name = "frequency";
             this.frequency.Properties.Mask.EditMask = "n0";
             this.frequency.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.frequency.Size = new System.Drawing.Size(110, 20);
+            this.frequency.Size = new System.Drawing.Size(113, 20);
             this.frequency.StyleController = this.mainLayoutControl;
             this.frequency.TabIndex = 15;
             // 
@@ -399,11 +435,11 @@
             this.resultTypeLayout,
             this.controlTypeLayout,
             this.boolExpectedGroup,
-            this.repeatedOperationsLayout,
             this.centerEmptySpace,
             this.operationFrequencyGroup,
             this.inspectionTypeEmptySpace,
-            this.rangeExpectedGroup});
+            this.rangeExpectedGroup,
+            this.repeatedInspectionsLayoutControlGroup});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(884, 447);
@@ -420,7 +456,7 @@
             this.codeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.codeLayout.Text = "Код";
             this.codeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.codeLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.codeLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // operationNameLayout
             // 
@@ -432,7 +468,7 @@
             this.operationNameLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.operationNameLayout.Text = "Название операции";
             this.operationNameLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.operationNameLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.operationNameLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // saveButtonLayout
             // 
@@ -479,7 +515,7 @@
             this.categoryLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.categoryLayout.Text = "Группа";
             this.categoryLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.categoryLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.categoryLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // isActiveLayout
             // 
@@ -508,7 +544,7 @@
             this.resultTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.resultTypeLayout.Text = "Тип результата";
             this.resultTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.resultTypeLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.resultTypeLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // controlTypeLayout
             // 
@@ -522,7 +558,7 @@
             this.controlTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.controlTypeLayout.Text = "Тип контроля";
             this.controlTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.controlTypeLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.controlTypeLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // boolExpectedGroup
             // 
@@ -545,20 +581,6 @@
             this.boolExpectedLayout.Text = "boolExpectedLayout";
             this.boolExpectedLayout.TextSize = new System.Drawing.Size(0, 0);
             this.boolExpectedLayout.TextVisible = false;
-            // 
-            // repeatedOperationsLayout
-            // 
-            this.repeatedOperationsLayout.Control = this.repeatedOperationsGrid;
-            this.repeatedOperationsLayout.CustomizationFormText = "layoutControlItem1";
-            this.repeatedOperationsLayout.Location = new System.Drawing.Point(0, 185);
-            this.repeatedOperationsLayout.MinSize = new System.Drawing.Size(124, 44);
-            this.repeatedOperationsLayout.Name = "repeatedOperationsLayout";
-            this.repeatedOperationsLayout.Size = new System.Drawing.Size(416, 216);
-            this.repeatedOperationsLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.repeatedOperationsLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
-            this.repeatedOperationsLayout.Text = "Повторяемые операции";
-            this.repeatedOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.repeatedOperationsLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
             // centerEmptySpace
             // 
@@ -583,10 +605,10 @@
             this.frequencyGroup,
             this.emptySpaceItem2,
             this.frequencyEmptySpace});
-            this.operationFrequencyGroup.Location = new System.Drawing.Point(416, 185);
+            this.operationFrequencyGroup.Location = new System.Drawing.Point(407, 185);
             this.operationFrequencyGroup.Name = "operationFrequencyGroup";
             this.operationFrequencyGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.operationFrequencyGroup.Size = new System.Drawing.Size(448, 216);
+            this.operationFrequencyGroup.Size = new System.Drawing.Size(457, 216);
             this.operationFrequencyGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
             this.operationFrequencyGroup.Text = "Частота выполнения операции";
             // 
@@ -596,20 +618,20 @@
             this.frequencyTypeLayout.CustomizationFormText = "layoutControlItem3";
             this.frequencyTypeLayout.Location = new System.Drawing.Point(0, 0);
             this.frequencyTypeLayout.Name = "frequencyTypeLayout";
-            this.frequencyTypeLayout.Size = new System.Drawing.Size(233, 50);
+            this.frequencyTypeLayout.Size = new System.Drawing.Size(238, 50);
             this.frequencyTypeLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.frequencyTypeLayout.Text = "Тип";
             this.frequencyTypeLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.frequencyTypeLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.frequencyTypeLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // selectiveFrequencyGroup
             // 
             this.selectiveFrequencyGroup.CustomizationFormText = "Выборочная частота";
             this.selectiveFrequencyGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.percentOfSelectLayout});
-            this.selectiveFrequencyGroup.Location = new System.Drawing.Point(264, 50);
+            this.selectiveFrequencyGroup.Location = new System.Drawing.Point(270, 50);
             this.selectiveFrequencyGroup.Name = "selectiveFrequencyGroup";
-            this.selectiveFrequencyGroup.Size = new System.Drawing.Size(148, 93);
+            this.selectiveFrequencyGroup.Size = new System.Drawing.Size(151, 93);
             this.selectiveFrequencyGroup.Text = "Выборочная частота";
             // 
             // percentOfSelectLayout
@@ -618,19 +640,19 @@
             this.percentOfSelectLayout.CustomizationFormText = "% проверяемых труб";
             this.percentOfSelectLayout.Location = new System.Drawing.Point(0, 0);
             this.percentOfSelectLayout.Name = "percentOfSelectLayout";
-            this.percentOfSelectLayout.Size = new System.Drawing.Size(124, 50);
+            this.percentOfSelectLayout.Size = new System.Drawing.Size(127, 50);
             this.percentOfSelectLayout.Text = "% проверяемых труб";
             this.percentOfSelectLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.percentOfSelectLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.percentOfSelectLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // typeEmptySpace
             // 
             this.typeEmptySpace.AllowHotTrack = false;
             this.typeEmptySpace.CustomizationFormText = "typeEmptySpace";
-            this.typeEmptySpace.Location = new System.Drawing.Point(233, 0);
+            this.typeEmptySpace.Location = new System.Drawing.Point(238, 0);
             this.typeEmptySpace.MinSize = new System.Drawing.Size(150, 24);
             this.typeEmptySpace.Name = "typeEmptySpace";
-            this.typeEmptySpace.Size = new System.Drawing.Size(189, 50);
+            this.typeEmptySpace.Size = new System.Drawing.Size(193, 50);
             this.typeEmptySpace.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.typeEmptySpace.Text = "typeEmptySpace";
             this.typeEmptySpace.TextSize = new System.Drawing.Size(0, 0);
@@ -644,7 +666,7 @@
             this.frequencyGroup.Location = new System.Drawing.Point(0, 50);
             this.frequencyGroup.Name = "frequencyGroup";
             this.frequencyGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 9, 9);
-            this.frequencyGroup.Size = new System.Drawing.Size(264, 93);
+            this.frequencyGroup.Size = new System.Drawing.Size(270, 93);
             this.frequencyGroup.Text = "Периодичная частота";
             // 
             // frequencyLayout
@@ -654,26 +676,26 @@
             this.frequencyLayout.Location = new System.Drawing.Point(0, 0);
             this.frequencyLayout.MinSize = new System.Drawing.Size(124, 50);
             this.frequencyLayout.Name = "frequencyLayout";
-            this.frequencyLayout.Size = new System.Drawing.Size(124, 50);
+            this.frequencyLayout.Size = new System.Drawing.Size(127, 50);
             this.frequencyLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.frequencyLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.frequencyLayout.Text = "Частота";
             this.frequencyLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.frequencyLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.frequencyLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // frequencyMeasureLayout
             // 
             this.frequencyMeasureLayout.Control = this.frequencyMeasure;
             this.frequencyMeasureLayout.CustomizationFormText = "Единицы измерения";
-            this.frequencyMeasureLayout.Location = new System.Drawing.Point(124, 0);
+            this.frequencyMeasureLayout.Location = new System.Drawing.Point(127, 0);
             this.frequencyMeasureLayout.MinSize = new System.Drawing.Size(124, 50);
             this.frequencyMeasureLayout.Name = "frequencyMeasureLayout";
-            this.frequencyMeasureLayout.Size = new System.Drawing.Size(124, 50);
+            this.frequencyMeasureLayout.Size = new System.Drawing.Size(127, 50);
             this.frequencyMeasureLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.frequencyMeasureLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.frequencyMeasureLayout.Text = "Единицы измерения";
             this.frequencyMeasureLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.frequencyMeasureLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.frequencyMeasureLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // emptySpaceItem2
             // 
@@ -681,7 +703,7 @@
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 143);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(422, 15);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(431, 15);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -689,7 +711,7 @@
             // 
             this.frequencyEmptySpace.AllowHotTrack = false;
             this.frequencyEmptySpace.CustomizationFormText = "emptySpaceItem1";
-            this.frequencyEmptySpace.Location = new System.Drawing.Point(412, 50);
+            this.frequencyEmptySpace.Location = new System.Drawing.Point(421, 50);
             this.frequencyEmptySpace.Name = "frequencyEmptySpace";
             this.frequencyEmptySpace.Size = new System.Drawing.Size(10, 93);
             this.frequencyEmptySpace.Text = "frequencyEmptySpace";
@@ -729,7 +751,7 @@
             this.maxExpectedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.maxExpectedLayout.Text = "До";
             this.maxExpectedLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.maxExpectedLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.maxExpectedLayout.TextSize = new System.Drawing.Size(109, 13);
             // 
             // minExpectedLayout
             // 
@@ -743,7 +765,72 @@
             this.minExpectedLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.minExpectedLayout.Text = "От";
             this.minExpectedLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.minExpectedLayout.TextSize = new System.Drawing.Size(120, 13);
+            this.minExpectedLayout.TextSize = new System.Drawing.Size(109, 13);
+            // 
+            // repeatedInspectionsLayoutControlGroup
+            // 
+            this.repeatedInspectionsLayoutControlGroup.CustomizationFormText = "Повторяемые операции";
+            this.repeatedInspectionsLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.repeatedInspectionsLookUpLayout,
+            this.btnAddLayout,
+            this.btnRemoveLayout,
+            this.repeatedOperationsLayout});
+            this.repeatedInspectionsLayoutControlGroup.Location = new System.Drawing.Point(0, 185);
+            this.repeatedInspectionsLayoutControlGroup.Name = "repeatedInspectionsLayoutControlGroup";
+            this.repeatedInspectionsLayoutControlGroup.Size = new System.Drawing.Size(407, 216);
+            this.repeatedInspectionsLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 15, 2);
+            this.repeatedInspectionsLayoutControlGroup.Text = "Повторяемые операции";
+            // 
+            // repeatedInspectionsLookUpLayout
+            // 
+            this.repeatedInspectionsLookUpLayout.Control = this.repeatedInspectionsLookUp;
+            this.repeatedInspectionsLookUpLayout.CustomizationFormText = "repeatedInspectionsLookUp";
+            this.repeatedInspectionsLookUpLayout.Location = new System.Drawing.Point(0, 0);
+            this.repeatedInspectionsLookUpLayout.Name = "repeatedInspectionsLookUpLayout";
+            this.repeatedInspectionsLookUpLayout.Size = new System.Drawing.Size(198, 36);
+            this.repeatedInspectionsLookUpLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.repeatedInspectionsLookUpLayout.Text = "repeatedInspectionsLookUp";
+            this.repeatedInspectionsLookUpLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.repeatedInspectionsLookUpLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.repeatedInspectionsLookUpLayout.TextVisible = false;
+            // 
+            // btnAddLayout
+            // 
+            this.btnAddLayout.Control = this.btnAdd;
+            this.btnAddLayout.CustomizationFormText = "layoutControlItem2";
+            this.btnAddLayout.Location = new System.Drawing.Point(198, 0);
+            this.btnAddLayout.Name = "btnAddLayout";
+            this.btnAddLayout.Size = new System.Drawing.Size(92, 36);
+            this.btnAddLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.btnAddLayout.Text = "btnAddLayout";
+            this.btnAddLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.btnAddLayout.TextVisible = false;
+            // 
+            // btnRemoveLayout
+            // 
+            this.btnRemoveLayout.Control = this.btnRemove;
+            this.btnRemoveLayout.CustomizationFormText = "layoutControlItem3";
+            this.btnRemoveLayout.Location = new System.Drawing.Point(290, 0);
+            this.btnRemoveLayout.Name = "btnRemoveLayout";
+            this.btnRemoveLayout.Size = new System.Drawing.Size(93, 36);
+            this.btnRemoveLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.btnRemoveLayout.Text = "btnRemoveLayout";
+            this.btnRemoveLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.btnRemoveLayout.TextVisible = false;
+            // 
+            // repeatedOperationsLayout
+            // 
+            this.repeatedOperationsLayout.Control = this.repeatedOperationsGrid;
+            this.repeatedOperationsLayout.CustomizationFormText = "layoutControlItem1";
+            this.repeatedOperationsLayout.Location = new System.Drawing.Point(0, 36);
+            this.repeatedOperationsLayout.MinSize = new System.Drawing.Size(124, 44);
+            this.repeatedOperationsLayout.Name = "repeatedOperationsLayout";
+            this.repeatedOperationsLayout.Size = new System.Drawing.Size(383, 124);
+            this.repeatedOperationsLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.repeatedOperationsLayout.Text = "Повторяемые операции";
+            this.repeatedOperationsLayout.TextLocation = DevExpress.Utils.Locations.Top;
+            this.repeatedOperationsLayout.TextSize = new System.Drawing.Size(0, 0);
+            this.repeatedOperationsLayout.TextVisible = false;
             // 
             // MillInspectionXtraForm
             // 
@@ -763,11 +850,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLookUp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.percentOfSelect.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionCodeRepositoryLookUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyMeasure.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.controlType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultType.Properties)).EndInit();
@@ -791,7 +878,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.controlTypeLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boolExpectedGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boolExpectedLayout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.centerEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationFrequencyGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyTypeLayout)).EndInit();
@@ -807,6 +893,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.rangeExpectedGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxExpectedLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minExpectedLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedInspectionsLookUpLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRemoveLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -851,9 +942,7 @@
         private DevExpress.XtraGrid.GridControl repeatedOperationsGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView repeatedOperationsView;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionCodeGridColumn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit inspectionCodeRepositoryLookUp;
         private DevExpress.XtraGrid.Columns.GridColumn inspectionNameGridColumn;
-        private DevExpress.XtraLayout.LayoutControlItem repeatedOperationsLayout;
         private DevExpress.XtraLayout.EmptySpaceItem centerEmptySpace;
         private DevExpress.XtraLayout.LayoutControlGroup operationFrequencyGroup;
         private DevExpress.XtraLayout.LayoutControlGroup selectiveFrequencyGroup;
@@ -863,5 +952,13 @@
         private DevExpress.XtraLayout.EmptySpaceItem typeEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem frequencyEmptySpace;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.SimpleButton btnRemove;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.LookUpEdit repeatedInspectionsLookUp;
+        private DevExpress.XtraLayout.LayoutControlItem repeatedOperationsLayout;
+        private DevExpress.XtraLayout.LayoutControlItem repeatedInspectionsLookUpLayout;
+        private DevExpress.XtraLayout.LayoutControlItem btnAddLayout;
+        private DevExpress.XtraLayout.LayoutControlItem btnRemoveLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup repeatedInspectionsLayoutControlGroup;
     }
 }
