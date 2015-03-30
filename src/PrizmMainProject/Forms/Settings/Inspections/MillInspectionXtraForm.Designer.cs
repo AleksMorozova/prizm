@@ -260,7 +260,8 @@
             this.inspectionNameGridColumn});
             this.repeatedOperationsView.GridControl = this.repeatedOperationsGrid;
             this.repeatedOperationsView.Name = "repeatedOperationsView";
-            this.repeatedOperationsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.repeatedOperationsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.repeatedOperationsView.OptionsBehavior.Editable = false;
             this.repeatedOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.repeatedOperationsView.OptionsView.ShowGroupPanel = false;
             // 

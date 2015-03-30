@@ -23,6 +23,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     public partial class InspectionAddEditXtraForm : PrizmForm
     {
         public InspectionAddEditViewModel viewModel;
+        private IList<PipeTestResult> pipeTestResults;
 
         private InspectionAddEditViewModel GetInspectionViewModel(
             IList<PipeTest> tests,
@@ -42,20 +43,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return viewModel;
         }
 
-        public InspectionAddEditXtraForm(IList<PipeTest> tests, IList<Inspector> inspectors, PipeTestResult current, IList<EnumWrapper<PipeTestResultStatus>> statuses)
+        public InspectionAddEditXtraForm(
+            IList<PipeTest> tests, 
+            IList<Inspector> inspectors, 
+            PipeTestResult current,
+            IList<EnumWrapper<PipeTestResultStatus>> statuses,
+            IList<PipeTestResult> pipeTestResults)
         {
             InitializeComponent();
-            
-            this.SetupForm(tests, inspectors, current, statuses);
+
+            this.SetupForm(tests, inspectors, current, statuses, pipeTestResults);
         }
 
         public void SetupForm(
             IList<PipeTest> tests,
             IList<Inspector> inspectors,
             PipeTestResult current,
-            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+            IList<EnumWrapper<PipeTestResultStatus>> statuses,
+            IList<PipeTestResult> pipeTestResults)
         {
-
+            this.pipeTestResults = pipeTestResults;
             GetInspectionViewModel(tests, inspectors, current, statuses);
 
             date.Properties.NullDate = DateTime.MinValue;
@@ -203,6 +210,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     (Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassed),
                     Program.LanguageManager.GetString(StringResources.FixedCategoryLengthPassedHeader)
                     );
+            }
+            else if (!pipeTestResults.Contains(viewModel.TestResult)
+                && pipeTestResults.Where<PipeTestResult>(x => x.Operation.Code == viewModel.TestResult.Operation.Code
+                    && x.Status == PipeTestResultStatus.Scheduled).Count() > 0)
+            {
+                this.DialogResult = DialogResult.None;
+                Program.MainForm.ShowError
+                    (Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_SameCodeTestResultPlanned),
+                    Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader));
             }
             else
             {

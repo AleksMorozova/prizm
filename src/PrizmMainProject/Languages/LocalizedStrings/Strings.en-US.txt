@@ -2883,4 +2883,14 @@ TracingReport_PipelineComponentHeader=Componentry count
 ;Общая длина, мм
 TracingReport_PipelineLengthHeader=Total length, mm
 
+;Данная контрольная операция уже запланирована и содержится в списке инспекций
+InspectionAddEditXtraForm_SameCodeTestResultPlanned=Scheduled operation with this code already exists, please set it's result.
 
+;Дублирование контрольной операции
+InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader=Scheduled operation already exists
+
+;Данная контрольная операция уже выполнена, создайте новую или выберите запланированную
+InspectionAddEditXtraForm_InspectionTestCompleted=
+
+;Контрольная операция выполнена
+InspectionAddEditXtraForm_InspectionTestCompletedHeader=

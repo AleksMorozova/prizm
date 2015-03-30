@@ -879,11 +879,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if(IsEditMode)
+            if (IsEditMode)
             {
                 var addForm = GetInspectionForm(tests, inspectors, null, statuses);
 
-                if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
@@ -892,28 +892,41 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
                     weight.Refresh();
+
+                    AddRepeatedInspections(addForm.viewModel.TestResult);    
                 }
             }
         }
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
-            if(IsEditMode)
+            if (IsEditMode)
             {
-                var editForm = GetInspectionForm(tests, insp, row, status);
+                if (row.Status == PipeTestResultStatus.Scheduled)
+                {
+                    var editForm = GetInspectionForm(tests, insp, row, status);
 
-                editForm.ShowDialog();
-                IsModified = true;
-                inspections.RefreshDataSource();
-                viewModel.GetLengthFromOperation();
-                pipeLength.Refresh();
-                weight.Refresh();
+                    editForm.ShowDialog();
+                    IsModified = true;
+                    inspections.RefreshDataSource();
+                    viewModel.GetLengthFromOperation();
+                    pipeLength.Refresh();
+                    weight.Refresh();
+
+                    AddRepeatedInspections(row);
+                }
+                else
+                {
+                    Program.MainForm.ShowInfo
+                        (Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompleted),
+                        Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompletedHeader));
+                }
             }
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
         {
-            if(viewModel.AvailableTests.Count > 0)
+            if (viewModel.AvailableTests.Count > 0)
             {
                 GridView view = (GridView)sender;
                 Point pt = view.GridControl.PointToClient(Control.MousePosition);
@@ -965,11 +978,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses);
+                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
             }
             else
             {
-                inspectionForm.SetupForm(tests, inspectors, row, statuses);
+                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
             }
 
             return inspectionForm;
@@ -1028,6 +1041,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void plateNumber_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+
+        private void AddRepeatedInspections(PipeTestResult pipeTestResult)
+        {
+            foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
+            {
+                if (pipeTestResult.Status != PipeTestResultStatus.Accepted
+                    && pipeTestResult.Status != PipeTestResultStatus.Scheduled
+                    && viewModel.PipeTestResults.Where<PipeTestResult>(x => x.Operation.Code == pipeTestResult.Operation.Code
+                        && x.Status == PipeTestResultStatus.Scheduled).Count() == 0)
+                {
+                    viewModel.PipeTestResults.Add(new PipeTestResult()
+                    {
+                        Pipe = viewModel.Pipe,
+                        Status = PipeTestResultStatus.Scheduled,
+                        Operation = operation
+                    });
+                }
+            }
         }
     }
 }

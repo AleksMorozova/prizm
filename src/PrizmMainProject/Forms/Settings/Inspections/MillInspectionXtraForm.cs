@@ -107,7 +107,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
 
-            repeatedInspectionsLookUp.Properties.DataSource = pipeTestList;
+            repeatedInspectionsLookUp.Properties.DataSource = pipeTestList.Where<PipeTest>(x => x.IsActive);
             repeatedOperationsGrid.DataSource = viewModel.PipeTest.RepeatedInspections;
         }
 
