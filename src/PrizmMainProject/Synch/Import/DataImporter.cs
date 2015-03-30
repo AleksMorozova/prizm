@@ -38,6 +38,7 @@ namespace Prizm.Main.Synch.Import
         private string progressMessage = string.Empty;
 
         private WorkstationType importedStation;
+        private WorkstationType currentStation;
 
         [Inject]
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
@@ -50,6 +51,9 @@ namespace Prizm.Main.Synch.Import
 
             progressMessage = Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Counter) + " {0} / {1} " + ". " +
                 Program.LanguageManager.GetString(StringResources.Import_Progress_Message_Type) + " {2}";
+
+            currentStation = (importRepo.ProjectRepo.GetSingle()).WorkstationType;
+
         }
 
         int progress = 0;
@@ -753,9 +757,9 @@ namespace Prizm.Main.Synch.Import
             ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
             
-            if(importedStation == WorkstationType.Master)
+            if(currentStation == WorkstationType.Master && importedStation == WorkstationType.Construction)
             {
-                decision = ConflictDecision.Skip;
+                decision = ConflictDecision.Replace;
                 forAll = true;
             }
             
