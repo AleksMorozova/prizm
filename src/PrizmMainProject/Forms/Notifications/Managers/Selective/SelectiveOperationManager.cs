@@ -11,7 +11,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SelectiveOperationManager));
         private SelectiveCache cache = new SelectiveCache();
 
-        public override void LoadNotifications()
+        public void LoadNotifications()
         {
             try
             {

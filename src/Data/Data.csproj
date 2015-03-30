@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DAL\ADO\MillReportsRepository.cs" />
     <Compile Include="DAL\ADO\NRONotificationRepository.cs" />
+    <Compile Include="DAL\ADO\SelectiveNotificationRepository.cs" />
     <Compile Include="DAL\ADO\SQLQueryString.cs" />
     <Compile Include="DAL\Construction\IComponentTypeRepository.cs" />
     <Compile Include="DAL\Construction\IComponentRepository.cs" />
