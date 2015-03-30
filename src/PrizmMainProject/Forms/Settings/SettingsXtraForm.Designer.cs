@@ -2075,8 +2075,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.SelectedTabPage = this.rolesLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 7;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,

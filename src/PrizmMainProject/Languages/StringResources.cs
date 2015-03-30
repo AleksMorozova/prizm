@@ -2594,6 +2594,17 @@ namespace Prizm.Main.Languages
             Description = "Название соответствующей привилегии доступа"
         };
 
+        public static StringResource SecurityPrivilege_PrintWeldDateReport = new StringResource
+        {
+            Id = "SecurityPrivilege_PrintWeldDateReport",
+            Description = "Отчеты сварки по дате"
+        };
+        public static StringResource SecurityPrivilege_PrintWeldTracingReport = new StringResource
+        {
+            Id = "SecurityPrivilege_PrintWeldTracingReport",
+            Description = "Отчет по сварке между пикетами"
+        };
+
         #endregion Settings
 
         #region --- Audit ---

@@ -438,11 +438,12 @@ namespace Prizm.Main.Forms.MainChildForm
                 barButtonItemSettingsUsers.Enabled =
                 barButtonItemRoles.Enabled = ctx.HasAccess(Privileges.ViewSettings) || ctx.HasAccess(Privileges.EditSettings);
 
+            //Reports
             barButtonItemMillReports.Enabled = ctx.HasAccess(Privileges.PrintMillReports);
-
-            pipeConstructionRepoBarButton.Enabled =
-                weldConstructionRepoBarButton.Enabled =
-                barButtonItemConstructionReports.Enabled = ctx.HasAccess(Privileges.PrintConstructionReports);
+            pipeConstructionRepoBarButton.Enabled = ctx.HasAccess(Privileges.PrintConstructionReports);
+            weldConstructionRepoBarButton.Enabled = ctx.HasAccess(Privileges.PrintWeldDateReport);
+            barButtonItemConstructionReports.Enabled = ctx.HasAccess(Privileges.PrintWeldTracingReport);
+            
 
             barButtonItemInspectionReports.Enabled = ctx.HasAccess(Privileges.PrintInspectionReports);
             barButtonItemNewPipe.Enabled = ctx.HasAccess(Privileges.CreatePipe);

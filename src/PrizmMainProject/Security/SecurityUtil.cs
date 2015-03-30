@@ -26,8 +26,7 @@ namespace Prizm.Main.Security
                         || privilege == Privileges.ExportDataFromMaster
                         || privilege == Privileges.ImportDataAtMaster
                         || privilege == Privileges.PrintConstructionReports
-                        || privilege == Privileges.PrintInspectionReports
-                        || privilege == Privileges.PrintMillReports
+                        || privilege == Privileges.PrintWeldTracingReport
                         || privilege == Privileges.SearchJoints
                         || privilege == Privileges.SearchParts
                         || privilege == Privileges.SearchPipes
@@ -84,8 +83,10 @@ namespace Prizm.Main.Security
                         || privilege == Privileges.ExportDataFromConstruction
                         || privilege == Privileges.ImportDataAtConstruction
                         || privilege == Privileges.PartsInspection
-                        || privilege == Privileges.PrintConstructionReports
                         || privilege == Privileges.PrintInspectionReports
+                        || privilege == Privileges.PrintConstructionReports
+                        || privilege == Privileges.PrintWeldDateReport
+                        || privilege == Privileges.PrintWeldTracingReport
                         || privilege == Privileges.SearchJoints
                         || privilege == Privileges.SearchParts
                         || privilege == Privileges.SearchPipes

@@ -28,6 +28,24 @@ namespace Prizm.DatabaseMigrator.Migrations
             Create.ForeignKey("FK_RepeatedInspection_Inspection")
                 .FromTable("Inspection_RepeatedInspection").ForeignColumn("repeatedInspectionId")
                 .ToTable("PipeTest").PrimaryColumn("Id");
+
+
+            // The names PrintWeldDateReport and PrintWeldTracingReport correspond to 
+            // enum items name Privileges.PrintWeldDateReport and Privileges.PrintWeldTracingReport
+            Execute.Sql(@"
+                If Not Exists(select * from [Permission] 
+                    where Name = 'PrintWeldTracingReport') 
+                        and (select COUNT(*) from [Permission]) > 0
+                Begin
+                    insert into [Permission] (id, Name) values (NEWID(), 'PrintWeldDateReport')
+                End");
+            Execute.Sql(@"
+                If Not Exists(select * from [Permission] 
+                    where Name = 'PrintWeldTracingReport') 
+                        and (select COUNT(*) from [Permission]) > 0
+                Begin
+                    insert into [Permission] (id, Name) values (NEWID(), 'PrintWeldTracingReport')
+                End");
         }
 
         public override void Down()
@@ -38,6 +56,20 @@ namespace Prizm.DatabaseMigrator.Migrations
             Delete.Column("frequencyType").Column("selectivePercent").FromTable("PipeTest");
 
             Delete.Table("Inspection_RepeatedInspection");
+
+            
+            Execute.Sql(@"
+                    If Exists(select * from [Permission] where Name = 'PrintWeldDateReport')
+                    Begin
+                        delete from [Role_Permission] where [permissionId] = (select id from [Permission] where Name = 'PrintWeldDateReport')
+                        delete from [Permission] where Name = 'PrintWeldDateReport'
+                    End");
+            Execute.Sql(@"
+                    If Exists(select * from [Permission] where Name = 'PrintWeldTracingReport')
+                    Begin
+                        delete from [Role_Permission] where [permissionId] = (select id from [Permission] where Name = 'PrintWeldTracingReport')
+                        delete from [Permission] where Name = 'PrintWeldTracingReport'
+                    End");
         }
     }
 }

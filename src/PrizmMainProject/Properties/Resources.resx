@@ -1791,4 +1791,10 @@
   <data name="InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader" xml:space="preserve">
     <value>Дублирование контрольной операции</value>
   </data>
+  <data name="SecurityPrivilege_PrintWeldDateReport" xml:space="preserve">
+    <value>Отчеты по сварке (по дате)</value>
+  </data>
+  <data name="SecurityPrivilege_PrintWeldTracingReport" xml:space="preserve">
+    <value>Отчеты по сварке между пикетами</value>
+  </data>
 </root>
