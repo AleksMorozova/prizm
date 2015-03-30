@@ -123,9 +123,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
-            private struct TestOperation
+            private struct TestResultInfo
             {
-                public TestOperation(Guid id, bool status)
+                public TestResultInfo(Guid id, bool status)
                 {
                     operationId = id;
                     resultStatus = status;
@@ -149,7 +149,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             private float initialPipeWeight = 0;
             private List<PipeTestResult> initialPipeTestResult = new List<PipeTestResult>();
             private List<NROInfo> initialNROList = new List<NROInfo>();
-            private List<TestOperation> initialTestResultList = new List<TestOperation>();
+            private List<TestResultInfo> initialTestResultList = new List<TestResultInfo>();
 
             private bool isProperlyCreated = true;
 
@@ -173,14 +173,14 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 return list;
             }
 
-            private static List<TestOperation> GetInitialTestResult(IList<PipeTestResult> results)
+            private static List<TestResultInfo> GetInitialTestResult(IList<PipeTestResult> results)
             {
-                List<TestOperation> list = new List<TestOperation>();
+                List<TestResultInfo> list = new List<TestResultInfo>();
                 foreach (var testResult in results)
                 {
                     if (!testResult.Operation.IsRequired)
                     {
-                        list.Add(new TestOperation(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
+                        list.Add(new TestResultInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
                     }
                 }
                 return list;
@@ -306,7 +306,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
-                        foreach (TestOperation t in initialTestResultList)
+                        foreach (TestResultInfo t in initialTestResultList)
                         {
                             manager.UpdateUnits(t.OperationId);
                         }
