@@ -1,5 +1,6 @@
 ﻿using Prizm.Domain.Entity.Mill;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Prizm.Domain.Entity.Setup
 {
@@ -82,13 +83,13 @@ namespace Prizm.Domain.Entity.Setup
             } 
         }
 
-        
+
         public virtual string DisplayRepeatedInspections
         {
             get
             {
                 string displayText = null;
-                foreach (var insp in RepeatedInspections)
+                foreach (var insp in RepeatedInspections.Where<PipeTest>(x => x.IsActive))
                 {
                     displayText += string.IsNullOrEmpty(displayText) ? insp.Code : string.Concat(", ", insp.Code);
                 }
