@@ -357,7 +357,10 @@ namespace Prizm.Main.Forms.MainChildForm
 
             public IEnumerable<ChildForm> GetEnumerable()
             {
-                return formsDictionary.SelectMany(k => k.Value.forms);
+                return formsDictionary.SelectMany(
+                    (k) => {
+                        return GetChildFormList(k.Key); 
+                    });
             }
 
             public ChildForm GetById(Guid id)
@@ -374,6 +377,10 @@ namespace Prizm.Main.Forms.MainChildForm
                                 found = form;
                                 break;
                             }
+                        }
+                        if (found != null)
+                        {
+                            break;
                         }
                     }
                 }
