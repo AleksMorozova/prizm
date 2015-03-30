@@ -365,9 +365,9 @@ namespace Prizm.Main.Forms.MainChildForm
                 ChildForm found = null;
                 if (id != Guid.Empty)
                 {
-                    foreach (var list in formsDictionary)
+                    foreach (var item in formsDictionary)
                     {
-                        foreach (var form in list.Value.forms)
+                        foreach (var form in GetChildFormList(item.Key))
                         {
                             if (form.Is(id))
                             {
