@@ -84,6 +84,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             code.SetAsIdentifier();
             code.SetRequiredText();
+
+            resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
         }
 
         private void BindToViewModel()
