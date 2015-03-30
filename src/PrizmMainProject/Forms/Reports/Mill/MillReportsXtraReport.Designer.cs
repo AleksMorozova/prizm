@@ -183,7 +183,7 @@
             this.type.LocationFloat = new DevExpress.Utils.PointFloat(83.67316F, 0F);
             this.type.Name = "type";
             this.type.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.type.SizeF = new System.Drawing.SizeF(150.4989F, 37.66668F);
+            this.type.SizeF = new System.Drawing.SizeF(136.9572F, 37.66668F);
             this.type.StyleName = "DataField";
             this.type.StylePriority.UseFont = false;
             this.type.Text = "type";
@@ -258,10 +258,10 @@
             this.pipeStatus.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Pipe.pipeMillStatus")});
             this.pipeStatus.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.pipeStatus.LocationFloat = new DevExpress.Utils.PointFloat(234.1721F, 0F);
+            this.pipeStatus.LocationFloat = new DevExpress.Utils.PointFloat(220.6304F, 0F);
             this.pipeStatus.Name = "pipeStatus";
             this.pipeStatus.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipeStatus.SizeF = new System.Drawing.SizeF(61.69193F, 37.66668F);
+            this.pipeStatus.SizeF = new System.Drawing.SizeF(75.23363F, 37.66668F);
             this.pipeStatus.StyleName = "DataField";
             this.pipeStatus.StylePriority.UseFont = false;
             this.pipeStatus.Text = "pipeStatus";
@@ -336,7 +336,7 @@
             this.typeLabel.LocationFloat = new DevExpress.Utils.PointFloat(83.67307F, 0F);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.typeLabel.SizeF = new System.Drawing.SizeF(150.499F, 28.70834F);
+            this.typeLabel.SizeF = new System.Drawing.SizeF(136.9573F, 28.70834F);
             this.typeLabel.StyleName = "FieldCaption";
             this.typeLabel.StylePriority.UseForeColor = false;
             this.typeLabel.Text = "Тип трубы";
@@ -388,10 +388,10 @@
             // statusLabel
             // 
             this.statusLabel.ForeColor = System.Drawing.Color.Black;
-            this.statusLabel.LocationFloat = new DevExpress.Utils.PointFloat(234.1721F, 0F);
+            this.statusLabel.LocationFloat = new DevExpress.Utils.PointFloat(220.6304F, 0F);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.statusLabel.SizeF = new System.Drawing.SizeF(61.69189F, 28.70834F);
+            this.statusLabel.SizeF = new System.Drawing.SizeF(75.23357F, 28.70834F);
             this.statusLabel.StyleName = "FieldCaption";
             this.statusLabel.StylePriority.UseForeColor = false;
             this.statusLabel.Text = "Статус";
@@ -653,10 +653,10 @@
             // xrLabel3
             // 
             this.xrLabel3.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(234.1721F, 0F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(220.6304F, 0F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(61.69193F, 21.5F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(75.23363F, 21.5F);
             this.xrLabel3.StyleName = "Title";
             this.xrLabel3.StylePriority.UseForeColor = false;
             // 
@@ -666,7 +666,7 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(83.67316F, 0F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(150.4989F, 21.5F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(136.9572F, 21.5F);
             this.xrLabel2.StyleName = "Title";
             this.xrLabel2.StylePriority.UseForeColor = false;
             // 

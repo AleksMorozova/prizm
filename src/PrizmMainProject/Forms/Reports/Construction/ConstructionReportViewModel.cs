@@ -40,7 +40,6 @@ namespace Prizm.Main.Forms.Reports.Construction
         private JointProjection startJoint;
         private JointProjection endJoint;
         private ReportType reportType;
-        private IList<PartData> partDataList;
 
         public int PipelineJointCount { get; set; }
         public int PipelinePipeCount { get; set; }
@@ -57,7 +56,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         public BindingList<int> AllKP { get; set; }
 
         public IList<JointProjection> JointsProjections { get; set; }
-
+        public List<string> localizedPartType = new List<string>();
         [Inject]
         public ConstructionReportViewModel(
             IMillReportsRepository repo, 

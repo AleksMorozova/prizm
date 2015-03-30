@@ -60,168 +60,137 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
-            FormManager.Initialize(this, log);
-        }
-
-        /// <summary>
-        /// Old function, will be delete
-        /// </summary>
-        /// <param name="formType"></param>
-        /// <param name="id"></param>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public ChildForm OpenChildForm(Type formType, Guid id = default(Guid), string number = emptyString)
-        {
-            List<KeyValuePair<string, object>> parametrs = new List<KeyValuePair<string, object>>();
-            if (id != Guid.Empty)
-            {
-                parametrs.Add(new KeyValuePair<string, object>("id", id));
-            }
-            if (number != string.Empty)
-            {
-                parametrs.Add(new KeyValuePair<string, object>("number", number));
-            }
-            return FormManager.Instance.OpenChildForm(formType, parametrs, id);
-        }
-
-        /// <summary>
-        /// Create and show Settings child form. Starting tab page is set or first page if page doesn't exist.
-        /// </summary>
-        /// <param name="page">number of starting page</param>
-        public void CreateSettingsChildForm(int page)
-        {
-            FormManager.Instance.CreateSettingsChildForm(page);
         }
 
         #region Menu buttons
         private void barButtonItemNewPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(MillPipeNewEditXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.MillPipe);
         }
 
         private void barButtonItemNewRailcar_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(ReleaseNoteNewEditXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.MillReleaseNote);
         }
 
         private void barButtonItemMillFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(MillPipeSearchXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.MillPipeSearch);
         }
 
         private void barButtonItemMillReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(MillReportsXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.MillReport);
         }
 
         private void barButtonItemNewComponent_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(ComponentNewEditXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionComponent);
         }
 
         private void barButtonItemInspectionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(InspectionReportsXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.InspectionReport);
         }
 
         private void barButtonItemNewJoint_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(JointNewEditXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionJoint);
         }
 
         private void barButtonItemFindEditJoints_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(JointSearchXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionJointSearch);
         }
 
         private void barButtonItemPartIncomingInspection_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(PartInspectionXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.InspectionPart);
         }
 
         private void pipeConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(PipeConstractionReportXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionPipeReport);
         }
 
         private void weldConstructionRepoBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(WeldDateReportXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionWeldDateReport);
         }
 
         private void barButtonItemConstructionReports_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(ConstructionReportsXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionTracingReport);
         }
 
         private void barButtonItemSettingsProject_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 0);
+            FormManager.Instance.OpenSettingsChildForm(page: 0);
         }
 
         private void barButtonItemSettingsPipeline_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 2);
+            FormManager.Instance.OpenSettingsChildForm(page: 2);
         }
 
         private void barButtonItemSettingsPipe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 1);
+            FormManager.Instance.OpenSettingsChildForm(page: 1);
         }
 
         private void barButtonItemSettingsUsers_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 6);
+            FormManager.Instance.OpenSettingsChildForm(page: 6);
         }
 
         private void barButtonItemRoles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 7);
+            FormManager.Instance.OpenSettingsChildForm(page: 7);
         }
 
         private void barButtonItemSettingsWelders_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 4);
+            FormManager.Instance.OpenSettingsChildForm(page: 4);
         }
 
         private void barButtonItemSettingsInspectors_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 5);
+            FormManager.Instance.OpenSettingsChildForm(page: 5);
         }
 
         private void barButtonItemComponentry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            CreateSettingsChildForm(page: 3);
+            FormManager.Instance.OpenSettingsChildForm(page: 3);
         }
 
         private void barButtonItemFindEditShipRailcars_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(ReleaseNoteSearchXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.MillReleaseNoteSearch);
         }
 
         private void barButtonItemInspectionFindEditPipes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(PartSearchXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.InspectionPartSearch);
         }
 
         private void barButtonItemSpool_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(SpoolsXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ConstructionSpool);
         }
 
         private void barButtonItemFindEditParts_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(PartSearchXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.InspectionPartSearch);
         }
 
         private void barButtonItemAudit_ItemClick_1(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(AuditXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.Audit);
         }
 
         private void btnHistoryExportImport_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenChildForm(typeof(HistoryExportImport));
+            FormManager.Instance.OpenChildForm(DocumentTypes.ExportImportHistory);
         }
         #endregion
 
@@ -436,7 +405,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void ShowNotificationForm()
         {
-            OpenChildForm(typeof(NotificationXtraForm));
+            FormManager.Instance.OpenChildForm(DocumentTypes.Notifications);
         }
 
         /// <summary>
@@ -515,7 +484,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemExport_ItemClick(object sender, ItemClickEventArgs e)
         {
-           OpenChildForm(typeof(ExportForm), Guid.Empty, string.Empty);
+            FormManager.Instance.OpenChildForm(DocumentTypes.Export);
         }
 
         private void barButtonItemImport_ItemClick(object sender, ItemClickEventArgs e)

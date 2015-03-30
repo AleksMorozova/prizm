@@ -237,7 +237,7 @@
             this.percentOfSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.percentOfSelect.Properties.IsFloatValue = false;
-            this.percentOfSelect.Properties.Mask.EditMask = "(1?[1-9])|([1-9][1-9])";
+            this.percentOfSelect.Properties.Mask.EditMask = "(1?[0-9])|([1-9][0-9])";
             this.percentOfSelect.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.percentOfSelect.Size = new System.Drawing.Size(123, 20);
             this.percentOfSelect.StyleController = this.mainLayoutControl;
@@ -352,7 +352,7 @@
             this.saveButton.Size = new System.Drawing.Size(87, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 17;
-            this.saveButton.Text = "Сохранить";
+            this.saveButton.Text = "&Принять";
             // 
             // frequency
             // 

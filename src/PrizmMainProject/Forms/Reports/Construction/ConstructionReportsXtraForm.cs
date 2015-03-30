@@ -25,6 +25,7 @@ namespace Prizm.Main.Forms.Reports.Construction
     {
         private ConstructionReportViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private List<string> localizedAllPartType = new List<string>();
 
         public ConstructionReportsXtraForm()
         {
@@ -92,7 +93,12 @@ namespace Prizm.Main.Forms.Reports.Construction
                 // comboboxes
                 new LocalizedItem(type, new  string [] {StringResources.PartTypePipe.Id, StringResources.PartTypeSpool.Id, StringResources.PartTypeComponent.Id} ),
                 new LocalizedItem(reportType, new string[] {StringResources.ConstructionReport_ReportTypeTracingReport.Id, StringResources.ConstructionReport_ReportTypeUsedProductReport.Id}),
-
+                 new LocalizedItem(GetTranslation, localizedAllPartType,new string []
+                                                                                      {
+                                                                                          StringResources.PartTypePipe.Id, 
+                                                                                          StringResources.PartTypeSpool.Id, 
+                                                                                          StringResources.PartTypeComponent.Id
+                                                                                      }),
                 new LocalizedItem(footersCheck, StringResources.ConstructionReports_FootersCheck.Id),
 
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.ConstructionReport_Title.Id} )
@@ -123,6 +129,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             EnumWrapper<PartType>.LoadItems(type.Properties.Items, CheckState.Checked, enabled: true, skip0: true);
             EnumWrapper<ReportType>.LoadItems(reportType.Properties.Items);
+            EnumWrapper<PartType>.LoadItems(localizedAllPartType, skip0: true);
 
             viewModel.LoadData();
 
@@ -140,7 +147,10 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
         }
-
+        private void GetTranslation()
+        {
+            viewModel.localizedPartType = localizedAllPartType;
+        }
         private void reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
             viewModel.ReportTypeIndex = reportType.SelectedIndex;

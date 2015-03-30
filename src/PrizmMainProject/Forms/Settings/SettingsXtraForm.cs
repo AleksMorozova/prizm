@@ -36,7 +36,7 @@ using DevExpress.Data;
 namespace Prizm.Main.Forms.Settings
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class SettingsXtraForm : ChildForm, IValidatable
+    public partial class SettingsXtraForm : ChildEditableForm, IValidatable
     {
         private Dictionary<GridView, DuplicatesList> findDuplicateList;
         private SettingsViewModel viewModel;
@@ -760,7 +760,7 @@ namespace Prizm.Main.Forms.Settings
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
                         if (viewModel.RoleHasPermission(role, perm)
-                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(perm))
+                            && SecurityUtil.ExistOnCurrentWorkstation(perm))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -789,7 +789,7 @@ namespace Prizm.Main.Forms.Settings
                 switch (e.Action)
                 {
                     case CollectionChangeAction.Add:
-                        if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+                        if (!SecurityUtil.ExistOnCurrentWorkstation(p))
                         {
                             view.UnselectRow(e.ControllerRow);
                         }
@@ -1539,7 +1539,7 @@ namespace Prizm.Main.Forms.Settings
 
             Permission p = view.GetRow(e.RowHandle) as Permission;
 
-            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+            if (!SecurityUtil.ExistOnCurrentWorkstation(p))
             {
                 e.Appearance.ForeColor = Color.Gray;
             }
@@ -1652,13 +1652,15 @@ namespace Prizm.Main.Forms.Settings
             }
             if (e.Column.Name == isRequiredGridColumn.Name && e.Value != null)
             {
-                switch (e.Value.ToString())
+                InspectionFrequencyType frequencyType;
+                Enum.TryParse<InspectionFrequencyType>(e.Value.ToString(),out frequencyType);
+                switch(frequencyType)
                 {
-                    case "R": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Required);
+                    case InspectionFrequencyType.R: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Required);
                         break;
-                    case "U": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Recurring);
+                    case InspectionFrequencyType.U: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Recurring);
                         break;
-                    case "S": e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
+                    case  InspectionFrequencyType.S: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
                         break;
                     default: e.DisplayText = String.Empty;
                         log.Warn(string.Format("String resource for {O} inspection frequency type is missing", e.Value.ToString()));

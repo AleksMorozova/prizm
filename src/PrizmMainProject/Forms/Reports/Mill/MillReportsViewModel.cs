@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Reports.Mill
         public List<string> SearchStatuses = new List<string>();
         public BindingList<EnumWrapper<MillReportType>> ReportTypes = new BindingList<EnumWrapper<MillReportType>>();
         private Prizm.Domain.Entity.Mill.MillReportType selectedReportType = Prizm.Domain.Entity.Mill.MillReportType.ByCategories;
+        public List<string> localizedPipeStatus = new List<string>();
 
         [Inject]
         public MillReportsViewModel(IMillReportsRepository repo, IUserNotify notify, ICategoryRepository repoCategory)

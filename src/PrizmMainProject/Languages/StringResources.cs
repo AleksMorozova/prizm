@@ -751,7 +751,23 @@ namespace Prizm.Main.Languages
 
          #endregion //--- Main Window ---
 
-        #region PurchaseOrderForm
+         #region --- Form Manager ---
+
+         public static StringResource FormManager_AccessForbidden = new StringResource
+         {
+             Id = "FormManager_AccessForbidden",
+             Description = "Сообщение о невозможности доступа"
+         };
+
+         public static StringResource FormManager_AccessHeader = new StringResource
+         {
+             Id = "FormManager_AccessHeader",
+             Description = "Заголовок сообщения о правах доступа"
+         };
+
+         #endregion // --- Form Manager ---
+
+         #region PurchaseOrderForm
          //message
          public static StringResource PurchaseOrder_ValueRequired = new StringResource
         {

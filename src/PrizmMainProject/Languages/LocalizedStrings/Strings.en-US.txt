@@ -1469,7 +1469,7 @@ MillInspection_FrequencyMeasureTons=Tons
 MillInspection_FrequencyMeasurePipes=Pipes
 
 ;Настройка контрольных опрераций завода. Надпись кнопки сохранения
-MillInspection_SaveButton=&Save
+MillInspection_SaveButton=&Accept
 
 ;Настройка контрольных опрераций завода. Надпись кнопки отмены
 MillInspection_CancelButton=&Cancel
@@ -2135,7 +2135,7 @@ InspectionAddEdit_FactBoolGroup=Actual result
 InspectionAddEdit_FactLimitGroup=Actual result
 
 ;Контрольная операция. Кнопка сохранить
-InspectionAddEdit_SaveButton=Save
+InspectionAddEdit_SaveButton=&Accept
 
 ;Контрольная операция. Кнопка отмена
 InspectionAddEdit_CancelButton=Cancel
@@ -2883,8 +2883,13 @@ TracingReport_PipelineComponentHeader=Componentry count
 ;Общая длина, мм
 TracingReport_PipelineLengthHeader=Total length, mm
 
+; Сообщение о невозможности доступа
+FormManager_AccessForbidden=Access to this type of documents is denied.
 ;Данная контрольная операция уже запланирована и содержится в списке инспекций.
 InspectionAddEditXtraForm_SameCodeTestResultPlanned=Scheduled operation with this code already exists, please set it's result.
+
+; Заголовок сообщения о правах доступа
+FormManager_AccessHeader=Access error
 
 ;Дублирование контрольной операции
 InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader=Scheduled operation already exists

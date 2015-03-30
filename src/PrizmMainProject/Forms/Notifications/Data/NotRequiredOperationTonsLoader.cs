@@ -1,4 +1,5 @@
 ﻿using NHibernate.Transform;
+using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.Notifications.Managers;
 using System;
@@ -29,7 +30,7 @@ namespace Prizm.Main.Forms.Notifications.Data
                     @" select * from (
                                 Select t.name,t.code, t.frequency as f, t.frequencyMeasure, s.type, s.id 
                                             From pipeTest t, PipeMillSizeType s
-                                where t.frequencyType = 'U' and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Tons') b
+                                where t.frequencyType = '"+ InspectionFrequencyType.U.ToString() +@"' and t.pipeMillSizeTypeId=s.id and t.frequencyMeasure='Tons') b
                                                     right join 
                         (Select Sum(p.weight) weight, p.typeId From Pipe p 
                                         group by p.typeId) a

@@ -90,7 +90,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 var filesViewModel = viewModel.FilesFormViewModel;
 
 
-                //saving attached documents
+                //saving attached existingDocuments
                 bool fileCopySuccess = true;
                 if (null != filesViewModel)
                 {

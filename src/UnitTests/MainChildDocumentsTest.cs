@@ -48,19 +48,19 @@ namespace Prizm.UnitTests
         }
 
 
-        [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(MillPipeNewEditXtraForm), typeof(ChildEditableForm))]
         [TestCase(typeof(MillPipeSearchXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(ReleaseNoteNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ReleaseNoteNewEditXtraForm), typeof(ChildEditableForm))]
         [TestCase(typeof(ReleaseNoteSearchXtraForm), typeof(ChildForm))]
         [TestCase(typeof(MillReportsXtraForm), typeof(ChildForm))]
         [TestCase(typeof(PartSearchXtraForm), typeof(ChildForm))]
         [TestCase(typeof(InspectionReportsXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(ComponentNewEditXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(JointNewEditXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(ComponentNewEditXtraForm), typeof(ChildEditableForm))]
+        [TestCase(typeof(JointNewEditXtraForm), typeof(ChildEditableForm))]
         [TestCase(typeof(JointSearchXtraForm), typeof(ChildForm))]
         [TestCase(typeof(ConstructionReportsXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(SettingsXtraForm), typeof(ChildForm))]
-        [TestCase(typeof(SpoolsXtraForm), typeof(ChildForm))]
+        [TestCase(typeof(SettingsXtraForm), typeof(ChildEditableForm))]
+        [TestCase(typeof(SpoolsXtraForm), typeof(ChildEditableForm))]
         [TestCase(typeof(AuditXtraForm), typeof(ChildForm))]
         [TestCase(typeof(NotificationXtraForm), typeof(ChildForm))]
         [TestCase(typeof(PartInspectionXtraForm), typeof(ChildForm))]
@@ -121,24 +121,6 @@ namespace Prizm.UnitTests
         }
 
 
-        [TestCase(typeof(MillPipeNewEditXtraForm))]
-        [TestCase(typeof(ReleaseNoteNewEditXtraForm))]
-        [TestCase(typeof(ComponentNewEditXtraForm))]
-        [TestCase(typeof(JointNewEditXtraForm))]
-        [TestCase(typeof(SpoolsXtraForm))]
-        public void TestMainForm(System.Type type)
-        {
-            var filter = new TypeFilter(InterfaceFilter);
-
-            var typeArr = type.FindInterfaces(filter, typeof(INewEditEntityForm));
-
-            Assert.IsTrue(typeArr.Contains<System.Type>(typeof(INewEditEntityForm)));
-        }
-
-        public bool InterfaceFilter(System.Type typeObj, System.Object criteriaObj)
-        {
-            return typeObj.ToString() == criteriaObj.ToString();
-        }
     }
 
 }
