@@ -68,13 +68,29 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         {
             private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PipeNotificationInfo));
 
+            private struct TestResultInfo
+            {
+                public TestResultInfo(Guid id, PipeTestResultStatus status)
+                {
+                    operationId = id;
+                    testStatus = status;
+                }
+                private Guid operationId;
+                private PipeTestResultStatus testStatus;
+                
+
+                public Guid OperationId { get { return operationId; } }
+                public PipeTestResultStatus TestStatus { get { return testStatus; } }
+                public bool isAccepted { get { return testStatus == PipeTestResultStatus.Accepted; } }
+            }
+
             private SelectiveOperationManager manager;
 
             #region --- Previous state of pipe ---
 
             private Guid initialPipeSizeTypeId = default(Guid);
             private List<PipeTestResult> initialSelectivePipeTestResult = new List<PipeTestResult>();
-          
+            private List<TestResultInfo> initialSelectiveInfo = new List<TestResultInfo>();
             private bool isProperlyCreated = true;
 
             #endregion //--- Previous state of pipe ---
@@ -91,14 +107,25 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                 return info;
             }
 
+            private static List<TestResultInfo> GetTestResultInfoListFromPipeTestResultList(IList<PipeTestResult> results)
+            {
+                List<TestResultInfo> list = new List<TestResultInfo>();
+                foreach (var testResult in results)
+                {
+                    if (testResult.Operation.FrequencyType == InspectionFrequencyType.S)
+                    {
+                        list.Add(new TestResultInfo(testResult.Operation.Id, testResult.Status));
+                    }
+                }
+                return list;
+            }
+
             private void SavePipeState(Pipe pipeState)
             {
                 if (pipeState.Type != null)
                 {
                     this.initialPipeSizeTypeId = pipeState.Type.Id;
-
-                   // this.initialSelectivePipeTestResult.AddRange(pipeState.PipeTestResult);
-                    this.initialSelectivePipeTestResult = pipeState.PipeTestResult.ToList();
+                    initialSelectiveInfo.AddRange(GetTestResultInfoListFromPipeTestResultList(pipeState.PipeTestResult));
                 }
             }
 
@@ -198,8 +225,11 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                                     UpdateNotification(test.Operation.Id);
                             }
                         }
-                        IEnumerable<PipeTestResult> changed = pipeSavingState.PipeTestResult.Intersect(initialSelectivePipeTestResult, new TestResultComparer());
-                        List<PipeTestResult> listChanged = new List<PipeTestResult>(changed);
+
+                        HashSet<TestResultInfo> savingState =new HashSet<TestResultInfo>(GetTestResultInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
+                        HashSet<TestResultInfo> initialState = new HashSet<TestResultInfo>(initialSelectiveInfo);
+                        var resultList = initialState.Except(savingState).Union(savingState.Except(initialState));
+
                      
                     }
 
@@ -229,25 +259,6 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         }
 
         #endregion // --- Notifier ---
-    }
-
-    class TestResultComparer : IEqualityComparer<PipeTestResult>
-    {
-        public bool Equals(PipeTestResult x, PipeTestResult y)
-        {
-            //Check whether the products' properties are equal.
-            return x.Id == y.Id && x.Operation.FrequencyType == InspectionFrequencyType.S && x.Status != y.Status;
-        }
-
-        // If Equals() returns true for a pair of objects 
-        // then GetHashCode() must return the same value for these objects.
-
-        public int GetHashCode(PipeTestResult test)
-        {
-            //Calculate the hash code for the product.
-            return 1;
-        }
-
     }
 
 
