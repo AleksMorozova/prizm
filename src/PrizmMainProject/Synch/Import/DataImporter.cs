@@ -37,6 +37,8 @@ namespace Prizm.Main.Synch.Import
         private int elementsAll;
         private string progressMessage = string.Empty;
 
+        private WorkstationType importedStation;
+
         [Inject]
         public DataImporter(IImportRepository importRepo, IHasher hasher, IEncryptor encryptor)
             : base(hasher, encryptor)
@@ -113,6 +115,8 @@ namespace Prizm.Main.Synch.Import
             CheckPortion(manifest.PortionID);
 
             Project project = ImportProject(data.Project);
+            importedStation = project.WorkstationType;
+
             CheckProjectSequence(project, manifest.PortionNumber);
             if (!TaskIsCancelled)
             {
@@ -745,8 +749,16 @@ namespace Prizm.Main.Synch.Import
             }
 
             int step = PROGRESS_RANGE / pipes.Count;
+
             ConflictDecision decision = ConflictDecision.Undefined;
             bool forAll = false;
+            
+            if(importedStation == WorkstationType.Master)
+            {
+                decision = ConflictDecision.Skip;
+                forAll = true;
+            }
+            
 
             Project currentProject = importRepo.ProjectRepo.GetSingle();
             foreach (var pipeObj in pipes)
