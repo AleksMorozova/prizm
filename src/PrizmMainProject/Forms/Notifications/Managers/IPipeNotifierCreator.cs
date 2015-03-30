@@ -13,7 +13,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         void UpdateNotifications(Pipe pipeSavingState);
     }
 
-    interface INotRequiredOperationManager
+    interface IPipeNotifierCreator
     {
         IPipeNotifier CreateNotifier(Pipe pipeInitialState);
     }

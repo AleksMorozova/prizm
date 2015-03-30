@@ -28,6 +28,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
 
 
         private Dictionary<Guid, SelectiveCachePack> internalCache = new Dictionary<Guid, SelectiveCachePack>();
+        private Dictionary<Guid, HashSet<Guid>> operationsAtSizeType = new Dictionary<Guid, HashSet<Guid>>();
 
         public void AddOrReplace(Guid pipeSizeTypeId,string pipeSizeTypeName ,
             Guid selectiveOperationId, string operationCode, string operationName, int selectivePercent, int pipeAmount, int allPipeAmount)
@@ -44,11 +45,65 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     AllPipeAmount = allPipeAmount,
                     OperationCode = operationCode
                 };
+
+            if (!operationsAtSizeType.ContainsKey(pipeSizeTypeId))
+            {
+                operationsAtSizeType[pipeSizeTypeId] = new HashSet<Guid>();
+            }
+            operationsAtSizeType[pipeSizeTypeId].Add(selectiveOperationId);
         }
 
         public void Clear()
         {
             internalCache.Clear();
+        }
+
+        public void AddGeneralPipeAmount(Guid pipeTestId)
+        {
+            try
+            {
+                internalCache[pipeTestId].AllPipeAmount++;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("UpdateGeneralPipeAmount called for wrong pipe test. id: " + pipeTestId);
+            }
+        }
+
+        public void AddPipeAmount(Guid pipeTestId)
+        {
+            try
+            {
+                internalCache[pipeTestId].PipeAmount++;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("UpdatePipeAmount called for wrong pipe test. id: " + pipeTestId);
+            }
+        }
+
+        public void RemoveGeneralPipeAmount(Guid pipeTestId)
+        {
+            try
+            {
+                internalCache[pipeTestId].AllPipeAmount--;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("UpdateGeneralPipeAmount called for wrong pipe test. id: " + pipeTestId);
+            }
+        }
+
+        public void RemovePipeAmount(Guid pipeTestId)
+        {
+            try
+            {
+                internalCache[pipeTestId].PipeAmount--;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("UpdatePipeAmount called for wrong pipe test. id: " + pipeTestId);
+            }
         }
 
         public string GetOwnerName(Guid pipeTestId)
@@ -68,7 +123,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         {
             try
             {
-                return (internalCache[pipeTestId].PipeAmount / internalCache[pipeTestId].AllPipeAmount * 100);
+                return ((internalCache[pipeTestId].PipeAmount / internalCache[pipeTestId].AllPipeAmount) * 100);
             }
             catch (KeyNotFoundException)
             {
@@ -81,7 +136,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         {
             try
             {
-                return (internalCache[pipeTestId].AllPipeAmount==0)? false : (int)(internalCache[pipeTestId].PipeAmount / internalCache[pipeTestId].AllPipeAmount * 100) < internalCache[pipeTestId].SelectivePercent;
+               double i = internalCache[pipeTestId].PipeAmount ;
+                return (internalCache[pipeTestId].AllPipeAmount==0)? false : ((i/ internalCache[pipeTestId].AllPipeAmount) * 100) < internalCache[pipeTestId].SelectivePercent;
             }
             catch (KeyNotFoundException)
             {
@@ -110,6 +166,19 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public IEnumerable<Guid> EnumerateOperationsForSizeType(Guid pipeSizeTypeId)
+        {
+            try
+            {
+                return operationsAtSizeType[pipeSizeTypeId];
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("EnumerateOperationsForSizeType called for wrong pipe size type. id: " + pipeSizeTypeId);
+                return new HashSet<Guid>();
+            }
         }
 
     }

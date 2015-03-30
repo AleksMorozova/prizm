@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 {
-    class NotRequiredOperationManager : NotificationManager,  INotRequiredOperationManager
+    class NotRequiredOperationManager : NotificationManager, IPipeNotifierCreator
     {
         readonly INRONotificationRepository repo = new NRONotificationRepository();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotRequiredOperationManager));

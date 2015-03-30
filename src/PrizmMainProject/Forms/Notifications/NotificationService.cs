@@ -17,11 +17,11 @@ namespace Prizm.Main.Forms.Notifications
         public event EventHandler NotificationsChanged;
 
         #region --- Managers Properties ---
-        public ISelectiveOperationManager SelectiveOperationManager
+        public IPipeNotifierCreator SelectiveOperationManager
         {
             get
             {
-                return (ISelectiveOperationManager)managers.First(
+                return (IPipeNotifierCreator)managers.First(
                     (m) => { return m.Value.Type == TypeNotification.SelectiveInspectionOperation; }
                     ).Value;
             }
@@ -67,11 +67,11 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
-        public INotRequiredOperationManager NotRequiredOperationManager
+        public IPipeNotifierCreator NotRequiredOperationManager
         {
             get
             {
-                return (INotRequiredOperationManager)managers.First(
+                return (IPipeNotifierCreator)managers.First(
                     (m) => { return m.Value.Type == TypeNotification.NotRequiredInspectionOperation; }
                     ).Value;
             }
