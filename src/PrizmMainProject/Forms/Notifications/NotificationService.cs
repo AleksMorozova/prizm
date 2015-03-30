@@ -1,5 +1,7 @@
-﻿using Prizm.Main.Forms.Notifications.Managers;
+﻿using Prizm.Data.DAL;
+using Prizm.Main.Forms.Notifications.Managers;
 using Prizm.Main.Forms.Notifications.Managers.NotRequired;
+using Prizm.Main.Forms.Notifications.Managers.Selective;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,16 @@ namespace Prizm.Main.Forms.Notifications
         public event EventHandler NotificationsChanged;
 
         #region --- Managers Properties ---
+        public IPipeNotifierCreator SelectiveOperationManager
+        {
+            get
+            {
+                return (IPipeNotifierCreator)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.SelectiveInspectionOperation; }
+                    ).Value;
+            }
+        }
+
         public IDuplicateNumberManager DuplicateNumberManager 
         { 
             get 
@@ -55,11 +67,11 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
-        public INotRequiredOperationManager NotRequiredOperationManager
+        public IPipeNotifierCreator NotRequiredOperationManager
         {
             get
             {
-                return (INotRequiredOperationManager)managers.First(
+                return (IPipeNotifierCreator)managers.First(
                     (m) => { return m.Value.Type == TypeNotification.NotRequiredInspectionOperation; }
                     ).Value;
             }
@@ -80,12 +92,12 @@ namespace Prizm.Main.Forms.Notifications
             log.Info("Registering notification managers...");
 
             managers = new Dictionary<TypeNotification, INotificationManager>();
-
             RegisterManager(new DuplicateLoginManager());
             RegisterManager(new DuplicateNumberManager());
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
-            
+            RegisterManager(new SelectiveOperationManager());
+
             if (Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Mill)
             {
                 RegisterManager(new NotRequiredOperationManager());

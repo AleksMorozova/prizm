@@ -145,6 +145,7 @@ namespace Prizm.Main.Forms.Notifications
         ExpiredInspectorCertificate,
         ExpiredWelderCertificate,
         NotRequiredInspectionOperation,
+        SelectiveInspectionOperation
     }
 
 }

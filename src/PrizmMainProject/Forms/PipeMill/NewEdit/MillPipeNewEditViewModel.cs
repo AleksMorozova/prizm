@@ -114,6 +114,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 getPipeCommand.Execute();
                 GetAllPipeTestResults();
                 PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
+                SelectiveOperationPipeNotifier = NotificationService.Instance.SelectiveOperationManager.CreateNotifier(Pipe);
             }
 
             Welders = repoMill.WelderRepo.GetAll();
@@ -259,6 +260,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     pipeNotifier = value;
                     RaisePropertyChanged("PipeNotifier");
+                }
+            }
+        }
+
+        public IPipeNotifier selectiveOprationPipeNotifier;
+        public IPipeNotifier SelectiveOperationPipeNotifier
+        {
+            get { return selectiveOprationPipeNotifier; }
+            set
+            {
+                if (value != selectiveOprationPipeNotifier)
+                {
+                    selectiveOprationPipeNotifier = value;
+                    RaisePropertyChanged("SelectiveOperationPipeNotifier");
                 }
             }
         }
@@ -676,6 +691,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             this.Pipe.ToExport = false;
 
             PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
+            SelectiveOperationPipeNotifier = NotificationService.Instance.SelectiveOperationManager.CreateNotifier(Pipe);
         }
 
         public void Dispose()
