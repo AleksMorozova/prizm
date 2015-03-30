@@ -876,6 +876,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Доступ к указанному типу документов запрещён.
+        /// </summary>
+        internal static string FormManager_AccessForbidden {
+            get {
+                return ResourceManager.GetString("FormManager_AccessForbidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка доступа.
+        /// </summary>
+        internal static string FormManager_AccessHeader {
+            get {
+                return ResourceManager.GetString("FormManager_AccessHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Принято.
         /// </summary>
         internal static string GeneralInformationXtraReport_BARAcceptedLabel {
@@ -1371,6 +1389,42 @@ namespace Prizm.Main.Properties {
         internal static string InspectionAddEdit_Title {
             get {
                 return ResourceManager.GetString("InspectionAddEdit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная контрольная операция уже выполнена, создайте новую или выберите запланированную.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_InspectionTestCompleted {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_InspectionTestCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контрольная операция выполнена.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_InspectionTestCompletedHeader {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_InspectionTestCompletedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Данная контрольная операция уже запланирована и содержится в списке инспекций.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_SameCodeTestResultPlanned {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_SameCodeTestResultPlanned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дублирование контрольной операции.
+        /// </summary>
+        internal static string InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader {
+            get {
+                return ResourceManager.GetString("InspectionAddEditXtraForm_SameCodeTestResultPlannedHeader", resourceCulture);
             }
         }
         
@@ -2056,7 +2110,7 @@ namespace Prizm.Main.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Соединенный компонент не может быть деактивирован.
-        ///Для деактивации компонента необходимо его отсоеденить..
+        ///Для деактивации компонента необходимо его отсоединить..
         /// </summary>
         internal static string Message_DeactivationConnectedComponent {
             get {
@@ -4032,6 +4086,24 @@ namespace Prizm.Main.Properties {
         internal static string SecurityPrivilege_PrintMillReports {
             get {
                 return ResourceManager.GetString("SecurityPrivilege_PrintMillReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчеты по сварке (по дате).
+        /// </summary>
+        internal static string SecurityPrivilege_PrintWeldDateReport {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_PrintWeldDateReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчеты по сварке между пикетами.
+        /// </summary>
+        internal static string SecurityPrivilege_PrintWeldTracingReport {
+            get {
+                return ResourceManager.GetString("SecurityPrivilege_PrintWeldTracingReport", resourceCulture);
             }
         }
         

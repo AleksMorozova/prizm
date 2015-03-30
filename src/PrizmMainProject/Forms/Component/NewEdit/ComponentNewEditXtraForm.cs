@@ -24,7 +24,7 @@ using DevExpress.XtraGrid.Columns;
 namespace Prizm.Main.Forms.Component.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class ComponentNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class ComponentNewEditXtraForm : ChildEditableForm, IValidatable
     {
         private ComponentNewEditViewModel viewModel;
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
@@ -54,7 +54,6 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
             viewModel.Number = number;
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditComponent);
             attachmentsButton.Enabled = true;
             CannotOpenForViewing = id == Guid.Empty;
 
@@ -148,8 +147,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     deactivated.Reset();
                 }
             };
-
-            IsEditMode = viewModel.ComponentIsActive;
+            IsEditMode &= viewModel.ComponentIsActive;
+          
 
             IsModified = false;
 

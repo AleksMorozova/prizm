@@ -179,19 +179,19 @@ namespace Prizm.Main.Forms.Reports.Construction
                         var commonJoint = path[i].GetCommonJoint(path[i - 1]);
 
                         tracingDataItem.JointNumber = commonJoint.Data.Number;
-                        tracingDataItem.WeldingDate = commonJoint.Data.JointWeldResults.First().Date.Value.ToShortDateString();
+                        tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
 
                         tracingDataList.Add(tracingDataItem);
                     }
 
                     var firstTracingDataItem = new TracingData(null, path.Last().Data);
                     firstTracingDataItem.JointNumber = startJoint.Number;
-                    firstTracingDataItem.WeldingDate = startJoint.JointWeldResults.First().Date.Value.ToShortDateString();
+                    firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
                     tracingDataList.Insert(0, firstTracingDataItem);
 
                     var lastTracingDataItem = new TracingData(path.First().Data, null);
                     lastTracingDataItem.JointNumber = endJoint.Number;
-                    lastTracingDataItem.WeldingDate = endJoint.JointWeldResults.First().Date.Value.ToShortDateString();
+                    lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
                     tracingDataList.Add(lastTracingDataItem);
 
 
@@ -274,6 +274,20 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
 
             return list;
+        }
+
+        private string GetWeldDate(construct.Joint joint)
+        {
+            string strDate = string.Empty;
+
+            var weldResults = joint.JointWeldResults;
+
+            if (weldResults.Count > 0)
+            {
+                strDate = weldResults.First().Date.Value.ToShortDateString();
+            }
+
+            return strDate;
         }
 
         public bool CanExecute() { return true; }

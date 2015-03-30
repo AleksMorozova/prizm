@@ -37,7 +37,7 @@ using Prizm.Main.Forms.Notifications;
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillPipeNewEditXtraForm : ChildForm, IValidatable, INewEditEntityForm
+    public partial class MillPipeNewEditXtraForm : ChildEditableForm, IValidatable
     {
         private InspectionAddEditXtraForm inspectionForm;
         ICommandManager commandManager = new CommandManager();
@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
-        private PipeMillStatus originalStatus = PipeMillStatus.Undefined;
+
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
@@ -100,7 +100,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(diameter);
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
             attachmentsButton.Enabled = true;
             #endregion //--- Read-only controls ---
 
@@ -116,13 +115,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             // Allow change focus or close while heatsLookUp or ordersLookUp validation error
             AutoValidate = AutoValidate.EnableAllowFocusChange;
 
-            IsEditMode = true;
-
             // Select tab depending on is new pipe or existed
             tabbedControlGroup.SelectedTabPage = (id == Guid.Empty) ?
                 pipeTabLayoutControlGroup : inspectionsTabLayoutControlGroup;
-
-            CannotOpenForViewing = id == Guid.Empty;
         }
 
         public MillPipeNewEditXtraForm() : this(Guid.Empty) { }
@@ -136,7 +131,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
-            IsEditMode = viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped);
+            IsEditMode &= viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped)
+                && SecurityUtil.ExistOnCurrentWorkstation(global::Domain.Entity.Security.Privileges.EditPipe) 
+                && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
 
             pipeNumber.SetMask(viewModel.Project.MillPipeNumberMaskRegexp);
 
@@ -879,11 +876,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void AddInspection(BindingList<PipeTest> tests, IList<Inspector> inspectors, IList<EnumWrapper<PipeTestResultStatus>> statuses)
         {
-            if(IsEditMode)
+            if (IsEditMode)
             {
                 var addForm = GetInspectionForm(tests, inspectors, null, statuses);
 
-                if(addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
@@ -892,28 +889,41 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
                     weight.Refresh();
+
+                    AddRepeatedInspections(addForm.viewModel.TestResult);    
                 }
             }
         }
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
         {
-            if(IsEditMode)
+            if (IsEditMode)
             {
-                var editForm = GetInspectionForm(tests, insp, row, status);
+                if (row.Status == PipeTestResultStatus.Scheduled)
+                {
+                    var editForm = GetInspectionForm(tests, insp, row, status);
 
-                editForm.ShowDialog();
-                IsModified = true;
-                inspections.RefreshDataSource();
-                viewModel.GetLengthFromOperation();
-                pipeLength.Refresh();
-                weight.Refresh();
+                    editForm.ShowDialog();
+                    IsModified = true;
+                    inspections.RefreshDataSource();
+                    viewModel.GetLengthFromOperation();
+                    pipeLength.Refresh();
+                    weight.Refresh();
+
+                    AddRepeatedInspections(row);
+                }
+                else
+                {
+                    Program.MainForm.ShowInfo
+                        (Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompleted),
+                        Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompletedHeader));
+                }
             }
         }
 
         private void inspectionsGridView_DoubleClick(object sender, EventArgs e)
         {
-            if(viewModel.AvailableTests.Count > 0)
+            if (viewModel.AvailableTests.Count > 0)
             {
                 GridView view = (GridView)sender;
                 Point pt = view.GridControl.PointToClient(Control.MousePosition);
@@ -965,11 +975,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses);
+                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
             }
             else
             {
-                inspectionForm.SetupForm(tests, inspectors, row, statuses);
+                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
             }
 
             return inspectionForm;
@@ -1014,6 +1024,35 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void plateNumber_TextChanged(object sender, EventArgs e)
         {
             commandManager.RefreshVisualState();
+        }
+
+
+        private void AddRepeatedInspections(PipeTestResult pipeTestResult)
+        {
+            if (pipeTestResult.Status != PipeTestResultStatus.Accepted
+                    && pipeTestResult.Status != PipeTestResultStatus.Scheduled)
+            {
+                viewModel.PipeTestResults.Add(new PipeTestResult()
+                {
+                    Pipe = viewModel.Pipe,
+                    Status = PipeTestResultStatus.Scheduled,
+                    Operation = pipeTestResult.Operation
+                });
+
+                foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
+                {
+                    if (!viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
+                            && x.Status == PipeTestResultStatus.Scheduled))
+                    {
+                        viewModel.PipeTestResults.Add(new PipeTestResult()
+                        {
+                            Pipe = viewModel.Pipe,
+                            Status = PipeTestResultStatus.Scheduled,
+                            Operation = operation
+                        });
+                    }
+                }
+            }
         }
     }
 }

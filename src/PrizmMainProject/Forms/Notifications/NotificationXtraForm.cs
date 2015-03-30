@@ -62,45 +62,43 @@ namespace PrizmMain.Forms.Notifications
 
         private void OpenEditorForm(Guid id, TypeNotification typeNotification)
         {
-            Type typeEditor = null;
+            DocumentTypes typeEditor;
             int page = -1;
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    typeEditor = typeof(MillPipeNewEditXtraForm);
+                    typeEditor = DocumentTypes.MillPipe;
                     break;
                 case TypeNotification.DuplicateLogin:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 6;
                     break;
-case TypeNotification.ExpiredInspectorCertificate:
-                    typeEditor = typeof(SettingsXtraForm);
+                case TypeNotification.ExpiredInspectorCertificate:
+                    typeEditor = DocumentTypes.Settings;
                     page = 5;
                     break;
                 case TypeNotification.ExpiredWelderCertificate:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 4;
                     break;
                 case TypeNotification.NotRequiredInspectionOperation:
-                    typeEditor = typeof(SettingsXtraForm);
+                    typeEditor = DocumentTypes.Settings;
                     page = 1;
                     break;
                 default:
-                    var ex = new NotImplementedException();
+                    var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
                     log.Error(ex.Message);
                     throw ex;
                     //break; // unreachable code
             }
 
-            var parent = this.MdiParent as PrizmApplicationXtraForm;
-
-            if (typeEditor == typeof(SettingsXtraForm) && page >= 0)
+            if (typeEditor == DocumentTypes.Settings && page >= 0)
             {
-                parent.CreateSettingsChildForm(page);
+                FormManager.Instance.OpenSettingsChildForm(page);
             }
             else
             {
-                parent.OpenChildForm(typeEditor, id);
+                FormManager.Instance.OpenChildForm(typeEditor, id);
             }
         }
 

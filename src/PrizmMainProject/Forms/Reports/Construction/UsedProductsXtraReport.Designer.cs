@@ -206,7 +206,7 @@
             // 
             // reportDateTimeInfo
             // 
-            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
             this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(325F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

@@ -479,7 +479,7 @@
             // reportDateTimeInfo
             // 
             this.reportDateTimeInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.reportDateTimeInfo.Format = "Сформирован: {0:dd-MM-yyyy H:mm:ss}";
+            this.reportDateTimeInfo.Format = "{0:dd-MM-yyyy H:mm:ss}";
             this.reportDateTimeInfo.LocationFloat = new DevExpress.Utils.PointFloat(730.7495F, 0F);
             this.reportDateTimeInfo.Name = "reportDateTimeInfo";
             this.reportDateTimeInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

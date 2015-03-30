@@ -36,7 +36,7 @@ using DevExpress.Data;
 namespace Prizm.Main.Forms.Settings
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class SettingsXtraForm : ChildForm, IValidatable
+    public partial class SettingsXtraForm : ChildEditableForm, IValidatable
     {
         private Dictionary<GridView, DuplicatesList> findDuplicateList;
         private SettingsViewModel viewModel;
@@ -299,7 +299,8 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(isRequiredGridColumn, StringResources.SettingsPipe_InspectionsIsReqiredColumn.Id),
                 new LocalizedItem(testIsActiveGridColumn, StringResources.SettingsPipe_InspectionsIsActiveColumn.Id),
                 new LocalizedItem(sizeParamsLayoutControlGroup, StringResources.SettingsPipe_sizeParamsLayoutControlGroup.Id),
-
+                new LocalizedItem(repeatedInspectionsGridColumn, StringResources.SettingsPipe_RepeatedInspectionsGridColumn.Id),
+                
                 // pipe line page
                 new LocalizedItem(lineLayoutControlGroup, StringResources.SettingsLine_LineGroup.Id),
 
@@ -759,7 +760,7 @@ namespace Prizm.Main.Forms.Settings
                     {
                         var perm = gridViewPermissions.GetRow(rowHandle) as Permission;
                         if (viewModel.RoleHasPermission(role, perm)
-                            && Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(perm))
+                            && SecurityUtil.ExistOnCurrentWorkstation(perm))
                         {
                             gridViewPermissions.SelectRow(rowHandle);
                         }
@@ -788,7 +789,7 @@ namespace Prizm.Main.Forms.Settings
                 switch (e.Action)
                 {
                     case CollectionChangeAction.Add:
-                        if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+                        if (!SecurityUtil.ExistOnCurrentWorkstation(p))
                         {
                             view.UnselectRow(e.ControllerRow);
                         }
@@ -1538,7 +1539,7 @@ namespace Prizm.Main.Forms.Settings
 
             Permission p = view.GetRow(e.RowHandle) as Permission;
 
-            if (!Prizm.Main.Security.SecurityContext.PrivilegeBelongsToCurrentWorkstation(p))
+            if (!SecurityUtil.ExistOnCurrentWorkstation(p))
             {
                 e.Appearance.ForeColor = Color.Gray;
             }
