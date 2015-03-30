@@ -20,81 +20,78 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Synch.Export
 {
-    public class DataExporter : Exporter, IDisposable
-    {
-        readonly IExportRepository exportRepo;
+   public class DataExporter : Exporter, IDisposable
+   {
+      readonly IExportRepository exportRepo;
 
-        [Inject]
-        public DataExporter(IExportRepository exportRepo, IEncryptor encryptor, IHasher hasher)
-            : base(encryptor, hasher)
-        {
-            this.exportRepo = exportRepo;
-        }
+      [Inject]
+      public DataExporter(IExportRepository exportRepo, IEncryptor encryptor, IHasher hasher) : base(encryptor, hasher)
+      {
+         this.exportRepo = exportRepo;
+      }
 
-        public int ExportedElementCount { get; private set; }
+      public int ExportedElementCount { get; private set; }
 
-        public IList<Portion> GetAllPortions()
-        {
-            return exportRepo.PortionRepo.GetAll();
-        }
+      public IList<Portion> GetAllPortions()
+      {
+         return exportRepo.PortionRepo.GetAll();
+      }
 
-        public bool AnyNewDataToExport()
-        {
-            IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
-            IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
-            IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
+      public bool AnyNewDataToExport()
+      {
+          IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
+         IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
+         IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
 
-            return (pipesToExport != null && pipesToExport.Count > 0) ||
-                   (jointsToExport != null && jointsToExport.Count > 0) ||
-                   (componentsToExport != null && componentsToExport.Count > 0);
-        }
+         return (pipesToExport != null && pipesToExport.Count > 0) || 
+                (jointsToExport != null && jointsToExport.Count > 0) || 
+                (componentsToExport != null && componentsToExport.Count > 0);
+      }
 
-        public override ExportResult Export()
-        {
-            IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
-            IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
-            IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
+      public override ExportResult Export()
+      {
+         IList<Pipe> pipesToExport = exportRepo.PipeRepo.GetPipesToExport();
+         IList<Joint> jointsToExport = exportRepo.JointRepo.GetJointsToExport();
+         IList<Component> componentsToExport = exportRepo.ComponentRepo.GetComponentsToExport();
+         
+         exportRepo.PortionRepo.BeginTransaction();
 
-            exportRepo.PortionRepo.BeginTransaction();
+         Portion portion = new Portion()
+         {
+             ExportDateTime = DateTime.Now,
+             IsExport = true,
+             PortionNumber = exportRepo.PortionRepo.GetPortionNumber(exportRepo.ProjectRepo.GetSingle()),
+             Project = exportRepo.ProjectRepo.GetSingle()
+         };
 
-            Portion portion = new Portion()
-            {
-                ExportDateTime = DateTime.Now,
-                IsExport = true,
-                PortionNumber = exportRepo.PortionRepo.GetPortionNumber(exportRepo.ProjectRepo.GetSingle()),
-                Project = exportRepo.ProjectRepo.GetSingle()
-            };
+         foreach (var pipe in pipesToExport)
+         {
+            portion.Pipes.Add(pipe);
+         }
 
-            foreach(var pipe in pipesToExport)
-            {
-                portion.Pipes.Add(pipe);
-            }
+         foreach (var joint in jointsToExport)
+         {
+            portion.Joints.Add(joint);
+         }
 
-            foreach(var joint in jointsToExport)
-            {
-                portion.Joints.Add(joint);
-            }
+         foreach (var component in componentsToExport)
+         {
+            portion.Components.Add(component);
+         }
 
-            foreach(var component in componentsToExport)
-            {
-                portion.Components.Add(component);
-            }
+         exportRepo.PortionRepo.SaveOrUpdate(portion);
+         exportRepo.PortionRepo.Commit();
 
-            exportRepo.PortionRepo.SaveOrUpdate(portion);
-            exportRepo.PortionRepo.Commit();
+         return Export(portion);
+      }
 
-            return Export(portion);
-        }
-
-        Data PrepareData(Portion portion, Project project)
+      Data PrepareData(Portion portion, Project project)
       {
          Data data = new Data();
          data.Pipes = new List<PipeObject>();
          data.Joints = new List<JointObject>();
          data.Components = new List<ComponentObject>();
          data.Project = project;
-
-         
 
          foreach (var pipe in portion.Pipes)
          {
@@ -114,162 +111,162 @@ namespace Prizm.Main.Synch.Export
          return data;
       }
 
-        void WriteAttachments(string tempDir, Data data)
-        {
-            Directory.CreateDirectory(Path.Combine(tempDir, "Attachments"));
+      void WriteAttachments(string tempDir, Data data)
+      {
+         Directory.CreateDirectory(Path.Combine(tempDir, "Attachments"));
 
-            if(data.Pipes != null)
+         if (data.Pipes != null)
+         {
+            foreach (PipeObject pipe in data.Pipes)
             {
-                foreach(PipeObject pipe in data.Pipes)
+               if (pipe.Attachments != null)
+               {
+                  WriteAttachments(tempDir, pipe.Attachments);
+               }
+               if (pipe.Railcar != null && pipe.Railcar.ReleaseNote != null && pipe.Railcar.ReleaseNote.Attachments != null)
+               {
+                  WriteAttachments(tempDir, pipe.Railcar.ReleaseNote.Attachments);
+               }
+               if (pipe.Spools.Count != 0)
+               {
+                   foreach (SpoolObject spoolObj in pipe.Spools)
+                   {
+                       if (spoolObj.Attachments != null)
+                       {
+                           WriteAttachments(tempDir, spoolObj.Attachments);
+                       }
+                   }
+               }
+            }
+         }
+
+
+         if (data.Joints != null)
+         {
+            foreach (JointObject joint in data.Joints)
+            {
+               if (joint.Attachments != null)
+               {
+                  WriteAttachments(tempDir, joint.Attachments);
+               }
+            }
+         }
+
+         if (data.Components != null)
+         {
+            foreach (ComponentObject components in data.Components)
+            {
+               if (components.Attachments != null)
+               {
+                  WriteAttachments(tempDir, components.Attachments);
+               }
+            }
+         }
+      }
+
+      void WriteAttachments(string tempDir, IList<FileObject> attachments)
+      {
+         foreach (var att in attachments)
+         {
+            string destFile = Path.Combine(tempDir, "Attachments", att.NewName);
+            if (!System.IO.File.Exists(destFile))
+            {
+                System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
+                using (FileStream fs = new FileStream(destFile, FileMode.Open))
                 {
-                    if(pipe.Attachments != null)
-                    {
-                        WriteAttachments(tempDir, pipe.Attachments);
-                    }
-                    if(pipe.Railcar != null && pipe.Railcar.ReleaseNote != null && pipe.Railcar.ReleaseNote.Attachments != null)
-                    {
-                        WriteAttachments(tempDir, pipe.Railcar.ReleaseNote.Attachments);
-                    }
-                    if(pipe.Spools.Count != 0)
-                    {
-                        foreach(SpoolObject spoolObj in pipe.Spools)
-                        {
-                            if(spoolObj.Attachments != null)
-                            {
-                                WriteAttachments(tempDir, spoolObj.Attachments);
-                            }
-                        }
-                    }
+                    byte[] bytes = new byte[fs.Length];
+                    fs.Read(bytes, 0, bytes.Length);
+                    fs.Close();
+
+                    System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
                 }
             }
+         }
+      }
 
 
-            if(data.Joints != null)
-            {
-                foreach(JointObject joint in data.Joints)
-                {
-                    if(joint.Attachments != null)
-                    {
-                        WriteAttachments(tempDir, joint.Attachments);
-                    }
-                }
-            }
+      string CreateTempDir()
+      {
+         string tempDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+         Directory.CreateDirectory(tempDir);
+         return tempDir;
+      }
 
-            if(data.Components != null)
-            {
-                foreach(ComponentObject components in data.Components)
-                {
-                    if(components.Attachments != null)
-                    {
-                        WriteAttachments(tempDir, components.Attachments);
-                    }
-                }
-            }
-        }
+      public override ExportResult Export(Portion portion)
+      {
+         try
+         {
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_ReadingData));
 
-        void WriteAttachments(string tempDir, IList<FileObject> attachments)
-        {
-            foreach(var att in attachments)
-            {
-                string destFile = Path.Combine(tempDir, "Attachments", att.NewName);
-                if(!System.IO.File.Exists(destFile))
-                {
-                    System.IO.File.Copy(Path.Combine(Environment.CurrentDirectory, "Data", "Attachments", att.NewName), destFile);
-                    using(FileStream fs = new FileStream(destFile, FileMode.Open))
-                    {
-                        byte[] bytes = new byte[fs.Length];
-                        fs.Read(bytes, 0, bytes.Length);
-                        fs.Close();
+            Project project = exportRepo.ProjectRepo.GetSingle();
+            Data data = PrepareData(portion, project);
 
-                        System.IO.File.WriteAllText(destFile + ".sha1", hasher.GetHash(bytes));
-                    }
-                }
-            }
-        }
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreateTempStorage));
 
+            string tempDir = CreateTempDir();
 
-        string CreateTempDir()
-        {
-            string tempDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-            Directory.CreateDirectory(tempDir);
-            return tempDir;
-        }
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_WritingData));
 
-        public override ExportResult Export(Portion portion)
-        {
-            try
-            {
-                FireMessage(Program.LanguageManager.GetString(StringResources.Export_ReadingData));
+            WriteManifest(tempDir, portion.Id, portion.PortionNumber, portion.ExportDateTime, project.WorkstationType);
 
-                Project project = exportRepo.ProjectRepo.GetSingle();
-                Data data = PrepareData(portion, project);
+            WriteData<Data>(tempDir, data);
 
-                FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreateTempStorage));
+            WriteAttachments(tempDir, data);
 
-                string tempDir = CreateTempDir();
+            FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreatingArchive));
 
-                FireMessage(Program.LanguageManager.GetString(StringResources.Export_WritingData));
+            ZipContent(tempDir);
 
-                WriteManifest(tempDir, portion.Id, portion.PortionNumber, portion.ExportDateTime, project.WorkstationType);
+            exportRepo.PipeRepo.BeginTransaction();
 
-                WriteData<Data>(tempDir, data);
+            UnmarkPipes(portion);
+            UnmarkJoints(portion);
+            UnmarkComponents(portion);
 
-                WriteAttachments(tempDir, data);
+            exportRepo.PipeRepo.Commit();
 
-                FireMessage(Program.LanguageManager.GetString(StringResources.Export_CreatingArchive));
+            this.ExportedElementCount = portion.Pipes.Count + portion.Components.Count + portion.Joints.Count;
 
-                ZipContent(tempDir);
+            FireDone();
 
-                exportRepo.PipeRepo.BeginTransaction();
+            return ExportResult.Success;
+         }
+         catch (Exception e)
+         {
+            return FireError(e);
+         }
+      }
 
-                UnmarkPipes(portion);
-                UnmarkJoints(portion);
-                UnmarkComponents(portion);
+      private void UnmarkPipes(Portion portion)
+      {
+         foreach (var p in portion.Pipes)
+         {
+            p.ToExport = false;
+            exportRepo.PipeRepo.SaveOrUpdate(p);
+         }
+      }
 
-                exportRepo.PipeRepo.Commit();
+      private void UnmarkJoints(Portion portion)
+      {
+         foreach (var j in portion.Joints)
+         {
+            j.ToExport = false;
+            exportRepo.JointRepo.SaveOrUpdate(j);
+         }
+      }
 
-                this.ExportedElementCount = portion.Pipes.Count + portion.Components.Count + portion.Joints.Count;
+      private void UnmarkComponents(Portion portion)
+      {
+         foreach (var c in portion.Components)
+         {
+            c.ToExport = false;
+            exportRepo.ComponentRepo.SaveOrUpdate(c);
+         }
+      }
 
-                FireDone();
-
-                return ExportResult.Success;
-            }
-            catch(Exception e)
-            {
-                return FireError(e);
-            }
-        }
-
-        private void UnmarkPipes(Portion portion)
-        {
-            foreach(var p in portion.Pipes)
-            {
-                p.ToExport = false;
-                exportRepo.PipeRepo.SaveOrUpdate(p);
-            }
-        }
-
-        private void UnmarkJoints(Portion portion)
-        {
-            foreach(var j in portion.Joints)
-            {
-                j.ToExport = false;
-                exportRepo.JointRepo.SaveOrUpdate(j);
-            }
-        }
-
-        private void UnmarkComponents(Portion portion)
-        {
-            foreach(var c in portion.Components)
-            {
-                c.ToExport = false;
-                exportRepo.ComponentRepo.SaveOrUpdate(c);
-            }
-        }
-
-        public void Dispose()
-        {
-            exportRepo.Dispose();
-        }
-    }
+      public void Dispose()
+      {
+         exportRepo.Dispose();
+      }
+   }
 }

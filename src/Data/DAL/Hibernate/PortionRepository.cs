@@ -109,26 +109,22 @@ namespace Prizm.Data.DAL.Hibernate
                 throw new RepositoryException("GetAll", ex);
             }
         }
-
-        #region inner class FlatPortionDTO
-        private class FlatPortionDTO
-        {
-            public virtual Guid Id { get; set; }
-            public virtual DateTime ExportDateTime { get; set; }
-            public virtual bool IsExport { get; set; }
-            public virtual int PortionNumber { get; set; }
-
-            public virtual string Title { get; set; }
-            public virtual string Client { get; set; }
-            public virtual string MillName { get; set; }
-            public virtual int DocumentSizeLimit { get; set; }
-            public virtual WorkstationType WorkstationType { get; set; }
-            public virtual string MillPipeNumberMask { get; set; }
-            public virtual string MillPipeNumberMaskRegexp { get; set; }
-            public virtual bool IsNative { get; set; }
-        } 
-        #endregion
     }
 
+    private class FlatPortionDTO
+    {
+        public virtual Guid Id { get; set; }
+        public virtual DateTime ExportDateTime { get; set; }
+        public virtual bool IsExport { get; set; }
+        public virtual int PortionNumber { get; set; }
 
+        public virtual string Title { get; set; }
+        public virtual string Client { get; set; }
+        public virtual string MillName { get; set; }
+        public virtual int DocumentSizeLimit { get; set; }
+        public virtual WorkstationType WorkstationType { get; set; }
+        public virtual string MillPipeNumberMask { get; set; }
+        public virtual string MillPipeNumberMaskRegexp { get; set; }
+        public virtual bool IsNative { get; set; }
+    }
 }

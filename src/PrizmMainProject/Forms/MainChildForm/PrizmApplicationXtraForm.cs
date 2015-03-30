@@ -614,14 +614,14 @@ namespace Prizm.Main.Forms.MainChildForm
         #endregion // --- Localization ---
 
         #region SingleInstance
-        //protected override void WndProc(ref Message message)
-        //{
-        //    if(message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
-        //    {
-        //        ShowWindow();
-        //    }
-        //    base.WndProc(ref message);
-        //}
+        protected override void WndProc(ref Message message)
+        {
+            if(message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
+            {
+                ShowWindow();
+            }
+            base.WndProc(ref message);
+        }
 
         
         public void ShowWindow()
