@@ -50,5 +50,7 @@ namespace Domain.Entity.Security
         DeactivateSpool,
         DeactivateComponent,
         ViewExportImportHistory,
+        PrintWeldDateReport,
+        PrintWeldTracingReport
     }
 }

@@ -2908,3 +2908,9 @@ MillInspection_BtnRemove=Remove
 
 ;Повтор
 SettingsPipe_RepeatedInspectionsGridColumn=Repeat
+
+;Отчеты сварки по дате
+SecurityPrivilege_PrintWeldDateReport=Welding report (by date)
+
+;Отчет по сварке между пикетами
+SecurityPrivilege_PrintWeldTracingReport=Welding report (by KP)
