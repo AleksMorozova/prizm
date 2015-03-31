@@ -53,7 +53,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
-            if (viewModel.Component.Number == string.Empty)
+            if (string.IsNullOrWhiteSpace(viewModel.Component.Number))
             {
                 viewModel.Number = number;
             }
