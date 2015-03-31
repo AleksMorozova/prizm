@@ -325,7 +325,7 @@
             this.wallThicknessLabel.LocationFloat = new DevExpress.Utils.PointFloat(467.5757F, 0F);
             this.wallThicknessLabel.Name = "wallThicknessLabel";
             this.wallThicknessLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.wallThicknessLabel.SizeF = new System.Drawing.SizeF(72.46924F, 28.70834F);
+            this.wallThicknessLabel.SizeF = new System.Drawing.SizeF(72.46924F, 32F);
             this.wallThicknessLabel.StyleName = "FieldCaption";
             this.wallThicknessLabel.StylePriority.UseForeColor = false;
             this.wallThicknessLabel.Text = "Толщина";
@@ -336,7 +336,7 @@
             this.typeLabel.LocationFloat = new DevExpress.Utils.PointFloat(83.67307F, 0F);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.typeLabel.SizeF = new System.Drawing.SizeF(136.9573F, 28.70834F);
+            this.typeLabel.SizeF = new System.Drawing.SizeF(136.9573F, 32F);
             this.typeLabel.StyleName = "FieldCaption";
             this.typeLabel.StylePriority.UseForeColor = false;
             this.typeLabel.Text = "Тип трубы";
@@ -347,7 +347,7 @@
             this.weightLabel.LocationFloat = new DevExpress.Utils.PointFloat(540.0449F, 0F);
             this.weightLabel.Name = "weightLabel";
             this.weightLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.weightLabel.SizeF = new System.Drawing.SizeF(54.31171F, 28.70834F);
+            this.weightLabel.SizeF = new System.Drawing.SizeF(54.31171F, 32F);
             this.weightLabel.StyleName = "FieldCaption";
             this.weightLabel.StylePriority.UseForeColor = false;
             this.weightLabel.Text = "Вес";
@@ -358,7 +358,7 @@
             this.purchaseOrderDateLabel.LocationFloat = new DevExpress.Utils.PointFloat(295.864F, 0F);
             this.purchaseOrderDateLabel.Name = "purchaseOrderDateLabel";
             this.purchaseOrderDateLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.purchaseOrderDateLabel.SizeF = new System.Drawing.SizeF(70.34799F, 28.70834F);
+            this.purchaseOrderDateLabel.SizeF = new System.Drawing.SizeF(70.34799F, 32F);
             this.purchaseOrderDateLabel.StyleName = "FieldCaption";
             this.purchaseOrderDateLabel.StylePriority.UseForeColor = false;
             this.purchaseOrderDateLabel.Text = "Дата";
@@ -369,7 +369,7 @@
             this.purchaseOrderNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(366.2119F, 0F);
             this.purchaseOrderNumberLabel.Name = "purchaseOrderNumberLabel";
             this.purchaseOrderNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.purchaseOrderNumberLabel.SizeF = new System.Drawing.SizeF(101.3637F, 28.70834F);
+            this.purchaseOrderNumberLabel.SizeF = new System.Drawing.SizeF(101.3637F, 32F);
             this.purchaseOrderNumberLabel.StyleName = "FieldCaption";
             this.purchaseOrderNumberLabel.StylePriority.UseForeColor = false;
             this.purchaseOrderNumberLabel.Text = "Номер";
@@ -380,7 +380,7 @@
             this.plateNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(730.7495F, 0F);
             this.plateNumberLabel.Name = "plateNumberLabel";
             this.plateNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.plateNumberLabel.SizeF = new System.Drawing.SizeF(94.53857F, 28.70834F);
+            this.plateNumberLabel.SizeF = new System.Drawing.SizeF(94.53857F, 32F);
             this.plateNumberLabel.StyleName = "FieldCaption";
             this.plateNumberLabel.StylePriority.UseForeColor = false;
             this.plateNumberLabel.Text = "Номер листа";
@@ -391,7 +391,7 @@
             this.statusLabel.LocationFloat = new DevExpress.Utils.PointFloat(220.6304F, 0F);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.statusLabel.SizeF = new System.Drawing.SizeF(75.23357F, 28.70834F);
+            this.statusLabel.SizeF = new System.Drawing.SizeF(75.23357F, 32F);
             this.statusLabel.StyleName = "FieldCaption";
             this.statusLabel.StylePriority.UseForeColor = false;
             this.statusLabel.Text = "Статус";
@@ -402,7 +402,7 @@
             this.numberLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.numberLabel.SizeF = new System.Drawing.SizeF(83.67307F, 28.70834F);
+            this.numberLabel.SizeF = new System.Drawing.SizeF(83.67307F, 32F);
             this.numberLabel.StyleName = "FieldCaption";
             this.numberLabel.StylePriority.UseForeColor = false;
             this.numberLabel.Text = "Номер";
@@ -413,7 +413,7 @@
             this.lengthLabel.LocationFloat = new DevExpress.Utils.PointFloat(594.3566F, 0F);
             this.lengthLabel.Name = "lengthLabel";
             this.lengthLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lengthLabel.SizeF = new System.Drawing.SizeF(68.41034F, 28.70834F);
+            this.lengthLabel.SizeF = new System.Drawing.SizeF(68.41034F, 32F);
             this.lengthLabel.StyleName = "FieldCaption";
             this.lengthLabel.StylePriority.UseForeColor = false;
             this.lengthLabel.Text = "Длина";
@@ -424,7 +424,7 @@
             this.activeLabel.LocationFloat = new DevExpress.Utils.PointFloat(932.6842F, 0F);
             this.activeLabel.Name = "activeLabel";
             this.activeLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.activeLabel.SizeF = new System.Drawing.SizeF(82.3158F, 28.70834F);
+            this.activeLabel.SizeF = new System.Drawing.SizeF(82.3158F, 32F);
             this.activeLabel.StyleName = "FieldCaption";
             this.activeLabel.StylePriority.UseForeColor = false;
             this.activeLabel.Text = "Active";
@@ -435,7 +435,7 @@
             this.diameterLabel.LocationFloat = new DevExpress.Utils.PointFloat(662.767F, 0F);
             this.diameterLabel.Name = "diameterLabel";
             this.diameterLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.diameterLabel.SizeF = new System.Drawing.SizeF(67.98248F, 28.70834F);
+            this.diameterLabel.SizeF = new System.Drawing.SizeF(67.98248F, 32F);
             this.diameterLabel.StyleName = "FieldCaption";
             this.diameterLabel.StylePriority.UseForeColor = false;
             this.diameterLabel.Text = "Диаметр";
@@ -686,7 +686,7 @@
             this.heatNumberLabel.LocationFloat = new DevExpress.Utils.PointFloat(825.288F, 0F);
             this.heatNumberLabel.Name = "heatNumberLabel";
             this.heatNumberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.heatNumberLabel.SizeF = new System.Drawing.SizeF(107.3962F, 28.70834F);
+            this.heatNumberLabel.SizeF = new System.Drawing.SizeF(107.3962F, 32F);
             this.heatNumberLabel.StyleName = "FieldCaption";
             this.heatNumberLabel.StylePriority.UseForeColor = false;
             this.heatNumberLabel.Text = "Номер плавки";
@@ -825,7 +825,7 @@
             this.statusLabel,
             this.typeLabel,
             this.heatNumberLabel});
-            this.GroupHeader.HeightF = 28.70834F;
+            this.GroupHeader.HeightF = 32F;
             this.GroupHeader.Name = "GroupHeader";
             // 
             // StatusParameter
