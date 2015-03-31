@@ -480,7 +480,7 @@
             // xrLabel1
             // 
             this.xrLabel1.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(160.0001F, 0.3749847F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(160.0001F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(99.9998F, 21.5F);
@@ -528,7 +528,7 @@
             // 
             // pipelineSpoolCountXrLabel
             // 
-            this.pipelineSpoolCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(259.9999F, 55.20837F);
+            this.pipelineSpoolCountXrLabel.LocationFloat = new DevExpress.Utils.PointFloat(259.9999F, 55.58335F);
             this.pipelineSpoolCountXrLabel.Name = "pipelineSpoolCountXrLabel";
             this.pipelineSpoolCountXrLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.pipelineSpoolCountXrLabel.SizeF = new System.Drawing.SizeF(160F, 23F);
@@ -550,7 +550,7 @@
             // 
             // pipelineSpoolCountHeader
             // 
-            this.pipelineSpoolCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(259.9999F, 21.50002F);
+            this.pipelineSpoolCountHeader.LocationFloat = new DevExpress.Utils.PointFloat(259.9998F, 21.875F);
             this.pipelineSpoolCountHeader.Name = "pipelineSpoolCountHeader";
             this.pipelineSpoolCountHeader.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.pipelineSpoolCountHeader.SizeF = new System.Drawing.SizeF(160.0001F, 33.70835F);
