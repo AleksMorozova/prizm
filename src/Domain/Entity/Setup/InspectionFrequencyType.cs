@@ -12,8 +12,17 @@ namespace Prizm.Domain.Entity.Setup
     /// </summary>
     public enum InspectionFrequencyType
     {
-        R= 0,//Required 
-        U = 1,//Recurring 
-        S = 2//Selective
+        /// <summary>
+        /// Required
+        /// </summary>
+        R= 0,
+        /// <summary>
+        /// Recurring
+        /// </summary>
+        U = 1,
+        /// <summary>
+        /// Selective
+        /// </summary>
+        S = 2
     }
 }

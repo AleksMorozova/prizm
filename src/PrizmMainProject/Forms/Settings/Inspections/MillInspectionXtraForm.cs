@@ -14,11 +14,13 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Properties;
+using Prizm.Main.Documents;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillInspectionXtraForm : PrizmForm
+    public partial class MillInspectionXtraForm : PrizmForm, IValidatable
     {
         public MillInspectionViewModel viewModel;
         IReadOnlyList<PipeTest> pipeTestList;
@@ -84,6 +86,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             code.SetAsIdentifier();
             code.SetRequiredText();
+            operationName.SetRequiredText();
         }
 
         private void BindToViewModel()
@@ -217,33 +220,39 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
+            if (this.DialogResult == DialogResult.OK)
             {
-                string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
-                string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
-                Program.MainForm.ShowInfo(msg, header);
-                e.Cancel = true;
+                if (!((IValidatable)this).Validate())
+                {
+                   e.Cancel = true;
+                }
             }
         }
 
-        /// <summary>
-        /// Function to check Code uniqueness
-        /// </summary>
-        /// <param name="code">code TestPipe</param>
-        /// <param name="id">id TestPipe</param>
-        /// <returns>true if uniqueness</returns>
-        private bool ValidateCode(string code, Guid id)
+        bool IValidatable.Validate()
         {
-            var testList = pipeTestList.Where(g => g.Code==code && g.Id != id).ToList();
-            return !(testList.Count >= 1);
+            bool validated = true;
+            if (pipeTestList.Where(g => g.Code == viewModel.Code && g.Id != viewModel.PipeTest.Id).Count() >= 1)
+            {
+                string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
+                string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
+                Program.MainForm.ShowError(msg, header);
+                validated = false;
+            }
+            return validated && dxValidationProvider.Validate();
         }
+
+
+        private ValidationRuleBase savedRecurringRule = null;
 
         private void ChangeFrequency()
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
-            switch ((InspectionFrequencyType)frequencyType.SelectedIndex)
+            InspectionFrequencyType selectedFrequency = (InspectionFrequencyType)frequencyType.SelectedIndex;
+
+            switch (selectedFrequency)
             {
                 case InspectionFrequencyType.R:
                     viewModel.PipeTest.Frequency = null;
@@ -257,6 +266,23 @@ namespace Prizm.Main.Forms.Settings.Inspections
                         viewModel.PipeTest.Frequency = new PipeTestFrequency();
                     break;
                 default: break;
+            }
+
+            if(selectedFrequency == InspectionFrequencyType.U)
+            {
+                if(savedRecurringRule == null)
+                {
+                    ConditionValidationRule rule = new ConditionValidationRule();
+                    rule.ConditionOperator = ConditionOperator.IsNotBlank;
+                    rule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
+                    rule.ErrorType = ErrorType.Critical;
+                    savedRecurringRule = rule;
+                }
+                dxValidationProvider.SetValidationRule(frequencyMeasure, savedRecurringRule);
+            }
+            else
+            {
+                dxValidationProvider.SetValidationRule(frequencyMeasure, null);
             }
         }
 
