@@ -1471,6 +1471,7 @@ namespace Prizm.Main.Forms.Settings
 
                 if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    inspectionForm.viewModel.PipeTest.IsReadyToUse = true;
                     viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     IsModified = true;
