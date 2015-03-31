@@ -95,10 +95,9 @@ namespace Prizm.Main.Forms.Settings.Inspections
             resultType.SetRequiredCombo();
             percentOfSelect.SetRequiredText();
 
-            if (viewModel.Category != null) // actually should be something like IsNew
-            {
-                resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
-            }
+
+            // actually should be something like IsNew and Fixed and Length
+            resultType.ReadOnly = viewModel.Category != null && viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
         }
 
         private void BindToViewModel()
@@ -270,6 +269,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 newRule.ConditionOperator = ConditionOperator.IsNotBlank;
                 newRule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
                 newRule.ErrorType = ErrorType.Critical;
+                rule = newRule;
             }
             return rule;
         }

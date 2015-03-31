@@ -1194,23 +1194,20 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipeControlOperationValidation()
         {
-
             controlOperationValidate = true;
-            if (!viewModel.PipeTests.All(pipe => pipe.IsReadyToUse))
+            inspectionView.ClearColumnErrors();
+            for (int i = 0; i < inspectionView.RowCount - 1; i++)
             {
-                for (int i = 0; i < inspectionView.RowCount - 1; i++)
+                inspectionView.FocusedRowHandle = i;
+
+                inspectionView_ValidateRow(
+                    inspectionView,
+                    new DevExpress.XtraGrid.Views.Base
+                        .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
+
+                if (!controlOperationValidate)
                 {
-                    inspectionView.FocusedRowHandle = i;
-
-                    inspectionView_ValidateRow(
-                        inspectionView,
-                        new DevExpress.XtraGrid.Views.Base
-                            .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
-
-                    if (!controlOperationValidate)
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
             return controlOperationValidate;
@@ -1246,7 +1243,6 @@ namespace Prizm.Main.Forms.Settings
         private void inspectionView_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
-            gv.ClearColumnErrors();
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
             if (!pipeTest.IsReadyToUse)
             {
@@ -1465,6 +1461,7 @@ namespace Prizm.Main.Forms.Settings
             return inspectionForm;
         }
 
+
         private void addTestButton_Click(object sender, EventArgs e)
         {
             if (IsEditMode && IsEditable(IsEditMode))
@@ -1508,32 +1505,7 @@ namespace Prizm.Main.Forms.Settings
 
         private void inspectionOperation_DoubleClick(object sender, EventArgs e)
         {
-            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
-            {
-                var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if (selectedTest != null)
-                {
-                    if (inspectionForm == null)
-                    {
-
-                        inspectionForm = new MillInspectionXtraForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
-                    }
-                    else
-                    {
-                        inspectionForm.SetupForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests);
-                    }
-
-                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
-                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
-
-                        IsModified = true;
-                        inspectionOperation.RefreshDataSource();
-                    }
-                   
-                }
-            }
+            editTestButton_Click(sender, e);
         }
 
         private void gridViewPermissions_RowCellStyle(object sender, RowCellStyleEventArgs e)
