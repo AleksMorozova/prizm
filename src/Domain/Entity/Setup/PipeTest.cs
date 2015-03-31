@@ -44,7 +44,6 @@ namespace Prizm.Domain.Entity.Setup
         {
             this.PipeTestResults = new List<PipeTestResult>();
             this.RepeatedInspections = new List<PipeTest>();
-            this.IsReadyToUse = false;
             this.SelectivePercent = 1;
 
         }
@@ -74,7 +73,24 @@ namespace Prizm.Domain.Entity.Setup
         }
 
         public virtual IList<PipeTest> RepeatedInspections { get; set; }
-        public virtual bool IsReadyToUse { get; set; }
+        public virtual bool IsReadyToUse 
+        {
+            get
+            {
+                var condition = 
+                       !string.IsNullOrWhiteSpace(this.Code)
+                    && !string.IsNullOrWhiteSpace(this.Name)
+                    && this.ResultType != PipeTestResultType.Undefined
+                    && this.ControlType != PipeTestControlType.Undefined;
+
+                if (this.FrequencyType == InspectionFrequencyType.U)
+                {
+                    condition &= this.Frequency != null && this.Frequency.Measure != FrequencyMeasure.Undefined;
+                }
+
+                return condition;
+            }
+        }
 
         public virtual string DisplayExpectedResult
         {
