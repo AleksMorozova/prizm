@@ -1797,4 +1797,10 @@
   <data name="SecurityPrivilege_PrintWeldTracingReport" xml:space="preserve">
     <value>Отчеты по сварке между пикетами</value>
   </data>
+  <data name="MainWindow_ConstructionJoint" xml:space="preserve">
+    <value>Пожалуйста сначала закройте редактируемый стык</value>
+  </data>
+  <data name="MainWindow_OpenConstructionJointReadOnly" xml:space="preserve">
+    <value>Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?</value>
+  </data>
 </root>

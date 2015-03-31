@@ -2914,3 +2914,9 @@ SecurityPrivilege_PrintWeldDateReport=Welding report (by date)
 
 ;Отчет по сварке между пикетами
 SecurityPrivilege_PrintWeldTracingReport=Welding report (by KP)
+
+;Пожалуйста сначала закройте редактируемый стык
+MainWindow_ConstructionJoint=Please, close joint which is already open for editing.
+
+;Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?
+MainWindow_OpenConstructionJointReadOnly=Some joint is already opened for editing, do you want to open this joint for viewing?
