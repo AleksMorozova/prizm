@@ -436,6 +436,7 @@ namespace Prizm.Main.Forms.MainChildForm
             switch (type)
             {
                 case DocumentTypes.MillReleaseNote:
+                case DocumentTypes.MillPipe:
                     result = true;
                     break;
                 default:
