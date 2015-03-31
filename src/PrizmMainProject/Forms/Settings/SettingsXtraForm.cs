@@ -136,6 +136,7 @@ namespace Prizm.Main.Forms.Settings
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
+            saveButton.Enabled = IsEditMode;
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
