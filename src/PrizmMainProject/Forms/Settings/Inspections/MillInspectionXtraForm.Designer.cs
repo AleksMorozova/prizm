@@ -185,7 +185,7 @@
             this.btnRemove.Size = new System.Drawing.Size(79, 22);
             this.btnRemove.StyleController = this.mainLayoutControl;
             this.btnRemove.TabIndex = 30;
-            this.btnRemove.Text = "Удалить";
+            this.btnRemove.Text = "&Удалить";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
@@ -195,7 +195,7 @@
             this.btnAdd.Size = new System.Drawing.Size(78, 22);
             this.btnAdd.StyleController = this.mainLayoutControl;
             this.btnAdd.TabIndex = 29;
-            this.btnAdd.Text = "Добавить";
+            this.btnAdd.Text = "&Добавить";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // repeatedInspectionsLookUp
@@ -264,6 +264,7 @@
             this.repeatedOperationsView.OptionsBehavior.Editable = false;
             this.repeatedOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.repeatedOperationsView.OptionsView.ShowGroupPanel = false;
+            this.repeatedOperationsView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.repeatedOperationsView_RowCellStyle);
             // 
             // inspectionCodeGridColumn
             // 

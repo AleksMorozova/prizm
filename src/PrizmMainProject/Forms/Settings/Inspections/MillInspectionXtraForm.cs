@@ -14,6 +14,7 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Properties;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
@@ -107,7 +108,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
 
-            repeatedInspectionsLookUp.Properties.DataSource = pipeTestList.Where<PipeTest>(x => x.IsActive);
+            repeatedInspectionsLookUp.Properties
+                .DataSource = pipeTestList.Where<PipeTest>(x => 
+                    x.IsActive 
+                    && !string.IsNullOrWhiteSpace(x.Code)
+                    && !string.IsNullOrWhiteSpace(x.Name));
+
             repeatedOperationsGrid.DataSource = viewModel.PipeTest.RepeatedInspections;
         }
 
@@ -269,7 +275,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             var pipeTest = repeatedInspectionsLookUp.EditValue as PipeTest;
 
-            if (pipeTest != null)
+            if (pipeTest != null && !viewModel.PipeTest.RepeatedInspections.Contains(pipeTest))
             {
                 viewModel.PipeTest.RepeatedInspections.Add(pipeTest);
                 repeatedOperationsGrid.RefreshDataSource();
@@ -284,6 +290,18 @@ namespace Prizm.Main.Forms.Settings.Inspections
             {
                 viewModel.PipeTest.RepeatedInspections.Remove(pipeTest);
                 repeatedOperationsGrid.RefreshDataSource();
+            }
+        }
+
+        private void repeatedOperationsView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            var view = sender as GridView;
+
+            var pipeTest = view.GetRow(e.RowHandle) as PipeTest;
+
+            if (pipeTest != null && !pipeTest.IsActive)
+            {
+                e.Appearance.ForeColor = Color.Gray;
             }
         }
 
