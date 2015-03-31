@@ -95,7 +95,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
             resultType.SetRequiredCombo();
             percentOfSelect.SetRequiredText();
 
-            resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
+            if (viewModel.Category != null) // actually should be something like IsNew
+            {
+                resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
+            }
         }
 
         private void BindToViewModel()
