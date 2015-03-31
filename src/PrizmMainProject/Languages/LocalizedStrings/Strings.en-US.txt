@@ -1511,7 +1511,7 @@ MillInspection_FrequencyMeasureLabel=Unit of measure
 MillInspection_RangeControlValueGroup=Inspection value
 
 ;Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения
-MillInspection_BoolControlValueGroup=Control value
+MillInspection_BoolControlValueGroup=Inspection value
 
 ;Настройка контрольных опрераций завода. Надпись панели периодической частоты
 MillInspection_FrequencyGroup=Recurring frequency

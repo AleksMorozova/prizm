@@ -3637,13 +3637,13 @@ namespace Prizm.Main.Languages
 
         public static StringResource JointNewNotAllWeldOperationCompleted = new StringResource
         {
-            Id = "JointNewNotAllWeldOperationCompleted_Title",
+            Id = "JointNewNotAllWeldOperationCompleted",
             Description = "Сообщение о том, что не все сварочные операции выполнены"
         };
 
         public static StringResource JointNewNotAllWeldOperationCompletedHeader = new StringResource
         {
-            Id = "JointNewNotAllWeldOperationCompletedHeader_Title",
+            Id = "JointNewNotAllWeldOperationCompletedHeader",
             Description = "Сообщение о том, что не все сварочные операции выполнены"
         };
 

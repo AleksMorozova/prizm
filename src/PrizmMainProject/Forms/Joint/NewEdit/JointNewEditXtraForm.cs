@@ -545,6 +545,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void repairOperationsView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
+            rapairOperationValidator(sender, e);
+        }
+
+        private bool rapairOperationValidator(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+
             GridView gv = sender as GridView;
             JointWeldResult jointWeldResult = gv.GetRow(e.RowHandle) as JointWeldResult;
             if(jointWeldResult.Operation == null)
@@ -557,31 +563,33 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 gv.SetColumnError(repairDateGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            else if (jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
+            else if(jointWeldResult.Operation.Type == JointOperationType.Weld && jointWeldResult.Welders.Count == 0)
             {
                 gv.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
-            else if (!jointWeldResult.IsCompleted)
+            else if(!jointWeldResult.IsCompleted)
             {
                 gv.SetColumnError(completedGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
                 e.Valid = false;
             }
+            return e.Valid;
         }
 
         #region IValidatable Members
 
         bool IValidatable.Validate()
         {
+            bool isRepairValid = true;
             // validation for required weld operation
             if(viewModel.JointWeldResults.Count > 0)
             {
-                repairOperationsView_ValidateRow(
+                isRepairValid = rapairOperationValidator(
                                repairOperationsView,
                                new DevExpress.XtraGrid.Views.Base
                                    .ValidateRowEventArgs(0, repairOperationsView.GetDataRow(0)));
             }
-            return dxValidationProvider.Validate();
+            return dxValidationProvider.Validate() && isRepairValid;
         }
 
         #endregion

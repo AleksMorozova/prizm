@@ -31,7 +31,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             return new List<LocalizedItem>()
             {
                 new LocalizedItem(groupHeaderLabel, StringResources.UsedProductsXtraReport_GroupHeaderLabel.Id),
-                new LocalizedItem(pageHeaderLabel, StringResources.UsedProductsXtraReport_PageHeaderLabel.Id),
                 new LocalizedItem(productNumberLabel, StringResources.UsedProductsXtraReport_ProductNumberLabel.Id),
                 new LocalizedItem(productTypeLabel, StringResources.UsedProductsXtraReport_ProductTypeLabel.Id),
             };

@@ -197,7 +197,7 @@
             this.numberLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.numberLabel.SizeF = new System.Drawing.SizeF(161.0477F, 36F);
+            this.numberLabel.SizeF = new System.Drawing.SizeF(161.0478F, 36F);
             this.numberLabel.StyleName = "FieldCaption";
             this.numberLabel.Text = "number";
             // 
@@ -325,10 +325,10 @@
             // xrLabel12
             // 
             this.xrLabel12.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(0F, 50.055F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(0.9401321F, 50.055F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(161.0478F, 21.5F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(160.1077F, 21.5F);
             this.xrLabel12.StyleName = "Title";
             this.xrLabel12.StylePriority.UseForeColor = false;
             // 
@@ -453,10 +453,10 @@
             // pipesLength
             // 
             this.pipesLength.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.pipesLength.LocationFloat = new DevExpress.Utils.PointFloat(161.9901F, 44.5F);
+            this.pipesLength.LocationFloat = new DevExpress.Utils.PointFloat(161.0477F, 44.5F);
             this.pipesLength.Name = "pipesLength";
             this.pipesLength.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.pipesLength.SizeF = new System.Drawing.SizeF(159.0575F, 23F);
+            this.pipesLength.SizeF = new System.Drawing.SizeF(159.9999F, 23F);
             this.pipesLength.StylePriority.UseFont = false;
             this.pipesLength.Text = "pipesLength";
             // 
@@ -466,7 +466,7 @@
             this.totalCount.LocationFloat = new DevExpress.Utils.PointFloat(0.9401321F, 44.5F);
             this.totalCount.Name = "totalCount";
             this.totalCount.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.totalCount.SizeF = new System.Drawing.SizeF(161.05F, 23F);
+            this.totalCount.SizeF = new System.Drawing.SizeF(160.1076F, 23F);
             this.totalCount.StylePriority.UseFont = false;
             this.totalCount.Text = "totalCount";
             // 

@@ -12,7 +12,7 @@ namespace Prizm.DatabaseMigrator.Migrations
     {
         public override void Up()
         {
-            Alter.Table("PipeTest").AddColumn("frequencyType").AsString(1).Nullable().AddColumn("selectivePercent").AsInt32().Nullable();
+            Alter.Table("PipeTest").AddColumn("frequencyType").AsString(1).Nullable().AddColumn("selectivePercent").AsInt32().WithDefaultValue(1);
             Execute.Sql(@"UPDATE [PipeTest] SET frequencyType = 'R' WHERE isRequired = 1
                           UPDATE [PipeTest] SET frequencyType = 'U' WHERE isRequired = 0");
             Delete.Column("isRequired").FromTable("PipeTest");

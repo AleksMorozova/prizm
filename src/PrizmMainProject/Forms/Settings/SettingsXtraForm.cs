@@ -135,9 +135,8 @@ namespace Prizm.Main.Forms.Settings
             SetWorkstationReadonlyFields();
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            IsEditMode = true;//do not remove until IsEditMode logic is changed
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
-
+            IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
+            saveButton.Enabled = IsEditMode;
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
