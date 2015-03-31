@@ -37,7 +37,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
             try
             {
                 cache.Clear();
-
+                notifications.Clear();
                 IList<SelectiveOperation> selectiveOperations = repo.GetAllSelectiveOperation();
                 IList<KeyValuePair<Guid, int>> generalPipeAmount = repo.GetPipesCountPerMillSizeType();
 
@@ -177,9 +177,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     {
                         foreach (PipeTestResult test in pipeSavingState.PipeTestResult)
                         {
-                            if (test.Operation.FrequencyType == InspectionFrequencyType.S)
+                            if (test.Operation.FrequencyType == InspectionFrequencyType.S && test.Status==PipeTestResultStatus.Accepted)
                             {
-                                //manager.cache.AddGeneralPipeAmount(test.Operation.Id);
                                 manager.cache.AddPipeAmount(test.Operation.Id);
                             }
                         }
@@ -215,22 +214,24 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
                     else if (initialPipeSizeTypeId == pipeSavingState.Type.Id)
                     {
-                        IEnumerable<PipeTestResult> added = pipeSavingState.PipeTestResult.Except(initialSelectivePipeTestResult).Where(x => x.Operation.FrequencyType == InspectionFrequencyType.S);
-                        List<PipeTestResult> listAdded = new List<PipeTestResult>(added);
-                        if (listAdded.Count > 0)
-                        {
-                            foreach (PipeTestResult test in listAdded)
-                            {                           
-                                    manager.cache.AddPipeAmount(test.Operation.Id);
-                                    UpdateNotification(test.Operation.Id);
-                            }
-                        }
-
-                        HashSet<TestResultInfo> savingState =new HashSet<TestResultInfo>(GetTestResultInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
+                        HashSet<TestResultInfo> savingState = new HashSet<TestResultInfo>(GetTestResultInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
                         HashSet<TestResultInfo> initialState = new HashSet<TestResultInfo>(initialSelectiveInfo);
-                        var resultList = initialState.Except(savingState).Union(savingState.Except(initialState));
 
-                     
+                        savingState.ExceptWith(initialState);
+
+                        foreach (TestResultInfo result in savingState)
+                        {
+                            if (result.isAccepted)
+                            {
+                                manager.cache.AddPipeAmount(result.OperationId);
+                            }
+                            else 
+                            {
+                                manager.cache.RemovePipeAmount(result.OperationId);
+                            }
+
+                            UpdateNotification(result.OperationId);
+                        }
                     }
 
                     //* - pipe deactivation (to update: NRO (remove))

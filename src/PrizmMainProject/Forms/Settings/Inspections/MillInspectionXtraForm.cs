@@ -14,11 +14,14 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Properties;
+using Prizm.Main.Documents;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
     [System.ComponentModel.DesignerCategory("Form")]
-    public partial class MillInspectionXtraForm : PrizmForm
+    public partial class MillInspectionXtraForm : PrizmForm, IValidatable
     {
         public MillInspectionViewModel viewModel;
         IReadOnlyList<PipeTest> pipeTestList;
@@ -73,6 +76,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
             controlType.Properties.Items.Clear();
             frequencyMeasure.Properties.Items.Clear();
             frequencyType.Properties.Items.Clear();
+            resultType.SelectedIndex = -1;
+            controlType.SelectedIndex = -1;
 
             EnumWrapper<PipeTestResultType>.LoadItems(resultType.Properties.Items, skip0: true);
             EnumWrapper<PipeTestControlType>.LoadItems(controlType.Properties.Items, skip0: true);
@@ -84,6 +89,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             code.SetAsIdentifier();
             code.SetRequiredText();
+            operationName.SetRequiredText();
+            controlType.SetRequiredCombo();
+            frequencyMeasure.SetRequiredCombo();
+            resultType.SetRequiredCombo();
+            percentOfSelect.SetRequiredText();
 
             resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
         }
@@ -109,7 +119,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
             maxExpected.DataBindings.Add("EditValue", bindingSource, "MaxExpected");
             frequency.DataBindings.Add("EditValue", bindingSource, "FrequencyQuantaty");
 
-            repeatedInspectionsLookUp.Properties.DataSource = pipeTestList.Where<PipeTest>(x => x.IsActive);
+            repeatedInspectionsLookUp.Properties
+                .DataSource = pipeTestList.Where<PipeTest>(x => 
+                    x.IsActive
+                    && x.IsReadyToUse);
+
             repeatedOperationsGrid.DataSource = viewModel.PipeTest.RepeatedInspections;
         }
 
@@ -219,46 +233,73 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void MillInspectionXtraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ValidateCode(viewModel.Code, viewModel.PipeTest.Id))
+            if (this.DialogResult == DialogResult.OK)
             {
-                string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
-                string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
-                Program.MainForm.ShowInfo(msg, header);
-                e.Cancel = true;
+                if (!((IValidatable)this).Validate())
+                {
+                   e.Cancel = true;
+                }
             }
         }
 
-        /// <summary>
-        /// Function to check Code uniqueness
-        /// </summary>
-        /// <param name="code">code TestPipe</param>
-        /// <param name="id">id TestPipe</param>
-        /// <returns>true if uniqueness</returns>
-        private bool ValidateCode(string code, Guid id)
+        bool IValidatable.Validate()
         {
-            var testList = pipeTestList.Where(g => g.Code==code && g.Id != id).ToList();
-            return !(testList.Count >= 1);
+            bool validated = true;
+            if (pipeTestList.Where(g => g.Code == viewModel.Code && g.Id != viewModel.PipeTest.Id).Count() >= 1)
+            {
+                string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
+                string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
+                Program.MainForm.ShowError(msg, header);
+                validated = false;
+            }
+            return validated && dxValidationProvider.Validate();
+        }
+
+
+        private ValidationRuleBase savedRecurringRule = null;
+        private ValidationRuleBase savedSelectiveRule = null;
+
+        private ValidationRuleBase CheckCreateNotBlankRule(ValidationRuleBase rule)
+        {
+            if (rule == null)
+            {
+                ConditionValidationRule newRule = new ConditionValidationRule();
+                newRule.ConditionOperator = ConditionOperator.IsNotBlank;
+                newRule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
+                newRule.ErrorType = ErrorType.Critical;
+            }
+            return rule;
         }
 
         private void ChangeFrequency()
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            dxValidationProvider.SetValidationRule(frequencyMeasure, null);
+            dxValidationProvider.SetValidationRule(percentOfSelect, null);
 
-            switch ((InspectionFrequencyType)frequencyType.SelectedIndex)
+            InspectionFrequencyType selectedFrequency = (InspectionFrequencyType)frequencyType.SelectedIndex;
+
+            switch (selectedFrequency)
             {
                 case InspectionFrequencyType.R:
                     viewModel.PipeTest.Frequency = null;
                     break;
                 case InspectionFrequencyType.S:
                     selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    savedSelectiveRule = CheckCreateNotBlankRule(savedSelectiveRule);
+                    dxValidationProvider.SetValidationRule(percentOfSelect, savedSelectiveRule);
                     break;
                 case InspectionFrequencyType.U:
                     frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     if (viewModel.PipeTest.Frequency == null)
                         viewModel.PipeTest.Frequency = new PipeTestFrequency();
+
+                    savedRecurringRule = CheckCreateNotBlankRule(savedRecurringRule);
+                    dxValidationProvider.SetValidationRule(frequencyMeasure, savedRecurringRule);
                     break;
-                default: break;
+                default: 
+                    break;
             }
         }
 
@@ -271,7 +312,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             var pipeTest = repeatedInspectionsLookUp.EditValue as PipeTest;
 
-            if (pipeTest != null)
+            if (pipeTest != null && !viewModel.PipeTest.RepeatedInspections.Contains(pipeTest))
             {
                 viewModel.PipeTest.RepeatedInspections.Add(pipeTest);
                 repeatedOperationsGrid.RefreshDataSource();
@@ -286,6 +327,18 @@ namespace Prizm.Main.Forms.Settings.Inspections
             {
                 viewModel.PipeTest.RepeatedInspections.Remove(pipeTest);
                 repeatedOperationsGrid.RefreshDataSource();
+            }
+        }
+
+        private void repeatedOperationsView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            var view = sender as GridView;
+
+            var pipeTest = view.GetRow(e.RowHandle) as PipeTest;
+
+            if (pipeTest != null && !pipeTest.IsActive)
+            {
+                e.Appearance.ForeColor = Color.Gray;
             }
         }
 

@@ -96,15 +96,16 @@ namespace Prizm.Main.Forms.Notifications
             RegisterManager(new DuplicateNumberManager());
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
-            RegisterManager(new SelectiveOperationManager());
-
+            
             if (Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Mill)
             {
                 RegisterManager(new NotRequiredOperationManager());
+                RegisterManager(new SelectiveOperationManager());
             }
             else
             {
                 RegisterManager(new EmptyNROManager());
+                RegisterManager(new EmptySelectiveManager());
             }
         }
 

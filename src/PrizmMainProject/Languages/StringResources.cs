@@ -543,7 +543,19 @@ namespace Prizm.Main.Languages
              Id = "MainWindow_OpenReleaseNoteReadOnly",
              Description = "Сообщение: Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?"
          };
+        
+         public static StringResource MainWindow_ConstructionJoint = new StringResource
+         {
+             Id = "MainWindow_ConstructionJoint",
+             Description = "Сообщение: Пожалуйста сначала закройте редактируемый стык"
+         };
 
+         public static StringResource MainWindow_OpenConstructionJointReadOnly = new StringResource
+         {
+             Id = "MainWindow_OpenConstructionJointReadOnly",
+             Description = "Сообщение: Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?"
+         };
+        
          public static StringResource Menu_File = new StringResource
          {
              Id = "Menu_File",
@@ -3637,13 +3649,13 @@ namespace Prizm.Main.Languages
 
         public static StringResource JointNewNotAllWeldOperationCompleted = new StringResource
         {
-            Id = "JointNewNotAllWeldOperationCompleted_Title",
+            Id = "JointNewNotAllWeldOperationCompleted",
             Description = "Сообщение о том, что не все сварочные операции выполнены"
         };
 
         public static StringResource JointNewNotAllWeldOperationCompletedHeader = new StringResource
         {
-            Id = "JointNewNotAllWeldOperationCompletedHeader_Title",
+            Id = "JointNewNotAllWeldOperationCompletedHeader",
             Description = "Сообщение о том, что не все сварочные операции выполнены"
         };
 

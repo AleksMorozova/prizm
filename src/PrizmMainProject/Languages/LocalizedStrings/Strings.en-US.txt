@@ -1511,7 +1511,7 @@ MillInspection_FrequencyMeasureLabel=Unit of measure
 MillInspection_RangeControlValueGroup=Inspection value
 
 ;Настройка контрольных опрераций завода. Надпись панели булевого контрольного значения
-MillInspection_BoolControlValueGroup=Control value
+MillInspection_BoolControlValueGroup=Inspection value
 
 ;Настройка контрольных опрераций завода. Надпись панели периодической частоты
 MillInspection_FrequencyGroup=Recurring frequency
@@ -2901,10 +2901,10 @@ InspectionAddEditXtraForm_InspectionTestCompleted=Add new operation or find Sche
 InspectionAddEditXtraForm_InspectionTestCompletedHeader=Inspection has been completed
 
 ;Добавить
-MillInspection_BtnAdd=Add
+MillInspection_BtnAdd=A&dd
 
 ;Удалить
-MillInspection_BtnRemove=Remove
+MillInspection_BtnRemove=&Remove
 
 ;Повтор
 SettingsPipe_RepeatedInspectionsGridColumn=Repeat
@@ -2914,3 +2914,9 @@ SecurityPrivilege_PrintWeldDateReport=Welding report (by date)
 
 ;Отчет по сварке между пикетами
 SecurityPrivilege_PrintWeldTracingReport=Welding report (by KP)
+
+;Пожалуйста сначала закройте редактируемый стык
+MainWindow_ConstructionJoint=Please, close joint which is already open for editing.
+
+;Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?
+MainWindow_OpenConstructionJointReadOnly=Some joint is already opened for editing, do you want to open this joint for viewing?

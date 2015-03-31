@@ -13,6 +13,7 @@ namespace Prizm.Domain.Entity.Setup
         }
 
         //diapasone test
+
         public PipeTest(string code, string subject, InspectionFrequencyType frequencyType, int min, int max)
             : this(code, subject, frequencyType)
         {
@@ -20,25 +21,32 @@ namespace Prizm.Domain.Entity.Setup
             this.MaxExpected = max;
         }
 
+
+
         //bool test
+
         public PipeTest(string code, string subject, InspectionFrequencyType frequencyType, bool expected)
             : this(code, subject, frequencyType)
         {
             this.BoolExpected = expected;
         }
 
+
+
         public PipeTest(string code, string subject, InspectionFrequencyType frequencyType)
+            : this()
         {
             this.Code = code;
             this.FrequencyType = frequencyType;
-            this.PipeTestResults = new List<PipeTestResult>();
-            this.RepeatedInspections = new List<PipeTest>();
         }
 
         public PipeTest()
         {
             this.PipeTestResults = new List<PipeTestResult>();
             this.RepeatedInspections = new List<PipeTest>();
+            this.IsReadyToUse = false;
+            this.SelectivePercent = 1;
+
         }
 
         //category of test
@@ -66,6 +74,7 @@ namespace Prizm.Domain.Entity.Setup
         }
 
         public virtual IList<PipeTest> RepeatedInspections { get; set; }
+        public virtual bool IsReadyToUse { get; set; }
 
         public virtual string DisplayExpectedResult
         {

@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Settings
         private Dictionary<GridView, DuplicatesList> findDuplicateList;
         private SettingsViewModel viewModel;
         private PipeMillSizeType CurrentPipeMillSizeType;
-        bool controlOerationValidate = true;
+        bool controlOperationValidate = true;
         ICommandManager commandManager = new CommandManager();
         private List<string> localizedPipeTestControlTypes = new List<string>();
         private List<string> localizedPipeTestResultTypes = new List<string>();
@@ -135,9 +135,8 @@ namespace Prizm.Main.Forms.Settings
             SetWorkstationReadonlyFields();
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
-            IsEditMode = true;//do not remove until IsEditMode logic is changed
-            IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
-
+            IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
+            saveButton.Enabled = IsEditMode;
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
@@ -1167,7 +1166,7 @@ namespace Prizm.Main.Forms.Settings
             categoriesValidate = categoriesValidation();
             seamTypesValidate = seamTypeValidation();
             pipesSizeValidate = pipesSizeValidation();
-            controlOerationValidate = pipeControlOperationValidation();
+            controlOperationValidate = pipeControlOperationValidation();
             jointsOperationsValidate = jointsOperationValidation();
             componentryTypeValidate = componentryTypeValidation();
             weldersValidate = weldersValidation();
@@ -1180,27 +1179,26 @@ namespace Prizm.Main.Forms.Settings
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             if (pipeLayoutControlGroup.Tag != null)
             {
-                controlOerationValidate = pipeControlOperationValidation();
+                controlOperationValidate = pipeControlOperationValidation();
             }
 
-            return dxValidationProvider.Validate() && controlOerationValidate && pipesSizeValidate
+            return dxValidationProvider.Validate() && controlOperationValidate && pipesSizeValidate
                 && administratorCanEditSettingsValidation
                 && plateManufacturersValidate && seamTypesValidate && categoriesValidate
                 && jointsOperationsValidate
                 && componentryTypeValidate
-                && inspectorsValidate && inspectorsCertificateTypeValidate && inspectorsCertificateValidate 
+                && inspectorsValidate && inspectorsCertificateTypeValidate && inspectorsCertificateValidate
                 && weldersValidate
                 && usersValidate && roleValidate;
         }
 
         private bool pipeControlOperationValidation()
         {
-            controlOerationValidate = true;
-            for (int i = 0; i < inspectionView.RowCount - 1; i++)
+
+            controlOperationValidate = true;
+            if (!viewModel.PipeTests.All(pipe => pipe.IsReadyToUse))
             {
-                if (Convert.ToString(inspectionView.GetRowCellValue(i, inspectionCodeGridColumn.Name)) == string.Empty ||
-                    Convert.ToString(inspectionView.GetRowCellValue(i, inspectionNameGridColumn.Name)) == string.Empty ||
-                    Convert.ToString(inspectionView.GetRowCellValue(i, categoryColumn.Name)) == null)
+                for (int i = 0; i < inspectionView.RowCount - 1; i++)
                 {
                     inspectionView.FocusedRowHandle = i;
 
@@ -1208,15 +1206,16 @@ namespace Prizm.Main.Forms.Settings
                         inspectionView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, inspectionView.GetDataRow(i)));
-                    if (!controlOerationValidate)
+
+                    if (!controlOperationValidate)
                     {
-                        controlOerationValidate = false;
                         break;
                     }
                 }
             }
-            return controlOerationValidate;
+            return controlOperationValidate;
         }
+
 
         /// <summary>
         /// Checks whether user that was created
@@ -1249,33 +1248,37 @@ namespace Prizm.Main.Forms.Settings
             GridView gv = sender as GridView;
             gv.ClearColumnErrors();
             PipeTest pipeTest = gv.GetRow(e.RowHandle) as PipeTest;
-            if (pipeTest.Code == null || pipeTest.Name == null || pipeTest.Category == null)
+            if (!pipeTest.IsReadyToUse)
             {
-                controlOerationValidate = false;
+                controlOperationValidate = false;
                 e.Valid = false;
 
-                if (pipeTest.Code == null)
-                {
-                    gv.SetColumnError(inspectionCodeGridColumn,
-                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                }
-                else if (pipeTest.Name == null)
-                {
-                    gv.SetColumnError(inspectionNameGridColumn,
-                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
-                }
-                else if (pipeTest.Category == null)
+                if (pipeTest.Category == null)
                 {
                     gv.SetColumnError(categoryColumn,
                         Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
                 }
+                else if (string.IsNullOrWhiteSpace(pipeTest.Name))
+                {
+                    gv.SetColumnError(inspectionNameGridColumn,
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
+                else if (pipeTest.ResultType == PipeTestResultType.Undefined)
+                {
+                    gv.SetColumnError(resultTypeGridColumn,
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
+                else if (pipeTest.ControlType == PipeTestControlType.Undefined)
+                {
+                    gv.SetColumnError(controlTypeGridColumn,
+                        Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
+                else
+                {
+                    gv.SetColumnError(inspectionCodeGridColumn,
+                    Program.LanguageManager.GetString(StringResources.Settings_ValueRequired));
+                }
             }
-
-            else
-            {
-                controlOerationValidate = true;
-            }
-
         }
 
         private bool IsEditable(bool editMode)
@@ -1471,6 +1474,7 @@ namespace Prizm.Main.Forms.Settings
 
                 if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    inspectionForm.viewModel.PipeTest.IsReadyToUse = true;
                     viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
                     IsModified = true;
@@ -1839,9 +1843,9 @@ namespace Prizm.Main.Forms.Settings
                         categoriesGridView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, categoriesGridView.GetDataRow(i)));
+
                     if (!categoriesValidate)
                     {
-                        categoriesValidate = false;
                         break;
                     }
                 }
@@ -1862,9 +1866,9 @@ namespace Prizm.Main.Forms.Settings
                         pipesSizeListGridView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, pipesSizeListGridView.GetDataRow(i)));
+
                     if (!pipesSizeValidate)
                     {
-                        pipesSizeValidate = false;
                         break;
                     }
                 }
@@ -1885,9 +1889,9 @@ namespace Prizm.Main.Forms.Settings
                         componentryTypeGridView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, componentryTypeGridView.GetDataRow(i)));
+
                     if (!componentryTypeValidate)
                     {
-                        componentryTypeValidate = false;
                         break;
                     }
                 }
@@ -1910,9 +1914,9 @@ namespace Prizm.Main.Forms.Settings
                         gridViewWelders,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, gridViewWelders.GetDataRow(i)));
+
                     if (!weldersValidate)
                     {
-                        weldersValidate = false;
                         break;
                     }
                 }
@@ -1934,9 +1938,9 @@ namespace Prizm.Main.Forms.Settings
                         gridViewInspectors,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, gridViewInspectors.GetDataRow(i)));
+
                     if (!inspectorsValidate)
                     {
-                        inspectorsValidate = false;
                         break;
                     }
                 }
@@ -1957,9 +1961,9 @@ namespace Prizm.Main.Forms.Settings
                         certificateTypesView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, certificateTypesView.GetDataRow(i)));
+
                     if (!inspectorsCertificateTypeValidate)
                     {
-                        inspectorsCertificateTypeValidate = false;
                         break;
                     }
                 }
@@ -1981,9 +1985,9 @@ namespace Prizm.Main.Forms.Settings
                         inspectorCertificateGridView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, certificateTypesView.GetDataRow(i)));
+
                     if (!inspectorsCertificateValidate)
                     {
-                        inspectorsCertificateValidate = false;
                         break;
                     }
                 }
@@ -2004,9 +2008,9 @@ namespace Prizm.Main.Forms.Settings
                         gridViewRole,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, gridViewRole.GetDataRow(i)));
+
                     if (!roleValidate)
                     {
-                        roleValidate = false;
                         break;
                     }
                 }
@@ -2028,9 +2032,9 @@ namespace Prizm.Main.Forms.Settings
                         gridViewUsers,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, gridViewUsers.GetDataRow(i)));
+
                     if (!usersValidate)
                     {
-                        usersValidate = false;
                         break;
                     }
                 }
@@ -2051,9 +2055,9 @@ namespace Prizm.Main.Forms.Settings
                         jointsOperationsGridView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, jointsOperationsGridView.GetDataRow(i)));
+
                     if (!jointsOperationsValidate)
                     {
-                        jointsOperationsValidate = false;
                         break;
                     }
                 }

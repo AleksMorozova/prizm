@@ -1972,6 +1972,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пожалуйста сначала закройте редактируемый стык.
+        /// </summary>
+        internal static string MainWindow_ConstructionJoint {
+            get {
+                return ResourceManager.GetString("MainWindow_ConstructionJoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?.
+        /// </summary>
+        internal static string MainWindow_OpenConstructionJointReadOnly {
+            get {
+                return ResourceManager.GetString("MainWindow_OpenConstructionJointReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Форма Разрешение на отгрузку уже открыта, хотите открыть разрешение в режиме просмотра?.
         /// </summary>
         internal static string MainWindow_OpenReleaseNoteReadOnly {

@@ -363,24 +363,24 @@ namespace Prizm.Main.Forms.Component.NewEdit
         }
 
         #region IValidatable Members
-
         bool IValidatable.Validate()
         {
+            bool isValidComponent = true;
             for(int i = 0; i < componentParametersView.RowCount; i++)
             {
                 if(Convert.ToDecimal(componentParametersView.GetRowCellValue(i, "Diameter")) <= 0)
                 {
                     componentParametersView.FocusedRowHandle = i;
 
-                    componentParametersView_ValidateRow(
+                    isValidComponent = componentValidateRow(
                         componentParametersView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, componentParametersView.GetDataRow(i)));
-
                 }
             }
 
             return dxValidationProvider.Validate() &&
+                isValidComponent &&
                 viewModel.Component.Connectors
                 .Where<Connector>(x => x.Diameter <= 0)
                 .Count<Connector>() <= 0;
@@ -389,6 +389,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
         #endregion
 
         private void componentParametersView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            componentValidateRow(sender, e);
+        }
+
+        private bool componentValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView gv = sender as GridView;
 
@@ -400,6 +405,9 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DiameterValueValidation));
                 e.Valid = false;
             }
+
+            return e.Valid;
+
         }
 
         /// <summary>

@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -86,6 +89,7 @@
             this.btnAddLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnRemoveLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.repeatedOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
@@ -137,6 +141,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAddLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemoveLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLayoutControl
@@ -185,7 +190,7 @@
             this.btnRemove.Size = new System.Drawing.Size(79, 22);
             this.btnRemove.StyleController = this.mainLayoutControl;
             this.btnRemove.TabIndex = 30;
-            this.btnRemove.Text = "Удалить";
+            this.btnRemove.Text = "&Удалить";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
@@ -195,7 +200,7 @@
             this.btnAdd.Size = new System.Drawing.Size(78, 22);
             this.btnAdd.StyleController = this.mainLayoutControl;
             this.btnAdd.TabIndex = 29;
-            this.btnAdd.Text = "Добавить";
+            this.btnAdd.Text = "&Добавить";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // repeatedInspectionsLookUp
@@ -237,7 +242,7 @@
             this.percentOfSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.percentOfSelect.Properties.IsFloatValue = false;
-            this.percentOfSelect.Properties.Mask.EditMask = "(1?[0-9])|([1-9][0-9])";
+            this.percentOfSelect.Properties.Mask.EditMask = "(1?[1-9])|([1-9][0-9])";
             this.percentOfSelect.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.percentOfSelect.Size = new System.Drawing.Size(123, 20);
             this.percentOfSelect.StyleController = this.mainLayoutControl;
@@ -264,6 +269,7 @@
             this.repeatedOperationsView.OptionsBehavior.Editable = false;
             this.repeatedOperationsView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.repeatedOperationsView.OptionsView.ShowGroupPanel = false;
+            this.repeatedOperationsView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.repeatedOperationsView_RowCellStyle);
             // 
             // inspectionCodeGridColumn
             // 
@@ -306,6 +312,9 @@
             this.controlType.Size = new System.Drawing.Size(224, 20);
             this.controlType.StyleController = this.mainLayoutControl;
             this.controlType.TabIndex = 23;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Тип контроля не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.controlType, conditionValidationRule1);
             // 
             // resultType
             // 
@@ -317,6 +326,9 @@
             this.resultType.Size = new System.Drawing.Size(236, 20);
             this.resultType.StyleController = this.mainLayoutControl;
             this.resultType.TabIndex = 22;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Тип результата должен быть установлен";
+            this.dxValidationProvider.SetValidationRule(this.resultType, conditionValidationRule2);
             this.resultType.SelectedIndexChanged += new System.EventHandler(this.resultType_SelectedIndexChanged);
             // 
             // category
@@ -410,6 +422,9 @@
             this.operationName.Size = new System.Drawing.Size(260, 20);
             this.operationName.StyleController = this.mainLayoutControl;
             this.operationName.TabIndex = 5;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Название операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.operationName, conditionValidationRule3);
             // 
             // code
             // 
@@ -418,6 +433,9 @@
             this.code.Size = new System.Drawing.Size(236, 20);
             this.code.StyleController = this.mainLayoutControl;
             this.code.TabIndex = 4;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Код операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.code, conditionValidationRule4);
             // 
             // Root
             // 
@@ -898,6 +916,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAddLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemoveLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repeatedOperationsLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -960,5 +979,6 @@
         private DevExpress.XtraLayout.LayoutControlItem btnAddLayout;
         private DevExpress.XtraLayout.LayoutControlItem btnRemoveLayout;
         private DevExpress.XtraLayout.LayoutControlGroup repeatedInspectionsLayoutControlGroup;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider;
     }
 }
