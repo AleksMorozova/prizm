@@ -110,9 +110,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             repeatedInspectionsLookUp.Properties
                 .DataSource = pipeTestList.Where<PipeTest>(x => 
-                    x.IsActive 
-                    && !string.IsNullOrWhiteSpace(x.Code)
-                    && !string.IsNullOrWhiteSpace(x.Name));
+                    x.IsActive
+                    && x.IsReadyToUse);
 
             repeatedOperationsGrid.DataSource = viewModel.PipeTest.RepeatedInspections;
         }
