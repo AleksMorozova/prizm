@@ -133,7 +133,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
             if(info.InRow || info.InRowCell)
             {
 
-                Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "NoteId");
+                Guid id = (Guid)view.GetRowCellValue(info.RowHandle, "Id");
                 FormManager.Instance.OpenChildForm(DocumentTypes.MillReleaseNote, id);
             }
         }
