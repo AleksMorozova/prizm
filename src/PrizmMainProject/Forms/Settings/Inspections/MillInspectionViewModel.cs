@@ -251,7 +251,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         public int SelectivePercent
         {
-            get { return pipeTest.SelectivePercent; }
+            get { return pipeTest.SelectivePercent == 0 ? 1 : pipeTest.SelectivePercent; }
             set
             {
                 if (value != pipeTest.SelectivePercent)
