@@ -343,6 +343,7 @@
             this.category.Size = new System.Drawing.Size(241, 20);
             this.category.StyleController = this.mainLayoutControl;
             this.category.TabIndex = 21;
+            this.category.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.category_CloseUp);
             // 
             // cancelButton
             // 
