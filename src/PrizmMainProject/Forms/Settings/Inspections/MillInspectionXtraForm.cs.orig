@@ -14,9 +14,12 @@ using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Properties;
+<<<<<<< HEAD
 using Prizm.Main.Documents;
-using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.DXErrorProvider;
+=======
+using DevExpress.XtraGrid.Views.Grid;
+>>>>>>> master
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {

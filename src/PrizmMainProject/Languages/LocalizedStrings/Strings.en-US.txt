@@ -2901,10 +2901,10 @@ InspectionAddEditXtraForm_InspectionTestCompleted=Add new operation or find Sche
 InspectionAddEditXtraForm_InspectionTestCompletedHeader=Inspection has been completed
 
 ;Добавить
-MillInspection_BtnAdd=Add
+MillInspection_BtnAdd=A&dd
 
 ;Удалить
-MillInspection_BtnRemove=Remove
+MillInspection_BtnRemove=&Remove
 
 ;Повтор
 SettingsPipe_RepeatedInspectionsGridColumn=Repeat
