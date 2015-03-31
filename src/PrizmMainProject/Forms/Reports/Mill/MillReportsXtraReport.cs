@@ -30,7 +30,6 @@ namespace Prizm.Main.Forms.Reports.Mill
             return new List<LocalizedItem>()
             {
                 new LocalizedItem(reportHeaderLabel, StringResources.MillReportsXtraReport_ReportHeaderLabel.Id),
-                new LocalizedItem(pageHeaderLabel, StringResources.MillReportsXtraReport_PageHeaderLabel.Id),
                 
                 new LocalizedItem(numberLabel, StringResources.MillReportsXtraReport_NumberLabel.Id),
                 new LocalizedItem(typeLabel, StringResources.MillReportsXtraReport_TypeLabel.Id),
