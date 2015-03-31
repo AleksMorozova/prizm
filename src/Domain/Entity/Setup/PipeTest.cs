@@ -83,9 +83,9 @@ namespace Prizm.Domain.Entity.Setup
                     && this.ResultType != PipeTestResultType.Undefined
                     && this.ControlType != PipeTestControlType.Undefined;
 
-                if (this.FrequencyType == InspectionFrequencyType.U && this.Frequency != null)
+                if (this.FrequencyType == InspectionFrequencyType.U)
                 {
-                    condition &= this.Frequency.Measure != FrequencyMeasure.Undefined;
+                    condition &= this.Frequency != null && this.Frequency.Measure != FrequencyMeasure.Undefined;
                 }
 
                 return condition;
