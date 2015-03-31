@@ -53,7 +53,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
             viewModel.ModifiableView = this;
             viewModel.ValidatableView = this;
-            viewModel.Number = number;
+            if (viewModel.Component.Number == string.Empty)
+            {
+                viewModel.Number = number;
+            }
             attachmentsButton.Enabled = true;
             CannotOpenForViewing = id == Guid.Empty;
 
