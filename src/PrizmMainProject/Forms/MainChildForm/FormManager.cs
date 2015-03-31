@@ -632,15 +632,37 @@ namespace Prizm.Main.Forms.MainChildForm
             }
             if (flags.HasFlag(FormFlags.SingleEditAlreadyOpened))
             {
+                string text = string.Empty;
+
                 if (isNew)
                 {
-                    string text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
+                    switch (type)
+                    {
+                        case DocumentTypes.MillReleaseNote:
+                            text = Program.LanguageManager.GetString(StringResources.MainWindow_CloseEditingReleaseNote);
+                            break;
+                        case DocumentTypes.ConstructionJoint:
+                            text = Program.LanguageManager.GetString(StringResources.MainWindow_ConstructionJoint);
+                            break;
+                        default:
+                            break;
+                    }
                     notify.ShowWarning(text, "");
                     canOpen = false;
                 }
                 else
                 {
-                    string text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
+                    switch (type)
+                    {
+                        case DocumentTypes.MillReleaseNote:
+                            text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenReleaseNoteReadOnly);
+                            break;
+                        case DocumentTypes.ConstructionJoint:
+                            text = Program.LanguageManager.GetString(StringResources.MainWindow_OpenConstructionJointReadOnly);
+                            break;
+                        default:
+                            break;
+                    }
                     canOpen &= notify.ShowYesNo(text, "");
                     editMode = false;
                 }
