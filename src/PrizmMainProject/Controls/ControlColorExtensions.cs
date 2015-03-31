@@ -48,6 +48,7 @@ namespace Prizm.Main.Common
         public static void SetRequiredCombo(this ComboBoxEdit cEdit)
         {
             cEdit.SelectedIndexChanged += new System.EventHandler(ControlColorExtensions.OnSelectedIndexChanged);
+            cEdit.SwitchRequired();
         }
 
         /// <summary>
@@ -57,12 +58,14 @@ namespace Prizm.Main.Common
         public static void SetRequiredText(this TextEdit edit)
         {
             edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnTextChanged);
+            edit.SwitchRequired();
         }
 
         public static void SetRequiredGridLookUp(this GridLookUpEdit edit)
         {
             edit.TextChanged += new System.EventHandler(ControlColorExtensions.OnGridLookupChanged);
             edit.EditValueChanged += new System.EventHandler(ControlColorExtensions.OnGridLookupChanged);
+            edit.SwitchRequired();
         }
 
     }

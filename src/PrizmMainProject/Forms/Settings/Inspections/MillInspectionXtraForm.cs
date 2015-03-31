@@ -76,6 +76,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
             controlType.Properties.Items.Clear();
             frequencyMeasure.Properties.Items.Clear();
             frequencyType.Properties.Items.Clear();
+            resultType.SelectedIndex = -1;
+            controlType.SelectedIndex = -1;
 
             EnumWrapper<PipeTestResultType>.LoadItems(resultType.Properties.Items, skip0: true);
             EnumWrapper<PipeTestControlType>.LoadItems(controlType.Properties.Items, skip0: true);
@@ -88,6 +90,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
             code.SetAsIdentifier();
             code.SetRequiredText();
             operationName.SetRequiredText();
+            controlType.SetRequiredCombo();
+            frequencyMeasure.SetRequiredCombo();
+            resultType.SetRequiredCombo();
+            percentOfSelect.SetRequiredText();
         }
 
         private void BindToViewModel()
@@ -249,11 +255,26 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
 
         private ValidationRuleBase savedRecurringRule = null;
+        private ValidationRuleBase savedSelectiveRule = null;
+
+        private ValidationRuleBase CheckCreateNotBlankRule(ValidationRuleBase rule)
+        {
+            if (rule == null)
+            {
+                ConditionValidationRule newRule = new ConditionValidationRule();
+                newRule.ConditionOperator = ConditionOperator.IsNotBlank;
+                newRule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
+                newRule.ErrorType = ErrorType.Critical;
+            }
+            return rule;
+        }
 
         private void ChangeFrequency()
         {
             frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            dxValidationProvider.SetValidationRule(frequencyMeasure, null);
+            dxValidationProvider.SetValidationRule(percentOfSelect, null);
 
             InspectionFrequencyType selectedFrequency = (InspectionFrequencyType)frequencyType.SelectedIndex;
 
@@ -264,30 +285,19 @@ namespace Prizm.Main.Forms.Settings.Inspections
                     break;
                 case InspectionFrequencyType.S:
                     selectiveFrequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    savedSelectiveRule = CheckCreateNotBlankRule(savedSelectiveRule);
+                    dxValidationProvider.SetValidationRule(percentOfSelect, savedSelectiveRule);
                     break;
                 case InspectionFrequencyType.U:
                     frequencyGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     if (viewModel.PipeTest.Frequency == null)
                         viewModel.PipeTest.Frequency = new PipeTestFrequency();
-                    break;
-                default: break;
-            }
 
-            if(selectedFrequency == InspectionFrequencyType.U)
-            {
-                if(savedRecurringRule == null)
-                {
-                    ConditionValidationRule rule = new ConditionValidationRule();
-                    rule.ConditionOperator = ConditionOperator.IsNotBlank;
-                    rule.ErrorText = Program.LanguageManager.GetString(StringResources.Validation_ValueRequired);
-                    rule.ErrorType = ErrorType.Critical;
-                    savedRecurringRule = rule;
-                }
-                dxValidationProvider.SetValidationRule(frequencyMeasure, savedRecurringRule);
-            }
-            else
-            {
-                dxValidationProvider.SetValidationRule(frequencyMeasure, null);
+                    savedRecurringRule = CheckCreateNotBlankRule(savedRecurringRule);
+                    dxValidationProvider.SetValidationRule(frequencyMeasure, savedRecurringRule);
+                    break;
+                default: 
+                    break;
             }
         }
 
