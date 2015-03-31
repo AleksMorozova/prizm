@@ -122,9 +122,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             categories = new List<Category>
             {
                 #region creating pipe test category
-                //"not fixed" categories shouldn't seed in required section. If you need these test categories, please move this code to optional seed section.
-                //new Category { Name = "Категория - 1", Fixed = false, Type = FixedCategory.Undefined, IsActive = true},
-                //new Category { Name = "Категория - 2", Fixed = false, Type = FixedCategory.Undefined, IsActive = true},
+                new Category { Name = "Категория - 1", Fixed = false, Type = FixedCategory.Undefined, IsActive = true},
+                new Category { Name = "Категория - 2", Fixed = false, Type = FixedCategory.Undefined, IsActive = true},
                 new Category { Name = "Измерение длины", IsActive = true , Fixed=true, ResultType="int", Type=FixedCategory.Length},
                 new Category { Name = "Контроль сварки", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.Weld },
                 new Category { Name = "Контроль внешнего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.ExternalCoat },
