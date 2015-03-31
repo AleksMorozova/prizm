@@ -45,6 +45,7 @@ namespace Prizm.Domain.Entity.Setup
             this.PipeTestResults = new List<PipeTestResult>();
             this.RepeatedInspections = new List<PipeTest>();
             this.IsReadyToUse = false;
+            this.SelectivePercent = 1;
 
         }
 
