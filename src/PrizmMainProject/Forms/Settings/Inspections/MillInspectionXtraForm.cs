@@ -96,8 +96,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             percentOfSelect.SetRequiredText();
 
 
-            // actually should be something like IsNew and Fixed and Length
-            resultType.ReadOnly = viewModel.Category != null && viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
+            CheckFixedResultType(viewModel.Category);
         }
 
         private void BindToViewModel()
@@ -343,6 +342,33 @@ namespace Prizm.Main.Forms.Settings.Inspections
             {
                 e.Appearance.ForeColor = Color.Gray;
             }
+        }
+
+        /// <summary>
+        /// Result type should be disabled and of appropriate value for some categories
+        /// </summary>
+        private void CheckFixedResultType(Category c)
+        {
+            if (c != null && c.Fixed && c.Type == FixedCategory.Length)
+            {
+                viewModel.ResultType = PipeTestResultType.Diapason;
+                resultType.ReadOnly = true;
+            }
+            else
+            {
+                resultType.ReadOnly = false;
+            }
+        }
+
+        /// <summary>
+        /// After category has been chosen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void category_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            Category c = e.Value as Category;
+            CheckFixedResultType(c);
         }
 
     }
