@@ -94,6 +94,11 @@ namespace Prizm.Main.Forms.Settings.Inspections
             frequencyMeasure.SetRequiredCombo();
             resultType.SetRequiredCombo();
             percentOfSelect.SetRequiredText();
+
+            if (viewModel.Category != null) // actually should be something like IsNew
+            {
+                resultType.ReadOnly = viewModel.Category.Fixed && viewModel.Category.Type == FixedCategory.Length;
+            }
         }
 
         private void BindToViewModel()
