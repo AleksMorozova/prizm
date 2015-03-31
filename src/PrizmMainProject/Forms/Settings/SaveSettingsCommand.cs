@@ -72,7 +72,7 @@ namespace Prizm.Main.Forms.Settings
                 }
                 foreach (PipeTest t in s.PipeTests)
                 {
-                    if (t.Code == string.Empty || t.Name == string.Empty || t.Category == null)
+                    if (!t.IsReadyToUse)
                     {
                         typesList.Add(s.Type);
                         controlValidation = false;
