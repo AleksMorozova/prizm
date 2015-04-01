@@ -383,14 +383,14 @@ namespace Prizm.Main.Forms.Settings
            var foundInspectors = repos.InspectorRepo.GetAll();
            if (foundInspectors != null)
            {
-              foreach (Inspector i in foundInspectors)
-              {
-                 Inspectors.Add(new InspectorViewType(i));
-              }
+               foreach (Inspector i in foundInspectors)
+               {
+                   Inspectors.Add(new InspectorViewType(i));
+               }
            }
            else
            {
-               log.Warn( "Setup settings: List of Inspectors is NULL." );
+               log.Warn("Setup settings: List of Inspectors is NULL.");
            }
 
            foreach (var insp in this.Inspectors)

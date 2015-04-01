@@ -343,6 +343,7 @@
             this.category.Size = new System.Drawing.Size(241, 20);
             this.category.StyleController = this.mainLayoutControl;
             this.category.TabIndex = 21;
+            this.category.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.category_CloseUp);
             // 
             // cancelButton
             // 
@@ -380,8 +381,8 @@
             // 
             this.maxExpected.Location = new System.Drawing.Point(649, 110);
             this.maxExpected.Name = "maxExpected";
-            this.maxExpected.Properties.Mask.EditMask = "n0";
-            this.maxExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.maxExpected.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.maxExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.maxExpected.Size = new System.Drawing.Size(113, 20);
             this.maxExpected.StyleController = this.mainLayoutControl;
             this.maxExpected.TabIndex = 13;
@@ -390,8 +391,8 @@
             // 
             this.minExpected.Location = new System.Drawing.Point(523, 110);
             this.minExpected.Name = "minExpected";
-            this.minExpected.Properties.Mask.EditMask = "n0";
-            this.minExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.minExpected.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.minExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.minExpected.Size = new System.Drawing.Size(112, 20);
             this.minExpected.StyleController = this.mainLayoutControl;
             this.minExpected.TabIndex = 12;

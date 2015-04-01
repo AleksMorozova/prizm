@@ -145,7 +145,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        public int MinExpected
+        public float MinExpected
         {
             get { return pipeTest.MinExpected; }
             set
@@ -158,7 +158,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             }
         }
 
-        public int MaxExpected
+        public float MaxExpected
         {
             get { return pipeTest.MaxExpected; }
             set

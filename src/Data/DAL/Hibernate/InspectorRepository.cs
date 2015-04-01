@@ -26,7 +26,7 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 var q = session.QueryOver<Inspector>()
                     .Fetch(x => x.Certificates).Eager
-                    .List<Inspector>();
+                    .List<Inspector>().Distinct<Inspector>().ToList<Inspector>();
                 return q;
                 //return session.CreateCriteria<Inspector>().List<Inspector>();
             }
