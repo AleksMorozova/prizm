@@ -385,7 +385,10 @@ namespace Prizm.Main.Forms.Settings
            {
               foreach (Inspector i in foundInspectors)
               {
-                 Inspectors.Add(new InspectorViewType(i));
+                  if (!Inspectors.Select<InspectorViewType, Guid>(x => x.Inspector.Id).Contains(i.Id))
+                  {
+                      Inspectors.Add(new InspectorViewType(i));
+                  }
               }
            }
            else
