@@ -604,7 +604,7 @@ namespace Prizm.Main.Forms.Settings
             {
                 if (!CurrentPipeMillSizeType.PipeTests.Remove(removedTest))
                 {
-                    log.Error("Removing pipe test from size type was not synchronized!");
+                    log.Error(string.Format("Removing pipe test {0} from size type {1} was not synchronized!", removedTest.Code, CurrentPipeMillSizeType.Type));
                 }
             }
         }
