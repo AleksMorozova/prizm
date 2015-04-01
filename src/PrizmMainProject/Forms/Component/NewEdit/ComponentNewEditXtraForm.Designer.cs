@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComponentNewEditXtraForm));
@@ -71,9 +72,9 @@
             this.newSaveLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlDeactivation = new DevExpress.XtraLayout.LayoutControlItem();
-            this.componentBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.componentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.componentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newEditPipeLayout)).BeginInit();
             this.newEditPipeLayout.SuspendLayout();
@@ -371,10 +372,11 @@
             // positiveFloat
             // 
             this.positiveFloat.AutoHeight = false;
-            this.positiveFloat.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.positiveFloat.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
             this.positiveFloat.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.positiveFloat.Mask.UseMaskAsDisplayFormat = true;
             this.positiveFloat.Name = "positiveFloat";
+            this.positiveFloat.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.positiveFloat_ParseEditValue);
             // 
             // wallThicknessGridColumn
             // 

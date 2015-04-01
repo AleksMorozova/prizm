@@ -410,9 +410,12 @@
             // 
             this.distanceFromPK.Location = new System.Drawing.Point(954, 69);
             this.distanceFromPK.Name = "distanceFromPK";
+            this.distanceFromPK.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.distanceFromPK.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.distanceFromPK.Size = new System.Drawing.Size(272, 20);
             this.distanceFromPK.StyleController = this.newJointLayoutControl;
             this.distanceFromPK.TabIndex = 7;
+            this.distanceFromPK.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.distanceFromPK_ParseEditValue);
             // 
             // PKNumber
             // 
@@ -449,9 +452,12 @@
             this.seaLevel.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
             this.seaLevel.MinimumSize = new System.Drawing.Size(100, 20);
             this.seaLevel.Name = "seaLevel";
+            this.seaLevel.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.seaLevel.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.seaLevel.Size = new System.Drawing.Size(272, 20);
             this.seaLevel.StyleController = this.newJointLayoutControl;
             this.seaLevel.TabIndex = 10;
+            this.seaLevel.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.seaLevel_ParseEditValue);
             // 
             // GPSLat
             // 

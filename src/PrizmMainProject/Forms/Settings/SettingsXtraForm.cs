@@ -2106,5 +2106,15 @@ namespace Prizm.Main.Forms.Settings
                 SetAlwaysReadOnly(pipesSizeList);
             }
         }
+        
+        private void pipeDiameter_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.CorrectDecimalSeparator(sender,e);
+        }
+
+        private void wallThickness_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
     }
 }
