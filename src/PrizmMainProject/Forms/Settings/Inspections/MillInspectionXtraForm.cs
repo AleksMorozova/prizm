@@ -25,11 +25,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
     {
         public MillInspectionViewModel viewModel;
         IReadOnlyList<PipeTest> pipeTestList;
+        IReadOnlyList<string> usedCodes;
 
-        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList)
+        public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList, IReadOnlyList<string> usedCodes)
         {
             InitializeComponent();
-            this.SetupForm(current, categoryTypes, pipeTestList);
+            this.SetupForm(current, categoryTypes, pipeTestList, usedCodes);
         }
 
         private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)
@@ -45,9 +46,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
             return viewModel;
         }
-        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList)
+        public void SetupForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList, IReadOnlyList<string> usedCodes)
         {
             this.pipeTestList = pipeTestList;
+            this.usedCodes = usedCodes;
             viewModel = this.GetInspectionViewModel(current, categoryTypes);
             SetControlsTextLength();
             ChangeExpected();
@@ -246,7 +248,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         bool IValidatable.Validate()
         {
             bool validated = true;
-            if (pipeTestList.Where(g => g.Code == viewModel.Code && g.Id != viewModel.PipeTest.Id).Count() >= 1)
+            if ((usedCodes.Where(g => g == viewModel.Code ).Count() >= 1))
             {
                 string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
                 string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
