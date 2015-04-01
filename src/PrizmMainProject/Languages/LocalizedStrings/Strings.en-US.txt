@@ -2830,7 +2830,7 @@ AdditionToTheReport_WeightLabel=Weight
 AdditionToTheReport_LengthLabel=Length
 
 ;Дата отгрузки
-AdditionToTheReport_ShippingDateLabel=Shipping date
+AdditionToTheReport_ProductionDateLabel=Production date
 
 ;Количество:
 AdditionToTheReport_TotalCountLabel=Total count:

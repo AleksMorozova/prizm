@@ -39,7 +39,7 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
-            this.shippingDateLabel = new DevExpress.XtraReports.UI.XRLabel();
+            this.productionDateLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.lengthLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.numberLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.heatNumberLabel = new DevExpress.XtraReports.UI.XRLabel();
@@ -174,14 +174,14 @@
             customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
-            // shippingDateLabel
+            // productionDateLabel
             // 
-            this.shippingDateLabel.LocationFloat = new DevExpress.Utils.PointFloat(543.0002F, 0F);
-            this.shippingDateLabel.Name = "shippingDateLabel";
-            this.shippingDateLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.shippingDateLabel.SizeF = new System.Drawing.SizeF(120F, 36F);
-            this.shippingDateLabel.StyleName = "FieldCaption";
-            this.shippingDateLabel.Text = "shipping Date";
+            this.productionDateLabel.LocationFloat = new DevExpress.Utils.PointFloat(543.0002F, 0F);
+            this.productionDateLabel.Name = "productionDateLabel";
+            this.productionDateLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.productionDateLabel.SizeF = new System.Drawing.SizeF(120F, 36F);
+            this.productionDateLabel.StyleName = "FieldCaption";
+            this.productionDateLabel.Text = "production Date";
             // 
             // lengthLabel
             // 
@@ -518,7 +518,7 @@
             this.heatNumberLabel,
             this.weightLabel,
             this.lengthLabel,
-            this.shippingDateLabel});
+            this.productionDateLabel});
             this.GroupHeader1.HeightF = 36F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
@@ -558,7 +558,7 @@
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
-        private DevExpress.XtraReports.UI.XRLabel shippingDateLabel;
+        private DevExpress.XtraReports.UI.XRLabel productionDateLabel;
         private DevExpress.XtraReports.UI.XRLabel weightLabel;
         private DevExpress.XtraReports.UI.XRLabel lengthLabel;
         private DevExpress.XtraReports.UI.XRLabel heatNumberLabel;

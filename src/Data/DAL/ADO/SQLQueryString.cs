@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Domain.Entity.Mill;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,8 +52,8 @@ group by r.number, n.number, r.certificate, r.destination";
               left join Plate on (Plate.id = Pipe.plateId)
               left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
               left  join Heat on (Heat.id = Plate.heatId)
-              WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
-              {where_options}";
+              WHERE productionDate >=  @startDate  and productionDate <= @finalDate and 
+                        Pipe.isActive='1' and Pipe.pipeMillStatus in Pipe.pipeMillStatus in('Stocked' ,'Shipped','ReadyToShip') {where_options}";
 
         public const string ColumnNameForMillReport = "pipeMillStatus";
         public const string TableNameForMillReport = "Pipe";

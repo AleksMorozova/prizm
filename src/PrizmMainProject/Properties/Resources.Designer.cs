@@ -142,11 +142,11 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Дата отгрузки.
+        ///   Looks up a localized string similar to Дата производства.
         /// </summary>
-        internal static string AdditionToTheReport_ShippingDateLabel {
+        internal static string AdditionToTheReport_ProductionDateLabel {
             get {
-                return ResourceManager.GetString("AdditionToTheReport_ShippingDateLabel", resourceCulture);
+                return ResourceManager.GetString("AdditionToTheReport_ProductionDateLabel", resourceCulture);
             }
         }
         

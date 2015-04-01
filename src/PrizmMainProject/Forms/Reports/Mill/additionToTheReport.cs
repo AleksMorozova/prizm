@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                 new LocalizedItem(heatNumberLabel, StringResources.AdditionToTheReport_HeatNumberLabel.Id),
                 new LocalizedItem(weightLabel, StringResources.AdditionToTheReport_WeightLabel.Id),
                 new LocalizedItem(lengthLabel, StringResources.AdditionToTheReport_LengthLabel.Id),
-                new LocalizedItem(shippingDateLabel, StringResources.AdditionToTheReport_ShippingDateLabel.Id),
+                new LocalizedItem(productionDateLabel, StringResources.AdditionToTheReport_ProductionDateLabel.Id),
                 new LocalizedItem(totalCountLabel, StringResources.AdditionToTheReport_TotalCountLabel.Id),
                 new LocalizedItem(pipesLengthLabel, StringResources.AdditionToTheReport_PipesLengthLabel.Id),
                 new LocalizedItem(pipesWeightLabel, StringResources.AdditionToTheReport_PipesWeightLabel.Id),

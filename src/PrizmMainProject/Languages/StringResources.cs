@@ -1160,10 +1160,10 @@ namespace Prizm.Main.Languages
             Id = "AdditionToTheReport_LengthLabel",
             Description = "Длина"
         };
-        public static StringResource AdditionToTheReport_ShippingDateLabel = new StringResource
+        public static StringResource AdditionToTheReport_ProductionDateLabel = new StringResource
         {
-            Id = "AdditionToTheReport_ShippingDateLabel",
-            Description = "Дата отгрузки"
+            Id = "AdditionToTheReport_ProductionDateLabel",
+            Description = "Дата производства"
         };
         public static StringResource AdditionToTheReport_TotalCountLabel = new StringResource
         {
