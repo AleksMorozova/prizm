@@ -248,7 +248,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         bool IValidatable.Validate()
         {
             bool validated = true;
-            if ((usedCodes.Where(g => g == viewModel.Code ).Count() >= 1))
+            if (usedCodes.Where(g => g == viewModel.Code ).Count() >= 1)
             {
                 string msg = string.Concat(Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeError), viewModel.Code);
                 string header = Program.LanguageManager.GetString(StringResources.Inspection_ExistingCodeErrorHeader);
