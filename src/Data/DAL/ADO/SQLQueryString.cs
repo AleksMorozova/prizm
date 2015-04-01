@@ -53,7 +53,7 @@ group by r.number, n.number, r.certificate, r.destination";
               left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
               left  join Heat on (Heat.id = Plate.heatId)
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate and 
-                        Pipe.isActive='1' and Pipe.pipeMillStatus in Pipe.pipeMillStatus in('Stocked' ,'Shipped','ReadyToShip') {where_options}";
+                        Pipe.isActive=1 and Pipe.pipeMillStatus in ('Stocked' ,'Shipped','ReadyToShip') {where_options}";
 
         public const string ColumnNameForMillReport = "pipeMillStatus";
         public const string TableNameForMillReport = "Pipe";
@@ -69,7 +69,8 @@ group by r.number, n.number, r.certificate, r.destination";
               WHERE productionDate >=  @startDate  and productionDate <= @finalDate 
               {where_options}";
 
-        private const string CountPipesInformation = @"Select COUNT(Pipe.number) as count, SUM(Pipe.Length) length,SUM(Pipe.Weight) as sum From Pipe Pipe WHERE productionDate >=  @startDate  and productionDate <= @finalDate";
+        private const string CountPipesInformation = @"Select COUNT(Pipe.number) as count, SUM(Pipe.Length) length,SUM(Pipe.Weight) as sum From Pipe Pipe WHERE productionDate >=  @startDate  and productionDate <= @finalDate
+and  Pipe.isActive=1 and Pipe.pipeMillStatus in ('Stocked' ,'Shipped','ReadyToShip')";
 
         private const string CountPipesWeldInformation = @"select productionDate as productionDate, 
 (select COUNT (number) from Pipe p where p.millWeldSubStatus = 'WithRepair' and p.productionDate = pipe.productionDate)as 'WithRepairWeld',
