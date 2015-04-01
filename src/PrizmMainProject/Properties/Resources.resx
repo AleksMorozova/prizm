@@ -1728,7 +1728,7 @@
   <data name="AdditionToTheReport_PipesWeightLabel" xml:space="preserve">
     <value>Общий вес:</value>
   </data>
-  <data name="AdditionToTheReport_ShippingDateLabel" xml:space="preserve">
+  <data name="AdditionToTheReport_ProductionDateLabel" xml:space="preserve">
     <value>Дата производства</value>
   </data>
   <data name="AdditionToTheReport_TotalCountLabel" xml:space="preserve">
