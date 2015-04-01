@@ -1455,15 +1455,15 @@ namespace Prizm.Main.Forms.Settings
         }
 
         private MillInspectionXtraForm GetInspectionForm(PipeTest selectedTest,
-                 BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes)
+                 BindingList<Prizm.Domain.Entity.Mill.Category> categoryTypes, List<string> usedCodes)
         {
             if (inspectionForm == null)
             {
-                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.PipeTests);
+                inspectionForm = new MillInspectionXtraForm(selectedTest, categoryTypes, viewModel.PipeTests, usedCodes);
             }
             else
             {
-                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.PipeTests);
+                inspectionForm.SetupForm(selectedTest, categoryTypes, viewModel.PipeTests, usedCodes);
             }
 
             return inspectionForm;
@@ -1474,7 +1474,7 @@ namespace Prizm.Main.Forms.Settings
         {
             if (IsEditMode && IsEditable(IsEditMode))
             {
-                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes);
+                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes, viewModel.PipeTests.Select(_ => _.Code).ToList<string>());
                 inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
 
                 if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -1495,7 +1495,7 @@ namespace Prizm.Main.Forms.Settings
                 var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
                 if (selectedTest != null)
                 {
-                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes);
+                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests.Where(_ => _.Code != selectedTest.Code).Select(_ => _.Code).ToList<string>());
 
                     if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
