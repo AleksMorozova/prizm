@@ -2109,12 +2109,12 @@ namespace Prizm.Main.Forms.Settings
         
         private void pipeDiameter_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender,e);
+            BindingHelper.CorrectDecimalSeparator(sender,e);
         }
 
         private void wallThickness_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
     }
 }

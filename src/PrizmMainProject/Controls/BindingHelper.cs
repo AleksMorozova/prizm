@@ -11,7 +11,7 @@ namespace Prizm.Main.Controls
 {
     class BindingHelper
     {
-        public static void ParseMethod(object sender, ConvertEditValueEventArgs e)
+        public static void CorrectDecimalSeparator(object sender, ConvertEditValueEventArgs e)
         {
             NumberFormatInfo numberFormatInfo = System.Globalization.CultureInfo.CurrentCulture.NumberFormat;
             string decimalSeparator = numberFormatInfo.NumberDecimalSeparator;

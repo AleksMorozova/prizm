@@ -706,12 +706,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void seaLevel_ParseEditValue(object sender, ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
 
         private void distanceFromPK_ParseEditValue(object sender, ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
     }
 }

@@ -374,12 +374,12 @@ namespace Prizm.Main.Forms.Settings.Inspections
 
         private void minExpected_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
 
         private void maxExpected_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
 
     }

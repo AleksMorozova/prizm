@@ -468,7 +468,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void positiveFloat_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
-            BindingHelper.ParseMethod(sender, e);
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
     }
 }
