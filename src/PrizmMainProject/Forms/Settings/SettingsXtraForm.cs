@@ -60,6 +60,7 @@ namespace Prizm.Main.Forms.Settings
         private bool usersValidate = true;
         private bool roleValidate = true;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingsXtraForm));
+
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -502,7 +503,7 @@ namespace Prizm.Main.Forms.Settings
 
             foreach (Prizm.Domain.Entity.Mill.Category c in viewModel.CategoryTypes)
             {
-                if (c.Fixed && c.ResultType == "int")
+                if (c.Fixed && c.Type == FixedCategory.Length)
                 {
                     CurrentPipeMillSizeType.PipeTests.Add(new PipeTest { Category = c, ResultType = PipeTestResultType.Diapason, pipeType = CurrentPipeMillSizeType, FrequencyType = InspectionFrequencyType.R });
                 }
@@ -598,7 +599,14 @@ namespace Prizm.Main.Forms.Settings
         private void inspectionView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<PipeTest>(e, viewModel.PipeTests, (_) => _.IsNew());
+            PipeTest removedTest = view.RemoveSelectedItem<PipeTest>(e, viewModel.PipeTests, (_) => _.IsNew());
+            if(removedTest != null)
+            {
+                if (!CurrentPipeMillSizeType.PipeTests.Remove(removedTest))
+                {
+                    log.Error(string.Format("Removing pipe test {0} from size type {1} was not synchronized!", removedTest.Code, CurrentPipeMillSizeType.Type));
+                }
+            }
         }
 
         private void pipesSizeListGridView_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
