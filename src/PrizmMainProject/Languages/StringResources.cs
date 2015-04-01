@@ -1163,7 +1163,7 @@ namespace Prizm.Main.Languages
         public static StringResource AdditionToTheReport_ShippingDateLabel = new StringResource
         {
             Id = "AdditionToTheReport_ShippingDateLabel",
-            Description = "Дата отгрузки"
+            Description = "Дата производства"
         };
         public static StringResource AdditionToTheReport_TotalCountLabel = new StringResource
         {

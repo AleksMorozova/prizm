@@ -1729,7 +1729,7 @@
     <value>Общий вес:</value>
   </data>
   <data name="AdditionToTheReport_ShippingDateLabel" xml:space="preserve">
-    <value>Дата отгрузки</value>
+    <value>Дата производства</value>
   </data>
   <data name="AdditionToTheReport_TotalCountLabel" xml:space="preserve">
     <value>Количество:</value>
