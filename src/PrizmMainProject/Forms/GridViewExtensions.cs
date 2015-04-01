@@ -14,8 +14,9 @@ namespace Prizm.Main.Forms
    {
        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(GridViewExtensions));
 
-      public static void RemoveSelectedItem<T>(this GridView view, System.Windows.Forms.KeyEventArgs e, IList<T> list, Func<T, bool> isNewCondition) where T : class
+      public static T RemoveSelectedItem<T>(this GridView view, System.Windows.Forms.KeyEventArgs e, IList<T> list, Func<T, bool> isNewCondition) where T : class
       {
+          T removedEntity = null;
          if (e.KeyCode == System.Windows.Forms.Keys.Delete && view.IsValidRowHandle(view.FocusedRowHandle))
          {
              object item = view.GetRow(view.FocusedRowHandle);
@@ -31,14 +32,19 @@ namespace Prizm.Main.Forms
                  T entity = item as T;
                  if (isNewCondition(entity) && AskDeleteItem())
                  {
-                     list.Remove(entity);
+                     if (list.Remove(entity))
+                     {
+                         removedEntity = entity;
+                     }
                  }
              }
          }
+         return removedEntity;
       }
 
       private static bool AskDeleteItem()
       {
+          // TODO: replace by IUserNotify.ShowYesNo
          return MessageBox.Show(
                     Program.LanguageManager.GetString(StringResources.Message_DeleteRecord),
                     Program.LanguageManager.GetString(StringResources.MainWindowHeader_Title), 
