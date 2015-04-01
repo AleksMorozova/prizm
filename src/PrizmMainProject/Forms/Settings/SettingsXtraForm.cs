@@ -1765,7 +1765,7 @@ namespace Prizm.Main.Forms.Settings
                     plateManufacturersListView.FocusedRowHandle = i;
 
                     plateManufacturersListView_ValidateRow(
-                        inspectionView,
+                        plateManufacturersListView,
                         new DevExpress.XtraGrid.Views.Base
                             .ValidateRowEventArgs(i, plateManufacturersListView.GetDataRow(i)));
                     if (!plateManufacturersValidate)
