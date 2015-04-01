@@ -2027,21 +2027,23 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.wallThickness.Location = new System.Drawing.Point(673, 455);
             this.wallThickness.Name = "wallThickness";
-            this.wallThickness.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.wallThickness.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
             this.wallThickness.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.wallThickness.Size = new System.Drawing.Size(102, 20);
             this.wallThickness.StyleController = this.rootLayoutControl;
             this.wallThickness.TabIndex = 12;
+            this.wallThickness.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.wallThickness_ParseEditValue);
             // 
             // pipeDiameter
             // 
             this.pipeDiameter.Location = new System.Drawing.Point(486, 455);
             this.pipeDiameter.Name = "pipeDiameter";
-            this.pipeDiameter.Properties.Mask.EditMask = "\\d+(\\R.\\d{0,2})?";
+            this.pipeDiameter.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
             this.pipeDiameter.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.pipeDiameter.Size = new System.Drawing.Size(173, 20);
             this.pipeDiameter.StyleController = this.rootLayoutControl;
             this.pipeDiameter.TabIndex = 13;
+            this.pipeDiameter.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.pipeDiameter_ParseEditValue);
             // 
             // seamType
             // 

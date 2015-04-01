@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,24 @@ namespace Prizm.Main.Controls
 {
     class BindingHelper
     {
+        public static void ParseMethod(object sender, ConvertEditValueEventArgs e)
+        {
+            NumberFormatInfo numberFormatInfo = System.Globalization.CultureInfo.CurrentCulture.NumberFormat;
+            string decimalSeparator = numberFormatInfo.NumberDecimalSeparator;
+            string val = e.Value.ToString();
+            if (val != string.Empty)
+            {
+                if (!val.Contains(decimalSeparator))
+                {
+                    if (decimalSeparator == ",")
+                        val = val.Replace(".", decimalSeparator);
+                    else
+                        val = val.Replace(",", decimalSeparator);
+                }
+                e.Value = decimal.Parse(val);
+            }
+        }
+
         #region --- Inversion ---
 
         public static Binding CreateCheckEditInverseBinding(string propertyName, object dataSource, string dataMember)
