@@ -1000,7 +1000,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             List<PipeTestResult> lengthOperation2 = new List<PipeTestResult>();
             List<PipeTestResult> lengthOperation3 = new List<PipeTestResult>();
 
-            int tmpLength;
             float tmpFloatLength;
 
             //group by category
@@ -1037,8 +1036,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     if (Single.TryParse(t.Value, out tmpFloatLength))
                     {
-                        tmpLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
-                        this.PipeLength = tmpLength;
+                        this.PipeLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
                     }
                 }
             }
@@ -1047,8 +1045,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if (Single.TryParse(t.Value, out tmpFloatLength))
                 {
-                    tmpLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
-                    this.PipeLength = tmpLength;
+                    this.PipeLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
                 }
             }
 
