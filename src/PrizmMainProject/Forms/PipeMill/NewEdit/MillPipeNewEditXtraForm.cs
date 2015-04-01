@@ -1054,6 +1054,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
         }
+
+        private void plateThickness_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
+        }
     }
 }
 

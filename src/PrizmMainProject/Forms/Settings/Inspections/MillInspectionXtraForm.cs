@@ -17,6 +17,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Documents;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.DXErrorProvider;
+using Prizm.Main.Controls;
 
 namespace Prizm.Main.Forms.Settings.Inspections
 {
@@ -369,6 +370,16 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             Category c = e.Value as Category;
             CheckFixedResultType(c);
+        }
+
+        private void minExpected_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
+        }
+
+        private void maxExpected_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
         }
 
     }

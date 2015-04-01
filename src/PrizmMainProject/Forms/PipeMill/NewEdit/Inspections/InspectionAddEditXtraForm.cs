@@ -16,6 +16,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using Prizm.Main.Controls;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -295,6 +296,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             inspectors.InspectionDate = date.DateTime;
             inspectors.Refresh();
+        }
+
+        private void factLimit_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
         }
     }
 }

@@ -703,5 +703,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             firstJointElement.Properties.DataSource = viewModel.PartDataList;
             secondJointElement.Properties.DataSource = viewModel.PartDataList;
         }
+
+        private void seaLevel_ParseEditValue(object sender, ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
+        }
+
+        private void distanceFromPK_ParseEditValue(object sender, ConvertEditValueEventArgs e)
+        {
+            BindingHelper.ParseMethod(sender, e);
+        }
     }
 }
