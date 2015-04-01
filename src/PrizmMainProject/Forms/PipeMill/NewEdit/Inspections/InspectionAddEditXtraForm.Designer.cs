@@ -173,7 +173,8 @@
             this.factLimit.Name = "factLimit";
             this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.factLimit.Properties.Mask.EditMask = "d";
+            this.factLimit.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.factLimit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.factLimit.Properties.MaxValue = new decimal(new int[] {
             1410065407,
             2,
@@ -182,6 +183,7 @@
             this.factLimit.Size = new System.Drawing.Size(319, 20);
             this.factLimit.StyleController = this.rootLayoutControl;
             this.factLimit.TabIndex = 15;
+            this.factLimit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.factLimit_ParseEditValue);
             // 
             // factBool
             // 

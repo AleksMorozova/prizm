@@ -185,7 +185,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 .Add("EditValue", componentBindingSource, "Certificate");
 
             componentParameters.DataBindings
-                .Add("DataSource", componentBindingSource, "Connectors");
+              .Add("DataSource", componentBindingSource, "Connectors");
 
             type.DataBindings
                 .Add("EditValue", componentBindingSource, "Type");
@@ -464,6 +464,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             GridColumn col = view.Columns["IsConnected"];
             return Convert.ToBoolean(view.GetRowCellValue(row, col));
+        }
+
+        private void positiveFloat_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            BindingHelper.CorrectDecimalSeparator(sender, e);
         }
     }
 }

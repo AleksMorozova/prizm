@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -89,7 +90,7 @@
             this.btnAddLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnRemoveLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.repeatedOperationsLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
@@ -312,9 +313,9 @@
             this.controlType.Size = new System.Drawing.Size(224, 20);
             this.controlType.StyleController = this.mainLayoutControl;
             this.controlType.TabIndex = 23;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Тип контроля не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.controlType, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Тип контроля не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.controlType, conditionValidationRule5);
             // 
             // resultType
             // 
@@ -326,9 +327,9 @@
             this.resultType.Size = new System.Drawing.Size(236, 20);
             this.resultType.StyleController = this.mainLayoutControl;
             this.resultType.TabIndex = 22;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Тип результата должен быть установлен";
-            this.dxValidationProvider.SetValidationRule(this.resultType, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Тип результата должен быть установлен";
+            this.dxValidationProvider.SetValidationRule(this.resultType, conditionValidationRule1);
             this.resultType.SelectedIndexChanged += new System.EventHandler(this.resultType_SelectedIndexChanged);
             // 
             // category
@@ -381,21 +382,23 @@
             // 
             this.maxExpected.Location = new System.Drawing.Point(649, 110);
             this.maxExpected.Name = "maxExpected";
-            this.maxExpected.Properties.Mask.EditMask = "n0";
-            this.maxExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.maxExpected.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.maxExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.maxExpected.Size = new System.Drawing.Size(113, 20);
             this.maxExpected.StyleController = this.mainLayoutControl;
             this.maxExpected.TabIndex = 13;
+            this.maxExpected.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.maxExpected_ParseEditValue);
             // 
             // minExpected
             // 
             this.minExpected.Location = new System.Drawing.Point(523, 110);
             this.minExpected.Name = "minExpected";
-            this.minExpected.Properties.Mask.EditMask = "n0";
-            this.minExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.minExpected.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.minExpected.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.minExpected.Size = new System.Drawing.Size(112, 20);
             this.minExpected.StyleController = this.mainLayoutControl;
             this.minExpected.TabIndex = 12;
+            this.minExpected.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.minExpected_ParseEditValue);
             // 
             // boolExpected
             // 
@@ -423,9 +426,9 @@
             this.operationName.Size = new System.Drawing.Size(260, 20);
             this.operationName.StyleController = this.mainLayoutControl;
             this.operationName.TabIndex = 5;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Название операции не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.operationName, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Название операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.operationName, conditionValidationRule2);
             // 
             // code
             // 
@@ -434,9 +437,9 @@
             this.code.Size = new System.Drawing.Size(236, 20);
             this.code.StyleController = this.mainLayoutControl;
             this.code.TabIndex = 4;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Код операции не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.code, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Код операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.code, conditionValidationRule3);
             // 
             // Root
             // 
