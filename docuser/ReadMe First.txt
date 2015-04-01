@@ -1,4 +1,4 @@
-Before use converter install Node.js
+Before use converter install Node.js and wkhtmltox.exe
 
 all chapters file name must start from order digits and have .md extension
 
