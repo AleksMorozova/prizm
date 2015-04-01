@@ -33,7 +33,6 @@
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.factString = new DevExpress.XtraEditors.LookUpEdit();
             this.status = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.factLimit = new DevExpress.XtraEditors.SpinEdit();
             this.factBool = new DevExpress.XtraEditors.CheckEdit();
             this.code = new DevExpress.XtraEditors.ComboBoxEdit();
             this.inspectors = new Prizm.Main.Controls.InspectorSelectionControl();
@@ -67,11 +66,11 @@
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.factLimit = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBool.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).BeginInit();
@@ -103,13 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
             // 
             this.rootLayoutControl.Controls.Add(this.factString);
             this.rootLayoutControl.Controls.Add(this.status);
-            this.rootLayoutControl.Controls.Add(this.factLimit);
             this.rootLayoutControl.Controls.Add(this.factBool);
             this.rootLayoutControl.Controls.Add(this.code);
             this.rootLayoutControl.Controls.Add(this.inspectors);
@@ -119,6 +118,7 @@
             this.rootLayoutControl.Controls.Add(this.category);
             this.rootLayoutControl.Controls.Add(this.saveButton);
             this.rootLayoutControl.Controls.Add(this.cancelButton);
+            this.rootLayoutControl.Controls.Add(this.factLimit);
             this.rootLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutControl.Name = "rootLayoutControl";
@@ -161,29 +161,6 @@
             this.status.Size = new System.Drawing.Size(325, 20);
             this.status.StyleController = this.rootLayoutControl;
             this.status.TabIndex = 16;
-            // 
-            // factLimit
-            // 
-            this.factLimit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.factLimit.Location = new System.Drawing.Point(35, 359);
-            this.factLimit.Name = "factLimit";
-            this.factLimit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.factLimit.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
-            this.factLimit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.factLimit.Properties.MaxValue = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.factLimit.Size = new System.Drawing.Size(319, 20);
-            this.factLimit.StyleController = this.rootLayoutControl;
-            this.factLimit.TabIndex = 15;
-            this.factLimit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.factLimit_ParseEditValue);
             // 
             // factBool
             // 
@@ -459,7 +436,6 @@
             this.factLimitLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.factLimitLayout.TextSize = new System.Drawing.Size(0, 0);
             this.factLimitLayout.TextToControlDistance = 0;
-            this.factLimitLayout.TextVisible = false;
             // 
             // factBoolLayoutControlGroup
             // 
@@ -541,6 +517,23 @@
             this.footerEmptySpaceItem.Text = "footerEmptySpaceItem";
             this.footerEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // factLimit
+            // 
+            this.factLimit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.factLimit.Location = new System.Drawing.Point(35, 359);
+            this.factLimit.Name = "factLimit";
+            this.factLimit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.factLimit.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.factLimit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.factLimit.Size = new System.Drawing.Size(319, 20);
+            this.factLimit.StyleController = this.rootLayoutControl;
+            this.factLimit.TabIndex = 15;
+            this.factLimit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.factLimit_ParseEditValue);
+            // 
             // InspectionAddEditXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -560,7 +553,6 @@
             this.rootLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.status.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factBool.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.code.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date.Properties.CalendarTimeProperties)).EndInit();
@@ -592,6 +584,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -624,7 +617,6 @@
         private System.Windows.Forms.BindingSource inspectorsBindingSource;
         private DevExpress.XtraEditors.ComboBoxEdit code;
         private DevExpress.XtraLayout.LayoutControlItem codeLayoutControlItem;
-        private DevExpress.XtraEditors.SpinEdit factLimit;
         private DevExpress.XtraEditors.CheckEdit factBool;
         private DevExpress.XtraLayout.LayoutControlGroup factDiapasonLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlItem factLimitLayout;
@@ -635,5 +627,6 @@
         private DevExpress.XtraLayout.LayoutControlItem statusLayoutControlItem;
         private DevExpress.XtraEditors.LookUpEdit factString;
         private DevExpress.XtraLayout.LayoutControlItem factStringLayout;
+        private DevExpress.XtraEditors.TextEdit factLimit;
     }
 }

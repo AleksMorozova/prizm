@@ -13,11 +13,14 @@ namespace Prizm.Main.Controls
     {
         public static void CorrectDecimalSeparator(object sender, ConvertEditValueEventArgs e)
         {
-            NumberFormatInfo numberFormatInfo = System.Globalization.CultureInfo.CurrentCulture.NumberFormat;
-            string decimalSeparator = numberFormatInfo.NumberDecimalSeparator;
-            string val = e.Value.ToString();
-            if (val != string.Empty)
+            if (e.Value != null)
             {
+                string val = e.Value.ToString();
+            
+            if (!string.IsNullOrWhiteSpace(val))
+            {
+                NumberFormatInfo numberFormatInfo = System.Globalization.CultureInfo.CurrentCulture.NumberFormat;
+                string decimalSeparator = numberFormatInfo.NumberDecimalSeparator;
                 if (!val.Contains(decimalSeparator))
                 {
                     if (decimalSeparator == ",")
@@ -27,6 +30,7 @@ namespace Prizm.Main.Controls
                 }
                 e.Value = decimal.Parse(val);
             }
+}
         }
 
         #region --- Inversion ---
