@@ -24,8 +24,8 @@ namespace Prizm.Main.Forms.Notifications.Data
 
             public object TransformTuple(object[] tuple, string[] aliases)
             {
-                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple), 
-                    Program.LanguageManager.GetString(StringResources.Notification_DuplicatePipeNumber_Critical));
+                return DuplicateNumberManager.CreateNotification(GetId(tuple), GetOwnerName(tuple),
+                     GetTextInformation(tuple));
             }
 
 
@@ -39,6 +39,11 @@ namespace Prizm.Main.Forms.Notifications.Data
                 var number = (tuple[2] == null) ? string.Empty : tuple[2].ToString();
                 var mill = (tuple[1] == null) ? string.Empty : tuple[1].ToString() ;
                 return number + "/" + mill;
+            }
+
+            public string GetTextInformation(object[] tuple)
+            {
+                return tuple[2].ToString();
             }
 
         }

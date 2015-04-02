@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Notifications.Data
             public string GetOwnerName(object[] tuple)
             {
                 string middleName = (tuple[3] == null) ? "" : tuple[3].ToString();
-                return tuple[1].ToString() + " " + tuple[2].ToString() + " " + middleName;
+                return tuple[1].ToString() + " " + middleName + " " + tuple[2].ToString();
             }
 
             public DateTime GetExpirationDate(object[] tuple)
