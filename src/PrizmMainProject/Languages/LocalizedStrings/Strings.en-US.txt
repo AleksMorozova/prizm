@@ -2153,7 +2153,7 @@ Notification_NotRequiredInspectionOperation_Critical = Expired deadline for perf
 Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of control operation
 
 ;Сообщение о дублировании логинов: Дубликат номера труб
-Notification_DublicateLogin_Critical = User logins duplicating
+Notification_DuplicateLogin_Critical = User logins duplicating
 
 ;Сообщение о дублировании
 Notification_DuplicatePipeNumber_Critical = Duplicated number
