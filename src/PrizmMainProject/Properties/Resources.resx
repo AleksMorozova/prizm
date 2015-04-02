@@ -576,9 +576,6 @@
   <data name="Export_Ready" xml:space="preserve">
     <value>Экспортирование завершено успешно. Количество экспортированных элементов:</value>
   </data>
-  <data name="Notification_DublicatePipeNumber_Critical" xml:space="preserve">
-    <value>Дубликат номера труб</value>
-  </data>
   <data name="MillPipe_DeactivatePipeQuestionHeader" xml:space="preserve">
     <value>Деактивация трубы</value>
   </data>
@@ -1306,7 +1303,7 @@
   <data name="WaitScreen_Description" xml:space="preserve">
     <value>Идет загрузка ...</value>
   </data>
-  <data name="Notification_DublicateLogin_Critical" xml:space="preserve">
+  <data name="Notification_DuplicateLogin_Critical" xml:space="preserve">
     <value>Дублирование логина</value>
   </data>
   <data name="Settings_UniqueLogin" xml:space="preserve">

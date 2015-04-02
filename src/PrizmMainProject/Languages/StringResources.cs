@@ -5485,9 +5485,9 @@ namespace Prizm.Main.Languages
             Description = "Сообщение об окончании срока: Заканчивается срок сертификата"
         };
 
-        public static StringResource Notification_DublicateLogin_Critical = new StringResource
+        public static StringResource Notification_DuplicateLogin_Critical = new StringResource
         {
-            Id = "Notification_DublicateLogin_Critical",
+            Id = "Notification_DuplicateLogin_Critical",
             Description = "Сообщение о дублировании логинов"
         };
 
