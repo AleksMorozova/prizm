@@ -1355,7 +1355,7 @@ JointSearch_GpsLatCol=Lat
 JointSearch_GpsLongCol=Long
 
 ;Высота
-JointSearch_GpsHeightCol=Elevation
+JointSearch_GpsHeightCol=Elevation, m
 
 ;Тип отчета
 ConstructionReports_ReportTypeLayout=Report type
