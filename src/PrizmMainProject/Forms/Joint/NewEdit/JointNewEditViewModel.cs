@@ -857,7 +857,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 var part = this.GetPart(partData);
 
                 if ((part is Pipe || part is construction.Spool) 
-                            && !((Part)part).IsAvailableToJoint
+                            && !((Pipe)part).IsAvailableToJoint
                     || 
                     part is construction.Component
                             && !((construction.Component)part).Connectors
