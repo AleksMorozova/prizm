@@ -374,7 +374,7 @@ function IsNewInstall : Boolean;
 begin
   Result := UsagePage.SelectedValueIndex = 0;
 end;
-
+                                        
 
 function IsUpdate : Boolean;
 begin
@@ -432,63 +432,65 @@ begin
   Result := WizardForm.GroupEdit.Text;
 end;
 
-function GetNumber(var temp: String): Integer;
+function GetNumber(var restOfVersion: String): Integer;
 var
   part: String;
-  pos1: Integer;
+  nextPoint: Integer;
 begin
-//   Log('temp: ' + temp);
-  if Length(temp) = 0 then
+//   Log('restOfVersion: ' + restOfVersion);
+  if Length(restOfVersion) = 0 then
   begin
     Result := -1;
     Exit;
   end;
-    pos1 := Pos('.', temp);
-    if (pos1 = 0) then
+    nextPoint := Pos('.', restOfVersion);
+    if (nextPoint = 0) then
     begin
-      Result := StrToInt(temp);
-      temp := '';
+      Result := StrToInt(restOfVersion);
+      restOfVersion := '';
     end
     else
     begin
-      part := Copy(temp, 1, pos1 - 1);
-      temp := Copy(temp, pos1 + 1, Length(temp));
+      part := Copy(restOfVersion, 1, nextPoint - 1);
+      restOfVersion := Copy(restOfVersion, nextPoint + 1, Length(restOfVersion));
       Result := StrToInt(part);
     end;
 end;
  
-function CompareInner(var temp1, temp2: String): Integer;
+function CompareInner(var installed, toInstall: String): Integer;
 var
-  num1, num2: Integer;
+  numPartInstalled, numPartToInstall: Integer;
 begin
-  num1 := GetNumber(temp1);
-  num2 := GetNumber(temp2);
-  if (num1 = -1) or (num2 = -1) then
+  numPartInstalled := GetNumber(installed);
+  numPartToInstall := GetNumber(toInstall);
+
+  if (numPartInstalled = -1) or (numPartToInstall = -1) then
   begin
     Result := 0;
     Exit;
   end;
-      if (num1 > num2) then
-      begin
-        Result := 1;
-      end
-      else if (num1 < num2) then
-      begin
-        Result := -1;
-      end
-      else
-      begin
-        Result := CompareInner(temp1, temp2);
-      end;
+
+  if (numPartInstalled > numPartToInstall) then
+  begin
+    Result := 1;
+  end
+  else if (numPartInstalled < numPartToInstall) then
+  begin
+    Result := -1;
+  end
+  else
+  begin
+    Result := CompareInner(installed, toInstall);
+  end;
 end;
 
-function CompareVersions(str1: String; str2 :String): Integer;
+function CompareVersions(installedVersion: String; versionToInstall :String): Integer;
 var
-  temp1, temp2: String;
+  installed, toInstall: String;
 begin
-    temp1 := str1;
-    temp2 := str2;
-    Result := CompareInner(temp1, temp2);
+    installed := Trim(installedVersion);
+    toInstall := Trim(versionToInstall);
+    Result := CompareInner(installed, toInstall);
 end;
 
 //-----------------------
@@ -636,7 +638,7 @@ begin
     begin
       if CompareVersions(GetUpdateProductVersion(), '{#MyAppVersion}') >= 0 then
       begin
-        if MsgBox(FmtMessage(CustomMessage('ConfirmDowngrade'), [GetUpdateProductVersion(), '{#MyAppVersion}']), mbConfirmation, MB_YESNO) = IDYES then 
+        if MsgBox(FmtMessage(CustomMessage('ConfirmDowngrade'), ['{#MyAppVersion}', GetUpdateProductVersion()]), mbConfirmation, MB_YESNO) = IDYES then 
         begin
           Result := True;
         end
