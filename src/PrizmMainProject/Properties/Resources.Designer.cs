@@ -2906,18 +2906,9 @@ namespace Prizm.Main.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Дублирование логина.
         /// </summary>
-        internal static string Notification_DublicateLogin_Critical {
+        internal static string Notification_DuplicateLogin_Critical {
             get {
-                return ResourceManager.GetString("Notification_DublicateLogin_Critical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Дубликат номера труб.
-        /// </summary>
-        internal static string Notification_DublicatePipeNumber_Critical {
-            get {
-                return ResourceManager.GetString("Notification_DublicatePipeNumber_Critical", resourceCulture);
+                return ResourceManager.GetString("Notification_DuplicateLogin_Critical", resourceCulture);
             }
         }
         
