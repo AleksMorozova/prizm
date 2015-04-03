@@ -141,6 +141,8 @@ namespace Prizm.Main.Forms.Settings
             repositoryWelderCertDateEdit.SetLimits();
             repositoryInspectorCertDateEdit.SetLimits();
             repositoryPassExpiredDateEdit.SetLimits();
+            pipeDiameter.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+            wallThickness.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
             // TODO: pipeLayoutControlGroup.Tag always has value  because method pipeLayoutControlGroup_Shown is always call
             findDuplicateList = new Dictionary<GridView, DuplicatesList>();
             CreateDuplicateList();
