@@ -36,9 +36,9 @@ namespace Prizm.Main.Common
         /// </summary>
         /// <param name="edit">text edit to extend</param>
         /// <param name="digitsBeforeDecimaPoint">number of digits before decima point</param>
-        public static void SetFloatMask(this TextEdit edit, int digitsBeforeDecimaPoint)
+        public static void SetFloatMask(this TextEdit edit, int digitsBeforeDecimaPoint, bool canBeNegative = false)
         {
-            SetUpMask(edit.Properties.Mask, digitsBeforeDecimaPoint);
+            SetUpMask(edit.Properties.Mask, digitsBeforeDecimaPoint, canBeNegative);
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace Prizm.Main.Common
         /// </summary>
         /// <param name="edit">text edit to extend</param>
         /// <param name="digitsBeforeDecimaPoint">number of digits before decima point</param>
-        public static void SetFloatMask(this RepositoryItemTextEdit edit, int digitsBeforeDecimaPoint)
+        public static void SetFloatMask(this RepositoryItemTextEdit edit, int digitsBeforeDecimaPoint, bool canBeNegative=false)
         {
-            SetUpMask(edit.Mask, digitsBeforeDecimaPoint);
+            SetUpMask(edit.Mask, digitsBeforeDecimaPoint, canBeNegative);
         }
 
         /// <summary>
@@ -56,11 +56,18 @@ namespace Prizm.Main.Common
         /// </summary>
         /// <param name="edit">mask</param>
         /// <param name="digitsBeforeDecimaPoint">number of digits before decima point</param>
-        private static void SetUpMask(DevExpress.XtraEditors.Mask.MaskProperties mask, int digitsBeforeDecimaPoint) 
+        private static void SetUpMask(DevExpress.XtraEditors.Mask.MaskProperties mask, int digitsBeforeDecimaPoint, bool canBeNegative) 
         {
             int setDigits = (digitsBeforeDecimaPoint > maxDigitsBeforeDecimalPoint) ? maxDigitsBeforeDecimalPoint : digitsBeforeDecimaPoint;
             mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            mask.EditMask = @"\d{0," + setDigits.ToString() + @"}([\.\,]\d{0,2})?";
+            if (canBeNegative)
+            {
+                mask.EditMask = @"(-\d|\d){0," + setDigits.ToString() + @"}([\.\,]\d{0,2})?";
+            }
+            else
+            {
+                mask.EditMask = @"\d{0," + setDigits.ToString() + @"}([\.\,]\d{0,2})?";
+            }
             mask.ShowPlaceHolders = false;
         } 
     }

@@ -79,7 +79,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
             distanceFromPK.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
-            seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+            seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint, canBeNegative:true);
             attachmentsButton.Enabled = true;
             #endregion
         }
@@ -233,7 +233,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             operationDateEdit.SetLimits();
 
             PKNumber.SetMask(Constants.PositiveDigitMask);
-            distanceFromPK.SetMask(Constants.PositiveDigitMask);
 
             weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
