@@ -31,5 +31,10 @@ namespace Prizm.Main.Common
         /// Warning should be shown this amount of days before expiration
         /// </summary>
         public const int DaysToExpirationWarning = 30;
+
+        /// <summary>
+        /// Warning should be shown this amount of days before expiration
+        /// </summary>
+        public const int DigitsBeforeDecimalPoint = 6;
     }
 }
