@@ -69,6 +69,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             date.Properties.NullDate = DateTime.MinValue;
             date.Properties.NullText = string.Empty;
 
+            factLimit.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+
             if(current != null)
             {
                 ChangeFact();
