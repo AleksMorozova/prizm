@@ -69,6 +69,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             componentNumber.SetAsIdentifier();
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
+
+            positiveFloat.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
         }
 
         private void SetControlsTextLength()

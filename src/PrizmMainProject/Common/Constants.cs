@@ -33,7 +33,7 @@ namespace Prizm.Main.Common
         public const int DaysToExpirationWarning = 30;
 
         /// <summary>
-        /// Warning should be shown this amount of days before expiration
+        /// Number of digits before the decimal point
         /// </summary>
         public const int DigitsBeforeDecimalPoint = 6;
     }

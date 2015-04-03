@@ -97,7 +97,8 @@ namespace Prizm.Main.Forms.Settings.Inspections
             frequencyMeasure.SetRequiredCombo();
             resultType.SetRequiredCombo();
             percentOfSelect.SetRequiredText();
-
+            minExpected.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+            maxExpected.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
 
             CheckFixedResultType(viewModel.Category);
         }

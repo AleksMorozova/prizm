@@ -69,7 +69,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             loweringDate.Properties.NullDate = DateTime.MinValue;
             CannotOpenForViewing = id == Guid.Empty;
 
-            #region --- Colouring of required controls, IsEditMode, uppercasing ---
+            #region --- Colouring of required controls, IsEditMode, uppercasing, digits befor decimal point ---
             jointNumber.SetRequiredText();
             SetAlwaysReadOnly(jointStatus);
             firstJointElement.SetRequiredText();
@@ -78,6 +78,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             searchNumber.SetAsIdentifier();
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
+            distanceFromPK.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+            seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
             attachmentsButton.Enabled = true;
             #endregion
         }
