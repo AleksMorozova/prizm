@@ -7,3 +7,5 @@
 
 По двойному нажатию на такое сообщение программа откроет настройки на вкладке **Пользователи**. 
 
+![_notification_login_duplicate.png](_notification_login_duplicate.png "")
+
