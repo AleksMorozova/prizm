@@ -109,6 +109,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             certificateNumber.SetAsIdentifier();
             #endregion //--- Set Properties.CharacterCasing to Upper ---
 
+            plateThickness.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
             heatsLookUp.ButtonSetup();
             ordersLookUp.ButtonSetup();
 

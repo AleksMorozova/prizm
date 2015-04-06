@@ -770,7 +770,7 @@
             this.elevationLayout.Size = new System.Drawing.Size(291, 48);
             this.elevationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
-            this.elevationLayout.Text = "В&ысота";
+            this.elevationLayout.Text = "В&ысота, м";
             this.elevationLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.elevationLayout.TextSize = new System.Drawing.Size(120, 13);
             // 
