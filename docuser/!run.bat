@@ -1,7 +1,8 @@
 @echo off & setlocal ENABLEEXTENSIONS
 
 set BIN=..\..\prizm_external\external\Documentation\Modules
-
+set CONTENT=content.md
+set HCONTENT=content.html
 
 call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
 call:ProcessOne ListMaster           "PRISM v.2 Master User Guide (ru).pdf"
@@ -45,10 +46,13 @@ goto:eof
 rem --------------------
 :MergeSections
 
+echo. >> %CONTENT%
+type .\content\00Header.md >> %CONTENT%
+
 FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
-   echo. >> content.md
-   type "%%F" >> content.md
+   echo. >> %CONTENT%
+   type "%%F" >> %CONTENT%
 )
 
 echo Combined file created.
@@ -67,7 +71,7 @@ echo Removing old file %PDFFILE% ...
 call:DeleteFile %PDFFILE%
 
 echo Convert HTML to PDF %PDFFILE% ...
-%BIN%\Wkh\wkhtmltopdf .\content.html %PDFFILE%
+%BIN%\Wkh\wkhtmltopdf .\%HCONTENT% %PDFFILE%
 
 goto:eof
 
@@ -76,8 +80,8 @@ rem --------------------
 
 echo Removing temporary files ...
 
-call:DeleteFile content.md
-call:DeleteFile content.html
+call:DeleteFile %CONTENT%
+call:DeleteFile %HCONTENT%
 
 goto:eof
 
