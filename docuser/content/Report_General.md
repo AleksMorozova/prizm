@@ -9,5 +9,5 @@
 Отображаемая информация: дата производства, количество принятых, находящихся в ремонте, принятых после ремонта и забракованных труб. 
 
 
-![_mill_report_general.png](_mill_report_general.png "")
+![_mill_report_general.png](./images/_mill_report_general.png "")
 

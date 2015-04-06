@@ -8,4 +8,4 @@
 
 Также предоставлена общая информация по произведенным трубам: количество, длина и вес всех произведенных труб.
 
-![__mill_report_in_production.png](_mill_report_in_production.png "")
+![__mill_report_in_production.png](./images/_mill_report_in_production.png "")

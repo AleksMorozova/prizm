@@ -1,0 +1,4 @@
+.\content\Master_Settings.md
+.\content\Master_SearchElements.md
+.\content\Master_Notifications.md
+.\content\Master_Reports.md

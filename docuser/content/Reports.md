@@ -16,9 +16,9 @@
 
 Все отчеты могут быть сохранены в **.pdf**, непосредственно распечатаны из программы или конвертированы в **.xls**. Для экспорта в **.xls** необходимо нажать кнопку **Создать отчет** и после того как отчет будет сформирован проследовать в пункт меню **Файл -> Экспорт -> Документ Excel**.
 
-![_report_export_to_xlsx.png](_report_export_to_xlsx.png "Экспорт в Excel")
+![_report_export_to_xlsx.png](./images/_report_export_to_xlsx.png "Экспорт в Excel")
 
 При экспорте доступны дополнительные опции режима экспорта текста, линий сеток, экспорта ссылок, разбивка файла на страницы. 
 
-![_report_export_to_xlsx_options.png](_report_export_to_xlsx_options.png "Опции экспорта")
+![_report_export_to_xlsx_options.png](./images/_report_export_to_xlsx_options.png "Опции экспорта")
 
