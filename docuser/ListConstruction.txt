@@ -8,6 +8,7 @@
 .\content\Construct_NewEditSpool.md
 .\content\Construct_ElementsInspection.md
 .\content\Construct_SearchElements.md
+.\content\ExternalFiles.md
 .\content\Data_Transfer_Specific.md
 .\content\Import.md
 .\content\Export.md
