@@ -7,5 +7,5 @@
 
 По двойному нажатию на такое сообщение программа откроет настройки на вкладке **Труба**. 
 
-![_notification_pipe_inspection_operation_expired.png](_notification_pipe_inspection_operation_expired.png "")
+![_notifications_form.png](_notifications_form.png "")
 

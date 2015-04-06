@@ -8,5 +8,5 @@
 
 По двойному нажатию на такое сообщение программа откроет трубу с таким номером. 
 
-![_notification_pipe_number_duplicate.png](_notification_pipe_number_duplicate.png "")
+![_notifications_form.png](_notifications_form.png "")
 
