@@ -2,13 +2,13 @@
 ### Контроль элементов 
 Для открытия окна контроля элементов необходимо в меню **Входной контроль и строительство** выбрать пункт **Контроль элементов трубопровода** или нажать комбинацию клавиш **Ctrl+K**.
 
-![_menu_construction.png](D:/Git/prizm/docuser/content/_menu_construction.png "")
+![_menu_construction.png](_menu_construction.png "")
 
 Для открытия элемента для редактирования нужно в поле **Номер искомого элемента** ввести номер этого элемента или его начальные символы и нажать кнопку **Найти и редактировать для контроля**. В появившемся диалоговом окне необходимо выбрать элемент  для контроля и нажать кнопку **Контроль** или кликнуть дважды по нему в таблице.
 
-![_construction_incominginspection_search.png](D:/Git/prizm/docuser/content/_construction_incominginspection_search.png "")
+![_construction_incominginspection_search.png](_construction_incominginspection_search.png "")
 
 Сохранить результаты входного контроля можно заполнив все обязательные поля таблицы в секции **Входной контроль**: Дата, Результат, Инспектор и нажав кнопку **Сохранить** или **Сохранить/Очистить**.
 
-![_construction_incominginspection_done.png](D:/Git/prizm/docuser/content/_construction_incominginspection_done.png "")
+![_construction_incominginspection_done.png](_construction_incominginspection_done.png "")
   

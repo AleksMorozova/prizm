@@ -1,0 +1,6 @@
+.\content\Construct_Settings.md
+.\content\Construct_NewEditComponent.md
+.\content\Construct_NewEditJoint.md
+.\content\Construct_NewEditSpool.md
+.\content\Construct_ElementsInspection.md
+.\content\Construct_SearchElements.md

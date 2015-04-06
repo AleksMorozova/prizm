@@ -3,11 +3,12 @@
 set BIN=..\..\prizm_external\external\Documentation\Modules
 
 
-call:ProcessOne ListMill          "PRISM v.2 Mill User Guide.pdf"
-call:ProcessOne ListMaster        "PRISM v.2 Master User Guide.pdf"
-call:ProcessOne ListConstruction  "PRISM v.2 Construction User Guide.pdf"
-call:ProcessOne ListInstallation  "PRISM v.2 Installation Guide.pdf"
-call:ProcessOne ListCustomReports "PRISM v.2 Custom Reports Guide.pdf"
+call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
+call:ProcessOne ListMaster           "PRISM v.2 Master User Guide (ru).pdf"
+call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf"
+call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
+call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
+call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
 
 echo All done.
 
@@ -43,7 +44,7 @@ goto:eof
 rem --------------------
 :MergeSections
 
-FOR /F "delims=" %%F IN ('cat %~1.txt') DO (
+FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
    echo. >> content.md
    type "%%F" >> content.md
