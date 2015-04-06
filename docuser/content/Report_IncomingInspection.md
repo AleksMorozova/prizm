@@ -6,6 +6,6 @@
 Отображаемая информация: номер трубы, название типоразмера, длина, толщина, номер плавки и результат входного контроля труб, прошедших контроль. 
 
 
-![_report_incoming_inspection.png](_report_incoming_inspection.png "")
+![_report_incoming_inspection.png](./images/_report_incoming_inspection.png "")
 
 

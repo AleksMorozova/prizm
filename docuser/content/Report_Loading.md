@@ -8,4 +8,4 @@
 Отображаемая информация: номер разрешения на отгрузку, номер вагона, станция назначения, сертификат, общее количество метров и вес труб в вагонах. 
 
 
-![_mill_report_by_shipped.png](_mill_report_by_shipped.png "")
+![_mill_report_by_shipped.png](./images/_mill_report_by_shipped.png "")
