@@ -44,7 +44,7 @@ goto:eof
 rem --------------------
 :MergeSections
 
-FOR /F "delims=" %%F IN ('cat %~1.txt') DO (
+FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
    echo. >> content.md
    type "%%F" >> content.md
