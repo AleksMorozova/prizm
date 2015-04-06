@@ -1,4 +1,3 @@
-.\content\00Header.md
 .\content\Settings.md
 .\content\Settings_WeldersInspectors.md
 .\content\Settings_Users.md
