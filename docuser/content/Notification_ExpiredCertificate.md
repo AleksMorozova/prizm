@@ -8,5 +8,5 @@
 
 По двойному нажатию на такое сообщение программа откроет настройки на вкладке **Сварщики** или **Инспекторы** в зависимости от того, чей сертификат просрочен.
 
-![_notifications_form.png](_notifications_form.png "")
+![_notifications_form.png](./images/_notifications_form.png "")
 

@@ -7,5 +7,5 @@
 
 По двойному нажатию на такое сообщение программа откроет настройки на вкладке **Труба**. 
 
-![_notifications_form.png](_notifications_form.png "")
+![_notifications_form.png](./images/_notifications_form.png "")
 
