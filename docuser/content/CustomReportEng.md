@@ -15,10 +15,13 @@ If you have installed MS Office 64-bit then run ODBC Data Sources (64-bit)
 
 2.2 Switch to **System DSN** tab and click **Add..** button
 
-![_SystemDSN.png](_SystemDSN.png "")
+![_SystemDSN.png](./images/_SystemDSN.png "")
+
 
 2.3 Select **ODBC Driver 11 for SQL Server** and click **Finish**
+
 ![_CreateNewDataSource.png](./images/_CreateNewDataSource.png "")
+
 
 Note 1: If you already have preinstalled ODBC driver it can be named as **SQL Server Native Client 11.0**
 
