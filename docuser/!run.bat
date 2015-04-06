@@ -9,6 +9,7 @@ call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf
 call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
 call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
 call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
+call:ProcessOne ListTranslation      "PRISM v.2 Translation Guide (ru).pdf"
 
 echo All done.
 
