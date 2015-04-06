@@ -10,5 +10,4 @@
 .\content\Settings_WeldersInspectors.md
 .\content\Settings_Users.md
 .\content\Export.md
-.\content\Export_Import_History.md
 .\content\Data_Transfer_Specific.md
