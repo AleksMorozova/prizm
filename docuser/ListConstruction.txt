@@ -6,6 +6,7 @@
 .\content\Construct_NewEditComponent.md
 .\content\Construct_NewEditJoint.md
 .\content\Construct_NewEditSpool.md
+.\content\Info_Entity_Save.md
 .\content\Construct_ElementsInspection.md
 .\content\Construct_SearchElements.md
 .\content\Data_Transfer_Specific.md
