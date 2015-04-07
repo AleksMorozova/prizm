@@ -2,9 +2,11 @@
 .\content\Mill_SearchPipe.md
 .\content\Mill_NewEditReleaseNote.md
 .\content\Mill_SearchReleaseNote.md
+.\content\Reports.md
 .\content\Report_General.md
 .\content\Report_ByCategory.md
 .\content\Report_Loading.md
+.\content\Report_Addition.md
 .\content\Settings.md
 .\content\Mill_Settings.md
 .\content\Settings_WeldersInspectors.md
