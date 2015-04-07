@@ -46,6 +46,8 @@ using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
+   
+
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
@@ -313,11 +315,10 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
-            SplashScreenManager.ShowForm(this, typeof(AppWaitForm), false, false, false);
-            if(!string.IsNullOrEmpty(header))
-                SplashScreenManager.Default.SetWaitFormCaption(header);
-            if(!string.IsNullOrEmpty(text))
-                SplashScreenManager.Default.SetWaitFormDescription(text);
+
+            // re create splashScreenManager for event leack fix (explicit dispose on public void HideProcessing())
+            splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Prizm.Main.Forms.MainChildForm.AppWaitForm), true, true);
+            splashScreenManager.ShowWaitForm();
             Application.DoEvents();
         }
 
@@ -326,7 +327,8 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         public void HideProcessing()
         {
-            SplashScreenManager.CloseForm(false);
+            splashScreenManager.CloseWaitForm();
+            splashScreenManager.Dispose();
         }
 
         /// <summary>
@@ -338,7 +340,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             currentProcessingStep++;
             float percent = (float)currentProcessingStep / targetProcessingSteps * 100;
-            SplashScreenManager.Default.SetWaitFormDescription(percent.ToString() + "%");
+            splashScreenManager.SetWaitFormDescription(percent.ToString() + "%");
         }
         #endregion
 
