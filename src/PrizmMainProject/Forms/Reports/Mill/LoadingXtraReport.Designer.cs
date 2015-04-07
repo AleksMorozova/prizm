@@ -503,7 +503,7 @@
             this.GroupHeader1});
             this.ComponentStorage.Add(this.sqlDataSource1);
             this.ComponentStorage.Add(this.sqlDataSource2);
-            this.DataMember = "CustomSqlQuery";
+            this.DataMember = "ReleaseNote";
             this.DataSource = this.sqlDataSource2;
             this.Margins = new System.Drawing.Printing.Margins(50, 40, 50, 38);
             this.PageHeight = 1169;
