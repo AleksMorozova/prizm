@@ -85,6 +85,10 @@ namespace PrizmMain.Forms.Notifications
                     typeEditor = DocumentTypes.Settings;
                     page = 1;
                     break;
+                case TypeNotification.SelectiveInspectionOperation:
+                    typeEditor = DocumentTypes.Settings;
+                    page = 1;
+                    break;
                 default:
                     var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
                     log.Error(ex.Message);
