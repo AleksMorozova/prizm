@@ -1097,7 +1097,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by Weld category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Type == FixedCategory.Weld)
+                if (t.Operation.Category != null && t.Operation.Category.Type == FixedCategory.Weld)
                 {
                     weldOperation.Add(t);
                     weldTestsResults.Add(t.Status.ToString());
@@ -1107,7 +1107,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by ExternalCoat category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Type == FixedCategory.ExternalCoat)
+                if (t.Operation.Category != null && t.Operation.Category.Type == FixedCategory.ExternalCoat)
                 {
                     externalCoatOperation.Add(t);
                     externalCoatTestsResults.Add(t.Status.ToString());
@@ -1117,7 +1117,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by InternalCoat category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Type == FixedCategory.InternalCoat)
+                if (t.Operation.Category != null && t.Operation.Category.Type == FixedCategory.InternalCoat)
                 {
                     internalCoatOperation.Add(t);
                     internalCoatTestsResults.Add(t.Status.ToString());
