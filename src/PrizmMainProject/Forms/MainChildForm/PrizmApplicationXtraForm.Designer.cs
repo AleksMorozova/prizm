@@ -72,6 +72,7 @@
             this.barButtonItemImportantMessages = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItemHelp = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.barVersionInfo = new DevExpress.XtraBars.BarStaticItem();
             this.barStatus = new DevExpress.XtraBars.Bar();
             this.notifyBarStaticItem = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonStatusNotifications = new DevExpress.XtraBars.BarButtonItem();
@@ -93,7 +94,7 @@
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
-            this.barVersionInfo = new DevExpress.XtraBars.BarStaticItem();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Prizm.Main.Forms.MainChildForm.AppWaitForm), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageRepositoryComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
@@ -506,6 +507,13 @@
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             this.barButtonItemAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);
             // 
+            // barVersionInfo
+            // 
+            this.barVersionInfo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barVersionInfo.Id = 66;
+            this.barVersionInfo.Name = "barVersionInfo";
+            this.barVersionInfo.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // barStatus
             // 
             this.barStatus.BarName = "Status bar";
@@ -682,13 +690,6 @@
             this.workspaceManager.TargetControl = this;
             this.workspaceManager.TransitionType = pushTransition1;
             // 
-            // barVersionInfo
-            // 
-            this.barVersionInfo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barVersionInfo.Id = 66;
-            this.barVersionInfo.Name = "barVersionInfo";
-            this.barVersionInfo.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
             // PrizmApplicationXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -787,6 +788,7 @@
         private DevExpress.XtraBars.BarButtonItem pipeConstructionRepoBarButton;
         private DevExpress.XtraBars.BarButtonItem btnHistoryExportImport;
         private DevExpress.XtraBars.BarStaticItem barVersionInfo;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
 
 
 
