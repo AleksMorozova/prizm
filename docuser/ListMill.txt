@@ -1,5 +1,6 @@
 .\content\Mill_NewEditPipe.md
 .\content\Info_Entity_Save.md
+.\content\ExternalFiles.md
 .\content\Mill_SearchPipe.md
 .\content\Mill_NewEditReleaseNote.md
 .\content\Mill_SearchReleaseNote.md
