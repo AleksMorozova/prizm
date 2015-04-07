@@ -172,6 +172,19 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
         }
 
+        public string GetInformation(Guid pipeTestId)
+        {
+            try
+            {
+                return internalCache[pipeTestId].UnitsSinceLastOperation.ToString();
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetInformation called for wrong pipe test. id: " + pipeTestId);
+                return "";
+            }
+        }
+
         public float GetUnits(Guid pipeTestId)
         {
             try

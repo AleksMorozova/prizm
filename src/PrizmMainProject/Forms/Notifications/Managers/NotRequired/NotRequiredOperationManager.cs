@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     if (cache.IsGoingToExpire(producedUnits.Key))
                     {
                         notifications.Add(
-                        CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, producedUnits.Value.ToString()));
+                        CreateNotification(producedUnits.Key, cache.GetOwnerName(producedUnits.Key), producedUnits.Value, cache.GetInformation(producedUnits.Key)));
                     }
                 }
             }

@@ -62,6 +62,43 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
+        private string GetResourceInformationMessage(TypeNotification type)
+        {
+            string inf;
+            switch (type)
+            {
+                case TypeNotification.NotRequiredInspectionOperation:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForNotRequiredOperation) + " ";
+                    break;
+
+                case TypeNotification.SelectiveInspectionOperation:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForSelectiveOperation) + " ";
+                    break;
+
+                case TypeNotification.ExpiredInspectorCertificate:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForExpiredCertificate) + " ";
+                    break;
+
+                case TypeNotification.ExpiredWelderCertificate:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForExpiredCertificate) + " ";
+                    break;
+
+                case TypeNotification.DuplicateLogin:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForDuplicateLogin) + " ";
+                    break;
+
+                case TypeNotification.DuplicatePipeNumber:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForDublicatePipeNumber) + " ";
+                    break;
+
+                default:
+                    inf = "";
+                    break;
+            }
+
+            return inf;
+        }
+
         private byte[] GetImage(NotificationStatus status)
         {
             Image image;
@@ -108,6 +145,14 @@ namespace Prizm.Main.Forms.Notifications
             get
             {
                 return GetResourceMessage(TypeNotification, Status);
+            }
+        }
+
+        public string InformationMessage
+        {
+            get
+            {
+                return GetResourceInformationMessage(TypeNotification) + Information;
             }
         }
 

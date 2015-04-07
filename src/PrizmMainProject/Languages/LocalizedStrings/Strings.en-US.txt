@@ -2146,11 +2146,32 @@ Inspection_ExistingCodeError=There is an existing operation with number:
 ;Заголовок сообщения о дублировании кода: Дублирование кода контрольной операции
 Inspection_ExistingCodeErrorHeader=Operation number duplicating
 
+;Информация для периодичной контрольной операции
+Notification_InformationForNotRequiredOperation = Total amount:
+
+;Информация для выборочной контрольной операции
+Notification_InformationForSelectiveOperation = General pipe amount/ produced pipe amount:
+
+;Информация для просроченного сертификата
+Notification_InformationForExpiredCertificate = Certificate Expired Date:
+
+;Информация для дубликата номера трубы 
+Notification_InformationForDuplicateLogin = Duplicate Login:
+
+;Информация для дубликата логина
+Notification_InformationForDublicatePipeNumber = Dublicate Pipe Number
+
 ;Просрочено выполнение контрольной операции 
-Notification_NotRequiredInspectionOperation_Critical = Expired deadline for performance of control operation
+Notification_SelectiveInspectionOperation_Critical = Expired deadline for performance of selective inspection operation
 
 ;Приближается срок выполнения контрольной операции 
-Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of control operation
+Notification_SelectiveInspectionOperation_Warning =  Approaching deadline for performance of selective inspection operation
+
+;Просрочено выполнение контрольной операции 
+Notification_NotRequiredInspectionOperation_Critical = Expired deadline for performance of not required inspection operation
+
+;Приближается срок выполнения контрольной операции 
+Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of not required inspection operation
 
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DuplicateLogin_Critical = User logins duplicating
