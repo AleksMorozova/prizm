@@ -1648,7 +1648,7 @@ namespace Prizm.Main.Forms.Settings
                     case  InspectionFrequencyType.S: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
                         break;
                     default: e.DisplayText = String.Empty;
-                        log.Warn(string.Format("String resource for {O} inspection frequency type is missing", e.Value.ToString()));
+                        log.Warn(string.Format("String resource for {0} inspection frequency type is missing", e.Value.ToString()));
                         break;
                 }
             }
