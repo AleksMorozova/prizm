@@ -1394,10 +1394,10 @@
     <value>Допустимый размер внешнего документа, Kbytes</value>
   </data>
   <data name="Notification_NotRequiredInspectionOperation_Critical" xml:space="preserve">
-    <value>Просрочено выполнение контрольной операции</value>
+    <value>Просрочено выполнение периодической контрольной операции</value>
   </data>
   <data name="Notification_NotRequiredInspectionOperation_Warning" xml:space="preserve">
-    <value>Приближается срок выполнения контрольной операции</value>
+    <value>Приближается срок выполнения периодической  контрольной операции</value>
   </data>
   <data name="HistoryExportImport_SynchType_Export" xml:space="preserve">
     <value>Экспорт</value>
@@ -1801,10 +1801,10 @@
     <value>Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?</value>
   </data>
   <data name="Notification_SelectiveInspectionOperation_Critical" xml:space="preserve">
-    <value>Просрочено выполнение контрольной операции</value>
+    <value>Просрочено выполнение выборочной контрольной операции</value>
   </data>
   <data name="Notification_SelectiveInspectionOperation_Warning" xml:space="preserve">
-    <value>Приближается срок выполнения контрольной операции</value>
+    <value>Приближается срок выполнения выборочной  контрольной операции</value>
   </data>
   <data name="Notification_InformationForDublicatePipeNumber" xml:space="preserve">
     <value>Повторяющийся номер:</value>

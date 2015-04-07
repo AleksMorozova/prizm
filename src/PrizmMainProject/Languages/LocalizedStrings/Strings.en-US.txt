@@ -2162,16 +2162,16 @@ Notification_InformationForDuplicateLogin = Duplicate Login:
 Notification_InformationForDublicatePipeNumber = Dublicate Pipe Number
 
 ;Просрочено выполнение контрольной операции 
-Notification_SelectiveInspectionOperation_Critical = Expired deadline for performance of control operation
+Notification_SelectiveInspectionOperation_Critical = Expired deadline for performance of selective inspection operation
 
 ;Приближается срок выполнения контрольной операции 
-Notification_SelectiveInspectionOperation_Warning =  Approaching deadline for performance of control operation
+Notification_SelectiveInspectionOperation_Warning =  Approaching deadline for performance of selective inspection operation
 
 ;Просрочено выполнение контрольной операции 
-Notification_NotRequiredInspectionOperation_Critical = Expired deadline for performance of control operation
+Notification_NotRequiredInspectionOperation_Critical = Expired deadline for performance of not required inspection operation
 
 ;Приближается срок выполнения контрольной операции 
-Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of control operation
+Notification_NotRequiredInspectionOperation_Warning =  Approaching deadline for performance of not required inspection operation
 
 ;Сообщение о дублировании логинов: Дубликат номера труб
 Notification_DuplicateLogin_Critical = User logins duplicating

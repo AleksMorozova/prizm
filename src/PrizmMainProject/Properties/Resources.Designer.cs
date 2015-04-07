@@ -3003,7 +3003,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        ///   Looks up a localized string similar to Просрочено выполнение периодической контрольной операции.
         /// </summary>
         internal static string Notification_NotRequiredInspectionOperation_Critical {
             get {
@@ -3012,7 +3012,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        ///   Looks up a localized string similar to Приближается срок выполнения периодической  контрольной операции.
         /// </summary>
         internal static string Notification_NotRequiredInspectionOperation_Warning {
             get {
@@ -3021,7 +3021,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        ///   Looks up a localized string similar to Просрочено выполнение выборочной контрольной операции.
         /// </summary>
         internal static string Notification_SelectiveInspectionOperation_Critical {
             get {
@@ -3030,7 +3030,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        ///   Looks up a localized string similar to Приближается срок выполнения выборочной  контрольной операции.
         /// </summary>
         internal static string Notification_SelectiveInspectionOperation_Warning {
             get {
