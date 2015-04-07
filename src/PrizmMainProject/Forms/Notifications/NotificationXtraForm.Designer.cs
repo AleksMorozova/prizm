@@ -145,7 +145,7 @@ namespace PrizmMain.Forms.Notifications
             this.colImage.Name = "colImage";
             this.colImage.Visible = true;
             this.colImage.VisibleIndex = 0;
-            this.colImage.Width = 28;
+            this.colImage.Width = 25;
             // 
             // colName
             // 
@@ -154,7 +154,7 @@ namespace PrizmMain.Forms.Notifications
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 2;
-            this.colName.Width = 212;
+            this.colName.Width = 248;
             // 
             // colNotification
             // 
@@ -163,15 +163,16 @@ namespace PrizmMain.Forms.Notifications
             this.colNotification.Name = "colNotification";
             this.colNotification.Visible = true;
             this.colNotification.VisibleIndex = 3;
-            this.colNotification.Width = 574;
+            this.colNotification.Width = 329;
             // 
             // colDate
             // 
             this.colDate.Caption = "Данные";
-            this.colDate.FieldName = "Information";
+            this.colDate.FieldName = "InformationMessage";
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
+            this.colDate.Width = 212;
             // 
             // layoutControlGroup4
             // 

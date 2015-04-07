@@ -5412,7 +5412,48 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Notification ---
-        //Notification_NotRequiredControlOperation_Critical
+
+        public static StringResource Notification_InformationForSelectiveOperation = new StringResource
+        {
+            Id = "Notification_InformationForSelectiveOperation",
+            Description = "Информация для выборочной контрольной операции "
+        };
+        public static StringResource Notification_InformationForNotRequiredOperation = new StringResource
+        {
+            Id = "Notification_InformationForNotRequiredOperation",
+            Description = "Информация для периодичной контрольной операции "
+        };
+
+        public static StringResource Notification_InformationForExpiredCertificate = new StringResource
+        {
+            Id = "Notification_InformationForExpiredCertificate",
+            Description = "Информация для просроченного сертификата"
+        };
+
+        public static StringResource Notification_InformationForDublicatePipeNumber = new StringResource
+        {
+            Id = "Notification_InformationForDublicatePipeNumber",
+            Description = "Информация для дубликата номера трубы "
+        };
+
+        public static StringResource Notification_InformationForDuplicateLogin = new StringResource
+        {
+            Id = "Notification_InformationForDuplicateLogin",
+            Description = "Информация для дубликта логина"
+        };
+
+        public static StringResource Notification_SelectiveInspectionOperation_Critical = new StringResource
+        {
+            Id = "Notification_SelectiveInspectionOperation_Critical",
+            Description = "Сообщение о необязательной контрольной операции: Просрочено выполнение контрольной операции "
+        };
+
+        public static StringResource Notification_SelectiveInspectionOperation_Warning = new StringResource
+        {
+            Id = "Notification_SelectiveInspectionOperation_Warning",
+            Description = "Сообщение о необязательной контрольной операции: Приближается срок выполнения контрольной операции "
+        };
+        
         public static StringResource Notification_NotRequiredInspectionOperation_Critical = new StringResource
         {
             Id = "Notification_NotRequiredInspectionOperation_Critical",

@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
 
         public static Notification CreateNotification(Guid ownerId, string ownerName, float unitsLeft, string information)
         {
-            return new Notification(ownerId, ownerName, TypeNotification.NotRequiredInspectionOperation, information, unitsLeft);
+            return new Notification(ownerId, ownerName, TypeNotification.SelectiveInspectionOperation, information, unitsLeft);
         }
 
         public override void LoadNotifications()
@@ -50,7 +50,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     if (cache.IsExpired(s.OperationId))
                     {
                         notifications.Add(
-                        CreateNotification(s.OperationId, cache.GetOwnerName(s.OperationId), cache.GetCheckValue(s.OperationId), cache.GetCheckValue(s.OperationId).ToString()));
+                        CreateNotification(s.OperationId, cache.GetOwnerName(s.OperationId), cache.GetCheckValue(s.OperationId), cache.GetInformation(s.OperationId)));
                     }
                 }
             }

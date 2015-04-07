@@ -146,6 +146,20 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
             }
         }
 
+        public string GetInformation(Guid pipeTestId)
+        {
+            try
+            {
+                return internalCache[pipeTestId].AllPipeAmount + "/" + internalCache[pipeTestId].PipeAmount;
+            }
+            catch (KeyNotFoundException)
+            {
+                log.Error("GetInformation called for wrong pipe test. id: " + pipeTestId);
+                return "";
+            }
+        }
+
+
         public void SetPipeAmount(Guid pipeTestId, int amount)
         {
             try
