@@ -129,6 +129,8 @@ namespace PrizmMain.Forms.Notifications
 
         private void NotificationXtraForm_Activated(object sender, EventArgs e)
         {
+            // Refresh list of notification and grid DataSource
+            NotificationService.Instance.LoadAllNotifications();
             gridControlMessage.DataSource = NotificationService.Instance.Notifications;
         }
 

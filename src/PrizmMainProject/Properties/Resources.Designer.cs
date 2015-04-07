@@ -2958,6 +2958,51 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Повторяющийся номер:.
+        /// </summary>
+        internal static string Notification_InformationForDublicatePipeNumber {
+            get {
+                return ResourceManager.GetString("Notification_InformationForDublicatePipeNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторяющийся логин:.
+        /// </summary>
+        internal static string Notification_InformationForDuplicateLogin {
+            get {
+                return ResourceManager.GetString("Notification_InformationForDuplicateLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата окончания сертификата:.
+        /// </summary>
+        internal static string Notification_InformationForExpiredCertificate {
+            get {
+                return ResourceManager.GetString("Notification_InformationForExpiredCertificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общее количество:.
+        /// </summary>
+        internal static string Notification_InformationForNotRequiredOperation {
+            get {
+                return ResourceManager.GetString("Notification_InformationForNotRequiredOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Общее количество / произведенно труб:.
+        /// </summary>
+        internal static string Notification_InformationForSelectiveOperation {
+            get {
+                return ResourceManager.GetString("Notification_InformationForSelectiveOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
         /// </summary>
         internal static string Notification_NotRequiredInspectionOperation_Critical {
@@ -2972,6 +3017,24 @@ namespace Prizm.Main.Properties {
         internal static string Notification_NotRequiredInspectionOperation_Warning {
             get {
                 return ResourceManager.GetString("Notification_NotRequiredInspectionOperation_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Просрочено выполнение контрольной операции.
+        /// </summary>
+        internal static string Notification_SelectiveInspectionOperation_Critical {
+            get {
+                return ResourceManager.GetString("Notification_SelectiveInspectionOperation_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближается срок выполнения контрольной операции.
+        /// </summary>
+        internal static string Notification_SelectiveInspectionOperation_Warning {
+            get {
+                return ResourceManager.GetString("Notification_SelectiveInspectionOperation_Warning", resourceCulture);
             }
         }
         

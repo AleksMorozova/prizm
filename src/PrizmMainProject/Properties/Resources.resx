@@ -1800,4 +1800,25 @@
   <data name="MainWindow_OpenConstructionJointReadOnly" xml:space="preserve">
     <value>Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?</value>
   </data>
+  <data name="Notification_SelectiveInspectionOperation_Critical" xml:space="preserve">
+    <value>Просрочено выполнение контрольной операции</value>
+  </data>
+  <data name="Notification_SelectiveInspectionOperation_Warning" xml:space="preserve">
+    <value>Приближается срок выполнения контрольной операции</value>
+  </data>
+  <data name="Notification_InformationForDublicatePipeNumber" xml:space="preserve">
+    <value>Повторяющийся номер:</value>
+  </data>
+  <data name="Notification_InformationForDuplicateLogin" xml:space="preserve">
+    <value>Повторяющийся логин:</value>
+  </data>
+  <data name="Notification_InformationForExpiredCertificate" xml:space="preserve">
+    <value>Дата окончания сертификата:</value>
+  </data>
+  <data name="Notification_InformationForNotRequiredOperation" xml:space="preserve">
+    <value>Общее количество:</value>
+  </data>
+  <data name="Notification_InformationForSelectiveOperation" xml:space="preserve">
+    <value>Общее количество / произведенно труб:</value>
+  </data>
 </root>
