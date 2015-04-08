@@ -71,7 +71,7 @@ echo Removing old file %PDFFILE% ...
 call:DeleteFile %PDFFILE%
 
 echo Convert HTML to PDF %PDFFILE% ...
-%BIN%\Wkh\wkhtmltopdf .\%HCONTENT% %PDFFILE%
+%BIN%\Wkh\wkhtmltopdf .\%HCONTENT% %PDFFILE% 2>&1
 
 goto:eof
 
