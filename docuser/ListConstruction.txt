@@ -25,3 +25,4 @@
 .\content\Notification_DuplicateLogin.md
 .\content\Notification_DuplicatePipeNumber.md
 .\content\Notification_ExpiredCertificate.md
+.\content\Deactivation.md
