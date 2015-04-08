@@ -15,3 +15,4 @@
 .\content\Settings_Users.md
 .\content\Export.md
 .\content\Data_Transfer_Specific.md
+.\content\Deactivation.md
