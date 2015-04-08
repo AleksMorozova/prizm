@@ -163,7 +163,7 @@ namespace Prizm.Main.Forms.Audit
                     case "D": e.DisplayText = Program.LanguageManager.GetString(StringResources.Audit_CheckDeleted);
                         break;
                     default: e.DisplayText = String.Empty;
-                        log.Warn(string.Format("String resource for {O} audit operation type is missing", e.Value.ToString()));
+                        log.Warn(string.Format("String resource for {0} audit operation type is missing", e.Value.ToString()));
                         break;
                 }
             }
