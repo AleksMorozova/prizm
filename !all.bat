@@ -1,27 +1,42 @@
 @echo off
 
 set DEVENV_BIN="C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe"
+set EXTERNAL_PATH=.\..\prizm_external\external\
+set NUNIT_BIN=%EXTERNAL_PATH%NUnit-2.6.3\bin\nunit-console.exe
 
 call:GetLogTimeStamp
 call:GetLogFileNames %LOGTIMESTAMP% comp
 
+
 call:Banner "Rebuilding..."
 %DEVENV_BIN% src/PrizmMainSolution.sln /rebuild release /out .\%LOGNAME% 2> .\%LOGNAMEERR%
+call:CheckError %LOGNAMEERR% break
+
+
+call:Banner "Running unit tests..."
+call:GetLogFileNames %LOGTIMESTAMP% unit
+set TESTRESULT=TestResult.xml
+%NUNIT_BIN% ./src/UnitTests/bin/Release/UnitTests.dll > .\%LOGNAME% 2> .\%LOGNAMEERR%
+findstr success=\"False\" %TESTRESULT% >> .\%LOGNAMEERR%
+ren %TESTRESULT% TestResult_%LOGTIMESTAMP%.xml
 call:CheckError %LOGNAMEERR%
+
 
 call:Banner "Creating installation package..."
 cd install
 call:GetLogFileNames %LOGTIMESTAMP% inst
-call !Compile.cmd >> .\..\%LOGNAME% 2> .\..\%LOGNAMEERR%
+call !Compile.cmd > .\..\%LOGNAME% 2> .\..\%LOGNAMEERR%
 cd ..
 call:CheckError %LOGNAMEERR%
+
 
 call:Banner "Creating documentation..."
 cd docuser
 call:GetLogFileNames %LOGTIMESTAMP% doc
-call !run.bat >> .\..\%LOGNAME% 2> .\..\%LOGNAMEERR%
+call !run.bat > .\..\%LOGNAME% 2> .\..\%LOGNAMEERR%
 cd ..
 call:CheckError %LOGNAMEERR%
+
 
 call:Banner "All done."
 
@@ -34,9 +49,8 @@ for %%A in (%~1) do (
    if %%~zA==0 (
        if exist %~1 del %~1
    ) else (
-
        call:Banner "Errors! check %~1."
-       exit
+       if "%~2" neq "" exit
    )
 )
 
