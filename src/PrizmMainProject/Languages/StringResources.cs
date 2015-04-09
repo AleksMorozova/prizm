@@ -1848,7 +1848,7 @@ namespace Prizm.Main.Languages
         public static StringResource SettingsProject_MillLabel = new StringResource
         {
             Id = "SettingsProject_MillLabel",
-            Description = "Настройки-Проект. Название завода"
+            Description = "Настройки-Проект. Название рабоче&й станции"
         };
         public static StringResource SettingsProject_MaskEditLabel = new StringResource
         {
