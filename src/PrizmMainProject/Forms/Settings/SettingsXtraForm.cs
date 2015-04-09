@@ -248,9 +248,10 @@ namespace Prizm.Main.Forms.Settings
         protected List<string> localizedMillNameLayoutControl = new List<string>();
         void UpdateWorkstationName()
         {
-            //millNameLayoutControlItem.Text = localizedMillNameLayoutControl[0];
-            millNameLayoutControlItem.Text
-                += " (" + (string)localizedMillNameLayoutControl[(int)viewModel.CurrentProjectSettings.WorkstationType] + ")";
+            millNameLayoutControlItem.Text =
+                Program.LanguageManager.GetString(StringResources.SettingsProject_MillLabel)
+                +
+                " (" + (string)localizedMillNameLayoutControl[(int)viewModel.CurrentProjectSettings.WorkstationType] + ")";
         }
 
         protected override List<LocalizedItem> CreateLocalizedItems()
@@ -262,14 +263,12 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(clientLayoutControlItem, StringResources.SettingsProject_ClientLabel.Id),
                 new LocalizedItem(plateManLayoutControlItem, StringResources.SettingsProject_PlateManufacturerLabel.Id),
                 new LocalizedItem(extDocumentSizeLayoutControlItem, StringResources.SettingsProject_DocumentSizeLabel.Id),
-                //!
-                new LocalizedItem(millNameLayoutControlItem, StringResources.SettingsProject_MillLabel.Id),
-
+                
                 new LocalizedItem(UpdateWorkstationName, localizedMillNameLayoutControl,
                         new string [] {StringResources.WorkstationType_Undefined.Id, 
-                            StringResources.WorkstationType_Master.Id, 
-                            StringResources.WorkstationType_Mill.Id, 
-                            StringResources.WorkstationType_Construction.Id} ),
+                                       StringResources.WorkstationType_Master.Id, 
+                                       StringResources.WorkstationType_Mill.Id, 
+                                       StringResources.WorkstationType_Construction.Id} ),
 
                 new LocalizedItem(maskLayoutControlItem, StringResources.SettingsProject_MaskEditLabel.Id),
                 new LocalizedItem(pipeNumberMaskRulesLabel, StringResources.Mask_Label.Id),
@@ -2099,7 +2098,6 @@ namespace Prizm.Main.Forms.Settings
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 sizesLayoutControlItem.Width = 600;
                 SetAlwaysReadOnly(plateManufacturersList);
-                SetAlwaysReadOnly(millName);
                 SetAlwaysReadOnly(pipeNumberMask);
                 SetAlwaysReadOnly(categoriesGrid);
                 SetAlwaysReadOnly(seamTypes);
@@ -2126,7 +2124,6 @@ namespace Prizm.Main.Forms.Settings
                 editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 SetAlwaysReadOnly(plateManufacturersList);
-                SetAlwaysReadOnly(millName);
                 SetAlwaysReadOnly(pipeNumberMask);
                 SetAlwaysReadOnly(categoriesGrid);
                 SetAlwaysReadOnly(seamTypes);

@@ -480,7 +480,7 @@ SettingsProject_PlateManufacturerLabel=Plate manufacturers
 SettingsProject_DocumentSizeLabel=Max size of document to be attached, Kbytes
 
 ;Настройки-Проект. Название рабоче&й станции
-SettingsProject_MillLabel=Workstation name
+SettingsProject_MillLabel=Wor&kstation name
 
 ;Настройки-Проект. Маска номера трубы
 SettingsProject_MaskEditLabel=Pipe number mask
