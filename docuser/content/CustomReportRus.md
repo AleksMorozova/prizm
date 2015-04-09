@@ -34,7 +34,7 @@
 *Важно: название SQL сервера должно быть (localdb)\v11.0, а имя и описание могут быть любыми строками.*
 
 
-* Убедитесь что выбрана опция **With Integrated Windows authenctication** и нажмите далее:
+* Убедитесь, что выбрана опция **With Integrated Windows authenctication** и нажмите далее:
 
 ![_CreateNewDataSourceStep3.png](./images/_CreateNewDataSourceStep3.png "")
 
