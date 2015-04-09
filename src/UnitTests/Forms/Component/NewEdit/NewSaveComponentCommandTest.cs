@@ -32,7 +32,7 @@ namespace Prizm.UnitTests.Forms.Component.NewEdit
             var componentTypeRepo = new Mock<IComponentTypeRepository>();
             var repoInspector = new Mock<IInspectorRepository>();
 
-            var component = new Prizm.Domain.Entity.Construction.Component();
+            var component = new Prizm.Domain.Entity.Construction.Component() { Number = string.Empty};
 
             componentRepo.Setup(x => x.GetActiveByNumber(component)).Returns(new List<Prizm.Domain.Entity.Construction.Component>());
             componentTypeRepo.Setup(x => x.GetAll()).Returns(new List<ComponentType>());
