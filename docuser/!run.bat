@@ -1,19 +1,20 @@
-@echo off & setlocal ENABLEEXTENSIONS
+@echo off & setlocal ENABLEEXTENSIONS & setlocal enabledelayedexpansion
 
 set BIN=..\..\prizm_external\external\Documentation\Modules
 set CONTENT=content.md
 set HCONTENT=content.html
 set HEADER=00Header.md
+set MDFOLDER=.\content\
 
-call:CheckAllMdsAreUsed
+call:ProcessMds
 
-call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
+rem call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
 call:ProcessOne ListMaster           "PRISM v.2 Master User Guide (ru).pdf"
-call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf"
-call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
-call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
-call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
-call:ProcessOne ListTranslation      "PRISM v.2 Translation Guide (ru).pdf"
+rem call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf"
+rem call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
+rem call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
+rem call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
+rem call:ProcessOne ListTranslation      "PRISM v.2 Translation Guide (ru).pdf"
 
 echo All done.
 
@@ -22,9 +23,12 @@ goto:eof
 
 
 rem --------------------
-:CheckAllMdsAreUsed
+:ProcessMds
 
-FOR /F "delims=" %%F IN ('dir /b /a-d-h-s .\content\*.md') DO (
+FOR /F "delims=" %%F IN ('dir /b /a-d-h-s %MDFOLDER%*.md') DO (
+
+rem --- Check if used at least in one txt file
+
     IF "%%F" neq "%HEADER%" (
        call:SetFound
        FOR /F %%I in ('findstr %%F List*.txt') do (
@@ -69,7 +73,7 @@ if "%MERGED%" neq "" (
    echo "%~2" can not be created: merged file is empty. 1>&2
 )
 
-call:DeleteTmpFiles
+rem call:DeleteTmpFiles
 
 echo %~1 done.
 
@@ -79,12 +83,13 @@ rem --------------------
 :MergeSections
 
 echo. >> %CONTENT%
-type .\content\%HEADER% >> %CONTENT%
+call deBom %MDFOLDER%%HEADER% >> %CONTENT%
+echo. >> %CONTENT%
 
 FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
    echo. >> %CONTENT%
-   type "%%F" >> %CONTENT%
+   call deBom %%F >> %CONTENT%
 )
 
 echo Combined file created.
