@@ -4,8 +4,9 @@ set BIN=..\..\prizm_external\external\Documentation\Modules
 set CONTENT=content.md
 set HCONTENT=content.html
 set HEADER=00Header.md
+set MDFOLDER=.\content\
 
-call:CheckAllMdsAreUsed
+call:ProcessMds
 
 call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
 call:ProcessOne ListMaster           "PRISM v.2 Master User Guide (ru).pdf"
@@ -22,9 +23,11 @@ goto:eof
 
 
 rem --------------------
-:CheckAllMdsAreUsed
+:ProcessMds
 
-FOR /F "delims=" %%F IN ('dir /b /a-d-h-s .\content\*.md') DO (
+rem --- Check if used at least in one txt file
+
+FOR /F "delims=" %%F IN ('dir /b /a-d-h-s %MDFOLDER%*.md') DO (
     IF "%%F" neq "%HEADER%" (
        call:SetFound
        FOR /F %%I in ('findstr %%F List*.txt') do (
@@ -78,13 +81,13 @@ goto:eof
 rem --------------------
 :MergeSections
 
-echo. >> %CONTENT%
-type .\content\%HEADER% >> %CONTENT%
+type %MDFOLDER%%HEADER% >> %CONTENT%
 
 FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
    echo. >> %CONTENT%
-   type "%%F" >> %CONTENT%
+   call deBom %%F >> %CONTENT%
+   echo. >> %CONTENT%
 )
 
 echo Combined file created.
