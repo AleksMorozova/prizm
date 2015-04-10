@@ -163,6 +163,7 @@ namespace Prizm.Main.Commands
             {
                 if(command.Validate())
                 {
+                    Program.IsCommandRunning = true;
                     modifier.IsFormEnabled = false;
                     notify.ShowProcessing();
                     var q = command as ICommandAsync;
@@ -173,9 +174,10 @@ namespace Prizm.Main.Commands
             finally
             {
                 notify.HideProcessing();
+                Program.IsCommandRunning = false;
+                modifier.RefreshBinding();
             }
          }
-
       }
 
       #endregion // SimpleButtonAttacher

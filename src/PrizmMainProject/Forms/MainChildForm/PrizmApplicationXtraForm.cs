@@ -223,8 +223,16 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowInfo(string text, string header)
         {
-            XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(() => XtraMessageBox.Show(this.ActiveMdiChild, text, header, MessageBoxButtons.OK, MessageBoxIcon.Information)));
+            }
+            else
+            {
+                XtraMessageBox.Show(this.ActiveMdiChild, text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+        
         /// <summary>
         /// Message that requires user confirmation or denial (yes/no)
         /// </summary>

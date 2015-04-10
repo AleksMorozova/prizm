@@ -16,5 +16,7 @@ namespace Prizm.Main.Documents
         Guid Id { get; set; }
 
         bool IsFormEnabled { get; set; }
+
+        void RefreshBinding();
     }
 }

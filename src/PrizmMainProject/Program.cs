@@ -31,6 +31,7 @@ namespace Prizm.Main
 
         private static bool isSeed = false;
         public static bool IsSeed { get { return isSeed; } }
+        public static bool IsCommandRunning { get; set; }
         /// <summary>
         /// the months count of user password prolongation
         /// </summary>

@@ -26,8 +26,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
 
-        private int numberOfOperationWithoutInspectors=0;
-        public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+        public new event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
+        private int numberOfOperationWithoutInspectors = 0;
 
         [Inject]
         public SaveComponentCommand(
@@ -175,11 +175,5 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                     ? global::Domain.Entity.Security.Privileges.CreateComponent
                                     : global::Domain.Entity.Security.Privileges.EditComponent);
         }
-
-        public Task ExecuteAsync()
-        {
-            return Task.Run(() => this.Execute());
-        }
-
     }
 }

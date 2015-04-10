@@ -20,6 +20,8 @@ namespace Prizm.Main.Forms.MainChildForm
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ChildEditableForm));
 
+        public virtual void RefreshBinding() { }
+
         #region --- Modified and header ---
 
         private bool isModified = false;

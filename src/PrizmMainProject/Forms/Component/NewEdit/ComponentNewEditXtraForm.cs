@@ -73,6 +73,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
             positiveFloat.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
         }
 
+        public override void RefreshBinding()
+        {
+            componentNumber.DataBindings["EditValue"].ReadValue();
+        }
+
         private void SetControlsTextLength()
         {
             componentNumber.Properties.MaxLength = LengthLimit.ComponentNumber;
@@ -152,6 +157,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     deactivated.Reset();
                 }
             };
+
             IsEditMode &= viewModel.ComponentIsActive;
           
 
@@ -166,6 +172,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             type.ReadOnly = !IsEditMode || viewModel.HasConnectedConnectors;
             inspectionHistoryGridView.OptionsBehavior.Editable = !type.ReadOnly;
         }
+
 
         private void BindToViewModel()
         {

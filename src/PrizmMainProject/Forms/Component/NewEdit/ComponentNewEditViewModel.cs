@@ -14,10 +14,11 @@ using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    public class ComponentNewEditViewModel : ViewModelBase, ISupportModifiableView, IDisposable
+    public class ComponentNewEditViewModel : CustomViewModelBase, ISupportModifiableView, IDisposable
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ComponentNewEditViewModel));
 

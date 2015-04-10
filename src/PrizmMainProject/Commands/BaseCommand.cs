@@ -8,22 +8,17 @@ namespace Prizm.Main.Commands
 {
     public abstract class BaseCommand : ICommand
     {
-        #region ICommand Members
+        public event RefreshVisualStateEventHandler RefreshVisualStateEvent;
 
         public abstract void Execute();
-       
 
         public abstract bool CanExecute();
 
+        public virtual bool Validate() { return true; }
 
-        public virtual bool Validate()
+        public Task ExecuteAsync()
         {
-            return true;
+            return Task.Run(() => this.Execute());
         }
-       
-
-        public event RefreshVisualStateEventHandler RefreshVisualStateEvent;
-
-        #endregion
     }
 }
