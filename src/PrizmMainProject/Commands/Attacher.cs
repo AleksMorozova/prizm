@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prizm.Main.Documents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Prizm.Main.Commands
    {
       protected ICommand command;
       protected T component;
+      protected IModifiable modifier;
 
       protected Attacher(ICommand command, T component)
       {
@@ -18,6 +20,12 @@ namespace Prizm.Main.Commands
       }
 
       public abstract void Attach();
+      
+       public void AttachModifier(IModifiable modifiebleForm)
+      {
+          modifier = modifiebleForm;
+      }
+
       public abstract void Detach();
       public abstract void RefreshState();
 

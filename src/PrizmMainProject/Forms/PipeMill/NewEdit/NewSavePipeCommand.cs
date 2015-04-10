@@ -13,7 +13,7 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class NewSavePipeCommand: ICommand
+    public class NewSavePipeCommand: BaseCommand
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.ValidatableView.Validate())
             {
@@ -67,7 +67,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
              RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SavePipeCommand.CanExecute() && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreatePipe)
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);

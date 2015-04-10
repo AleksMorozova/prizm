@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 {
-    public class CreatePipeReportCommand: ICommand
+    public class CreatePipeReportCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CreatePipeReportCommand));
 
@@ -31,7 +31,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             viewModel.Data = repo.GetPipelineElements(
                 viewModel.PipeNumber,
@@ -52,7 +52,7 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

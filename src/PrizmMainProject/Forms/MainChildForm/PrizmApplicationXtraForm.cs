@@ -319,7 +319,6 @@ namespace Prizm.Main.Forms.MainChildForm
             // re create splashScreenManager for event leack fix (explicit dispose on public void HideProcessing())
             splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Prizm.Main.Forms.MainChildForm.AppWaitForm), true, true);
             splashScreenManager.ShowWaitForm();
-            Application.DoEvents();
         }
 
         /// <summary>
@@ -380,7 +379,16 @@ namespace Prizm.Main.Forms.MainChildForm
         public void UpdateStatusBar(string text)
         {
             notifyBarStaticItem.Caption = text;
-            notifyHistory.Items.Add(text);
+            if(notifyHistory.InvokeRequired)
+            {
+                notifyHistory.Invoke(new MethodInvoker(() => notifyHistory.Items.Add(text)));
+            }
+            else
+            {
+                notifyHistory.Items.Add(text);
+            }
+
+            
             while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
             {
                 notifyHistory.Items.RemoveAt(notifyHistory.ItemCount-1);

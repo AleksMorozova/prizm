@@ -15,7 +15,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    public class ComponentDeactivationCommand: ICommand
+    public class ComponentDeactivationCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ComponentDeactivationCommand));
 
@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (!IsComponentsConnected(viewModel.Component))
             {
@@ -106,7 +106,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 .Any<Connector>(x => x.Joint != null && x.Joint.Id != Guid.Empty);
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return 
                 viewModel.Component.IsActive &&

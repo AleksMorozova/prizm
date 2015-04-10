@@ -17,7 +17,7 @@ using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class UnshipReleaseNoteCommand : ICommand
+    public class UnshipReleaseNoteCommand : BaseCommand
     {
         private readonly IReleaseNoteRepositories repos;
         private readonly ReleaseNoteViewModel viewModel;
@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.Shipped)
             {
@@ -63,7 +63,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             }
             RefreshVisualStateEvent();
         }
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return (viewModel.Shipped && ctx.HasAccess(global::Domain.Entity.Security.Privileges.UnshipAtMill));
         }

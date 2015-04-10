@@ -17,7 +17,7 @@ using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class SavePipeCommand : ICommand
+    public class SavePipeCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SavePipeCommand));
 
@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.ValidatableView.Validate())
             {
@@ -173,7 +173,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.Heat != null &&
                     viewModel.PipeMillSizeType != null &&

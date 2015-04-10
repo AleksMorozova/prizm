@@ -16,7 +16,7 @@ using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class PipeDeactivationCommand: ICommand
+    public class PipeDeactivationCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PipeDeactivationCommand));
 
@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (viewModel.Pipe.Railcar == null)
             {
@@ -103,7 +103,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return
                 viewModel.Pipe.Status != PipeMillStatus.Shipped

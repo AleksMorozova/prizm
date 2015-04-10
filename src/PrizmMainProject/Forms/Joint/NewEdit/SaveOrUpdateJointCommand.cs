@@ -13,7 +13,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class SaveOrUpdateJointCommand : ICommand
+    public class SaveOrUpdateJointCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveOrUpdateJointCommand));
 
@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.ctx = ctx;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             foreach (JointTestResult t in viewModel.JointTestResults)
             {
@@ -119,7 +119,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return
                 !string.IsNullOrEmpty(viewModel.Number)

@@ -14,7 +14,7 @@ using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.Purchase
 {
-    public class SaveOrderCommand : ICommand
+    public class SaveOrderCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveOrderCommand));
 
@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.Date.IsValid())
             {
@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.PipeMill.Purchase
             
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

@@ -12,7 +12,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Audit
 {
-    public class AuditSearchCommand : ICommand
+    public class AuditSearchCommand : BaseCommand
     {
         readonly IAuditLogRepository repo;
         readonly AuditViewModel viewModel;
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Audit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
@@ -53,7 +53,7 @@ namespace Prizm.Main.Forms.Audit
             }
 
         }
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.OperationTypes.Count > 0;
         }

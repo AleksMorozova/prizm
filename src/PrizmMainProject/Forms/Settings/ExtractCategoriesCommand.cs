@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Settings
 {
-    public class ExtractCategoriesCommand : ICommand
+    public class ExtractCategoriesCommand : BaseCommand
     {
         readonly ISettingsRepositories repos;
         readonly SettingsViewModel viewModel;
@@ -29,14 +29,14 @@ namespace Prizm.Main.Forms.Settings
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.CategoryTypes
                 = new BindingList<Category>(repos.СategoryRepo.GetAll());
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

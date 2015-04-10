@@ -17,7 +17,7 @@ using Prizm.Main.Properties;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
-    public class FirstSetupSaveCommand : ICommand
+    public class FirstSetupSaveCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(FirstSetupSaveCommand));
 
@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         #region ICommand Members
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             try
             {
@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return !string.IsNullOrWhiteSpace(viewModel.Project.Title) && viewModel.Project.WorkstationType != Prizm.Domain.Entity.Setup.WorkstationType.Undefined
                 && !string.IsNullOrWhiteSpace(viewModel.Admin.Login) && !string.IsNullOrWhiteSpace(viewModel.Admin.Name.LastName) 

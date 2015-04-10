@@ -18,7 +18,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Spool
 {
-    public class SaveSpoolCommand : ICommand
+    public class SaveSpoolCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSpoolCommand));
 
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
@@ -162,7 +162,7 @@ namespace Prizm.Main.Forms.Spool
 
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.ModifiableView.IsEditMode
                 && viewModel.SpoolIsActive

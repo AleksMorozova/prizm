@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
-    public class CreateReportCommand : ICommand
+    public class CreateReportCommand : BaseCommand
     {
         readonly IMillReportsRepository repo;
         readonly ConstructionReportViewModel viewModel;
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             viewModel.ReportCommand.Execute();
 
@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.ReportCommand.CanExecute();
         }

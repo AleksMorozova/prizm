@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
 {
-    public class PreviewRepoCommand: ICommand
+    public class PreviewRepoCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PreviewRepoCommand));
 
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.WeldDateFrom, viewModel.WeldDateTo))
             {
@@ -55,7 +55,7 @@ namespace Prizm.Main.Forms.Reports.Construction.WeldDateReports
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

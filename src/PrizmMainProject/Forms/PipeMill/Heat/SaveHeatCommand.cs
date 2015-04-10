@@ -10,7 +10,7 @@ using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
-    public class SaveHeatCommand : ICommand
+    public class SaveHeatCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveHeatCommand));
         private readonly HeatViewModel viewModel;
@@ -25,7 +25,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             var heat = viewModel.Heat;
             try
@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

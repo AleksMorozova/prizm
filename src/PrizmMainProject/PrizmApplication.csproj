@@ -185,11 +185,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\CommandInfo.cs" />
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\Attacher.cs" />
     <Compile Include="Commands\IAttacher.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandAsync.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\ActivityCriteria.cs" />
     <Compile Include="Common\Constants.cs" />

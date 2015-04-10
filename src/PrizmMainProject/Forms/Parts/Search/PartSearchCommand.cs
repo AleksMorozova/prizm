@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Parts.Search
 {
-    public class PartsSearchCommand : ICommand
+    public class PartsSearchCommand : BaseCommand
     {
         PartSearchViewModel viewModel;
         ISession session;
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Parts.Search
 
         #region ICommand Members
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             BindingList<Part> parts = new BindingList<Part>();
 
@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.Parts.Search
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

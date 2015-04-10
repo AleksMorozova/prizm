@@ -16,7 +16,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class NewSaveJointCommand : ICommand
+    public class NewSaveJointCommand : BaseCommand
     {
         private int numberOfWeldOperationWithoutWelders = 0;
         private int numberOfControlOperationWithoutInspectors = 0;
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.ctx = ctx;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (!viewModel.ValidatableView.Validate()) { return; }
 
@@ -149,7 +149,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SaveOrUpdateJointCommand.CanExecute() 
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)

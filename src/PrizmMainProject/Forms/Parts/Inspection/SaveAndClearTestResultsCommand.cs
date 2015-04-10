@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public class SaveAndClearTestResultsCommand: ICommand 
+    public class SaveAndClearTestResultsCommand: BaseCommand 
     {
         private readonly PartInspectionViewModel viewModel;
 
@@ -24,7 +24,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.SaveInspectionTestResultsCommand.Execute();
             viewModel.InspectionTestResults = null;
@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SaveInspectionTestResultsCommand.CanExecute();
         }

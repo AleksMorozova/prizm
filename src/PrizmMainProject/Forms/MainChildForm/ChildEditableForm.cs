@@ -39,7 +39,6 @@ namespace Prizm.Main.Forms.MainChildForm
             base.OnTextChanged(e);
         }
 
-
         bool isAutoValidate = true;
         /// <summary>
         /// Before closing.
@@ -109,9 +108,22 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         private void SetCaption()
         {
-            Text = string.Format("{0}{1}{2}", originalText,
+            if(this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    Text = string.Format("{0}{1}{2}", originalText,
+                        !string.IsNullOrEmpty(headerNumberPart) ? ": " + headerNumberPart : string.Empty,
+                        IsModified ? "*" : string.Empty);
+                }));
+            }
+            else
+            {
+                Text = string.Format("{0}{1}{2}", originalText,
                 !string.IsNullOrEmpty(headerNumberPart) ? ": " + headerNumberPart : string.Empty,
                 IsModified ? "*" : string.Empty);
+            }
+            
         }
 
         public override void UpdateTitle()
@@ -306,7 +318,15 @@ namespace Prizm.Main.Forms.MainChildForm
                 }
                 else if(c is DevExpress.XtraEditors.CheckEdit)
                 {
-                    ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
+                    if(this.InvokeRequired)
+                    {
+                        this.Invoke(new MethodInvoker(delegate { ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly; }));
+                    }
+                    else
+                    {
+                        ((DevExpress.XtraEditors.CheckEdit)c).Enabled = !isControlReadOnly;
+                    }
+                    
 
                 }
                 SetEditModeAllChildren(c, editMode);
@@ -321,6 +341,17 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public override bool Is(Guid id) { return id == this.Id; }
 
+
+        #region IModifiable Members
+
+
+        bool IModifiable.IsFormEnabled
+        {
+            get { return this.Enabled; }
+            set { this.Enabled = value; }
+        }
+
+        #endregion
     }
 
 

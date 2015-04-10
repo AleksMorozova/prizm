@@ -15,7 +15,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
-    public class JointSearchCommand : ICommand
+    public class JointSearchCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointSearchCommand));
         IJointRepository repo;
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Joint.Search
 
         #region ICommand Members
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.FromDate, viewModel.ToDate))
             {
@@ -85,7 +85,7 @@ namespace Prizm.Main.Forms.Joint.Search
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

@@ -16,7 +16,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
-    public class ReportCommand: ICommand
+    public class ReportCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ReportCommand));
 
@@ -48,7 +48,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (viewModel.ReportType == ReportType.TracingReport 
                 && viewModel.StartJoint != null 
@@ -290,7 +290,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             return strDate;
         }
 
-        public bool CanExecute() { return true; }
+        public override bool CanExecute() { return true; }
 
         public bool IsExecutable { get; set; }
     }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class QuickSearchCommand : ICommand
+    public class QuickSearchCommand : BaseCommand
     {
         private readonly IJointRepository repo;
         private readonly JointNewEditViewModel viewModel;
@@ -25,7 +25,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             IList<Prizm.Domain.Entity.Construction.Joint> list = repo.QuickSearchByNumber(viewModel.SearchNumber);
             if (dialog == null)
@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             dialog.ShowDialog();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

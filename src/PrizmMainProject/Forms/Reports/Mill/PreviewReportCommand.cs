@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Mill
 {
-    public class PreviewReportCommand: ICommand
+    public class PreviewReportCommand: BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PreviewReportCommand));
 
@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
@@ -115,7 +115,7 @@ namespace Prizm.Main.Forms.Reports.Mill
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

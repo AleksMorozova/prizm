@@ -14,7 +14,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ReleaseNote.Search
 {
-    public class SearchReleaseNoteCommand : ICommand
+    public class SearchReleaseNoteCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SearchReleaseNoteCommand));
 
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             bool hasPipeCreteria = false;
             bool hasRailCarCreteria = false;
@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.ReleaseNote.Search
 
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

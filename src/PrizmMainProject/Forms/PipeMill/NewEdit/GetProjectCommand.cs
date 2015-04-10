@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class GetProjectCommand : ICommand
+    public class GetProjectCommand : BaseCommand
     {
         readonly IProjectRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
@@ -24,12 +24,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.Project = repo.GetSingle();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

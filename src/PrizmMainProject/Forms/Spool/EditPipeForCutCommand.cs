@@ -13,7 +13,7 @@ using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Spool
 {
-    public class EditPipeForCutCommand : ICommand
+    public class EditPipeForCutCommand : BaseCommand
     {
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(repos.PipeRepo.GetByNumber(viewModel.PipeNumber) != null)
             {
@@ -65,7 +65,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

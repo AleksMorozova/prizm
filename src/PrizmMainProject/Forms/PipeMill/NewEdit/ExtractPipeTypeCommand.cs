@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class ExtractPipeTypeCommand : ICommand
+    public class ExtractPipeTypeCommand : BaseCommand
     {
 
         readonly IMillPipeSizeTypeRepository repo;
@@ -26,12 +26,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.PipeTypes = repo.GetAll();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

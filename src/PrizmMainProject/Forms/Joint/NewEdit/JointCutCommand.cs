@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class JointCutCommand : ICommand
+    public class JointCutCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointCutCommand));
 
@@ -30,7 +30,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (notify.ShowYesNo(
                    Program.LanguageManager.GetString(StringResources.Joint_WithdrawQuestion),
@@ -64,7 +64,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

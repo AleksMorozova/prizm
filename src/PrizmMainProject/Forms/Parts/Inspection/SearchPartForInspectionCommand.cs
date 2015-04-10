@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public class SearchPartForInspectionCommand : ICommand
+    public class SearchPartForInspectionCommand : BaseCommand
     {
         PartInspectionViewModel viewModel;
         ISession session;
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             this.ctx = ctx;
         }
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             BindingList<Part> parts = new BindingList<Part>();
             var query = session.CreateSQLQuery(PartQuery.BuildSqlForInspection(viewModel.SearchNumber))
@@ -87,7 +87,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

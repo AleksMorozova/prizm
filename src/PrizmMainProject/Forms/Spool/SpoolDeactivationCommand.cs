@@ -14,7 +14,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Spool
 {
-    public class SpoolDeactivationCommand : ICommand
+    public class SpoolDeactivationCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SpoolDeactivationCommand));
 
@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (viewModel.Spool.IsAvailableToJoint && viewModel.Spool.ConstructionStatus != PartConstructionStatus.Welded)
             {
@@ -97,7 +97,7 @@ namespace Prizm.Main.Forms.Spool
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SpoolIsActive
                 && !viewModel.IsNew

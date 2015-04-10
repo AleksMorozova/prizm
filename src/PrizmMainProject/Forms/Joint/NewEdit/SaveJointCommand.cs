@@ -16,7 +16,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class SaveJointCommand : ICommand
+    public class SaveJointCommand : BaseCommand
     {
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
@@ -39,7 +39,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!DateCheck())
             {
@@ -177,7 +177,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             return result;
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SaveOrUpdateJointCommand.CanExecute();
         }

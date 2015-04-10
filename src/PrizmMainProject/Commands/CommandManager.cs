@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Commands
 {
-   public class CommandManager : ICommandManager
+    public class CommandManager : ICommandManager
    {
       Dictionary<string, CommandInfo> commands = new Dictionary<string, CommandInfo>();
 

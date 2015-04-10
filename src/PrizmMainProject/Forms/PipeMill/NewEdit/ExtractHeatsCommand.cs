@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class ExtractHeatsCommand: ICommand
+    public class ExtractHeatsCommand: BaseCommand
     {
         readonly IHeatRepository repo;
         readonly MillPipeNewEditViewModel viewModel;
@@ -26,7 +26,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.Heats = repo.GetAll();
             if (viewModel.Heats == null)
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

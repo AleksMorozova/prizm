@@ -17,7 +17,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Reports.Incoming
 {
-    public class CreateReportCommand : ICommand
+    public class CreateReportCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CreateReportCommand));
 
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             this.notify = notify;
         }
 
-        public void Execute()
+        public override void Execute()
         {
             if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.StartDate, viewModel.EndDate))
             {
@@ -82,7 +82,7 @@ namespace Prizm.Main.Forms.Reports.Incoming
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

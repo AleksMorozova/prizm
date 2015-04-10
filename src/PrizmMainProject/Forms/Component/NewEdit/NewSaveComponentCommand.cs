@@ -13,7 +13,7 @@ using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    public class NewSaveComponentCommand: ICommand
+    public class NewSaveComponentCommand: BaseCommand
     {
         private readonly IComponentRepositories repos;
         private readonly ComponentNewEditViewModel viewModel;
@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.SaveCommand.Execute();
 
@@ -50,7 +50,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return 
                 viewModel.SaveCommand.CanExecute() 

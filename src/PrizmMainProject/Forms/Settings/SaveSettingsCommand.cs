@@ -21,7 +21,7 @@ using Prizm.Main.Forms.Notifications;
 
 namespace Prizm.Main.Forms.Settings
 {
-    public class SaveSettingsCommand : ICommand
+    public class SaveSettingsCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSettingsCommand));
 
@@ -41,7 +41,7 @@ namespace Prizm.Main.Forms.Settings
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.validatableView.Validate())
             {
@@ -123,7 +123,6 @@ namespace Prizm.Main.Forms.Settings
                     log.Error(ex.Message);
                     notify.ShowFailure(ex.InnerException.Message, ex.Message);
                 }
-
                 RefreshVisualStateEvent();
             }
             else 
@@ -223,7 +222,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
         }

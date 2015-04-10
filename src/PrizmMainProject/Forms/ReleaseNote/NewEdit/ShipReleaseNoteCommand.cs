@@ -17,7 +17,7 @@ using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class ShipReleaseNoteCommand : ICommand
+    public class ShipReleaseNoteCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ShipReleaseNoteCommand));
 
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             bool noPipe = false;
 
@@ -83,7 +83,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return !viewModel.Shipped
                 && !string.IsNullOrWhiteSpace(viewModel.Number) 

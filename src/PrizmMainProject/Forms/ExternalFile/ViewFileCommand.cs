@@ -14,7 +14,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
-    public class ViewFileCommand : ICommand
+    public class ViewFileCommand : BaseCommand
     {
         private readonly IFileRepository repo;
         private readonly ExternalFilesViewModel viewModel;
@@ -30,7 +30,7 @@ namespace Prizm.Main.Forms.ExternalFile
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
 
             string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
@@ -50,7 +50,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SelectedFile.NewName != null;
         }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class ExtractPurchaseOrderCommand : ICommand
+    public class ExtractPurchaseOrderCommand : BaseCommand
     {
 
         readonly IPurchaseOrderRepository repo;
@@ -26,7 +26,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             viewModel.PurchaseOrders = repo.GetAll();
             if(viewModel.PurchaseOrders == null)
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

@@ -8,6 +8,8 @@
 
         bool CanExecute();
 
+        bool Validate();
+
         event RefreshVisualStateEventHandler RefreshVisualStateEvent;
     }
 }

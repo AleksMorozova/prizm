@@ -14,7 +14,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
-    public class AddExternalFileCommand : ICommand
+    public class AddExternalFileCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AddExternalFileCommand));
 
@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.ExternalFile
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
 
                 if (!Directory.Exists(Directories.TargetPath))
@@ -77,7 +77,7 @@ namespace Prizm.Main.Forms.ExternalFile
             
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.FilesToAttach.Count != 0;
         }

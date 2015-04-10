@@ -17,7 +17,7 @@ using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.PipeMill.Search
 {
-    public class MillPipeSearchCommand : ICommand
+    public class MillPipeSearchCommand : BaseCommand
     {
         private readonly IPipeRepository repo;
         private readonly MillPipeSearchViewModel viewModel;
@@ -36,7 +36,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             repo.Clear();
 
@@ -73,7 +73,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }

@@ -17,7 +17,7 @@ using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
-    public class SaveComponentCommand : ICommand
+    public class SaveComponentCommand : BaseCommand, ICommandAsync
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveComponentCommand));
 
@@ -42,12 +42,12 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.ctx = ctx;
         }
 
-        [Command(UseCommandManager = false)]
-        public void Execute()
+        public override bool Validate()
         {
-            if (!viewModel.ValidatableView.Validate())
+            bool isValid = true;
+            if(!viewModel.ValidatableView.Validate())
             {
-                return;
+                isValid = false;
             }
 
             foreach(var result in viewModel.InspectionTestResults)
@@ -57,10 +57,15 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                     log.Warn("Date limits not valid!");
-                    return;
+                    isValid = false;
                 }
             }
+            return isValid;
+        }
 
+        [Command(UseCommandManager = false)]
+        public override void Execute()
+        {
             var c = repos.ComponentRepo.GetActiveByNumber(viewModel.Component);
             foreach (var component in c)
             {
@@ -114,9 +119,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         }
 
                         repos.ComponentRepo.Evict(viewModel.Component);
+
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Component.Id;
                         viewModel.ModifiableView.UpdateState();
+                        System.Threading.Thread.Sleep(3000);
 
                         if (fileCopySuccess)
                         {
@@ -159,7 +166,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return !string.IsNullOrEmpty(viewModel.Number)
                 && viewModel.Type != null
@@ -167,6 +174,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 && ctx.HasAccess(viewModel.IsNew
                                     ? global::Domain.Entity.Security.Privileges.CreateComponent
                                     : global::Domain.Entity.Security.Privileges.EditComponent);
+        }
+
+        public Task ExecuteAsync()
+        {
+            return Task.Run(() => this.Execute());
         }
 
     }

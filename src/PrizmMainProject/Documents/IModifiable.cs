@@ -14,5 +14,7 @@ namespace Prizm.Main.Documents
         void UpdateState();
 
         Guid Id { get; set; }
+
+        bool IsFormEnabled { get; set; }
     }
 }

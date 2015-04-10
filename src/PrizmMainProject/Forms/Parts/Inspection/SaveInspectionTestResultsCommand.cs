@@ -15,7 +15,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Parts.Inspection
 {
-    public class SaveInspectionTestResultsCommand : ICommand
+    public class SaveInspectionTestResultsCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveInspectionTestResultsCommand));
 
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
@@ -89,7 +89,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return (viewModel.InspectionTestResults != null && ctx.HasAccess(global::Domain.Entity.Security.Privileges.PartsInspection));
         }

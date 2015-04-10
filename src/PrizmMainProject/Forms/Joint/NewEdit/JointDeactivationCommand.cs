@@ -15,7 +15,7 @@ using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class JointDeactivationCommand : ICommand
+    public class JointDeactivationCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(JointDeactivationCommand));
 
@@ -35,7 +35,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if (notify.ShowYesNo(
                    Program.LanguageManager.GetString(StringResources.Joint_DeactivationQuestion),
@@ -81,7 +81,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.Joint.IsActive && 
                    !viewModel.IsNew &&

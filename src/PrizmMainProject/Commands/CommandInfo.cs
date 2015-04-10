@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
+using Prizm.Main.Documents;
 
 namespace Prizm.Main.Commands
 {
@@ -19,6 +20,11 @@ namespace Prizm.Main.Commands
       {
          this.executor = executor;
          return this;
+      }
+
+      public void Modifier(IModifiable form)
+      {
+          attacher.AttachModifier(form);
       }
 
       public CommandInfo Executor(Action<object> exec, Func<object> argQuery, Func<bool> enabledPredicate)
@@ -132,10 +138,18 @@ namespace Prizm.Main.Commands
 
          public override void RefreshState()
          {
-            component.Enabled = command.CanExecute();
+             if(component.InvokeRequired)
+             {
+                 component.Invoke(new System.Windows.Forms.MethodInvoker(delegate { component.Enabled = command.CanExecute(); }));
+             }
+             else
+             {
+                 component.Enabled = command.CanExecute();
+             }
+            
          }
 
-         void btn_Click(object sender, EventArgs e)
+         async void btn_Click(object sender, EventArgs e)
          {
              if (command == null)
              {
@@ -147,9 +161,14 @@ namespace Prizm.Main.Commands
             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
             try
             {
-                notify.ShowProcessing();
-
-                command.Execute();
+                if(command.Validate())
+                {
+                    modifier.IsFormEnabled = false;
+                    notify.ShowProcessing();
+                    var q = command as ICommandAsync;
+                    await q.ExecuteAsync();
+                    modifier.IsFormEnabled = true;
+                }
             }
             finally
             {
@@ -187,7 +206,14 @@ namespace Prizm.Main.Commands
 
          public override void RefreshState()
          {
-            component.Enabled = command.CanExecute();
+             if(component.InvokeRequired)
+             {
+                 component.Invoke(new System.Windows.Forms.MethodInvoker(delegate { component.Enabled = command.CanExecute(); }));
+             }
+             else
+             {
+                 component.Enabled = command.CanExecute();
+             }
          }
 
          void check_Modified(object sender, EventArgs e)
@@ -217,7 +243,7 @@ namespace Prizm.Main.Commands
 
       #region ClosureCommand
 
-      class ClosureCommand : ICommand
+      class ClosureCommand : BaseCommand
       {
          readonly Action<object> execute;
          readonly Func<bool> canExecute;
@@ -233,7 +259,7 @@ namespace Prizm.Main.Commands
             RefreshVisualStateEvent += refreshHandler;
          }
 
-         public void Execute()
+         public override void Execute()
          {
              if (execute == null)
              {
@@ -247,7 +273,7 @@ namespace Prizm.Main.Commands
             RefreshVisualStateEvent();
          }
 
-         public bool CanExecute()
+         public override bool CanExecute()
          {
             return canExecute != null ? canExecute() : false;
          }

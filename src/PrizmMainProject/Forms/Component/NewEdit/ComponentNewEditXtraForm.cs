@@ -216,7 +216,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
         private void BindCommands()
         {
-            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton);
+            var form = this;
+            commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveComponentButton).Modifier(form);
             commandManager["NewSave"].Executor(viewModel.NewSaveCommand).AttachTo(newSaveComponentButton);
             commandManager["Deactivate"].Executor(viewModel.DeactivationCommand).AttachTo(deactivated);
 

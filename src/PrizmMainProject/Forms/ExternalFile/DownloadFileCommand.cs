@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.ExternalFile
 {
-    public class DownloadFileCommand : ICommand
+    public class DownloadFileCommand : BaseCommand
     {
         private readonly IFileRepository repo;
         private readonly ExternalFilesViewModel viewModel;
@@ -29,7 +29,7 @@ namespace Prizm.Main.Forms.ExternalFile
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             string sourceFile = Path.Combine(Directories.TargetPath, viewModel.SelectedFile.NewName);
             if(File.Exists(sourceFile))
@@ -39,7 +39,7 @@ namespace Prizm.Main.Forms.ExternalFile
             }
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return viewModel.SelectedFile.NewName != null;
         }

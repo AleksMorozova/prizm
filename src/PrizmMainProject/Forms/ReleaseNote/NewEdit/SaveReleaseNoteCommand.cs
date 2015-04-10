@@ -18,7 +18,7 @@ using Prizm.Domain.Entity.SimpleReleaseNote;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
-    public class SaveReleaseNoteCommand : ICommand
+    public class SaveReleaseNoteCommand : BaseCommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveReleaseNoteCommand));
 
@@ -39,7 +39,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             if(!viewModel.validatableView.Validate())
             {
@@ -141,7 +141,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             RefreshVisualStateEvent();
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             bool condition = !string.IsNullOrWhiteSpace(viewModel.Number)
                 && !viewModel.Shipped;

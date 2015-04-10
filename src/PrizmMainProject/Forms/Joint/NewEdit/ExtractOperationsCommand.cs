@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
-    public class ExtractOperationsCommand : ICommand
+    public class ExtractOperationsCommand : BaseCommand
     {
         readonly IConstructionRepository repo;
         readonly JointNewEditViewModel viewModel;
@@ -24,7 +24,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         [Command(UseCommandManager = false)]
-        public void Execute()
+        public override void Execute()
         {
             var controlOperations = repo.RepoJointOperation.GetControlOperations();
             viewModel.ControlOperations = new BindingList<JointOperation>(controlOperations);
@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.RepairOperations = new BindingList<JointOperation>(repairOperations);
         }
 
-        public bool CanExecute()
+        public override bool CanExecute()
         {
             return true;
         }
