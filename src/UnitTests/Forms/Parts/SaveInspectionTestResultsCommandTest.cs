@@ -16,6 +16,7 @@ using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
 using Prizm.Main.Security;
+using Prizm.Domain.Entity;
 
 namespace Prizm.UnitTests.Forms.Parts
 {
@@ -42,12 +43,10 @@ namespace Prizm.UnitTests.Forms.Parts
             repos.SetupGet(_ => _.RepoPipe).Returns(repoPipe.Object);
             repos.SetupGet(_ => _.RepoSpool).Returns(repoSpool.Object);
 
-            List<InspectionTestResult> list = new List<InspectionTestResult>() { new InspectionTestResult() };
+            List<InspectionTestResult> list = new List<InspectionTestResult>() { new InspectionTestResult(){ Inspectors = new List<Inspector>() { new Inspector() } } };
             var viewModel = new PartInspectionViewModel(session.Object, repos.Object, notify.Object, ctx.Object);
             viewModel.ModifiableView = modifiableView.Object;
-            list.Add(new InspectionTestResult());
             Pipe part = new Pipe() { InspectionTestResults = list};
-
             repos.Setup(_ => _.RepoPipe.Get(It.IsAny<Guid>())).Returns(part);
 
             Main.Forms.Parts.Search.Part notConverted = new Main.Forms.Parts.Search.Part()

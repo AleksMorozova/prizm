@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Transform;
+using Prizm.Domain.Entity.Mill;
 
 namespace Prizm.UnitTests.Forms.Railcar.Search
 {
@@ -45,11 +46,58 @@ namespace Prizm.UnitTests.Forms.Railcar.Search
             repo.Setup(x => x.CreateSQLQuery(It.IsAny<string>()))
                 .Returns(iSQLQuery.Object).Verifiable();
 
+            repo.Setup(x => x.SearchReleases(
+                It.IsAny<string>(), 
+                It.IsAny<DateTime>(), 
+                It.IsAny<DateTime>()))
+                .Returns(new List<ReleaseNote>() {new ReleaseNote() });
+
+            repo.Setup(x => x.SearchReleasesAllCreteria(
+                It.IsAny<string>(), 
+                It.IsAny<DateTime>(), 
+                It.IsAny<DateTime>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>()
+                ))
+                .Returns(new List<ReleaseNote>() { new ReleaseNote() });
+
+            repo.Setup(x => x.SearchReleasesByRailcar(
+                It.IsAny<string>(),
+                It.IsAny<DateTime>(),
+                It.IsAny<DateTime>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>()
+                ))
+                .Returns(new List<ReleaseNote>() { new ReleaseNote() });
+
             var command = new SearchReleaseNoteCommand(viewModel, repo.Object, notify.Object);
 
             command.Execute();
 
-            repo.Verify(x => x.CreateSQLQuery(It.IsAny<string>()), Times.Once());
+            repo.Verify(x => x.SearchReleasesByRailcar(
+                It.IsAny<string>(),
+                It.IsAny<DateTime>(),
+                It.IsAny<DateTime>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>()), Times.AtMostOnce());
+
+            repo.Verify(x => x.SearchReleasesAllCreteria(                
+                It.IsAny<string>(), 
+                It.IsAny<DateTime>(), 
+                It.IsAny<DateTime>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>()), Times.AtMostOnce());
+
+            repo.Verify(x => x.SearchReleases(
+                It.IsAny<string>(), 
+                It.IsAny<DateTime>(), 
+                It.IsAny<DateTime>()), Times.AtMostOnce());
 
             Assert.AreEqual(
                 repo.Object

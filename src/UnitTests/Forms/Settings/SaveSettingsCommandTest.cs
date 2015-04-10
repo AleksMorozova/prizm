@@ -47,13 +47,28 @@ namespace Prizm.UnitTests.Forms.Settings
             var repoSeamType = new Mock<ISeamTypeRepository>();
 
             var testProjectSetting = new Project() { IsNative = true};
-            var testSizeType = new PipeMillSizeType() { IsNative = true, Project = testProjectSetting };
-            var testWelder = new Welder();
+            var testSizeType = new PipeMillSizeType() 
+            { 
+                IsNative = true, 
+                Project = testProjectSetting,
+                Diameter = 10,
+                Thickness = 5,
+                SeamType = new SeamType(),
+                Length = 20,
+            };
+            foreach (PipeTest t in testSizeType.PipeTests)
+            {
+                t.Code = "Code";
+                t.Name = "Name";
+                t.ControlType = PipeTestControlType.Monitor;
+                t.ResultType = PipeTestResultType.Boolean;
+            }
+            var testWelder = new Welder() { Certificate = new Certificate() { ExpirationDate = DateTime.Now} };
             var testManufacturer = new PlateManufacturer() { IsNative = true, Project = testProjectSetting};
             var testInspector = new Inspector();
             var testUser = new User();
             var testRole = new Role();
-            var testPerm = new Permission();
+            var testPerm = new Permission() { Name = "CreateJoint" };
             var modifiableView = new Mock<IModifiable>();
             var jointOperations = new JointOperation();
             var ctx = new Mock<ISecurityContext>();
