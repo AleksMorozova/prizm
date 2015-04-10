@@ -24,18 +24,24 @@ namespace Prizm.UnitTests.Forms.Railcar.Edit
             var view = new Mock<IModifiable>();
             var railcarRepo = new Mock<IRailcarRepository>();
             var pipeRepo = new Mock<IPipeRepository>();
+            var releaseRepo = new Mock<IReleaseNoteRepository>();
+            var simpleReleaseRepo = new Mock<ISimpleNoteRepository>();
             //pipeRepo.Setup(x => x.GetStored()).Returns(new List<SimplePipe>() { new SimplePipe() });
             var repos = new Mock<IReleaseNoteRepositories>();
             var ctx = new Mock<ISecurityContext>();
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
+            repos.SetupGet(_ => _.ReleaseNoteRepo).Returns(releaseRepo.Object);
+            repos.SetupGet(_ => _.SimpleNoteRepo).Returns(simpleReleaseRepo.Object);
 
             var viewModel = new ReleaseNoteViewModel(repos.Object, Guid.Empty, notify.Object,ctx.Object);
             viewModel.ModifiableView = new Mock<IModifiable>().Object;
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.validatableView = validatable.Object;
-            viewModel.Railcar.Number = "Test Railcar";
+            viewModel.ReleaseNote = new SimpleNote();
+            viewModel.Number = "Test Railcar";
+            viewModel.Date = DateTime.Now;
             viewModel.ModifiableView = view.Object;
             viewModel.Railcar.Pipes.Add(new SimplePipe());
             var command = new SaveReleaseNoteCommand(viewModel, repos.Object, notify.Object, ctx.Object);
