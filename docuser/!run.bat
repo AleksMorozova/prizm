@@ -1,4 +1,4 @@
-@echo off & setlocal ENABLEEXTENSIONS & setlocal enabledelayedexpansion
+@echo off & setlocal ENABLEEXTENSIONS
 
 set BIN=..\..\prizm_external\external\Documentation\Modules
 set CONTENT=content.md
@@ -8,13 +8,13 @@ set MDFOLDER=.\content\
 
 call:ProcessMds
 
-rem call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
+call:ProcessOne ListMill             "PRISM v.2 Mill User Guide (ru).pdf"
 call:ProcessOne ListMaster           "PRISM v.2 Master User Guide (ru).pdf"
-rem call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf"
-rem call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
-rem call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
-rem call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
-rem call:ProcessOne ListTranslation      "PRISM v.2 Translation Guide (ru).pdf"
+call:ProcessOne ListConstruction     "PRISM v.2 Construction User Guide (ru).pdf"
+call:ProcessOne ListInstallation     "PRISM v.2 Installation Guide (ru).pdf"
+call:ProcessOne ListCustomReports    "PRISM v.2 Custom Reports Guide (ru).pdf"
+call:ProcessOne ListCustomReportsEng "PRISM v.2 Custom Reports Guide (en).pdf"
+call:ProcessOne ListTranslation      "PRISM v.2 Translation Guide (ru).pdf"
 
 echo All done.
 
@@ -81,14 +81,13 @@ goto:eof
 rem --------------------
 :MergeSections
 
-echo. >> %CONTENT%
-call deBom %MDFOLDER%%HEADER% >> %CONTENT%
-echo. >> %CONTENT%
+type %MDFOLDER%%HEADER% >> %CONTENT%
 
 FOR /F "delims=" %%F IN ('type %~1.txt') DO (
    set MERGED=MERGED
    echo. >> %CONTENT%
    call deBom %%F >> %CONTENT%
+   echo. >> %CONTENT%
 )
 
 echo Combined file created.

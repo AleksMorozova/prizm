@@ -1,8 +1,4 @@
-@rem http://im.snibgo.com/snutf8.htm#debom
-
 @rem Removes any Byte Order Marks (BOM) in a file.
-
-@setlocal enabledelayedexpansion
 
 @set BOMFILE=%~dp0bom.txt
 
@@ -15,7 +11,7 @@
 
 @for /F "tokens=*" %%a in (%1) do @(
   @set line=%%a
-  @set line=!line:%bom%=!
-  @echo !line!
+  @call set line=%%line:%bom%=%%
+  @call echo. %%line%%
 )
 @exit /B 0
