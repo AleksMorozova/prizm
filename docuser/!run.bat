@@ -25,10 +25,9 @@ goto:eof
 rem --------------------
 :ProcessMds
 
-FOR /F "delims=" %%F IN ('dir /b /a-d-h-s %MDFOLDER%*.md') DO (
-
 rem --- Check if used at least in one txt file
 
+FOR /F "delims=" %%F IN ('dir /b /a-d-h-s %MDFOLDER%*.md') DO (
     IF "%%F" neq "%HEADER%" (
        call:SetFound
        FOR /F %%I in ('findstr %%F List*.txt') do (
@@ -73,7 +72,7 @@ if "%MERGED%" neq "" (
    echo "%~2" can not be created: merged file is empty. 1>&2
 )
 
-rem call:DeleteTmpFiles
+call:DeleteTmpFiles
 
 echo %~1 done.
 
