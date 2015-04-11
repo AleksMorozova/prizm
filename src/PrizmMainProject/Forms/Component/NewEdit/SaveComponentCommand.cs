@@ -123,6 +123,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Component.Id;
                         viewModel.ModifiableView.UpdateState();
+
+                        //!
                         System.Threading.Thread.Sleep(3000);
 
                         if (fileCopySuccess)
@@ -175,5 +177,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                     ? global::Domain.Entity.Security.Privileges.CreateComponent
                                     : global::Domain.Entity.Security.Privileges.EditComponent);
         }
+
+        public Task ExecuteAsync() { return Task.Run(() => this.Execute()); }
     }
 }

@@ -223,14 +223,7 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowInfo(string text, string header)
         {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new MethodInvoker(() => XtraMessageBox.Show(this.ActiveMdiChild, text, header, MessageBoxButtons.OK, MessageBoxIcon.Information)));
-            }
-            else
-            {
-                XtraMessageBox.Show(this.ActiveMdiChild, text, header, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            AsyncHelper.InvokeIfRequired(this, () => XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information));
         }
         
         /// <summary>

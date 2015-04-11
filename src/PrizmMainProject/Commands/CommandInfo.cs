@@ -146,7 +146,6 @@ namespace Prizm.Main.Commands
              {
                  component.Enabled = command.CanExecute();
              }
-            
          }
 
          async void btn_Click(object sender, EventArgs e)
@@ -161,21 +160,30 @@ namespace Prizm.Main.Commands
             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
             try
             {
+                notify.ShowProcessing();
                 if(command.Validate())
                 {
-                    Program.IsCommandRunning = true;
-                    modifier.IsFormEnabled = false;
-                    notify.ShowProcessing();
-                    var q = command as ICommandAsync;
-                    await q.ExecuteAsync();
-                    modifier.IsFormEnabled = true;
+                    if (command is ICommandAsync)
+                    {
+                        modifier.IsFormEnabled = false;
+                        Program.IsCommandRunning = true;
+
+                        await ((ICommandAsync)command).ExecuteAsync();
+
+                        Program.IsCommandRunning = false;
+                        modifier.IsFormEnabled = true;
+
+                        modifier.RefreshBinding();
+                    }
+                    else
+                    {
+                        command.Execute();
+                    }
                 }
             }
             finally
             {
                 notify.HideProcessing();
-                Program.IsCommandRunning = false;
-                modifier.RefreshBinding();
             }
          }
       }

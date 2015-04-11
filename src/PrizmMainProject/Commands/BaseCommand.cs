@@ -15,10 +15,5 @@ namespace Prizm.Main.Commands
         public abstract bool CanExecute();
 
         public virtual bool Validate() { return true; }
-
-        public Task ExecuteAsync()
-        {
-            return Task.Run(() => this.Execute());
-        }
     }
 }
