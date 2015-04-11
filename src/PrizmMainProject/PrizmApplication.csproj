@@ -194,6 +194,7 @@
     <Compile Include="Commands\ICommandAsync.cs" />
     <Compile Include="Commands\ICommandManager.cs" />
     <Compile Include="Common\ActivityCriteria.cs" />
+    <Compile Include="Common\AsyncHelper.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\CustomViewModelBase.cs" />
     <Compile Include="Common\DateExtension.cs" />
