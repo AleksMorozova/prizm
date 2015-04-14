@@ -110,7 +110,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                         }
                         
                         ////////////////////////
-                        Thread.Sleep(3000);
+                        Thread.Sleep(2000);
                         ////////////////////////
 
                         if (fileCopySuccess)
