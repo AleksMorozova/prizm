@@ -904,7 +904,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (row.Status == PipeTestResultStatus.Scheduled)
                 {
                     var editForm = GetInspectionForm(tests, insp, row, status);
-                    viewModel.RecalculatePipeTestResultsOrder();
+                    row.Order = viewModel.PipeTestResultsMaxOrder();
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();

@@ -631,15 +631,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return max;
         }
 
-        public void RecalculatePipeTestResultsOrder()
-        {
-            int counter = 0;
-            foreach (var item in PipeTestResults)
-            {
-                item.Order = ++counter;
-            }
-        }
-
         #endregion
 
         #region Commands
