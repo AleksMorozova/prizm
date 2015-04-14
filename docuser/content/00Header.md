@@ -28,7 +28,7 @@ p {
 font-size: 1.5em;
 }
 ul {
-list-style-type: square;
+list-style-type: disc;
 }
 li {
 }

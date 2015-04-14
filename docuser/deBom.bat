@@ -9,9 +9,9 @@
 
 @for /F %%a in (%BOMFILE%) do @set bom=%%a
 
-@for /F "tokens=*" %%a in (%1) do @(
-  @set line=%%a
-  @call set line=%%line:%bom%=%%
-  @call echo. %%line%%
+@for /F "tokens=1* delims=:" %%a in ('type "%1" ^| findstr /N "^"') do @(
+  @set line=%%b
+  @if "%%b" neq "" @call set line=%%line:%bom%=%%
+  @call echo.%%line%%
 )
 @exit /B 0
