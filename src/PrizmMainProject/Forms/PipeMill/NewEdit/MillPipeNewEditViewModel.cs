@@ -1056,7 +1056,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// <summary>
         /// This method find last result for operation
         /// </summary>
-        /// <param name="listOfOperations"></param>
+        /// <param name="listOfOperations"> List of operations with one category type for current pipe </param>
         /// <returns></returns>
         public PipeTestResultStatus CheckOperationStatus(List<PipeTestResult> listOfOperations)
         {
