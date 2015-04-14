@@ -146,7 +146,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
 
         public string Category
         {
-            get { return testResult.Operation.Category.Name; }
+            get
+            {
+                return testResult.Operation.Category != null ?  testResult.Operation.Category.Name: string.Empty;
+            }
             set
             {
                 if(value != testResult.Operation.Category.Name)
