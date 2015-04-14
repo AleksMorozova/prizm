@@ -1,4 +1,5 @@
 ﻿using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
 using System;
 using System.Collections.Generic;
@@ -93,9 +94,12 @@ namespace Prizm.Data.DAL.ADO
                     connection.Open();
                     command.Connection = connection;
 
-                    command.CommandText = String.Format (@"Select Max(r.Date), t.id From PipeTestResult r
-right join PipeTest t on r.pipeTestId=t.id where t.frequencyType = '{0}'
-  group by t.id", InspectionFrequencyType.U.ToString());
+                    command.CommandText = String.Format (@"Select r.Date, t.id From PipeTest t
+full join 
+(Select Max(PipeTestResult.Date) date,PipeTestResult.pipeTestId testId 
+From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
+ group by PipeTestResult.pipeTestId) r on r.testId=t.id where t.frequencyType ='{1}'
+", PipeTestResultStatus.Scheduled.ToString(), InspectionFrequencyType.U.ToString());
 
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
