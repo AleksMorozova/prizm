@@ -1,8 +1,8 @@
+.\content\Construction.md
 .\content\Settings.md
 .\content\Settings_WeldersInspectors.md
 .\content\Settings_Users.md
 .\content\Construct_Settings.md
-.\content\Construction.md
 .\content\Construct_NewEditComponent.md
 .\content\Construct_NewEditJoint.md
 .\content\Construct_NewEditSpool.md
