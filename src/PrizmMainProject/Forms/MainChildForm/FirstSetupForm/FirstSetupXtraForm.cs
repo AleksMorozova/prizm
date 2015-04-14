@@ -31,7 +31,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             InitializeComponent();
             SetControlsTextLength();
-            viewModel = vm;          
+            viewModel = vm;
+            SetControlsDisable();
 
             this.AcceptButton = saveButton;
             this.CancelButton = cancelButton;
@@ -60,6 +61,16 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 (value) =>
                 {
                     return (string)localizedAllWorkstations[(int)value];
+                }));
+
+            millLayoutControlItem.DataBindings.Add(
+                BindingHelper.CreateOneWayReadToString("Text", bindingSource, "Type",
+                (value) =>
+                {
+                    return 
+                        Program.LanguageManager.GetString(StringResources.SettingsProject_MillLabel)
+                        +
+                        " (" + (string)localizedAllWorkstations[(int)viewModel.Type] + ")";
                 }));
 
             projectName.DataBindings.Add("EditValue", bindingSource, "ProjectTitle");
@@ -103,7 +114,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                             StringResources.WorkstationType_Mill.Id, 
                             StringResources.WorkstationType_Construction.Id} ),
 
-                               // header
+                // header
                 new LocalizedItem(this, localizedHeader, new string[] { "FirstSetup_FormHeader", 
                     "MainWindowHeader_Mill", "MainWindowHeader_Master", "MainWindowHeader_Construction" } ),
            };
@@ -121,8 +132,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                         : ""
             , "]");
         }
-           
-        
 
         #endregion // --- Localization ---
 
@@ -153,6 +162,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             lastName.Properties.MaxLength = LengthLimit.UserLastName;
             firstName.Properties.MaxLength = LengthLimit.UserFirstName;
             middleName.Properties.MaxLength = LengthLimit.UserMiddleName;
+        }
+
+        private void SetControlsDisable()
+        {
+            pipeMask.Enabled = viewModel.Type == WorkstationType.Mill;
         }
     }
 }

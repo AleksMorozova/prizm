@@ -5,3 +5,5 @@ src/PrizmMainProject/Properties/licenses.licx
 [Ee]xternal/
 install/version.txt
 install/Lang/Res/*.resources
+log_*.txt
+TestResult*.xml

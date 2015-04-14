@@ -55,6 +55,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit.Inspections
                 this.status = TestResult.Status;
                 this.factBool = false;
                 this.date = DateTime.Now;
+                this.factLimit = string.Empty;
+                this.factString = null;
 
                 if (this.availableTests != null && this.availableTests.Count > 0)
                     TestResult.Operation = this.availableTests[0];

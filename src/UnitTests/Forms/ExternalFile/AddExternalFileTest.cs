@@ -42,16 +42,19 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             var notify = new Mock<IUserNotify>();
             var view = new Mock<IModifiable>();
             var railcarRepo = new Mock<IRailcarRepository>();
+            var simpleNoteRepo = new Mock<ISimpleNoteRepository>();
             var pipeRepo = new Mock<IPipeRepository>();
             var ctx = new Mock<ISecurityContext>();
             pipeRepo.Setup(x => x.GetStored()).Returns(new List<Pipe>() { new Pipe() });
             var repos = new Mock<IReleaseNoteRepositories>();
             repos.SetupGet(_ => _.PipeRepo).Returns(pipeRepo.Object);
             repos.SetupGet(_ => _.RailcarRepo).Returns(railcarRepo.Object);
+            repos.SetupGet(_ => _.SimpleNoteRepo).Returns(simpleNoteRepo.Object);
 
             var fileRepo = new Mock<IFileRepository>();
             var projectRepo = new Mock<IProjectRepository>();
             var externalFilesRepo = new Mock<IExternalFilesRepositories>();
+            projectRepo.Setup(x => x.GetSingle()).Returns(new Project());
             externalFilesRepo.SetupGet(_ => _.FileRepo).Returns(fileRepo.Object);
             externalFilesRepo.SetupGet(_ => _.ProjectRepo).Returns(projectRepo.Object);
 
@@ -65,17 +68,20 @@ namespace Prizm.UnitTests.Forms.ExternalFile
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.validatableView = validatable.Object;
             viewModel.Railcar.Number = "Test Railcar";
+            viewModel.Number = "Test Railcar";
+            viewModel.Date = DateTime.Now;
             viewModel.ModifiableView = view.Object;
             viewModel.FilesFormViewModel = fileViewModel;
             viewModel.Railcar.Pipes.Add(new SimplePipe());
             var command = new SaveReleaseNoteCommand(viewModel, repos.Object, notify.Object, ctx.Object);
 
             command.Execute();
-            
-            fileRepo.Verify(_ => _.BeginTransaction(), Times.Once());
-            fileRepo.Verify(_ => _.Save(It.IsAny<Domain.Entity.File>()), Times.Once());
-            fileRepo.Verify(_ => _.Commit(), Times.Once());
-            fileRepo.Verify(_ => _.Evict(It.IsAny<Domain.Entity.File>()), Times.Once());
+
+            repos.Verify(_ => _.BeginTransaction(), Times.Once());
+            simpleNoteRepo.Verify(_ => _.SaveOrUpdate(It.IsAny<SimpleNote>()), Times.Once());
+            repos.Verify(_ => _.Rollback(), Times.AtMostOnce());
+            repos.Verify(_ => _.Commit(), Times.Once());
+            simpleNoteRepo.Verify(_ => _.Evict(It.IsAny<SimpleNote>()), Times.Once());
 
             if (Directory.Exists(Directories.TargetPath))
             {

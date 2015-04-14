@@ -1,11 +1,12 @@
+.\content\Construction.md
 .\content\Settings.md
 .\content\Settings_WeldersInspectors.md
 .\content\Settings_Users.md
 .\content\Construct_Settings.md
-.\content\Construction.md
 .\content\Construct_NewEditComponent.md
 .\content\Construct_NewEditJoint.md
 .\content\Construct_NewEditSpool.md
+.\content\Info_Entity_Save.md
 .\content\Construct_ElementsInspection.md
 .\content\Construct_SearchElements.md
 .\content\ExternalFiles.md
@@ -24,3 +25,4 @@
 .\content\Notification_DuplicateLogin.md
 .\content\Notification_DuplicatePipeNumber.md
 .\content\Notification_ExpiredCertificate.md
+.\content\Deactivation.md

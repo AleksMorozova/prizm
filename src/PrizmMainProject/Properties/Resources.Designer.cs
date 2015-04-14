@@ -4441,6 +4441,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Название рабоче&amp;й станции.
+        /// </summary>
+        internal static string SettingsProject_MillLabel {
+            get {
+                return ResourceManager.GetString("SettingsProject_MillLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap shipment_icon {

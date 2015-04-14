@@ -80,6 +80,7 @@ namespace Prizm.Main.Forms.Settings
             EnumWrapper<PipeTestControlType>.LoadItems(localizedPipeTestControlTypes, skip0: true);
             EnumWrapper<PipeTestResultType>.LoadItems(localizedPipeTestResultTypes, skip0: true);
             EnumWrapper<JointOperationType>.LoadItems(localizedJointOperationTypes, skip0: true);
+            EnumWrapper<WorkstationType>.LoadItems(localizedMillNameLayoutControl);
 
             viewModel.ModifiableView = this;
             viewModel.validatableView = this;
@@ -244,6 +245,15 @@ namespace Prizm.Main.Forms.Settings
 
         #region --- Localization ---
 
+        protected List<string> localizedMillNameLayoutControl = new List<string>();
+        void UpdateWorkstationName()
+        {
+            millNameLayoutControlItem.Text =
+                Program.LanguageManager.GetString(StringResources.SettingsProject_MillLabel)
+                +
+                " (" + (string)localizedMillNameLayoutControl[(int)viewModel.CurrentProjectSettings.WorkstationType] + ")";
+        }
+
         protected override List<LocalizedItem> CreateLocalizedItems()
         {
             return new List<LocalizedItem>()
@@ -253,7 +263,13 @@ namespace Prizm.Main.Forms.Settings
                 new LocalizedItem(clientLayoutControlItem, StringResources.SettingsProject_ClientLabel.Id),
                 new LocalizedItem(plateManLayoutControlItem, StringResources.SettingsProject_PlateManufacturerLabel.Id),
                 new LocalizedItem(extDocumentSizeLayoutControlItem, StringResources.SettingsProject_DocumentSizeLabel.Id),
-                new LocalizedItem(millNameLayoutControlItem, StringResources.SettingsProject_MillLabel.Id),
+                
+                new LocalizedItem(UpdateWorkstationName, localizedMillNameLayoutControl,
+                        new string [] {StringResources.WorkstationType_Undefined.Id, 
+                                       StringResources.WorkstationType_Master.Id, 
+                                       StringResources.WorkstationType_Mill.Id, 
+                                       StringResources.WorkstationType_Construction.Id} ),
+
                 new LocalizedItem(maskLayoutControlItem, StringResources.SettingsProject_MaskEditLabel.Id),
                 new LocalizedItem(pipeNumberMaskRulesLabel, StringResources.Mask_Label.Id),
                 new LocalizedItem(operationsLayoutControlItem, StringResources.SettingsProject_OperationsLabel.Id),
@@ -1648,7 +1664,7 @@ namespace Prizm.Main.Forms.Settings
                     case  InspectionFrequencyType.S: e.DisplayText = Program.LanguageManager.GetString(StringResources.InspectionFrequencyType_Selective);
                         break;
                     default: e.DisplayText = String.Empty;
-                        log.Warn(string.Format("String resource for {O} inspection frequency type is missing", e.Value.ToString()));
+                        log.Warn(string.Format("String resource for {0} inspection frequency type is missing", e.Value.ToString()));
                         break;
                 }
             }
@@ -2082,7 +2098,6 @@ namespace Prizm.Main.Forms.Settings
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 sizesLayoutControlItem.Width = 600;
                 SetAlwaysReadOnly(plateManufacturersList);
-                SetAlwaysReadOnly(millName);
                 SetAlwaysReadOnly(pipeNumberMask);
                 SetAlwaysReadOnly(categoriesGrid);
                 SetAlwaysReadOnly(seamTypes);
@@ -2109,7 +2124,6 @@ namespace Prizm.Main.Forms.Settings
                 editTestButtonLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 cloneButtonLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 SetAlwaysReadOnly(plateManufacturersList);
-                SetAlwaysReadOnly(millName);
                 SetAlwaysReadOnly(pipeNumberMask);
                 SetAlwaysReadOnly(categoriesGrid);
                 SetAlwaysReadOnly(seamTypes);

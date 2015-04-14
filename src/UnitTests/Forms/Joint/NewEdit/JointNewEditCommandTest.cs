@@ -17,6 +17,7 @@ using Prizm.Domain.Entity.Setup;
 using System.ComponentModel;
 using Prizm.Main.Security;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity;
 
 namespace Prizm.UnitTests.Forms.Joint.NewEdit
 {
@@ -58,7 +59,7 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             repoJointOperation.Setup(_ => _.GetRepairOperations()).Returns(operations);
             repoJoint.Setup(_ => _.GetActiveByNumber(joint)).Returns(new List<Prizm.Domain.Entity.Construction.Joint>());
             repoSpool.Setup(_ => _.Get(It.IsAny<Guid>())).Returns(new Domain.Entity.Construction.Spool());
-
+            repoAdo.Setup(x => x.GetPipelineElements()).Returns(new System.Data.DataTable());
 
             modifiableView.SetupGet(x => x.IsModified).Returns(false);
 
@@ -70,6 +71,16 @@ namespace Prizm.UnitTests.Forms.Joint.NewEdit
             var validatable = new Mock<IValidatable>();
             validatable.Setup(x => x.Validate()).Returns(true);
             viewModel.ValidatableView = validatable.Object;
+            viewModel.Joint.LoweringDate = DateTime.Now;
+            viewModel.Joint.Number = string.Empty;
+
+            var welder = new Welder();
+            var weldResult = new JointWeldResult();
+            weldResult.Welders.Add(welder);
+            weldResult.IsCompleted = true;
+
+            viewModel.JointWeldResults.Add(weldResult);
+
 
             var command = new SaveJointCommand(repoConstruction.Object,viewModel, notify.Object, securityCtx.Object);
             command.Execute();

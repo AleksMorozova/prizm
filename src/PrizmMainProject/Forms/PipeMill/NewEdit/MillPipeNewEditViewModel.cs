@@ -1111,33 +1111,34 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             List<string> internalCoatTestsResults = new List<string>();
             List<PipeTestResult> externalCoatOperation = new List<PipeTestResult>();
             List<string> externalCoatTestsResults = new List<string>();
-            //group by Weld category
-            foreach (PipeTestResult t in Pipe.PipeTestResult)
-            {
-                if (t.Operation.Category.Type == FixedCategory.Weld)
-                {
-                    weldOperation.Add(t);
-                    weldTestsResults.Add(t.Status.ToString());
-                }
-            }
 
-            //group by ExternalCoat category
+            // group by category
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Type == FixedCategory.ExternalCoat)
+                if (t.Operation.Category != null)
                 {
-                    externalCoatOperation.Add(t);
-                    externalCoatTestsResults.Add(t.Status.ToString());
-                }
-            }
-
-            //group by InternalCoat category
-            foreach (PipeTestResult t in Pipe.PipeTestResult)
-            {
-                if (t.Operation.Category.Type == FixedCategory.InternalCoat)
-                {
-                    internalCoatOperation.Add(t);
-                    internalCoatTestsResults.Add(t.Status.ToString());
+                    switch (t.Operation.Category.Type)
+                    { 
+                        case FixedCategory.Weld:
+                            weldOperation.Add(t);
+                            weldTestsResults.Add(t.Status.ToString());
+                            break;
+                        case FixedCategory.ExternalCoat:
+                            externalCoatOperation.Add(t);
+                            externalCoatTestsResults.Add(t.Status.ToString());
+                            break;
+                        case FixedCategory.InternalCoat:
+                            internalCoatOperation.Add(t);
+                            internalCoatTestsResults.Add(t.Status.ToString());
+                            break;
+                        case FixedCategory.Length:
+                            // is it OK we don't group by length - ?
+                            break;
+                        case FixedCategory.Undefined:
+                        default:
+                            log.Warn(string.Format("Undefined category for test result id: {0} pipe: {1} pipe id: {2} ", t.Id, Pipe.Number, Pipe.Id));
+                            break;
+                    }
                 }
             }
 

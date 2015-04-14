@@ -11,6 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Security;
+using Prizm.Domain.Entity;
+using System.ComponentModel;
+using Prizm.Domain.Entity.Construction;
 
 namespace Prizm.UnitTests.Forms.Spool
 {
@@ -50,6 +53,9 @@ namespace Prizm.UnitTests.Forms.Spool
 
             viewModel.Spool = spool;
             viewModel.Pipe = pipe;
+            viewModel.InspectionTestResults =
+                new BindingList<InspectionTestResult>() { new InspectionTestResult()
+                    {Status = PartInspectionStatus.Pending}};
 
             viewModel.ModifiableView = modifiableView.Object;
 
@@ -59,9 +65,11 @@ namespace Prizm.UnitTests.Forms.Spool
                 notify.Object,
                 ctx.Object);
 
-            viewModel.Spool.Length = 124;
-            viewModel.Pipe.Length = 1124;
+            viewModel.SpoolLength = 200;
+            viewModel.InitPipeLenght = 1000;
+            viewModel.Pipe.Length = 800;
             viewModel.Pipe.Number = "Test";
+            viewModel.Spool.Number = "Test";
 
             command.Execute();
 

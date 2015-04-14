@@ -44,7 +44,6 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 viewModel.Project.IsActive = true;
                 if (viewModel.Project.WorkstationType != Domain.Entity.Setup.WorkstationType.Mill)
                 {
-                    viewModel.MillName = string.Empty;
                     viewModel.MillPipeNumberMask = string.Empty;
                 }
 
