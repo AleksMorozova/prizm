@@ -623,6 +623,23 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
         }
+
+
+        public int PipeTestResultsMaxOrder()
+        {
+            var max = PipeTestResults.Max(x => x.Order);
+            return max;
+        }
+
+        public void RecalculatePipeTestResultsOrder()
+        {
+            int counter = 0;
+            foreach (var item in PipeTestResults)
+            {
+                item.Order = ++counter;
+            }
+        }
+
         #endregion
 
         #region Commands

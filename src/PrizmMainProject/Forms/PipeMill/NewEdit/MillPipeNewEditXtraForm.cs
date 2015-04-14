@@ -884,6 +884,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
+                    addForm.viewModel.TestResult.Order = viewModel.PipeTestResultsMaxOrder();
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                     IsModified = true;
                     inspections.RefreshDataSource();
@@ -903,7 +904,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (row.Status == PipeTestResultStatus.Scheduled)
                 {
                     var editForm = GetInspectionForm(tests, insp, row, status);
-
+                    viewModel.RecalculatePipeTestResultsOrder();
                     editForm.ShowDialog();
                     IsModified = true;
                     inspections.RefreshDataSource();
