@@ -1053,13 +1053,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Pipe.RecalculateWeight();
             return Pipe.Length;
         }
-
-        public PipeTestResultStatus CheckOperationStatus(List<PipeTestResult> lengthOperation)
+        /// <summary>
+        /// This method find last result for operation
+        /// </summary>
+        /// <param name="listOfOperations"></param>
+        /// <returns></returns>
+        public PipeTestResultStatus CheckOperationStatus(List<PipeTestResult> listOfOperations)
         {
             PipeTestResultStatus result = PipeTestResultStatus.Scheduled;
             var lastOperation =
-               from p in lengthOperation
-               where p.Date == lengthOperation.Max(d => d.Date)
+               from p in listOfOperations
+               where p.Date == listOfOperations.Max(d => d.Date)
                select p;
 
             if (lastOperation.Count() >= 2)
@@ -1087,6 +1091,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             return result;
         }
 
+        /// <summary>
+        /// This method update pipeSubStatus 
+        /// </summary>
         public void UpdatePipeSubStatus()
         {
             List<PipeTestResult> weldOperation = new List<PipeTestResult>();
@@ -1096,7 +1103,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             List<PipeTestResult> externalCoatOperation = new List<PipeTestResult>();
             List<string> externalCoatTestsResults = new List<string>();
 
-            // group by category
+            // group by category which is needed for subStatus
             foreach (PipeTestResult t in Pipe.PipeTestResult)
             {
                 if (t.Operation.Category != null)
@@ -1116,11 +1123,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             internalCoatTestsResults.Add(t.Status.ToString());
                             break;
                         case FixedCategory.Length:
-                            // is it OK we don't group by length - ?
                             break;
                         case FixedCategory.Undefined:
+                            break;
                         default:
-                            log.Warn(string.Format("Undefined category for test result id: {0} pipe: {1} pipe id: {2} ", t.Id, Pipe.Number, Pipe.Id));
+                            log.Warn(string.Format("Undefined category at UpdatePipeSubStatus for test result id: {0} pipe: {1} pipe id: {2} ", t.Id, Pipe.Number, Pipe.Id));
                             break;
                     }
                 }
@@ -1130,7 +1137,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             Pipe.InternalCoatSubStatus = UpdateSubStatus(internalCoatOperation, internalCoatTestsResults);
             Pipe.ExternalCoatSubStatus = UpdateSubStatus(externalCoatOperation, externalCoatTestsResults);
         }
-
+        /// <summary>
+        /// This method set required subStatus for pipe
+        /// </summary>
+        /// <param name="allResults"> all PipeTestResult for current pipe </param>
+        /// <param name="testsResult"> all test result status for current pipe </param>
+        /// <returns></returns>
+        
         public PipeMillSubStatus UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
         {
             PipeMillSubStatus result;
