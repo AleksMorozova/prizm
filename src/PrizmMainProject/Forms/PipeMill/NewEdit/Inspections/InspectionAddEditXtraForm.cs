@@ -204,7 +204,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader)
                     );
             }
-            else if(viewModel.Status == PipeTestResultStatus.Accepted
+            else if (viewModel.Operation.Category!=null 
+                && viewModel.Status == PipeTestResultStatus.Accepted
                 && viewModel.Operation.Category.Type == FixedCategory.Length
                 && string.IsNullOrEmpty(viewModel.FactLimit))
             {

@@ -1005,7 +1005,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by category
             foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category.Type == FixedCategory.Length
+                if (t.Operation.Category!=null 
+                    && t.Operation.Category.Type == FixedCategory.Length
                     && t.Status == PipeTestResultStatus.Accepted
                     && !string.IsNullOrEmpty(t.Value))
                 {
