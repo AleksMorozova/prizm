@@ -14,6 +14,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Construction;
+using System.Threading;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -107,6 +108,10 @@ namespace Prizm.Main.Forms.Component.NewEdit
                                 repos.Rollback();
                             }
                         }
+                        
+                        ////////////////////////
+                        Thread.Sleep(3000);
+                        ////////////////////////
 
                         if (fileCopySuccess)
                         {
