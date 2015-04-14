@@ -223,7 +223,10 @@ namespace Prizm.Main.Forms.MainChildForm
         /// <param name="header">message header</param>
         public void ShowInfo(string text, string header)
         {
-            AsyncHelper.InvokeIfRequired(this, () => XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information));
+            AsyncHelper.InvokeIfRequired(
+                this, 
+                () => XtraMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Information),
+                this.splashScreenManager != null);
         }
         
         /// <summary>
@@ -235,7 +238,10 @@ namespace Prizm.Main.Forms.MainChildForm
         public bool ShowYesNo(string text, string header)
         {
             YesNoDialog dlg = new YesNoDialog(text, header);
-            return dlg.ShowDialog() == DialogResult.Yes;
+
+            AsyncHelper.InvokeIfRequired(this, () => dlg.ShowDialog(), this.splashScreenManager != null);
+
+            return dlg.DialogResult == DialogResult.Yes;
         }
         /// <summary>
         /// Message that requires user confirmation, denial or operation cancellation (yes/no/cancel)
@@ -248,6 +254,12 @@ namespace Prizm.Main.Forms.MainChildForm
         public int ShowYesNoCancel(string text, string header)
         {
             DialogResult dlg = XtraMessageBox.Show(text, header, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            AsyncHelper.InvokeIfRequired(
+                this, 
+                () => dlg =XtraMessageBox.Show(text, header, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question), 
+                this.splashScreenManager != null);
+            
             sbyte result;
             switch(dlg)
             {
@@ -275,7 +287,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public void ShowSuccess(string text, string header)
         {
             StatusNotifyText(text);
-
         }
         /// <summary>
         /// Message about failure, that doesn't require user confirmation.
@@ -298,7 +309,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void StatusNotifyText(string text)
         {
-            Program.MainForm.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), text));
+            AsyncHelper.InvokeIfRequired(
+                this,
+                () => Program.MainForm.UpdateStatusBar(string.Format("[{0}] - {1}", DateTime.Now.ToShortTimeString().Trim(), text)));
         }
 
         private int currentProcessingStep;

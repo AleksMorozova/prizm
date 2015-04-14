@@ -156,6 +156,7 @@ namespace Prizm.Main
             Bind<JointSearchCommand>().ToSelf(); 
             #endregion
 
+            //Bind<IUserNotify>().To<PrizmApplicationXtraForm>().InSingletonScope();
             Bind<IUserNotify>().ToMethod(context => Program.MainForm).InSingletonScope();
             Bind<AuditInterceptor>().ToSelf();
 
