@@ -350,6 +350,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 {
                     appWaitForm.ShowDialog();
                 }));
+            Application.DoEvents();
         }
 
 
@@ -362,6 +363,7 @@ namespace Prizm.Main.Forms.MainChildForm
                 {
                     appWaitForm.DialogResult = System.Windows.Forms.DialogResult.OK;
                 });
+            Application.DoEvents();
         }
 
         /// <summary>

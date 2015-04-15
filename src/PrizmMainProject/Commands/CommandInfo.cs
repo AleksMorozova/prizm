@@ -144,21 +144,20 @@ namespace Prizm.Main.Commands
                  throw ex;
              }
 
-            Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
-            try
-            {
-                Program.MainForm.Enabled = false;
-                notify.ShowProcessing();
-
-                command.Execute();
-            }
-            finally
-            {
-                notify.HideProcessing();
-                Program.MainForm.Enabled = true;
-            }
+             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
+             try
+             {
+                 Program.MainForm.Enabled = false;
+                 notify.ShowProcessing();
+                 
+                 command.Execute();
+             }
+             finally
+             {
+                 notify.HideProcessing();
+                 Program.MainForm.Enabled = true;
+             }
          }
-
       }
 
       #endregion // SimpleButtonAttacher
@@ -204,6 +203,7 @@ namespace Prizm.Main.Commands
             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
             try
             {
+                Program.MainForm.Enabled = false;
                 notify.ShowProcessing();
 
                 command.Execute();
@@ -211,6 +211,7 @@ namespace Prizm.Main.Commands
             finally
             {
                 notify.HideProcessing();
+                Program.MainForm.Enabled = true;
             }
          }
       }
