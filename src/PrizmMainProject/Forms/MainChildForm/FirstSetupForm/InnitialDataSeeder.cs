@@ -579,6 +579,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private bool SeedOptional()
         {
+            //Required seed hasn't been performed for Master worksration type, but data are used in optional seed
+            if (viewModel.Project.WorkstationType == WorkstationType.Master)
+            {
+                SeedRequired();
+            }
 
             firstSetupRepo.BeginTransaction();
             #region PlateManufacturers
