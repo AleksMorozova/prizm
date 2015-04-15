@@ -15,7 +15,6 @@ namespace Prizm.Main.Forms.MainChildForm
         public AppWaitForm()
         {
             InitializeComponent();
-            this.progressPanel.AutoHeight = true;
         }
 
         #region --- Localization ---

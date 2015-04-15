@@ -66,9 +66,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             InitializeComponent();
 
-            appWaitForm = new AppWaitForm();
-            appWaitForm.StartPosition = this.StartPosition;
-            appWaitForm.ShowOnTopMode = DevExpress.XtraWaitForm.ShowFormOnTopMode.AboveParent;
+            appWaitForm = GetNewAppWaitForm();
         }
 
         public void InvokeIfRequired(Control control, Action method)
@@ -81,6 +79,17 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 method();
             }
+        }
+
+        private AppWaitForm GetNewAppWaitForm()
+        {
+            var form = new AppWaitForm();
+
+            form.StartPosition = this.StartPosition;
+            form.ShowOnTopMode = DevExpress.XtraWaitForm.ShowFormOnTopMode.AboveParent;
+
+            return
+                form;
         }
 
         #region Menu buttons
@@ -335,10 +344,11 @@ namespace Prizm.Main.Forms.MainChildForm
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
 
+            appWaitForm = GetNewAppWaitForm();
+
             Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
                     appWaitForm.ShowDialog();
-                    appWaitForm.ShowOnTopMode = DevExpress.XtraWaitForm.ShowFormOnTopMode.AboveAll;
                 }));
         }
 
