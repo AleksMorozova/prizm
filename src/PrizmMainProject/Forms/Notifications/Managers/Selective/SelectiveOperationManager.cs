@@ -221,13 +221,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
 
                         foreach (TestResultInfo result in savingState)
                         {
-                            if (result.isAccepted)
-                            {
-                                manager.cache.AddPipeAmount(result.OperationId);
-                            }
-                            else 
+                            if (result.TestStatus != PipeTestResultStatus.Scheduled)
                             {
                                 manager.cache.RemovePipeAmount(result.OperationId);
+                                manager.cache.AddPipeAmount(result.OperationId);
                             }
 
                             UpdateNotification(result.OperationId);
