@@ -94,6 +94,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
             code.SetRequiredText();
             operationName.SetRequiredText();
             controlType.SetRequiredCombo();
+            frequency.SetMask(Constants.PositiveDigitMask);
             frequencyMeasure.SetRequiredCombo();
             resultType.SetRequiredCombo();
             percentOfSelect.SetRequiredText();
