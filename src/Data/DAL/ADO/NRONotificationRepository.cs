@@ -288,7 +288,8 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                     command.Connection = connection;
                     command.Parameters.AddWithValue("@testId", testId);
 
-                    command.CommandText = String.Format(@"Select Max(r.Date) From PipeTestResult r Where r.pipeTestId = @testId");
+                    command.CommandText = String.Format(@"Select Max(r.Date) From PipeTestResult r Where r.pipeTestId = @testId 
+and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
 
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
