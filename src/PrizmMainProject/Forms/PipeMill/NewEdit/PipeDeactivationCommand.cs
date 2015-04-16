@@ -98,6 +98,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 notify.ShowInfo(
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarError),
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarErrorHeader));
+
+                //Refresh property so that binded control become unchecked
+                viewModel.PipeIsActive = false;
+                viewModel.PipeIsActive = true;
             }
             RefreshVisualStateEvent();
         }
