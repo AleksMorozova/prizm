@@ -348,8 +348,16 @@ namespace Prizm.Main.Forms.MainChildForm
 
             Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
-                    appWaitForm.ShowDialog();
+                    try
+                    {
+                        appWaitForm.ShowDialog();
+                    }
+                    catch(InvalidOperationException e)
+                    {
+                        log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
+                    }
                 }));
+
             Application.DoEvents();
         }
 
