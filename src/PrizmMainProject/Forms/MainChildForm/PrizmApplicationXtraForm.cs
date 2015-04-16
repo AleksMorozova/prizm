@@ -45,6 +45,7 @@ using System.Drawing;
 using Prizm.Main.Common;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Collections;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -344,15 +345,20 @@ namespace Prizm.Main.Forms.MainChildForm
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
 
+
             appWaitForm = GetNewAppWaitForm();
+
+            queueAppWaitForm.Enqueue(appWaitForm);
 
             Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
+                    AppWaitForm internalAppWaitForm = queueAppWaitForm.Peek();
+
                     try
                     {
-                        appWaitForm.ShowDialog();
+                        internalAppWaitForm.ShowDialog();
                     }
-                    catch(InvalidOperationException e)
+                    catch (InvalidOperationException e)
                     {
                         log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
                     }
@@ -362,15 +368,21 @@ namespace Prizm.Main.Forms.MainChildForm
         }
 
 
+        private Queue<AppWaitForm> queueAppWaitForm = new Queue<AppWaitForm>();
+
         /// <summary>
         /// Hide wait form, when UI thread will be responsible again
         /// </summary>
         public void HideProcessing()
         {
-            InvokeIfRequired(appWaitForm, () =>
+            if (queueAppWaitForm.Count > 0)
+            {
+                InvokeIfRequired(queueAppWaitForm.Peek(), () =>
                 {
-                    appWaitForm.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    queueAppWaitForm.Dequeue().DialogResult = System.Windows.Forms.DialogResult.OK;
                 });
+            }
+
             Application.DoEvents();
         }
 
