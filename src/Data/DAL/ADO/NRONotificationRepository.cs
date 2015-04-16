@@ -159,7 +159,7 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
 
                     if (measure == FrequencyMeasure.Pipes)
                     {
-                        command.CommandText = @"Select count(p.number) amount, t.id 
+                        command.CommandText = @"Select count(Distinct(p.number)) amount, t.id 
                                                 From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
                                                         t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
                                                             group by   t.id ";
@@ -176,10 +176,10 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                     }
                     else if (measure == FrequencyMeasure.Tons)
                     {
-                        command.CommandText = @"Select sum(p.weight) amount, t.id 
-                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
-                                                            group by   t.id ";
+                        command.CommandText = @"select sum (w.amount) from (Select Distinct(p.weight) amount, t.id
+  From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+              t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
+                             group by   t.id, p.weight ) w group by w.id";
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
@@ -194,10 +194,11 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
 
                     else if (measure == FrequencyMeasure.Meters)
                     {
-                        command.CommandText = @"Select sum(p.length) amount, t.id 
-                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
-                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
-                                                            group by   t.id ";
+                        command.CommandText = @"select sum (w.amount) from (Select Distinct(p.length) amount, t.id
+                                                        From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
+                                            group by   t.id, p.weight ) w group by w.id";
+
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
@@ -302,11 +303,10 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
 
                     if (measure == FrequencyMeasure.Pipes)
                     {
-                        command.CommandText = @" Select count(p.number) amount, t.id 
-                                                            From Pipe p, PipeTest t, PipeTestResult r 
-                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
-                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>@date
-                                                                            group by  t.id ";
+                        command.CommandText = @"Select count(Distinct(p.number)) amount, t.id 
+                                                From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                        t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
+                                                            group by   t.id ";
                        
                         while (dr.Read())
                         {
@@ -320,11 +320,10 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
                     }
                     else if (measure == FrequencyMeasure.Tons)
                     {
-                        command.CommandText = @" Select sum(p.weight) amount, t.id 
-                                                            From Pipe p, PipeTest t, PipeTestResult r 
-                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
-                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>@date
-                                                                            group by  t.id ";
+                        command.CommandText = @" select sum (w.amount) from (Select Distinct(p.weight) amount, t.id
+                                                        From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                                  t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
+                                                                          group by   t.id, p.weight ) w group by w.id ";
                        
                         while (dr.Read())
                         {
@@ -339,11 +338,10 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
 
                     else if (measure == FrequencyMeasure.Meters)
                     {
-                        command.CommandText = @" Select sum(p.length) amount, t.id 
-                                                            From Pipe p, PipeTest t, PipeTestResult r 
-                                                            where t.pipeMillSizeTypeId=p.typeId and t.id =@testId
-                                                                and p.isActive=1 and t.id=r.pipeTestId and p.productionDate>@date
-                                                                            group by  t.id ";
+                        command.CommandText = @" select sum (w.amount) from (Select Distinct(p.length) amount, t.id
+                                                        From Pipe p, PipeTest t where t.pipeMillSizeTypeId=p.typeId and
+                                                                  t.id =@testId and p.productionDate>@maxDate and p.isActive=1 
+                                                                          group by   t.id, p.weight ) w group by w.id ";
 
                         
                         while (dr.Read())
