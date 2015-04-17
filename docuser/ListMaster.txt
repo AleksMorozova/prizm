@@ -16,3 +16,4 @@
 .\content\Export_Import_History.md
 .\content\Data_Transfer_Specific.md
 .\content\Audit.md
+.\content\Lang_Use.md

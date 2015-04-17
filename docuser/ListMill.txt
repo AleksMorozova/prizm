@@ -21,3 +21,4 @@
 .\content\Notification_DuplicateLogin.md
 .\content\Notification_DuplicatePipeNumber.md
 .\content\Deactivation.md
+.\content\Lang_Use.md
