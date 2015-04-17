@@ -16,7 +16,7 @@ namespace Prizm.Main.Commands
          { 
             if (!commands.ContainsKey(name))
             {
-               commands.Add(name, new CommandInfo());
+                commands.Add(name, new CommandInfo(RefreshVisualState));
             }
             return commands[name];
          }
