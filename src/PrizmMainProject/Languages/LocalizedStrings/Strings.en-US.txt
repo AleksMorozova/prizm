@@ -2150,7 +2150,7 @@ Inspection_ExistingCodeErrorHeader=Operation number duplicating
 Notification_InformationForNotRequiredOperation = Total amount:
 
 ;Информация для выборочной контрольной операции
-Notification_InformationForSelectiveOperation = General pipe amount/ produced pipe amount:
+Notification_InformationForSelectiveOperation = General pipe amount/ checked pipe amount: 
 
 ;Информация для просроченного сертификата
 Notification_InformationForExpiredCertificate = Certificate Expired Date:

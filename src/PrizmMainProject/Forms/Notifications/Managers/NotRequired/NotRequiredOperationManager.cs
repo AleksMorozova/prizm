@@ -167,7 +167,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 {
                      if (!testResult.Operation.IsRequired)
                      {
-                         list.Add(new NROInfo(testResult.Operation.Id, testResult.Status == PipeTestResultStatus.Accepted));
+                         list.Add(new NROInfo(testResult.Operation.Id, testResult.Status != PipeTestResultStatus.Scheduled));
                      }
                  }
                 return list;
@@ -259,16 +259,22 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
                 return ret;
             }
-
-      
+   
             private void ProcessPipeTestResults(IList<PipeTestResult> results)
             {
+                IList<Guid> listID = new List<Guid>();
                 foreach (PipeTestResult result in results)
                 {
-                    if (!result.Operation.IsRequired && result.Status==PipeTestResultStatus.Accepted)
+                    if (!result.Operation.IsRequired && result.Status!=PipeTestResultStatus.Scheduled)
                     {
-                        manager.UpdateUnits(result.Operation.Id);
+                        listID.Add(result.Operation.Id);
                     }
+                }
+
+                listID.Distinct();
+                foreach (Guid id in listID) 
+                {
+                    manager.UpdateUnits(id);
                 }
             }
 
@@ -286,10 +292,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     {
                         manager.cache.AddUnits(id, ChooseUnit(manager.cache.GetMeasure(id), pipe));
                     }
+                    
                     UpdateNotification(id);
                 }
             }
-
 
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
@@ -306,9 +312,17 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if(pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
+                        //update notification for old size type
+                        IList<Guid> removeId = new List<Guid>();
+
                         foreach (TestResultInfo t in initialTestResultList)
                         {
-                            manager.UpdateUnits(t.OperationId);
+                            removeId.Add(t.OperationId);
+                        }
+                        removeId.Distinct();
+                        foreach (Guid id in removeId)
+                        {
+                            manager.UpdateUnits(id);
                         }
 
                         foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(initialPipeSizeTypeId))
@@ -316,6 +330,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                             manager.cache.RemoveUnits(id, ChooseUnit(manager.cache.GetMeasure(id)));
                             UpdateNotification(id);
                         }
+
+                        //update notification for new size type
                         ProcessPipeTestResults(pipeSavingState.PipeTestResult);
                         foreach (Guid id in manager.cache.EnumerateOperationsForSizeType(pipeSavingState.Type.Id))
                         {
@@ -332,8 +348,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         HashSet<NROInfo> savingState = new HashSet<NROInfo>();
                         savingState.UnionWith(GetNROInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
 
-                        var resultList = initialState.Except(savingState).Union(savingState.Except(initialState));
-                        foreach (NROInfo result in resultList)
+                        var resultList = savingState.Except(initialState);
+                        foreach (NROInfo result in resultList.Distinct())
                         {
                             if (result.IsCompleted)
                             {

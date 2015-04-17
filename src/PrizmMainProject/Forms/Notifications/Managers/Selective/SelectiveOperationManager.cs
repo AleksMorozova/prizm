@@ -70,18 +70,17 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
 
             private struct TestResultInfo
             {
-                public TestResultInfo(Guid id, PipeTestResultStatus status)
+                public TestResultInfo(Guid id, bool accepted)
                 {
                     operationId = id;
-                    testStatus = status;
+                    isAccepted = accepted;
                 }
                 private Guid operationId;
-                private PipeTestResultStatus testStatus;
+                private bool isAccepted;
                 
 
                 public Guid OperationId { get { return operationId; } }
-                public PipeTestResultStatus TestStatus { get { return testStatus; } }
-                public bool isAccepted { get { return testStatus == PipeTestResultStatus.Accepted; } }
+                public bool IsAccepted { get { return isAccepted; } }
             }
 
             private SelectiveOperationManager manager;
@@ -112,9 +111,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                 List<TestResultInfo> list = new List<TestResultInfo>();
                 foreach (var testResult in results)
                 {
-                    if (testResult.Operation.FrequencyType == InspectionFrequencyType.S)
+                    if (testResult.Operation.FrequencyType == InspectionFrequencyType.S && testResult.Status != PipeTestResultStatus.Scheduled)
                     {
-                        list.Add(new TestResultInfo(testResult.Operation.Id, testResult.Status));
+                        list.Add(new TestResultInfo(testResult.Operation.Id, testResult.Status != PipeTestResultStatus.Scheduled));
                     }
                 }
                 return list;
@@ -167,6 +166,76 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                 }
             }
 
+            private void AddPipe(IList<PipeTestResult> result)
+            {
+                IList<Guid> addId = new List<Guid>();
+
+                addId.Clear();
+                foreach (PipeTestResult test in result)
+                {
+                    if (test.Operation.FrequencyType == InspectionFrequencyType.S && test.Status != PipeTestResultStatus.Scheduled)
+                    {
+                        addId.Add(test.Operation.Id);
+                    }
+                }
+
+                addId.Distinct();
+                foreach (Guid id in addId)
+                {
+                    manager.cache.AddPipeAmount(id);
+                }
+
+            }
+
+            private void AddAndUpdate(IList<PipeTestResult> result)
+            {
+                IList<Guid> addId = new List<Guid>();
+
+                addId.Clear();
+                foreach (PipeTestResult test in result)
+                {
+                    if (test.Operation.FrequencyType == InspectionFrequencyType.S && test.Status != PipeTestResultStatus.Scheduled)
+                    {
+                        addId.Add(test.Operation.Id);
+                    }
+                }
+
+                addId.Distinct();
+                foreach (Guid id in addId)
+                {
+                    manager.cache.AddGeneralPipeAmount(id);
+                    manager.cache.AddPipeAmount(id);
+
+                    UpdateNotification(id);
+
+                }
+
+            }
+
+            private void RemoveAndUpdatePipe(IList<PipeTestResult> result)
+            {
+                IList<Guid> removeID = new List<Guid>();
+
+                removeID.Clear();
+                foreach (PipeTestResult test in result)
+                {
+                    if (test.Operation.FrequencyType == InspectionFrequencyType.S && test.Status != PipeTestResultStatus.Scheduled)
+                    {
+                        removeID.Add(test.Operation.Id);
+                    }
+                }
+
+                removeID.Distinct();
+                foreach (Guid id in removeID)
+                {
+                    manager.cache.RemoveGeneralPipeAmount(id);
+                    manager.cache.RemovePipeAmount(id);
+
+                    UpdateNotification(id);
+                }
+
+            }
+
             public void UpdateNotifications(Domain.Entity.Mill.Pipe pipeSavingState)
             {
                 if (isProperlyCreated)
@@ -175,40 +244,16 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     //* - pipe is new and have no previous state (to update: NROs from current size type(new))
                     if (initialPipeSizeTypeId == Guid.Empty)
                     {
-                        foreach (PipeTestResult test in pipeSavingState.PipeTestResult)
-                        {
-                            if (test.Operation.FrequencyType == InspectionFrequencyType.S && test.Status==PipeTestResultStatus.Accepted)
-                            {
-                                manager.cache.AddPipeAmount(test.Operation.Id);
-                            }
-                        }
+                        AddPipe(pipeSavingState.PipeTestResult);
                         ProcessOperationForPipeSizeType(pipeSavingState.Type.Id);
                     }
 
                     //* - pipe is existing and pipe size type changed (to update: NROs from previous size type(remove), NROs from current size type(new))
                     else if (pipeSavingState.Type == null || initialPipeSizeTypeId != pipeSavingState.Type.Id)
                     {
-                        foreach (PipeTestResult oldTest in initialSelectivePipeTestResult)
-                        {
-                            if (oldTest.Operation.FrequencyType == InspectionFrequencyType.S)
-                            {
-                                manager.cache.RemoveGeneralPipeAmount(oldTest.Operation.Id);
-                                manager.cache.RemovePipeAmount(oldTest.Operation.Id);
+                        RemoveAndUpdatePipe(initialSelectivePipeTestResult);
+                        AddAndUpdate(pipeSavingState.PipeTestResult);
 
-                                UpdateNotification(oldTest.Operation.Id);
-                            }
-                        }
-
-                        foreach (PipeTestResult newTest in pipeSavingState.PipeTestResult)
-                        {
-                            if (newTest.Operation.FrequencyType == InspectionFrequencyType.S)
-                            {
-                                manager.cache.AddGeneralPipeAmount(newTest.Operation.Id);
-                                manager.cache.AddPipeAmount(newTest.Operation.Id);
-
-                                UpdateNotification(newTest.Operation.Id);
-                            }
-                        }
                     }
 
                     //* - pipe is existing and operations were edited (to update: NROs from current size type(track changes))
@@ -219,16 +264,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
 
                         savingState.ExceptWith(initialState);
 
-                        foreach (TestResultInfo result in savingState)
+                        foreach (TestResultInfo result in savingState.Distinct())
                         {
-                            if (result.isAccepted)
-                            {
-                                manager.cache.AddPipeAmount(result.OperationId);
-                            }
-                            else 
-                            {
-                                manager.cache.RemovePipeAmount(result.OperationId);
-                            }
+                            manager.cache.RemovePipeAmount(result.OperationId);
+                            manager.cache.AddPipeAmount(result.OperationId);
 
                             UpdateNotification(result.OperationId);
                         }
@@ -237,18 +276,10 @@ namespace Prizm.Main.Forms.Notifications.Managers.Selective
                     //* - pipe deactivation (to update: NRO (remove))
                     else if (!pipeSavingState.IsActive)
                     {
-                        foreach (PipeTestResult test in pipeSavingState.PipeTestResult)
-                        {
-                            if (test.Operation.FrequencyType == InspectionFrequencyType.S)
-                            {
-                                manager.cache.RemoveGeneralPipeAmount(test.Operation.Id);
-                                manager.cache.RemovePipeAmount(test.Operation.Id);
-
-                                UpdateNotification(test.Operation.Id);
-                            }
-                        }
+                        RemoveAndUpdatePipe(pipeSavingState.PipeTestResult);
                     }
                 }
+
                 NotificationService.Instance.NotifyInterested();
                 SavePipeState(pipeSavingState);
             }

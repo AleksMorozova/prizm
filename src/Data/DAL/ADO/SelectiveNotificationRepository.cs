@@ -41,9 +41,9 @@ namespace Prizm.Data.DAL.ADO
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"select  pmst.id, pt.id, pt.code, pt.name, pmst.[type], pt.selectivePercent, count(ptr.pipeId) as pipesCount from PipeTest  pt
-                  left join PipeTestResult  ptr  on ptr.pipeTestId = pt.Id 
-                 left join Pipe p on ptr.pipeId = p.id AND p.isActive = 1 AND ptr.status = 'Accepted'
+                    command.CommandText = @"select  pmst.id, pt.id, pt.code, pt.name, pmst.[type], pt.selectivePercent, count(distinct(ptr.pipeId)) as pipesCount from PipeTest  pt
+                  left join PipeTestResult  ptr  on ptr.pipeTestId = pt.Id  AND ptr.status not in ('Scheduled')
+                 left join Pipe p on ptr.pipeId = p.id AND p.isActive = 1
                   left join PipeMillSizeType pmst on pt.pipeMillSizeTypeId = pmst.id
                   where pt.isActive = 1
                   AND pt.frequencyType = '" + InspectionFrequencyType.S.ToString() + @"'

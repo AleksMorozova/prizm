@@ -50,6 +50,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             localizedHeader.Add(WorkstationType.Mill.ToString());
             localizedHeader.Add(WorkstationType.Master.ToString());
             localizedHeader.Add(WorkstationType.Construction.ToString());
+            fileSize.SetMask(Constants.PositiveDigitMask);
         }
 
         private void BindToViewModel()

@@ -2994,7 +2994,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Общее количество / произведено труб:.
+        ///   Looks up a localized string similar to Общее количество / проверено труб: .
         /// </summary>
         internal static string Notification_InformationForSelectiveOperation {
             get {

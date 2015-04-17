@@ -1819,7 +1819,7 @@
     <value>Общее количество:</value>
   </data>
   <data name="Notification_InformationForSelectiveOperation" xml:space="preserve">
-    <value>Общее количество / произведено труб:</value>
+    <value>Общее количество / проверено труб: </value>
   </data>
   <data name="SettingsProject_MillLabel" xml:space="preserve">
     <value>Название рабоче&amp;й станции</value>

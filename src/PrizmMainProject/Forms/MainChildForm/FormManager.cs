@@ -722,8 +722,11 @@ namespace Prizm.Main.Forms.MainChildForm
                             if (CanOpen(documentType, id == Guid.Empty, flags, out editMode))
                             {
                                 formToActivate = CreateChildForm(documentType, parameters);
-                                formToActivate.IsEditMode = editMode;
-                                ShowChildForm(formToActivate);
+                                if (formToActivate != null)
+                                {
+                                    formToActivate.IsEditMode = editMode;
+                                    ShowChildForm(formToActivate);
+                                }
                             }
                         }
                     }
