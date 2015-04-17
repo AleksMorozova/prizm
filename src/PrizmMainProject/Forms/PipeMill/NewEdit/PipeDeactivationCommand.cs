@@ -42,6 +42,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
+            bool pipeModify = viewModel.ModifiableView.IsModified;
+
             if (viewModel.Pipe.Railcar == null)
             {
                 if (notify.ShowYesNo(
@@ -85,6 +87,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     //Refresh property so that binded control become unchecked
                     viewModel.PipeIsActive = false;
                     viewModel.PipeIsActive = true;
+                    viewModel.ModifiableView.IsModified = pipeModify;
                 }
             }
             else if (viewModel.PipeStatus == PipeMillStatus.Shipped)
@@ -92,12 +95,21 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 notify.ShowInfo(
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeShippedError),
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeShippedErrorHeader));
+                //Refresh property so that binded control become unchecked
+                viewModel.PipeIsActive = false;
+                viewModel.PipeIsActive = true;
+                viewModel.ModifiableView.IsModified = pipeModify;
             }
             else
             {
                 notify.ShowInfo(
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarError),
                     Program.LanguageManager.GetString(StringResources.MillPipe_DeactivatePipeInRailcarErrorHeader));
+
+                //Refresh property so that binded control become unchecked
+                viewModel.PipeIsActive = false;
+                viewModel.PipeIsActive = true;
+                viewModel.ModifiableView.IsModified = pipeModify;
             }
             RefreshVisualStateEvent();
         }
