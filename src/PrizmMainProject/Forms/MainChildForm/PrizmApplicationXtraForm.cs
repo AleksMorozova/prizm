@@ -43,6 +43,9 @@ using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Setup;
 using System.Drawing;
 using Prizm.Main.Common;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Collections;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
@@ -51,6 +54,7 @@ namespace Prizm.Main.Forms.MainChildForm
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
     {
+        private AppWaitForm appWaitForm = null;
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(PrizmApplicationXtraForm));
         private PrizmApplicationViewModel viewModel;
@@ -62,6 +66,33 @@ namespace Prizm.Main.Forms.MainChildForm
         public PrizmApplicationXtraForm()
         {
             InitializeComponent();
+
+            appWaitForm = GetNewAppWaitForm();
+        }
+
+        public void InvokeIfRequired(Control control, Action method)
+        {
+            if (control == null || method == null) return;
+
+            if (control.InvokeRequired)
+            {
+                control.Invoke(new MethodInvoker(() => method()));
+            }
+            else
+            {
+                method();
+            }
+        }
+
+        private AppWaitForm GetNewAppWaitForm()
+        {
+            var form = new AppWaitForm();
+
+            form.StartPosition = this.StartPosition;
+            form.ShowOnTopMode = DevExpress.XtraWaitForm.ShowFormOnTopMode.AboveParent;
+
+            return
+                form;
         }
 
         #region Menu buttons
@@ -316,19 +347,46 @@ namespace Prizm.Main.Forms.MainChildForm
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
 
-            // re create splashScreenManager for event leack fix (explicit dispose on public void HideProcessing())
-            splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Prizm.Main.Forms.MainChildForm.AppWaitForm), true, true);
-            splashScreenManager.ShowWaitForm();
+
+            appWaitForm = GetNewAppWaitForm();
+
+            queueAppWaitForm.Enqueue(appWaitForm);
+
+            Task.Run(() => InvokeIfRequired(appWaitForm, () =>
+                {
+                    try
+                    {
+                        appWaitForm.ShowDialog();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
+                    }
+                }));
+
             Application.DoEvents();
         }
+
+
+        private Queue<AppWaitForm> queueAppWaitForm = new Queue<AppWaitForm>();
 
         /// <summary>
         /// Hide wait form, when UI thread will be responsible again
         /// </summary>
         public void HideProcessing()
         {
-            splashScreenManager.CloseWaitForm();
-            splashScreenManager.Dispose();
+            if (queueAppWaitForm.Count > 0)
+            {
+                InvokeIfRequired(queueAppWaitForm.Peek(), () =>
+                {
+                    var tempAppWaitForm = queueAppWaitForm.Dequeue();
+
+                    tempAppWaitForm.Close();
+                    tempAppWaitForm.Dispose();
+                });
+            }
+
+            Application.DoEvents();
         }
 
         /// <summary>
