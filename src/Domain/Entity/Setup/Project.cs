@@ -17,31 +17,22 @@ namespace Prizm.Domain.Entity
 
         public static string FormRegExp(string millPipeNumberMask)
         {
-            List<char> specialCharacters = new List<char> { '.', '(', ')', '*', '+', '|', '{', '}', '^', '[', ']', '-', '\\', ',' };
             StringBuilder mask = new StringBuilder();
             if (millPipeNumberMask != string.Empty && millPipeNumberMask != null)
-            {
-                foreach (char ch in millPipeNumberMask)
-                {
-                    string convertedToRegex = "";
-                    if (specialCharacters.Contains(ch))
+            {          
+             foreach (char ch in millPipeNumberMask)
                     {
-                        convertedToRegex = @"\" + ch;
-                    }
-                    else
-                    {
+                        string convertedToRegex = "";
                         switch (ch)
                         {
-                            case '#': convertedToRegex = @"\d"; break;
-                            case '@': convertedToRegex = @"\p{Lu}"; break;
-                            case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
-                            case '?': convertedToRegex = @"\w"; break;
-
-                            default: convertedToRegex = ch.ToString(); break;
+                           case '#': convertedToRegex = @"\d"; break;
+                           case '@': convertedToRegex = @"\p{Lu}"; break;
+                           case '%': convertedToRegex = @"(\d|\p{Lu})"; break;
+                           case '?': convertedToRegex = @"\w"; break;
+                           default: convertedToRegex = ch.ToString(); break;
                         }
+                        mask.Append(convertedToRegex);
                     }
-                    mask.Append(convertedToRegex);
-                }
             }
             return mask.ToString();
         }
