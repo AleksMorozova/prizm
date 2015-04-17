@@ -352,11 +352,9 @@ namespace Prizm.Main.Forms.MainChildForm
 
             Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
-                    AppWaitForm internalAppWaitForm = queueAppWaitForm.Peek();
-
                     try
                     {
-                        internalAppWaitForm.ShowDialog();
+                        appWaitForm.ShowDialog();
                     }
                     catch (InvalidOperationException e)
                     {
@@ -379,7 +377,10 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 InvokeIfRequired(queueAppWaitForm.Peek(), () =>
                 {
-                    queueAppWaitForm.Dequeue().DialogResult = System.Windows.Forms.DialogResult.OK;
+                    var tempAppWaitForm = queueAppWaitForm.Dequeue();
+
+                    tempAppWaitForm.Close();
+                    tempAppWaitForm.Dispose();
                 });
             }
 
