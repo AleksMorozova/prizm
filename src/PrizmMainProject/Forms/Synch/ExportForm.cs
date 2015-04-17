@@ -173,11 +173,15 @@ namespace Prizm.Main.Forms.Synch
 
       private void btnReexport_Click(object sender, EventArgs e)
       {
-         Portion portion = gridViewHistory.GetFocusedRow() as Portion;
-         if (portion != null)
-         {
-            DoExport(portion);
-         }
+          Portion lightPortion = gridViewHistory.GetFocusedRow() as Portion;
+          if (lightPortion != null)
+          {
+              Portion portion = exporter.GetPortionForReexport(lightPortion.Id);
+              if (portion != null)
+              {
+                  DoExport(portion);
+              }
+          }
       }
 
       private void ExportForm_FormClosing(object sender, FormClosingEventArgs e)
