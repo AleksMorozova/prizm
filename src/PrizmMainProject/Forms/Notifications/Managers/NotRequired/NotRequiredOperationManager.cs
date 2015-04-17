@@ -167,7 +167,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 {
                      if (!testResult.Operation.IsRequired)
                      {
-                         list.Add(new NROInfo(testResult.Operation.Id, testResult.Status != PipeTestResultStatus.Accepted));
+                         list.Add(new NROInfo(testResult.Operation.Id, testResult.Status != PipeTestResultStatus.Scheduled));
                      }
                  }
                 return list;
@@ -348,8 +348,8 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                         HashSet<NROInfo> savingState = new HashSet<NROInfo>();
                         savingState.UnionWith(GetNROInfoListFromPipeTestResultList(pipeSavingState.PipeTestResult));
 
-                        var resultList = initialState.Except(savingState).Union(savingState.Except(initialState));
-                        foreach (NROInfo result in resultList)
+                        var resultList = savingState.Except(initialState);
+                        foreach (NROInfo result in resultList.Distinct())
                         {
                             if (result.IsCompleted)
                             {

@@ -15,4 +15,10 @@
 .\content\Settings_Users.md
 .\content\Export.md
 .\content\Data_Transfer_Specific.md
+.\content\Notification.md
+.\content\Notification_PipeInspectionOperation.md
+.\content\Notification_ExpiredCertificate.md
+.\content\Notification_DuplicateLogin.md
+.\content\Notification_DuplicatePipeNumber.md
 .\content\Deactivation.md
+.\content\Lang_Use.md

@@ -15,6 +15,16 @@ namespace Prizm.Main.Commands
 
       private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CommandInfo));
 
+      private readonly Action RefreshControlsState;
+
+      public CommandInfo() { }
+
+      public CommandInfo(Action refreshControlsState)
+          : this()
+      {
+          this.RefreshControlsState = refreshControlsState;  
+      }
+
       public CommandInfo Executor(ICommand executor)
       {
          this.executor = executor;
@@ -36,7 +46,7 @@ namespace Prizm.Main.Commands
               throw e;
           }
 
-         attacher = new SimpleButtonAttacher(executor, button);
+         attacher = new SimpleButtonAttacher(executor, button, RefreshControlsState);
          return this;
       }
 
@@ -111,9 +121,17 @@ namespace Prizm.Main.Commands
 
       class SimpleButtonAttacher : Attacher<SimpleButton>
       {
+          private readonly Action RefreshControlsState;
+
          public SimpleButtonAttacher(ICommand command, SimpleButton btn) : base(command, btn)
          {
             Attach();
+         }
+
+         public SimpleButtonAttacher(ICommand command, SimpleButton btn, Action refreshControlsState)
+             : this(command, btn)
+         {
+             this.RefreshControlsState = refreshControlsState;
          }
 
          public override void Attach()
@@ -144,19 +162,21 @@ namespace Prizm.Main.Commands
                  throw ex;
              }
 
-            Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
-            try
-            {
-                notify.ShowProcessing();
-
-                command.Execute();
-            }
-            finally
-            {
-                notify.HideProcessing();
-            }
+             Prizm.Main.Forms.IUserNotify notify = Program.Kernel.Get<Prizm.Main.Forms.IUserNotify>();
+             try
+             {
+                 Program.MainForm.Enabled = false;
+                 notify.ShowProcessing();
+                 
+                 command.Execute();
+             }
+             finally
+             {
+                 notify.HideProcessing();
+                 Program.MainForm.Enabled = true;
+                 if (RefreshControlsState != null) RefreshControlsState();
+             }
          }
-
       }
 
       #endregion // SimpleButtonAttacher
