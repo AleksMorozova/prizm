@@ -72,6 +72,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void InvokeIfRequired(Control control, Action method)
         {
+            if (control == null || method == null) return;
+
             if (control.InvokeRequired)
             {
                 control.Invoke(new MethodInvoker(() => method()));

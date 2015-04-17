@@ -174,7 +174,7 @@ namespace Prizm.Main.Commands
              {
                  notify.HideProcessing();
                  Program.MainForm.Enabled = true;
-                 RefreshControlsState();
+                 if (RefreshControlsState != null) RefreshControlsState();
              }
          }
       }
