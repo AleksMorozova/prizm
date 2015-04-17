@@ -1,4 +1,5 @@
-﻿
+﻿# Configuring custom reports
+
 ## Configuring ODBC Data Source
 
 * Open Control Panel - System and Security - Administrative Tools - ODBC Data Sources

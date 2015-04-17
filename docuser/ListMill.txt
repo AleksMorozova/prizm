@@ -16,3 +16,4 @@
 .\content\Export.md
 .\content\Data_Transfer_Specific.md
 .\content\Deactivation.md
+.\content\Lang_Use.md

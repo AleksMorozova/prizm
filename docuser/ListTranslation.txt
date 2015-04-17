@@ -1,0 +1,3 @@
+.\content\Lang_Header.md
+.\content\Lang_Install.md
+.\content\Lang_Use.md
