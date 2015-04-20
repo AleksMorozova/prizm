@@ -21,12 +21,15 @@ namespace Prizm.Main.Forms.Synch
       public ConflictDialog()
       {
          InitializeComponent();
+         //while mechanism for postponing conflicts is not implemented
+         btnPostpone.Enabled = false;
       }
 
       public ConflictDialog(string msg)
       {
          InitializeComponent();
-
+          //while mechanism for postponing conflicts is not implemented
+         btnPostpone.Enabled = false;
          lblDesc.Text = msg;
       }
 
