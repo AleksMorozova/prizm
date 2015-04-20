@@ -489,7 +489,6 @@ namespace Prizm.Main.Forms.MainChildForm
 
             if (FramesCanOpen < 1)
             {
-                notify.HideProcessing();
                 notify.ShowError(Program.LanguageManager.GetString(StringResources.Message_NoMoreDocumentsCanOpen),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
             }
