@@ -62,7 +62,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             SetAlwaysReadOnly(textEditReleaseNoteStatus);
             IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
             attachmentsButton.Enabled = true;
-
             CannotOpenForViewing = id == Guid.Empty;
         }
 
@@ -204,15 +203,18 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 
         private void removePipe_Click(object sender, EventArgs e)
         {
-            Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe pipe =
-                pipesListView.GetRow(pipesListView.FocusedRowHandle) as Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe;
-            if(pipe != null)
+            if (IsEditMode)
             {
-                viewModel.RemovePipe(pipe);
-                pipesList.RefreshDataSource();
-                pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
-                IsModified = true;
-                commandManager.RefreshVisualState();
+                Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe pipe =
+                    pipesListView.GetRow(pipesListView.FocusedRowHandle) as Prizm.Main.Forms.ReleaseNote.NewEdit.ReleaseNoteViewModel.PlainPipe;
+                if (pipe != null)
+                {
+                    viewModel.RemovePipe(pipe);
+                    pipesList.RefreshDataSource();
+                    pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
+                    IsModified = true;
+                    commandManager.RefreshVisualState();
+                }
             }
         }
 
