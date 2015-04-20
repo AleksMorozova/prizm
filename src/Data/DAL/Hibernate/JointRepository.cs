@@ -22,16 +22,16 @@ namespace Prizm.Data.DAL.Hibernate
             : base(session)
         {
         }
-        
+
         #region IJointRepository Members
-        
+
         public IList<Joint> GetActiveByNumber(Joint joint)
         {
             try
             {
                 return session.QueryOver<Joint>().Where(_ => _.IsActive == true && _.Id != joint.Id && _.Number == joint.Number).List<Joint>();
             }
-            catch (GenericADOException ex)
+            catch(GenericADOException ex)
             {
                 throw new RepositoryException("GetActiveByNumber", ex);
             }
@@ -39,19 +39,19 @@ namespace Prizm.Data.DAL.Hibernate
 
         public IList<Joint> GetJointsToExport()
         {
-           try
-           {
-              return session.QueryOver<Joint>().Where(_ => _.ToExport).List<Joint>();
-           }
-           catch (GenericADOException ex)
-           {
-              throw new RepositoryException("GetJointsToExport", ex);
-           }
+            try
+            {
+                return session.QueryOver<Joint>().Where(_ => _.ToExport).List<Joint>();
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsToExport", ex);
+            }
         }
 
         public IList<Joint> QuickSearchByNumber(string number)
         {
-            ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number",number,MatchMode.Start))
+            ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number", number, MatchMode.Start))
                 .SetProjection(Projections.ProjectionList()
                              .Add(Projections.Property("Id"), "Id")
                              .Add(Projections.Property("Number"), "Number"))
@@ -60,21 +60,13 @@ namespace Prizm.Data.DAL.Hibernate
             return results;
         }
 
-        public IList<Joint> SearchJoint(string jointNumber, IList<JointStatus> statuses, DateTime? from, DateTime? to, string peg, bool? status)
+        public IList<Joint> SearchJoint(string jointNumber,
+            IList<JointStatus> statuses,
+            DateTime? from, DateTime? to,
+            string peg,
+            bool? status,
+            Domain.Entity.Setup.WorkstationType currentWorkstation)
         {
-
-            //var jointWithWeld = QueryOver.Of<Joint>()
-            //    .JoinQueryOver<JointWeldResult>(j => j.JointWeldResults)
-            //    .Select(Projections.Distinct(Projections.Property<Joint>(j => j.JointWeldResults)));
-            //if(from != null && from != DateTime.MinValue)
-            //{
-            //    jointWithWeld.Where(f => f.Date >= from);
-            //}
-            //if(to != null && to != DateTime.MinValue)
-            //{
-            //    jointWithWeld.Where(t => t.Date <= to);
-            //}
-
             var q = session.QueryOver<Joint>();
             // joint number
             if(!string.IsNullOrWhiteSpace(jointNumber))
@@ -98,12 +90,31 @@ namespace Prizm.Data.DAL.Hibernate
                 q.Where(x => x.NumberKP == number);
             }
 
-            
-            //q.WithSubquery
-            //    .WhereProperty(j => j.JointWeldResults)
-            //    .In(jointWithWeld);
+            IList<Joint> res;
+            if(currentWorkstation == Domain.Entity.Setup.WorkstationType.Master)
+            {
+                res = q.List<Joint>();
+            }
+            else
+            {
+                var jointWithWeld = QueryOver.Of<Joint>()
+                .JoinQueryOver<JointWeldResult>(j => j.JointWeldResults)
+                .Select(Projections.Distinct(Projections.Property<Joint>(j => j.JointWeldResults)));
+                if(from != null && from != DateTime.MinValue)
+                {
+                    jointWithWeld.Where(f => f.Date >= from);
+                }
+                if(to != null && to != DateTime.MinValue)
+                {
+                    jointWithWeld.Where(t => t.Date <= to);
+                }
 
-            var res = q.List<Joint>();
+                 q.WithSubquery
+                .WhereProperty(j => j.JointWeldResults)
+                .In(jointWithWeld);
+                 res = q.List<Joint>();
+            }
+
             return res;
         }
 
@@ -116,7 +127,7 @@ namespace Prizm.Data.DAL.Hibernate
                 JointTestResult testResult = null;
                 List<Welder> welders = null;
 
-                return 
+                return
                     session.QueryOver<Joint>()
                     .Where(x => x.IsActive == true && x.FirstElement != null && x.SecondElement != null && x.Status != JointStatus.Withdrawn)
                     .JoinAlias(j => j.JointWeldResults, () => weldResult, JoinType.LeftOuterJoin)
@@ -125,7 +136,7 @@ namespace Prizm.Data.DAL.Hibernate
                     .TransformUsing(Transformers.DistinctRootEntity)
                     .List<Joint>();
             }
-            catch (GenericADOException ex)
+            catch(GenericADOException ex)
             {
                 throw new RepositoryException("GetJointsForTracing", ex);
             }
@@ -148,7 +159,7 @@ namespace Prizm.Data.DAL.Hibernate
                         .Add(Projections.Property<Joint>(x => x.NumberKP), "NumberKP")
                      );
             }
-            catch (GenericADOException ex)
+            catch(GenericADOException ex)
             {
                 throw new RepositoryException("GetJointsForTracing", ex);
             }
