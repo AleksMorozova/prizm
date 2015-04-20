@@ -22,6 +22,8 @@ namespace Prizm.Data.DAL.Construction
             DateTime? from, 
             DateTime? to,
             string peg, 
-            bool? status);
+            bool? status,
+            Domain.Entity.Setup.WorkstationType workstation
+            );
     }
 }
