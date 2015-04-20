@@ -91,6 +91,10 @@ namespace Prizm.Main.Forms.Notifications
                     inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForDublicatePipeNumber) + " ";
                     break;
 
+                case TypeNotification.PostponeConflict:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForPostponeConflict) + " ";
+                    break;
+
                 default:
                     inf = "";
                     break;
@@ -190,7 +194,8 @@ namespace Prizm.Main.Forms.Notifications
         ExpiredInspectorCertificate,
         ExpiredWelderCertificate,
         NotRequiredInspectionOperation,
-        SelectiveInspectionOperation
+        SelectiveInspectionOperation,
+        PostponeConflict
     }
 
 }

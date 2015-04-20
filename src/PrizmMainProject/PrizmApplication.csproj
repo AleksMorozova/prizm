@@ -336,10 +336,12 @@
     <Compile Include="Forms\Notifications\Managers\IDuplicateNumberManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredInspectorCertificateManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IExpiredWelderCertificateManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\IPostponeConflictManager.cs" />
     <Compile Include="Forms\Notifications\Managers\NotRequired\EmptyNROManager.cs" />
     <Compile Include="Forms\Notifications\Managers\IPipeNotifierCreator.cs" />
     <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredCache.cs" />
     <Compile Include="Forms\Notifications\Managers\NotRequired\NotRequiredOperationManager.cs" />
+    <Compile Include="Forms\Notifications\Managers\PostponeConflictManager.cs" />
     <Compile Include="Forms\Notifications\Managers\Selective\EmptySelectiveManager.cs" />
     <Compile Include="Forms\Notifications\Managers\Selective\SelectiveCache.cs" />
     <Compile Include="Forms\Notifications\Managers\Selective\SelectiveOperationManager.cs" />
