@@ -72,6 +72,7 @@ namespace Prizm.Main.Forms.Settings
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             viewModel.ModifiableView = this;
+            SetWorkstationReadonlyFields();
         }
 
 
@@ -134,7 +135,7 @@ namespace Prizm.Main.Forms.Settings
             //    return IsEditableCrtificate(IsEditMode);
             //}
             //);
-            SetWorkstationReadonlyFields();
+
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);

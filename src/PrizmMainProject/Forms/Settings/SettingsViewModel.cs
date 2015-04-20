@@ -71,6 +71,7 @@ namespace Prizm.Main.Forms.Settings
             this.ExtractCategoriesCommand.Execute();
             CategoryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
             PipeTests.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            GetProjectSettings();
         }
 
         public void LoadData()
@@ -83,7 +84,7 @@ namespace Prizm.Main.Forms.Settings
            GetAllPermissions();
            GetAllRoles();
            GetAllUsers();
-           GetProjectSettings();
+
            GetAllManufacturers();
            GetAllJointOperations();
            LoadJointOperationTypes();
