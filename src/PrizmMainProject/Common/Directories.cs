@@ -29,5 +29,6 @@ namespace Prizm.Main.Common
         public static string Logs = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
         public static string Seeding = Path.Combine(Directory.GetCurrentDirectory(), "Seeding");
         public static string Importing = Path.Combine(Directory.GetCurrentDirectory(), "Importing");
+        public static string Conflicting = Path.Combine(Directory.GetCurrentDirectory(), "Conflicts");
     }
 }

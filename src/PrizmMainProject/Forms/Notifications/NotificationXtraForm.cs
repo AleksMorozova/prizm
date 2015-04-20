@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ninject.Parameters;
+using Ninject;
 using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
@@ -15,6 +15,10 @@ using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using Prizm.Main.Synch.Import;
+using Prizm.UnitTests.Synch.SerializableEntities;
+using System.IO;
+using Prizm.Main.Common;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -25,7 +29,7 @@ namespace PrizmMain.Forms.Notifications
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationXtraForm));
         // Fields
         private NotificationViewModel viewModel;
-
+        private DataImporter importer;
         // Methods
         public NotificationXtraForm()
         {
@@ -36,6 +40,7 @@ namespace PrizmMain.Forms.Notifications
         private void NotificationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (NotificationViewModel)Program.Kernel.GetService(typeof(NotificationViewModel));
+            importer = Program.Kernel.Get<DataImporter>();
             BindToViewModel();
 
         }
@@ -55,44 +60,40 @@ namespace PrizmMain.Forms.Notifications
                 var id = viewModel.Notification[selectedItem].Id;
 
 
-                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
+                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification, viewModel.Notification[selectedItem].AdditionalInformation);
             }
     
         }
 
-        private void OpenEditorForm(Guid id, TypeNotification typeNotification)
+        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation)
         {
-            DocumentTypes typeEditor;
+            //DocumentTypes typeEditor;
             int page = -1;
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    typeEditor = DocumentTypes.MillPipe;
+                    FormManager.Instance.OpenChildForm(DocumentTypes.MillPipe, id);
                     break;
                 case TypeNotification.DuplicateLogin:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 6;
+                    FormManager.Instance.OpenSettingsChildForm(6);
                     break;
                 case TypeNotification.ExpiredInspectorCertificate:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 5;
+                    FormManager.Instance.OpenSettingsChildForm(5);
                     break;
                 case TypeNotification.ExpiredWelderCertificate:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 4;
+                    FormManager.Instance.OpenSettingsChildForm(4);
                     break;
                 case TypeNotification.NotRequiredInspectionOperation:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 1;
+                    FormManager.Instance.OpenSettingsChildForm(2);
                     break;
                 case TypeNotification.SelectiveInspectionOperation:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 1;
+                    FormManager.Instance.OpenSettingsChildForm(1);
                     break;
-                //case TypeNotification.PostponeConflict:
-                //    typeEditor = DocumentTypes.;
-                //    page = 1;
-                //    break;
+                case TypeNotification.PostponeConflict:
+                    Prizm.Main.Synch.Data data = importer.Deserialize<Prizm.Main.Synch.Data>(Directories.Conflicting +@"\"+ additionalInformation + ".xml", false);
+                    Manifest manifest = importer.Deserialize<Manifest>(Path.Combine(System.Environment.CurrentDirectory, "Manifest"));
+                    importer.ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
+                    break;
                 default:
                     var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
                     log.Error(ex.Message);
@@ -100,14 +101,14 @@ namespace PrizmMain.Forms.Notifications
                     //break; // unreachable code
             }
 
-            if (typeEditor == DocumentTypes.Settings && page >= 0)
-            {
-                FormManager.Instance.OpenSettingsChildForm(page);
-            }
-            else
-            {
-                FormManager.Instance.OpenChildForm(typeEditor, id);
-            }
+            //if (typeEditor == DocumentTypes.Settings && page >= 0)
+            //{
+            //    FormManager.Instance.OpenSettingsChildForm(page);
+            //}
+            //else
+            //{
+            //    FormManager.Instance.OpenChildForm(typeEditor, id);
+            //}
         }
 
         #region --- Localization ---
@@ -142,7 +143,10 @@ namespace PrizmMain.Forms.Notifications
             gridControlMessage.DataSource = NotificationService.Instance.Notifications;
         }
 
+        private void OpenForm(DocumentTypes type) 
+        {
 
+        }
 
 
     }
