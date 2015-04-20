@@ -123,6 +123,7 @@ Name: "{app}\Languages\Resources"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Logs"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Seeding"; Attribs: hidden; Permissions: everyone-full
 Name: "{app}\Importing"; Attribs: hidden; Permissions: everyone-full
+Name: "{app}\Conflicts"; Attribs: hidden; Permissions: everyone-full
 
 [CustomMessages]
 english.InstallingSQLLocalDb=Installing SQL LocalDb
