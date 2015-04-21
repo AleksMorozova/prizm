@@ -1,4 +1,5 @@
-﻿using Prizm.Main.Synch.Import;
+﻿using Prizm.Main.Common;
+using Prizm.Main.Synch.Import;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,7 +35,7 @@ namespace Prizm.Main.Forms.Notifications.Managers
             foreach (DirectoryInfo d in subdirs) 
             {
                 string fileName = d.Name;
-                WorkWithConflictFile f = new WorkWithConflictFile(fileName);
+                ConflictFileName f = new ConflictFileName(fileName);
                 string pipeNumber = f.PipeNumber;
                 notifications.Add(new Notification(Guid.Empty, pipeNumber, TypeNotification.PostponeConflict, pipeNumber, DateTime.Now.Date, fileName));
             }

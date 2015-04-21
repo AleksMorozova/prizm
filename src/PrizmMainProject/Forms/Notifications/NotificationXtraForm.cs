@@ -70,27 +70,25 @@ namespace PrizmMain.Forms.Notifications
 
         private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation)
         {
-            //DocumentTypes typeEditor;
-            int page = -1;
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    FormManager.Instance.OpenChildForm(DocumentTypes.MillPipe, id);
+                    OpenForm(DocumentTypes.MillPipe, id);
                     break;
                 case TypeNotification.DuplicateLogin:
-                    FormManager.Instance.OpenSettingsChildForm(6);
+                    OpenForm(DocumentTypes.Settings, id, 6);
                     break;
                 case TypeNotification.ExpiredInspectorCertificate:
-                    FormManager.Instance.OpenSettingsChildForm(5);
+                    OpenForm(DocumentTypes.Settings, id, 5);
                     break;
                 case TypeNotification.ExpiredWelderCertificate:
-                    FormManager.Instance.OpenSettingsChildForm(4);
+                    OpenForm(DocumentTypes.Settings, id, 4);
                     break;
                 case TypeNotification.NotRequiredInspectionOperation:
-                    FormManager.Instance.OpenSettingsChildForm(2);
+                    OpenForm(DocumentTypes.Settings, id, 2);
                     break;
                 case TypeNotification.SelectiveInspectionOperation:
-                    FormManager.Instance.OpenSettingsChildForm(1);
+                    OpenForm(DocumentTypes.Settings, id, 1);
                     break;
                 case TypeNotification.PostponeConflict:
                     importer.Postpone_PipeImport(additionalInformation);
@@ -102,15 +100,6 @@ namespace PrizmMain.Forms.Notifications
                     throw ex;
                     //break; // unreachable code
             }
-
-            //if (typeEditor == DocumentTypes.Settings && page >= 0)
-            //{
-            //    FormManager.Instance.OpenSettingsChildForm(page);
-            //}
-            //else
-            //{
-            //    FormManager.Instance.OpenChildForm(typeEditor, id);
-            //}
         }
 
         #region --- Localization ---
@@ -143,9 +132,16 @@ namespace PrizmMain.Forms.Notifications
             RefreshNitifications();
         }
 
-        private void OpenForm(DocumentTypes type) 
+        private void OpenForm(DocumentTypes type, Guid id, int pageNumber =0) 
         {
-
+            if (type == DocumentTypes.Settings && pageNumber >= 0)
+            {
+                FormManager.Instance.OpenSettingsChildForm(pageNumber);
+            }
+            else
+            {
+                FormManager.Instance.OpenChildForm(type, id);
+            }
         }
 
         void importer_OnConflict(ConflictEventArgs args)

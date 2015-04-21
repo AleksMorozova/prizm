@@ -802,9 +802,9 @@ namespace Prizm.Main.Synch.Import
                         decision = args.Decision;
                         forAll = args.ForAll;
                     }
-                    WorkWithConflictFile f = new WorkWithConflictFile(pipeObj.Id.ToString(), pipeObj.Number);
+                    ConflictFileName f = new ConflictFileName(pipeObj.Id.ToString(), pipeObj.Number);
                     string folderName = f.FolderName;
-                    string conflictDir = Path.Combine(Directories.Conflicting, folderName);
+                    string conflictDir = Path.Combine(Directories.Conflicts, folderName);
 
                     switch (decision)
                     {
@@ -851,9 +851,9 @@ namespace Prizm.Main.Synch.Import
             data.Joints = new List<JointObject>();
             data.Components = new List<ComponentObject>();
             conflictData.Pipes.Add(pipeObj);
-            WorkWithConflictFile f = new WorkWithConflictFile(pipeObj.Id.ToString(), pipeObj.Number);
+            ConflictFileName f = new ConflictFileName(pipeObj.Id.ToString(), pipeObj.Number);
             string fileFolder = f.FolderName;
-            string conflictDir = Path.Combine(Directories.Conflicting, fileFolder);
+            string conflictDir = Path.Combine(Directories.Conflicts, fileFolder);
             string fileName = f.FileName;
             if (!Directory.Exists(conflictDir))
                 Directory.CreateDirectory(conflictDir);
@@ -1236,7 +1236,7 @@ namespace Prizm.Main.Synch.Import
 
         public void Postpone_PipeImport(string fileName) 
         {
-            string filesFolder = Path.Combine(Directories.Conflicting, fileName);
+            string filesFolder = Path.Combine(Directories.Conflicts, fileName);
             Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\" + fileName + ".xml", false);
             manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), false);
             importRepo.PipeRepo.BeginTransaction();
@@ -1250,50 +1250,6 @@ namespace Prizm.Main.Synch.Import
             importRepo.Dispose();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["PrismDatabase"];
             HibernateUtil.Initialize(settings.ConnectionString, false);
-        }
-    }
-
-    public class WorkWithConflictFile 
-    {
-        private string pipeID;
-        private string pipeNumber;
-        private string currentFileName;
-
-        public string FileName
-        {
-            get
-            {
-                return pipeID + "." + pipeNumber + ".xml";
-            }
-        }
-        public string FolderName
-        {
-            get
-            {
-                return pipeID + "." + pipeNumber;
-            }
-        }
-        public string PipeNumber
-        {
-            get
-            {
-                int i = currentFileName.IndexOf(".");
-                return currentFileName.Substring(i + 1); 
-            }
-        }
-
-        public WorkWithConflictFile(string id, string number) 
-        {
-            this.pipeID = id;
-            this.pipeNumber = number;
-            this.currentFileName = string.Empty;
-        }
-
-        public WorkWithConflictFile(string fileName)
-        {
-            this.pipeID = string.Empty;
-            this.pipeNumber = string.Empty;
-            this.currentFileName = fileName;
         }
     }
 }
