@@ -29,6 +29,8 @@ namespace Prizm.Main.Synch.Import
     public class DataImporter : Importer, IDisposable
     {
         private Data data;
+        private Manifest manifest;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
 
@@ -111,7 +113,7 @@ namespace Prizm.Main.Synch.Import
 
         void ImportData(string tempDir)
         {
-            Manifest manifest = Deserialize<Manifest>(Path.Combine(tempDir, "Manifest"));
+            manifest = Deserialize<Manifest>(Path.Combine(tempDir, "Manifest"));
 
             data = Deserialize<Data>(Path.Combine(tempDir, "Data"));
 
@@ -714,7 +716,7 @@ namespace Prizm.Main.Synch.Import
             }
         }
 
-        private ComponentType ImportComponentType(ComponentTypeObject componentTypeObject)
+         ComponentType ImportComponentType(ComponentTypeObject componentTypeObject)
         {
             if (componentTypeObject == null)
                 return null;
@@ -743,7 +745,7 @@ namespace Prizm.Main.Synch.Import
             return componentType;
         }
 
-        public IList<Pipe> ImportPipes(Manifest manifest, List<PipeObject> pipes, string tempDir)
+        private IList<Pipe> ImportPipes(Manifest manifest, List<PipeObject> pipes, string tempDir)
         {
             IList<Pipe> importedPipes = new List<Pipe>();
             const int PROGRESS_RANGE = 30;
@@ -800,21 +802,32 @@ namespace Prizm.Main.Synch.Import
                         decision = args.Decision;
                         forAll = args.ForAll;
                     }
+                    WorkWithConflictFile f = new WorkWithConflictFile(pipeObj.Id.ToString(), pipeObj.Number);
+                    string folderName = f.FolderName;
+                    string conflictDir = Path.Combine(Directories.Conflicting, folderName);
 
                     switch (decision)
                     {
                         case ConflictDecision.Skip:
+                            if (Directory.Exists(conflictDir))
+                                Directory.Delete(conflictDir, true);
                             break;
+
                         case ConflictDecision.Replace:
                             Pipe existingPipe = importRepo.PipeRepo.Get(pipeObj.Id);
                             MapSerializableEntityToPipe(tempDir, pipeObj, existingPipe);
                             importRepo.PipeRepo.SaveOrUpdate(existingPipe);
                             importedPipes.Add(existingPipe);
+                            if (Directory.Exists(conflictDir))
+                                Directory.Delete(conflictDir, true);
                             break;
+
                         case ConflictDecision.Postpone:
                             Dump(pipeObj, manifest.PortionID, tempDir);
                             break;
                     }
+
+                    NotificationService.Instance.PostponeConflictManager.RefreshNotifications();
                     progress += step;
                     FireProgress(progress);
                 }
@@ -822,7 +835,10 @@ namespace Prizm.Main.Synch.Import
 
             return importedPipes;
         }
+        void DeleteDirectori()
+        {
 
+        }
         void Dump(PipeObject pipeObj, Guid portionId, string tempDir)
         {
             Conflict conflict = new Conflict();
@@ -835,15 +851,15 @@ namespace Prizm.Main.Synch.Import
             data.Joints = new List<JointObject>();
             data.Components = new List<ComponentObject>();
             conflictData.Pipes.Add(pipeObj);
-            
-            string conflictDir = Path.Combine(System.Environment.CurrentDirectory, "Conflicts");
-
+            WorkWithConflictFile f = new WorkWithConflictFile(pipeObj.Id.ToString(), pipeObj.Number);
+            string fileFolder = f.FolderName;
+            string conflictDir = Path.Combine(Directories.Conflicting, fileFolder);
+            string fileName = f.FileName;
             if (!Directory.Exists(conflictDir))
                 Directory.CreateDirectory(conflictDir);
 
-            string fileName = WorkWithConflictFile.CreateFileName(pipeObj.Id.ToString(),pipeObj.Number);
-            string dumpFilePath = Path.Combine(conflictDir, fileName);// pipeObj.Id + ".xml"
-
+            string dumpFilePath = Path.Combine(conflictDir, fileName);
+            WriteManifest(conflictDir, manifest.PortionID, manifest.PortionNumber, manifest.ExportDateTime, manifest.WorkstationType);
             if (System.IO.File.Exists(dumpFilePath))
                 System.IO.File.Delete(dumpFilePath);
 
@@ -867,20 +883,46 @@ namespace Prizm.Main.Synch.Import
             XmlSerializer serializer = new XmlSerializer(typeof(Data));
             byte[] encryptedData;
             byte[] rawData;
-            using (FileStream fs = new FileStream(dumpFilePath, FileMode.Create))
+            using (FileStream fs = new FileStream(dumpFilePath, FileMode.CreateNew))
             {
                 StringWriter sw = new StringWriter();
                 XmlWriter writer = XmlWriter.Create(sw);
                 serializer.Serialize(sw, conflictData);
 
                 rawData = Encoding.Unicode.GetBytes(sw.ToString());
-              //  encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+                //encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
 
                 fs.Write(rawData, 0, rawData.Length);
             }
-            System.IO.File.WriteAllText(dumpFilePath, hasher.GetHash(rawData));
+            
             //System.IO.File.WriteAllText(dumpFilePath, hasher.GetHash(encryptedData));
         }
+
+        protected void WriteManifest(string tempDir, Guid portionId, int portionNumber, DateTime exportDateTime, WorkstationType workstationType)
+        {
+            Manifest manifest = new Manifest();
+            manifest.ExportDateTime = exportDateTime;
+            manifest.PortionID = portionId;
+            manifest.PortionNumber = portionNumber;
+            manifest.WorkstationType = workstationType;
+
+            XmlSerializer serializer = new XmlSerializer(typeof(Manifest));
+            byte[] rawData;
+            using (FileStream dataStream = new FileStream(Path.Combine(tempDir, "Manifest"), FileMode.CreateNew))
+            {
+                StringWriter sw = new StringWriter();
+                XmlWriter writer = XmlWriter.Create(sw);
+                serializer.Serialize(sw, manifest);
+
+                rawData = Encoding.Unicode.GetBytes(sw.ToString());
+             //   encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+
+                dataStream.Write(rawData, 0, rawData.Length);
+            }
+
+          //  System.IO.File.WriteAllText(Path.Combine(tempDir, "Manifest.sha1"), hasher.GetHash(encryptedData));
+        }
+
 
         private Plate ImportPlate(PlateObject plateObj)
         {
@@ -1192,6 +1234,16 @@ namespace Prizm.Main.Synch.Import
             return tempDir;
         }
 
+        public void Postpone_PipeImport(string fileName) 
+        {
+            string filesFolder = Path.Combine(Directories.Conflicting, fileName);
+            Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\" + fileName + ".xml", false);
+            manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), false);
+            importRepo.PipeRepo.BeginTransaction();
+            ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
+            importRepo.PipeRepo.Commit();
+        }
+
         public void Dispose()
         {
             this.IsDisposed = true;
@@ -1201,17 +1253,47 @@ namespace Prizm.Main.Synch.Import
         }
     }
 
-    public static class WorkWithConflictFile 
+    public class WorkWithConflictFile 
     {
-        public static string CreateFileName(string id, string number)
+        private string pipeID;
+        private string pipeNumber;
+        private string currentFileName;
+
+        public string FileName
         {
-            return id+"."+number+".xml";
+            get
+            {
+                return pipeID + "." + pipeNumber + ".xml";
+            }
+        }
+        public string FolderName
+        {
+            get
+            {
+                return pipeID + "." + pipeNumber;
+            }
+        }
+        public string PipeNumber
+        {
+            get
+            {
+                int i = currentFileName.IndexOf(".");
+                return currentFileName.Substring(i + 1); 
+            }
         }
 
-        public static string GetPipeNumber(string fileName)
+        public WorkWithConflictFile(string id, string number) 
         {
-            int i = fileName.IndexOf(".");
-            return fileName.Substring(i+1); 
+            this.pipeID = id;
+            this.pipeNumber = number;
+            this.currentFileName = string.Empty;
+        }
+
+        public WorkWithConflictFile(string fileName)
+        {
+            this.pipeID = string.Empty;
+            this.pipeNumber = string.Empty;
+            this.currentFileName = fileName;
         }
     }
 }
