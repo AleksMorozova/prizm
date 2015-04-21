@@ -880,22 +880,7 @@ namespace Prizm.Main.Synch.Import
                 }
             }
 
-            XmlSerializer serializer = new XmlSerializer(typeof(Data));
-            byte[] encryptedData;
-            byte[] rawData;
-            using (FileStream fs = new FileStream(dumpFilePath, FileMode.CreateNew))
-            {
-                StringWriter sw = new StringWriter();
-                XmlWriter writer = XmlWriter.Create(sw);
-                serializer.Serialize(sw, conflictData);
-
-                rawData = Encoding.Unicode.GetBytes(sw.ToString());
-                //encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
-
-                fs.Write(rawData, 0, rawData.Length);
-            }
-            
-            //System.IO.File.WriteAllText(dumpFilePath, hasher.GetHash(encryptedData));
+            WriteData<Data>(conflictDir, conflictData, fileName);
         }
 
         protected void WriteManifest(string tempDir, Guid portionId, int portionNumber, DateTime exportDateTime, WorkstationType workstationType)
@@ -908,6 +893,7 @@ namespace Prizm.Main.Synch.Import
 
             XmlSerializer serializer = new XmlSerializer(typeof(Manifest));
             byte[] rawData;
+            byte[] encryptedData;
             using (FileStream dataStream = new FileStream(Path.Combine(tempDir, "Manifest"), FileMode.CreateNew))
             {
                 StringWriter sw = new StringWriter();
@@ -915,14 +901,32 @@ namespace Prizm.Main.Synch.Import
                 serializer.Serialize(sw, manifest);
 
                 rawData = Encoding.Unicode.GetBytes(sw.ToString());
-             //   encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+                encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
 
-                dataStream.Write(rawData, 0, rawData.Length);
+                dataStream.Write(encryptedData, 0, encryptedData.Length);
             }
 
-          //  System.IO.File.WriteAllText(Path.Combine(tempDir, "Manifest.sha1"), hasher.GetHash(encryptedData));
+            System.IO.File.WriteAllText(Path.Combine(tempDir, "Manifest.sha1"), hasher.GetHash(encryptedData));
         }
 
+        protected void WriteData<T>(string tempDir, T data, string fileName)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            byte[] encryptedData;
+            using (FileStream dataStream = new FileStream(Path.Combine(tempDir, fileName), FileMode.CreateNew))
+            {
+                StringWriter sw = new StringWriter();
+                XmlWriter writer = XmlWriter.Create(sw);
+                serializer.Serialize(sw, data);
+
+                byte[] rawData = Encoding.Unicode.GetBytes(sw.ToString());
+                encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+
+                dataStream.Write(encryptedData, 0, encryptedData.Length);
+            }
+
+            System.IO.File.WriteAllText(Path.Combine(tempDir, fileName+".sha1"), hasher.GetHash(encryptedData));
+        }
 
         private Plate ImportPlate(PlateObject plateObj)
         {
@@ -1237,8 +1241,8 @@ namespace Prizm.Main.Synch.Import
         public void Postpone_PipeImport(string fileName) 
         {
             string filesFolder = Path.Combine(Directories.Conflicts, fileName);
-            Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\" + fileName + ".xml", false);
-            manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), false);
+            manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), true);
+            Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\"+fileName, true);
             importRepo.PipeRepo.BeginTransaction();
             ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
             importRepo.PipeRepo.Commit();

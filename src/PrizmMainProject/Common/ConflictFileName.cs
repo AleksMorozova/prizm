@@ -36,7 +36,7 @@ namespace Prizm.Main.Common
 
         public ConflictFileName(string id, string number) 
         {
-            this.fileName = id + "." + number + ".xml";
+            this.fileName = id + "." + number;
             this.folderName =  id + "." + number;
         }
 
