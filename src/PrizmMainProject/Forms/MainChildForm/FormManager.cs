@@ -40,8 +40,7 @@ namespace Prizm.Main.Forms.MainChildForm
         Notifications,
         Export,
         Import,
-        ExportImportHistory,
-        ImportConflict
+        ExportImportHistory
     }
 
     public class FormManager
