@@ -29,11 +29,14 @@ namespace Prizm.Main.Forms.Notifications.Managers
             string conflictDir = Path.Combine(System.Environment.CurrentDirectory, "Conflicts");
             var dir = new DirectoryInfo(conflictDir); // папка с файлами 
 
-            foreach (FileInfo file in dir.GetFiles()) // извлекаем все файлы
+            DirectoryInfo dInfo = new DirectoryInfo(conflictDir);
+            DirectoryInfo[] subdirs = dInfo.GetDirectories();
+            foreach (DirectoryInfo d in subdirs) 
             {
-                string pipeNumber = WorkWithConflictFile.GetPipeNumber(Path.GetFileNameWithoutExtension(file.FullName));
-                //Path.GetFileNameWithoutExtension(file.FullName)); -  получаем полный путь к файлу и потом вычищаем ненужное, оставляем только имя файла. 
-                notifications.Add(new Notification(Guid.Empty, pipeNumber, TypeNotification.PostponeConflict, pipeNumber, DateTime.Now.Date, Path.GetFileNameWithoutExtension(file.FullName)));
+                string fileName = d.Name;
+                WorkWithConflictFile f = new WorkWithConflictFile(fileName);
+                string pipeNumber = f.PipeNumber;
+                notifications.Add(new Notification(Guid.Empty, pipeNumber, TypeNotification.PostponeConflict, pipeNumber, DateTime.Now.Date, fileName));
             }
         }
 

@@ -19,6 +19,7 @@ using Prizm.Main.Synch.Import;
 using Prizm.UnitTests.Synch.SerializableEntities;
 using System.IO;
 using Prizm.Main.Common;
+using Prizm.Main.Forms.Synch;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -26,6 +27,8 @@ namespace PrizmMain.Forms.Notifications
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class NotificationXtraForm : ChildForm
     {
+        private ConflictDialog singleConflictDialog = null;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationXtraForm));
         // Fields
         private NotificationViewModel viewModel;
@@ -35,14 +38,14 @@ namespace PrizmMain.Forms.Notifications
         {
             this.components = null;
             this.InitializeComponent();
+            importer = Program.Kernel.Get<DataImporter>();
+            importer.OnConflict += importer_OnConflict;
         }
 
         private void NotificationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (NotificationViewModel)Program.Kernel.GetService(typeof(NotificationViewModel));
-            importer = Program.Kernel.Get<DataImporter>();
             BindToViewModel();
-
         }
 
         private void BindToViewModel()
@@ -90,9 +93,8 @@ namespace PrizmMain.Forms.Notifications
                     FormManager.Instance.OpenSettingsChildForm(1);
                     break;
                 case TypeNotification.PostponeConflict:
-                    Prizm.Main.Synch.Data data = importer.Deserialize<Prizm.Main.Synch.Data>(Directories.Conflicting +@"\"+ additionalInformation + ".xml", false);
-                    Manifest manifest = importer.Deserialize<Manifest>(Path.Combine(System.Environment.CurrentDirectory, "Manifest"));
-                    importer.ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
+                    importer.Postpone_PipeImport(additionalInformation);
+                    RefreshNitifications();
                     break;
                 default:
                     var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
@@ -138,9 +140,7 @@ namespace PrizmMain.Forms.Notifications
 
         private void NotificationXtraForm_Activated(object sender, EventArgs e)
         {
-            // Refresh list of notification and grid DataSource
-            NotificationService.Instance.LoadAllNotifications();
-            gridControlMessage.DataSource = NotificationService.Instance.Notifications;
+            RefreshNitifications();
         }
 
         private void OpenForm(DocumentTypes type) 
@@ -148,6 +148,42 @@ namespace PrizmMain.Forms.Notifications
 
         }
 
+        void importer_OnConflict(ConflictEventArgs args)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action(() => { ConflictDialogCreation(args); }));
+            }
+            else
+            {
+                ConflictDialogCreation(args);
+            }
+        }
+
+        private void ConflictDialogCreation(ConflictEventArgs args)
+        {
+            if (singleConflictDialog == null)
+            {
+                singleConflictDialog = new ConflictDialog(args.Message);
+            }
+            else
+            {
+                singleConflictDialog.SetConflictDialog(args.Message);
+            }
+
+            singleConflictDialog.ShowDialog();
+            args.Decision = singleConflictDialog.Decision;
+            args.ForAll = singleConflictDialog.ForAll;
+        }
+
+        /// <summary>
+        /// Refresh list of notification and grid DataSource
+        /// </summary>
+        void RefreshNitifications() 
+        {
+            NotificationService.Instance.LoadAllNotifications();
+            gridControlMessage.DataSource = NotificationService.Instance.Notifications;
+        }
 
     }
 }
