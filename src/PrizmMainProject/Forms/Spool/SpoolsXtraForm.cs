@@ -58,6 +58,12 @@ namespace Prizm.Main.Forms.Spool
             {
                 this.Text = Program.LanguageManager.GetString(StringResources.Spool_EditDocumentHeader);
                 SetAlwaysReadOnly(pipeNumber);
+                if(Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Master)
+                {
+                    SetAlwaysReadOnly(spoolNumber);
+                    SetAlwaysReadOnly(spoolLength);
+                    SetAlwaysReadOnly(inspectionHistory);
+                }
             }
             IsEditMode = true;//do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
