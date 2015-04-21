@@ -26,3 +26,4 @@
 .\content\Notification_DuplicatePipeNumber.md
 .\content\Notification_ExpiredCertificate.md
 .\content\Deactivation.md
+.\content\Lang_Use.md

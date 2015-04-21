@@ -2737,7 +2737,7 @@ WeldDateXtraReport_FirstPartLengthHeader=First part length
 WeldDateXtraReport_SecondPartLengthHeader=Second part length
 
 ;Отчет по трубам на строительстве
-PipeConstructionXtraReport_PipeConstructionReportHeader=Pipe construction repor
+PipeConstructionXtraReport_PipeConstructionReportHeader=Pipe construction report
 
 ;Номер трубы
 PipeConstructionXtraReport_PipeNumberHeader=Pipe number

@@ -71,6 +71,7 @@ namespace Prizm.Main.Forms.Settings
             this.ExtractCategoriesCommand.Execute();
             CategoryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
             PipeTests.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            
         }
 
         public void LoadData()
@@ -654,17 +655,17 @@ namespace Prizm.Main.Forms.Settings
 
         public bool IsMaster
         {
-            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Master) ? true : false; } 
+            get { return (Program.ThisWorkstationType == WorkstationType.Master) ? true : false; } 
         }
 
         public bool IsMill
         {
-            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Mill) ? true : false; }
+            get { return (Program.ThisWorkstationType == WorkstationType.Mill) ? true : false; }
         }
 
         public bool IsConstruction
         {
-            get { return (CurrentProjectSettings.WorkstationType == WorkstationType.Construction) ? true : false; }
+            get { return (Program.ThisWorkstationType == WorkstationType.Construction) ? true : false; }
         }
     }
 }

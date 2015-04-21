@@ -43,6 +43,13 @@ namespace Prizm.Main.Forms.Joint.Search
             weldingDateTo.Properties.NullText = string.Empty;
             jointNumber.SetAsIdentifier();
 
+
+            if(Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Master)
+            {
+                eldingDateLabelLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                weldingDateFromLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                weldingDateToLayout.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            }
         }
 
         private void JointSearchXtraForm_Load(object sender, System.EventArgs e)

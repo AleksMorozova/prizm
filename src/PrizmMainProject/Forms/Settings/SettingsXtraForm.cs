@@ -72,6 +72,7 @@ namespace Prizm.Main.Forms.Settings
             plateManufacturersListView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             jointsOperationsGridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             viewModel.ModifiableView = this;
+            SetWorkstationReadonlyFields();
         }
 
 
@@ -100,29 +101,33 @@ namespace Prizm.Main.Forms.Settings
             pipeLength.SetRequiredText();
             pipeDiameter.SetRequiredText();
             wallThickness.SetRequiredText();
-            SetConditional(seamType, delegate(bool editMode)
+            
+            if (viewModel.IsMill)
             {
-                return IsEditable(IsEditMode);
-            }
+                SetConditional(pipeDiameter, delegate(bool editMode)
+                {
+                    return IsEditable(IsEditMode);
+                }
+                );
+
+                SetConditional(wallThickness, delegate(bool editMode)
+                {
+                    return IsEditable(IsEditMode);
+                }
+                );
+
+                SetConditional(seamType, delegate(bool editMode)
+                {
+                    return IsEditable(IsEditMode);
+                }
                         );
-            SetConditional(pipeLength, delegate(bool editMode)
-            {
-                return IsEditable(IsEditMode);
-            }
-            );
 
-            SetConditional(pipeDiameter, delegate(bool editMode)
-            {
-                return IsEditable(IsEditMode);
+                SetConditional(pipeLength, delegate(bool editMode)
+                {
+                    return IsEditable(IsEditMode);
+                }
+                );
             }
-            );
-
-            SetConditional(wallThickness, delegate(bool editMode)
-            {
-                return IsEditable(IsEditMode);
-            }
-            );
-
             SetConditional(inspectionOperation, delegate(bool editMode)
             {
                 return IsEditable(IsEditMode);
@@ -134,7 +139,7 @@ namespace Prizm.Main.Forms.Settings
             //    return IsEditableCrtificate(IsEditMode);
             //}
             //);
-            SetWorkstationReadonlyFields();
+
             UpdateSeamTypesComboBox();
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             IsEditMode &= ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSettings);
@@ -2108,7 +2113,11 @@ namespace Prizm.Main.Forms.Settings
                 SetAlwaysReadOnly(gridControlInspectors);
                 SetAlwaysReadOnly(gridControlInspectorsCertificates);
                 SetAlwaysReadOnly(certificateTypes);
-
+                SetAlwaysReadOnly(pipeDiameter);
+                SetAlwaysReadOnly(wallThickness);
+                SetAlwaysReadOnly(pipeLength);
+                SetAlwaysReadOnly(seamType);
+                
             }
             if (viewModel.IsMill)
             {
@@ -2128,6 +2137,10 @@ namespace Prizm.Main.Forms.Settings
                 SetAlwaysReadOnly(categoriesGrid);
                 SetAlwaysReadOnly(seamTypes);
                 SetAlwaysReadOnly(pipesSizeList);
+                SetAlwaysReadOnly(pipeDiameter);
+                SetAlwaysReadOnly(wallThickness);
+                SetAlwaysReadOnly(pipeLength);
+                SetAlwaysReadOnly(seamType);
             }
         }
         

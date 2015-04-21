@@ -63,7 +63,8 @@ namespace Prizm.Main.Forms.Joint.Search
                             viewModel.FromDate,
                             viewModel.ToDate,
                             viewModel.PegNumber,
-                            status
+                            status,
+                            Program.ThisWorkstationType
                         );
 
                     viewModel.Joints.Clear();
