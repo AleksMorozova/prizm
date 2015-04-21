@@ -18,7 +18,7 @@ namespace Prizm.Main.Forms.Notifications
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Notification));
 
         // Methods
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, string additionalInformation = null)
         {
             Id = ownerId;
             OwnerName = ownerName;
@@ -27,18 +27,19 @@ namespace Prizm.Main.Forms.Notifications
             Status = NotificationStatus.Critical;
             DateToOccur = default(DateTime);
             UnitsLeft = 0;
+            AdditionalInformation = additionalInformation;
 
         }
 
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, DateTime dayToOccur)
-            : this(ownerId, ownerName, typeNotification, information)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, DateTime dayToOccur, string additionalInformation = null)
+            : this(ownerId, ownerName, typeNotification, information, additionalInformation)
         {
             DateToOccur = dayToOccur;
             Status = DaysLeft <= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
         }
 
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, float unitsLeft)
-            : this(ownerId, ownerName, typeNotification, information)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, float unitsLeft, string additionalInformation = null)
+            : this(ownerId, ownerName, typeNotification, information, additionalInformation)
         {
             UnitsLeft = unitsLeft;
             Status = UnitsLeft >= 0 ? NotificationStatus.Critical : NotificationStatus.Warning;
@@ -89,6 +90,10 @@ namespace Prizm.Main.Forms.Notifications
 
                 case TypeNotification.DuplicatePipeNumber:
                     inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForDublicatePipeNumber) + " ";
+                    break;
+
+                case TypeNotification.PostponeConflict:
+                    inf = Program.LanguageManager.GetString(StringResources.Notification_InformationForPostponeConflict) + " ";
                     break;
 
                 default:
@@ -175,6 +180,8 @@ namespace Prizm.Main.Forms.Notifications
                 return retVal;
             }
         }
+
+        public string AdditionalInformation { get; set; }
     }
 
     public enum NotificationStatus
@@ -190,7 +197,8 @@ namespace Prizm.Main.Forms.Notifications
         ExpiredInspectorCertificate,
         ExpiredWelderCertificate,
         NotRequiredInspectionOperation,
-        SelectiveInspectionOperation
+        SelectiveInspectionOperation,
+        PostponeConflict
     }
 
 }

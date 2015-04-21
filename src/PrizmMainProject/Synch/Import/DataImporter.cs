@@ -21,12 +21,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Prizm.Main.Synch.Import
 {
     public class DataImporter : Importer, IDisposable
     {
+        private Data data;
+        private Manifest manifest;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
 
@@ -90,6 +94,7 @@ namespace Prizm.Main.Synch.Import
                 FireMessage(Program.LanguageManager.GetString(StringResources.Import_Data));
                 ImportData(tempDir);
                 NotificationService.Instance.DuplicateNumberManager.RefreshNotifications();
+                NotificationService.Instance.PostponeConflictManager.RefreshNotifications();
                 FireOnDone();
             }
             catch (Exception e)
@@ -108,9 +113,9 @@ namespace Prizm.Main.Synch.Import
 
         void ImportData(string tempDir)
         {
-            Manifest manifest = Deserialize<Manifest>(Path.Combine(tempDir, "Manifest"));
+            manifest = Deserialize<Manifest>(Path.Combine(tempDir, "Manifest"));
 
-            Data data = Deserialize<Data>(Path.Combine(tempDir, "Data"));
+            data = Deserialize<Data>(Path.Combine(tempDir, "Data"));
 
             importRepo.PipeRepo.BeginTransaction();
 
@@ -711,7 +716,7 @@ namespace Prizm.Main.Synch.Import
             }
         }
 
-        private ComponentType ImportComponentType(ComponentTypeObject componentTypeObject)
+         ComponentType ImportComponentType(ComponentTypeObject componentTypeObject)
         {
             if (componentTypeObject == null)
                 return null;
@@ -797,21 +802,32 @@ namespace Prizm.Main.Synch.Import
                         decision = args.Decision;
                         forAll = args.ForAll;
                     }
+                    ConflictFileName f = new ConflictFileName(pipeObj.Id.ToString(), pipeObj.Number);
+                    string folderName = f.FolderName;
+                    string conflictDir = Path.Combine(Directories.Conflicts, folderName);
 
                     switch (decision)
                     {
                         case ConflictDecision.Skip:
+                            if (Directory.Exists(conflictDir))
+                                Directory.Delete(conflictDir, true);
                             break;
+
                         case ConflictDecision.Replace:
                             Pipe existingPipe = importRepo.PipeRepo.Get(pipeObj.Id);
                             MapSerializableEntityToPipe(tempDir, pipeObj, existingPipe);
                             importRepo.PipeRepo.SaveOrUpdate(existingPipe);
                             importedPipes.Add(existingPipe);
+                            if (Directory.Exists(conflictDir))
+                                Directory.Delete(conflictDir, true);
                             break;
+
                         case ConflictDecision.Postpone:
                             Dump(pipeObj, manifest.PortionID, tempDir);
                             break;
                     }
+
+                    NotificationService.Instance.PostponeConflictManager.RefreshNotifications();
                     progress += step;
                     FireProgress(progress);
                 }
@@ -819,20 +835,31 @@ namespace Prizm.Main.Synch.Import
 
             return importedPipes;
         }
+        void DeleteDirectori()
+        {
 
+        }
         void Dump(PipeObject pipeObj, Guid portionId, string tempDir)
         {
             Conflict conflict = new Conflict();
             conflict.PortionID = portionId;
             conflict.Pipe = pipeObj;
 
-            string conflictDir = Path.Combine(System.Environment.CurrentDirectory, "Conflicts");
-
+            Data conflictData = new Data();
+            conflictData.Project = data.Project;
+            conflictData.Pipes = new List<PipeObject>();
+            data.Joints = new List<JointObject>();
+            data.Components = new List<ComponentObject>();
+            conflictData.Pipes.Add(pipeObj);
+            ConflictFileName f = new ConflictFileName(pipeObj.Id.ToString(), pipeObj.Number);
+            string fileFolder = f.FolderName;
+            string conflictDir = Path.Combine(Directories.Conflicts, fileFolder);
+            string fileName = f.FileName;
             if (!Directory.Exists(conflictDir))
                 Directory.CreateDirectory(conflictDir);
 
-            string dumpFilePath = Path.Combine(conflictDir, pipeObj.Id + ".xml");
-
+            string dumpFilePath = Path.Combine(conflictDir, fileName);
+            WriteManifest(conflictDir, manifest.PortionID, manifest.PortionNumber, manifest.ExportDateTime, manifest.WorkstationType);
             if (System.IO.File.Exists(dumpFilePath))
                 System.IO.File.Delete(dumpFilePath);
 
@@ -853,11 +880,52 @@ namespace Prizm.Main.Synch.Import
                 }
             }
 
-            XmlSerializer serializer = new XmlSerializer(typeof(Conflict));
-            using (FileStream fs = new FileStream(dumpFilePath, FileMode.Create))
+            WriteData<Data>(conflictDir, conflictData, fileName);
+        }
+
+        protected void WriteManifest(string tempDir, Guid portionId, int portionNumber, DateTime exportDateTime, WorkstationType workstationType)
+        {
+            Manifest manifest = new Manifest();
+            manifest.ExportDateTime = exportDateTime;
+            manifest.PortionID = portionId;
+            manifest.PortionNumber = portionNumber;
+            manifest.WorkstationType = workstationType;
+
+            XmlSerializer serializer = new XmlSerializer(typeof(Manifest));
+            byte[] rawData;
+            byte[] encryptedData;
+            using (FileStream dataStream = new FileStream(Path.Combine(tempDir, "Manifest"), FileMode.CreateNew))
             {
-                serializer.Serialize(fs, conflict);
+                StringWriter sw = new StringWriter();
+                XmlWriter writer = XmlWriter.Create(sw);
+                serializer.Serialize(sw, manifest);
+
+                rawData = Encoding.Unicode.GetBytes(sw.ToString());
+                encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+
+                dataStream.Write(encryptedData, 0, encryptedData.Length);
             }
+
+            System.IO.File.WriteAllText(Path.Combine(tempDir, "Manifest.sha1"), hasher.GetHash(encryptedData));
+        }
+
+        protected void WriteData<T>(string tempDir, T data, string fileName)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            byte[] encryptedData;
+            using (FileStream dataStream = new FileStream(Path.Combine(tempDir, fileName), FileMode.CreateNew))
+            {
+                StringWriter sw = new StringWriter();
+                XmlWriter writer = XmlWriter.Create(sw);
+                serializer.Serialize(sw, data);
+
+                byte[] rawData = Encoding.Unicode.GetBytes(sw.ToString());
+                encryptedData = encryptor.Encrypt(rawData, "^PRIZM_ENCRYPTION_KEY$");
+
+                dataStream.Write(encryptedData, 0, encryptedData.Length);
+            }
+
+            System.IO.File.WriteAllText(Path.Combine(tempDir, fileName+".sha1"), hasher.GetHash(encryptedData));
         }
 
         private Plate ImportPlate(PlateObject plateObj)
@@ -1168,6 +1236,16 @@ namespace Prizm.Main.Synch.Import
             string tempDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             Directory.CreateDirectory(tempDir);
             return tempDir;
+        }
+
+        public void Postpone_PipeImport(string fileName) 
+        {
+            string filesFolder = Path.Combine(Directories.Conflicts, fileName);
+            manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), true);
+            Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\"+fileName, true);
+            importRepo.PipeRepo.BeginTransaction();
+            ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
+            importRepo.PipeRepo.Commit();
         }
 
         public void Dispose()

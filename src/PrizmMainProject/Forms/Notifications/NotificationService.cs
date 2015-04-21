@@ -27,6 +27,16 @@ namespace Prizm.Main.Forms.Notifications
             }
         }
 
+        public IPostponeConflictManager PostponeConflictManager
+        {
+            get
+            {
+                return (IPostponeConflictManager)managers.First(
+                    (m) => { return m.Value.Type == TypeNotification.PostponeConflict; }
+                    ).Value;
+            }
+        }
+
         public IDuplicateNumberManager DuplicateNumberManager 
         { 
             get 
@@ -96,7 +106,8 @@ namespace Prizm.Main.Forms.Notifications
             RegisterManager(new DuplicateNumberManager());
             RegisterManager(new ExpiredWelderCertificateManager());
             RegisterManager(new ExpiredInspectorCertificateManager());
-            
+            RegisterManager(new PostponeConflictManager());
+
             if (Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Mill)
             {
                 RegisterManager(new NotRequiredOperationManager());

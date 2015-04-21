@@ -2164,6 +2164,9 @@ Notification_InformationForDublicatePipeNumber = Dublicate Pipe Number
 ;Просрочено выполнение контрольной операции 
 Notification_SelectiveInspectionOperation_Critical = Expired deadline for performance of selective inspection operation
 
+Notification_PostponeConflict_Warning = There is a postponed conflict
+Notification_PostponeConflict_Critical = There is a postponed conflict
+Notification_InformationForPostponeConflict = Number of conflicting pipe:
 ;Приближается срок выполнения контрольной операции 
 Notification_SelectiveInspectionOperation_Warning =  Approaching deadline for performance of selective inspection operation
 

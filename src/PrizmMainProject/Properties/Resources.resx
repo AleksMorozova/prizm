@@ -1824,4 +1824,13 @@
   <data name="SettingsProject_MillLabel" xml:space="preserve">
     <value>Название рабоче&amp;й станции</value>
   </data>
+  <data name="Notification_InformationForPostponeConflict" xml:space="preserve">
+    <value>Номер конфликтующей трубы: </value>
+  </data>
+  <data name="Notification_PostponeConflict_Critical" xml:space="preserve">
+    <value>Есть отложенный конфликт</value>
+  </data>
+  <data name="Notification_PostponeConflict_Warning" xml:space="preserve">
+    <value>Есть отложенный конфликт</value>
+  </data>
 </root>

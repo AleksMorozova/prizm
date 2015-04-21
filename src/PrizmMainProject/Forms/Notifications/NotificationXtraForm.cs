@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ninject.Parameters;
+using Ninject;
 using Prizm.Main;
 using Prizm.Main.Forms.MainChildForm;
 using Prizm.Main.Forms.Notifications;
@@ -15,6 +15,11 @@ using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Languages;
 using Prizm.Main.Properties;
+using Prizm.Main.Synch.Import;
+using Prizm.UnitTests.Synch.SerializableEntities;
+using System.IO;
+using Prizm.Main.Common;
+using Prizm.Main.Forms.Synch;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -22,22 +27,25 @@ namespace PrizmMain.Forms.Notifications
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class NotificationXtraForm : ChildForm
     {
+        private ConflictDialog singleConflictDialog = null;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NotificationXtraForm));
         // Fields
         private NotificationViewModel viewModel;
-
+        private DataImporter importer;
         // Methods
         public NotificationXtraForm()
         {
             this.components = null;
             this.InitializeComponent();
+            importer = Program.Kernel.Get<DataImporter>();
+            importer.OnConflict += importer_OnConflict;
         }
 
         private void NotificationXtraForm_Load(object sender, EventArgs e)
         {
             viewModel = (NotificationViewModel)Program.Kernel.GetService(typeof(NotificationViewModel));
             BindToViewModel();
-
         }
 
         private void BindToViewModel()
@@ -55,54 +63,42 @@ namespace PrizmMain.Forms.Notifications
                 var id = viewModel.Notification[selectedItem].Id;
 
 
-                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification);
+                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification, viewModel.Notification[selectedItem].AdditionalInformation);
             }
     
         }
 
-        private void OpenEditorForm(Guid id, TypeNotification typeNotification)
+        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation)
         {
-            DocumentTypes typeEditor;
-            int page = -1;
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    typeEditor = DocumentTypes.MillPipe;
+                    OpenForm(DocumentTypes.MillPipe, id);
                     break;
                 case TypeNotification.DuplicateLogin:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 6;
+                    OpenForm(DocumentTypes.Settings, id, 6);
                     break;
                 case TypeNotification.ExpiredInspectorCertificate:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 5;
+                    OpenForm(DocumentTypes.Settings, id, 5);
                     break;
                 case TypeNotification.ExpiredWelderCertificate:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 4;
+                    OpenForm(DocumentTypes.Settings, id, 4);
                     break;
                 case TypeNotification.NotRequiredInspectionOperation:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 1;
+                    OpenForm(DocumentTypes.Settings, id, 2);
                     break;
                 case TypeNotification.SelectiveInspectionOperation:
-                    typeEditor = DocumentTypes.Settings;
-                    page = 1;
+                    OpenForm(DocumentTypes.Settings, id, 1);
+                    break;
+                case TypeNotification.PostponeConflict:
+                    importer.Postpone_PipeImport(additionalInformation);
+                    RefreshNitifications();
                     break;
                 default:
                     var ex = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
                     log.Error(ex.Message);
                     throw ex;
                     //break; // unreachable code
-            }
-
-            if (typeEditor == DocumentTypes.Settings && page >= 0)
-            {
-                FormManager.Instance.OpenSettingsChildForm(page);
-            }
-            else
-            {
-                FormManager.Instance.OpenChildForm(typeEditor, id);
             }
         }
 
@@ -133,13 +129,57 @@ namespace PrizmMain.Forms.Notifications
 
         private void NotificationXtraForm_Activated(object sender, EventArgs e)
         {
-            // Refresh list of notification and grid DataSource
+            RefreshNitifications();
+        }
+
+        private void OpenForm(DocumentTypes type, Guid id, int pageNumber =0) 
+        {
+            if (type == DocumentTypes.Settings && pageNumber >= 0)
+            {
+                FormManager.Instance.OpenSettingsChildForm(pageNumber);
+            }
+            else
+            {
+                FormManager.Instance.OpenChildForm(type, id);
+            }
+        }
+
+        void importer_OnConflict(ConflictEventArgs args)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action(() => { ConflictDialogCreation(args); }));
+            }
+            else
+            {
+                ConflictDialogCreation(args);
+            }
+        }
+
+        private void ConflictDialogCreation(ConflictEventArgs args)
+        {
+            if (singleConflictDialog == null)
+            {
+                singleConflictDialog = new ConflictDialog(args.Message);
+            }
+            else
+            {
+                singleConflictDialog.SetConflictDialog(args.Message);
+            }
+
+            singleConflictDialog.ShowDialog();
+            args.Decision = singleConflictDialog.Decision;
+            args.ForAll = singleConflictDialog.ForAll;
+        }
+
+        /// <summary>
+        /// Refresh list of notification and grid DataSource
+        /// </summary>
+        void RefreshNitifications() 
+        {
             NotificationService.Instance.LoadAllNotifications();
             gridControlMessage.DataSource = NotificationService.Instance.Notifications;
         }
-
-
-
 
     }
 }

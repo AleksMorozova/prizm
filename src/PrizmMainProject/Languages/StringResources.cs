@@ -5413,6 +5413,23 @@ namespace Prizm.Main.Languages
 
         #region --- Notification ---
 
+        public static StringResource Notification_PostponeConflict_Critical = new StringResource
+        {
+            Id = "Notification_PostponeConflict_Critical",
+            Description = "Сообщение об отложеном конфликте"
+        };
+
+        public static StringResource Notification_PostponeConflict_Warning = new StringResource
+        {
+            Id = "Notification_PostponeConflict_Warning",
+            Description = "Сообщение об отложеном конфликте"
+        };
+        public static StringResource Notification_InformationForPostponeConflict = new StringResource
+        {
+            Id = "Notification_InformationForPostponeConflict",
+            Description = "Информация для отложенного конфликта"
+        };
+
         public static StringResource Notification_InformationForSelectiveOperation = new StringResource
         {
             Id = "Notification_InformationForSelectiveOperation",

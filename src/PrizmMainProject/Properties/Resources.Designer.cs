@@ -2994,6 +2994,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Номер конфликтующей трубы: .
+        /// </summary>
+        internal static string Notification_InformationForPostponeConflict {
+            get {
+                return ResourceManager.GetString("Notification_InformationForPostponeConflict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Общее количество / проверено труб: .
         /// </summary>
         internal static string Notification_InformationForSelectiveOperation {
@@ -3017,6 +3026,24 @@ namespace Prizm.Main.Properties {
         internal static string Notification_NotRequiredInspectionOperation_Warning {
             get {
                 return ResourceManager.GetString("Notification_NotRequiredInspectionOperation_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Есть отложенный конфликт.
+        /// </summary>
+        internal static string Notification_PostponeConflict_Critical {
+            get {
+                return ResourceManager.GetString("Notification_PostponeConflict_Critical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Есть отложенный конфликт.
+        /// </summary>
+        internal static string Notification_PostponeConflict_Warning {
+            get {
+                return ResourceManager.GetString("Notification_PostponeConflict_Warning", resourceCulture);
             }
         }
         
