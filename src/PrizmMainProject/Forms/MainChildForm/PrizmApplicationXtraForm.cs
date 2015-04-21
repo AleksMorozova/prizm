@@ -694,5 +694,11 @@ namespace Prizm.Main.Forms.MainChildForm
         } 
         #endregion
 
+        private void PrizmApplicationXtraForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //ShrinkDb
+            DbUtils.LogOptimize();
+        }
+
     }
 }
