@@ -67,7 +67,7 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanExecute()
         {
-            return true;
+            return viewModel.Spool.IsActive;
         }
 
     }
