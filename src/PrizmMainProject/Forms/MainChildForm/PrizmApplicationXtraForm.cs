@@ -379,10 +379,20 @@ namespace Prizm.Main.Forms.MainChildForm
             {
                 InvokeIfRequired(queueAppWaitForm.Peek(), () =>
                 {
-                    var tempAppWaitForm = queueAppWaitForm.Dequeue();
 
-                    tempAppWaitForm.Close();
-                    tempAppWaitForm.Dispose();
+                    try
+                    {
+                        var tempAppWaitForm = queueAppWaitForm.Dequeue();
+
+                        tempAppWaitForm.Close();
+                        tempAppWaitForm.Dispose();
+                    }
+                    catch(InvalidOperationException e)
+                    {
+
+                        log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
+                    }
+                    
                 });
             }
 
