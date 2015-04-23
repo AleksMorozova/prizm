@@ -352,7 +352,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
             queueAppWaitForm.Enqueue(appWaitForm);
 
-            if(appWaitForm.Visible == false)
+            if(!appWaitForm.Visible)
             {
                 Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
