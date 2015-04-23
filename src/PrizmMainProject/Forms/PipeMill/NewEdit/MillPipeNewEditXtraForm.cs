@@ -549,7 +549,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+            var ret = view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+            if(ret != null)
+            {
+                coatingHistory.RefreshDataSource();
+                coatingHistory.Refresh();
+            }
+            
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
