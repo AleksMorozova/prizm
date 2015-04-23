@@ -846,17 +846,26 @@ namespace Prizm.Main.Synch.Import
             conflict.Pipe = pipeObj;
 
             Data conflictData = new Data();
-            conflictData.Project = data.Project;
             conflictData.Pipes = new List<PipeObject>();
-            data.Joints = new List<JointObject>();
-            data.Components = new List<ComponentObject>();
+
             conflictData.Pipes.Add(pipeObj);
             ConflictFileName f = new ConflictFileName(pipeObj.Id.ToString(), pipeObj.Number);
             string fileFolder = f.FolderName;
             string conflictDir = Path.Combine(Directories.Conflicts, fileFolder);
             string fileName = f.FileName;
+            DirectoryInfo directoryInfo = new DirectoryInfo(conflictDir);
+
             if (!Directory.Exists(conflictDir))
+            {
                 Directory.CreateDirectory(conflictDir);
+            }
+            else 
+            {
+                foreach (FileInfo file in directoryInfo.GetFiles())
+                {
+                    file.Delete();
+                }
+            }
 
             string dumpFilePath = Path.Combine(conflictDir, fileName);
             WriteManifest(conflictDir, manifest.PortionID, manifest.PortionNumber, manifest.ExportDateTime, manifest.WorkstationType);
