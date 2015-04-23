@@ -72,7 +72,7 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void InvokeIfRequired(Control control, Action method)
         {
-            if(control == null || method == null)
+            if(control == null || method == null || control.IsDisposed)
                 return;
 
             if(control.InvokeRequired)
