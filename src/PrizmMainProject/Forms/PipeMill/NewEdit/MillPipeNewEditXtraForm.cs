@@ -830,7 +830,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if(weldingHistoryGridView != null)
                 {
                     var weld = weldingHistoryGridView.GetRow(i) as Weld;
-                    if(weld != null && weld.Welders != null && weld.Welders.Count == 0)
+                    if(weld != null && (weld.Welders == null || weld.Welders != null && weld.Welders.Count == 0))
                     {
                         weldingHistoryGridView.FocusedRowHandle = i;
                         weldingHistoryGridView.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
