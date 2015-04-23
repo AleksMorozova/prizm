@@ -309,7 +309,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        public double GpsLatitude
+        public float GpsLatitude
         {
             get { return Joint.GpsLatitude; }
             set
@@ -322,7 +322,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        public double GpsLongitude
+        public float GpsLongitude
         {
             get { return Joint.GpsLongitude; }
             set

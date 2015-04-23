@@ -16,8 +16,8 @@ namespace Prizm.Domain.Entity.Construction
         public virtual float DistanceFromKP { get; set; }
         public virtual DateTime? LoweringDate { get; set; }
         public virtual JointStatus Status { get; set; }
-        public virtual double GpsLatitude { get; set; }
-        public virtual double GpsLongitude { get; set; }
+        public virtual float GpsLatitude { get; set; }
+        public virtual float GpsLongitude { get; set; }
         public virtual float GpsHeight { get; set; }
         public virtual PartData FirstElement { get; set; }
         public virtual PartData SecondElement { get; set; }

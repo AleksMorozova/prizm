@@ -72,10 +72,10 @@ namespace Prizm.Main.Synch.SerializableEntities
       public JointStatus Status { get; set; }
 
       [XmlAttribute("GpsLatitude")]
-      public double GpsLatitude { get; set; }
+      public float GpsLatitude { get; set; }
 
       [XmlAttribute("GpsLongitude")]
-      public double GpsLongitude { get; set; }
+      public float GpsLongitude { get; set; }
 
       [XmlAttribute("GpsHeight")]
       public float GpsHeight { get; set; }

@@ -52,6 +52,19 @@ namespace Prizm.Main.Common
         }
 
         /// <summary>
+        /// set mask for GPS Latitude and Longitude
+        /// </summary>
+        /// <param name="edit">text edit to extend</param>
+        /// <param name="digitsBeforeDecimaPoint">number of digits before decima point</param>
+        public static void SetGPSMask(this TextEdit edit, int digitsBeforeDecimaPoint)
+        {
+            int setDigits = (digitsBeforeDecimaPoint > maxDigitsBeforeDecimalPoint) ? maxDigitsBeforeDecimalPoint : digitsBeforeDecimaPoint;
+            edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            edit.Properties.Mask.EditMask = @"(-\d|\d){0," + setDigits.ToString() + @"}([\.\,]\d{0,2})?";
+            edit.Properties.Mask.ShowPlaceHolders = false;
+        }
+
+        /// <summary>
         /// set mask mode and mask. No placeholders.
         /// </summary>
         /// <param name="edit">mask</param>
