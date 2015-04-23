@@ -953,6 +953,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             RefreshJointData();
             RaisePropertyChanged("Joint");
             ModifiableView.IsModified = false;
+            ModifiableView.IsEditMode = this.Joint.IsActive;
         }
     }
 }
