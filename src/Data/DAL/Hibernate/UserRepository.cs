@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Exceptions;
 
 namespace Prizm.Data.DAL.Hibernate
 {
@@ -19,7 +20,13 @@ namespace Prizm.Data.DAL.Hibernate
 
       public User FindByLogin(string login)
       {
+          try{
           return session.QueryOver<User>().Where(_ => _.Login == login).List().FirstOrDefault();
+          }
+          catch(GenericADOException ex)
+          {
+              throw new RepositoryException("FindByLogin", ex);
+          }
       }
    }
 }
