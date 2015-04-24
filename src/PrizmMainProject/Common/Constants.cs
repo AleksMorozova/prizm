@@ -38,6 +38,11 @@ namespace Prizm.Main.Common
         public const int DigitsBeforeDecimalPoint = 6;
 
         /// <summary>
+        /// Number of digits after the decimal point for GPS
+        /// </summary>
+        public const int DigitsAfterDecimalPoint = 6;
+
+        /// <summary>
         /// Max value for Latitude
         /// </summary>
         public const int MaxLatitude = 90;

@@ -464,9 +464,10 @@
             this.GPSLat.Location = new System.Drawing.Point(658, 116);
             this.GPSLat.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLat.Name = "GPSLat";
+            this.GPSLat.Properties.MaxLength = 8;
             this.GPSLat.Size = new System.Drawing.Size(158, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
-            this.GPSLat.TabIndex = 8;
+            this.GPSLat.TabIndex = 0;
             this.GPSLat.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.GPSLat_ParseEditValue);
             // 
             // GPSLong
