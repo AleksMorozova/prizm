@@ -36,11 +36,16 @@ namespace Prizm.Main.Common
         /// Number of digits before the decimal point
         /// </summary>
         public const int DigitsBeforeDecimalPoint = 6;
-
+        
         /// <summary>
         /// Number of digits after the decimal point for GPS
         /// </summary>
         public const int DigitsAfterDecimalPoint = 6;
+
+       /// <summary>
+       /// Mininum value for percent of selective inspection operation
+       /// </summary>
+        public const int MinSelectivePercent = 1;
 
         /// <summary>
         /// Max value for Latitude

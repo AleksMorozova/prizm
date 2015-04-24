@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prizm.Main.Languages;
 using Prizm.Main.Common;
+using Prizm.Main.Security;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -18,14 +19,16 @@ namespace Prizm.Main.Forms.Spool
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
+        readonly ISecurityContext ctx;
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
-        public EditPipeForCutCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify)
+        public EditPipeForCutCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify,ISecurityContext ctx)
         {
             this.viewModel = viewModel;
             this.repos = repos;
             this.notify = notify;
+            this.ctx = ctx;
         }
 
         [Command(UseCommandManager = false)]
@@ -67,7 +70,10 @@ namespace Prizm.Main.Forms.Spool
 
         public bool CanExecute()
         {
-            return true;
+            return viewModel.Spool.IsActive 
+                   && ctx.HasAccess(viewModel.IsNew
+                    ? global::Domain.Entity.Security.Privileges.CreateSpool
+                    : global::Domain.Entity.Security.Privileges.EditSpool);
         }
 
     }

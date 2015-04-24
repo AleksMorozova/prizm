@@ -406,6 +406,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         w.Welds.Add(weld);
                     }
                 }
+                weldingHistoryGridView_ValidateRow(weldingHistoryGridView, 
+                    new ValidateRowEventArgs(weldingHistoryGridView.FocusedRowHandle, weldingHistoryGridView.GetRow(weldingHistoryGridView.FocusedRowHandle)));
             }
 
         }
@@ -470,7 +472,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void weldingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew());
+            if(view.RemoveSelectedItem<Weld>(e, viewModel.Pipe.Welds, (_) => _.IsNew()) != null)
+            {
+                weldingHistory.RefreshDataSource();
+                weldingHistory.Refresh();
+            }
+            
         }
 
         private void repositoryItemLookUpEditCoatType_EditValueChanged(object sender, EventArgs e)
@@ -549,7 +556,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void coatingHistoryGridView_KeyDown(object sender, KeyEventArgs e)
         {
             GridView view = sender as GridView;
-            view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+            var ret = view.RemoveSelectedItem<Coat>(e, viewModel.Pipe.Coats, (_) => _.IsNew());
+            if(ret != null)
+            {
+                coatingHistory.RefreshDataSource();
+                coatingHistory.Refresh();
+            }
+            
         }
 
         private void weldingHistoryGridView_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -809,10 +822,32 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
-            return dxValidationProvider.Validate() && this.ValidateChildren();
+            return dxValidationProvider.Validate() && this.ValidateChildren() && ValidateWeldHistory();
         }
 
         #endregion
+
+        private bool ValidateWeldHistory()
+        {
+            bool result = true;
+
+            for(int i = 0; i < weldingHistoryGridView.DataRowCount; i++)
+            {
+                if(weldingHistoryGridView != null)
+                {
+                    var weld = weldingHistoryGridView.GetRow(i) as Weld;
+                    if(weld != null && (weld.Welders == null || weld.Welders != null && weld.Welders.Count == 0))
+                    {
+                        weldingHistoryGridView.FocusedRowHandle = i;
+                        weldingHistoryGridView.SetColumnError(weldersGridColumn, Program.LanguageManager.GetString(StringResources.Validation_ValueRequired));
+                        result = false;
+                        tabbedControlGroup.SelectedTabPage = pipeTabLayoutControlGroup;
+                    }
+                }
+            }
+
+            return result;
+        }
 
         private void inspectorsPopupContainerEdit_QueryPopUp(object sender, CancelEventArgs e)
         {

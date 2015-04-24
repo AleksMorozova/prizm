@@ -50,6 +50,7 @@ namespace Prizm.Main.Forms.Spool
                 viewModel.SpoolNumber = number;
             }
             SetAlwaysReadOnly(pipeLength);
+
             if(id == Guid.Empty)
             {
                 SetAlwaysEditable(pipeNumber);
@@ -58,12 +59,20 @@ namespace Prizm.Main.Forms.Spool
             {
                 this.Text = Program.LanguageManager.GetString(StringResources.Spool_EditDocumentHeader);
                 SetAlwaysReadOnly(pipeNumber);
-                if(Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Master)
+                if (Program.ThisWorkstationType == Domain.Entity.Setup.WorkstationType.Master)
                 {
                     SetAlwaysReadOnly(spoolNumber);
                     SetAlwaysReadOnly(spoolLength);
                     SetAlwaysReadOnly(inspectionHistory);
                 }
+                else 
+                {
+                    SetConditional(inspectionHistory, delegate(bool editMode)
+                    {
+                        return (viewModel.Spool.ConstructionStatus != PartConstructionStatus.Welded); 
+                    });
+                }
+
             }
             IsEditMode = true;//do not remove until IsEditMode logic is changed
             IsEditMode = ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditSpool);
@@ -74,6 +83,7 @@ namespace Prizm.Main.Forms.Spool
             spoolLength.SetMask(Constants.PositiveDigitMask);
             spoolLength.Properties.MinValue = Constants.MinSpoolCut;
             spoolLength.Properties.MaxValue = viewModel.InitPipeLenght - Constants.MinSpoolCut;
+
         }
 
         public SpoolsXtraForm() : this(Guid.Empty, string.Empty) { }

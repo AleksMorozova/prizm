@@ -49,7 +49,7 @@ using System.Collections;
 
 namespace Prizm.Main.Forms.MainChildForm
 {
-   
+
 
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PrizmApplicationXtraForm : PrizmForm, IUserNotify
@@ -72,9 +72,10 @@ namespace Prizm.Main.Forms.MainChildForm
 
         public void InvokeIfRequired(Control control, Action method)
         {
-            if (control == null || method == null) return;
+            if(control == null || method == null || control.IsDisposed)
+                return;
 
-            if (control.InvokeRequired)
+            if(control.InvokeRequired)
             {
                 control.Invoke(new MethodInvoker(() => method()));
             }
@@ -347,22 +348,26 @@ namespace Prizm.Main.Forms.MainChildForm
             targetProcessingSteps = steps;
             currentProcessingStep = 0;
 
-
             appWaitForm = GetNewAppWaitForm();
 
             queueAppWaitForm.Enqueue(appWaitForm);
 
-            Task.Run(() => InvokeIfRequired(appWaitForm, () =>
+            if(!appWaitForm.Visible)
+            {
+                Task.Run(() => InvokeIfRequired(appWaitForm, () =>
                 {
                     try
                     {
+                        barButtonStatusNotifications.Enabled = false;
                         appWaitForm.ShowDialog();
                     }
-                    catch (InvalidOperationException e)
+                    catch(InvalidOperationException e)
                     {
                         log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
                     }
                 }));
+            }
+
 
             Application.DoEvents();
         }
@@ -375,14 +380,25 @@ namespace Prizm.Main.Forms.MainChildForm
         /// </summary>
         public void HideProcessing()
         {
-            if (queueAppWaitForm.Count > 0)
+            if(queueAppWaitForm.Count > 0)
             {
                 InvokeIfRequired(queueAppWaitForm.Peek(), () =>
                 {
-                    var tempAppWaitForm = queueAppWaitForm.Dequeue();
 
-                    tempAppWaitForm.Close();
-                    tempAppWaitForm.Dispose();
+                    try
+                    {
+                        var tempAppWaitForm = queueAppWaitForm.Dequeue();
+
+                        tempAppWaitForm.Close();
+                        tempAppWaitForm.Dispose();
+                        barButtonStatusNotifications.Enabled = true;
+                    }
+                    catch(InvalidOperationException e)
+                    {
+
+                        log.Warn(string.Concat(appWaitForm.GetType().Name, e.Message));
+                    }
+
                 });
             }
 
@@ -420,9 +436,9 @@ namespace Prizm.Main.Forms.MainChildForm
             NotificationService.Instance.NotificationsChanged += OnNotificationRefresh;
 
             barVersionInfo.Caption = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            
+
         }
-        
+
         private void barButtonItemAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
             AboutXtraForm form = new AboutXtraForm();
@@ -432,7 +448,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void barButtonItemExit_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close(); //Application.Exit() causes  iteration the Application.OpenForms collection which is modified 
-                          //similar problem: http://stackoverflow.com/questions/1312885/application-exit-vs-application-exitthread-vs-environment-exit
+            //similar problem: http://stackoverflow.com/questions/1312885/application-exit-vs-application-exitthread-vs-environment-exit
         }
 
         public void UpdateStatusBar(string text)
@@ -441,7 +457,7 @@ namespace Prizm.Main.Forms.MainChildForm
             notifyHistory.Items.Add(text);
             while(notifyHistory.Items.Count > Constants.StatusNotifyHistorySize)
             {
-                notifyHistory.Items.RemoveAt(notifyHistory.ItemCount-1);
+                notifyHistory.Items.RemoveAt(notifyHistory.ItemCount - 1);
             }
         }
 
@@ -488,7 +504,7 @@ namespace Prizm.Main.Forms.MainChildForm
         {
             ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
             barButtonItemAudit.Enabled = ctx.HasAccess(Privileges.Audit);
-            
+
             barButtonItemSettingsProject.Enabled =
                 barButtonItemSettingsPipe.Enabled =
                 barButtonItemSettingsPipeline.Enabled =
@@ -503,7 +519,7 @@ namespace Prizm.Main.Forms.MainChildForm
             pipeConstructionRepoBarButton.Enabled = ctx.HasAccess(Privileges.PrintConstructionReports);
             weldConstructionRepoBarButton.Enabled = ctx.HasAccess(Privileges.PrintWeldDateReport);
             barButtonItemConstructionReports.Enabled = ctx.HasAccess(Privileges.PrintWeldTracingReport);
-            
+
 
             barButtonItemInspectionReports.Enabled = ctx.HasAccess(Privileges.PrintInspectionReports);
             barButtonItemNewPipe.Enabled = ctx.HasAccess(Privileges.CreatePipe);
@@ -535,7 +551,7 @@ namespace Prizm.Main.Forms.MainChildForm
             languageBarListItem.ShowChecks = true;
             int indexDefault = 0;
             var list = Program.LanguageManager.GetCultures(out indexDefault);
-            foreach (var culture in list)
+            foreach(var culture in list)
             {
                 int index = languageBarListItem.Strings.Add(culture.EnglishName + ", " + culture.NativeName);
                 cultures[index] = culture;
@@ -550,8 +566,8 @@ namespace Prizm.Main.Forms.MainChildForm
 
         private void barButtonItemImport_ItemClick(object sender, ItemClickEventArgs e)
         {
-           ImportForm form = Program.Kernel.Get<ImportForm>();
-           form.ShowDialog();
+            ImportForm form = Program.Kernel.Get<ImportForm>();
+            form.ShowDialog();
         }
         /// <summary>
         /// On choosing language in main program menu
@@ -561,7 +577,7 @@ namespace Prizm.Main.Forms.MainChildForm
         private void languageBarListItem_ListItemClick(object sender, ListItemClickEventArgs e)
         {
             int index = languageBarListItem.DataIndex;
-            if (cultures.ContainsKey(e.Index) && Program.LanguageManager.LoadTranslation(cultures[e.Index]))
+            if(cultures.ContainsKey(e.Index) && Program.LanguageManager.LoadTranslation(cultures[e.Index]))
             {
                 CascadeChangeLanguage();
             }
@@ -581,7 +597,7 @@ namespace Prizm.Main.Forms.MainChildForm
             System.Threading.Thread.CurrentThread.CurrentCulture = Program.LanguageManager.CurrentCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = Program.LanguageManager.CurrentCulture;
 
-            foreach (var child in FormManager.Instance.ChildForms)
+            foreach(var child in FormManager.Instance.ChildForms)
             {
                 ILocalizable localizable = child as ILocalizable;
                 Program.LanguageManager.ChangeLanguage(child as ILocalizable);
@@ -597,14 +613,14 @@ namespace Prizm.Main.Forms.MainChildForm
         void UpdateNumberOfNotification()
         {
             barButtonStatusNotifications.Caption = localizedNotificationPanelButton[0];
-            barButtonStatusNotifications.Caption += " (" + NotificationService.Instance.NotificationCount+")";
+            barButtonStatusNotifications.Caption += " (" + NotificationService.Instance.NotificationCount + ")";
         }
 
         public override void UpdateTitle()
         {
             // base.UpdateTitle(); should not be called
-            this.Text = string.Concat(localizedHeader[0], " [", 
-                viewModel.ProjectSettings.WorkstationType == WorkstationType.Mill 
+            this.Text = string.Concat(localizedHeader[0], " [",
+                viewModel.ProjectSettings.WorkstationType == WorkstationType.Mill
                 ? localizedHeader[1]
                 : viewModel.ProjectSettings.WorkstationType == WorkstationType.Master
                     ? localizedHeader[2]
@@ -613,7 +629,7 @@ namespace Prizm.Main.Forms.MainChildForm
                         : ""
             , "]");
 
-            if (!string.IsNullOrWhiteSpace(viewModel.ProjectSettings.Title))
+            if(!string.IsNullOrWhiteSpace(viewModel.ProjectSettings.Title))
             {
                 this.Text = string.Concat(this.Text, " [", viewModel.ProjectSettings.Title, "]");
             }
@@ -684,14 +700,14 @@ namespace Prizm.Main.Forms.MainChildForm
             base.WndProc(ref message);
         }
 
-        
+
         public void ShowWindow()
         {
             // Insert code here to make your form show itself.
             WinApi.ShowToFront(this.Handle);
             ShowInfo(Program.LanguageManager.GetString(StringResources.MainWindow_SecondCopyNotification),
                 Program.LanguageManager.GetString(StringResources.MainWindow_SecondCopyNotificationHeader));
-        } 
+        }
         #endregion
 
         private void PrizmApplicationXtraForm_FormClosed(object sender, FormClosedEventArgs e)

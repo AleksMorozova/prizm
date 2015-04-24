@@ -916,6 +916,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             this.list = null;
             this.Pieces = adoRepo.GetPipelineElements();
+            if (!Joint.IsNew())
+            {
+                this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+            }
         }
 
         public void JointCut()
@@ -948,6 +953,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             RefreshJointData();
             RaisePropertyChanged("Joint");
             ModifiableView.IsModified = false;
+            ModifiableView.IsEditMode = this.Joint.IsActive;
         }
     }
 }
