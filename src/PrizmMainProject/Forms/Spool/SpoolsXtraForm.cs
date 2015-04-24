@@ -69,7 +69,7 @@ namespace Prizm.Main.Forms.Spool
                 {
                     SetConditional(inspectionHistory, delegate(bool editMode)
                     {
-                        return !(viewModel.Spool.ConstructionStatus == PartConstructionStatus.Welded); 
+                        return (viewModel.Spool.ConstructionStatus != PartConstructionStatus.Welded); 
                     });
                 }
 
