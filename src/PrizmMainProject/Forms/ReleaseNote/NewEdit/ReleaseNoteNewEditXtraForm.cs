@@ -168,6 +168,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             commandManager["Save"].Executor(viewModel.SaveCommand).AttachTo(saveButton);
             commandManager["Ship"].Executor(viewModel.ShipCommand).AttachTo(shipButton);
             commandManager["Unship"].Executor(viewModel.UnshipCommand).AttachTo(unshipButton);
+            SaveCommand = viewModel.SaveCommand;
             commandManager.RefreshVisualState();
             //refresh state of railcar information only at save because at save command we remove empty railcar
             viewModel.SaveCommand.RefreshVisualStateEvent += railcarNumber.Refresh;
