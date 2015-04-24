@@ -408,18 +408,18 @@
             // 
             // distanceFromPK
             // 
-            this.distanceFromPK.Location = new System.Drawing.Point(954, 69);
+            this.distanceFromPK.Location = new System.Drawing.Point(974, 69);
             this.distanceFromPK.Name = "distanceFromPK";
             this.distanceFromPK.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
             this.distanceFromPK.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.distanceFromPK.Size = new System.Drawing.Size(272, 20);
+            this.distanceFromPK.Size = new System.Drawing.Size(252, 20);
             this.distanceFromPK.StyleController = this.newJointLayoutControl;
             this.distanceFromPK.TabIndex = 7;
             this.distanceFromPK.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.distanceFromPK_ParseEditValue);
             // 
             // PKNumber
             // 
-            this.PKNumber.Location = new System.Drawing.Point(815, 69);
+            this.PKNumber.Location = new System.Drawing.Point(835, 69);
             this.PKNumber.Name = "PKNumber";
             this.PKNumber.Properties.Mask.EditMask = "d";
             this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -429,7 +429,7 @@
             // 
             // PKLabel
             // 
-            this.PKLabel.Location = new System.Drawing.Point(792, 72);
+            this.PKLabel.Location = new System.Drawing.Point(812, 72);
             this.PKLabel.Name = "PKLabel";
             this.PKLabel.Size = new System.Drawing.Size(12, 13);
             this.PKLabel.StyleController = this.newJointLayoutControl;
@@ -448,13 +448,13 @@
             // 
             // seaLevel
             // 
-            this.seaLevel.Location = new System.Drawing.Point(954, 116);
+            this.seaLevel.Location = new System.Drawing.Point(974, 116);
             this.seaLevel.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
             this.seaLevel.MinimumSize = new System.Drawing.Size(100, 20);
             this.seaLevel.Name = "seaLevel";
             this.seaLevel.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
             this.seaLevel.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.seaLevel.Size = new System.Drawing.Size(272, 20);
+            this.seaLevel.Size = new System.Drawing.Size(252, 20);
             this.seaLevel.StyleController = this.newJointLayoutControl;
             this.seaLevel.TabIndex = 10;
             this.seaLevel.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.seaLevel_ParseEditValue);
@@ -464,23 +464,21 @@
             this.GPSLat.Location = new System.Drawing.Point(658, 116);
             this.GPSLat.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLat.Name = "GPSLat";
-            this.GPSLat.Properties.Mask.EditMask = "f6";
-            this.GPSLat.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.GPSLat.Size = new System.Drawing.Size(138, 20);
+            this.GPSLat.Size = new System.Drawing.Size(158, 20);
             this.GPSLat.StyleController = this.newJointLayoutControl;
-            this.GPSLat.TabIndex = 8;
+            this.GPSLat.TabIndex = 0;
+            this.GPSLat.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.GPSLat_ParseEditValue);
             // 
             // GPSLong
             // 
-            this.GPSLong.Location = new System.Drawing.Point(815, 116);
+            this.GPSLong.Location = new System.Drawing.Point(835, 116);
             this.GPSLong.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.GPSLong.MinimumSize = new System.Drawing.Size(100, 20);
             this.GPSLong.Name = "GPSLong";
-            this.GPSLong.Properties.Mask.EditMask = "f6";
-            this.GPSLong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.GPSLong.Size = new System.Drawing.Size(120, 20);
             this.GPSLong.StyleController = this.newJointLayoutControl;
             this.GPSLong.TabIndex = 9;
+            this.GPSLong.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.GPSLong_ParseEditValue);
             // 
             // controlOperations
             // 
@@ -685,7 +683,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.loweringDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.loweringDate.Size = new System.Drawing.Size(90, 20);
+            this.loweringDate.Size = new System.Drawing.Size(110, 20);
             this.loweringDate.StyleController = this.newJointLayoutControl;
             this.loweringDate.TabIndex = 5;
             // 
@@ -739,7 +737,7 @@
             this.GPSLatLayout.Location = new System.Drawing.Point(23, 47);
             this.GPSLatLayout.MinSize = new System.Drawing.Size(119, 40);
             this.GPSLatLayout.Name = "GPSLatLayout";
-            this.GPSLatLayout.Size = new System.Drawing.Size(157, 48);
+            this.GPSLatLayout.Size = new System.Drawing.Size(177, 48);
             this.GPSLatLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.GPSLatLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.GPSLatLayout.Text = "&Широта";
@@ -750,7 +748,7 @@
             // 
             this.GPSLongLayout.Control = this.GPSLong;
             this.GPSLongLayout.CustomizationFormText = "Äîëãîòà";
-            this.GPSLongLayout.Location = new System.Drawing.Point(180, 47);
+            this.GPSLongLayout.Location = new System.Drawing.Point(200, 47);
             this.GPSLongLayout.MinSize = new System.Drawing.Size(134, 40);
             this.GPSLongLayout.Name = "GPSLongLayout";
             this.GPSLongLayout.Size = new System.Drawing.Size(139, 48);
@@ -764,10 +762,10 @@
             // 
             this.elevationLayout.Control = this.seaLevel;
             this.elevationLayout.CustomizationFormText = "Âûñîòà";
-            this.elevationLayout.Location = new System.Drawing.Point(319, 47);
+            this.elevationLayout.Location = new System.Drawing.Point(339, 47);
             this.elevationLayout.MinSize = new System.Drawing.Size(124, 47);
             this.elevationLayout.Name = "elevationLayout";
-            this.elevationLayout.Size = new System.Drawing.Size(291, 48);
+            this.elevationLayout.Size = new System.Drawing.Size(271, 48);
             this.elevationLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.elevationLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.elevationLayout.Text = "В&ысота, м";
@@ -793,7 +791,7 @@
             this.loweringDateLayout.Location = new System.Drawing.Point(23, 0);
             this.loweringDateLayout.MinSize = new System.Drawing.Size(134, 47);
             this.loweringDateLayout.Name = "loweringDateLayout";
-            this.loweringDateLayout.Size = new System.Drawing.Size(134, 47);
+            this.loweringDateLayout.Size = new System.Drawing.Size(154, 47);
             this.loweringDateLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loweringDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 40, 0, 7);
             this.loweringDateLayout.Text = "Дата &укладки";
@@ -804,7 +802,7 @@
             // 
             this.PKLabelLayout.Control = this.PKLabel;
             this.PKLabelLayout.CustomizationFormText = "PK";
-            this.PKLabelLayout.Location = new System.Drawing.Point(157, 0);
+            this.PKLabelLayout.Location = new System.Drawing.Point(177, 0);
             this.PKLabelLayout.Name = "PKLabelLayout";
             this.PKLabelLayout.Size = new System.Drawing.Size(23, 47);
             this.PKLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 7, 19, 9);
@@ -816,7 +814,7 @@
             // 
             this.PKNumberLayout.Control = this.PKNumber;
             this.PKNumberLayout.CustomizationFormText = "Номер пикета";
-            this.PKNumberLayout.Location = new System.Drawing.Point(180, 0);
+            this.PKNumberLayout.Location = new System.Drawing.Point(200, 0);
             this.PKNumberLayout.Name = "PKNumberLayout";
             this.PKNumberLayout.Size = new System.Drawing.Size(139, 47);
             this.PKNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
@@ -828,10 +826,10 @@
             // 
             this.distanceFromPKLayout.Control = this.distanceFromPK;
             this.distanceFromPKLayout.CustomizationFormText = "Расстояние от пикета";
-            this.distanceFromPKLayout.Location = new System.Drawing.Point(319, 0);
+            this.distanceFromPKLayout.Location = new System.Drawing.Point(339, 0);
             this.distanceFromPKLayout.MinSize = new System.Drawing.Size(139, 47);
             this.distanceFromPKLayout.Name = "distanceFromPKLayout";
-            this.distanceFromPKLayout.Size = new System.Drawing.Size(291, 47);
+            this.distanceFromPKLayout.Size = new System.Drawing.Size(271, 47);
             this.distanceFromPKLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.distanceFromPKLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 7);
             this.distanceFromPKLayout.Text = "Рассто&яние от пикета";

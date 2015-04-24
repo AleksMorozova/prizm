@@ -79,6 +79,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
             distanceFromPK.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+            GPSLat.SetGPSMaskLatitude(Constants.DigitsAfterDecimalPointForGPS, Constants.MaxLatitude);
+            GPSLong.SetGPSMaskLongitude(Constants.DigitsAfterDecimalPointForGPS, Constants.MaxLongitude);
+           
             seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint, canBeNegative:true);
             attachmentsButton.Enabled = true;
             #endregion
@@ -108,7 +111,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             deactivated.DataBindings
                 .Add(BindingHelper.CreateCheckEditInverseBinding(
                         "Checked", jointNewEditBindingSoure, "JointIsActive"));
-
             loweringDate.DataBindings
                .Add("EditValue", jointNewEditBindingSoure, "LoweringDate", true, DataSourceUpdateMode.OnPropertyChanged);
             GPSLat.DataBindings
@@ -711,6 +713,16 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         }
 
         private void distanceFromPK_ParseEditValue(object sender, ConvertEditValueEventArgs e)
+        {
+            BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
+
+        private void GPSLat_ParseEditValue(object sender, ConvertEditValueEventArgs e)
+        {
+            BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
+
+        private void GPSLong_ParseEditValue(object sender, ConvertEditValueEventArgs e)
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
         }
