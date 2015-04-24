@@ -27,26 +27,38 @@ namespace Prizm.Data.DAL.Hibernate
         }
         public int GetPortionNumber(Project currentProject)
         {
-            var maxIndex = session.QueryOver<Portion>()
-                .Where(x => x.IsExport)
-                .Where(x => x.Project == currentProject)
-                .Select
-                (
-                Projections.Max<Portion>(x => x.PortionNumber)
-                ).SingleOrDefault<int>();
-            return maxIndex + 1;
-
+            try
+            {
+                var maxIndex = session.QueryOver<Portion>()
+                    .Where(x => x.IsExport)
+                    .Where(x => x.Project == currentProject)
+                    .Select
+                    (
+                    Projections.Max<Portion>(x => x.PortionNumber)
+                    ).SingleOrDefault<int>();
+                return maxIndex + 1;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetPortionNumber", ex);
+            }
         }
 
         public List<int> CheckPortionSequence(Project importProject)
         {
-            IList<int> result = session.QueryOver<Portion>().Where(_ => !_.IsExport && _.Project == importProject)
-                                                                   .Select(_ => _.PortionNumber).List<int>();
-            List<int> sorted = new List<int>(result);
-            sorted.Sort();
+            try
+            {
+                IList<int> result = session.QueryOver<Portion>().Where(_ => !_.IsExport && _.Project == importProject)
+                                                                       .Select(_ => _.PortionNumber).List<int>();
+                List<int> sorted = new List<int>(result);
+                sorted.Sort();
 
-            return (result.Count == 0) ? new List<int>() { 0 } : sorted;
-
+                return (result.Count == 0) ? new List<int>() { 0 } : sorted;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("CheckPortionSequence", ex);
+            }
         }
 
         public override IList<Portion> GetAll()
@@ -87,8 +99,8 @@ namespace Prizm.Data.DAL.Hibernate
                         ExportDateTime = item.ExportDateTime,
                         IsExport = item.IsExport,
                         PortionNumber = item.PortionNumber,
-                        Project = new Project 
-                        { 
+                        Project = new Project
+                        {
                             Title = item.Title,
                             Client = item.Client,
                             MillName = item.MillName,
@@ -102,7 +114,7 @@ namespace Prizm.Data.DAL.Hibernate
                 }
 
                 return portions;
-               
+
             }
             catch(GenericADOException ex)
             {
@@ -126,7 +138,7 @@ namespace Prizm.Data.DAL.Hibernate
             public virtual string MillPipeNumberMask { get; set; }
             public virtual string MillPipeNumberMaskRegexp { get; set; }
             public virtual bool IsNative { get; set; }
-        } 
+        }
         #endregion
     }
 
