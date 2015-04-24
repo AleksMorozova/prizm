@@ -91,7 +91,11 @@ namespace Prizm.Domain.Entity.Construction
                     .Connectors
                     .First<Connector>(x => x.Joint != null && x.Joint.Id == jointId)
                     .Diameter;
-
+                connector.WallThickness = ((construction.Component)part)
+                    .Connectors
+                    .First<Connector>(x => x.Joint != null && x.Joint.Id == jointId)
+                    .WallThickness;
+               
                 PartTypeDescription
                     = ((construction.Component)part).Type.Name;
             }

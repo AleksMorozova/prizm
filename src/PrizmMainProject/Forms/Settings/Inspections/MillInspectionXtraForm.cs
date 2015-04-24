@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         {
             InitializeComponent();
             this.SetupForm(current, categoryTypes, pipeTestList, usedCodes);
+            percentOfSelect.Properties.MinValue = Constants.MinSelectivePercent;
         }
 
         private MillInspectionViewModel GetInspectionViewModel(PipeTest current, BindingList<Category> categoryTypes)

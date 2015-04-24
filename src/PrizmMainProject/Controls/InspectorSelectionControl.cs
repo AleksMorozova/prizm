@@ -126,13 +126,16 @@ namespace Prizm.Main.Controls
 
                 foreach (InspectorCertificate c in data.Certificates) 
                 {
-                    if (c.Certificate.ExpirationDate < inspectionDate && data.IsActive)
+                    if (c.Certificate.ExpirationDate <= inspectionDate && data.IsActive)
                     {
                         e.Appearance.ForeColor = Color.Red;
                     }
                     else
                     {
-                        e.Appearance.ForeColor = Color.Black;
+                        if (data.IsActive)
+                        {
+                            e.Appearance.ForeColor = Color.Black;
+                        }
                     }
                 }
             }
