@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prizm.Data.DAL;
+using NHibernate.Exceptions;
 
 namespace Prizm.Data.DAL.Hibernate
 {
     public class InspectionTestResultRepository : AbstractHibernateRepository<Guid, InspectionTestResult>, IInspectionTestResultRepository
     {
-         [Inject]
+        [Inject]
         public InspectionTestResultRepository(ISession session)
             : base(session)
         {
@@ -23,17 +24,24 @@ namespace Prizm.Data.DAL.Hibernate
         /// </summary>
         public IList<InspectionTestResult> GetByPartId(Guid partId)
         {
-            ISQLQuery query = session.CreateSQLQuery(
-                    @"select i.* " +
-                    "from InspectionTestResult i " +
-                    "where i.partId = :PartId");
+            try
+            {
+                ISQLQuery query = session.CreateSQLQuery(
+                        @"select i.* " +
+                        "from InspectionTestResult i " +
+                        "where i.partId = :PartId");
 
-            query.SetString("PartId", partId.ToString());
-            query.AddEntity(typeof(InspectionTestResult));
+                query.SetString("PartId", partId.ToString());
+                query.AddEntity(typeof(InspectionTestResult));
 
-            IList<InspectionTestResult> results = query.List<InspectionTestResult>();
-          
-            return results;
+                IList<InspectionTestResult> results = query.List<InspectionTestResult>();
+
+                return results;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetByPartId", ex);
+            }
         }
     }
 }
