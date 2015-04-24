@@ -652,7 +652,6 @@ namespace Prizm.Main.Forms.Settings
             {
                 view.RemoveSelectedItem<InspectorCertificate>(e, insp.Certificates, (_) => _.IsNew());
             }
-            inspectorCertificateGridView.RefreshData();
         }
 
         private void SetControlsTextLength()
