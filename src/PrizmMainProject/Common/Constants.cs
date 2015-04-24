@@ -36,5 +36,10 @@ namespace Prizm.Main.Common
         /// Number of digits before the decimal point
         /// </summary>
         public const int DigitsBeforeDecimalPoint = 6;
+
+       /// <summary>
+       /// Mininum value for percent of selective inspection operation
+       /// </summary>
+        public const int MinSelectivePercent = 1;
     }
 }
