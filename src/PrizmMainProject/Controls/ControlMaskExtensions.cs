@@ -59,7 +59,7 @@ namespace Prizm.Main.Common
         public static void SetGPSMaskLatitude(this TextEdit edit, int digitsBeforeDecimaPoint, int maxValue)
         {
             edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            edit.Properties.Mask.EditMask = @"(-?[1-9]?\d([\.\,]\d{1," + digitsBeforeDecimaPoint.ToString() + @"})?|" + maxValue.ToString() + @"([\.\,]\0{1," + digitsBeforeDecimaPoint.ToString() + @"})?)";
+            edit.Properties.Mask.EditMask = @"(-?([1-8])?\d([\.\,]\d{1," + digitsBeforeDecimaPoint.ToString() + @"})?|(" + maxValue.ToString() + "|-" + maxValue.ToString() + @")([\.\,]\0{1," + digitsBeforeDecimaPoint.ToString() + @"})?)";
             edit.Properties.Mask.ShowPlaceHolders = false;
         }
 
@@ -71,7 +71,7 @@ namespace Prizm.Main.Common
         public static void SetGPSMaskLongitude(this TextEdit edit, int digitsBeforeDecimaPoint, int maxValue)
         {
             edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            edit.Properties.Mask.EditMask = @"(-?(1[0-7]|[1-9])?\d([\.\,]\d{1," + digitsBeforeDecimaPoint.ToString() + @"})?|" + maxValue.ToString() + @"([\.\,]\0{1," + digitsBeforeDecimaPoint.ToString() + @"})?)";
+            edit.Properties.Mask.EditMask = @"(-?(1[0-7]|[1-9])?\d([\.\,]\d{1," + digitsBeforeDecimaPoint.ToString() + @"})?|(" + maxValue.ToString()+"|-" + maxValue.ToString() + @")([\.\,]\0{1," + digitsBeforeDecimaPoint.ToString() + @"})?)";
             edit.Properties.Mask.ShowPlaceHolders = false;
         }
 

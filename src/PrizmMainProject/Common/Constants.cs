@@ -40,7 +40,7 @@ namespace Prizm.Main.Common
         /// <summary>
         /// Number of digits after the decimal point for GPS
         /// </summary>
-        public const int DigitsAfterDecimalPoint = 6;
+        public const int DigitsAfterDecimalPointForGPS = 6;
 
        /// <summary>
        /// Mininum value for percent of selective inspection operation

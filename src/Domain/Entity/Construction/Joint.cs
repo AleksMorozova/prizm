@@ -16,7 +16,7 @@ namespace Prizm.Domain.Entity.Construction
         public virtual float DistanceFromKP { get; set; }
         public virtual DateTime? LoweringDate { get; set; }
         public virtual JointStatus Status { get; set; }
-        // for GpsLatitude and GpsLongitude double is required for зкщзук functioning os GPS mask (opportunity to enterring more than 9 characters)
+        // for GpsLatitude and GpsLongitude double is required for functioning of GPS mask (opportunity to enterring more than 9 characters)
         public virtual double GpsLatitude { get; set; }
         public virtual double GpsLongitude { get; set; }
         public virtual float GpsHeight { get; set; }
