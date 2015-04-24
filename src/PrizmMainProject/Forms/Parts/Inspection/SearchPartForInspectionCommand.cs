@@ -45,7 +45,6 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             foreach (var item in qparts)
             {
-                if(item.IsActive)
                 parts.Add(item);
             }
 
