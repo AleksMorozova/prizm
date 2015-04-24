@@ -36,5 +36,15 @@ namespace Prizm.Main.Common
         /// Number of digits before the decimal point
         /// </summary>
         public const int DigitsBeforeDecimalPoint = 6;
+
+        /// <summary>
+        /// Max value for Latitude
+        /// </summary>
+        public const int MaxLatitude = 90;
+
+        /// <summary>
+        /// Max value for Longitude
+        /// </summary>
+        public const int MaxLongitude = 180;
     }
 }

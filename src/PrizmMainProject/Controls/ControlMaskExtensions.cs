@@ -58,9 +58,8 @@ namespace Prizm.Main.Common
         /// <param name="digitsBeforeDecimaPoint">number of digits before decima point</param>
         public static void SetGPSMask(this TextEdit edit, int digitsBeforeDecimaPoint)
         {
-            int setDigits = (digitsBeforeDecimaPoint > maxDigitsBeforeDecimalPoint) ? maxDigitsBeforeDecimalPoint : digitsBeforeDecimaPoint;
             edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            edit.Properties.Mask.EditMask = @"(-\d|\d){0," + setDigits.ToString() + @"}([\.\,]\d{0,2})?";
+            edit.Properties.Mask.EditMask = @"(-?[1-9]?\d([\.\,]\d{1,6})?|" + digitsBeforeDecimaPoint.ToString() + @"([\.\,]\0{1,6})?)";
             edit.Properties.Mask.ShowPlaceHolders = false;
         }
 

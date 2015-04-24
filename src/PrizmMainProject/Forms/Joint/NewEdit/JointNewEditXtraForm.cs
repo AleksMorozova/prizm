@@ -79,8 +79,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             firstJointElement.SetAsLookUpIdentifier();
             secondJointElement.SetAsLookUpIdentifier();
             distanceFromPK.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
-            GPSLat.SetGPSMask(Constants.DigitsBeforeDecimalPoint);
-            GPSLong.SetGPSMask(Constants.DigitsBeforeDecimalPoint);
+            GPSLat.SetGPSMask(Constants.MaxLatitude);
+            GPSLong.SetGPSMask(Constants.MaxLongitude);
            
             seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint, canBeNegative:true);
             attachmentsButton.Enabled = true;
