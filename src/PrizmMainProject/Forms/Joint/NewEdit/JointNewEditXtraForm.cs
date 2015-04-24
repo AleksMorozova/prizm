@@ -216,6 +216,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             BindCommands();
             BindToViewModel();
+
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName == "JointIsActive" && viewModel.JointIsActive)
+                {
+                    deactivated.Reset();
+                }
+            };
+
             viewModel.PropertyChanged += (s, eve) =>
                 {
                     if(eve.PropertyName != "Pieces")

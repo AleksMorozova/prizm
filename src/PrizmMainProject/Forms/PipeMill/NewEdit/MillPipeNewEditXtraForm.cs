@@ -132,6 +132,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName == "PipeIsActive" && viewModel.PipeIsActive)
+                {
+                    deactivated.Reset();
+                }
+            };
+
             IsEditMode &= viewModel.PipeIsActive && !(viewModel.Pipe.Status == PipeMillStatus.Shipped)
                 && SecurityUtil.ExistOnCurrentWorkstation(global::Domain.Entity.Security.Privileges.EditPipe) 
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditPipe);
