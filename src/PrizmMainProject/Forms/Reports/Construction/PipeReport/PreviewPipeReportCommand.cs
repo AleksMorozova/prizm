@@ -2,6 +2,7 @@
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
