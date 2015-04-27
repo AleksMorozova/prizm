@@ -31,6 +31,7 @@ namespace Prizm.Main.Synch.Import
     {
         private Data data;
         private Manifest manifest;
+        private bool afterConflict=false;
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(DataImporter));
         readonly IImportRepository importRepo;
@@ -239,10 +240,15 @@ namespace Prizm.Main.Synch.Import
             importRepo.PortionRepo.Save(portion);
         }
 
-        private void CopyAttachment(string tempDir, Domain.Entity.File file)
-        {
+        private void CopyAttachment(string tempDir, Domain.Entity.File file, bool afterConflict = false) 
+        { 
             string fileName = Path.Combine(tempDir, "Attachments", file.NewName);
-            ValidateChecksum(fileName);
+
+            if (!afterConflict)
+            {
+                ValidateChecksum(fileName);
+            }
+
             System.IO.File.Copy(fileName, Path.Combine(System.Environment.CurrentDirectory, "Data", "Attachments", file.NewName), true);
         }
 
@@ -290,7 +296,7 @@ namespace Prizm.Main.Synch.Import
                 foreach(var fileObject in pipeObj.Attachments)
                 {
                     Prizm.Domain.Entity.File f = ImportFile(fileObject, pipe.Id);
-                    CopyAttachment(tempDir, f);
+                    CopyAttachment(tempDir, f, afterConflict);
                 }
             }
         }
@@ -823,7 +829,16 @@ namespace Prizm.Main.Synch.Import
 
                         case ConflictDecision.Replace:
                             Pipe existingPipe = importRepo.PipeRepo.Get(pipeObj.Id);
-                            MapSerializableEntityToPipe(tempDir, pipeObj, existingPipe);
+                            if (afterConflict)
+                            {
+                                MapSerializableEntityToPipe(conflictDir, pipeObj, existingPipe);
+                            }
+
+                            else
+                            {
+                                MapSerializableEntityToPipe(tempDir, pipeObj, existingPipe);
+                            }
+
                             importRepo.PipeRepo.SaveOrUpdate(existingPipe);
                             importedPipes.Add(existingPipe);
                             if(Directory.Exists(conflictDir))
@@ -880,20 +895,20 @@ namespace Prizm.Main.Synch.Import
             if(System.IO.File.Exists(dumpFilePath))
                 System.IO.File.Delete(dumpFilePath);
 
-            string attDir = Path.Combine(conflictDir, pipeObj.Id + "_Attachments");
+            string attDir = Path.Combine(conflictDir, "Attachments");
             if(pipeObj.Attachments != null && pipeObj.Attachments.Count > 0)
             {
-                if(Directory.Exists(attDir))
-                    Directory.Delete(attDir, true);
-
-                Directory.CreateDirectory(attDir);
-
-                foreach(var file in pipeObj.Attachments)
+                if (!Directory.Exists(attDir))
                 {
-                    string attPathInTemp = Path.Combine(tempDir, "Attachments", file.NewName);
-                    string targetPath = Path.Combine(attDir, file.NewName);
+                    Directory.CreateDirectory(attDir);
 
-                    System.IO.File.Copy(attPathInTemp, targetPath, true);
+                    foreach (var file in pipeObj.Attachments)
+                    {
+                        string attPathInTemp = Path.Combine(tempDir, "Attachments", file.NewName);
+                        string targetPath = Path.Combine(attDir, file.NewName);
+
+                        System.IO.File.Copy(attPathInTemp, targetPath, true);
+                    }
                 }
             }
 
@@ -1257,12 +1272,14 @@ namespace Prizm.Main.Synch.Import
 
         public void Postpone_PipeImport(string fileName)
         {
+            afterConflict = true;
             string filesFolder = Path.Combine(Directories.Conflicts, fileName);
             manifest = Deserialize<Manifest>(Path.Combine(filesFolder, "Manifest"), true);
             Data data = Deserialize<Prizm.Main.Synch.Data>(filesFolder + @"\" + fileName, true);
             importRepo.PipeRepo.BeginTransaction();
             ImportPipes(manifest, data.Pipes, System.Environment.CurrentDirectory);
             importRepo.PipeRepo.Commit();
+            afterConflict = false;
         }
 
         public void Dispose()
