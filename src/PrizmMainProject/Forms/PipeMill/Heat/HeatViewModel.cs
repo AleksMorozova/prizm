@@ -133,7 +133,16 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private void SetupManufacturers()
         {
+            try
+            {
             manufacrurers = new List<PlateManufacturer>(repo.PlateManRepo.GetAll().ToList());
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public ICommand SaveCommand
