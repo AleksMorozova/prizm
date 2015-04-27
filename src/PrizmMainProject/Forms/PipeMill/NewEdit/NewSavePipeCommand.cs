@@ -21,7 +21,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(QuickSearchCommand));
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(NewSavePipeCommand));
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
