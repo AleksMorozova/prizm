@@ -14,6 +14,8 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Prizm.Main.Properties;
 using Prizm.Domain.Entity;
+using Prizm.Data.DAL;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
@@ -21,6 +23,8 @@ namespace Prizm.Main.Forms.PipeMill.Heat
     {
         private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
+        IUserNotify notify;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(HeatViewModel));
 
         public bool IsNew { get { return this.Heat.IsNew(); } }
 
@@ -115,7 +119,16 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private void SetupHeats()
         {
+            try
+            {
             heats = new List<Prizm.Domain.Entity.Mill.Heat>(repo.HeatRepo.GetAll().ToList());
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         private void SetupManufacturers()
