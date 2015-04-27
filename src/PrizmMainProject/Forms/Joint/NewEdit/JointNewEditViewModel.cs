@@ -87,7 +87,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             newSaveJointCommand =
               ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify, ctx));
             extractOperationsCommand =
-                ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this));
+                ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this, notify));
             jointdeactivationCommand = 
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
