@@ -12,6 +12,7 @@ using Construction = Prizm.Domain.Entity.Construction;
 using Prizm.Main.Common;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.Joint.Search
 {
@@ -37,52 +38,61 @@ namespace Prizm.Main.Forms.Joint.Search
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if (Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.FromDate, viewModel.ToDate))
+            try
             {
-                repo.Clear();
-                if (viewModel.Statuses.Count > 0)
+                if(Prizm.Main.Common.DateExtension.CheckDiapason(viewModel.FromDate, viewModel.ToDate))
                 {
-                    bool? status;
-                    switch(viewModel.Activity)
+                    repo.Clear();
+                    if(viewModel.Statuses.Count > 0)
                     {
-                        case ActivityCriteria.StatusActive:
-                            status = true;
-                            break;
-                        case ActivityCriteria.StatusUnactive:
-                            status = false;
-                            break;
-                        default:
-                            status = null;
-                            break;
+                        bool? status;
+                        switch(viewModel.Activity)
+                        {
+                            case ActivityCriteria.StatusActive:
+                                status = true;
+                                break;
+                            case ActivityCriteria.StatusUnactive:
+                                status = false;
+                                break;
+                            default:
+                                status = null;
+                                break;
+                        }
+
+                        IList<Construction.Joint> list = repo.SearchJoint
+                            (
+                                viewModel.Number,
+                                viewModel.Statuses,
+                                viewModel.FromDate,
+                                viewModel.ToDate,
+                                viewModel.PegNumber,
+                                status,
+                                Program.ThisWorkstationType
+                            );
+
+                        viewModel.Joints.Clear();
+                        foreach(var item in list)
+                        {
+                            viewModel.Joints.Add(item);
+                        }
+
+                        viewModel.Amount = list.Count();
+                        RefreshVisualStateEvent();
                     }
-
-                    IList<Construction.Joint> list = repo.SearchJoint
-                        (
-                            viewModel.Number,
-                            viewModel.Statuses,
-                            viewModel.FromDate,
-                            viewModel.ToDate,
-                            viewModel.PegNumber,
-                            status,
-                            Program.ThisWorkstationType
-                        );
-
-                    viewModel.Joints.Clear();
-                    foreach (var item in list)
-                    {
-                        viewModel.Joints.Add(item);
-                    }
-
-                    viewModel.Amount = list.Count();
-                    RefreshVisualStateEvent();
+                }
+                else
+                {
+                    notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                    log.Warn("Date limits not valid!" + "Diapason: start date= "
+                        + viewModel.FromDate.ToString() + " end date= " + viewModel.ToDate.ToString());
                 }
             }
-            else
+            catch(RepositoryException ex)
             {
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-                log.Warn("Date limits not valid!" + "Diapason: start date= "
-                    + viewModel.FromDate.ToString() + " end date= " + viewModel.ToDate.ToString());
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
