@@ -84,7 +84,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify, ctx));
 
             extractHeatsCommand =
-                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat));
+                ViewModelSource.Create(() => new ExtractHeatsCommand(this, repoMill.RepoHeat, notify));
 
             extractPurchaseOrderCommand =
                 ViewModelSource.Create(() => new ExtractPurchaseOrderCommand(this, repoMill.RepoPurchaseOrder));
