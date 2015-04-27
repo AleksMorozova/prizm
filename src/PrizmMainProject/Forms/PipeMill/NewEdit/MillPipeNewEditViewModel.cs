@@ -21,6 +21,8 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Security;
 using Prizm.Main.Forms.Notifications.Managers.NotRequired;
 using Prizm.Main.Forms.Notifications;
+using Prizm.Data.DAL;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
@@ -78,7 +80,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 ViewModelSource.Create(() => new PipeDeactivationCommand(this, repoMill, notify, ctx));
 
             newSavePipeCommand =
-                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify,ctx));
+                ViewModelSource.Create(() => new NewSavePipeCommand(this, repoMill, notify, ctx));
 
             savePipeCommand =
                 ViewModelSource.Create(() => new SavePipeCommand(this, repoMill, notify, ctx));
@@ -118,11 +120,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             Welders = repoMill.WelderRepo.GetAll();
-            if (this.Welders == null || this.Welders.Count <= 0)
+            if(this.Welders == null || this.Welders.Count <= 0)
                 log.Warn(string.Format("Pipe (id:{0}) creation: List of Welders is NULL or empty", id));
 
             Inspectors = repoMill.RepoInspector.GetAll();
-            if (this.Inspectors == null || this.Inspectors.Count <= 0)
+            if(this.Inspectors == null || this.Inspectors.Count <= 0)
                 log.Warn(string.Format("Pipe (id:{0}) creation: List of Inspectors is NULL or empty", id));
 
             GetAvailableTests();
@@ -145,14 +147,23 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         private void GetAvailableTests()
         {
-            var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
-            if (tests != null)
+            try
             {
-                AvailableTests = new BindingList<PipeTest>(tests);
+                var tests = this.repoMill.RepoPipeTest.GetByMillSizeType(Pipe.Type);
+                if(tests != null)
+                {
+                    AvailableTests = new BindingList<PipeTest>(tests);
+                }
+                else
+                {
+                    log.Warn(string.Format("List of Pipe Tests for type {0} is NULL.", Pipe.Type));
+                }
             }
-            else
+            catch(RepositoryException ex)
             {
-                log.Warn(string.Format("List of Pipe Tests for type {0} is NULL.", Pipe.Type));
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
@@ -256,7 +267,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             get { return pipeNotifier; }
             set
             {
-                if (value != pipeNotifier)
+                if(value != pipeNotifier)
                 {
                     pipeNotifier = value;
                     RaisePropertyChanged("PipeNotifier");
@@ -270,7 +281,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             get { return selectiveOprationPipeNotifier; }
             set
             {
-                if (value != selectiveOprationPipeNotifier)
+                if(value != selectiveOprationPipeNotifier)
                 {
                     selectiveOprationPipeNotifier = value;
                     RaisePropertyChanged("SelectiveOperationPipeNotifier");
@@ -667,39 +678,48 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         public void NewPipe()
         {
-            currentType = new PipeMillSizeType() { IsNative = true, Project = this.Project};
-            extractPurchaseOrderCommand.Execute();
-            extractHeatsCommand.Execute();
-            extractPipeTypeCommand.Execute();
-
-            this.Pipe = new Pipe();
-            this.PipePurchaseOrder = null;
-            this.Heat = null;
-            this.PlateNumber = string.Empty;
-            this.Pipe.IsActive = true;
-            this.Pipe.IsAvailableToJoint = true;
-            this.Pipe.Status = PipeMillStatus.Produced;
-            this.Pipe.ConstructionStatus = Domain.Entity.Construction.PartConstructionStatus.Pending;
-            this.Pipe.InspectionStatus = Domain.Entity.Construction.PartInspectionStatus.Pending;
-            this.Pipe.Project = repoMill.RepoProject.GetSingle();
-
-            this.Number = string.Empty;
-            this.Mill = string.Empty;
-
-            this.WallThickness = 0;
-            this.Weight = 0;
-            this.Length = 0;
-            this.Diameter = 0;
-            this.PipeTestResults = new BindingList<PipeTestResult>();
-            if (this.FilesFormViewModel != null)
+            try
             {
-                this.FilesFormViewModel.Files = null;
-            }
-            this.Pipe.Mill = mill;
-            this.Pipe.ToExport = false;
+                currentType = new PipeMillSizeType() { IsNative = true, Project = this.Project };
+                extractPurchaseOrderCommand.Execute();
+                extractHeatsCommand.Execute();
+                extractPipeTypeCommand.Execute();
 
-            PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
-            SelectiveOperationPipeNotifier = NotificationService.Instance.SelectiveOperationManager.CreateNotifier(Pipe);
+                this.Pipe = new Pipe();
+                this.PipePurchaseOrder = null;
+                this.Heat = null;
+                this.PlateNumber = string.Empty;
+                this.Pipe.IsActive = true;
+                this.Pipe.IsAvailableToJoint = true;
+                this.Pipe.Status = PipeMillStatus.Produced;
+                this.Pipe.ConstructionStatus = Domain.Entity.Construction.PartConstructionStatus.Pending;
+                this.Pipe.InspectionStatus = Domain.Entity.Construction.PartInspectionStatus.Pending;
+                this.Pipe.Project = repoMill.RepoProject.GetSingle();
+
+                this.Number = string.Empty;
+                this.Mill = string.Empty;
+
+                this.WallThickness = 0;
+                this.Weight = 0;
+                this.Length = 0;
+                this.Diameter = 0;
+                this.PipeTestResults = new BindingList<PipeTestResult>();
+                if(this.FilesFormViewModel != null)
+                {
+                    this.FilesFormViewModel.Files = null;
+                }
+                this.Pipe.Mill = mill;
+                this.Pipe.ToExport = false;
+
+                PipeNotifier = NotificationService.Instance.NotRequiredOperationManager.CreateNotifier(Pipe);
+                SelectiveOperationPipeNotifier = NotificationService.Instance.SelectiveOperationManager.CreateNotifier(Pipe);
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public void Dispose()
@@ -718,32 +738,41 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         void GetAllPipeTestResults()
         {
-            var criteria = NHibernate.Criterion.DetachedCriteria
-                .For<PipeTestResult>().
-                Add((Restrictions.Eq("Pipe", Pipe)));
-            var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
-            List<PipeTestResult> sortedResult = new List<PipeTestResult>();
+            try
+            {
+                var criteria = NHibernate.Criterion.DetachedCriteria
+                    .For<PipeTestResult>().
+                    Add((Restrictions.Eq("Pipe", Pipe)));
+                var foundTestResults = repoMill.RepoPipeTestResult.GetByCriteria(criteria).ToList();
+                List<PipeTestResult> sortedResult = new List<PipeTestResult>();
 
-            // Sorting rules:
-            // Sheduled inspections  - first of all sorted by code
-            // Other status inspection - sort by date. Inspections with some date sorting by code.
-            // inspections with some date & code sotting by order
-            #region Sorting inspections
-            var sheduledResult = from result in foundTestResults
-                                 orderby result.Operation.Code
-                                 where result.Status == PipeTestResultStatus.Scheduled && result.Operation.IsActive
-                                 select result;
+                // Sorting rules:
+                // Sheduled inspections  - first of all sorted by code
+                // Other status inspection - sort by date. Inspections with some date sorting by code.
+                // inspections with some date & code sotting by order
+                #region Sorting inspections
+                var sheduledResult = from result in foundTestResults
+                                     orderby result.Operation.Code
+                                     where result.Status == PipeTestResultStatus.Scheduled && result.Operation.IsActive
+                                     select result;
 
-            var otherResult = from result in foundTestResults
-                              orderby result.Date, result.Operation.Code, result.Order
-                              where result.Status != PipeTestResultStatus.Scheduled
-                              select result;
+                var otherResult = from result in foundTestResults
+                                  orderby result.Date, result.Operation.Code, result.Order
+                                  where result.Status != PipeTestResultStatus.Scheduled
+                                  select result;
 
-            sortedResult.AddRange(sheduledResult);
-            sortedResult.AddRange(otherResult);
-            #endregion
+                sortedResult.AddRange(sheduledResult);
+                sortedResult.AddRange(otherResult);
+                #endregion
 
-            pipeTestResults = new BindingList<PipeTestResult>(sortedResult);
+                pipeTestResults = new BindingList<PipeTestResult>(sortedResult);
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         internal string FormatWeldersList(IList<Welder> welders)
@@ -816,7 +845,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             StatusTypes = new List<EnumWrapper<PipeMillStatus>>();
 
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0:true))
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0: true))
             {
                 StatusTypes.Add(new EnumWrapper<PipeMillStatus>(item.Item2));
             }
@@ -846,7 +875,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             List<string> testsResults = orderTestResult();
 
-            if (Pipe.Status == PipeMillStatus.Stocked && Pipe.Railcar != null)
+            if(Pipe.Status == PipeMillStatus.Stocked && Pipe.Railcar != null)
             {
                 resultValue =
                     !(testsResults.Contains(PipeTestResultStatus.Rejected.ToString())
@@ -956,11 +985,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (PipeMillSizeType != null) { return PipeMillSizeType.Length; } else { return 0; }
+                if(PipeMillSizeType != null) { return PipeMillSizeType.Length; } else { return 0; }
             }
             set
             {
-                if (PipeMillSizeType != null && value != PipeMillSizeType.Length)
+                if(PipeMillSizeType != null && value != PipeMillSizeType.Length)
                 {
                     this.Pipe.Type.Length = value;
                     RaisePropertyChanged("Length");
@@ -972,11 +1001,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (PipeMillSizeType != null) { return PipeMillSizeType.Diameter; } else { return 0; }
+                if(PipeMillSizeType != null) { return PipeMillSizeType.Diameter; } else { return 0; }
             }
             set
             {
-                if (PipeMillSizeType != null && value != PipeMillSizeType.Diameter)
+                if(PipeMillSizeType != null && value != PipeMillSizeType.Diameter)
                 {
                     PipeMillSizeType.Diameter = value;
                     RaisePropertyChanged("Diameter");
@@ -988,11 +1017,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             get
             {
-                if (PipeMillSizeType != null ) { return PipeMillSizeType.Thickness; } else { return 0; }
+                if(PipeMillSizeType != null) { return PipeMillSizeType.Thickness; } else { return 0; }
             }
             set
             {
-                if (PipeMillSizeType != null && value != PipeMillSizeType.Thickness)
+                if(PipeMillSizeType != null && value != PipeMillSizeType.Thickness)
                 {
                     PipeMillSizeType.Thickness = value;
                     RaisePropertyChanged("WallThickness");
@@ -1013,7 +1042,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             //group by category
             foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category!=null 
+                if(t.Operation.Category != null
                     && t.Operation.Category.Type == FixedCategory.Length
                     && t.Status == PipeTestResultStatus.Accepted
                     && !string.IsNullOrEmpty(t.Value))
@@ -1030,29 +1059,29 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             //group by order
-            if (lengthOperation2.Count() >= 2)
+            if(lengthOperation2.Count() >= 2)
             {
-                foreach (PipeTestResult t in lengthOperation2)
+                foreach(PipeTestResult t in lengthOperation2)
                 {
-                    if (t.Order >= lengthOperation2.Max(d => d.Order))
+                    if(t.Order >= lengthOperation2.Max(d => d.Order))
                         lengthOperation3.Add(t);
                 }
             }
 
             else
             {
-                foreach (PipeTestResult t in lengthOperation2)
+                foreach(PipeTestResult t in lengthOperation2)
                 {
-                    if (Single.TryParse(t.Value, out tmpFloatLength))
+                    if(Single.TryParse(t.Value, out tmpFloatLength))
                     {
                         this.PipeLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
                     }
                 }
             }
 
-            foreach (PipeTestResult t in lengthOperation3)
+            foreach(PipeTestResult t in lengthOperation3)
             {
-                if (Single.TryParse(t.Value, out tmpFloatLength))
+                if(Single.TryParse(t.Value, out tmpFloatLength))
                 {
                     this.PipeLength = (int)Math.Round((decimal)tmpFloatLength, MidpointRounding.AwayFromZero);
                 }
@@ -1074,7 +1103,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                where p.Date == listOfOperations.Max(d => d.Date)
                select p;
 
-            if (lastOperation.Count() >= 2)
+            if(lastOperation.Count() >= 2)
             {
                 int maxOrder = lastOperation.Max(o => o.Order);
 
@@ -1083,14 +1112,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     where p.Order == maxOrder
                     select p;
 
-                foreach (var t in lastOperation2)
+                foreach(var t in lastOperation2)
                 {
                     result = t.Status;
                 }
             }
             else
             {
-                foreach (var t in lastOperation)
+                foreach(var t in lastOperation)
                 {
                     result = t.Status;
                 }
@@ -1112,12 +1141,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             List<string> externalCoatTestsResults = new List<string>();
 
             // group by category which is needed for subStatus
-            foreach (PipeTestResult t in Pipe.PipeTestResult)
+            foreach(PipeTestResult t in Pipe.PipeTestResult)
             {
-                if (t.Operation.Category != null)
+                if(t.Operation.Category != null)
                 {
-                    switch (t.Operation.Category.Type)
-                    { 
+                    switch(t.Operation.Category.Type)
+                    {
                         case FixedCategory.Weld:
                             weldOperation.Add(t);
                             weldTestsResults.Add(t.Status.ToString());
@@ -1141,7 +1170,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 }
             }
 
-            Pipe.WeldSubStatus=UpdateSubStatus(weldOperation, weldTestsResults);
+            Pipe.WeldSubStatus = UpdateSubStatus(weldOperation, weldTestsResults);
             Pipe.InternalCoatSubStatus = UpdateSubStatus(internalCoatOperation, internalCoatTestsResults);
             Pipe.ExternalCoatSubStatus = UpdateSubStatus(externalCoatOperation, externalCoatTestsResults);
         }
@@ -1151,39 +1180,39 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// <param name="allResults"> all PipeTestResult for current pipe </param>
         /// <param name="testsResult"> all test result status for current pipe </param>
         /// <returns></returns>
-        
-        public PipeMillSubStatus UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult) 
+
+        public PipeMillSubStatus UpdateSubStatus(List<PipeTestResult> allResults, List<string> testsResult)
         {
             PipeMillSubStatus result;
 
             PipeTestResultStatus resultStatus = CheckOperationStatus(allResults);
-                switch (resultStatus)
-                {
-                    case PipeTestResultStatus.Scheduled:
-                        result = PipeMillSubStatus.Scheduled;
-                        break;
-                    case PipeTestResultStatus.Rejected:
-                        result = PipeMillSubStatus.Failed;
-                        break;
-                    case PipeTestResultStatus.Repair:
-                        result = PipeMillSubStatus.Repair;
-                        break;
-                    case PipeTestResultStatus.Accepted:
-                        if (testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
-                        {
-                            result = PipeMillSubStatus.WithRepair;
-                        }
-                        else
-                        {
-                            result = PipeMillSubStatus.Passed;
-                        }
-                        break;
-                    default:
-                        result = PipeMillSubStatus.Undefined;
-                        break;
-                }
+            switch(resultStatus)
+            {
+                case PipeTestResultStatus.Scheduled:
+                    result = PipeMillSubStatus.Scheduled;
+                    break;
+                case PipeTestResultStatus.Rejected:
+                    result = PipeMillSubStatus.Failed;
+                    break;
+                case PipeTestResultStatus.Repair:
+                    result = PipeMillSubStatus.Repair;
+                    break;
+                case PipeTestResultStatus.Accepted:
+                    if(testsResult.Contains(PipeTestResultStatus.Repair.ToString()))
+                    {
+                        result = PipeMillSubStatus.WithRepair;
+                    }
+                    else
+                    {
+                        result = PipeMillSubStatus.Passed;
+                    }
+                    break;
+                default:
+                    result = PipeMillSubStatus.Undefined;
+                    break;
+            }
 
-                return result;
+            return result;
         }
     }
 }
