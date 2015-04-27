@@ -18,12 +18,12 @@ namespace Prizm.Main.Forms.PipeMill.Search
     using Prizm.Main.Common;
     using Prizm.Data.DAL.Setup;
     using Prizm.Domain.Entity.Setup;
-using Prizm.Main.Properties;
+    using Prizm.Main.Properties;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
     {
-        
+
         private readonly IUserNotify notify;
         readonly ICommand searchCommand;
 
@@ -33,34 +33,43 @@ using Prizm.Main.Properties;
         public HashSet<PipeMillStatus> CheckedStatusTypes;
         public IList<EnumWrapper<ActivityCriteria>> ActivityTypes;
         private IList<PipeMillSizeType> pipeTypes;
-        private IList<PipeMillSizeType> checkedPipeTypes 
+        private IList<PipeMillSizeType> checkedPipeTypes
             = new List<PipeMillSizeType>();
 
-        private string pipeNumber = String.Empty; 
+        private string pipeNumber = String.Empty;
 
         [Inject]
         public MillPipeSearchViewModel(
             IMillRepository repoMill,
             IUserNotify notify)
         {
-            this.repoMill = repoMill;
-            this.notify = notify;
+            try
+            {
+                this.repoMill = repoMill;
+                this.notify = notify;
 
-            searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
-                () => new MillPipeSearchCommand(this, repoMill.RepoPipe, notify));
+                searchCommand = ViewModelSource.Create<MillPipeSearchCommand>(
+                    () => new MillPipeSearchCommand(this, repoMill.RepoPipe, notify));
 
-            pipeTypes = repoMill.RepoPipeType.GetAll();
-            checkedPipeTypes = repoMill.RepoPipeType.GetAll();
+                pipeTypes = repoMill.RepoPipeType.GetAll();
+                checkedPipeTypes = repoMill.RepoPipeType.GetAll();
 
-            LoadStatuses();
+                LoadStatuses();
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
-        private int amount=0;
+        private int amount = 0;
         public int Amount
         {
             get { return amount; }
             set
             {
-                if (value != amount)
+                if(value != amount)
                 {
                     amount = value;
                     RaisePropertyChanged("Amount");
@@ -75,7 +84,7 @@ using Prizm.Main.Properties;
             get { return activity; }
             set
             {
-                if (value != activity)
+                if(value != activity)
                 {
                     activity = value;
                     RaisePropertyChanged("Activity");
@@ -88,7 +97,7 @@ using Prizm.Main.Properties;
             get { return (int)Activity; }
             set
             {
-                if (value != (int)Activity)
+                if(value != (int)Activity)
                 {
                     Activity = (ActivityCriteria)value;
                     RaisePropertyChanged("ActivityIndex");
@@ -104,7 +113,7 @@ using Prizm.Main.Properties;
             }
             set
             {
-                if (value != pipes)
+                if(value != pipes)
                 {
                     pipes = value;
                     RaisePropertyChanged("Pipes");
@@ -120,7 +129,7 @@ using Prizm.Main.Properties;
             }
             set
             {
-                if (value != pipeNumber)
+                if(value != pipeNumber)
                 {
                     pipeNumber = value;
                     RaisePropertyChanged("PipeNumber");
@@ -133,7 +142,7 @@ using Prizm.Main.Properties;
             get { return pipeTypes; }
             set
             {
-                if (value != pipeTypes)
+                if(value != pipeTypes)
                 {
                     pipeTypes = value;
                     RaisePropertyChanged("PipeTypes");
@@ -146,7 +155,7 @@ using Prizm.Main.Properties;
             get { return checkedPipeTypes; }
             set
             {
-                if (value != checkedPipeTypes)
+                if(value != checkedPipeTypes)
                 {
                     checkedPipeTypes = value;
                     RaisePropertyChanged("CheckedPipeTypes");
@@ -161,7 +170,7 @@ using Prizm.Main.Properties;
             get { return externalCoatingDate; }
             set
             {
-                if (value != externalCoatingDate)
+                if(value != externalCoatingDate)
                 {
                     externalCoatingDate = value;
                     RaisePropertyChanged("ExternalCoatingDate");
@@ -176,7 +185,7 @@ using Prizm.Main.Properties;
             get { return internalCoatingDate; }
             set
             {
-                if (value != internalCoatingDate)
+                if(value != internalCoatingDate)
                 {
                     internalCoatingDate = value;
                     RaisePropertyChanged("InternalCoatingDate");
@@ -191,7 +200,7 @@ using Prizm.Main.Properties;
             get { return weldingDate; }
             set
             {
-                if (value != weldingDate)
+                if(value != weldingDate)
                 {
                     weldingDate = value;
                     RaisePropertyChanged("WeldingDate");
@@ -214,9 +223,9 @@ using Prizm.Main.Properties;
         {
             CheckedStatusTypes = new HashSet<PipeMillStatus>();
 
-            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0 : true))
+            foreach(var item in EnumWrapper<PipeMillStatus>.EnumerateItems(skip0: true))
             {
-                    CheckedStatusTypes.Add((PipeMillStatus)item.Item1);
+                CheckedStatusTypes.Add((PipeMillStatus)item.Item1);
             }
         }
 
