@@ -12,6 +12,7 @@ using Ninject;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Data.DAL;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
@@ -40,118 +41,127 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void Execute()
         {
-            if (!viewModel.ValidatableView.Validate()) { return; }
-
-            if (!DateCheck())
+            try
             {
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-                log.Warn("Date limits not valid!");
-                return;
-            }
+                if(!viewModel.ValidatableView.Validate()) { return; }
 
-            if (viewModel.Joint.LoweringDate == DateTime.MinValue)
-            {
-                viewModel.Joint.LoweringDate = null;
-            }
-
-            numberOfWeldOperationWithoutWelders = 0;
-            foreach (JointWeldResult w in viewModel.JointWeldResults)
-            {
-                if (w.Welders.Count <= 0
-                    && w.Operation.Type == Prizm.Domain.Entity.Setup.JointOperationType.Weld)
+                if(!DateCheck())
                 {
-                    numberOfWeldOperationWithoutWelders++;
+                    notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                    log.Warn("Date limits not valid!");
+                    return;
                 }
-            }
 
-            numberOfControlOperationWithoutInspectors = 0;
-            foreach (JointTestResult t in viewModel.JointTestResults)
-            {
-                if (t.Inspectors.Count <= 0)
+                if(viewModel.Joint.LoweringDate == DateTime.MinValue)
                 {
-                    numberOfControlOperationWithoutInspectors++;
+                    viewModel.Joint.LoweringDate = null;
                 }
-            }
 
-            if (numberOfWeldOperationWithoutWelders == 0)
-            {
-                if (numberOfControlOperationWithoutInspectors == 0)
+                numberOfWeldOperationWithoutWelders = 0;
+                foreach(JointWeldResult w in viewModel.JointWeldResults)
                 {
-
-                    var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
-
-                    foreach (var joint in joints) { repo.RepoJoint.Evict(joint); }
-
-                    if (joints != null && joints.Count > 0)
+                    if(w.Welders.Count <= 0
+                        && w.Operation.Type == Prizm.Domain.Entity.Setup.JointOperationType.Weld)
                     {
-                        notify.ShowInfo(
-                            string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
-                            Program.LanguageManager.GetString(StringResources.Joint_DuplicateHeader));
-                        viewModel.Number = string.Empty;
+                        numberOfWeldOperationWithoutWelders++;
                     }
-                    else
+                }
+
+                numberOfControlOperationWithoutInspectors = 0;
+                foreach(JointTestResult t in viewModel.JointTestResults)
+                {
+                    if(t.Inspectors.Count <= 0)
                     {
-                        if (viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
-                        {
-                            viewModel.SaveOrUpdateJointCommand.Execute();
+                        numberOfControlOperationWithoutInspectors++;
+                    }
+                }
 
-                            viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
-                            viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
-                        }
-                        else if (viewModel.MakeTheConnection())
-                        {
-                            viewModel.SaveOrUpdateJointCommand.Execute();
+                if(numberOfWeldOperationWithoutWelders == 0)
+                {
+                    if(numberOfControlOperationWithoutInspectors == 0)
+                    {
 
-                            viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
-                            viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
+                        var joints = repo.RepoJoint.GetActiveByNumber(viewModel.Joint);
+
+                        foreach(var joint in joints) { repo.RepoJoint.Evict(joint); }
+
+                        if(joints != null && joints.Count > 0)
+                        {
+                            notify.ShowInfo(
+                                string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Duplicate), viewModel.Number),
+                                Program.LanguageManager.GetString(StringResources.Joint_DuplicateHeader));
+                            viewModel.Number = string.Empty;
                         }
                         else
                         {
-                            notify.ShowInfo(
-                            Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
-                            Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+                            if(viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
+                            {
+                                viewModel.SaveOrUpdateJointCommand.Execute();
 
-                            log.Info(string.Format("There are no suitable diameters or wall thicknesses for the joint #{0}, id:{1} formation",
-                                viewModel.Joint.Number,
-                                viewModel.Joint.Id));
+                                viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
+                                viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
+                            }
+                            else if(viewModel.MakeTheConnection())
+                            {
+                                viewModel.SaveOrUpdateJointCommand.Execute();
+
+                                viewModel.RemovePartDataFromList(viewModel.Joint.FirstElement);
+                                viewModel.RemovePartDataFromList(viewModel.Joint.SecondElement);
+                            }
+                            else
+                            {
+                                notify.ShowInfo(
+                                Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameter),
+                                Program.LanguageManager.GetString(StringResources.Joint_IncorrectDiameterHeader));
+
+                                log.Info(string.Format("There are no suitable diameters or wall thicknesses for the joint #{0}, id:{1} formation",
+                                    viewModel.Joint.Number,
+                                    viewModel.Joint.Id));
+                            }
+
+                            viewModel.NewJoint();
+                            viewModel.ModifiableView.Id = viewModel.Joint.Id;
+                            viewModel.ModifiableView.IsModified = false;
                         }
 
-                        viewModel.NewJoint();
-                        viewModel.ModifiableView.Id = viewModel.Joint.Id;
-                        viewModel.ModifiableView.IsModified = false;
+                        RefreshVisualStateEvent();
                     }
+                    else
+                    {
+                        notify.ShowError(
+                            Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                            Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                        numberOfControlOperationWithoutInspectors = 0;
 
-                    RefreshVisualStateEvent();
+                        log.Warn(string.Format("There are no inspectors for appropriate control operations for the joint #{0}, id:{1} formation",
+                            viewModel.Joint.Number,
+                            viewModel.Joint.Id));
+                    }
                 }
                 else
                 {
                     notify.ShowError(
-                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
-                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
-                    numberOfControlOperationWithoutInspectors = 0;
+                                           Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
+                                           Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
+                    numberOfWeldOperationWithoutWelders = 0;
 
-                    log.Warn(string.Format("There are no inspectors for appropriate control operations for the joint #{0}, id:{1} formation",
+                    log.Warn(string.Format("There are no welders for appropriate weld operations for the joint #{0}, id:{1} formation",
                         viewModel.Joint.Number,
                         viewModel.Joint.Id));
                 }
             }
-            else
+            catch(RepositoryException ex)
             {
-                notify.ShowError(
-                                       Program.LanguageManager.GetString(StringResources.SelectWeldersForOperation),
-                                       Program.LanguageManager.GetString(StringResources.SelectWeldersForOperationHeader));
-                numberOfWeldOperationWithoutWelders = 0;
-
-                log.Warn(string.Format("There are no welders for appropriate weld operations for the joint #{0}, id:{1} formation",
-                    viewModel.Joint.Number,
-                    viewModel.Joint.Id));
+                log.Warn(this.GetType().Name + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
         public bool CanExecute()
         {
-            return viewModel.SaveOrUpdateJointCommand.CanExecute() 
+            return viewModel.SaveOrUpdateJointCommand.CanExecute()
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.CreateJoint)
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditJoint);
         }
