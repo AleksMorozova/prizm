@@ -956,7 +956,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.list = null;
                 this.Pieces = adoRepo.GetPipelineElements();
-                if(!Joint.IsNew())
+            if (!Joint.IsNew() && Joint.Status != JointStatus.Withdrawn)
                 {
                     this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
                     this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
