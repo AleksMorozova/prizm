@@ -21,6 +21,8 @@ using Prizm.Main.Forms.ExternalFile;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
 using Prizm.Main.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -67,9 +69,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         [Inject]
         public JointNewEditViewModel(
-            IConstructionRepository repoConstruction, 
-            IUserNotify notify, 
-            Guid id, 
+            IConstructionRepository repoConstruction,
+            IUserNotify notify,
+            Guid id,
             Prizm.Data.DAL.IMillReportsRepository adoRepo,
             ISecurityContext ctx)
         {
@@ -88,75 +90,92 @@ namespace Prizm.Main.Forms.Joint.NewEdit
               ViewModelSource.Create(() => new NewSaveJointCommand(repoConstruction, this, notify, ctx));
             extractOperationsCommand =
                 ViewModelSource.Create(() => new ExtractOperationsCommand(repoConstruction, this, notify));
-            jointdeactivationCommand = 
+            jointdeactivationCommand =
                 ViewModelSource.Create(() => new JointDeactivationCommand(repoConstruction, this, notify, ctx));
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             quickSearchCommand =
                 ViewModelSource.Create(() => new QuickSearchCommand(this, repoConstruction.RepoJoint));
             #endregion
-
-            Inspectors = repoConstruction.RepoInspector.GetAll();
-            if (this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn(string.Format("Joint (id:{0}) creation: List of Inspectors is NULL or empty", this.JointId));
-
-            Welders = repoConstruction.RepoWelder.GetAll();
-            if (this.Welders == null || this.Welders.Count <= 0)
-                log.Warn(string.Format("Joint (id:{0}) creation: List of Welders is NULL or empty", this.JointId));
-
-            Pieces = adoRepo.GetPipelineElements();
-            if (this.Pieces == null || this.Pieces.Rows.Count <= 0)
-                log.Warn(string.Format("Joint (id:{0}) creation: Data Table of Pieces is NULL or empty", this.JointId));
-
-            extractOperationsCommand.Execute();
-
-            if(id == Guid.Empty)
+            try
             {
-                NewJoint();
+                Inspectors = repoConstruction.RepoInspector.GetAll();
+                if(this.Inspectors == null || this.Inspectors.Count <= 0)
+                    log.Warn(string.Format("Joint (id:{0}) creation: List of Inspectors is NULL or empty", this.JointId));
+
+                Welders = repoConstruction.RepoWelder.GetAll();
+                if(this.Welders == null || this.Welders.Count <= 0)
+                    log.Warn(string.Format("Joint (id:{0}) creation: List of Welders is NULL or empty", this.JointId));
+
+                Pieces = adoRepo.GetPipelineElements();
+                if(this.Pieces == null || this.Pieces.Rows.Count <= 0)
+                    log.Warn(string.Format("Joint (id:{0}) creation: Data Table of Pieces is NULL or empty", this.JointId));
+
+                extractOperationsCommand.Execute();
+
+                if(id == Guid.Empty)
+                {
+                    NewJoint();
+                }
+                else
+                {
+                    this.Joint = repoConstruction.RepoJoint.Get(id);
+
+                    RefreshJointData();
+                }
             }
-            else
+            catch(RepositoryException ex)
             {
-                this.Joint = repoConstruction.RepoJoint.Get(id);
-
-                RefreshJointData();
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
         private void RefreshJointData()
         {
-            if (Joint.FirstElement != null
-                && Joint.SecondElement != null
-                && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
+            try
             {
-                this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                if(Joint.FirstElement != null
+                    && Joint.SecondElement != null
+                    && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
+                {
+                    this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                    this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
 
-                Joint.FirstElement = this.firstElement;
-                Joint.SecondElement = this.secondElement;
-            }
-            else
-            {
-                log.Warn(string.Format("Joint #{0} do not has connected Parts or is Withdrawn.", Joint.Number));
-            }
+                    Joint.FirstElement = this.firstElement;
+                    Joint.SecondElement = this.secondElement;
+                }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not has connected Parts or is Withdrawn.", Joint.Number));
+                }
 
-            var weldResults = this.repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
-            if (weldResults != null)
-            {
-                jointWeldResults = new BindingList<JointWeldResult>(weldResults);
-            }
-            else
-            {
-                log.Warn(string.Format("Joint #{0} do not have Welding Results.", Joint.Number));
-            }
+                var weldResults = this.repoConstruction.RepoJointWeldResult.GetByJoint(this.Joint);
+                if(weldResults != null)
+                {
+                    jointWeldResults = new BindingList<JointWeldResult>(weldResults);
+                }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not have Welding Results.", Joint.Number));
+                }
 
-            var testResults = this.repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
-            if (testResults != null)
-            {
-                jointTestResults = new BindingList<JointTestResult>(testResults);
+                var testResults = this.repoConstruction.RepoJointTestResult.GetByJoint(this.Joint);
+                if(testResults != null)
+                {
+                    jointTestResults = new BindingList<JointTestResult>(testResults);
+                }
+                else
+                {
+                    log.Warn(string.Format("Joint #{0} do not have Test Results.", Joint.Number));
+                }
             }
-            else
+            catch(RepositoryException ex)
             {
-                log.Warn(string.Format("Joint #{0} do not have Test Results.", Joint.Number));
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
@@ -164,7 +183,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             repoConstruction.Dispose();
             ModifiableView = null;
-            if (FilesFormViewModel != null)
+            if(FilesFormViewModel != null)
             {
                 FilesFormViewModel.Dispose();
                 FilesFormViewModel = null;
@@ -173,7 +192,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         internal string FormatInspectorList(IList<Inspector> inspectors)
         {
-            if (inspectors == null)
+            if(inspectors == null)
                 return string.Empty;
 
             return String.Join(",", (from inspector in inspectors select inspector.Name.LastName).ToArray<string>());
@@ -251,7 +270,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.IsActive; }
             set
             {
-                if (value != Joint.IsActive)
+                if(value != Joint.IsActive)
                 {
                     Joint.IsActive = value;
                     RaisePropertyChanged("JointIsActive");
@@ -264,7 +283,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.Number; }
             set
             {
-                if (value != Joint.Number)
+                if(value != Joint.Number)
                 {
                     Joint.Number = value;
                     RaisePropertyChanged("Number");
@@ -276,7 +295,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (Joint.LoweringDate.HasValue)
+                if(Joint.LoweringDate.HasValue)
                 {
                     return Joint.LoweringDate.Value;
                 }
@@ -287,7 +306,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             set
             {
-                if (value != Joint.LoweringDate)
+                if(value != Joint.LoweringDate)
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
@@ -301,7 +320,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.GpsHeight; }
             set
             {
-                if (value != Joint.GpsHeight)
+                if(value != Joint.GpsHeight)
                 {
                     Joint.GpsHeight = value;
                     RaisePropertyChanged("GpsHeight");
@@ -314,7 +333,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.GpsLatitude; }
             set
             {
-                if (value != Joint.GpsLatitude)
+                if(value != Joint.GpsLatitude)
                 {
                     Joint.GpsLatitude = value;
                     RaisePropertyChanged("GpsLatitude");
@@ -327,7 +346,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.GpsLongitude; }
             set
             {
-                if (value != Joint.GpsLongitude)
+                if(value != Joint.GpsLongitude)
                 {
                     Joint.GpsLongitude = value;
                     RaisePropertyChanged("GpsLongitude");
@@ -340,7 +359,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.NumberKP; }
             set
             {
-                if (value != Joint.NumberKP)
+                if(value != Joint.NumberKP)
                 {
                     Joint.NumberKP = value;
                     RaisePropertyChanged("NumberKP");
@@ -353,7 +372,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return Joint.DistanceFromKP; }
             set
             {
-                if (value != Joint.DistanceFromKP)
+                if(value != Joint.DistanceFromKP)
                 {
                     Joint.DistanceFromKP = value;
                     RaisePropertyChanged("DistanceFromKP");
@@ -366,7 +385,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return jointTestResults; }
             set
             {
-                if (value != jointTestResults)
+                if(value != jointTestResults)
                 {
                     jointTestResults = value;
                     RaisePropertyChanged("JointTestResults");
@@ -379,7 +398,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return jointWeldResults; }
             set
             {
-                if (value != jointWeldResults)
+                if(value != jointWeldResults)
                 {
                     jointWeldResults = value;
                     RaisePropertyChanged("JointWeldResults");
@@ -412,7 +431,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return firstElement; }
             set
             {
-                if (value != firstElement)
+                if(value != firstElement)
                 {
                     firstElement = value;
                     RaisePropertyChanged("FirstElement");
@@ -425,7 +444,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             get { return secondElement; }
             set
             {
-                if (value != secondElement)
+                if(value != secondElement)
                 {
                     secondElement = value;
                     RaisePropertyChanged("SecondElement");
@@ -440,13 +459,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public JointStatus JointConstructionStatus
         {
-            get 
+            get
             {
-                if (LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
+                if(LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
                 {
                     Joint.Status = JointStatus.Lowered;
                 }
-                if (Joint.JointWeldResults
+                if(Joint.JointWeldResults
                     .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
                     .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
                 {
@@ -454,11 +473,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
 
                 jointStatus = Joint.Status;
-                return jointStatus; 
+                return jointStatus;
             }
-            set 
+            set
             {
-                if (value != Joint.Status)
+                if(value != Joint.Status)
                 {
                     jointStatus = value;
                     Joint.Status = value;
@@ -482,12 +501,12 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             partsCommonDiameter = GetCommonDiameter(firstElement, secondElement);
 
-            if (partsCommonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
+            if(partsCommonDiameter == -1 || FirstElement.Id == Guid.Empty || SecondElement.Id == Guid.Empty)
             {
                 return false;
             }
 
-            if (this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null)
+            if(this.Joint.FirstElement.Number != null || this.Joint.SecondElement.Number != null)
             {
                 this.JointDisconnection();
             }
@@ -497,17 +516,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             var jointElements = new List<Part> { GetPart(firstElement), GetPart(secondElement) };
 
-            foreach (var part in jointElements)
+            foreach(var part in jointElements)
             {
-                if (part is construction.Component)
+                if(part is construction.Component)
                 {
                     construction.Component component = part as construction.Component;
 
                     component.ToExport = true;
 
-                    foreach (var con in component.Connectors)
+                    foreach(var con in component.Connectors)
                     {
-                        if (Math.Abs(con.Diameter - partsCommonDiameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit && (con.Joint == null || con.Joint.Id == Guid.Empty))
+                        if(Math.Abs(con.Diameter - partsCommonDiameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit && (con.Joint == null || con.Joint.Id == Guid.Empty))
                         {
                             con.Joint = Joint;
                             break;
@@ -516,7 +535,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part is Pipe)
+                    if(part is Pipe)
                     {
                         Pipe pipe = part as Pipe;
                         pipe.ToExport = true;
@@ -526,15 +545,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         construction.Spool spool = part as construction.Spool;
                         spool.Pipe.ToExport = true;
                     }
-                    if (part.ConstructionStatus == PartConstructionStatus.Pending)
+                    if(part.ConstructionStatus == PartConstructionStatus.Pending)
                     {
-                        switch (Joint.Status)
+                        switch(Joint.Status)
                         {
-                            case JointStatus.Lowered: part.ConstructionStatus = PartConstructionStatus.Lowered;
+                            case JointStatus.Lowered:
+                                part.ConstructionStatus = PartConstructionStatus.Lowered;
                                 break;
-                            case JointStatus.Welded: part.ConstructionStatus = PartConstructionStatus.Welded;
+                            case JointStatus.Welded:
+                                part.ConstructionStatus = PartConstructionStatus.Welded;
                                 break;
-                            default: part.ConstructionStatus = PartConstructionStatus.Pending;
+                            default:
+                                part.ConstructionStatus = PartConstructionStatus.Pending;
                                 break;
                         }
                     }
@@ -556,21 +578,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             var jointElements = new List<Part> { GetPart(this.Joint.FirstElement), GetPart(this.Joint.SecondElement) };
 
-            foreach (var part in jointElements)
+            foreach(var part in jointElements)
             {
-                if (part == null) continue;
+                if(part == null)
+                    continue;
 
-                if (part is construction.Component)
+                if(part is construction.Component)
                 {
                     var component = part as construction.Component;
 
                     component.ToExport = false;
 
-                    foreach (var connector in component.Connectors)
+                    foreach(var connector in component.Connectors)
                     {
-                        if (connector.Joint != null)
+                        if(connector.Joint != null)
                         {
-                            if (connector.Joint.Id == this.Joint.Id &&
+                            if(connector.Joint.Id == this.Joint.Id &&
                                 connector.Joint.Id != Guid.Empty ||
                                 connector.Joint == this.Joint)
                             {
@@ -582,7 +605,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
                 else
                 {
-                    if (part is Pipe)
+                    if(part is Pipe)
                     {
                         Pipe pipe = part as Pipe;
                         pipe.ToExport = false;
@@ -592,7 +615,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         construction.Spool spool = part as construction.Spool;
                         spool.Pipe.ToExport = false;
                     }
-                    if (part.IsAvailableToJoint == false)
+                    if(part.IsAvailableToJoint == false)
                     {
                         part.IsAvailableToJoint = true;
                     }
@@ -612,24 +635,30 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>corespond element Part</returns>
         private Part GetPart(PartData partData)
         {
-            Part part;
-
-            if (partData.PartType == PartType.Component)
+            Part part = null;
+            try
             {
-                part = repoConstruction.RepoComponent.Get(partData.Id);
+                if(partData.PartType == PartType.Component)
+                {
+                    part = repoConstruction.RepoComponent.Get(partData.Id);
+                }
+                else if(partData.PartType == PartType.Pipe)
+                {
+                    part = repoConstruction.RepoPipe.Get(partData.Id);
+                }
+                else
+                {
+                    part = repoConstruction.RepoSpool.Get(partData.Id);
+                }
             }
-            else if (partData.PartType == PartType.Pipe)
+            catch(RepositoryException ex)
             {
-                part = repoConstruction.RepoPipe.Get(partData.Id);
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
-            else
-            {
-                part = repoConstruction.RepoSpool.Get(partData.Id);
-            }
-
-            if (part == null)
+            if(part == null)
                 log.Warn(string.Format("Part id:{0} is not found in the database", partData.Id));
-
             return part;
         }
 
@@ -650,11 +679,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 .Intersect(secondElement.Connectors, new ConnectorComparer())
                 .ToList<construction.Connector>();
 
-            if (duplicates.Count == 0)
+            if(duplicates.Count == 0)
             {
-                commonDiameter = - 1;
+                commonDiameter = -1;
             }
-            else if (duplicates.Count == 1)
+            else if(duplicates.Count == 1)
             {
                 commonDiameter = duplicates.First<construction.Connector>(x => true).Diameter;
             }
@@ -662,13 +691,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 this.SetSelectDiameterDialog(duplicates);
 
-                if (selectDiameterDialog.ShowDialog() == DialogResult.OK)
+                if(selectDiameterDialog.ShowDialog() == DialogResult.OK)
                 {
                     commonDiameter = selectDiameterDialog.Diameter;
                 }
                 else
                 {
-                    commonDiameter = - 1;
+                    commonDiameter = -1;
                 }
             }
 
@@ -677,7 +706,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void SetSelectDiameterDialog(List<Connector> duplicates)
         {
-            if (selectDiameterDialog == null)
+            if(selectDiameterDialog == null)
             {
                 selectDiameterDialog = new SelectDiameterDialog();
             }
@@ -692,20 +721,20 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             public bool Equals(construction.Connector x, construction.Connector y)
             {
-                if (Object.ReferenceEquals(x, y))
+                if(Object.ReferenceEquals(x, y))
                     return true;
 
-                if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                if(Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
                     return false;
 
                 return (Math.Abs(x.Diameter - y.Diameter) <= Prizm.Main.Common.Constants.DiameterDiffLimit &&
                         Math.Abs(x.WallThickness - y.WallThickness) <= Prizm.Main.Common.Constants.ThicknessDiffLimit);
-                
+
             }
 
             public int GetHashCode(construction.Connector connector)
             {
-                if (Object.ReferenceEquals(connector, null))
+                if(Object.ReferenceEquals(connector, null))
                     return 0;
 
                 return 1;
@@ -729,11 +758,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 value.Columns.Add("typeTranslated", typeof(String));
 
-                foreach (DataRow record in value.Rows)
+                foreach(DataRow record in value.Rows)
                 {
                     string typeResourceValue;
 
-                    if (record.Field<string>("type") != "Component")
+                    if(record.Field<string>("type") != "Component")
                     {
                         typeResourceValue = Resources.ResourceManager.GetString(record.Field<string>("type"));
                     }
@@ -755,7 +784,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if (list == null && Pieces != null)
+                if(list == null && Pieces != null)
                 {
                     Guid tempId = Guid.Empty;
 
@@ -763,9 +792,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                     PartData partData = new PartData();
 
-                    foreach (DataRow row in Pieces.Rows)
+                    foreach(DataRow row in Pieces.Rows)
                     {
-                        if (tempId != row.Field<Guid>("id"))
+                        if(tempId != row.Field<Guid>("id"))
                         {
                             partData = new PartData(row);
 
@@ -796,18 +825,18 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <returns>PartData-element from this.PartDataList</returns>
         private PartData GetPartDataFromList(PartData partData, Part part)
         {
-            if (PartDataList == null) { PartDataList = new BindingList<PartData>(); }
+            if(PartDataList == null) { PartDataList = new BindingList<PartData>(); }
 
-            if (PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
+            if(PartDataList.Where<PartData>(x => x.Id == partData.Id).Count<PartData>() == 0)
             {
                 PartData p = new PartData(part, this.Joint.Id);
 
-                if (partData.PartType == PartType.Pipe)
+                if(partData.PartType == PartType.Pipe)
                 {
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Pipe));
                 }
-                else if (partData.PartType == PartType.Spool)
+                else if(partData.PartType == PartType.Spool)
                 {
                     p.PartTypeDescription
                         = Resources.ResourceManager.GetString(Enum.GetName(typeof(PartType), PartType.Spool));
@@ -819,9 +848,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 var connector = new Connector();
 
-                if (part is construction.Component)
+                if(part is construction.Component)
                 {
-                    if (Joint.IsActive)
+                    if(Joint.IsActive)
                     {
                         connector.Diameter = ((construction.Component)part)
                             .Connectors
@@ -833,7 +862,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                            .WallThickness;
                     }
                 }
-                else if (part is Pipe)
+                else if(part is Pipe)
                 {
                     connector.Diameter = ((Pipe)part).Diameter;
                     connector.WallThickness = ((Pipe)part).WallThickness;
@@ -843,7 +872,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
                     connector.WallThickness = ((construction.Spool)part).Pipe.WallThickness;
                 }
-                
+
                 PartDataList.First<PartData>(x => x.Id == partData.Id).Connectors.Add(connector);
 
             }
@@ -852,13 +881,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void RemovePartDataFromList(PartData partData)
         {
-            if (list.Any<PartData>(x => x.Id == partData.Id))
+            if(list.Any<PartData>(x => x.Id == partData.Id))
             {
                 var part = this.GetPart(partData);
 
-                if ((part is Pipe || part is construction.Spool) 
+                if((part is Pipe || part is construction.Spool)
                             && !part.IsAvailableToJoint
-                    || 
+                    ||
                     part is construction.Component
                             && !((construction.Component)part).Connectors
                                     .Any<Connector>(x => x.Joint == null || x.Joint.Id == Guid.Empty))
@@ -876,50 +905,68 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void NewJoint()
         {
-            this.Joint = new construction.Joint();
-            Joint.FirstElement = new PartData();
-            Joint.SecondElement = new PartData();
-            this.Joint.IsActive = true;
-            this.Joint.Status = JointStatus.Welded;
-            this.JointTestResults = new BindingList<JointTestResult>();
-            if (this.FilesFormViewModel != null)
+            try
             {
-                this.FilesFormViewModel.Files = null;
-            }
-            //required operation
-            if (repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
-            {
-                JointWeldResult requredWeldResult = new JointWeldResult()
+                this.Joint = new construction.Joint();
+                Joint.FirstElement = new PartData();
+                Joint.SecondElement = new PartData();
+                this.Joint.IsActive = true;
+                this.Joint.Status = JointStatus.Welded;
+                this.JointTestResults = new BindingList<JointTestResult>();
+                if(this.FilesFormViewModel != null)
                 {
-                    IsActive = true,
-                    Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
-                    // first weld operation should be always completed
-                    IsCompleted=true,
-                    Joint = this.Joint
-                };
-                jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
-                this.Joint.JointWeldResults.Add(requredWeldResult);
-            }
-            else
-            {
-                this.JointWeldResults = new BindingList<JointWeldResult>();
-            }
-            this.Number = String.Empty;
-            this.LoweringDate = DateTime.MinValue;
-            this.Joint.ToExport = false;
+                    this.FilesFormViewModel.Files = null;
+                }
+                //required operation
+                if(repoConstruction.RepoJointOperation.GetRequiredWeld() != null)
+                {
+                    JointWeldResult requredWeldResult = new JointWeldResult()
+                    {
+                        IsActive = true,
+                        Operation = repoConstruction.RepoJointOperation.GetRequiredWeld(),
+                        // first weld operation should be always completed
+                        IsCompleted = true,
+                        Joint = this.Joint
+                    };
+                    jointWeldResults = new BindingList<JointWeldResult>() { requredWeldResult };
+                    this.Joint.JointWeldResults.Add(requredWeldResult);
+                }
+                else
+                {
+                    this.JointWeldResults = new BindingList<JointWeldResult>();
+                }
+                this.Number = String.Empty;
+                this.LoweringDate = DateTime.MinValue;
+                this.Joint.ToExport = false;
 
-            this.FirstElement = null;
-            this.SecondElement = null;
+                this.FirstElement = null;
+                this.SecondElement = null;
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public void RefreshJointComponents()
         {
-            this.list = null;
-            this.Pieces = adoRepo.GetPipelineElements();
-            if (!Joint.IsNew())
+            try
             {
-                this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                this.list = null;
+                this.Pieces = adoRepo.GetPipelineElements();
+                if(!Joint.IsNew())
+                {
+                    this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                    this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                }
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
@@ -927,11 +974,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             var jointElements = new List<Part> { GetPart(this.Joint.FirstElement), GetPart(this.Joint.SecondElement) };
 
-            if (jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
+            if(jointElements.Where<Part>(x => x == null).Count<Part>() == 0)
             {
                 this.SetJointCutDialog(jointElements.First(), jointElements.Last());
 
-                if (jointCutDialog.ShowDialog() == DialogResult.OK)
+                if(jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
                     this.JointCutCommand.Execute();
                 }
@@ -940,7 +987,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         private void SetJointCutDialog(Part part1, Part part2)
         {
-            if (jointCutDialog == null)
+            if(jointCutDialog == null)
             {
                 jointCutDialog = new JointCutDialog();
             }
@@ -949,11 +996,20 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void ChangeJoint(construction.Joint joint)
         {
-            this.Joint = repoConstruction.RepoJoint.Get(joint.Id);
-            RefreshJointData();
-            RaisePropertyChanged("Joint");
-            ModifiableView.IsModified = false;
-            ModifiableView.IsEditMode = this.Joint.IsActive;
+            try
+            {
+                this.Joint = repoConstruction.RepoJoint.Get(joint.Id);
+                RefreshJointData();
+                RaisePropertyChanged("Joint");
+                ModifiableView.IsModified = false;
+                ModifiableView.IsEditMode = this.Joint.IsActive;
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn("JointNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
     }
 }
