@@ -19,6 +19,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
     using Prizm.Data.DAL.Setup;
     using Prizm.Domain.Entity.Setup;
     using Prizm.Main.Properties;
+    using Prizm.Data.DAL;
+    using Prizm.Main.Languages;
 
 
     public class MillPipeSearchViewModel : ViewModelBase, IDisposable
@@ -37,6 +39,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
             = new List<PipeMillSizeType>();
 
         private string pipeNumber = String.Empty;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MillPipeSearchViewModel));
 
         [Inject]
         public MillPipeSearchViewModel(
