@@ -10,20 +10,23 @@ using Ninject;
 using DevExpress.Mvvm.POCO;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
-    public class NewSavePipeCommand: ICommand
+    public class NewSavePipeCommand : ICommand
     {
         private readonly IMillRepository repo;
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(QuickSearchCommand));
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public NewSavePipeCommand(
-            MillPipeNewEditViewModel viewModel, 
+            MillPipeNewEditViewModel viewModel,
             IMillRepository repo,
             IUserNotify notify,
             ISecurityContext ctx)
@@ -37,34 +40,43 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.ValidatableView.Validate())
+            try
             {
-                return;
+                if(!viewModel.ValidatableView.Validate())
+                {
+                    return;
+                }
+
+                DateTime previousProductionDate = viewModel.Pipe.ProductionDate;
+                var previousPipeMillSizeType = viewModel.PipeMillSizeType;
+                var previousHeat = viewModel.Heat;
+                var previousPurchaseOrder = viewModel.PipePurchaseOrder;
+
+                viewModel.SavePipeCommand.Execute();
+
+                if(viewModel.Number != string.Empty)
+                {
+                    viewModel.NewPipe();
+
+                    viewModel.ProductionDate = previousProductionDate;
+
+                    viewModel.PipeMillSizeType = previousPipeMillSizeType;
+                    viewModel.PipeTestResults = viewModel.GetRequired(previousPipeMillSizeType);
+                    viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+
+                    viewModel.Heat = previousHeat;
+                    viewModel.PipePurchaseOrder = previousPurchaseOrder;
+                    viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.Id = viewModel.Pipe.Id;
+                }
+                RefreshVisualStateEvent();
             }
-
-            DateTime previousProductionDate = viewModel.Pipe.ProductionDate;
-            var previousPipeMillSizeType = viewModel.PipeMillSizeType;
-            var previousHeat = viewModel.Heat;
-            var previousPurchaseOrder = viewModel.PipePurchaseOrder;
-
-            viewModel.SavePipeCommand.Execute();
-
-             if (viewModel.Number != string.Empty)
-             {
-                viewModel.NewPipe();
-
-                viewModel.ProductionDate = previousProductionDate;
-
-                viewModel.PipeMillSizeType = previousPipeMillSizeType;
-                viewModel.PipeTestResults = viewModel.GetRequired(previousPipeMillSizeType);
-                viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
-
-                viewModel.Heat = previousHeat;
-                viewModel.PipePurchaseOrder = previousPurchaseOrder;
-                viewModel.ModifiableView.IsModified = false;
-                viewModel.ModifiableView.Id = viewModel.Pipe.Id;
-             }
-             RefreshVisualStateEvent();
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public bool CanExecute()
