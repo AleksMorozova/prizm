@@ -359,10 +359,14 @@ namespace Prizm.Main.Forms.Settings.Inspections
             {
                 viewModel.ResultType = PipeTestResultType.Diapason;
                 resultType.ReadOnly = true;
+                isActive.ReadOnly = true;
+                frequencyType.ReadOnly = true;
             }
             else
             {
                 resultType.ReadOnly = false;
+                isActive.ReadOnly = false;
+                frequencyType.ReadOnly = false;
             }
         }
 
