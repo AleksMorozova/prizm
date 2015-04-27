@@ -95,7 +95,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             jointCutCommand =
                 ViewModelSource.Create(() => new JointCutCommand(repoConstruction, this, notify));
             quickSearchCommand =
-                ViewModelSource.Create(() => new QuickSearchCommand(this, repoConstruction.RepoJoint));
+                ViewModelSource.Create(() => new QuickSearchCommand(this, repoConstruction.RepoJoint, notify));
             #endregion
             try
             {

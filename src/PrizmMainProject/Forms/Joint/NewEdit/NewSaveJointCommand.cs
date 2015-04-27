@@ -153,7 +153,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             catch(RepositoryException ex)
             {
-                log.Warn(this.GetType().Name + ex.ToString());
+                log.Warn(this.GetType().Name +" | "+ ex.ToString());
                 notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
             Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
