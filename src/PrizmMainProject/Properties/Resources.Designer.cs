@@ -2922,6 +2922,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ошибка базы данных.
+        /// </summary>
+        internal static string Notification_Error_Db_Header {
+            get {
+                return ResourceManager.GetString("Notification_Error_Db_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to В процессе обращения к базе данных возникли проблемы. Закройте программу и восстановите работу Microsoft localdb.
+        /// </summary>
+        internal static string Notification_Error_Db_Message {
+            get {
+                return ResourceManager.GetString("Notification_Error_Db_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сертификат просрочен.
         /// </summary>
         internal static string Notification_ExpiredInspectorCertificate_Critical {

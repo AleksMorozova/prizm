@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.SimpleReleaseNote;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -23,6 +24,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         private readonly ReleaseNoteViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(UnshipReleaseNoteCommand));
 
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
@@ -38,30 +41,39 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.Shipped)
+            try
             {
-                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_NotShipped),
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-            }
-            else
-            {
-                foreach(SimpleRailcar r in viewModel.Railcars) 
+                if(!viewModel.Shipped)
                 {
-                    r.IsShipped = false;
-                    foreach(var pipe in r.Pipes)
-                    {
-                    pipe.Status = PipeMillStatus.ReadyToShip;
-                    pipe.ToExport = false;
-                    }
+                    notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_NotShipped),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 }
-               
-                viewModel.Shipped = false;
-                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Unshipped),
-                    Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
+                else
+                {
+                    foreach(SimpleRailcar r in viewModel.Railcars)
+                    {
+                        r.IsShipped = false;
+                        foreach(var pipe in r.Pipes)
+                        {
+                            pipe.Status = PipeMillStatus.ReadyToShip;
+                            pipe.ToExport = false;
+                        }
+                    }
 
-                viewModel.SaveCommand.Execute();
+                    viewModel.Shipped = false;
+                    notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Unshipped),
+                        Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
+
+                    viewModel.SaveCommand.Execute();
+                }
+                RefreshVisualStateEvent();
             }
-            RefreshVisualStateEvent();
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
         public bool CanExecute()
         {

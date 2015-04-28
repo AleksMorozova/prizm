@@ -51,13 +51,20 @@ namespace Prizm.Data.DAL.Hibernate
 
         public IList<Joint> QuickSearchByNumber(string number)
         {
-            ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number", number, MatchMode.Start))
-                .SetProjection(Projections.ProjectionList()
-                             .Add(Projections.Property("Id"), "Id")
-                             .Add(Projections.Property("Number"), "Number"))
-                             .SetResultTransformer(Transformers.AliasToBean<Joint>());
-            IList<Joint> results = crit.List<Joint>();
-            return results;
+            try
+            {
+                ICriteria crit = session.CreateCriteria<Joint>().Add(Restrictions.Like("Number", number, MatchMode.Start))
+                    .SetProjection(Projections.ProjectionList()
+                                 .Add(Projections.Property("Id"), "Id")
+                                 .Add(Projections.Property("Number"), "Number"))
+                                 .SetResultTransformer(Transformers.AliasToBean<Joint>());
+                IList<Joint> results = crit.List<Joint>();
+                return results;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsToExport", ex);
+            }
         }
 
         public IList<Joint> SearchJoint(string jointNumber,
@@ -67,6 +74,7 @@ namespace Prizm.Data.DAL.Hibernate
             bool? status,
             Domain.Entity.Setup.WorkstationType currentWorkstation)
         {
+            try{
             var q = session.QueryOver<Joint>();
             // joint number
             if(!string.IsNullOrWhiteSpace(jointNumber))
@@ -74,7 +82,7 @@ namespace Prizm.Data.DAL.Hibernate
                 q.WhereRestrictionOn(n => n.Number).IsLike(jointNumber, MatchMode.Start);
             }
             // statuses
-            if (statuses != null)
+            if(statuses != null)
             {
                 q.WhereRestrictionOn(x => x.Status).IsIn(statuses.ToArray());
             }
@@ -109,13 +117,18 @@ namespace Prizm.Data.DAL.Hibernate
                     jointWithWeld.Where(t => t.Date <= to);
                 }
 
-                 q.WithSubquery
-                .WhereProperty(j => j.JointWeldResults)
-                .In(jointWithWeld);
-                 res = q.List<Joint>();
+                q.WithSubquery
+               .WhereProperty(j => j.JointWeldResults)
+               .In(jointWithWeld);
+                res = q.List<Joint>();
             }
 
             return res;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("GetJointsToExport", ex);
+            }
         }
 
 

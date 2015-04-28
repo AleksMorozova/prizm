@@ -5554,6 +5554,18 @@ namespace Prizm.Main.Languages
             Id = "Notification_DuplicatePipeNumber_Critical",
             Description = "Сообщение о дублировании"
         };
+
+        public static StringResource Notification_Error_Db_Header = new StringResource
+        {
+            Id = "Notification_Error_Db_Header",
+            Description = "Заголовок ошибки базы данных"
+        };
+
+        public static StringResource Notification_Error_Db_Message = new StringResource
+        {
+            Id = "Notification_Error_Db_Message",
+            Description = "Сообщение об ошибке базы данных"
+        };
         #endregion //--- Notification ---
 
         #region --- JointSelectDialog ---

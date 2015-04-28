@@ -44,107 +44,128 @@ namespace Prizm.Data.DAL.Hibernate
 
         public List<SimpleNote> SearchReleases(string number, DateTime startDate, DateTime endDate)
         {
-            SimpleNote note = null;
-            SimpleRailcar car = null;
-
-            var s = session.QueryOver<SimpleNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .TransformUsing(Transformers.DistinctRootEntity);
-
-            if (!string.IsNullOrWhiteSpace(number))
+            try
             {
-                s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
-            }
-            
-            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
-            {
-                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
-            }
-            var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
+                SimpleNote note = null;
+                SimpleRailcar car = null;
 
-            return list;
+                var s = session.QueryOver<SimpleNote>(() => note)
+                    .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity);
+
+                if(!string.IsNullOrWhiteSpace(number))
+                {
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                }
+
+                if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
+                {
+                    s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
+                }
+                var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
+
+                return list;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("SearchReleases", ex);
+            }
         }
 
-        public List<SimpleNote> SearchReleasesByRailcar(string number, DateTime startDate, DateTime endDate, 
-            string railcar,  string certificate, string reciver)
+        public List<SimpleNote> SearchReleasesByRailcar(string number, DateTime startDate, DateTime endDate,
+            string railcar, string certificate, string reciver)
         {
-            SimpleNote note = null;
-            SimpleRailcar car = null;
-
-            var s = session.QueryOver<SimpleNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .TransformUsing(Transformers.DistinctRootEntity);
-
-            if (!string.IsNullOrWhiteSpace(railcar))
+            try
             {
-                s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
-            }
+                SimpleNote note = null;
+                SimpleRailcar car = null;
 
-            if (!string.IsNullOrWhiteSpace(number))
+                var s = session.QueryOver<SimpleNote>(() => note)
+                    .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity);
+
+                if(!string.IsNullOrWhiteSpace(railcar))
+                {
+                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
+                }
+
+                if(!string.IsNullOrWhiteSpace(number))
+                {
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                }
+
+                if(!string.IsNullOrWhiteSpace(certificate))
+                {
+                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
+                }
+
+                if(!string.IsNullOrWhiteSpace(reciver))
+                {
+                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
+                }
+
+                if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
+                {
+                    s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
+                }
+                var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
+
+                return list;
+            }
+            catch(GenericADOException ex)
             {
-                s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                throw new RepositoryException("SearchReleasesByRailcar", ex);
             }
-
-            if (!string.IsNullOrWhiteSpace(certificate))
-            {
-                s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
-            }
-
-            if (!string.IsNullOrWhiteSpace(reciver))
-            {
-                s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
-            }
-
-            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
-            {
-                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
-            }
-            var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
-
-            return list;
         }
 
         public List<SimpleNote> SearchReleasesAllCreteria(string number, DateTime startDate, DateTime endDate, string pipeNumber, string railcar, string certificate, string reciver)
         {
-            SimpleNote note = null;
-            SimpleRailcar car = null;
-            SimplePipe pipe = null;
+            try
+            {
+                SimpleNote note = null;
+                SimpleRailcar car = null;
+                SimplePipe pipe = null;
 
-            var s = session.QueryOver<SimpleNote>(() => note)
-                .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
-                .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
-                .TransformUsing(Transformers.DistinctRootEntity);
+                var s = session.QueryOver<SimpleNote>(() => note)
+                    .JoinAlias(() => note.Railcars, () => car, JoinType.LeftOuterJoin)
+                    .JoinAlias(() => car.Pipes, () => pipe, JoinType.LeftOuterJoin)
+                    .TransformUsing(Transformers.DistinctRootEntity);
 
-            if (!string.IsNullOrWhiteSpace(pipeNumber))
-            {
-                s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Anywhere);
-            }
+                if(!string.IsNullOrWhiteSpace(pipeNumber))
+                {
+                    s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Anywhere);
+                }
 
-            if (!string.IsNullOrWhiteSpace(railcar))
-            {
-                s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
-            }
-            if (!string.IsNullOrWhiteSpace(number))
-            {
-                s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
-            }
-            if (!string.IsNullOrWhiteSpace(certificate))
-            {
-                s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
-            }
-            if (!string.IsNullOrWhiteSpace(reciver))
-            {
-                s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
-            }
-            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
-            {
-                s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
-            }
-            var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
+                if(!string.IsNullOrWhiteSpace(railcar))
+                {
+                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
+                }
+                if(!string.IsNullOrWhiteSpace(number))
+                {
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                }
+                if(!string.IsNullOrWhiteSpace(certificate))
+                {
+                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
+                }
+                if(!string.IsNullOrWhiteSpace(reciver))
+                {
+                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
+                }
+                if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
+                {
+                    s.WhereRestrictionOn(x => x.Date).IsBetween(startDate).And(endDate.AddHours(23).AddMinutes(59).AddSeconds(59));
+                }
+                var list = new List<SimpleNote>(s.List<SimpleNote>().OrderBy(x => x.Number));
 
-            return list;
+                return list;
+            }
+            catch(GenericADOException ex)
+            {
+                throw new RepositoryException("SearchReleasesAllCreteria", ex);
+            }
         }
-       
+
         #endregion
 
         #region ISimpleNoteRepository Members

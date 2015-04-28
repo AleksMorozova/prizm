@@ -3,6 +3,7 @@ using Prizm.Data.DAL;
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 {
-    public class CreatePipeReportCommand: ICommand
+    public class CreatePipeReportCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(CreatePipeReportCommand));
 
@@ -22,8 +23,8 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public CreatePipeReportCommand(
-            PipeConstractionReportViewModel viewModel, 
-            IMillReportsRepository repo, 
+            PipeConstractionReportViewModel viewModel,
+            IMillReportsRepository repo,
             IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -33,22 +34,31 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public void Execute()
         {
-            viewModel.Data = repo.GetPipelineElements(
-                viewModel.PipeNumber,
-                viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
+            try
+            {
+                viewModel.Data = repo.GetPipelineElements(
+                    viewModel.PipeNumber,
+                    viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
 
-            if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
-                log.Warn(string.Format("Data Table for Pipe Report (pipe #{0}) report is NULL or empty", viewModel.PipeNumber));
+                if(viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
+                    log.Warn(string.Format("Data Table for Pipe Report (pipe #{0}) report is NULL or empty", viewModel.PipeNumber));
 
-            var report = new PipeConstructionXtraReport();
+                var report = new PipeConstructionXtraReport();
 
-            report.DataSource = viewModel.PipeReportDataList;
-            report.FootersVisibility = viewModel.IsFooterVisible;
-            var tool = new ReportPrintTool(report);
-            tool.AutoShowParametersPanel = false;
-            tool.ShowPreview();
+                report.DataSource = viewModel.PipeReportDataList;
+                report.FootersVisibility = viewModel.IsFooterVisible;
+                var tool = new ReportPrintTool(report);
+                tool.AutoShowParametersPanel = false;
+                tool.ShowPreview();
 
-            RefreshVisualStateEvent();
+                RefreshVisualStateEvent();
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
 

@@ -58,7 +58,18 @@ namespace Prizm.Main.Forms.ExternalFile
         {
             if (item != Guid.Empty)
             {
-                var fileList = repos.FileRepo.GetByItem(item);
+                IList<Prizm.Domain.Entity.File> fileList = new List<Prizm.Domain.Entity.File>();
+                try
+                {
+                    fileList = repos.FileRepo.GetByItem(item);
+                }
+                catch(RepositoryException ex)
+                {
+                    log.Warn("ExternalFilesViewModel " + ex.ToString());
+                    notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                }
+                
 
                 foreach (var dictItem in this.FilesToAttach)
                 {
@@ -211,7 +222,18 @@ namespace Prizm.Main.Forms.ExternalFile
                     IsActive = true,
                     NewName = kvp.Key
                 };
-                repos.FileRepo.Save(fileEntity);
+
+                try
+                {
+                    repos.FileRepo.Save(fileEntity);
+                }
+                catch(RepositoryException ex)
+                {
+                    log.Warn("ExternalFilesViewModel " + ex.ToString());
+                    notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                }
+                
 
                if(System.IO.File.Exists(Directories.FilesToAttachFolder + kvp.Key))
                {
@@ -231,7 +253,17 @@ namespace Prizm.Main.Forms.ExternalFile
             {
                 foreach (var file in Files)
                 {
-                    repos.FileRepo.Evict(file);
+                    try
+                    {
+                        repos.FileRepo.Evict(file);
+                    }
+                    catch(RepositoryException ex)
+                    {
+                        log.Warn("ExternalFilesViewModel " + ex.ToString());
+                        notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                    Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                    }
+
                 }
             }
 

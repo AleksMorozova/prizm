@@ -38,83 +38,92 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
         public void Execute()
         {
-            foreach (JointTestResult t in viewModel.JointTestResults)
+            try
             {
-                if (t.Inspectors.Count <= 0)
+                foreach(JointTestResult t in viewModel.JointTestResults)
                 {
-                    numberOfOperationWithoutInspectors++;
+                    if(t.Inspectors.Count <= 0)
+                    {
+                        numberOfOperationWithoutInspectors++;
+                    }
                 }
-            }
-            if (numberOfOperationWithoutInspectors == 0)
-            {
-                try
+                if(numberOfOperationWithoutInspectors == 0)
                 {
-                    viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
-                    viewModel.Joint.ToExport = true;
-                    repo.BeginTransaction();
-                    repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-
-                    var filesViewModel = viewModel.FilesFormViewModel;
-                    
-
-                    bool fileCopySuccess = true;
-                    if (null != filesViewModel)
+                    try
                     {
-                        filesViewModel.FileRepo = repo.FileRepo;
-                        viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
-                        if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Joint))
+                        viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
+                        viewModel.Joint.ToExport = true;
+                        repo.BeginTransaction();
+                        repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
+
+                        var filesViewModel = viewModel.FilesFormViewModel;
+
+
+                        bool fileCopySuccess = true;
+                        if(null != filesViewModel)
                         {
-                            fileCopySuccess = false;
-                            repo.Rollback();
-                        }
-                    }
-
-                    if (fileCopySuccess)
-                    {
-                        repo.Commit();
-                    }
-                    repo.RepoJoint.Evict(viewModel.Joint);
-
-                    if (fileCopySuccess)
-                    {
-                        if (null != filesViewModel)
-                        {
-                            filesViewModel.DetachFileEntities(); 
+                            filesViewModel.FileRepo = repo.FileRepo;
+                            viewModel.FilesFormViewModel.Item = viewModel.Joint.Id;
+                            if(!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Joint))
+                            {
+                                fileCopySuccess = false;
+                                repo.Rollback();
+                            }
                         }
 
-                        notify.ShowSuccess(
-                             string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
-                             Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));                   
-                        
-                        log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                        viewModel.Joint.Number,
-                        viewModel.Joint.Id));
-                    }
-                    else
-                    {
-                        notify.ShowError(
-                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
-                            Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
-                        log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                        if(fileCopySuccess)
+                        {
+                            repo.Commit();
+                        }
+                        repo.RepoJoint.Evict(viewModel.Joint);
+
+                        if(fileCopySuccess)
+                        {
+                            if(null != filesViewModel)
+                            {
+                                filesViewModel.DetachFileEntities();
+                            }
+
+                            notify.ShowSuccess(
+                                 string.Concat(Program.LanguageManager.GetString(StringResources.Joint_Saved), viewModel.Number),
+                                 Program.LanguageManager.GetString(StringResources.Joint_SavedHeader));
+
+                            log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
                             viewModel.Joint.Number,
                             viewModel.Joint.Id));
-                    }
+                        }
+                        else
+                        {
+                            notify.ShowError(
+                                Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                            log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                                viewModel.Joint.Number,
+                                viewModel.Joint.Id));
+                        }
 
-                    viewModel.ModifiableView.IsModified = false;
-                    viewModel.ModifiableView.Id = viewModel.Joint.Id;
-                    viewModel.ModifiableView.UpdateState();
+                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.Id = viewModel.Joint.Id;
+                        viewModel.ModifiableView.UpdateState();
+                    }
+                    catch(RepositoryException ex)
+                    {
+                        log.Error(ex.Message);
+                        notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    }
                 }
-                catch (RepositoryException ex)
+                else
                 {
-                    log.Error(ex.Message);
-                    notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                    notify.ShowError(
+                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
                 }
             }
-            else
+            catch(RepositoryException ex)
             {
-                notify.ShowError(
-                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
-                    Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 

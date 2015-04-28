@@ -2944,3 +2944,9 @@ MainWindow_ConstructionJoint=Please, close joint which is already open for editi
 
 ;Форма Создание стыка уже открыта, хотите открыть стык в режиме просмотра?
 MainWindow_OpenConstructionJointReadOnly=Some joint is already opened for editing, do you want to open this joint for viewing?
+
+;Заголовок ошибки базы данных
+Notification_Error_Db_Header=Database Error.
+
+;Сообщение об ошибке базы данных
+Notification_Error_Db_Message=During database operations having issues. Please close program and restore Microsoft localdb.

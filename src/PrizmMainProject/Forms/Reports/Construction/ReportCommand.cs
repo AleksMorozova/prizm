@@ -16,7 +16,7 @@ using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
-    public class ReportCommand: ICommand
+    public class ReportCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(ReportCommand));
 
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public ReportCommand(
             ConstructionReportViewModel viewModel,
-            IMillReportsRepository repo, 
+            IMillReportsRepository repo,
             IJointRepository repoJoint,
             IUserNotify notify)
         {
@@ -50,15 +50,15 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if (viewModel.ReportType == ReportType.TracingReport 
-                && viewModel.StartJoint != null 
+            if(viewModel.ReportType == ReportType.TracingReport
+                && viewModel.StartJoint != null
                 && viewModel.EndJoint != null)
             {
                 PipelineTracing();
 
                 viewModel.ReportDataSource = tracingDataList;
             }
-            else if (viewModel.ReportType == ReportType.UsedProductReport)
+            else if(viewModel.ReportType == ReportType.UsedProductReport)
             {
                 GetUsedProduct();
                 viewModel.ReportDataSource = data;
@@ -69,17 +69,17 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             try
             {
-                if (viewModel.Types.Count > 0)
+                if(viewModel.Types.Count > 0)
                 {
                     StringBuilder GetAllUsedProducts = new StringBuilder();
-                    foreach (var item in viewModel.Types)
+                    foreach(var item in viewModel.Types)
                     {
-                        if (!string.IsNullOrWhiteSpace(GetAllUsedProducts.ToString()))
+                        if(!string.IsNullOrWhiteSpace(GetAllUsedProducts.ToString()))
                         {
                             GetAllUsedProducts.Append(" UNION ");
                         }
 
-                        switch (item)
+                        switch(item)
                         {
                             case PartType.Undefined:
                                 GetAllUsedProducts.Append(" ");
@@ -104,103 +104,112 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                     data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
                     data.TranslateStatus<PartType>(SQLProvider.TableNameForUsedProductsReport, SQLProvider.ColumnNameForUsedProductsReport, viewModel.localizedPartType);
-                   
+
                     SetDataSortByColumn("number");
                 }
             }
-            catch (RepositoryException ex)
+            catch(RepositoryException ex)
             {
-                log.Error(string.Concat( ex.InnerException.Message, ex.Message));
+                log.Error(string.Concat(ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
             }
         }
 
         private void PipelineTracing()
         {
-            if (joints == null)
+            try
             {
-                this.joints = repoJoint.GetJointsForTracing().ToList<construct.Joint>();
-                if (this.joints == null || this.joints.Count <= 0)
-                    log.Warn("Report at Construction: List of Joints is NULL or empty.");
-            }
-            if (partDataList == null)
-            {
-                var data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
-                if (data == null || data.Rows.Count <= 0)
-                    log.Warn("Report at Construction: Data Table of Pieces is NULL or empty.");
-
-                this.partDataList = this.FormWeldedParts(data);
-            }
-
-            graph = new PipelineGraph(partDataList.Count);
-            tracingDataList = new List<TracingData>();
-
-            if (partDataList != null)
-            {
-                foreach (var partData in partDataList)
+                if(joints == null)
                 {
-                    graph.AddPipelineVertex(partData);
+                    this.joints = repoJoint.GetJointsForTracing().ToList<construct.Joint>();
+                    if(this.joints == null || this.joints.Count <= 0)
+                        log.Warn("Report at Construction: List of Joints is NULL or empty.");
                 }
-                foreach (var joint in this.joints)
+                if(partDataList == null)
                 {
-                    graph.AddJointEdge(joint);
+                    var data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
+                    if(data == null || data.Rows.Count <= 0)
+                        log.Warn("Report at Construction: Data Table of Pieces is NULL or empty.");
+
+                    this.partDataList = this.FormWeldedParts(data);
                 }
 
-                var startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
-                var endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
+                graph = new PipelineGraph(partDataList.Count);
+                tracingDataList = new List<TracingData>();
 
-                if (viewModel.TracingMode == TracingModeEnum.TracingByKP
-                    && viewModel.AllKP.Contains(viewModel.StartPK)
-                    && viewModel.AllKP.Contains(viewModel.EndPK))
+                if(partDataList != null)
                 {
-                    startJoint = joints.First<construct.Joint>(
-                        x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP == joints
-                            .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
-                            .Min<construct.Joint>(z => z.DistanceFromKP));
-
-                    endJoint = joints.First<construct.Joint>(
-                        x => x.NumberKP == viewModel.EndPK && x.DistanceFromKP == joints
-                            .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
-                            .Min<construct.Joint>(z => z.DistanceFromKP));
-                }
-
-                var paths = graph.Pathfinder(startJoint.FirstElement, endJoint.FirstElement);
-
-                if (paths.Count != 0)
-                {
-                    path = graph.ShortestPath(paths);
-
-                    path = graph.RemovalExternalComponents(startJoint, endJoint, path);
-
-                    for (int i = path.Count - 1; i > 0; --i)
+                    foreach(var partData in partDataList)
                     {
-                        var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
-
-                        var commonJoint = path[i].GetCommonJoint(path[i - 1]);
-
-                        tracingDataItem.JointNumber = commonJoint.Data.Number;
-                        tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
-
-                        tracingDataList.Add(tracingDataItem);
+                        graph.AddPipelineVertex(partData);
+                    }
+                    foreach(var joint in this.joints)
+                    {
+                        graph.AddJointEdge(joint);
                     }
 
-                    var firstTracingDataItem = new TracingData(null, path.Last().Data);
-                    firstTracingDataItem.JointNumber = startJoint.Number;
-                    firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
-                    tracingDataList.Insert(0, firstTracingDataItem);
+                    var startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
+                    var endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
 
-                    var lastTracingDataItem = new TracingData(path.First().Data, null);
-                    lastTracingDataItem.JointNumber = endJoint.Number;
-                    lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
-                    tracingDataList.Add(lastTracingDataItem);
+                    if(viewModel.TracingMode == TracingModeEnum.TracingByKP
+                        && viewModel.AllKP.Contains(viewModel.StartPK)
+                        && viewModel.AllKP.Contains(viewModel.EndPK))
+                    {
+                        startJoint = joints.First<construct.Joint>(
+                            x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP == joints
+                                .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
+                                .Min<construct.Joint>(z => z.DistanceFromKP));
+
+                        endJoint = joints.First<construct.Joint>(
+                            x => x.NumberKP == viewModel.EndPK && x.DistanceFromKP == joints
+                                .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
+                                .Min<construct.Joint>(z => z.DistanceFromKP));
+                    }
+
+                    var paths = graph.Pathfinder(startJoint.FirstElement, endJoint.FirstElement);
+
+                    if(paths.Count != 0)
+                    {
+                        path = graph.ShortestPath(paths);
+
+                        path = graph.RemovalExternalComponents(startJoint, endJoint, path);
+
+                        for(int i = path.Count - 1; i > 0; --i)
+                        {
+                            var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
+
+                            var commonJoint = path[i].GetCommonJoint(path[i - 1]);
+
+                            tracingDataItem.JointNumber = commonJoint.Data.Number;
+                            tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
+
+                            tracingDataList.Add(tracingDataItem);
+                        }
+
+                        var firstTracingDataItem = new TracingData(null, path.Last().Data);
+                        firstTracingDataItem.JointNumber = startJoint.Number;
+                        firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
+                        tracingDataList.Insert(0, firstTracingDataItem);
+
+                        var lastTracingDataItem = new TracingData(path.First().Data, null);
+                        lastTracingDataItem.JointNumber = endJoint.Number;
+                        lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
+                        tracingDataList.Add(lastTracingDataItem);
 
 
-                    PipelineLenghtCalculation();
+                        PipelineLenghtCalculation();
+                    }
+                }
+                else
+                {
+                    log.Warn(string.Format("List of Pipeline elements is NULL for construction report type: {0}", viewModel.ReportType));
                 }
             }
-            else
+            catch(RepositoryException ex)
             {
-                log.Warn(string.Format("List of Pipeline elements is NULL for construction report type: {0}", viewModel.ReportType));
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
 
@@ -208,7 +217,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void PipelineLenghtCalculation()
         {
-            viewModel.PipelineJointCount = 
+            viewModel.PipelineJointCount =
                 path.Count + 1;
 
             viewModel.PipelinePipeCount =
@@ -226,11 +235,11 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void SetDataSortByColumn(string columnName)
         {
-            foreach (DataTable t in data.Tables)
+            foreach(DataTable t in data.Tables)
             {
-                foreach (DataColumn column in ((DataTable)t).Columns)
+                foreach(DataColumn column in ((DataTable)t).Columns)
                 {
-                    if (column.ColumnName == columnName)
+                    if(column.ColumnName == columnName)
                     {
                         t.DefaultView.Sort = column.ColumnName;
                         break;
@@ -245,9 +254,9 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             dataTable.Columns.Add("typeTranslated", typeof(String));
 
-            foreach (DataRow row in dataTable.Rows)
+            foreach(DataRow row in dataTable.Rows)
             {
-                if (row.Field<string>("type") != "Component")
+                if(row.Field<string>("type") != "Component")
                 {
                     PartType result = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type"));
                     row.SetField(
@@ -282,7 +291,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             var weldResults = joint.JointWeldResults;
 
-            if (weldResults.Count > 0)
+            if(weldResults.Count > 0)
             {
                 strDate = weldResults.First().Date.Value.ToShortDateString();
             }

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.ComponentModel;
 using Prizm.Domain.Entity.Security;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Audit
 {
@@ -26,13 +27,26 @@ namespace Prizm.Main.Forms.Audit
         private readonly IUserNotify notify;
         public List<string> OperationTypes { get; set; }
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(AuditViewModel));
+
         [Inject]
         public AuditViewModel(IAuditRepository repo, IUserNotify notify)
         {
             this.repo = repo;
             this.notify = notify;
-            UsersList = repo.AuditLogRepo.GetAllUsers();
-            searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo, notify));
+
+            try
+            {
+                UsersList = repo.AuditLogRepo.GetAllUsers();
+                searchCommand = ViewModelSource.Create(() => new AuditSearchCommand(this, repo.AuditLogRepo, notify));
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn("AuditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
+
         }
 
         public ICommand SearchCommand

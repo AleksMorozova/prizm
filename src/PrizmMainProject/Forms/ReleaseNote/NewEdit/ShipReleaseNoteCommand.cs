@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Prizm.Main.Languages;
 using Prizm.Main.Security;
 using Prizm.Domain.Entity.SimpleReleaseNote;
+using Prizm.Data.DAL;
 
 namespace Prizm.Main.Forms.ReleaseNote.NewEdit
 {
@@ -40,53 +41,62 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            bool noPipe = false;
-
-            foreach(SimpleRailcar r in viewModel.ReleaseNote.Railcars)
+            try
             {
-                if(r.Pipes.Count == 0)
+                bool noPipe = false;
+
+                foreach(SimpleRailcar r in viewModel.ReleaseNote.Railcars)
                 {
-                    noPipe = true;
-                }
-            }
-
-            if(noPipe)
-            {
-                notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PipesAbsent),
-                    Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
-                return;
-            }
-
-            if(!noPipe)
-            {
-                foreach(SimpleRailcar r in viewModel.Railcars)
-                {
-                    r.IsShipped = true;
-                    foreach(var pipe in r.Pipes)
+                    if(r.Pipes.Count == 0)
                     {
-                        pipe.Status = PipeMillStatus.Shipped;
-
-                        pipe.ToExport = true;
+                        noPipe = true;
                     }
                 }
-                viewModel.Shipped = true;
-                notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Shipped) + " #" + viewModel.ReleaseNote.Number,
-                    Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
 
-                log.Info(string.Format("Shipment is successful. Release Note #{0}, id:{1}.",
-                    viewModel.ReleaseNote.Number,
-                    viewModel.ReleaseNote.Id));
+                if(noPipe)
+                {
+                    notify.ShowError(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_PipesAbsent),
+                        Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
+                    return;
+                }
 
-                viewModel.SaveCommand.Execute();
+                if(!noPipe)
+                {
+                    foreach(SimpleRailcar r in viewModel.Railcars)
+                    {
+                        r.IsShipped = true;
+                        foreach(var pipe in r.Pipes)
+                        {
+                            pipe.Status = PipeMillStatus.Shipped;
+
+                            pipe.ToExport = true;
+                        }
+                    }
+                    viewModel.Shipped = true;
+                    notify.ShowSuccess(Program.LanguageManager.GetString(StringResources.ReleaseNoteNewEdit_Shipped) + " #" + viewModel.ReleaseNote.Number,
+                        Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
+
+                    log.Info(string.Format("Shipment is successful. Release Note #{0}, id:{1}.",
+                        viewModel.ReleaseNote.Number,
+                        viewModel.ReleaseNote.Id));
+
+                    viewModel.SaveCommand.Execute();
+                }
+
+                RefreshVisualStateEvent();
             }
-
-            RefreshVisualStateEvent();
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public bool CanExecute()
         {
             return !viewModel.Shipped
-                && !string.IsNullOrWhiteSpace(viewModel.Number) 
+                && !string.IsNullOrWhiteSpace(viewModel.Number)
                 && viewModel.ReleaseNotePipes.Count > 0
                 && ctx.HasAccess(global::Domain.Entity.Security.Privileges.EditReleaseNote);
         }
