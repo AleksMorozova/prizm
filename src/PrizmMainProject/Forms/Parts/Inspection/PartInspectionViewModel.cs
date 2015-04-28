@@ -42,19 +42,28 @@ namespace Prizm.Main.Forms.Parts.Inspection
         [Inject]
         public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify, ISecurityContext ctx)
         {
-            this.session = session;
-            this.repos = repos;
-            this.notify = notify;
-            this.ctx = ctx;
+            try
+            {
+                this.session = session;
+                this.repos = repos;
+                this.notify = notify;
+                this.ctx = ctx;
 
-            this.Inspectors = repos.RepoInspector.GetAll();
-            if(this.Inspectors == null || this.Inspectors.Count <= 0)
-                log.Warn("Incoming Inspection of Componentry: List of Inspectors is NULL or empty");
+                this.Inspectors = repos.RepoInspector.GetAll();
+                if(this.Inspectors == null || this.Inspectors.Count <= 0)
+                    log.Warn("Incoming Inspection of Componentry: List of Inspectors is NULL or empty");
 
-            searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
-            saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));
-            saveAndClearTestResultsCommand = ViewModelSource.Create(() => new SaveAndClearTestResultsCommand(this));
-            this.Inspectors = repos.RepoInspector.GetAll();
+                searchCommand = ViewModelSource.Create(() => new SearchPartForInspectionCommand(this, session, ctx));
+                saveInspectionTestResultsCommand = ViewModelSource.Create(() => new SaveInspectionTestResultsCommand(repos.RepoInspectionTestResult, this, notify, ctx));
+                saveAndClearTestResultsCommand = ViewModelSource.Create(() => new SaveAndClearTestResultsCommand(this));
+                this.Inspectors = repos.RepoInspector.GetAll();
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
 

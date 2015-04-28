@@ -2,6 +2,7 @@
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity.Setup;
 using Prizm.Main.Commands;
+using Prizm.Main.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,8 +23,8 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public PreviewPipeReportCommand(
-            PipeConstractionReportViewModel viewModel, 
-            IMillReportsRepository repo, 
+            PipeConstractionReportViewModel viewModel,
+            IMillReportsRepository repo,
             IUserNotify notify)
         {
             this.viewModel = viewModel;
@@ -33,21 +34,30 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public void Execute()
         {
-            viewModel.Data = repo.GetPipelineElements(
-                viewModel.PipeNumber, 
-                viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
+            try
+            {
+                viewModel.Data = repo.GetPipelineElements(
+                    viewModel.PipeNumber,
+                    viewModel.CheckedPipeTypes.Select<PipeMillSizeType, string>(x => x.Type).ToArray<string>());
 
-            if (viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
-                log.Warn(string.Format("Data Table for Pipe Report (pipe #{0}) report is NULL or empty", viewModel.PipeNumber));
+                if(viewModel.Data == null || viewModel.Data.Rows.Count <= 0)
+                    log.Warn(string.Format("Data Table for Pipe Report (pipe #{0}) report is NULL or empty", viewModel.PipeNumber));
 
-            var report = new PipeConstructionXtraReport();
+                var report = new PipeConstructionXtraReport();
 
-            report.DataSource = viewModel.PipeReportDataList;
-            report.FootersVisibility = viewModel.IsFooterVisible;
-            report.CreateDocument();
-            viewModel.PreviewSource = report;
+                report.DataSource = viewModel.PipeReportDataList;
+                report.FootersVisibility = viewModel.IsFooterVisible;
+                report.CreateDocument();
+                viewModel.PreviewSource = report;
 
-            RefreshVisualStateEvent();
+                RefreshVisualStateEvent();
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public bool CanExecute()

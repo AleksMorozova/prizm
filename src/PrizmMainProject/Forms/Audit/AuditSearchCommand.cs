@@ -35,12 +35,34 @@ namespace Prizm.Main.Forms.Audit
             {
                 if (viewModel.TracingMode == TracingModeEnum.TracingByNumber)
                 {
-                    var results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
+                    IList<AuditLog> results = new List<AuditLog>();
+                    try
+                    {
+                        results = repo.GetRecordsByNumber(viewModel.Number, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
+                    }
+                    catch(RepositoryException ex)
+                    {
+                        log.Warn("AuditSearchCommandExecute " + ex.ToString());
+                        notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                    Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                    }
+                    
                     viewModel.AuditResults = new BindingList<AuditLog>(results);
                 }
                 else if (viewModel.TracingMode == TracingModeEnum.TracingByUser)
                 {
-                    var results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
+                    IList<AuditLog> results = new List<AuditLog>();
+                    try
+                    {
+                        results = repo.GetRecordsByUser(viewModel.SelectedUser, viewModel.StartDate, viewModel.EndDate, viewModel.OperationTypes);
+                    }
+                    catch(RepositoryException ex)
+                    {
+                        log.Warn("AuditSearchCommandExecute " + ex.ToString());
+                        notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                    Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                    }
+                    
                     viewModel.AuditResults = new BindingList<AuditLog>(results);
                 }
             }

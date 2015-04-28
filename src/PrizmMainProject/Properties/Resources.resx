@@ -1833,4 +1833,10 @@
   <data name="Notification_PostponeConflict_Warning" xml:space="preserve">
     <value>Есть отложенный конфликт</value>
   </data>
+  <data name="Notification_Error_Db_Header" xml:space="preserve">
+    <value>Ошибка базы данных</value>
+  </data>
+  <data name="Notification_Error_Db_Message" xml:space="preserve">
+    <value>В процессе обращения к базе данных возникли проблемы. Закройте программу и восстановите работу Microsoft localdb</value>
+  </data>
 </root>

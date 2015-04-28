@@ -57,7 +57,7 @@ namespace Prizm.Main.Forms.Settings
         [Inject]
         public SettingsViewModel(ISettingsRepositories repos, IUserNotify notify, ISecurityContext ctx)
         {
-            NewPipeMillSizeType();  
+            NewPipeMillSizeType();
             this.repos = repos;
             this.notify = notify;
             this.ctx = ctx;
@@ -71,98 +71,107 @@ namespace Prizm.Main.Forms.Settings
             this.ExtractCategoriesCommand.Execute();
             CategoryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
             PipeTests.ListChanged += (s, e) => ModifiableView.IsModified = true;
-            
+
         }
 
         public void LoadData()
         {
-           GetAllCertificateTypes();
-           GetAllSeamTypes();
-           GetAllPipeMillSizeType();
-           GetAllWelders();
-           GetAllInspectors();
-           GetAllPermissions();
-           GetAllRoles();
-           GetAllUsers();
-           GetProjectSettings();
-           GetAllManufacturers();
-           GetAllJointOperations();
-           LoadJointOperationTypes();
-           GetAllComponentryTypes();
-           ControlType = new BindingList<EnumWrapper<PipeTestControlType>>();
-           ResultType = new BindingList<EnumWrapper<PipeTestResultType>>();
+            try
+            {
+                GetAllCertificateTypes();
+                GetAllSeamTypes();
+                GetAllPipeMillSizeType();
+                GetAllWelders();
+                GetAllInspectors();
+                GetAllPermissions();
+                GetAllRoles();
+                GetAllUsers();
+                GetProjectSettings();
+                GetAllManufacturers();
+                GetAllJointOperations();
+                LoadJointOperationTypes();
+                GetAllComponentryTypes();
+                ControlType = new BindingList<EnumWrapper<PipeTestControlType>>();
+                ResultType = new BindingList<EnumWrapper<PipeTestResultType>>();
 
-           foreach (string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
-           {
-               if (controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undefined))
-               ControlType.Add(new EnumWrapper<PipeTestControlType>()
-               {
-                   Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName)
-               }
-               );
-           }
+                foreach(string controlTypeName in Enum.GetNames(typeof(PipeTestControlType)))
+                {
+                    if(controlTypeName != Enum.GetName(typeof(PipeTestControlType), PipeTestControlType.Undefined))
+                        ControlType.Add(new EnumWrapper<PipeTestControlType>()
+                        {
+                            Value = (PipeTestControlType)Enum.Parse(typeof(PipeTestControlType), controlTypeName)
+                        }
+                        );
+                }
 
-           foreach (string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
-           {
-               if (resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undefined))
-               ResultType.Add(new EnumWrapper<PipeTestResultType>()
-               {
-                   Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName)
-               }
-               );
-           }
+                foreach(string resultTypeName in Enum.GetNames(typeof(PipeTestResultType)))
+                {
+                    if(resultTypeName != Enum.GetName(typeof(PipeTestResultType), PipeTestResultType.Undefined))
+                        ResultType.Add(new EnumWrapper<PipeTestResultType>()
+                        {
+                            Value = (PipeTestResultType)Enum.Parse(typeof(PipeTestResultType), resultTypeName)
+                        }
+                        );
+                }
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         private void GetAllUsers()
         {
-           if (Users == null)
-              Users = new BindingList<User>();
+            if(Users == null)
+                Users = new BindingList<User>();
 
-           IList<User> users = repos.UserRepo.GetAll();
-           foreach (var u in users)
-           {
-              Users.Add(u);
-           }
+            IList<User> users = repos.UserRepo.GetAll();
+            foreach(var u in users)
+            {
+                Users.Add(u);
+            }
         }
 
         private void GetAllPermissions()
         {
-           if (Permissions == null)
-              Permissions = new BindingList<Permission>();
+            if(Permissions == null)
+                Permissions = new BindingList<Permission>();
 
-           IList<Permission> perms = repos.PermissionRepo.GetAll();
-           foreach (var p in perms)
-           {
-               string id = "SecurityPrivilege_" + p.Name;
-               StringResource? res = Program.LanguageManager.FindById(typeof(StringResources), id);
-               if (res != null)
-               {
-                   p.NameTranslation = Program.LanguageManager.GetString((StringResource)res);
-               }
-               else
-               {
-                   var ex = new ApplicationException("No resource description defined for " + id);
-                   log.Error(ex.Message);
-                   throw ex;
-               }
-               Permissions.Add(p);
-           }
+            IList<Permission> perms = repos.PermissionRepo.GetAll();
+            foreach(var p in perms)
+            {
+                string id = "SecurityPrivilege_" + p.Name;
+                StringResource? res = Program.LanguageManager.FindById(typeof(StringResources), id);
+                if(res != null)
+                {
+                    p.NameTranslation = Program.LanguageManager.GetString((StringResource)res);
+                }
+                else
+                {
+                    var ex = new ApplicationException("No resource description defined for " + id);
+                    log.Error(ex.Message);
+                    throw ex;
+                }
+                Permissions.Add(p);
+            }
         }
 
         private void GetAllRoles()
         {
-           if (Roles == null)
-              Roles = new BindingList<Role>();
+            if(Roles == null)
+                Roles = new BindingList<Role>();
 
-           IList<Role> roles = repos.RoleRepo.GetAll();
-           foreach (var r in roles)
-           {
-              Roles.Add(r);
-           }
+            IList<Role> roles = repos.RoleRepo.GetAll();
+            foreach(var r in roles)
+            {
+                Roles.Add(r);
+            }
         }
-       
+
         private BindingList<PipeTest> pipeTests = new BindingList<PipeTest>();
-        public BindingList<PipeTest> PipeTests 
+        public BindingList<PipeTest> PipeTests
         {
             get
             {
@@ -170,7 +179,7 @@ namespace Prizm.Main.Forms.Settings
             }
             set
             {
-                if (value != pipeTests)
+                if(value != pipeTests)
                 {
                     pipeTests = value;
                     RaisePropertyChanged("pipeTests");
@@ -190,9 +199,9 @@ namespace Prizm.Main.Forms.Settings
             {
                 return CurrentProjectSettings.Client;
             }
-            set 
+            set
             {
-                if (value != CurrentProjectSettings.Client)
+                if(value != CurrentProjectSettings.Client)
                 {
                     CurrentProjectSettings.Client = value;
                     RaisePropertyChanged("Client");
@@ -202,13 +211,13 @@ namespace Prizm.Main.Forms.Settings
 
         public string MillName
         {
-            get 
+            get
             {
                 return CurrentProjectSettings.MillName;
             }
             set
             {
-                if (value != CurrentProjectSettings.MillName)
+                if(value != CurrentProjectSettings.MillName)
                 {
                     CurrentProjectSettings.MillName = value;
                     RaisePropertyChanged("MillName");
@@ -216,7 +225,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public int DocumentSizeLimit 
+        public int DocumentSizeLimit
         {
             get
             {
@@ -224,7 +233,7 @@ namespace Prizm.Main.Forms.Settings
             }
             set
             {
-                if (value != CurrentProjectSettings.DocumentSizeLimit)
+                if(value != CurrentProjectSettings.DocumentSizeLimit)
                 {
                     CurrentProjectSettings.DocumentSizeLimit = value;
                     RaisePropertyChanged("DocumentSizeLimit");
@@ -240,7 +249,7 @@ namespace Prizm.Main.Forms.Settings
             }
             set
             {
-                if (value != CurrentProjectSettings.MillPipeNumberMask)
+                if(value != CurrentProjectSettings.MillPipeNumberMask)
                 {
                     CurrentProjectSettings.MillPipeNumberMask = value;
                     CurrentProjectSettings.MillPipeNumberMaskRegexp = Project.FormRegExp(CurrentProjectSettings.MillPipeNumberMask);
@@ -268,13 +277,13 @@ namespace Prizm.Main.Forms.Settings
         #region Plate Manufacturers
         public BindingList<PlateManufacturer> PlateManufacturers
         {
-            get 
+            get
             {
                 return plateManufacturers;
             }
-            set 
+            set
             {
-                if (value != plateManufacturers)
+                if(value != plateManufacturers)
                 {
                     plateManufacturers = value;
                     RaisePropertyChanged("PlateManufacturers");
@@ -296,8 +305,8 @@ namespace Prizm.Main.Forms.Settings
         private void GetAllPipeMillSizeType()
         {
             var allSizeType = repos.PipeSizeTypeRepo.GetAll().ToList();
-            if (allSizeType == null || allSizeType.Count <= 0)
-                log.Warn( "Setup settings: List of Size Type is NULL or empty" );
+            if(allSizeType == null || allSizeType.Count <= 0)
+                log.Warn("Setup settings: List of Size Type is NULL or empty");
 
             PipeMillSizeType = new BindingList<PipeMillSizeType>(allSizeType);
             PipeMillSizeType.ListChanged += (s, e) => ModifiableView.IsModified = true;
@@ -306,8 +315,8 @@ namespace Prizm.Main.Forms.Settings
         void GetAllJointOperations()
         {
             var foundOperations = repos.JointRepo.GetAll().ToList();
-            if (foundOperations == null || foundOperations.Count <= 0)
-                log.Warn( "Setup settings:List of found Operations is NULL or empty" );
+            if(foundOperations == null || foundOperations.Count <= 0)
+                log.Warn("Setup settings:List of found Operations is NULL or empty");
 
             JointOperations = new BindingList<JointOperation>(foundOperations);
             JointOperations.ListChanged += (s, e) => ModifiableView.IsModified = true;
@@ -315,41 +324,41 @@ namespace Prizm.Main.Forms.Settings
 
         void GetAllWelders()
         {
-           if (Welders == null)
-              Welders = new BindingList<WelderViewType>();
+            if(Welders == null)
+                Welders = new BindingList<WelderViewType>();
 
-           var foundWelders = repos.WelderRepo.GetAll();
-           if (foundWelders != null)
-           {
-               foreach (Welder w in foundWelders)
-               {
-                   Welders.Add(new WelderViewType(w));
-               }
-           }
-           else
-           {
-               log.Warn( " Setup settings: List of found Welders is NULL." );
-           }
+            var foundWelders = repos.WelderRepo.GetAll();
+            if(foundWelders != null)
+            {
+                foreach(Welder w in foundWelders)
+                {
+                    Welders.Add(new WelderViewType(w));
+                }
+            }
+            else
+            {
+                log.Warn(" Setup settings: List of found Welders is NULL.");
+            }
 
-           Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            Welders.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllCertificateTypes()
         {
-            if (CertificateTypes == null)
+            if(CertificateTypes == null)
                 CertificateTypes = new BindingList<InspectorCertificateType>();
 
             var foundCertificateTypes = repos.CertificateTypeRepo.GetAll();
-            if (foundCertificateTypes != null)
+            if(foundCertificateTypes != null)
             {
-                foreach (var t in foundCertificateTypes)
+                foreach(var t in foundCertificateTypes)
                 {
                     CertificateTypes.Add(t);
                 }
             }
             else
             {
-                log.Warn( "Setup settings:List of Certificate Types is NULL." );
+                log.Warn("Setup settings:List of Certificate Types is NULL.");
             }
 
             CertificateTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
@@ -357,20 +366,20 @@ namespace Prizm.Main.Forms.Settings
 
         void GetAllSeamTypes()
         {
-            if (SeamTypes == null)
+            if(SeamTypes == null)
                 SeamTypes = new BindingList<SeamType>();
 
             var foundSeamTypes = repos.SeamTypeRepo.GetAll();
-            if (foundSeamTypes != null)
+            if(foundSeamTypes != null)
             {
-                foreach (var s in foundSeamTypes)
+                foreach(var s in foundSeamTypes)
                 {
                     SeamTypes.Add(s);
                 }
             }
             else
             {
-                log.Warn( "Setup settings: List of Seam Types is NULL." );
+                log.Warn("Setup settings: List of Seam Types is NULL.");
             }
 
             SeamTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
@@ -378,38 +387,38 @@ namespace Prizm.Main.Forms.Settings
 
         void GetAllInspectors()
         {
-           if (Inspectors == null)
-              Inspectors = new BindingList<InspectorViewType>();
+            if(Inspectors == null)
+                Inspectors = new BindingList<InspectorViewType>();
 
-           var foundInspectors = repos.InspectorRepo.GetAll();
-           if (foundInspectors != null)
-           {
-               foreach (Inspector i in foundInspectors)
-               {
-                   Inspectors.Add(new InspectorViewType(i));
-               }
-           }
-           else
-           {
-               log.Warn("Setup settings: List of Inspectors is NULL.");
-           }
+            var foundInspectors = repos.InspectorRepo.GetAll();
+            if(foundInspectors != null)
+            {
+                foreach(Inspector i in foundInspectors)
+                {
+                    Inspectors.Add(new InspectorViewType(i));
+                }
+            }
+            else
+            {
+                log.Warn("Setup settings: List of Inspectors is NULL.");
+            }
 
-           foreach (var insp in this.Inspectors)
-           {
-               // Due to incomplete the collection type matching returned at reading from the database and properties binding  
-               // the following solution have been proposed. Perhaps this problem can be solved by entities mapping.
-               if (insp.Certificates.Count == 0)
-               {
-                   insp.Certificates = new List<InspectorCertificate>();
-               }
-           }
+            foreach(var insp in this.Inspectors)
+            {
+                // Due to incomplete the collection type matching returned at reading from the database and properties binding  
+                // the following solution have been proposed. Perhaps this problem can be solved by entities mapping.
+                if(insp.Certificates.Count == 0)
+                {
+                    insp.Certificates = new List<InspectorCertificate>();
+                }
+            }
 
-           Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            Inspectors.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void NewPipeMillSizeType()
         {
-            if (PipeMillSizeType == null)
+            if(PipeMillSizeType == null)
             {
                 PipeMillSizeType = new BindingList<PipeMillSizeType>();
             }
@@ -423,39 +432,39 @@ namespace Prizm.Main.Forms.Settings
 
         private void GetAllManufacturers()
         {
-           var  foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
+            var foundPlateManufacturers = repos.PlateManufacturerRepo.GetAll().ToList();
 
-           if (foundPlateManufacturers == null || foundPlateManufacturers.Count <= 0)
-               log.Warn( "Setup settings: List of Plate Manufacturers is NULL or empty" );
+            if(foundPlateManufacturers == null || foundPlateManufacturers.Count <= 0)
+                log.Warn("Setup settings: List of Plate Manufacturers is NULL or empty");
 
-           PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
-           PlateManufacturers.ListChanged += (s, e) => ModifiableView.IsModified = true;
+            PlateManufacturers = new BindingList<PlateManufacturer>(foundPlateManufacturers);
+            PlateManufacturers.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         void GetAllComponentryTypes()
         {
-            if (ComponentryTypes == null)
+            if(ComponentryTypes == null)
                 ComponentryTypes = new BindingList<ComponentType>();
 
             var foundComponentryTypes = repos.ComponentTypeRepo.GetAll();
-            if (foundComponentryTypes != null)
+            if(foundComponentryTypes != null)
             {
-                foreach (ComponentType t in foundComponentryTypes)
+                foreach(ComponentType t in foundComponentryTypes)
                 {
                     ComponentryTypes.Add(t);
                 }
             }
             else
             {
-                log.Warn( "Setup settings: List of Componentry Types is NULL." );
+                log.Warn("Setup settings: List of Componentry Types is NULL.");
             }
             ComponentryTypes.ListChanged += (s, e) => ModifiableView.IsModified = true;
         }
 
         public void AddNewManufacturer(string newManufacturerName)
         {
-           var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
-            if (!existingItem.Any())
+            var existingItem = from p in plateManufacturers where p.Name == newManufacturerName select p;
+            if(!existingItem.Any())
             {
                 PlateManufacturer newManufacturer = new PlateManufacturer { IsActive = true, Name = newManufacturerName, IsNative = true, Project = CurrentProjectSettings };
                 plateManufacturers.Add(newManufacturer);
@@ -472,9 +481,9 @@ namespace Prizm.Main.Forms.Settings
         {
             PipeMillSizeType type = sizeType as PipeMillSizeType;
             PipeTests.Clear();
-            if (type.PipeTests == null)
+            if(type.PipeTests == null)
                 return;
-            foreach (PipeTest t in type.PipeTests)
+            foreach(PipeTest t in type.PipeTests)
             {
                 PipeTests.Add(t);
             }
@@ -482,72 +491,72 @@ namespace Prizm.Main.Forms.Settings
 
         public IModifiable ModifiableView
         {
-           get
-           {
-              return modifiable;
-           }
-           set
-           {
-              modifiable = value;
-           }
+            get
+            {
+                return modifiable;
+            }
+            set
+            {
+                modifiable = value;
+            }
         }
 
         public bool RoleHasPermission(Role role, Permission perm)
         {
-           return (from p in role.Permissions where p.Id == perm.Id select p).Count() > 0;
+            return (from p in role.Permissions where p.Id == perm.Id select p).Count() > 0;
         }
 
         public void RemovePermissionFromRole(Role role, Permission p)
         {
-           var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
-           if (rolePerm != null)
-           {
-              role.Permissions.Remove(rolePerm);
-              ModifiableView.IsModified = true;
-           }
+            var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
+            if(rolePerm != null)
+            {
+                role.Permissions.Remove(rolePerm);
+                ModifiableView.IsModified = true;
+            }
 
         }
 
         public void AddPermissionToRole(Role role, Permission p)
         {
-           var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
-           if (rolePerm == null)
-           {
-              role.Permissions.Add(p);
-              ModifiableView.IsModified = true;
-           }
+            var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
+            if(rolePerm == null)
+            {
+                role.Permissions.Add(p);
+                ModifiableView.IsModified = true;
+            }
         }
 
         public void AddRoleToUser(Role role, User user)
         {
-           var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
-           if (userRole == null)
-           {
-              user.Roles.Add(role);
-              ModifiableView.IsModified = true;
-           }
+            var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
+            if(userRole == null)
+            {
+                user.Roles.Add(role);
+                ModifiableView.IsModified = true;
+            }
         }
 
         public void RemoveRoleFromUser(Role role, User user)
         {
-           var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
-           if (userRole != null)
-           {
-              user.Roles.Remove(userRole);
-              ModifiableView.IsModified = true;
-           }
+            var userRole = user.Roles.Where(_ => _.Id == role.Id).FirstOrDefault();
+            if(userRole != null)
+            {
+                user.Roles.Remove(userRole);
+                ModifiableView.IsModified = true;
+            }
         }
 
         internal bool UserHasRole(User user, Role role)
         {
-           return (from r in user.Roles where r.Id == role.Id select r).Count() > 0;
+            return (from r in user.Roles where r.Id == role.Id select r).Count() > 0;
         }
 
         private void LoadJointOperationTypes()
         {
             JointOperationTypes = new List<EnumWrapper<JointOperationType>>();
 
-            foreach(var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0:true))
+            foreach(var item in EnumWrapper<JointOperationType>.EnumerateItems(skip0: true))
             {
                 JointOperationTypes.Add(new EnumWrapper<JointOperationType>((JointOperationType)item.Item1)); // TODO: binding list vs localization - ?
             }
@@ -561,7 +570,7 @@ namespace Prizm.Main.Forms.Settings
             }
             set
             {
-                if (value != currentPipeMillSizeType)
+                if(value != currentPipeMillSizeType)
                 {
                     currentPipeMillSizeType = value;
                     RaisePropertyChanged("CurrentPipeMillSizeType");
@@ -577,12 +586,12 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Length; } else { return 0; }
-                
+                if(CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Length; } else { return 0; }
+
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.Length)
+                if(value != CurrentPipeMillSizeType.Length)
                 {
                     CurrentPipeMillSizeType.Length = value;
                     RaisePropertyChanged("Length");
@@ -594,11 +603,11 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                if (CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Diameter; } else { return 0; }
+                if(CurrentPipeMillSizeType != null) { return CurrentPipeMillSizeType.Diameter; } else { return 0; }
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.Diameter)
+                if(value != CurrentPipeMillSizeType.Diameter)
                 {
                     CurrentPipeMillSizeType.Diameter = value;
                     RaisePropertyChanged("Diameter");
@@ -610,7 +619,7 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                if (CurrentPipeMillSizeType != null)
+                if(CurrentPipeMillSizeType != null)
                 {
                     return CurrentPipeMillSizeType.Thickness;
                 }
@@ -618,7 +627,7 @@ namespace Prizm.Main.Forms.Settings
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.Thickness)
+                if(value != CurrentPipeMillSizeType.Thickness)
                 {
                     CurrentPipeMillSizeType.Thickness = value;
                     RaisePropertyChanged("Thickness");
@@ -630,22 +639,22 @@ namespace Prizm.Main.Forms.Settings
         {
             get
             {
-                if (CurrentPipeMillSizeType != null)
+                if(CurrentPipeMillSizeType != null)
                 {
-                    if (CurrentPipeMillSizeType != null || CurrentPipeMillSizeType.SeamType != null)
+                    if(CurrentPipeMillSizeType != null || CurrentPipeMillSizeType.SeamType != null)
                     {
                         return CurrentPipeMillSizeType.SeamType;
                     }
-                    else 
+                    else
                     {
-                        return new SeamType() { IsNative = true, Project = CurrentProjectSettings }; 
+                        return new SeamType() { IsNative = true, Project = CurrentProjectSettings };
                     }
                 }
                 else { return new SeamType() { IsNative = true, Project = CurrentProjectSettings }; }
             }
             set
             {
-                if (value != CurrentPipeMillSizeType.SeamType)
+                if(value != CurrentPipeMillSizeType.SeamType)
                 {
                     CurrentPipeMillSizeType.SeamType = value;
                     RaisePropertyChanged("SeamType");
@@ -655,7 +664,7 @@ namespace Prizm.Main.Forms.Settings
 
         public bool IsMaster
         {
-            get { return (Program.ThisWorkstationType == WorkstationType.Master) ? true : false; } 
+            get { return (Program.ThisWorkstationType == WorkstationType.Master) ? true : false; }
         }
 
         public bool IsMill

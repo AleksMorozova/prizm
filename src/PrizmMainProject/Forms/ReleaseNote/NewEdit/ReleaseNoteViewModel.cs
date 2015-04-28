@@ -119,6 +119,8 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
         [Inject]
         public ReleaseNoteViewModel(IReleaseNoteRepositories repos, Guid id, IUserNotify notify, ISecurityContext ctx)
         {
+            try
+            {
             this.repos = repos;
             this.notify = notify;
             this.ctx = ctx;
@@ -149,7 +151,13 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                     }
                 }
             }
-           
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+            }
         }
 
         public List<SimplePipe> AllPipesToAdd

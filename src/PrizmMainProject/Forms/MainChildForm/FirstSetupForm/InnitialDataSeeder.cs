@@ -1,4 +1,5 @@
-﻿using Prizm.Domain.Entity;
+﻿using Prizm.Data.DAL;
+using Prizm.Domain.Entity;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Domain.Entity.Mill;
 using Prizm.Domain.Entity.Setup;
@@ -56,6 +57,8 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 
         private bool SeedRequired()
         {
+            try
+            {
             firstSetupRepo.BeginTransaction();
             #region SeamTypes
             seamTypes = new List<SeamType>
@@ -572,8 +575,11 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             }
 
             #endregion // --- CannedMessage ---
-            
-
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+            }
             return false;
         }
 

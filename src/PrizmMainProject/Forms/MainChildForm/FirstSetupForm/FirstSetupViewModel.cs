@@ -17,15 +17,19 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Prizm.Main.Properties;
 using Prizm.Domain.Entity.Mill;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
 {
     public class FirstSetupViewModel : ViewModelBase
     {
         private readonly IFirstSetupRepo firstSetupRepo;
+        private IUserNotify notify;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(FirstSetupViewModel));
         public Role SuperUser = new Role()
-        { 
-            Name = Resources.Administrator, Description = Resources.Administrator   // Resources. is OK here
+        {
+            Name = Resources.Administrator,
+            Description = Resources.Administrator   // Resources. is OK here
         };
         FirstSetupSaveCommand saveCommand;
         public bool IsSaved = false;
@@ -33,29 +37,38 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         [Inject]
         public FirstSetupViewModel(IFirstSetupRepo firstSetupRepo)
         {
-            this.firstSetupRepo = firstSetupRepo;
-            saveCommand = ViewModelSource.Create(() => new FirstSetupSaveCommand(this, firstSetupRepo));
-
-            var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), ConfigurationManager.AppSettings["WorkstationType"]);
-
-            var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
-
-            if (defaultStation == WorkstationType.Undefined)
+            try
             {
-                defaultStation = WorkstationType.Mill;
+                this.firstSetupRepo = firstSetupRepo;
+                saveCommand = ViewModelSource.Create(() => new FirstSetupSaveCommand(this, firstSetupRepo));
+
+                var defaultStation = (WorkstationType)Enum.Parse(typeof(WorkstationType), ConfigurationManager.AppSettings["WorkstationType"]);
+
+                var defaultProjName = ConfigurationManager.AppSettings["ProjectName"];
+
+                if(defaultStation == WorkstationType.Undefined)
+                {
+                    defaultStation = WorkstationType.Mill;
+                }
+                project.WorkstationType = defaultStation;
+                project.Title = defaultProjName;
+                project.DocumentSizeLimit = 1024;
+
+                foreach(Permission permission in firstSetupRepo.PermissionRepo.GetAll())
+                {
+                    SuperUser.Permissions.Add(permission);
+                }
+                admin.Roles = new List<Role>() { SuperUser };
             }
-            project.WorkstationType = defaultStation;
-            project.Title = defaultProjName;
-            project.DocumentSizeLimit = 1024;
-           
-            foreach (Permission permission in firstSetupRepo.PermissionRepo.GetAll())
+            catch(RepositoryException ex)
             {
-                SuperUser.Permissions.Add(permission);
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
-            admin.Roles = new List<Role>() { SuperUser };            
         }
 
-        private Project project = new Project() { IsNative = true};
+        private Project project = new Project() { IsNative = true };
         private User admin = new User() { Undeletable = true };
         private PersonName name = new PersonName();
 
@@ -67,7 +80,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.Title; }
             set
             {
-                if (value != project.Title)
+                if(value != project.Title)
                 {
                     project.Title = value;
                     RaisePropertyChanged("ProjectTitle");
@@ -85,7 +98,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.DocumentSizeLimit; }
             set
             {
-                if (value != project.DocumentSizeLimit)
+                if(value != project.DocumentSizeLimit)
                 {
                     project.DocumentSizeLimit = value;
                     RaisePropertyChanged("Size");
@@ -98,7 +111,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.MillName; }
             set
             {
-                if (value != project.MillName)
+                if(value != project.MillName)
                 {
                     project.MillName = value;
                     RaisePropertyChanged("MillName");
@@ -111,7 +124,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project.MillPipeNumberMask; }
             set
             {
-                if (value != project.MillPipeNumberMask)
+                if(value != project.MillPipeNumberMask)
                 {
                     project.MillPipeNumberMask = value;
                     project.MillPipeNumberMaskRegexp = Project.FormRegExp(project.MillPipeNumberMask);
@@ -126,7 +139,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return admin.Login; }
             set
             {
-                if (value != admin.Login)
+                if(value != admin.Login)
                 {
                     admin.Login = value;
                     RaisePropertyChanged("Login");
@@ -140,7 +153,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return password; }
             set
             {
-                if (value != password)
+                if(value != password)
                 {
                     password = value;
                     RaisePropertyChanged("Password");
@@ -153,7 +166,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.LastName; }
             set
             {
-                if (value != name.LastName)
+                if(value != name.LastName)
                 {
                     name.LastName = value;
                     RaisePropertyChanged("LastName");
@@ -166,7 +179,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.FirstName; }
             set
             {
-                if (value != name.FirstName)
+                if(value != name.FirstName)
                 {
                     name.FirstName = value;
                     RaisePropertyChanged("FirstName");
@@ -179,7 +192,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name.MiddleName; }
             set
             {
-                if (value != name.MiddleName)
+                if(value != name.MiddleName)
                 {
                     name.MiddleName = value;
                     RaisePropertyChanged("MiddleName");
@@ -196,7 +209,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return project; }
             set
             {
-                if (value != project)
+                if(value != project)
                 {
                     project = value;
                 }
@@ -208,7 +221,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return admin; }
             set
             {
-                if (value != admin)
+                if(value != admin)
                 {
                     admin = value;
                 }
@@ -220,7 +233,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
             get { return name; }
             set
             {
-                if (value != name)
+                if(value != name)
                 {
                     name = value;
                 }

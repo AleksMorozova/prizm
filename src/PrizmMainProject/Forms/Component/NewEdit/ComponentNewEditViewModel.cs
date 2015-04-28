@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Prizm.Main.Forms.ExternalFile;
 using Prizm.Main.Properties;
 using Prizm.Main.Security;
+using Prizm.Data.DAL;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -46,8 +48,20 @@ namespace Prizm.Main.Forms.Component.NewEdit
             this.repos = repos;
             this.notify = notify;
             this.context = context;
-            this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
-            this.Inspectors = repos.RepoInspector.GetAll();
+
+            try
+            {
+                this.componentTypes = new BindingList<ComponentType>(repos.ComponentTypeRepo.GetAll());
+                this.Inspectors = repos.RepoInspector.GetAll();
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn("ComponentNewEditViewModel " + ex.ToString());
+                notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+            Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                
+            }
+            
             
             saveCommand = ViewModelSource
                 .Create(() => new SaveComponentCommand(this, repos, notify, context));
@@ -65,7 +79,17 @@ namespace Prizm.Main.Forms.Component.NewEdit
             }
             else
             {
-                this.Component = repos.ComponentRepo.Get(id);
+                try
+                {
+                    this.Component = repos.ComponentRepo.Get(id);
+                }
+                catch(RepositoryException ex)
+                {
+                    log.Warn("ComponentNewEditViewModel " + ex.ToString());
+                    notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
+                Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
+                }
+                
             }
 
             if(this.Inspectors == null || this.Inspectors.Count <=0)
