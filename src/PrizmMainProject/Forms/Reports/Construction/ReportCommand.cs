@@ -51,8 +51,10 @@ namespace Prizm.Main.Forms.Reports.Construction
         public void Execute()
         {
             if(viewModel.ReportType == ReportType.TracingReport
-                && viewModel.StartJoint != null
+                && ((viewModel.StartJoint != null 
                 && viewModel.EndJoint != null)
+                ||(viewModel.startPK!=0 
+                && viewModel.endPK!=0)))
             {
                 PipelineTracing();
 
@@ -148,8 +150,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                         graph.AddJointEdge(joint);
                     }
 
-                    var startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
-                    var endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
+                construct.Joint startJoint = null;
+                construct.Joint endJoint = null;
 
                     if(viewModel.TracingMode == TracingModeEnum.TracingByKP
                         && viewModel.AllKP.Contains(viewModel.StartPK)
@@ -166,6 +168,12 @@ namespace Prizm.Main.Forms.Reports.Construction
                                 .Min<construct.Joint>(z => z.DistanceFromKP));
                     }
 
+                if (endJoint == null && startJoint == null)
+                {
+                    startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
+                    endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
+                }
+                
                     var paths = graph.Pathfinder(startJoint.FirstElement, endJoint.FirstElement);
 
                     if(paths.Count != 0)
