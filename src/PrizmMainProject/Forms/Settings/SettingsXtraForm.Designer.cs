@@ -1215,6 +1215,7 @@ namespace Prizm.Main.Forms.Settings
             this.jointsOperationsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.jointsOperationsGridView_InitNewRow);
             this.jointsOperationsGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.jointsOperationsGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.jointsOperationsGridView_ValidateRow);
+            this.jointsOperationsGridView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.jointsOperationsGridView_ShowingEditor);
             // 
             // nameGridColumn
             // 

@@ -996,6 +996,7 @@ namespace Prizm.Main.Forms.Settings
             GridView v = sender as GridView;
             JointOperation jointOperation = v.GetRow(e.RowHandle) as JointOperation;
             jointOperation.IsActive = true;
+            jointOperation.IsRequired = true;
         }
 
         private void repositoryItemsСategoryView_CustomRowFilter(object sender, RowFilterEventArgs e)
@@ -2152,5 +2153,19 @@ namespace Prizm.Main.Forms.Settings
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
         }
+
+        private void jointsOperationsGridView_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView view = sender as GridView;
+            JointOperation selectedOperation = view.GetRow(view.FocusedRowHandle) as JointOperation;
+            if (selectedOperation != null
+                && selectedOperation.Type == JointOperationType.Weld
+                && (view.FocusedColumn.Name == isRequiredForJointGridColumn.Name 
+                || view.FocusedColumn.Name == isActiveJointOperationGridColumn.Name))
+            {
+                e.Cancel = true;
+            }
+        }
+
     }
 }
