@@ -123,7 +123,7 @@ namespace Prizm.Data.DAL.Hibernate
                 res = q.List<Joint>();
             }
 
-            return res;
+            return res.OrderBy(_ => _.Number).ToList<Joint>();
             }
             catch(GenericADOException ex)
             {
