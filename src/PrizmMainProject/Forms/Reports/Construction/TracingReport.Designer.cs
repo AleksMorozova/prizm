@@ -74,7 +74,7 @@
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.tracingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.tracingPageHeaderXrLabel = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrPageInfo3 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
@@ -496,9 +496,9 @@
             // 
             this.tracingBindingSource.DataSource = typeof(Prizm.Main.Forms.Reports.Construction.TracingData);
             // 
-            // ReportHeader
+            // tracingPageHeaderXrLabel
             // 
-            this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.tracingPageHeaderXrLabel.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo3,
             this.xrLabel20,
             this.xrLabel21,
@@ -509,8 +509,8 @@
             this.xrLabel26,
             this.xrLabel27,
             this.xrLabel28});
-            this.ReportHeader.HeightF = 74.29166F;
-            this.ReportHeader.Name = "ReportHeader";
+            this.tracingPageHeaderXrLabel.HeightF = 74.29166F;
+            this.tracingPageHeaderXrLabel.Name = "tracingPageHeaderXrLabel";
             // 
             // xrPageInfo3
             // 
@@ -616,7 +616,7 @@
             this.TracingGroupHeader,
             this.ReportFooter,
             this.pageFooter,
-            this.ReportHeader});
+            this.tracingPageHeaderXrLabel});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calculatedField1});
             this.DataSource = this.tracingBindingSource;
@@ -676,7 +676,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
+        private DevExpress.XtraReports.UI.ReportHeaderBand tracingPageHeaderXrLabel;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel20;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
