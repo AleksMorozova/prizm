@@ -78,7 +78,7 @@ namespace Prizm.Data.DAL.Hibernate
 
                 if(!string.IsNullOrWhiteSpace(number))
                 {
-                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Start);
                 }
 
                 if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
@@ -109,22 +109,22 @@ namespace Prizm.Data.DAL.Hibernate
 
                 if(!string.IsNullOrWhiteSpace(railcar))
                 {
-                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Start);
                 }
 
                 if(!string.IsNullOrWhiteSpace(number))
                 {
-                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Start);
                 }
 
                 if(!string.IsNullOrWhiteSpace(certificate))
                 {
-                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Start);
                 }
 
                 if(!string.IsNullOrWhiteSpace(reciver))
                 {
-                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Start);
                 }
 
                 if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
@@ -162,24 +162,24 @@ namespace Prizm.Data.DAL.Hibernate
 
                 if(!string.IsNullOrWhiteSpace(pipeNumber))
                 {
-                    s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => pipe.Number).IsInsensitiveLike(pipeNumber, MatchMode.Start);
                 }
 
                 if(!string.IsNullOrWhiteSpace(railcar))
                 {
-                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Number).IsInsensitiveLike(railcar, MatchMode.Start);
                 }
                 if(!string.IsNullOrWhiteSpace(number))
                 {
-                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(x => x.Number).IsInsensitiveLike(number, MatchMode.Start);
                 }
                 if(!string.IsNullOrWhiteSpace(certificate))
                 {
-                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Certificate).IsInsensitiveLike(certificate, MatchMode.Start);
                 }
                 if(!string.IsNullOrWhiteSpace(reciver))
                 {
-                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Anywhere);
+                    s.WhereRestrictionOn(() => car.Destination).IsInsensitiveLike(reciver, MatchMode.Start);
                 }
                 if(startDate != DateTime.MinValue && endDate != DateTime.MinValue)
                 {
