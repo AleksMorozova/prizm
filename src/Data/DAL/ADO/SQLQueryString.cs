@@ -248,28 +248,30 @@ select Component.number as number, Joint.part2Type as type
                 p.wallThickness as Thickness,
                 ST.name as Seam,
                 h.steelGrade as Grade,
-				j1.number as Joint1,
-				j2.number as Joint2
-
+				COALESCE( MIN((j2.number)), MIN(j1.number)) Joint1, 
+				CASE 
+					WHEN (count(j1.number) + count (j2.number) < 2 ) THEN NULL 
+				ELSE 
+					COALESCE( MAX(j1.number), MAX(j2.number))
+				END  Joint2
             FROM
                 pipe p
             INNER JOIN 
                 Plate pl ON pl.Id = p.plateId
             INNER JOIN 
                 Heat h ON h.Id = pl.heatId
-
             LEFT JOIN 
                [PipeMillSizeType] PmSt ON (PmSt.Id = p.typeId)
             LEFT JOIN 
               [SeamType] ST ON (st.Id = PmSt.seamTypeId)
 			LEFT JOIN 
-              Joint j1 on j1.part1Id = p.id
+              Joint j1 on j1.part1Id = p.id AND j1.isActive = 1 
 			LEFT JOIN 
-              Joint j2 on j2.part2Id = p.id
-            
-            WHERE 
-                p.isActive = 1
-            {where_options}";
+              Joint j2 on j2.part2Id = p.id AND j2.isActive = 1 
+			  WHERE 
+               p.isActive = 1
+            {where_options} 
+            GROUP BY  p.number,  p.[length], p.diameter, p.wallThickness, ST.name, h.steelGrade ";
 
 
         private const string GetJointsByDate = @"
