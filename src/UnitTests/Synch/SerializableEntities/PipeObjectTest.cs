@@ -21,8 +21,8 @@ namespace Prizm.UnitTests.Synch.SerializableEntities
       PartInspectionStatus INSPECTION_STATUS = PartInspectionStatus.Accepted;
       const string MILL = "MILL";
       const int DIAMETER = 14;
-      const float WALL_THICKNESS = 15F;
-      const float WEIGHT = 43F;
+      const decimal WALL_THICKNESS = 15m;
+      const decimal WEIGHT = 43m;
       DateTime PROD_DATE = DateTime.Now;
       PipeMillStatus STATUS = PipeMillStatus.Produced;
 

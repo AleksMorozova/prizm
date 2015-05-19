@@ -19,19 +19,19 @@ namespace Prizm.Main.Forms.Reports.Mill
             pipes = this.DataSource as List<Pipe>;
         }
 
-        public double PipesLength
+        public decimal PipesLength
         {
             get { return Convert.ToInt32(pipesLength.Text); }
             set { pipesLength.Text = value.ToString(); }
         }
 
-        public double PipesCount
+        public decimal PipesCount
         {
             get { return Convert.ToInt32(totalCount.Text); }
             set { totalCount.Text = value.ToString(); }
         }
 
-        public double PipesWeight
+        public decimal PipesWeight
         {
             get { return Convert.ToInt32(pipesWeight.Text); }
             set { pipesWeight.Text = value.ToString(); }

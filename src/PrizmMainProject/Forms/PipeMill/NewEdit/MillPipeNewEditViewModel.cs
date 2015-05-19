@@ -329,7 +329,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public float Weight
+        public decimal Weight
         {
             get
             {
@@ -451,7 +451,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public float PlateThickness
+        public decimal PlateThickness
         {
             get { return Plate.Thickness; }
             set
@@ -997,7 +997,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public float Diameter
+        public decimal Diameter
         {
             get
             {
@@ -1013,7 +1013,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
         }
 
-        public float WallThickness
+        public decimal WallThickness
         {
             get
             {

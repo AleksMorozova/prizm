@@ -15,17 +15,17 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         {
             public Guid OperationId { get; set; }
             public Guid PipeSizeTypeId { get; set; }
-            private float warningBoundary = 0;
+            private decimal warningBoundary = 0;
             private int frequency = 0;
             public int Frequency
             {
                 get { return frequency; }
                 set { frequency = value; warningBoundary = value * Prizm.Main.Common.Constants.PercentForInspectionOperation; } 
             }
-            public float WarningBoundary { get { return warningBoundary; } }
+            public decimal WarningBoundary { get { return warningBoundary; } }
 
-            public float UnitsSinceLastOperation { get; set; }
-            public float UnitsLeft { get { return Frequency - UnitsSinceLastOperation; } }
+            public decimal UnitsSinceLastOperation { get; set; }
+            public decimal UnitsLeft { get { return Frequency - UnitsSinceLastOperation; } }
 
             public string Measure { get; set; } // enum type
             public string OperationCode { get; set; }
@@ -38,7 +38,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         public void AddOrReplace(
             Guid pipeSizeTypeId,
             Guid notRequiredOperationId,
-            int frequency, float unitsSinceLastOperation,
+            int frequency, decimal unitsSinceLastOperation,
             string operationCode, string operationName, string pipeSizeTypeName,
             string measure)
         {
@@ -71,7 +71,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         /// <param name="pipeTestId">id of NRO</param>
         /// <param name="unitsProducedSinceLastDate">number of units to be set</param>
         /// <returns>status, if units were really set (pipeTestId found in cache)</returns>
-        public bool SetUnits(Guid pipeTestId, float unitsProducedSinceLastDate)
+        public bool SetUnits(Guid pipeTestId, decimal unitsProducedSinceLastDate)
         {
             bool found = false;
             if (internalCache.ContainsKey(pipeTestId))
@@ -88,7 +88,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         /// <param name="pipeTestId">id of NRO</param>
         /// <param name="units">number of units to be added</param>
         /// <returns>status, if units were really added (pipeTestId found in cache)</returns>
-        public bool AddUnits(Guid pipeTestId, float units)
+        public bool AddUnits(Guid pipeTestId, decimal units)
         {
             bool found = false;
             if (internalCache.ContainsKey(pipeTestId))
@@ -105,7 +105,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
         /// <param name="pipeTestId">id of NRO</param>
         /// <param name="units">number of units to be removed</param>
         /// <returns>status, if units were really removed (pipeTestId found in cache)</returns>
-        public bool RemoveUnits(Guid pipeTestId, float units)
+        public bool RemoveUnits(Guid pipeTestId, decimal units)
         {
             bool found = false;
             if (internalCache.ContainsKey(pipeTestId))
@@ -185,7 +185,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
             }
         }
 
-        public float GetUnits(Guid pipeTestId)
+        public decimal GetUnits(Guid pipeTestId)
         {
             try
             {

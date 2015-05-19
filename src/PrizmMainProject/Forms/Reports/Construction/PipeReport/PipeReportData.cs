@@ -15,8 +15,8 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
         {
             PipeNumber = row.Field<string>("Number");
             Length = row.Field<int>("Length");
-            Thickness = row.Field<double>("Thickness");
-            Diameter = row.Field<float>("Diameter");
+            Thickness = row.Field<decimal>("Thickness");
+            Diameter = row.Field<decimal>("Diameter");
             SeamType = row.Field<string>("Seam");
             GradeType = row.Field<string>("Grade");
             FirstJointNumber = row.Field<string>("Joint1");
@@ -25,8 +25,8 @@ namespace Prizm.Main.Forms.Reports.Construction.PipeReport
 
         public string PipeNumber { get; set; }
         public int Length { get; set; }
-        public float Diameter { get; set; }
-        public double Thickness { get; set; }
+        public decimal Diameter { get; set; }
+        public decimal Thickness { get; set; }
 
         public string SeamType { get; set; }
         public string GradeType { get; set; }

@@ -16,8 +16,8 @@ namespace Prizm.Domain.Entity.Setup
         }
         public virtual string Type { get; set; }
         public virtual int Length { get; set; }
-        public virtual float Diameter { get; set; }
-        public virtual float Thickness { get; set; }
+        public virtual decimal Diameter { get; set; }
+        public virtual decimal Thickness { get; set; }
         public virtual bool IsNative { get; set; }
         public virtual Project Project { get; set; }
 

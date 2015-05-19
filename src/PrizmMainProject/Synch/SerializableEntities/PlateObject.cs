@@ -39,7 +39,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Number { get; set; }
 
       [XmlAttribute("Thickness")]
-      public float Thickness { get; set; }
+      public decimal Thickness { get; set; }
 
       [XmlElement("Heat")]
       public HeatObject Heat { get; set; }

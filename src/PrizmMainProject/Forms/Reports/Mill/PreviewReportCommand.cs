@@ -42,7 +42,7 @@ namespace Prizm.Main.Forms.Reports.Mill
                     {
                         data = repo.GetPipes(viewModel.StartDate, viewModel.EndDate);
                         AdditionToTheReport report = new AdditionToTheReport();
-                        BindingList<double> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
+                        BindingList<decimal> counts = repo.CountPipe(viewModel.StartDate, viewModel.EndDate);
                         report.PipesCount = counts[0];
                         report.PipesLength = counts[1];
                         report.PipesWeight = counts[2];

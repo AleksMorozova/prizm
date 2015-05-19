@@ -25,14 +25,14 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
         public override TypeNotification Type { get { return TypeNotification.NotRequiredInspectionOperation; } }
 
-        public static Notification CreateNotification(Guid ownerId, string ownerName, float unitsLeft, string information)
+        public static Notification CreateNotification(Guid ownerId, string ownerName, decimal unitsLeft, string information)
         {
-            return new Notification(ownerId, ownerName, TypeNotification.NotRequiredInspectionOperation, information, unitsLeft);
+            return new Notification(ownerId, ownerName, TypeNotification.NotRequiredInspectionOperation, information, unitsLeft.ToString());
         }
 
         public void UpdateUnits(Guid operationId)
         {
-            KeyValuePair<Guid, float> producedUnits = repo.GetUnitsProducedSinceLastDateTest(operationId, cache.GetMeasure(operationId));
+            KeyValuePair<Guid, decimal> producedUnits = repo.GetUnitsProducedSinceLastDateTest(operationId, cache.GetMeasure(operationId));
             cache.SetUnits(operationId, producedUnits.Value);
         }
 
@@ -68,7 +68,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
                 foreach (KeyValuePair<DateTime, Guid> list in listOfDate)
                 {
-                    KeyValuePair<Guid, float> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
+                    KeyValuePair<Guid, decimal> producedUnits = repo.GetAllUnitsProducedSinceLastDate(list.Value, list.Key, cache.GetMeasure(list.Value));
                     cache.SetUnits(producedUnits.Key, producedUnits.Value);
                     if (cache.IsGoingToExpire(producedUnits.Key))
                     {
@@ -146,7 +146,7 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
 
             private Guid initialPipeSizeTypeId = default(Guid);
             private int initialPipeLength = 0;
-            private float initialPipeWeight = 0;
+            private decimal initialPipeWeight = 0;
             private List<PipeTestResult> initialPipeTestResult = new List<PipeTestResult>();
             private List<NROInfo> initialNROList = new List<NROInfo>();
             private List<TestResultInfo> initialTestResultList = new List<TestResultInfo>();
@@ -239,9 +239,9 @@ namespace Prizm.Main.Forms.Notifications.Managers.NotRequired
                 }
             }
 
-            private float ChooseUnit(FrequencyMeasure measure, Pipe pipe = null)
+            private decimal ChooseUnit(FrequencyMeasure measure, Pipe pipe = null)
             {
-                float ret = 0;
+                decimal ret = 0;
                 switch (measure)
                 {
                     case FrequencyMeasure.Meters:

@@ -143,10 +143,10 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
         /// <returns>
         /// KeyValuePair contains id of not required inspection operations and units left since last inspection result
         /// </returns>
-        public KeyValuePair<Guid, float> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, FrequencyMeasure measure)
+        public KeyValuePair<Guid, decimal> GetAllUnitsProducedSinceLastDate(Guid testId, DateTime maxDate, FrequencyMeasure measure)
         {
             CreateConnection();
-            KeyValuePair<Guid, float> unitsProducedSinceLastDate = new KeyValuePair<Guid,float>();
+            KeyValuePair<Guid, decimal> unitsProducedSinceLastDate = new KeyValuePair<Guid,decimal>();
 
             try
             {
@@ -166,10 +166,10 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>(
 
                                 (Guid)dr[1],
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]
                             );
                         }
 
@@ -183,10 +183,10 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>(
 
                                 (Guid)dr[1],
-                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)dr[0]
 
                             );
                         }
@@ -202,9 +202,9 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>
                                 ((Guid)dr[1],
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]);
                         }
                     }
                     else 
@@ -216,9 +216,9 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
                         SqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>
                                 ((Guid)dr[1],
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]);
                         }
                     }
                 }
@@ -275,10 +275,10 @@ From PipeTestResult PipeTestResult where  PipeTestResult.status not in('{0}')
         /// <returns>
         /// KeyValuePair contains id of not required inspection operations and units left since last inspection result 
         /// </returns>
-        public KeyValuePair<Guid, float> GetUnitsProducedSinceLastDateTest(Guid testId, FrequencyMeasure measure)
+        public KeyValuePair<Guid, decimal> GetUnitsProducedSinceLastDateTest(Guid testId, FrequencyMeasure measure)
         {
             CreateConnection();
-            KeyValuePair<Guid, float> unitsProducedSinceLastDate = new KeyValuePair<Guid, float>();
+            KeyValuePair<Guid, decimal> unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>();
             DateTime date=DateTime.MinValue;
 
             try
@@ -310,10 +310,10 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
                        
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>(
 
                                 testId,
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]
                             );
                         }
 
@@ -327,10 +327,10 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
                        
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>(
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>(
 
                                 testId,
-                                dr[0] == System.DBNull.Value ? 0 : (float)(double)dr[0]
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(double)dr[0]
 
                             );
                         }
@@ -346,9 +346,9 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
                         
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>
                                 (testId,
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]);
                         }
                     }
                     else
@@ -361,9 +361,9 @@ and r.status not in('{0}')", PipeTestResultStatus.Scheduled.ToString());
                 
                         while (dr.Read())
                         {
-                            unitsProducedSinceLastDate = new KeyValuePair<Guid, float>
+                            unitsProducedSinceLastDate = new KeyValuePair<Guid, decimal>
                                 (testId,
-                                dr[0] == System.DBNull.Value ? 0 : (float)(int)dr[0]);
+                                dr[0] == System.DBNull.Value ? 0 : (decimal)(int)dr[0]);
                         }
                     }
                 }

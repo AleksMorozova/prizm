@@ -599,7 +599,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public float Diameter
+        public decimal Diameter
         {
             get
             {
@@ -615,7 +615,7 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
-        public float Thickness
+        public decimal Thickness
         {
             get
             {

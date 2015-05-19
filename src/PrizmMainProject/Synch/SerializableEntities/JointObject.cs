@@ -63,7 +63,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public int NumberKP { get; set; }
 
       [XmlAttribute("DistanceFromKP")]
-      public float DistanceFromKP { get; set; }
+      public decimal DistanceFromKP { get; set; }
 
       [XmlAttribute("LoweringDate")]
       public DateTime LoweringDate { get; set; }
@@ -78,7 +78,7 @@ namespace Prizm.Main.Synch.SerializableEntities
       public double GpsLongitude { get; set; }
 
       [XmlAttribute("GpsHeight")]
-      public float GpsHeight { get; set; }
+      public decimal GpsHeight { get; set; }
 
       [XmlElement("FirstElement")]
       public PartDataObject FirstElement { get; set; }

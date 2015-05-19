@@ -20,10 +20,10 @@ namespace Prizm.Domain.Entity.Mill
         public virtual Plate Plate { get; set; }
 
         public virtual string Mill { get; set; }
-        public virtual float Diameter { get; set; }
-        public virtual float WallThickness { get; set; }
+        public virtual decimal Diameter { get; set; }
+        public virtual decimal WallThickness { get; set; }
 
-        public virtual float Weight { get; set; }
+        public virtual decimal Weight { get; set; }
 
         public virtual DateTime ProductionDate { get; set; }
 
@@ -58,14 +58,14 @@ namespace Prizm.Domain.Entity.Mill
         /// <summary>
         ///  Density of carbon steel
         /// </summary>
-        public const float Ro = 0.00000785F;
+        public const decimal Ro = 0.00000785m;
 
         /// <summary>
         ///  Recalculate pipe weight
         /// </summary>
         public virtual void RecalculateWeight()
         {
-            this.Weight = (float)(Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
+            this.Weight = (decimal)((decimal)Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
         }
 
     }
