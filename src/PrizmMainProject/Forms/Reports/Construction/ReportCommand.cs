@@ -33,7 +33,8 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private List<construct.Joint> joints = null;
         private IList<PartData> partDataList = null;
-
+        private IList<PartData> usedProductList = null;
+        private List<PartData> resultUsedProductList = null;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public ReportCommand(
@@ -50,20 +51,22 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if(viewModel.ReportType == ReportType.TracingReport
-                && ((viewModel.StartJoint != null 
+            if(((viewModel.StartJoint != null 
                 && viewModel.EndJoint != null)
                 ||(viewModel.startPK!=0 
                 && viewModel.endPK!=0)))
             {
                 PipelineTracing();
 
-                viewModel.ReportDataSource = tracingDataList;
-            }
-            else if(viewModel.ReportType == ReportType.UsedProductReport)
-            {
-                GetUsedProduct();
-                viewModel.ReportDataSource = data;
+                if (viewModel.ReportType == ReportType.TracingReport)
+                {
+                    viewModel.ReportDataSource = tracingDataList;
+                }
+                else if (viewModel.ReportType == ReportType.UsedProductReport)
+                {
+                    GetUsedProduct();
+                    viewModel.ReportDataSource = resultUsedProductList.Distinct();
+                }
             }
         }
 
@@ -73,42 +76,21 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if(viewModel.Types.Count > 0)
                 {
-                    StringBuilder GetAllUsedProducts = new StringBuilder();
-                    foreach(var item in viewModel.Types)
+                    resultUsedProductList = new List<PartData>();
+                    foreach(var item in usedProductList)
                     {
-                        if(!string.IsNullOrWhiteSpace(GetAllUsedProducts.ToString()))
+                        if (viewModel.Types.Contains(item.PartType))
                         {
-                            GetAllUsedProducts.Append(" UNION ");
-                        }
-
-                        switch(item)
-                        {
-                            case PartType.Undefined:
-                                GetAllUsedProducts.Append(" ");
-                                break;
-                            case PartType.Pipe:
-                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedPipe));
-                                GetAllUsedProducts.Append(" ");
-                                break;
-                            case PartType.Spool:
-                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedSpool));
-                                GetAllUsedProducts.Append(" ");
-                                break;
-                            case PartType.Component:
-                                GetAllUsedProducts.Append(" ");
-                                GetAllUsedProducts.Append(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetAllUsedComponent));
-                                break;
-                            default:
-                                GetAllUsedProducts.Append(" ");
-                                break;
+                            resultUsedProductList.Add(item);
                         }
                     }
-
-                    data = repo.GetUsedProducts(viewModel.StartPK, viewModel.EndPK, GetAllUsedProducts.ToString());
-                    data.TranslateStatus<PartType>(SQLProvider.TableNameForUsedProductsReport, SQLProvider.ColumnNameForUsedProductsReport, viewModel.localizedPartType);
-
-                    SetDataSortByColumn("number");
                 }
+
+                resultUsedProductList.Sort(delegate(PartData x, PartData y)
+                {
+                    return x.PartType.CompareTo(y.PartType);
+                });
+
             }
             catch(RepositoryException ex)
             {
@@ -181,7 +163,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                         path = graph.ShortestPath(paths);
 
                         path = graph.RemovalExternalComponents(startJoint, endJoint, path);
-
+                        usedProductList = new List<PartData>();
                         for(int i = path.Count - 1; i > 0; --i)
                         {
                             var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
@@ -190,7 +172,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                             tracingDataItem.JointNumber = commonJoint.Data.Number;
                             tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
-
+                            usedProductList.Add(path[i].Data);
                             tracingDataList.Add(tracingDataItem);
                         }
 
@@ -198,13 +180,13 @@ namespace Prizm.Main.Forms.Reports.Construction
                         firstTracingDataItem.JointNumber = startJoint.Number;
                         firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
                         tracingDataList.Insert(0, firstTracingDataItem);
+                        usedProductList.Add(path.Last().Data);
 
                         var lastTracingDataItem = new TracingData(path.First().Data, null);
                         lastTracingDataItem.JointNumber = endJoint.Number;
                         lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
                         tracingDataList.Add(lastTracingDataItem);
-
-
+                        usedProductList.Add(path.First().Data);
                         PipelineLenghtCalculation();
                     }
                 }
@@ -220,8 +202,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
-
-
 
         private void PipelineLenghtCalculation()
         {
@@ -239,21 +219,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             viewModel.PipelineLength =
                 path.Select<PipelineVertex, int>(x => x.Data.Length).Sum();
-        }
-
-        private void SetDataSortByColumn(string columnName)
-        {
-            foreach(DataTable t in data.Tables)
-            {
-                foreach(DataColumn column in ((DataTable)t).Columns)
-                {
-                    if(column.ColumnName == columnName)
-                    {
-                        t.DefaultView.Sort = column.ColumnName;
-                        break;
-                    }
-                }
-            }
         }
 
         private IList<PartData> FormWeldedParts(DataTable dataTable)
