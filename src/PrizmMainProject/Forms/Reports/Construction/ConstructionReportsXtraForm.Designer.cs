@@ -37,7 +37,6 @@
             this.end = new DevExpress.XtraEditors.LookUpEdit();
             this.start = new DevExpress.XtraEditors.LookUpEdit();
             this.footersCheck = new DevExpress.XtraEditors.CheckEdit();
-            this.infoLabel = new DevExpress.XtraEditors.LabelControl();
             this.tracingModeRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.reportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.createReportButton = new DevExpress.XtraEditors.SimpleButton();
@@ -53,7 +52,6 @@
             this.startJointEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.reportTypeEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tracingModeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.infoLabelLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.footersCheckLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.previewButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.createButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
@@ -81,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.startJointEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheckLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).BeginInit();
@@ -102,7 +99,6 @@
             this.generalLayout.Controls.Add(this.end);
             this.generalLayout.Controls.Add(this.start);
             this.generalLayout.Controls.Add(this.footersCheck);
-            this.generalLayout.Controls.Add(this.infoLabel);
             this.generalLayout.Controls.Add(this.tracingModeRadioGroup);
             this.generalLayout.Controls.Add(this.reportType);
             this.generalLayout.Controls.Add(this.createReportButton);
@@ -172,7 +168,7 @@
             // 
             // footersCheck
             // 
-            this.footersCheck.Location = new System.Drawing.Point(774, 58);
+            this.footersCheck.Location = new System.Drawing.Point(656, 58);
             this.footersCheck.MaximumSize = new System.Drawing.Size(160, 19);
             this.footersCheck.MinimumSize = new System.Drawing.Size(160, 19);
             this.footersCheck.Name = "footersCheck";
@@ -180,17 +176,6 @@
             this.footersCheck.Size = new System.Drawing.Size(160, 19);
             this.footersCheck.StyleController = this.generalLayout;
             this.footersCheck.TabIndex = 77;
-            // 
-            // infoLabel
-            // 
-            this.infoLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.infoLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.infoLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.infoLabel.Location = new System.Drawing.Point(666, 43);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(84, 82);
-            this.infoLabel.StyleController = this.generalLayout;
-            this.infoLabel.TabIndex = 76;
             // 
             // tracingModeRadioGroup
             // 
@@ -223,7 +208,7 @@
             // createReportButton
             // 
             this.createReportButton.Image = ((System.Drawing.Image)(resources.GetObject("createReportButton.Image")));
-            this.createReportButton.Location = new System.Drawing.Point(953, 58);
+            this.createReportButton.Location = new System.Drawing.Point(835, 58);
             this.createReportButton.MaximumSize = new System.Drawing.Size(110, 22);
             this.createReportButton.MinimumSize = new System.Drawing.Size(110, 22);
             this.createReportButton.Name = "createReportButton";
@@ -235,7 +220,7 @@
             // previewButton
             // 
             this.previewButton.Image = ((System.Drawing.Image)(resources.GetObject("previewButton.Image")));
-            this.previewButton.Location = new System.Drawing.Point(953, 95);
+            this.previewButton.Location = new System.Drawing.Point(835, 95);
             this.previewButton.MaximumSize = new System.Drawing.Size(110, 22);
             this.previewButton.MinimumSize = new System.Drawing.Size(110, 22);
             this.previewButton.Name = "previewButton";
@@ -311,7 +296,6 @@
             this.startJointEmptySpace,
             this.reportTypeEmptySpace,
             this.tracingModeLayoutControl,
-            this.infoLabelLayout,
             this.footersCheckLayout,
             this.previewButtonLayout,
             this.createButtonLayout,
@@ -394,25 +378,11 @@
             this.tracingModeLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.tracingModeLayoutControl.TextVisible = false;
             // 
-            // infoLabelLayout
-            // 
-            this.infoLabelLayout.Control = this.infoLabel;
-            this.infoLabelLayout.CustomizationFormText = "layoutControlItem1";
-            this.infoLabelLayout.Location = new System.Drawing.Point(627, 0);
-            this.infoLabelLayout.MinSize = new System.Drawing.Size(34, 17);
-            this.infoLabelLayout.Name = "infoLabelLayout";
-            this.infoLabelLayout.Size = new System.Drawing.Size(118, 86);
-            this.infoLabelLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.infoLabelLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 15, 0, 0);
-            this.infoLabelLayout.Text = "infoLabelLayout";
-            this.infoLabelLayout.TextSize = new System.Drawing.Size(0, 0);
-            this.infoLabelLayout.TextVisible = false;
-            // 
             // footersCheckLayout
             // 
             this.footersCheckLayout.Control = this.footersCheck;
             this.footersCheckLayout.CustomizationFormText = "footersCheckLayout";
-            this.footersCheckLayout.Location = new System.Drawing.Point(745, 0);
+            this.footersCheckLayout.Location = new System.Drawing.Point(627, 0);
             this.footersCheckLayout.MaxSize = new System.Drawing.Size(174, 39);
             this.footersCheckLayout.MinSize = new System.Drawing.Size(174, 39);
             this.footersCheckLayout.Name = "footersCheckLayout";
@@ -427,11 +397,11 @@
             // 
             this.previewButtonLayout.Control = this.previewButton;
             this.previewButtonLayout.CustomizationFormText = "previewButtonLayout";
-            this.previewButtonLayout.Location = new System.Drawing.Point(919, 42);
+            this.previewButtonLayout.Location = new System.Drawing.Point(801, 42);
             this.previewButtonLayout.MaxSize = new System.Drawing.Size(137, 0);
             this.previewButtonLayout.MinSize = new System.Drawing.Size(137, 42);
             this.previewButtonLayout.Name = "previewButtonLayout";
-            this.previewButtonLayout.Size = new System.Drawing.Size(137, 44);
+            this.previewButtonLayout.Size = new System.Drawing.Size(255, 44);
             this.previewButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.previewButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 1);
             this.previewButtonLayout.Text = "previewButtonLayout";
@@ -442,11 +412,11 @@
             // 
             this.createButtonLayout.Control = this.createReportButton;
             this.createButtonLayout.CustomizationFormText = "createButtonLayout";
-            this.createButtonLayout.Location = new System.Drawing.Point(919, 0);
+            this.createButtonLayout.Location = new System.Drawing.Point(801, 0);
             this.createButtonLayout.MaxSize = new System.Drawing.Size(137, 0);
             this.createButtonLayout.MinSize = new System.Drawing.Size(137, 41);
             this.createButtonLayout.Name = "createButtonLayout";
-            this.createButtonLayout.Size = new System.Drawing.Size(137, 42);
+            this.createButtonLayout.Size = new System.Drawing.Size(255, 42);
             this.createButtonLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.createButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 15, 0);
             this.createButtonLayout.Text = "createButtonLayout";
@@ -535,7 +505,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.startJointEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracingModeLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoLabelLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.footersCheckLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewButtonLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createButtonLayout)).EndInit();
@@ -574,8 +543,6 @@
         private DevExpress.XtraLayout.LayoutControlItem tracingModeLayoutControl;
         private DevExpress.XtraEditors.CheckEdit footersCheck;
         private DevExpress.XtraLayout.LayoutControlItem footersCheckLayout;
-        private DevExpress.XtraEditors.LabelControl infoLabel;
-        private DevExpress.XtraLayout.LayoutControlItem infoLabelLayout;
         private DevExpress.XtraEditors.LookUpEdit end;
         private DevExpress.XtraEditors.LookUpEdit start;
         private DevExpress.XtraLayout.LayoutControlItem startJointLayout;
