@@ -90,7 +90,7 @@ and  Pipe.isActive=1 and Pipe.pipeMillStatus in ('Stocked' ,'Shipped','ReadyToSh
 (select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Scheduled' and p.productionDate = pipe.productionDate) as 'ScheduledInternal',
 (select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Failed' and p.productionDate = pipe.productionDate) as 'FailedInternal',
 (select COUNT (number) from Pipe p where p.millInterCoatSubStatus = 'Passed' and p.productionDate = pipe.productionDate) as 'PassedInternal'
- from Pipe pipe WHERE pipe.productionDate >=  @startDate  and pipe.productionDate <= @finalDate
+ from Pipe pipe WHERE pipe.productionDate >=  @startDate  and pipe.productionDate <= @finalDate and pipe.isActive =1
 group by productionDate  ";
 
         private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number, PurchaseOrder.date,ROUND(wallThickness, 2) as wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
