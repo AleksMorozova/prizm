@@ -15,7 +15,7 @@ namespace Prizm.UnitTests.Synch.SerializableEntities
    {
       Guid id = Guid.NewGuid();
       const string NUMBER = "NUMBER";
-      const float THICKNESS = 0.2F;
+      const decimal THICKNESS = 0.2m;
 
       Plate SetupMock()
       {

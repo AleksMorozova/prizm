@@ -9,7 +9,7 @@ namespace Prizm.Main.Common
     public class Constants
     {
         public const int StatusNotifyHistorySize = 400;
-        public const float WallThicknessPrecision = 0.01f;
+        public const decimal WallThicknessPrecision = 0.01m;
         public const int MinYear = 1950;
         public const int MaxYear = 2150;
         public const int DiameterDiffLimit = 2;
@@ -25,7 +25,7 @@ namespace Prizm.Main.Common
         /// <summary>
         /// period in percents for remaining about execution of control operation
         /// </summary>
-        public const float PercentForInspectionOperation = 0.90f;
+        public const decimal PercentForInspectionOperation = 0.90m;
 
         /// <summary>
         /// Warning should be shown this amount of days before expiration

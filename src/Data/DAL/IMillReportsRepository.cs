@@ -18,7 +18,7 @@ namespace Prizm.Data.DAL
         DataSet GetUsedProducts(int startPK, int endPK, string queryString);
         DataSet GetPipesFromInspection(DateTime startDate, DateTime finalDate);
         DataSet GetPipes(DateTime startDate, DateTime finalDate);
-        BindingList<double> CountPipe(DateTime startDate, DateTime finalDate);
+        BindingList<decimal> CountPipe(DateTime startDate, DateTime finalDate);
         DataTable GetPipelineElements(string pipeNumber, string[] pipeTypes);
         DataSet CountWeldInf(DateTime startDate, DateTime finalDate);
         BindingList<int> GetAllKP();

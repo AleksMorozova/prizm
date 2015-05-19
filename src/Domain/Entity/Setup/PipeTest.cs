@@ -53,8 +53,8 @@ namespace Prizm.Domain.Entity.Setup
 
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
-        public virtual float MinExpected { get; set; }
-        public virtual float MaxExpected { get; set; }
+        public virtual decimal MinExpected { get; set; }
+        public virtual decimal MaxExpected { get; set; }
         public virtual string StringExpected { get; set; }
         public virtual bool BoolExpected { get; set; }
         public virtual int SelectivePercent { get; set; }

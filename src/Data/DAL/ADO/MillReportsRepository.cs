@@ -395,10 +395,10 @@ namespace Prizm.Data.DAL.ADO
             return PKList;
         }
 
-        public BindingList<double> CountPipe(DateTime startDate, DateTime finalDate)
+        public BindingList<decimal> CountPipe(DateTime startDate, DateTime finalDate)
         {
             CreateConnection();
-            BindingList<double> countPipe = new BindingList<double>();
+            BindingList<decimal> countPipe = new BindingList<decimal>();
 
             try
             {
@@ -412,11 +412,11 @@ namespace Prizm.Data.DAL.ADO
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
                     {
-                        countPipe.Add(dr[0] == System.DBNull.Value ? (double)(0) : (double)((int)dr[0]));
+                        countPipe.Add(dr[0] == System.DBNull.Value ? (decimal)(0) : (decimal)((int)dr[0]));
 
-                        countPipe.Add(dr[1] == System.DBNull.Value ? (double)(0) : (double)((int)dr[1]));
+                        countPipe.Add(dr[1] == System.DBNull.Value ? (decimal)(0) : (decimal)((int)dr[1]));
 
-                        countPipe.Add(dr[2] == System.DBNull.Value ? (double)(0) : (double)dr[2]);   
+                        countPipe.Add(dr[2] == System.DBNull.Value ? (decimal)(0) : (decimal)dr[2]);   
                     }
                 }
 

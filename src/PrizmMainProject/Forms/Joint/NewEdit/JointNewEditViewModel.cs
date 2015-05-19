@@ -54,7 +54,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private SelectDiameterDialog selectDiameterDialog = null;
         private JointCutDialog jointCutDialog = null;
 
-        private float partsCommonDiameter;
+        private decimal partsCommonDiameter;
 
         public construction.Joint Joint { get; set; }
         public Guid JointId { get; set; }
@@ -315,7 +315,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        public float GpsHeight
+        public decimal GpsHeight
         {
             get { return Joint.GpsHeight; }
             set
@@ -367,7 +367,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
-        public float DistanceFromKP
+        public decimal DistanceFromKP
         {
             get { return Joint.DistanceFromKP; }
             set
@@ -670,9 +670,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         /// <param name="firstElement">the first connectable element</param>
         /// <param name="secondElement">the second connectable element</param>
         /// <returns></returns>
-        private float GetCommonDiameter(PartData firstElement, PartData secondElement)
+        private decimal GetCommonDiameter(PartData firstElement, PartData secondElement)
         {
-            float commonDiameter;
+            decimal commonDiameter;
 
             var duplicates =
                 firstElement.Connectors

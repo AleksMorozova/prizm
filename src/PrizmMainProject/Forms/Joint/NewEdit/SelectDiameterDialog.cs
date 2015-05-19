@@ -19,7 +19,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     public partial class SelectDiameterDialog : PrizmForm
     {
 
-        public float Diameter { get; set; }
+        public decimal Diameter { get; set; }
 
         public SelectDiameterDialog()
         {

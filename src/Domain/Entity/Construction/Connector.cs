@@ -8,8 +8,8 @@ namespace Prizm.Domain.Entity.Construction
 {
     public class Connector : Item
     {
-        public virtual float Diameter { get; set; }
-        public virtual float WallThickness { get; set; }
+        public virtual decimal Diameter { get; set; }
+        public virtual decimal WallThickness { get; set; }
 
         public virtual Joint Joint { get; set; }
         public virtual Component Component { get; set; }

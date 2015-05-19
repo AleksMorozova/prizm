@@ -30,9 +30,9 @@ namespace Prizm.Main.Forms.Notifications.Data
                 return tuple[4].ToString() + ":" + tuple[1].ToString() + "-" + tuple[0].ToString();
             }
 
-            public float GetUnitsLeft(object[] tuple)
+            public decimal GetUnitsLeft(object[] tuple)
             {
-                return (float)Convert.ChangeType(tuple[6], typeof(float)) - (float)Convert.ChangeType(tuple[2], typeof(float));
+                return (decimal)Convert.ChangeType(tuple[6], typeof(float)) - (decimal)Convert.ChangeType(tuple[2], typeof(decimal));
             }
 
             public string GetTextInformation(object[] tuple)

@@ -36,10 +36,10 @@ namespace Prizm.Main.Synch.SerializableEntities
       public bool IsActive { get; set; }
 
       [XmlAttribute("Diameter")]
-      public float Diameter { get; set; }
+      public decimal Diameter { get; set; }
 
       [XmlAttribute("WallThickness")]
-      public float WallThickness { get; set; }
+      public decimal WallThickness { get; set; }
 
       [XmlElement("Joint")]
       public JointObject Joint { get; set; }

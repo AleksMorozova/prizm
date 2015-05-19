@@ -89,13 +89,13 @@ namespace Prizm.Main.Synch.SerializableEntities
       public string Mill { get; set; }
 
       [XmlAttribute("Diameter")]
-      public float Diameter { get; set; }
+      public decimal Diameter { get; set; }
 
       [XmlAttribute("WallThickness")]
-      public float WallThickness { get; set; }
+      public decimal WallThickness { get; set; }
 
       [XmlAttribute("Weight")]
-      public float Weight { get; set; }
+      public decimal Weight { get; set; }
 
       [XmlAttribute("ProductionDate")]
       public DateTime ProductionDate { get; set; }
