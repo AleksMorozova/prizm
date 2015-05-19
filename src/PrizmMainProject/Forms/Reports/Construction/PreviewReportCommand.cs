@@ -56,7 +56,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             }
             else if (viewModel.ReportType == ReportType.UsedProductReport)
             {
-                var report = new UsedProductsXtraReport();
+                var report = new UsedProductsXtraReport(viewModel.localizedPartType);
 
                 report.DataSource = viewModel.ReportDataSource;
                 report.FootersVisibility = viewModel.IsFooterVisible;

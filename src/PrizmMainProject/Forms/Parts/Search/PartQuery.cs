@@ -50,15 +50,15 @@ namespace Prizm.Main.Forms.Parts.Search
             {
                 if (Activity == ActivityCriteria.StatusActive)
                 {
-                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'{1}%' ESCAPE '\' ", true ,number.EscapeCharacters()); 
                 }
                 else if (Activity == ActivityCriteria.StatusUnactive)
                 {
-                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'%{1}%' ESCAPE '\' ", false, number.EscapeCharacters());
+                    number = string.Format(@"WHERE isActive = N'{0}' and number LIKE N'{1}%' ESCAPE '\' ", false, number.EscapeCharacters());
                 }
                 else
                 {
-                    number = string.Format(@"WHERE number LIKE N'%{0}%' ESCAPE '\' ", number.EscapeCharacters());
+                    number = string.Format(@"WHERE number LIKE N'{0}%' ESCAPE '\' ", number.EscapeCharacters());
                 }
             }
 

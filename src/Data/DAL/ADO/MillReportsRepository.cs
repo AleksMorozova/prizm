@@ -453,7 +453,7 @@ namespace Prizm.Data.DAL.ADO
 
             tempSQLObject = SQLProvider.GetQuery(
                 SQLProvider.SQLStatic.GetPipeByParametersPieces)
-                .WhereAnd().Where("p.number", "LIKE", string.Concat(" N'%", pipeNumber, "%'"))
+                .WhereAnd().Where("p.number", "LIKE", string.Concat(" N'", pipeNumber, "%'"))
                 .WhereAnd().Where("PmSt.type", "IN", types);
 
             return GetPipelineElements(tempSQLObject.ToString());

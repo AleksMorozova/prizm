@@ -361,7 +361,7 @@
             // 
             // diameterGridColumn
             // 
-            this.diameterGridColumn.Caption = "Наружный диаметр отверстия, мм";
+            this.diameterGridColumn.Caption = "Наружный диаметр, мм";
             this.diameterGridColumn.ColumnEdit = this.positiveFloat;
             this.diameterGridColumn.FieldName = "Diameter";
             this.diameterGridColumn.Name = "diameterGridColumn";

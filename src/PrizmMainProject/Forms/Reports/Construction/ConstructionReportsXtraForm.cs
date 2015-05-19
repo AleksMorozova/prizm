@@ -123,7 +123,6 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void ConstructionReportsXtraForm_Load(object sender, EventArgs e)
         {
-            infoLabel.Text = Program.LanguageManager.GetString(StringResources.ConstructionReport_TracingReportInfoLabelText);
 
             viewModel = (ConstructionReportViewModel)Program.Kernel.GetService(typeof(ConstructionReportViewModel));
 
@@ -157,12 +156,10 @@ namespace Prizm.Main.Forms.Reports.Construction
             if (viewModel.ReportType == ReportType.UsedProductReport)
             {
                 typeLayout.ContentVisible = true;
-                infoLabelLayout.ContentVisible = true;
             }
             else
             {
                 typeLayout.ContentVisible = false;
-                infoLabelLayout.ContentVisible = false;
             }
         }
 
