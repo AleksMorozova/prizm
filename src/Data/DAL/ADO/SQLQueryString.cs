@@ -58,7 +58,7 @@ group by r.number, n.number, r.certificate, r.destination";
         public const string ColumnNameForMillReport = "pipeMillStatus";
         public const string TableNameForMillReport = "Pipe";
 
-        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, wallThickness as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
+        private const string GetAllActivePipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number as purchaseOrder_number, PurchaseOrder.date as PurchaseOrder_date, ROUND(wallThickness, 2)as wallThickness, weight as weight,Pipe.length as length,Pipe.diameter as diameter,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive
               from  Pipe Pipe
               left join Plate on (Plate.id = Pipe.plateId)
               left  join PipeMillSizeType on (PipeMillSizeType.id = Pipe.typeId)
@@ -93,7 +93,7 @@ and  Pipe.isActive=1 and Pipe.pipeMillStatus in ('Stocked' ,'Shipped','ReadyToSh
  from Pipe pipe WHERE pipe.productionDate >=  @startDate  and pipe.productionDate <= @finalDate
 group by productionDate  ";
 
-        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllShipped = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number, PurchaseOrder.date,ROUND(wallThickness, 2) as wallThickness, weight,Pipe.length,Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
               FROM Pipe 
               LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
               LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -102,7 +102,7 @@ group by productionDate  ";
 	          WHERE productionDate >=  @startDate  and productionDate <= @finalDate
               {where_options}";
 
-        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number, PurchaseOrder.date, wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
+        private const string GetAllProduced = @"SELECT {select_options} Pipe.number,  PipeMillSizeType.type, pipeMillStatus as " + ColumnNameForMillReport + @", PurchaseOrder.number, PurchaseOrder.date, ROUND(wallThickness, 2) as wallThickness, weight,Pipe.length, Pipe.diameter,Plate.number, Heat.number, Pipe.isActive
             FROM Pipe 
             LEFT  JOIN PipeMillSizeType ON (PipeMillSizeType.id = Pipe.typeId)
             LEFT  JOIN PurchaseOrder ON (PurchaseOrder.id = Pipe.purchaseOrderId) 
@@ -113,20 +113,20 @@ group by productionDate  ";
 
         public const string GetPipelinePieces =
 
-          @"SELECT id, number, N'Pipe' as type, diameter, wallThickness, length,'' as componentTypeName, constructionStatus 
+          @"SELECT id, number, N'Pipe' as type, diameter, ROUND(wallThickness, 2) as wallThickness, length,'' as componentTypeName, constructionStatus 
             FROM pipe 
             WHERE isActive = 1 AND isAvailableToJoint = 1 AND isCutOnSpool = 0 AND [inspectionStatus] = 'Accepted'
             
             UNION ALL
 
-            SELECT s.id, s.number, N'Spool' as type, p.diameter, p.wallThickness, p.length,'' as componentTypeName, s.constructionStatus 
+            SELECT s.id, s.number, N'Spool' as type, p.diameter, ROUND(p.wallThickness, 2) as wallThickness, p.length,'' as componentTypeName, s.constructionStatus 
             FROM spool s 
             INNER JOIN pipe p ON s.pipeId = p.id 
             WHERE s.isActive = 1  AND s.isAvailableToJoint = 1 AND s.[inspectionStatus] = 'Accepted'
             
             UNION ALL
 
-            SELECT c.id, c.number, N'Component' as type, con.diameter, con.wallThickness, c.length, ct.name as componentTypeName, c.constructionStatus 
+            SELECT c.id, c.number, N'Component' as type, con.diameter, ROUND(con.wallThickness, 2) as wallThickness, c.length, ct.name as componentTypeName, c.constructionStatus 
             FROM component c 
             INNER JOIN ComponentType ct on ct.Id = c.componentTypeId
             INNER JOIN connector con ON c.id = con.componentId 
@@ -142,7 +142,7 @@ group by productionDate  ";
         public const string ColumnNameForInspectionStatus = "status";
         public const string TableNameForInspectionReport = "Pipe";
 
-        private const string GetAllPipesFromInspection = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, Pipe.wallThickness as wallThickness, 
+        private const string GetAllPipesFromInspection = @"select DISTINCT Pipe.number as number,  PipeMillSizeType.type as type, ROUND(Pipe.wallThickness, 2) as wallThickness, 
 Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status as " + ColumnNameForInspectionStatus + @"
           from  InspectionTestResult InspectionTestResult
 
@@ -245,7 +245,7 @@ select Component.number as number, Joint.part2Type as type
                 p.number as Number, 
                 p.[length] as [Length],
                 p.diameter as Diameter, 
-                p.wallThickness as Thickness,
+                ROUND(p.wallThickness, 2) as Thickness,
                 ST.name as Seam,
                 h.steelGrade as Grade,
 				j1.number as Joint1,
