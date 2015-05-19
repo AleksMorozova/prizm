@@ -5,15 +5,21 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Main.Common;
 
 namespace Prizm.Main.Forms.Reports.Construction
 {
     public partial class UsedProductsXtraReport : DevExpress.XtraReports.UI.XtraReport, ILocalizable
     {
-        public UsedProductsXtraReport()
+        private List<string> localizedStrings = new List<string>();
+
+        public UsedProductsXtraReport(): this(new List<string>()) { }
+
+        public UsedProductsXtraReport(List<string> localizedStrings)
         {
             InitializeComponent();
-
+            this.localizedStrings = localizedStrings;
             Program.LanguageManager.ChangeLanguage(this as ILocalizable);
         }
 
@@ -52,5 +58,27 @@ namespace Prizm.Main.Forms.Reports.Construction
             return this.GetEnumerator();
         }
         #endregion // --- Localization ---
+
+        private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            PartType result = (PartType)Enum.Parse(typeof(PartType),xrLabel2.Text.ToString());
+
+            xrLabel2.Text = localizedStrings[(int)((object)result) - 1];
+     
+        }
+
+        public static void LoadItems(List<string> list, bool skip0 = false)
+        {
+            if (list != null)
+            {
+                if (list.Count == 0)
+                {
+                    foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0))
+                    {
+                        list.Add(item.Item2);
+                    }
+                }
+            }
+        }
     }
 }

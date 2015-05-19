@@ -261,8 +261,9 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(325.0001F, 0F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(324.9998F, 23F);
             this.xrLabel2.Text = "xrLabel2";
+            this.xrLabel2.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrLabel2_BeforePrint);
             // 
             // UsedProductsXtraReport
             // 

@@ -77,42 +77,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                 if(viewModel.Types.Count > 0)
                 {
                     resultUsedProductList = new List<PartData>();
-                    foreach(var item in viewModel.Types)
+                    foreach(var item in usedProductList)
                     {
-                        switch(item)
+                        if (viewModel.Types.Contains(item.PartType))
                         {
-                            case PartType.Undefined:
-                                
-                                break;
-                            case PartType.Pipe:
-                                foreach (PartData d in usedProductList) 
-                                {
-                                    if (d.PartType == PartType.Pipe)
-                                    {
-                                        resultUsedProductList.Add(d);
-                                    }
-                                }
-                                break;
-                            case PartType.Spool:
-                                foreach (PartData d in usedProductList)
-                                {
-                                    if (d.PartType == PartType.Spool)
-                                    {
-                                        resultUsedProductList.Add(d);
-                                    }
-                                }
-                                break;
-                            case PartType.Component:
-                                foreach (PartData d in usedProductList)
-                                {
-                                    if (d.PartType == PartType.Component)
-                                    {
-                                        resultUsedProductList.Add(d);
-                                    }
-                                }
-                                break;
-                            default:
-                                break;
+                            resultUsedProductList.Add(item);
                         }
                     }
                 }
