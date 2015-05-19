@@ -211,6 +211,11 @@ namespace Prizm.Main.Forms.Joint.Search
                     e.DisplayText = (result == JointStatus.Undefined) ? "" : localizedJointStatuses[(int)result - 1]; //-1 because we skip 0
                 }
             }
+
+            if (e.Column.Name == numberKPCol.Name && (int)e.Value == int.MinValue)
+            {
+                e.DisplayText = string.Empty;
+            }
         }
     }
 }

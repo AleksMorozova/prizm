@@ -735,5 +735,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
         }
+
+        private void PKNumber_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            if (viewModel!=null && viewModel.NumberKP==int.MinValue)
+            {
+                PKNumber.Text = "";
+            }
+        }
     }
 }

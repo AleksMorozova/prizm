@@ -426,6 +426,7 @@
             this.PKNumber.Size = new System.Drawing.Size(120, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
             this.PKNumber.TabIndex = 6;
+            this.PKNumber.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.PKNumber_CustomDisplayText);
             // 
             // PKLabel
             // 
