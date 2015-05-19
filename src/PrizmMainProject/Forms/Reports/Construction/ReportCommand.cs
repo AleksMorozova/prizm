@@ -34,7 +34,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private List<construct.Joint> joints = null;
         private IList<PartData> partDataList = null;
         private IList<PartData> usedProductList = null;
-        private IList<PartData> resultUsedProductList = null;
+        private List<PartData> resultUsedProductList = null;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public ReportCommand(
@@ -85,6 +85,12 @@ namespace Prizm.Main.Forms.Reports.Construction
                         }
                     }
                 }
+
+                resultUsedProductList.Sort(delegate(PartData x, PartData y)
+                {
+                    return x.PartType.CompareTo(y.PartType);
+                });
+
             }
             catch(RepositoryException ex)
             {

@@ -61,22 +61,21 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         private void xrLabel2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            PartType result = (PartType)Enum.Parse(typeof(PartType),xrLabel2.Text.ToString());
+            if (!string.IsNullOrWhiteSpace(xrLabel2.Text))
+            {
+                PartType result = (PartType)Enum.Parse(typeof(PartType), xrLabel2.Text.ToString());
 
-            xrLabel2.Text = localizedStrings[(int)((object)result) - 1];
-     
+                xrLabel2.Text = localizedStrings[(int)((object)result) - 1];
+            }
         }
 
         public static void LoadItems(List<string> list, bool skip0 = false)
         {
-            if (list != null)
+            if (list != null && list.Count == 0)
             {
-                if (list.Count == 0)
+                foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0))
                 {
-                    foreach (var item in EnumWrapper<PartType>.EnumerateItems(skip0))
-                    {
-                        list.Add(item.Item2);
-                    }
+                    list.Add(item.Item2);
                 }
             }
         }
