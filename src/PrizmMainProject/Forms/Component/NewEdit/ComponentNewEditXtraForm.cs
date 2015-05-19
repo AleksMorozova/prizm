@@ -402,7 +402,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             GridView gv = sender as GridView;
 
-            var diameter = (float)gv.GetRowCellValue(e.RowHandle, diameterGridColumn);
+            var diameter =Convert.ToDecimal( gv.GetRowCellValue(e.RowHandle, diameterGridColumn));
 
             if(diameter <= 0)
             {
