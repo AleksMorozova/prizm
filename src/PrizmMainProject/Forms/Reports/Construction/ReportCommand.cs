@@ -110,11 +110,14 @@ namespace Prizm.Main.Forms.Reports.Construction
                 if (viewModel.Types.Count > 0)
                 {
                     resultUsedProductList = new List<PartData>();
-                    foreach (var item in usedProductList)
+                    if (usedProductList != null) 
                     {
-                        if (viewModel.Types.Contains(item.PartType))
+                        foreach (var item in usedProductList)
                         {
-                            resultUsedProductList.Add(item);
+                            if (viewModel.Types.Contains(item.PartType))
+                            {
+                                resultUsedProductList.Add(item);
+                            }
                         }
                     }
                 }
@@ -130,6 +133,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             try
             {
+                usedProductList = new List<PartData>();
                 if (joints == null)
                 {
                     this.joints = repoJoint.GetJointsForTracing().ToList<construct.Joint>();
@@ -190,7 +194,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                         path = graph.ShortestPath(paths);
 
                         path = graph.RemovalExternalComponents(startJoint, endJoint, path);
-                        usedProductList = new List<PartData>();
+                  
                         for (int i = path.Count - 1; i > 0; --i)
                         {
                             var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
