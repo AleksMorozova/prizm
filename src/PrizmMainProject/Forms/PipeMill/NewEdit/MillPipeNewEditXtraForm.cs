@@ -973,7 +973,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 GridView view = (GridView)sender;
                 Point pt = view.GridControl.PointToClient(Control.MousePosition);
                 var row = DoRowDoubleClick(view, pt);
-                EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                if (row != null)
+                {
+                    EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                }
             }
         }
 
