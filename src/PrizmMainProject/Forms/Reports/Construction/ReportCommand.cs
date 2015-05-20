@@ -65,7 +65,8 @@ namespace Prizm.Main.Forms.Reports.Construction
                 else if (viewModel.ReportType == ReportType.UsedProductReport)
                 {
                     GetUsedProduct();
-                    viewModel.ReportDataSource = resultUsedProductList.Distinct();
+                    IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
+                    viewModel.ReportDataSource = sortedList;
                 }
             }
         }
@@ -85,12 +86,6 @@ namespace Prizm.Main.Forms.Reports.Construction
                         }
                     }
                 }
-
-                resultUsedProductList.Sort(delegate(PartData x, PartData y)
-                {
-                    return x.PartType.CompareTo(y.PartType);
-                });
-
             }
             catch(RepositoryException ex)
             {
@@ -172,21 +167,34 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                             tracingDataItem.JointNumber = commonJoint.Data.Number;
                             tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
-                            usedProductList.Add(path[i].Data);
+                            
                             tracingDataList.Add(tracingDataItem);
                         }
 
-                        var firstTracingDataItem = new TracingData(null, path.Last().Data);
+                        for (int i = 0; i < path.Count; ++i)
+                        {
+                            usedProductList.Add(path[i].Data);
+                        
+                        }
+
+                        PartData firstElement = partDataList.Where(_ => _.Id == startJoint.FirstElement.Id).FirstOrDefault();
+
+                        PartData secondElement = partDataList.Where(_ => _.Id == endJoint.SecondElement.Id).FirstOrDefault();
+                        
+                        var firstTracingDataItem = new TracingData(firstElement, path.Last().Data);
                         firstTracingDataItem.JointNumber = startJoint.Number;
                         firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
                         tracingDataList.Insert(0, firstTracingDataItem);
-                        usedProductList.Add(path.Last().Data);
+ 
+                        usedProductList.Add(firstElement);
 
-                        var lastTracingDataItem = new TracingData(path.First().Data, null);
+                        var lastTracingDataItem = new TracingData(path.First().Data, secondElement);
                         lastTracingDataItem.JointNumber = endJoint.Number;
                         lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
                         tracingDataList.Add(lastTracingDataItem);
-                        usedProductList.Add(path.First().Data);
+                  
+                        usedProductList.Add(secondElement);
+
                         PipelineLenghtCalculation();
                     }
                 }
