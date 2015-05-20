@@ -938,7 +938,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 this.Number = String.Empty;
                 this.LoweringDate = DateTime.MinValue;
                 this.Joint.ToExport = false;
-
+                this.NumberKP = int.MinValue;
                 this.FirstElement = null;
                 this.SecondElement = null;
             }

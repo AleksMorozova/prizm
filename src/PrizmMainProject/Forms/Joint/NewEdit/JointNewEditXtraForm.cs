@@ -243,8 +243,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             repairDateEdit.SetLimits();
             operationDateEdit.SetLimits();
 
-            PKNumber.SetMask(Constants.PositiveDigitMask);
-
             weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
 
@@ -734,6 +732,22 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private void GPSLong_ParseEditValue(object sender, ConvertEditValueEventArgs e)
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
+
+        private void PKNumber_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            if (viewModel!=null && viewModel.NumberKP==int.MinValue)
+            {
+                PKNumber.Text = "";
+            }
+        }
+
+        private void PKNumber_EditValueChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(PKNumber.Text))
+            {
+                viewModel.NumberKP = int.MinValue;
+            }
         }
     }
 }

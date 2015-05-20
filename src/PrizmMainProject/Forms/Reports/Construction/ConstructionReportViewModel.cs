@@ -105,7 +105,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             this.AllKP = new BindingList<int>();
             foreach(var kp in JointsProjections.Select<JointProjection, int>(x => x.NumberKP))
             {
-                if (!AllKP.Contains(kp))
+                if (!AllKP.Contains(kp) && kp!=int.MinValue)
                 {
                     AllKP.Add(kp);
                 }
