@@ -61,15 +61,28 @@ namespace Prizm.Main.Forms.Reports.Construction
                     viewModel.canCreateReport = true;
                     PipelineTracing();
 
-                    if (viewModel.ReportType == ReportType.TracingReport)
+                    if (path != null)
                     {
-                        viewModel.ReportDataSource = tracingDataList;
+                        if (viewModel.ReportType == ReportType.TracingReport)
+                        {
+                            viewModel.ReportDataSource = tracingDataList;
+                        }
+                        else if (viewModel.ReportType == ReportType.UsedProductReport)
+                        {
+                            GetUsedProduct();
+                            IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
+                            viewModel.ReportDataSource = sortedList;
+                        }
+
+                        path=null;
                     }
-                    else if (viewModel.ReportType == ReportType.UsedProductReport)
+
+                    else 
                     {
-                        GetUsedProduct();
-                        IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
-                        viewModel.ReportDataSource = sortedList;
+                        viewModel.canCreateReport = false;
+                        notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_PointNotConnectedMessage),
+                            Program.LanguageManager.GetString(StringResources.TracingReport_PointNotConnectedHeader));
+                        log.Warn(viewModel.ReportType.ToString() + " report was empty because start and end point doesn't connected");
                     }
                 }
                 else

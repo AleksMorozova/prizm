@@ -1851,4 +1851,10 @@
   <data name="TracingReport_KPSwappedMessage" xml:space="preserve">
     <value>Начальный пикет больше конечного</value>
   </data>
+  <data name="TracingReport_PointNotConnectedHeader" xml:space="preserve">
+    <value>Неверный путь</value>
+  </data>
+  <data name="TracingReport_PointNotConnectedMessage" xml:space="preserve">
+    <value>Начальная и конечная точки пути не соединены</value>
+  </data>
 </root>
