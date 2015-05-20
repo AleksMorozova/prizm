@@ -44,8 +44,6 @@ namespace Prizm.Data.DAL.ADO
 Count(p.number) pipes, Sum(p.length) length, Sum(p.weight) weight from ReleaseNote n, Railcar r , Pipe p
 where n.id=r.releaseNoteId and r.id=p.railcarId and n.date>=  @startDate and n.date <= @finalDate 
 group by r.number, n.number, r.certificate, r.destination";
- 
-        private const string GettAllKP = @"Select distinct(numberKP) From Joint";
 
         private const string GetAllProducedPipesByDate = @"select DISTINCT {select_options} Pipe.number as number,  PipeMillSizeType.type as type, pipeMillStatus as pipeMillStatus, weight as weight,Pipe.length as length,Plate.number as Plate_number, Heat.number Heat_number, Pipe.isActive as isActive, Pipe.productionDate as shippingDate
               from  Pipe Pipe
@@ -316,10 +314,6 @@ Pipe.length as length, Heat.number as Heat_number, InspectionTestResult.status a
 
                 case SQLStatic.CountPipesWeldInformation:
                     queryText = CountPipesWeldInformation;
-                    break;
-
-                case SQLStatic.GettAllKP:
-                    queryText = GettAllKP;
                     break;
 
                 case SQLStatic.GetAllProducedPipesByDate:
