@@ -1181,7 +1181,7 @@ JointNewNotAllWeldOperationCompletedHeader = Weld operations
 JointNew_SearchGroupLayout=Joint search and editing
 
 ;Номер искомого стыка
-JointNew_SearchNumberLayout= Searc&h number
+JointNew_SearchNumberLayout= Search n&umber
 
 ;Найти и открыть для редактирования
 JointNew_SearchButton = Search and &open for editing 
@@ -1193,10 +1193,10 @@ JointNew_JointNumberLayout=Joint &number
 JointNew_JointStatusLayout=Joint status
 
 ;&Первый элемент стыка
-JointNew_FirstJointElementLayout=&First joint element
+JointNew_FirstJointElementLayout=First &joint element
 
 ;В&торой элемент стыка
-JointNew_SecondJointElementLayout=S&econd joint element
+JointNew_SecondJointElementLayout=Secon&d joint element
 
 ;Параметры стыка
 JointNew_JointParametersLayoutGroup=Joint parameters
@@ -1208,13 +1208,13 @@ JointNew_LoweringLayoutGroup=Lowering parameters
 JointNew_LoweringDateLayout=Lo&wering date
 
 ;PK
-JointNew_PKLabelLayout=&KP
+JointNew_PKLabelLayout=KP
 
 ;Номер п&икета
 JointNew_PKNumberLayout=K&P Number
 
 ;Рассто&яние от пикета
-JointNew_DistanceFromPKLayout=&Distance from KP
+JointNew_DistanceFromPKLayout=Distance from &KP
 
 ;GPSLabelLayout
 JointNew_GPSLabelLayout=GPS
@@ -1241,7 +1241,7 @@ JointNew_ControlOperationsLayout=&Inspection operations
 JointNew_SaveButton=&Save
 
 ;Сох&ранить/Создать
-JointNew_SaveAndCreateButton=Save/C&reate
+JointNew_SaveAndCreateButton=Save/Cr&eate
 
 ;&Вложения
 JointNew_ExtraFiles=&Attachments
