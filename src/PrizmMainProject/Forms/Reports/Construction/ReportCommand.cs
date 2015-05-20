@@ -61,7 +61,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                     viewModel.canCreateReport = true;
                     PipelineTracing();
 
-                    if (path != null||path.Count==0)
+                    if (path != null)
                     {
                         if (viewModel.ReportType == ReportType.TracingReport)
                         {
@@ -74,7 +74,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                             viewModel.ReportDataSource = sortedList;
                         }
 
-                        path.Clear();
+                        path=null;
                     }
 
                     else 
