@@ -82,7 +82,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                         viewModel.canCreateReport = false;
                         notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_PointNotConnectedMessage),
                             Program.LanguageManager.GetString(StringResources.TracingReport_PointNotConnectedHeader));
-                        log.Warn(viewModel.ReportType.ToString() + " report was empty because start and end point doesn'i connected");
+                        log.Warn(viewModel.ReportType.ToString() + " report was empty because start and end point doesn't connected");
                     }
                 }
                 else
