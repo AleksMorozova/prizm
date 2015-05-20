@@ -84,8 +84,8 @@ namespace Prizm.Main.Forms.Reports.Construction
             else 
             {
                 viewModel.canCreateReport = false;
-                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedMessage),
-                    Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedHeader));
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_DiapasonIsEmptyMessage),
+                    Program.LanguageManager.GetString(StringResources.TracingReport_DiapasonIsEmptyHeader));
                 log.Warn(viewModel.ReportType.ToString()+" diapason for this report was empty");
             }
         }
