@@ -2911,7 +2911,7 @@ TracingReport_KPSwappedMessage = First KP is greater then last KP
 TracingReport_KPSwappedHeader = KPs are swapped
 
 ;Сообщение о том, что начальный пикет больше конечного
-TracingReport_DiapasonIsEmptyMessage = Invalid range for creating reporting
+TracingReport_DiapasonIsEmptyMessage = Invalid range for creating report
 
 ;Заголовок сообщения о том, что начальный пикет больше конечного
 TracingReport_DiapasonIsEmptyHeader = Invalid range
