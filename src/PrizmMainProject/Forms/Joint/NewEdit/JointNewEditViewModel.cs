@@ -138,13 +138,17 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 if(Joint.FirstElement != null
                     && Joint.SecondElement != null
-                    && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn)
+                    && Joint.Status != Domain.Entity.Construction.JointStatus.Withdrawn && Joint.IsActive)
                 {
                     this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
                     this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
 
                     Joint.FirstElement = this.firstElement;
                     Joint.SecondElement = this.secondElement;
+                }
+                else if (!Joint.IsActive)
+                {
+                    GeneratePartDataForInactiveJoint();
                 }
                 else
                 {
@@ -958,8 +962,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 this.Pieces = adoRepo.GetPipelineElements();
             if (!Joint.IsNew() && Joint.Status != JointStatus.Withdrawn)
                 {
-                    this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
-                    this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                    if (Joint.IsActive)
+                    {
+                        this.firstElement = GetPartDataFromList(Joint.FirstElement, GetPart(Joint.FirstElement));
+                        this.secondElement = GetPartDataFromList(Joint.SecondElement, GetPart(Joint.SecondElement));
+                    }
+                    else
+                    {
+                        GeneratePartDataForInactiveJoint();
+                    }
                 }
             }
             catch(RepositoryException ex)
@@ -1011,5 +1022,33 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
+
+        /// <summary>
+        /// TODO : Think about refactoring
+        ///Solves issue with rewelded components: when joint is deactivated and components from deactivated joint are used in another 
+        ///joint - references are lost and common part data loading approach cannot be used. Properties are reset to display valid 
+        ///data in first and second connected elements edits on form
+        /// </summary>
+        private void GeneratePartDataForInactiveJoint()
+        {
+            Part P1 = GetPart(Joint.FirstElement);
+            Part P2 = GetPart(Joint.SecondElement);
+            if (Joint.FirstElement == null)
+            {
+                Joint.FirstElement = new PartData();
+            }
+            Joint.FirstElement.Number = P1.Number;
+            if (Joint.SecondElement == null)
+            {
+                Joint.SecondElement = new PartData();
+            }
+            Joint.SecondElement.Number = P2.Number;
+            if (PartDataList == null) { PartDataList = new BindingList<PartData>(); }
+            this.FirstElement = Joint.FirstElement;
+            this.SecondElement = Joint.SecondElement;
+            PartDataList.Add(Joint.FirstElement);
+            PartDataList.Add(Joint.SecondElement);
+        }
+
     }
 }
