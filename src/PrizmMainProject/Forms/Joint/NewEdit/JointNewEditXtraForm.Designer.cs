@@ -421,11 +421,14 @@
             // 
             this.PKNumber.Location = new System.Drawing.Point(835, 69);
             this.PKNumber.Name = "PKNumber";
+            this.PKNumber.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.PKNumber.Properties.Mask.EditMask = "d";
             this.PKNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.PKNumber.Properties.NullValuePromptShowForEmptyValue = true;
             this.PKNumber.Size = new System.Drawing.Size(120, 20);
             this.PKNumber.StyleController = this.newJointLayoutControl;
             this.PKNumber.TabIndex = 6;
+            this.PKNumber.EditValueChanged += new System.EventHandler(this.PKNumber_EditValueChanged);
             this.PKNumber.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.PKNumber_CustomDisplayText);
             // 
             // PKLabel
