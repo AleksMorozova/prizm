@@ -2904,6 +2904,12 @@ TracingReport_PipelineComponentHeader=Componentry count
 ;Общая длина, мм
 TracingReport_PipelineLengthHeader=Total length, mm
 
+;Сообщение о том, что начальный пикет больше конечного
+TracingReport_KPSwappedMessage = First KP are more then last KP
+
+;Заголовок сообщения о том, что начальный пикет больше конечного
+TracingReport_KPSwappedHeader = KP are swapped
+
 ; Сообщение о невозможности доступа
 FormManager_AccessForbidden=Access to this type of documents is denied.
 ;Данная контрольная операция уже запланирована и содержится в списке инспекций.

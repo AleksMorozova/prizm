@@ -1254,7 +1254,17 @@ namespace Prizm.Main.Languages
             Description = "Общая длина, мм"
         };
 
+        public static StringResource TracingReport_KPSwappedMessage = new StringResource
+        {
+            Id = "TracingReport_KPSwappedMessage",
+            Description = "Сообщение: Начальный пикет больше конечного"
+        };
 
+        public static StringResource TracingReport_KPSwappedHeader = new StringResource
+        {
+            Id = "TracingReport_KPSwappedHeader",
+            Description = "Заголовок сообщения: Начальный пикет больше конечного"
+        };
         #endregion MillReport
 
         #region IncomingInspectionReport

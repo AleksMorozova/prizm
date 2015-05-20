@@ -4824,6 +4824,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пикеты поменяны местами.
+        /// </summary>
+        internal static string TracingReport_KPSwappedHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_KPSwappedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Начальный пикет больше конечного.
+        /// </summary>
+        internal static string TracingReport_KPSwappedMessage {
+            get {
+                return ResourceManager.GetString("TracingReport_KPSwappedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Количество компонентов.
         /// </summary>
         internal static string TracingReport_PipelineComponentHeader {

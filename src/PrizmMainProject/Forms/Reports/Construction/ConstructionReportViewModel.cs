@@ -50,6 +50,8 @@ namespace Prizm.Main.Forms.Reports.Construction
         public int startPK;
         public int endPK;
 
+        public bool checking = true;
+
         public object previewSource;
         public BindingList <PartType> selectedTypes;
         public Object ReportDataSource { get; set; }

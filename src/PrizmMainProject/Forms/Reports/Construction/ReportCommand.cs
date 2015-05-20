@@ -30,7 +30,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private PipelineGraph graph;
         private List<TracingData> tracingDataList;
         private List<PipelineVertex> path;
-
+        private List<construct.Joint> testList = new List<construct.Joint>();
         private List<construct.Joint> joints = null;
         private IList<PartData> partDataList = null;
         private IList<PartData> usedProductList = null;
@@ -53,9 +53,10 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             if(((viewModel.StartJoint != null 
                 && viewModel.EndJoint != null)
-                ||(viewModel.startPK!=0 
-                && viewModel.endPK!=0)))
+                ||(viewModel.startPK!= int.MinValue
+                && viewModel.endPK != int.MinValue && viewModel.startPK <= viewModel.endPK)))
             {
+                viewModel.checking = true;
                 PipelineTracing();
 
                 if (viewModel.ReportType == ReportType.TracingReport)
@@ -68,6 +69,15 @@ namespace Prizm.Main.Forms.Reports.Construction
                     IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
                     viewModel.ReportDataSource = sortedList;
                 }
+            }
+
+            else
+            {
+                viewModel.checking = false;
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedMessage),
+                    Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedHeader));
+                log.Warn("KP limits not valid!" + "Diapason: start KP= "
+                    + viewModel.StartPK.ToString() + " end KP= " + viewModel.EndPK.ToString());
             }
         }
 
@@ -138,11 +148,11 @@ namespace Prizm.Main.Forms.Reports.Construction
                             x => x.NumberKP == viewModel.StartPK && x.DistanceFromKP == joints
                                 .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
                                 .Min<construct.Joint>(z => z.DistanceFromKP));
-
-                        endJoint = joints.First<construct.Joint>(
+ 
+                        endJoint = joints.Last<construct.Joint>(
                             x => x.NumberKP == viewModel.EndPK && x.DistanceFromKP == joints
                                 .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
-                                .Min<construct.Joint>(z => z.DistanceFromKP));
+                                .Max<construct.Joint>(z => z.DistanceFromKP));
                     }
 
                 if (endJoint == null && startJoint == null)
