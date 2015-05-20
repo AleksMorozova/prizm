@@ -243,8 +243,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             repairDateEdit.SetLimits();
             operationDateEdit.SetLimits();
 
-          //  PKNumber.SetMask(Constants.PositiveDigitMask);
-
             weldersGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             inspectorsGridColumn.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
 
