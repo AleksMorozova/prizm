@@ -2910,11 +2910,17 @@ TracingReport_KPSwappedMessage = First KP is greater then last KP
 ;Заголовок сообщения о том, что начальный пикет больше конечного
 TracingReport_KPSwappedHeader = KPs are swapped
 
-;Сообщение о том, что начальный пикет больше конечного
+;Неверный диапазон для формирования отчета
 TracingReport_DiapasonIsEmptyMessage = Invalid range for creating report
 
-;Заголовок сообщения о том, что начальный пикет больше конечного
+;TracingReport_DiapasonIsEmptyHeader
 TracingReport_DiapasonIsEmptyHeader = Invalid range
+
+;Начальная и конечная точка пути не соедененны
+TracingReport_PointNotConnectedMessage = Start and end points of the path are not connected
+
+;Заголовок сообщения: Начальная и конечная точка пути не соедененны
+TracingReport_PointNotConnectedHeader = Invalid path
 
 ; Сообщение о невозможности доступа
 FormManager_AccessForbidden=Access to this type of documents is denied.

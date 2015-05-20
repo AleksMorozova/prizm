@@ -1268,14 +1268,26 @@ namespace Prizm.Main.Languages
 
         public static StringResource TracingReport_DiapasonIsEmptyMessage = new StringResource
         {
-            Id = "TracingReport_KPSwappedMessage",
+            Id = "TracingReport_DiapasonIsEmptyMessage",
             Description = "Сообщение: Неверный диапазон для формирования отчета"
         };
 
         public static StringResource TracingReport_DiapasonIsEmptyHeader = new StringResource
         {
-            Id = "TracingReport_KPSwappedHeader",
+            Id = "TracingReport_DiapasonIsEmptyHeader",
             Description = "Заголовок сообщения: Неверный диапазон"
+        };
+
+        public static StringResource TracingReport_PointNotConnectedMessage = new StringResource
+        {
+            Id = "TracingReport_PointNotConnectedMessage",
+            Description = "Сообщение: Начальная и конечная точка пути не соедененны"
+        };
+
+        public static StringResource TracingReport_PointNotConnectedHeader = new StringResource
+        {
+            Id = "TracingReport_PointNotConnectedHeader",
+            Description = "Заголовок сообщения: Начальная и конечная точка пути не соедененны"
         };
 
         #endregion MillReport

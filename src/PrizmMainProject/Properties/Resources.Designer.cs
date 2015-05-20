@@ -4905,6 +4905,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Неверный путь.
+        /// </summary>
+        internal static string TracingReport_PointNotConnectedHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_PointNotConnectedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Начальная и конечная точки пути не соединены.
+        /// </summary>
+        internal static string TracingReport_PointNotConnectedMessage {
+            get {
+                return ResourceManager.GetString("TracingReport_PointNotConnectedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Длина, мм.
         /// </summary>
         internal static string TracingReport_SecondPartLengthHeder {
