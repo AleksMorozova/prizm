@@ -1022,6 +1022,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Header));
             }
         }
+
+        /// <summary>
+        /// TODO : Think about refactoring
+        ///Solves issue with rewelded components: when joint is deactivated and components from deactivated joint are used in another 
+        ///joint - references are lost and common part data loading approach cannot be used. Properties are reset to display valid 
+        ///data in first and second connected elements edits on form
+        /// </summary>
         private void GeneratePartDataForInactiveJoint()
         {
             Part P1 = GetPart(Joint.FirstElement);
