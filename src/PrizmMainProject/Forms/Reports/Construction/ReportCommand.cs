@@ -30,7 +30,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         private PipelineGraph graph;
         private List<TracingData> tracingDataList;
         private List<PipelineVertex> path;
-        private List<construct.Joint> testList = new List<construct.Joint>();
+
         private List<construct.Joint> joints = null;
         private IList<PartData> partDataList = null;
         private IList<PartData> usedProductList = null;
@@ -58,7 +58,7 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 if (viewModel.startPK <= viewModel.endPK)
                 {
-                    viewModel.checking = true;
+                    viewModel.canCreateReport = true;
                     PipelineTracing();
 
                     if (viewModel.ReportType == ReportType.TracingReport)
@@ -74,12 +74,19 @@ namespace Prizm.Main.Forms.Reports.Construction
                 }
                 else
                 {
-                    viewModel.checking = false;
+                    viewModel.canCreateReport = false;
                     notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedMessage),
                         Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedHeader));
                     log.Warn("KP limits not valid!" + "Diapason: start KP= "
                         + viewModel.StartPK.ToString() + " end KP= " + viewModel.EndPK.ToString());
                 }
+            }
+            else 
+            {
+                viewModel.canCreateReport = false;
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedMessage),
+                    Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedHeader));
+                log.Warn(viewModel.ReportType.ToString()+" diapason for this report was empty");
             }
         }
 

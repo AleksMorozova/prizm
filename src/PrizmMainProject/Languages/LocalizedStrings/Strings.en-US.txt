@@ -2905,10 +2905,16 @@ TracingReport_PipelineComponentHeader=Componentry count
 TracingReport_PipelineLengthHeader=Total length, mm
 
 ;Сообщение о том, что начальный пикет больше конечного
-TracingReport_KPSwappedMessage = First KP are more then last KP
+TracingReport_KPSwappedMessage = First KP is greater then last KP
 
 ;Заголовок сообщения о том, что начальный пикет больше конечного
-TracingReport_KPSwappedHeader = KP are swapped
+TracingReport_KPSwappedHeader = KPs are swapped
+
+;Сообщение о том, что начальный пикет больше конечного
+TracingReport_DiapasonIsEmptyMessage = Invalid range for creating reporting
+
+;Заголовок сообщения о том, что начальный пикет больше конечного
+TracingReport_DiapasonIsEmptyHeader = Invalid range
 
 ; Сообщение о невозможности доступа
 FormManager_AccessForbidden=Access to this type of documents is denied.

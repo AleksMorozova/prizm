@@ -1265,6 +1265,19 @@ namespace Prizm.Main.Languages
             Id = "TracingReport_KPSwappedHeader",
             Description = "Заголовок сообщения: Начальный пикет больше конечного"
         };
+
+        public static StringResource TracingReport_DiapasonIsEmptyMessage = new StringResource
+        {
+            Id = "TracingReport_KPSwappedMessage",
+            Description = "Сообщение: Неверный диапазон для формирования отчета"
+        };
+
+        public static StringResource TracingReport_DiapasonIsEmptyHeader = new StringResource
+        {
+            Id = "TracingReport_KPSwappedHeader",
+            Description = "Заголовок сообщения: Неверный диапазон"
+        };
+
         #endregion MillReport
 
         #region IncomingInspectionReport

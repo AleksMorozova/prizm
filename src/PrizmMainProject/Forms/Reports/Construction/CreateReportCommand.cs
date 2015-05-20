@@ -33,7 +33,7 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel.ReportCommand.Execute();
 
-            if (viewModel.checking)
+            if (viewModel.canCreateReport)
             {
                 if (viewModel.ReportType == ReportType.TracingReport)
                 {

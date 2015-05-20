@@ -4788,6 +4788,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Неверный диапазон.
+        /// </summary>
+        internal static string TracingReport_DiapasonIsEmptyHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_DiapasonIsEmptyHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверно указан диапазон для формирования отчета.
+        /// </summary>
+        internal static string TracingReport_DiapasonIsEmptyMessage {
+            get {
+                return ResourceManager.GetString("TracingReport_DiapasonIsEmptyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Длина, мм.
         /// </summary>
         internal static string TracingReport_FirstPartLengthHeder {
@@ -4824,7 +4842,7 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пикеты поменяны местами.
+        ///   Looks up a localized string similar to Неверный порядок пикетов.
         /// </summary>
         internal static string TracingReport_KPSwappedHeader {
             get {
