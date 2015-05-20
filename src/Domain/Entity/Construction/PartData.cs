@@ -105,6 +105,7 @@ namespace Prizm.Domain.Entity.Construction
                 Length = part.Length;
 
                 connector.Diameter = ((Pipe)part).Diameter;
+                connector.WallThickness = ((Pipe)part).WallThickness;
             }
             else
             {
@@ -112,6 +113,7 @@ namespace Prizm.Domain.Entity.Construction
                 Length = part.Length;
 
                 connector.Diameter = ((construction.Spool)part).Pipe.Diameter;
+                connector.WallThickness = ((construction.Spool)part).Pipe.WallThickness;
             }
 
             Connectors.Add(connector);
