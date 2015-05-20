@@ -134,7 +134,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             start.Properties.DataSource = viewModel.JointsProjections;
             end.Properties.DataSource = viewModel.JointsProjections;
-
+            
             startKPLookUp.Properties.DataSource = viewModel.AllKP;
             endKPLookUp.Properties.DataSource = viewModel.AllKP;
 
@@ -145,6 +145,9 @@ namespace Prizm.Main.Forms.Reports.Construction
             viewModel.ReportTypeIndex = reportType.SelectedIndex = 0;
 
             tracingModeRadioGroup_SelectedIndexChanged(tracingModeRadioGroup, e);
+
+            viewModel.StartPK = int.MinValue;
+            viewModel.EndPK = int.MinValue;
         }
         private void GetTranslation()
         {
@@ -192,7 +195,6 @@ namespace Prizm.Main.Forms.Reports.Construction
             {
                 start.Enabled = false;
                 end.Enabled = false;
-
                 startKPLookUp.Enabled = true;
                 endKPLookUp.Enabled = true;
 

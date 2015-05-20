@@ -1839,4 +1839,16 @@
   <data name="Notification_Error_Db_Message" xml:space="preserve">
     <value>В процессе обращения к базе данных возникли проблемы. Закройте программу и восстановите работу Microsoft localdb</value>
   </data>
+  <data name="TracingReport_DiapasonIsEmptyHeader" xml:space="preserve">
+    <value>Неверный диапазон</value>
+  </data>
+  <data name="TracingReport_DiapasonIsEmptyMessage" xml:space="preserve">
+    <value>Неверно указан диапазон для формирования отчета</value>
+  </data>
+  <data name="TracingReport_KPSwappedHeader" xml:space="preserve">
+    <value>Неверный порядок пикетов</value>
+  </data>
+  <data name="TracingReport_KPSwappedMessage" xml:space="preserve">
+    <value>Начальный пикет больше конечного</value>
+  </data>
 </root>

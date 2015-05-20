@@ -33,34 +33,37 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             viewModel.ReportCommand.Execute();
 
-            if (viewModel.ReportType == ReportType.TracingReport)
+            if (viewModel.canCreateReport)
             {
-                var report = new TracingReport();
+                if (viewModel.ReportType == ReportType.TracingReport)
+                {
+                    var report = new TracingReport();
 
-                report.DataSource = viewModel.ReportDataSource;
-                report.FootersVisibility = viewModel.IsFooterVisible;
+                    report.DataSource = viewModel.ReportDataSource;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
 
 
-                report.PipelineJointCount = viewModel.PipelineJointCount;
-                report.PipelinePipeCount = viewModel.PipelinePipeCount;
-                report.PipelineSpoolCount = viewModel.PipelineSpoolCount;
-                report.PipelineComponentCount = viewModel.PipelineComponentCount;
-                report.PipelineLength = viewModel.PipelineLength;
+                    report.PipelineJointCount = viewModel.PipelineJointCount;
+                    report.PipelinePipeCount = viewModel.PipelinePipeCount;
+                    report.PipelineSpoolCount = viewModel.PipelineSpoolCount;
+                    report.PipelineComponentCount = viewModel.PipelineComponentCount;
+                    report.PipelineLength = viewModel.PipelineLength;
 
-                var tool = new ReportPrintTool(report);
-                tool.AutoShowParametersPanel = false;
-                tool.ShowPreview();
-            }
-            else if (viewModel.ReportType == ReportType.UsedProductReport)
-            {
-                var report = new UsedProductsXtraReport(viewModel.localizedPartType);
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
+                else if (viewModel.ReportType == ReportType.UsedProductReport)
+                {
+                    var report = new UsedProductsXtraReport(viewModel.localizedPartType);
 
-                report.DataSource = viewModel.ReportDataSource;
-                report.FootersVisibility = viewModel.IsFooterVisible;
+                    report.DataSource = viewModel.ReportDataSource;
+                    report.FootersVisibility = viewModel.IsFooterVisible;
 
-                var tool = new ReportPrintTool(report);
-                tool.AutoShowParametersPanel = false;
-                tool.ShowPreview();
+                    var tool = new ReportPrintTool(report);
+                    tool.AutoShowParametersPanel = false;
+                    tool.ShowPreview();
+                }
             }
         }
 

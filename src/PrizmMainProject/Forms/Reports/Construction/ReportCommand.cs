@@ -51,23 +51,42 @@ namespace Prizm.Main.Forms.Reports.Construction
 
         public void Execute()
         {
-            if(((viewModel.StartJoint != null 
+            if (((viewModel.StartJoint != null
                 && viewModel.EndJoint != null)
-                ||(viewModel.startPK!=0 
-                && viewModel.endPK!=0)))
+                || (viewModel.startPK != int.MinValue
+                && viewModel.endPK != int.MinValue)))
             {
-                PipelineTracing();
+                if (viewModel.startPK <= viewModel.endPK)
+                {
+                    viewModel.canCreateReport = true;
+                    PipelineTracing();
 
-                if (viewModel.ReportType == ReportType.TracingReport)
-                {
-                    viewModel.ReportDataSource = tracingDataList;
+                    if (viewModel.ReportType == ReportType.TracingReport)
+                    {
+                        viewModel.ReportDataSource = tracingDataList;
+                    }
+                    else if (viewModel.ReportType == ReportType.UsedProductReport)
+                    {
+                        GetUsedProduct();
+                        IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
+                        viewModel.ReportDataSource = sortedList;
+                    }
                 }
-                else if (viewModel.ReportType == ReportType.UsedProductReport)
+                else
                 {
-                    GetUsedProduct();
-                    IEnumerable<PartData> sortedList = resultUsedProductList.OrderBy(_ => _.PartType).ThenBy(_ => _.Number);
-                    viewModel.ReportDataSource = sortedList;
+                    viewModel.canCreateReport = false;
+                    notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedMessage),
+                        Program.LanguageManager.GetString(StringResources.TracingReport_KPSwappedHeader));
+                    log.Warn("KP limits not valid!" + "Diapason: start KP= "
+                        + viewModel.StartPK.ToString() + " end KP= " + viewModel.EndPK.ToString());
                 }
+            }
+            else 
+            {
+                viewModel.canCreateReport = false;
+                notify.ShowInfo(Program.LanguageManager.GetString(StringResources.TracingReport_DiapasonIsEmptyMessage),
+                    Program.LanguageManager.GetString(StringResources.TracingReport_DiapasonIsEmptyHeader));
+                log.Warn(viewModel.ReportType.ToString()+" diapason for this report was empty");
             }
         }
 
@@ -75,10 +94,10 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             try
             {
-                if(viewModel.Types.Count > 0)
+                if (viewModel.Types.Count > 0)
                 {
                     resultUsedProductList = new List<PartData>();
-                    foreach(var item in usedProductList)
+                    foreach (var item in usedProductList)
                     {
                         if (viewModel.Types.Contains(item.PartType))
                         {
@@ -87,7 +106,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                     }
                 }
             }
-            catch(RepositoryException ex)
+            catch (RepositoryException ex)
             {
                 log.Error(string.Concat(ex.InnerException.Message, ex.Message));
                 notify.ShowFailure(ex.InnerException.Message, ex.Message);
@@ -98,16 +117,16 @@ namespace Prizm.Main.Forms.Reports.Construction
         {
             try
             {
-                if(joints == null)
+                if (joints == null)
                 {
                     this.joints = repoJoint.GetJointsForTracing().ToList<construct.Joint>();
-                    if(this.joints == null || this.joints.Count <= 0)
+                    if (this.joints == null || this.joints.Count <= 0)
                         log.Warn("Report at Construction: List of Joints is NULL or empty.");
                 }
-                if(partDataList == null)
+                if (partDataList == null)
                 {
                     var data = repo.GetPipelineElements(SQLProvider.GetQuery(SQLProvider.SQLStatic.GetWeldedParts).ToString());
-                    if(data == null || data.Rows.Count <= 0)
+                    if (data == null || data.Rows.Count <= 0)
                         log.Warn("Report at Construction: Data Table of Pieces is NULL or empty.");
 
                     this.partDataList = this.FormWeldedParts(data);
@@ -116,21 +135,21 @@ namespace Prizm.Main.Forms.Reports.Construction
                 graph = new PipelineGraph(partDataList.Count);
                 tracingDataList = new List<TracingData>();
 
-                if(partDataList != null)
+                if (partDataList != null)
                 {
-                    foreach(var partData in partDataList)
+                    foreach (var partData in partDataList)
                     {
                         graph.AddPipelineVertex(partData);
                     }
-                    foreach(var joint in this.joints)
+                    foreach (var joint in this.joints)
                     {
                         graph.AddJointEdge(joint);
                     }
 
-                construct.Joint startJoint = null;
-                construct.Joint endJoint = null;
+                    construct.Joint startJoint = null;
+                    construct.Joint endJoint = null;
 
-                    if(viewModel.TracingMode == TracingModeEnum.TracingByKP
+                    if (viewModel.TracingMode == TracingModeEnum.TracingByKP
                         && viewModel.AllKP.Contains(viewModel.StartPK)
                         && viewModel.AllKP.Contains(viewModel.EndPK))
                     {
@@ -139,27 +158,27 @@ namespace Prizm.Main.Forms.Reports.Construction
                                 .Where<construct.Joint>(y => y.NumberKP == viewModel.StartPK)
                                 .Min<construct.Joint>(z => z.DistanceFromKP));
 
-                        endJoint = joints.First<construct.Joint>(
+                        endJoint = joints.Last<construct.Joint>(
                             x => x.NumberKP == viewModel.EndPK && x.DistanceFromKP == joints
                                 .Where<construct.Joint>(y => y.NumberKP == viewModel.EndPK)
-                                .Min<construct.Joint>(z => z.DistanceFromKP));
+                                .Max<construct.Joint>(z => z.DistanceFromKP));
                     }
 
-                if (endJoint == null && startJoint == null)
-                {
-                    startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
-                    endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
-                }
-                
+                    if (endJoint == null && startJoint == null)
+                    {
+                        startJoint = joints.First<construct.Joint>(x => x.Id == viewModel.StartJoint.Id);
+                        endJoint = joints.First<construct.Joint>(x => x.Id == viewModel.EndJoint.Id);
+                    }
+
                     var paths = graph.Pathfinder(startJoint.FirstElement, endJoint.FirstElement);
 
-                    if(paths.Count != 0)
+                    if (paths.Count != 0)
                     {
                         path = graph.ShortestPath(paths);
 
                         path = graph.RemovalExternalComponents(startJoint, endJoint, path);
                         usedProductList = new List<PartData>();
-                        for(int i = path.Count - 1; i > 0; --i)
+                        for (int i = path.Count - 1; i > 0; --i)
                         {
                             var tracingDataItem = new TracingData(path[i].Data, path[i - 1].Data);
 
@@ -167,32 +186,32 @@ namespace Prizm.Main.Forms.Reports.Construction
 
                             tracingDataItem.JointNumber = commonJoint.Data.Number;
                             tracingDataItem.WeldingDate = GetWeldDate(commonJoint.Data);
-                            
+
                             tracingDataList.Add(tracingDataItem);
                         }
 
                         for (int i = 0; i < path.Count; ++i)
                         {
                             usedProductList.Add(path[i].Data);
-                        
+
                         }
 
                         PartData firstElement = partDataList.Where(_ => _.Id == startJoint.FirstElement.Id).FirstOrDefault();
 
                         PartData secondElement = partDataList.Where(_ => _.Id == endJoint.SecondElement.Id).FirstOrDefault();
-                        
+
                         var firstTracingDataItem = new TracingData(firstElement, path.Last().Data);
                         firstTracingDataItem.JointNumber = startJoint.Number;
                         firstTracingDataItem.WeldingDate = GetWeldDate(startJoint);
                         tracingDataList.Insert(0, firstTracingDataItem);
- 
+
                         usedProductList.Add(firstElement);
 
                         var lastTracingDataItem = new TracingData(path.First().Data, secondElement);
                         lastTracingDataItem.JointNumber = endJoint.Number;
                         lastTracingDataItem.WeldingDate = GetWeldDate(endJoint);
                         tracingDataList.Add(lastTracingDataItem);
-                  
+
                         usedProductList.Add(secondElement);
 
                         PipelineLenghtCalculation();
@@ -203,7 +222,7 @@ namespace Prizm.Main.Forms.Reports.Construction
                     log.Warn(string.Format("List of Pipeline elements is NULL for construction report type: {0}", viewModel.ReportType));
                 }
             }
-            catch(RepositoryException ex)
+            catch (RepositoryException ex)
             {
                 log.Warn(this.GetType().Name + " | " + ex.ToString());
                 notify.ShowWarning(Program.LanguageManager.GetString(StringResources.Notification_Error_Db_Message),
@@ -235,9 +254,9 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             dataTable.Columns.Add("typeTranslated", typeof(String));
 
-            foreach(DataRow row in dataTable.Rows)
+            foreach (DataRow row in dataTable.Rows)
             {
-                if(row.Field<string>("type") != "Component")
+                if (row.Field<string>("type") != "Component")
                 {
                     PartType result = (PartType)Enum.Parse(typeof(PartType), row.Field<string>("type"));
                     row.SetField(
@@ -272,7 +291,7 @@ namespace Prizm.Main.Forms.Reports.Construction
 
             var weldResults = joint.JointWeldResults;
 
-            if(weldResults.Count > 0)
+            if (weldResults.Count > 0)
             {
                 strDate = weldResults.First().Date.Value.ToShortDateString();
             }

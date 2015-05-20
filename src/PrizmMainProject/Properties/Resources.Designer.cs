@@ -4788,6 +4788,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Неверный диапазон.
+        /// </summary>
+        internal static string TracingReport_DiapasonIsEmptyHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_DiapasonIsEmptyHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверно указан диапазон для формирования отчета.
+        /// </summary>
+        internal static string TracingReport_DiapasonIsEmptyMessage {
+            get {
+                return ResourceManager.GetString("TracingReport_DiapasonIsEmptyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Длина, мм.
         /// </summary>
         internal static string TracingReport_FirstPartLengthHeder {
@@ -4820,6 +4838,24 @@ namespace Prizm.Main.Properties {
         internal static string TracingReport_JointNumberHeder {
             get {
                 return ResourceManager.GetString("TracingReport_JointNumberHeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неверный порядок пикетов.
+        /// </summary>
+        internal static string TracingReport_KPSwappedHeader {
+            get {
+                return ResourceManager.GetString("TracingReport_KPSwappedHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Начальный пикет больше конечного.
+        /// </summary>
+        internal static string TracingReport_KPSwappedMessage {
+            get {
+                return ResourceManager.GetString("TracingReport_KPSwappedMessage", resourceCulture);
             }
         }
         
