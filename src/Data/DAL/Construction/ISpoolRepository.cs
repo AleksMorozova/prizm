@@ -11,5 +11,9 @@ namespace Prizm.Data.DAL.Construction
     public interface ISpoolRepository : IRepository<Guid, Spool>
     {
         IList<Spool> GetAllSpoolFromPipe(string number);
+
+        IList<Spool> GetActiveByNumber(Spool spool);
+        IList<string> GetActiveByNumber(string number);
+        //int GetActiveByNumber(string number);
     }
 }

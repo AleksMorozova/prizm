@@ -1,5 +1,8 @@
 ﻿using NHibernate;
 using NHibernate.Exceptions;
+using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity.Mill;
+using System;
 using System.Collections.Generic;
 
 namespace Prizm.Data.DAL.Hibernate
@@ -210,6 +213,48 @@ namespace Prizm.Data.DAL.Hibernate
             catch (GenericADOException ex)
             {
                 throw new RepositoryException("CreateSQLQuery", ex);
+            }
+        }
+
+        public IList<KeyValuePair<string, Guid>> GetAllDuplicateEntity(string number)
+        {
+
+            try
+            {
+                var l = new List<KeyValuePair<string, Guid>>();
+
+                IList<Pipe> t = session.QueryOver<Pipe>().Where(x => x.IsActive && x.Number == number).List<Pipe>();
+                foreach (Pipe pipe in t)
+                {
+                    l.Add(new KeyValuePair<string, Guid>("Pipe", pipe.Id));
+                }
+
+
+                IList<Component> c = session.QueryOver<Component>().Where(x => x.IsActive && x.Number == number).List<Component>();
+                foreach (Component comp in c)
+                {
+                    l.Add(new KeyValuePair<string, Guid>("Component", comp.Id));
+
+                }
+
+                IList<Spool> s = session.QueryOver<Spool>().Where(x => x.IsActive && x.Number == number).List<Spool>();
+                foreach (Spool spool in s)
+                {
+                    l.Add(new KeyValuePair<string, Guid>("Spool", spool.Id));
+                }
+
+
+                IList<Joint> j = session.QueryOver<Joint>().Where(x => x.IsActive && x.Number == number).List<Joint>();
+                foreach (Joint joint in j)
+                {
+                    l.Add(new KeyValuePair<string, Guid>("Joint", joint.Id));
+                }
+
+                return l;
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("Get", ex);
             }
         }
     }

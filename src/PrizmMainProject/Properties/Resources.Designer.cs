@@ -631,6 +631,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to С таким номером уже существуют сущности в системе: .
+        /// </summary>
+        internal static string DuplicateEntity_Message {
+            get {
+                return ResourceManager.GetString("DuplicateEntity_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторяющийся номер сущности.
+        /// </summary>
+        internal static string DuplicateEntity_MessageHeader {
+            get {
+                return ResourceManager.GetString("DuplicateEntity_MessageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите код операции.
         /// </summary>
         internal static string Empty_Operation_Code {

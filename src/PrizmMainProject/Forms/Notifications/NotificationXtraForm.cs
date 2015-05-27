@@ -73,7 +73,18 @@ namespace PrizmMain.Forms.Notifications
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    OpenForm(DocumentTypes.MillPipe, id);
+                    if (additionalInformation == "Pipe")
+                    {
+                        OpenForm(DocumentTypes.MillPipe, id);
+                    }
+                   else if(additionalInformation == "Component")
+                    {
+                        OpenForm(DocumentTypes.ConstructionComponent, id);
+                    }
+                    else if (additionalInformation == "Spool")
+                    {
+                        OpenForm(DocumentTypes.ConstructionSpool, id);
+                    }
                     break;
                 case TypeNotification.DuplicateLogin:
                     OpenForm(DocumentTypes.Settings, id, 6);

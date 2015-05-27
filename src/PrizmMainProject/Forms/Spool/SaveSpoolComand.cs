@@ -21,12 +21,12 @@ namespace Prizm.Main.Forms.Spool
     public class SaveSpoolCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSpoolCommand));
-
+        private IList<KeyValuePair<string, Guid>> test = null;
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
         readonly ISecurityContext ctx;
-        private int numberOfOperationWithoutInspectors=0;
+        private int numberOfOperationWithoutInspectors = 0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SaveSpoolCommand(SpoolViewModel viewModel, ISpoolRepositories repos, IUserNotify notify, ISecurityContext ctx)
@@ -40,126 +40,148 @@ namespace Prizm.Main.Forms.Spool
         [Command(UseCommandManager = false)]
         public void Execute()
         {
-            if(!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
+            if (!viewModel.InspectionTestResults.All(x => x.Date.IsValid()))
             {
                 notify.ShowInfo(Program.LanguageManager.GetString(StringResources.WrongDate),
                     Program.LanguageManager.GetString(StringResources.Message_ErrorHeader));
                 log.Warn("Date limits not valid!");
                 return;
             }
-
-            if (viewModel.Spool.Length != 0)
+           
+            test = repos.SpoolRepo.GetAllDuplicateEntity(viewModel.Spool.Number);
+             
+            if (test != null && test.Count > 0)
             {
-                if (viewModel.CanCut)
+                StringBuilder allentities = new StringBuilder();
+
+                foreach (KeyValuePair<string, Guid> list in test)
                 {
-                    foreach (InspectionTestResult t in viewModel.InspectionTestResults)
+                    allentities.Append(list.Key);
+                    allentities.Append(",");
+                }
+
+                allentities.Remove(allentities.Length - 1, 1);
+
+                notify.ShowInfo(
+                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + allentities.ToString()),
+                  Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
+                viewModel.SpoolNumber = string.Empty;
+
+            }
+            else
+            {
+                if (viewModel.Spool.Length != 0)
+                {
+                    if (viewModel.CanCut)
                     {
-                        if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
+                        foreach (InspectionTestResult t in viewModel.InspectionTestResults)
                         {
-                            numberOfOperationWithoutInspectors++;
+                            if (t.Status != PartInspectionStatus.Pending && t.Inspectors.Count <= 0)
+                            {
+                                numberOfOperationWithoutInspectors++;
+                            }
                         }
-                    }
 
-                    if (numberOfOperationWithoutInspectors == 0)
-                    {
-                        try
+                        if (numberOfOperationWithoutInspectors == 0)
                         {
-                            viewModel.Pipe.ToExport = true;
-                            viewModel.Pipe.IsCutOnSpool = true;
-                            viewModel.Spool.Number = viewModel.Spool.Number.ToUpper();
-                            viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
-                            repos.BeginTransaction();
-                            repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-                            repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-
-                            var filesViewModel = viewModel.FilesFormViewModel;
-
-                            //saving attached existingDocuments
-                            bool fileCopySuccess = true;
-                            if (null != filesViewModel)
+                            try
                             {
-                                filesViewModel.FileRepo = repos.FileRepo;
-                                viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
-                                if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
-                                {
-                                    fileCopySuccess = false;
-                                    repos.Rollback();
-                                }
-                            }
+                                viewModel.Pipe.ToExport = true;
+                                viewModel.Pipe.IsCutOnSpool = true;
+                                viewModel.Spool.Number = viewModel.Spool.Number.ToUpper();
+                                viewModel.Spool.InspectionStatus = viewModel.Spool.GetPartInspectionStatus();
+                                repos.BeginTransaction();
+                                repos.PipeRepo.SaveOrUpdate(viewModel.Pipe);
+                                repos.SpoolRepo.SaveOrUpdate(viewModel.Spool);
 
-                            if (fileCopySuccess)
-                            {
-                                repos.Commit();
-                            }
+                                var filesViewModel = viewModel.FilesFormViewModel;
 
-                            repos.PipeRepo.Evict(viewModel.Pipe);
-                            repos.SpoolRepo.Evict(viewModel.Spool);
-
-                            if (fileCopySuccess)
-                            {
+                                //saving attached existingDocuments
+                                bool fileCopySuccess = true;
                                 if (null != filesViewModel)
-                                { 
-                                    filesViewModel.DetachFileEntities(); 
+                                {
+                                    filesViewModel.FileRepo = repos.FileRepo;
+                                    viewModel.FilesFormViewModel.Item = viewModel.Spool.Id;
+                                    if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Pipe))
+                                    {
+                                        fileCopySuccess = false;
+                                        repos.Rollback();
+                                    }
                                 }
 
-                                notify.ShowNotify(
-                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
-                                    Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+                                if (fileCopySuccess)
+                                {
+                                    repos.Commit();
+                                }
 
-                                log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
-                                    viewModel.Spool.Number,
-                                    viewModel.Spool.Id));
+                                repos.PipeRepo.Evict(viewModel.Pipe);
+                                repos.SpoolRepo.Evict(viewModel.Spool);
+
+                                if (fileCopySuccess)
+                                {
+                                    if (null != filesViewModel)
+                                    {
+                                        filesViewModel.DetachFileEntities();
+                                    }
+
+                                    notify.ShowNotify(
+                                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipe),
+                                        Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+
+                                    log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
+                                        viewModel.Spool.Number,
+                                        viewModel.Spool.Id));
 
 
+                                }
+                                else
+                                {
+                                    notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                                                     Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                                    log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
+                                        viewModel.Spool.Number,
+                                        viewModel.Spool.Id));
+                                }
+
+                                viewModel.ModifiableView.IsModified = false;
+
+                                string oldPipeNumber = viewModel.Pipe.Number;
+                                viewModel.NewSpool();
+                                viewModel.ModifiableView.Id = viewModel.Spool.Id;
+                                viewModel.PipeNumber = oldPipeNumber;
+                                RefreshVisualStateEvent();
                             }
-                            else
+                            catch (RepositoryException ex)
                             {
-                                notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
-                                                 Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));                
-                                log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved ",
-                                    viewModel.Spool.Number,
-                                    viewModel.Spool.Id));
+                                log.Error(ex.Message);
+                                notify.ShowFailure(ex.InnerException.Message, ex.Message);
                             }
-
-                            viewModel.ModifiableView.IsModified = false;
-
-                            string oldPipeNumber = viewModel.Pipe.Number;
-                            viewModel.NewSpool();
-                            viewModel.ModifiableView.Id = viewModel.Spool.Id;
-                            viewModel.PipeNumber = oldPipeNumber;
-                            RefreshVisualStateEvent();
                         }
-                        catch (RepositoryException ex)
+                        else
                         {
-                            log.Error(ex.Message);
-                            notify.ShowFailure(ex.InnerException.Message, ex.Message);
+                            notify.ShowError(
+                          Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
+                            Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                            viewModel.ModifiableView.IsEditMode = true;
                         }
                     }
-                    else 
+                    else
                     {
                         notify.ShowError(
-                      Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResult),
-                        Program.LanguageManager.GetString(StringResources.SelectInspectorsForTestResultHeader));
+                             Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),
+                             Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                         viewModel.ModifiableView.IsEditMode = true;
+                        numberOfOperationWithoutInspectors = 0;
                     }
                 }
                 else
                 {
                     notify.ShowError(
-                         Program.LanguageManager.GetString(StringResources.Spool_SpoolLengtBigerThenPipeLength),
-                         Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
+                          Program.LanguageManager.GetString(StringResources.Spool_NullSpoolLength),
+                             Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
                     viewModel.ModifiableView.IsEditMode = true;
-                    numberOfOperationWithoutInspectors = 0;
                 }
             }
-            else
-            {
-                notify.ShowError(
-                      Program.LanguageManager.GetString(StringResources.Spool_NullSpoolLength),
-                         Program.LanguageManager.GetString(StringResources.Spool_CutSpoolFromPipeHeader));
-                viewModel.ModifiableView.IsEditMode = true;
-            }
-
         }
 
         public bool CanExecute()

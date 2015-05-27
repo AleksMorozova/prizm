@@ -1857,4 +1857,10 @@
   <data name="TracingReport_PointNotConnectedMessage" xml:space="preserve">
     <value>Начальная и конечная точки пути не соединены</value>
   </data>
+  <data name="DuplicateEntity_Message" xml:space="preserve">
+    <value>С таким номером уже существуют сущности в системе: </value>
+  </data>
+  <data name="DuplicateEntity_MessageHeader" xml:space="preserve">
+    <value>Повторяющийся номер сущности</value>
+  </data>
 </root>
