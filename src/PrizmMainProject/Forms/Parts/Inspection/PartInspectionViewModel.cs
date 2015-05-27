@@ -144,9 +144,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
                             log.Warn(string.Format("List of Inspection Test Result is NULL. Element #{0}", selectedElement.Number));
                         }
                     }
-                    ElementIsWelded = !repos.RepoJoint.PartIsWeldedIntoJoint(SelectedElement.Id);
+                    ElementIsWelded = !repos.RepoJoint.PartIsWeldedIntoJoint(SelectedElement.Id) && !convertedPart.IsWithdrawn;
                     if (!ElementIsWelded)
-                        notify.ShowNotify(String.Format(Program.LanguageManager.GetString(StringResources.PartInspection_PartIsWeldedMessage), SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_PartIsWeldedMessage)) ;
+                        notify.ShowInfo(Program.LanguageManager.GetString(StringResources.PartInspection_PartIsWeldedMessage), Program.LanguageManager.GetString(StringResources.Alert_InfoHeader));
                     RaisePropertyChanged("SelectedElement");
                     RaisePropertyChanged("ElementIsWelded");
                 }

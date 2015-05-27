@@ -4342,7 +4342,7 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspection_PartIsWeldedMessage = new StringResource
         {
             Id = "PartInspection_PartIsWeldedMessage",
-            Description = "Входной контроль для элемент с номером {0} не может быть произведен: элемент уже сварен"
+            Description = "Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован"
         };
 
         #endregion
