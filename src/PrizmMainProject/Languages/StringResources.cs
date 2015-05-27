@@ -4339,6 +4339,12 @@ namespace Prizm.Main.Languages
             Description = "Сообщение: Неизвестный тип компонента"
         };
 
+        public static StringResource PartInspection_PartIsWeldedMessage = new StringResource
+        {
+            Id = "PartInspection_PartIsWeldedMessage",
+            Description = "Входной контроль для элемент с номером {0} не может быть произведен: элемент уже сварен"
+        };
+
         #endregion
 
         #region---NewEdit Pipe---

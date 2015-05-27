@@ -3175,6 +3175,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Входной контроль для элемент с номером {0} не может быть произведен: элемент уже сварен.
+        /// </summary>
+        internal static string PartInspection_PartIsWeldedMessage {
+            get {
+                return ResourceManager.GetString("PartInspection_PartIsWeldedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Входной контроль.
         /// </summary>
         internal static string PartInspection_Title {

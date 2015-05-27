@@ -2965,3 +2965,6 @@ Notification_Error_Db_Header=Database Error.
 
 ;Сообщение об ошибке базы данных
 Notification_Error_Db_Message=During database operations having issues. Please close program and restore Microsoft localdb.
+
+;Входной контроль для элемент с номером {0} не может быть произведен: элемент уже сварен
+PartInspection_PartIsWeldedMessage = Incoming inspection for element with number {0} cannot be performed: element is welded

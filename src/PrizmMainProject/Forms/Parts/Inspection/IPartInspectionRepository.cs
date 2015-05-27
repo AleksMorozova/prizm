@@ -16,6 +16,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         IPipeRepository RepoPipe { get; }
         ISpoolRepository RepoSpool { get; }
         IComponentRepository RepoComponent { get; }
+        IJointRepository RepoJoint { get; }
         void Commit();
         void BeginTransaction();
     }

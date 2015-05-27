@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public IList<Inspector> Inspectors { get; set; }
         private readonly IUserNotify notify;
         private IModifiable modifiableView;
+        public bool ElementIsWelded {get;set;}
 
         [Inject]
         public PartInspectionViewModel(ISession session, IPartInspectionRepository repos, IUserNotify notify, ISecurityContext ctx)
@@ -143,7 +144,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
                             log.Warn(string.Format("List of Inspection Test Result is NULL. Element #{0}", selectedElement.Number));
                         }
                     }
+                    ElementIsWelded = !repos.RepoJoint.PartIsWeldedIntoJoint(SelectedElement.Id);
+                    if (!ElementIsWelded)
+                        notify.ShowNotify(String.Format(Program.LanguageManager.GetString(StringResources.PartInspection_PartIsWeldedMessage), SelectedElement.Number), Program.LanguageManager.GetString(StringResources.PartInspection_PartIsWeldedMessage)) ;
                     RaisePropertyChanged("SelectedElement");
+                    RaisePropertyChanged("ElementIsWelded");
                 }
             }
         }
