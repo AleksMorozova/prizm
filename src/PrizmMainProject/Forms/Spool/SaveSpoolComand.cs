@@ -15,13 +15,14 @@ using Ninject;
 using Prizm.Main.Languages;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Data.DAL.ADO;
 
 namespace Prizm.Main.Forms.Spool
 {
     public class SaveSpoolCommand : ICommand
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SaveSpoolCommand));
-        private IList<KeyValuePair<string, Guid>> test = null;
+        readonly IDuplicateNumberRepository repo = new DuplicateNumberRepository();
         readonly ISpoolRepositories repos;
         readonly SpoolViewModel viewModel;
         readonly IUserNotify notify;
@@ -48,15 +49,15 @@ namespace Prizm.Main.Forms.Spool
                 return;
             }
            
-            test = repos.SpoolRepo.GetAllDuplicateEntity(viewModel.Spool.Number);
+            var test = repo.GetAllDuplicateEntityByNumber(viewModel.Spool.Number);
              
             if (test != null && test.Count > 0)
             {
                 StringBuilder allentities = new StringBuilder();
 
-                foreach (KeyValuePair<string, Guid> list in test)
+                foreach (var list in test)
                 {
-                    allentities.Append(list.Key);
+                    allentities.Append(list.EntityType);
                     allentities.Append(",");
                 }
 

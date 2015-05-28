@@ -1,6 +1,7 @@
 ﻿using Prizm.Data.DAL;
 using Prizm.Data.DAL.ADO;
 using Prizm.Domain.Entity;
+using Prizm.Domain.Entity.Construction;
 using Prizm.Main.Forms.Notifications.Data;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,8 @@ namespace Prizm.Main.Forms.Notifications.Managers
             {
                 if (duplicateNumber.Contains(e.EntityNumber))
                 {
-                    notifications.Add(new Notification(e.EntityID, e.EntityType + " №" + e.EntityNumber, 
-                        TypeNotification.DuplicatePipeNumber, e.EntityNumber, DateTime.Now.Date, e.EntityType));
+                    notifications.Add(new Notification(e.EntityID, e.EntityType + " №" + e.EntityNumber,
+                        TypeNotification.DuplicatePipeNumber, e.EntityNumber, e.EntityType, (PartType)Enum.Parse(typeof(PartType), e.EntityType)));
                 }
             }
         }

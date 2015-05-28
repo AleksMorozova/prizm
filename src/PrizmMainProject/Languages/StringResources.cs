@@ -161,6 +161,12 @@ namespace Prizm.Main.Languages
 
 
         #region --- PartType ---
+        public static StringResource PartTypeJoint = new StringResource
+        {
+            Id = "PartTypeJoint",
+            Description = "Надпись типа элемента Стык"
+        };
+
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};

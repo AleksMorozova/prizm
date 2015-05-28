@@ -1863,4 +1863,7 @@
   <data name="DuplicateEntity_MessageHeader" xml:space="preserve">
     <value>Повторяющийся номер сущности</value>
   </data>
+  <data name="PartTypeJoint" xml:space="preserve">
+    <value>Стык</value>
+  </data>
 </root>

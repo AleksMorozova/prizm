@@ -116,13 +116,13 @@ namespace Prizm.Data.DAL.ADO
         }
 
         /// <summary>
-        ///  Reaturn all duplicate number
+        ///  Reaturn all duplicate entities with entered number
         /// </summary>
         /// <param name="testId">
         /// Number of entity for checking duplicate
         /// </param>
         /// <returns>
-        /// List of DuplicateNumber
+        /// List of DuplicateEntities
         /// </returns>
         public List<Entities> GetAllDuplicateEntityByNumber(string entityNumber)
         {

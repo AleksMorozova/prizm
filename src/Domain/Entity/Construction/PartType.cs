@@ -18,6 +18,7 @@ namespace Prizm.Domain.Entity.Construction
         Undefined = 0,
         Pipe = 1,
         Spool = 2,
-        Component =3
+        Component =3,
+        Joint = 4
     }
 }

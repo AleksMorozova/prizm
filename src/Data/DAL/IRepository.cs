@@ -6,7 +6,6 @@ namespace Prizm.Data.DAL
 {
     public interface IRepository<TKey, TEntity> : IDisposable where TEntity : class
     {
-        IList<KeyValuePair<string, Guid>> GetAllDuplicateEntity(string number);
         TEntity Get(TKey key);
         IList<TEntity> GetAll();
         IList<TEntity> GetByCriteria(NHibernate.Criterion.DetachedCriteria criteria);

@@ -3319,6 +3319,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Стык.
+        /// </summary>
+        internal static string PartTypeJoint {
+            get {
+                return ResourceManager.GetString("PartTypeJoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Труба.
         /// </summary>
         internal static string PartTypePipe {

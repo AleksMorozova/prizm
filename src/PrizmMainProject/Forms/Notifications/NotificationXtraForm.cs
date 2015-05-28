@@ -20,6 +20,7 @@ using Prizm.UnitTests.Synch.SerializableEntities;
 using System.IO;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
+using Prizm.Domain.Entity.Construction;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -63,27 +64,37 @@ namespace PrizmMain.Forms.Notifications
                 var id = viewModel.Notification[selectedItem].Id;
 
 
-                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification, viewModel.Notification[selectedItem].AdditionalInformation);
+                OpenEditorForm(id, viewModel.Notification[selectedItem].TypeNotification, viewModel.Notification[selectedItem].AdditionalInformation, viewModel.Notification[selectedItem].EntityType);
             }
     
         }
 
-        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation)
+        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation, PartType entityType)
         {
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    if (additionalInformation == "Pipe")
+                    if (entityType == PartType.Pipe)
                     {
                         OpenForm(DocumentTypes.MillPipe, id);
                     }
-                   else if(additionalInformation == "Component")
+                    else if (entityType == PartType.Component)
                     {
                         OpenForm(DocumentTypes.ConstructionComponent, id);
                     }
-                    else if (additionalInformation == "Spool")
+                    else if (entityType == PartType.Spool)
                     {
                         OpenForm(DocumentTypes.ConstructionSpool, id);
+                    }
+                    else if (entityType == PartType.Joint)
+                    {
+                        OpenForm(DocumentTypes.ConstructionJoint, id);
+                    }
+                    else 
+                    {
+                        var e = new NotImplementedException(String.Format("Type editor not set for notification code {0}", typeNotification));
+                        log.Error(e.Message);
+                        throw e;
                     }
                     break;
                 case TypeNotification.DuplicateLogin:
