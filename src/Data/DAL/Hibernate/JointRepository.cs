@@ -178,6 +178,18 @@ namespace Prizm.Data.DAL.Hibernate
             }
         }
 
+
+        public bool PartIsWeldedIntoJoint(Guid partId)
+        {
+            try
+            {
+                return session.QueryOver<Joint>().Where(_ => (_.FirstElement.Id == partId || _.SecondElement.Id == partId) && _.IsActive).RowCount() > 0;
+            }
+            catch (GenericADOException ex)
+            {
+                throw new RepositoryException("PartIsWeldedIntoJoint", ex);
+            }
+        }
         #endregion
     }
 }

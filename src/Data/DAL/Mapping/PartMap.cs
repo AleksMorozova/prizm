@@ -18,6 +18,7 @@ namespace Prizm.Data.DAL.Mapping
 
             Map(x => x.InspectionStatus).Column("inspectionStatus");
             Map(x => x.ConstructionStatus).Column("constructionStatus");
+            Map(x => x.IsWithdrawn).Column("isWithdrawn");
         }
     }
 }

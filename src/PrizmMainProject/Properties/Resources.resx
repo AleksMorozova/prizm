@@ -1857,4 +1857,7 @@
   <data name="TracingReport_PointNotConnectedMessage" xml:space="preserve">
     <value>Начальная и конечная точки пути не соединены</value>
   </data>
+  <data name="PartInspection_PartIsWeldedMessage" xml:space="preserve">
+    <value>Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован</value>
+  </data>
 </root>

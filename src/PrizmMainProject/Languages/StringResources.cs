@@ -4339,6 +4339,12 @@ namespace Prizm.Main.Languages
             Description = "Сообщение: Неизвестный тип компонента"
         };
 
+        public static StringResource PartInspection_PartIsWeldedMessage = new StringResource
+        {
+            Id = "PartInspection_PartIsWeldedMessage",
+            Description = "Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован"
+        };
+
         #endregion
 
         #region---NewEdit Pipe---

@@ -15,6 +15,7 @@ namespace Prizm.Data.DAL.Construction
         IList<Joint> QuickSearchByNumber(string number);
         IList<Joint> GetJointsForTracing();
         ICriteria GetJointsProjections();
+        bool PartIsWeldedIntoJoint(Guid partId);
 
         IList<Joint> SearchJoint(
             string jointNumber, 
