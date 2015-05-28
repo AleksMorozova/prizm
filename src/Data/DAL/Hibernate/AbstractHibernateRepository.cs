@@ -215,6 +215,5 @@ namespace Prizm.Data.DAL.Hibernate
                 throw new RepositoryException("CreateSQLQuery", ex);
             }
         }
-
     }
 }
