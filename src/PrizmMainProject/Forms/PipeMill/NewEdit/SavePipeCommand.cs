@@ -14,6 +14,8 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Main.Forms.Notifications;
+using Prizm.Domain.Entity;
+using Prizm.Data.DAL.ADO;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -25,7 +27,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private readonly MillPipeNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-
+        readonly IDuplicateNumberRepository duplicateNumberRepo = new DuplicateNumberRepository();
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
         public SavePipeCommand(
@@ -67,12 +69,26 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 repo.RepoPipe.Evict(pipe);
             }
 
-            if(p != null && p.Count > 0)
+            var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
+
+            if (duplicateNumber != null && duplicateNumber.Count > 0)
             {
+                DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[0].EntityNumber);
+                String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
+
+                for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                {
+                    DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[i].EntityNumber);
+                    result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                }
+
                 notify.ShowInfo(
-                    string.Concat(Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberError), viewModel.Number),
-                    Program.LanguageManager.GetString(StringResources.MillPipe_ExistingNumberErrorHeader));
+                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
+                  Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
                 viewModel.Number = string.Empty;
+
             }
             else
             {

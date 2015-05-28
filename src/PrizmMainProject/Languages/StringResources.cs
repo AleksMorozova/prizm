@@ -12,6 +12,17 @@ namespace Prizm.Main.Languages
 
         #region --- Common strings like Active - Not active, Hold - Witness, etc. Messages.
         // to be used on different forms
+        public static StringResource DuplicateEntity_Message = new StringResource
+        {
+            Id = "DuplicateEntity_Message",
+            Description = "С таким номером уже существуют сущности в системе: "
+        };
+
+        public static StringResource DuplicateEntity_MessageHeader = new StringResource
+        {
+            Id = "DuplicateEntity_MessageHeader",
+            Description = "Повторяющийся номер"
+        };
 
         public static StringResource NewEditPipe_ReadyToShip = new StringResource
         {
@@ -150,6 +161,12 @@ namespace Prizm.Main.Languages
 
 
         #region --- PartType ---
+        public static StringResource PartTypeJoint = new StringResource
+        {
+            Id = "PartTypeJoint",
+            Description = "Надпись типа элемента Стык"
+        };
+
         public static StringResource PartTypePipe = new StringResource { 
             Id = "PartTypePipe", 
             Description = "Надпись типа элемента Труба"};

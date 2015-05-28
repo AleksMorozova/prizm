@@ -631,6 +631,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to С таким номером уже существуют сущности в системе: .
+        /// </summary>
+        internal static string DuplicateEntity_Message {
+            get {
+                return ResourceManager.GetString("DuplicateEntity_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторяющийся номер сущности.
+        /// </summary>
+        internal static string DuplicateEntity_MessageHeader {
+            get {
+                return ResourceManager.GetString("DuplicateEntity_MessageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите код операции.
         /// </summary>
         internal static string Empty_Operation_Code {
@@ -3306,6 +3324,15 @@ namespace Prizm.Main.Properties {
         internal static string PartTypeComponent {
             get {
                 return ResourceManager.GetString("PartTypeComponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Стык.
+        /// </summary>
+        internal static string PartTypeJoint {
+            get {
+                return ResourceManager.GetString("PartTypeJoint", resourceCulture);
             }
         }
         

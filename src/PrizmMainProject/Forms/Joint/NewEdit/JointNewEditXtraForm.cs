@@ -46,7 +46,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
         private List<string> localizedAllJointStatus = new List<string>();
         private List<string> localizedResults = new List<string>();
-
+        private List<string> localizedAllTypes = new List<string>();
         private void UpdateTextEdit()
         {
             jointNewEditBindingSoure.CancelEdit();
@@ -213,6 +213,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             EnumWrapper<JointStatus>.LoadItems(localizedAllJointStatus);
             EnumWrapper<JointTestResultStatus>.LoadItems(localizedResults, skip0: true);
+            EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
 
             BindCommands();
             BindToViewModel();
@@ -304,11 +305,23 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                             StringResources.JointSearch_JointStatus_Welded.Id, 
                             StringResources.JointSearch_JointStatus_Lowered.Id, 
                             StringResources.JointSearch_JointStatus_Withdrawn.Id} ),
-
+  
+                new LocalizedItem(GetTranslation, localizedAllTypes,new string []
+                                                                                      {
+                                                                                          StringResources.PartTypePipe.Id, 
+                                                                                          StringResources.PartTypeSpool.Id, 
+                                                                                          StringResources.PartTypeComponent.Id,
+                                                                                          StringResources.PartTypeJoint.Id
+                                                                                      }),
                 // header
                 new LocalizedItem(this, localizedHeader, new string[] {
                     StringResources.JointNewXtraForm_Title.Id} )
             };
+        }
+
+        private void GetTranslation()
+        {
+            viewModel.localizedAllType = localizedAllTypes;
         }
 
         #endregion // --- Localization ---

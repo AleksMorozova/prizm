@@ -40,7 +40,7 @@ namespace Prizm.Main.Forms.Spool
         public BindingList<Pipe> allPipes { get; set; }
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
         private readonly ISecurityContext ctx;
-
+        public List<string> localizedAllPartType = new List<string>();
         public int InitPipeLenght;
         public SpoolsXtraForm editableForm;
 

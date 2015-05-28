@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ADO\DuplicateNumberRepository.cs" />
     <Compile Include="DAL\ADO\MillReportsRepository.cs" />
     <Compile Include="DAL\ADO\NRONotificationRepository.cs" />
     <Compile Include="DAL\ADO\SelectiveNotificationRepository.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="DAL\Hibernate\WelderRepository.cs" />
     <Compile Include="DAL\Hibernate\WeldRepository.cs" />
     <Compile Include="DAL\IAuditLogRepository.cs" />
+    <Compile Include="DAL\IDuplicateNumberRepository.cs" />
     <Compile Include="DAL\IFileRepository.cs" />
     <Compile Include="DAL\IInspectionTestResultRepository.cs" />
     <Compile Include="DAL\IMillReportsRepository.cs" />

@@ -1857,16 +1857,18 @@
   <data name="TracingReport_PointNotConnectedMessage" xml:space="preserve">
     <value>Начальная и конечная точки пути не соединены</value>
   </data>
+<<<<<<< HEAD
   <data name="DuplicateEntity_Message" xml:space="preserve">
     <value>С таким номером уже существуют сущности в системе: </value>
-  </data>
-  <data name="PartInspection_PartIsWeldedMessage" xml:space="preserve">
-    <value>Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован</value>
   </data>
   <data name="DuplicateEntity_MessageHeader" xml:space="preserve">
     <value>Повторяющийся номер сущности</value>
   </data>
   <data name="PartTypeJoint" xml:space="preserve">
     <value>Стык</value>
+=======
+  <data name="PartInspection_PartIsWeldedMessage" xml:space="preserve">
+    <value>Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован</value>
+>>>>>>> origin/master
   </data>
 </root>

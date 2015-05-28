@@ -1,4 +1,10 @@
-﻿;Не заданы результаты измерений
+﻿;С таким номером уже существуют сущности в системе: 
+DuplicateEntity_Message = Entities with such number already exist in the system:
+
+;С таким номером уже существуют сущности в системе: 
+DuplicateEntity_MessageHeader = Duplicate numbers of entity
+
+;Не заданы результаты измерений
 FixedCategoryLengthPassedHeader=Measurement results are not specified
 
 ;Результаты измерения длины должны быть введены.
@@ -54,6 +60,9 @@ PartTypeSpool=Spool
 
 ;Надпись типа элемента Компонент
 PartTypeComponent=Component
+
+;Надпись типа элемента Стык
+PartTypeJoint=Joint
 
 ;Надпись типа элемента Неопределен
 PartTypeUndefined=Undefined

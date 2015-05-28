@@ -34,7 +34,6 @@ namespace Prizm.Data.DAL.Hibernate
             {
                 throw new RepositoryException("Get", ex);
             }
-
         }
     }
 }
