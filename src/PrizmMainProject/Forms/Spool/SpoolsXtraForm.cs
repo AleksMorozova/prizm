@@ -32,7 +32,7 @@ namespace Prizm.Main.Forms.Spool
         ISecurityContext ctx = Program.Kernel.Get<ISecurityContext>();
         private List<string> localizedAllInspectionStatus = new List<string>();
         private InspectorSelectionControl inspectorSelectionControl = new InspectorSelectionControl();
-
+        private List<string> localizedAllPartTypes = new List<string>();
         public bool IsMatchedByGuid(Guid id) { return this.Id == id; }
 
         public SpoolsXtraForm(Guid id, string number)
@@ -143,7 +143,7 @@ namespace Prizm.Main.Forms.Spool
         private void SpoolsXtraForm_Load(object sender, System.EventArgs e)
         {
             EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
-
+            EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllPartTypes, skip0: true);
             BindToViewModel();
 
             attachmentsButton.Enabled =
@@ -205,10 +205,22 @@ namespace Prizm.Main.Forms.Spool
                                                                                         StringResources.PartInspectionStatus_Rejected.Id,
                                                                                         StringResources.PartInspectionStatus_Accepted.Id
                                                                                       }),
+                                                                                                     
+                new LocalizedItem(GetTranslation, localizedAllPartTypes,new string []
+                                                                                      {
+                                                                                          StringResources.PartTypePipe.Id, 
+                                                                                          StringResources.PartTypeSpool.Id, 
+                                                                                          StringResources.PartTypeComponent.Id,
+                                                                                          StringResources.PartTypeJoint.Id
+                                                                                      }),
+
                 new LocalizedItem(this, localizedHeader, new string[] {StringResources.SpoolsXtraForm_Title.Id} )
             };
         }
-
+        private void GetTranslation()
+        {
+            viewModel.localizedAllPartType = localizedAllPartTypes;
+        }
         #endregion // --- Localization ---
 
         private void attachmentsButton_Click(object sender, System.EventArgs e)

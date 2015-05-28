@@ -30,16 +30,16 @@ namespace Prizm.Main.Forms.Notifications.Managers
         public override void LoadNotifications()
         {
             notifications.Clear();
-            List<Entities> allEntities = repo.GetAllEntitites();
-            List<string> duplicateNumber = repo.GetAllDuplicateNumber();
-            List<Entities> entitieForNotification = new List<Entities>();
+            List<DuplicateNumberEntity> allEntities = repo.GetAllActiveEntitites();
+            List<string> duplicateNumber = repo.GetAllActiveDuplicateNumber();
+            List<DuplicateNumberEntity> entitieForNotification = new List<DuplicateNumberEntity>();
 
-            foreach (Entities e in allEntities)
+            foreach (DuplicateNumberEntity e in allEntities)
             {
                 if (duplicateNumber.Contains(e.EntityNumber))
                 {
                     notifications.Add(new Notification(e.EntityID, e.EntityType + " №" + e.EntityNumber,
-                        TypeNotification.DuplicatePipeNumber, e.EntityNumber, e.EntityType, (PartType)Enum.Parse(typeof(PartType), e.EntityType)));
+                        TypeNotification.DuplicatePipeNumber, e.EntityNumber, e.EntityType, (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType), e.EntityType)));
                 }
             }
         }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Prizm.Domain.Entity
 {
-    public class Entities
+    public enum DuplicateNumberEntityType
     {
-        public Guid EntityID { get; set; }
-        public string EntityNumber { get; set; }
-        public string EntityType { get; set; }
+        Undefined = 0,
+        Pipe = 1,
+        Spool = 2,
+        Component = 3,
+        Joint = 4
     }
 }

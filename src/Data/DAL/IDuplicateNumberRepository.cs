@@ -9,8 +9,8 @@ namespace Prizm.Data.DAL
 {
     public interface IDuplicateNumberRepository
     {
-        List<Entities> GetAllEntitites();
-        List<string> GetAllDuplicateNumber();
-        List<Entities> GetAllDuplicateEntityByNumber(string entityNumber);
+        List<DuplicateNumberEntity> GetAllActiveEntitites();
+        List<string> GetAllActiveDuplicateNumber();
+        List<DuplicateNumberEntity> GetAllActiveDuplicateEntityByNumber(string entityNumber);
     }
 }

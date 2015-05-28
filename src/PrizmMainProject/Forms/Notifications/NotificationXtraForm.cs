@@ -20,7 +20,7 @@ using Prizm.UnitTests.Synch.SerializableEntities;
 using System.IO;
 using Prizm.Main.Common;
 using Prizm.Main.Forms.Synch;
-using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity;
 
 
 namespace PrizmMain.Forms.Notifications
@@ -69,24 +69,24 @@ namespace PrizmMain.Forms.Notifications
     
         }
 
-        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation, PartType entityType)
+        private void OpenEditorForm(Guid id, TypeNotification typeNotification, string additionalInformation, DuplicateNumberEntityType entityType)
         {
             switch (typeNotification)
             {
                 case TypeNotification.DuplicatePipeNumber:
-                    if (entityType == PartType.Pipe)
+                    if (entityType == DuplicateNumberEntityType.Pipe)
                     {
                         OpenForm(DocumentTypes.MillPipe, id);
                     }
-                    else if (entityType == PartType.Component)
+                    else if (entityType == DuplicateNumberEntityType.Component)
                     {
                         OpenForm(DocumentTypes.ConstructionComponent, id);
                     }
-                    else if (entityType == PartType.Spool)
+                    else if (entityType == DuplicateNumberEntityType.Spool)
                     {
                         OpenForm(DocumentTypes.ConstructionSpool, id);
                     }
-                    else if (entityType == PartType.Joint)
+                    else if (entityType == DuplicateNumberEntityType.Joint)
                     {
                         OpenForm(DocumentTypes.ConstructionJoint, id);
                     }

@@ -16,6 +16,7 @@ using Prizm.Main.Languages;
 using Prizm.Data.DAL;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Spool
 {
@@ -48,23 +49,22 @@ namespace Prizm.Main.Forms.Spool
                 log.Warn("Date limits not valid!");
                 return;
             }
-           
-            var test = repo.GetAllDuplicateEntityByNumber(viewModel.Spool.Number);
-             
-            if (test != null && test.Count > 0)
-            {
-                StringBuilder allentities = new StringBuilder();
 
-                foreach (var list in test)
+            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Spool.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
+
+            if (duplicateNumber != null && duplicateNumber.Count > 0)
+            {
+                String result = duplicateNumber[0].EntityNumber;
+
+                for (int i = 1; i <= duplicateNumber.Count - 1; i++)
                 {
-                    allentities.Append(list.EntityType);
-                    allentities.Append(",");
+                    DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[i].EntityNumber);
+                    result = result + ", " + viewModel.localizedAllPartType[(int)((object)translate) - 1];
                 }
 
-                allentities.Remove(allentities.Length - 1, 1);
-
                 notify.ShowInfo(
-                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + allentities.ToString()),
+                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
                   Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
                 viewModel.SpoolNumber = string.Empty;
 

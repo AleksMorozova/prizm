@@ -10,21 +10,17 @@ using Prizm.Main.Forms.PipeMill.NewEdit;
 using Prizm.Main.Forms.Settings;
 using Prizm.Main.Properties;
 using Prizm.Main.Languages;
-using Prizm.Domain.Entity.Construction;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Notifications
 {
     public class Notification
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Notification));
-        private Guid guid;
-        private string p1;
-        private string p2;
-        private PartType type;
 
         // Methods
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, 
-            string additionalInformation = null, PartType entityType=PartType.Undefined)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information,
+            string additionalInformation = null, DuplicateNumberEntityType entityType = DuplicateNumberEntityType.Undefined)
         {
             Id = ownerId;
             OwnerName = ownerName;
@@ -37,8 +33,8 @@ namespace Prizm.Main.Forms.Notifications
             EntityType = entityType;
         }
 
-        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, DateTime dayToOccur, 
-            string additionalInformation = null, PartType entityType=PartType.Undefined)
+        public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, DateTime dayToOccur,
+            string additionalInformation = null, DuplicateNumberEntityType entityType = DuplicateNumberEntityType.Undefined)
             : this(ownerId, ownerName, typeNotification, information, additionalInformation)
         {
             DateToOccur = dayToOccur;
@@ -46,7 +42,7 @@ namespace Prizm.Main.Forms.Notifications
         }
 
         public Notification(Guid ownerId, string ownerName, TypeNotification typeNotification, string information, float unitsLeft,
-            string additionalInformation = null, PartType entityType=PartType.Undefined)
+            string additionalInformation = null, DuplicateNumberEntityType entityType = DuplicateNumberEntityType.Undefined)
             : this(ownerId, ownerName, typeNotification, information, additionalInformation)
         {
             UnitsLeft = unitsLeft;
@@ -191,7 +187,7 @@ namespace Prizm.Main.Forms.Notifications
 
         public string AdditionalInformation { get; set; }
 
-        public PartType EntityType { get; set; }
+        public DuplicateNumberEntityType EntityType { get; set; }
     }
 
     public enum NotificationStatus
