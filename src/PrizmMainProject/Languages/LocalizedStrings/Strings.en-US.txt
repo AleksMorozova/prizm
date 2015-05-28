@@ -2974,3 +2974,6 @@ Notification_Error_Db_Header=Database Error.
 
 ;Сообщение об ошибке базы данных
 Notification_Error_Db_Message=During database operations having issues. Please close program and restore Microsoft localdb.
+
+;Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован
+PartInspection_PartIsWeldedMessage = Requested component has been already welded to the pipeline and can not be edited

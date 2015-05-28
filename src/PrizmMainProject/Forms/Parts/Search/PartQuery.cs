@@ -121,9 +121,7 @@ namespace Prizm.Main.Forms.Parts.Search
                                     SELECT id, number, isActive,'{2}'  as parttype FROM Spool {0}
                                     UNION ALL
                                     SELECT id, number, isActive,'{3}'  as parttype FROM Component {0}) elem
-                                LEFT JOIN Joint  p1 ON elem.id = p1.part1Id
-                                LEFT JOIN Joint  p2 ON elem.id = p2.part2Id
-                                WHERE p1.id IS NULL AND p2.id IS NULL AND elem.isActive = 1
+                                WHERE elem.isActive = 1 
                                 ORDER BY number ASC ", number, PartType.Pipe, PartType.Spool, PartType.Component
                                 );
 

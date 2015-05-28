@@ -991,6 +991,10 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
                 if(jointCutDialog.ShowDialog() == DialogResult.OK)
                 {
+                    foreach (Part part in jointElements)
+                    {
+                        part.IsWithdrawn = true;
+                    }
                     this.JointCutCommand.Execute();
                 }
             }

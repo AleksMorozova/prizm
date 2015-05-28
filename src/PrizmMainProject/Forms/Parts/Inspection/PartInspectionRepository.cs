@@ -19,7 +19,9 @@ namespace Prizm.Main.Forms.Parts.Inspection
         private readonly IPipeRepository repoPipe;
         private readonly ISpoolRepository repoSpool;
         private readonly IComponentRepository repoComponent;
+        private readonly IJointRepository repoJoint;
         private readonly ISession session;
+
         [Inject]
         public PartInspectionRepository(ISession session)
         {
@@ -29,6 +31,7 @@ namespace Prizm.Main.Forms.Parts.Inspection
             this.repoPipe = new PipeRepository(session);
             this.repoSpool = new SpoolRepository(session);
             this.repoComponent = new ComponentRepository(session);
+            this.repoJoint = new JointRepository(session);
         }
         public void Commit()
         {
@@ -68,6 +71,11 @@ namespace Prizm.Main.Forms.Parts.Inspection
         public IComponentRepository RepoComponent
         {
             get { return repoComponent; } 
+        }
+
+        public IJointRepository RepoJoint
+        {
+            get { return repoJoint; }
         }
     }
 }

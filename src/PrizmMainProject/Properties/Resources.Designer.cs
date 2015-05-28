@@ -3193,6 +3193,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Запрашиваемый компонент трубопровода уже приварен и не может быть отредактирован.
+        /// </summary>
+        internal static string PartInspection_PartIsWeldedMessage {
+            get {
+                return ResourceManager.GetString("PartInspection_PartIsWeldedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Входной контроль.
         /// </summary>
         internal static string PartInspection_Title {

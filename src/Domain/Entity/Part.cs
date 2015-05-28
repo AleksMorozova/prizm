@@ -18,6 +18,11 @@ namespace Prizm.Domain.Entity
         public virtual IList<InspectionTestResult> InspectionTestResults { get; set; }
         
         /// <summary>
+        /// Shows if element was welded into joint and then joint was withdrawn
+        /// </summary>
+        public virtual bool IsWithdrawn {get; set;}
+
+        /// <summary>
         /// PartInspectionStatus - is based on last inspection test result status. If there were several inspection test results on one date:
         /// select Accepted is exists.If doesn't exist - select the last one
         /// </summary>

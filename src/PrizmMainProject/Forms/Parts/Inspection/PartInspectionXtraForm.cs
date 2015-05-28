@@ -60,6 +60,13 @@ namespace Prizm.Main.Forms.Parts.Inspection
 
             repositoryInspectionDateEdit.SetLimits();
             inspectorsPopupContainerEdit.SetSize();
+            viewModel.PropertyChanged += (s, eve) =>
+            {
+                if (eve.PropertyName != "ElementIsWelded")
+                {
+                    inspectionsView.OptionsBehavior.Editable = viewModel.ElementIsWelded;
+                }
+            };
         }
 
         private void BindCommands()
