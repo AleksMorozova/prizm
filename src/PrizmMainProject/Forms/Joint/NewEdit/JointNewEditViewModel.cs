@@ -47,7 +47,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private BindingList<JointTestResult> jointTestResults;
         private BindingList<JointWeldResult> jointWeldResults;
         private JointStatus jointStatus;
-
+        public List<string> localizedAllType = new List<string>();
         private PartData firstElement;
         private PartData secondElement;
 

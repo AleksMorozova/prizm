@@ -38,6 +38,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         public ComponentNewEditXtraForm(string number) : this(Guid.Empty, number) { }
         public ComponentNewEditXtraForm() : this(Guid.Empty, string.Empty) { }
         private ExternalFilesXtraForm filesForm = null;
+        private List<string> localizedAllTypes = new List<string>();
 
         public ComponentNewEditXtraForm(Guid id, string number)
         {
@@ -106,7 +107,13 @@ namespace Prizm.Main.Forms.Component.NewEdit
 
                 new LocalizedItem(diameterGridColumn, StringResources.ComponentNewEdit_DiameterGridColumn.Id),
                 new LocalizedItem(wallThicknessGridColumn, StringResources.ComponentNewEdit_WallThicknessGridColumn.Id),
-
+                new LocalizedItem(GetTranslation, localizedAllTypes,new string []
+                                                                                      {
+                                                                                          StringResources.PartTypePipe.Id, 
+                                                                                          StringResources.PartTypeSpool.Id, 
+                                                                                          StringResources.PartTypeComponent.Id,
+                                                                                          StringResources.PartTypeJoint.Id
+                                                                                      }),
                 new LocalizedItem(repositoryInspectionStatus, localizedAllInspectionStatus,new string []
                                                                                       {
                                                                                         StringResources.PartInspectionStatus_Pending.Id,
@@ -120,6 +127,11 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     StringResources.ComponentNewEdit_Title.Id} )
 
             };
+        }
+
+        private void GetTranslation()
+        {
+            viewModel.localizedAllType = localizedAllTypes;
         }
 
         #endregion // --- Localization ---
@@ -140,6 +152,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
         {
             EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
+            EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
             BindCommands();
             BindToViewModel();
 

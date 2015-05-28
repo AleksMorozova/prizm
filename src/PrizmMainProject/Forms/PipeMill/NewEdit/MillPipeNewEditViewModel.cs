@@ -54,7 +54,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private IModifiable modifiableView;
         private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
-
+        public List<string> localizedAllType = new List<string>();
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
         public Project Project { get; set; }

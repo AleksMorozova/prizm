@@ -35,6 +35,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private IModifiable modifiableView;
         private IValidatable validatableView;
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
+        public List<string> localizedAllType = new List<string>();
 
         public bool IsNew { get { return this.Component.IsNew(); } }
 

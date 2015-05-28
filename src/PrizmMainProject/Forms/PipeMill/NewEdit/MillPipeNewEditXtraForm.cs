@@ -51,7 +51,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         // do NOT re-create it because reference passed to localization item. Clean it instead.
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
-
+        private List<string> localizedAllTypes = new List<string>();
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
@@ -127,7 +127,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             EnumWrapper<PipeTestResultStatus>.LoadItems(localizedAllPipeTestResultStatus, skip0: true);
             EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
-
+            EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
             BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -392,9 +392,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                                                                                                               StringResources.PipeTestResultStatus_Accepted.Id,
                                                                                                               StringResources.PipeTestResultStatus_Rejected.Id,
                                                                                                               StringResources.PipeTestResultStatus_Repair.Id}),
-                    // header
+  
+                    new LocalizedItem(GetTranslation, localizedAllTypes,new string []
+                                                                                      {
+                                                                                          StringResources.PartTypePipe.Id, 
+                                                                                          StringResources.PartTypeSpool.Id, 
+                                                                                          StringResources.PartTypeComponent.Id,
+                                                                                          StringResources.PartTypeJoint.Id
+                                                                                      }),
+                  // header
                     new LocalizedItem(this, localizedHeader, new string[] {StringResources.MillPipeNewEditXtraForm_Title.Id} )
                 };
+        }
+
+        private void GetTranslation()
+        {
+            viewModel.localizedAllType = localizedAllTypes;
         }
 
         #endregion // --- Localization ---

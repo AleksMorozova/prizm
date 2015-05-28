@@ -15,6 +15,7 @@ using Prizm.Main.Security;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Construction;
 using System.Threading;
+using Prizm.Data.DAL.ADO;
 
 namespace Prizm.Main.Forms.Component.NewEdit
 {
@@ -26,7 +27,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private readonly ComponentNewEditViewModel viewModel;
         private readonly IUserNotify notify;
         private readonly ISecurityContext ctx;
-
+        readonly IDuplicateNumberRepository repo = new DuplicateNumberRepository();
         private int numberOfOperationWithoutInspectors=0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
 
@@ -67,13 +68,26 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 repos.ComponentRepo.Evict(component);
             }
+            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
 
-            if (c != null && c.Count > 0)
+            if (duplicateNumber != null && duplicateNumber.Count > 0)
             {
+                DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[0].EntityNumber);
+                String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
+
+                for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                {
+                    DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[i].EntityNumber);
+                    result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                }
+
                 notify.ShowInfo(
-                    string.Concat(Program.LanguageManager.GetString(StringResources.ComponentNewEdit_Duplicate), " ", viewModel.Number),
-                    Program.LanguageManager.GetString(StringResources.ComponentNewEdit_DuplicateHeader));
+                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
+                  Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
                 viewModel.Number = string.Empty;
+
             }
             else
             {
