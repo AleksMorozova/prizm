@@ -1,8 +1,5 @@
 ﻿using NHibernate;
 using NHibernate.Exceptions;
-using Prizm.Domain.Entity.Construction;
-using Prizm.Domain.Entity.Mill;
-using System;
 using System.Collections.Generic;
 
 namespace Prizm.Data.DAL.Hibernate

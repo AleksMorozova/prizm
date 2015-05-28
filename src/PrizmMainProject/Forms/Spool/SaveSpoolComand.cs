@@ -54,7 +54,9 @@ namespace Prizm.Main.Forms.Spool
 
             if (duplicateNumber != null && duplicateNumber.Count > 0)
             {
-                String result = duplicateNumber[0].EntityNumber;
+                DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                         duplicateNumber[0].EntityNumber);
+                String result = viewModel.localizedAllPartType[(int)((object)translateFirstElement) - 1];
 
                 for (int i = 1; i <= duplicateNumber.Count - 1; i++)
                 {

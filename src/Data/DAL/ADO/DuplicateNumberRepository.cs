@@ -138,9 +138,11 @@ union all  Select j.number, j.id, '" + DuplicateNumberEntityType.Joint + @"' as 
                     command.Connection = connection;
                     command.Parameters.AddWithValue("@entityNumber", entityNumber);
                     command.CommandText = String.Format
-                        (@"select r.number, r.id, r.type From(
- Select p.number From Pipe p where p.isActive='1' union all Select c.Number from Component c where c.isActive='1'
- union all Select s.Number from Spool s where s.isActive='1' union all Select j.number From Joint j where j.isActive='1') r where r.number=@entityNumber");
+                        (@"select r.number, r.id, r.type from 
+ (Select p.number, p.id,'" + DuplicateNumberEntityType.Pipe + @"' as type From Pipe p where p.isActive='1'
+union all Select c.Number, c.id, '" + DuplicateNumberEntityType.Component + @"' as type from Component c where c.isActive='1'
+ union all Select s.Number, s.id , '" + DuplicateNumberEntityType.Spool + @"' as type from Spool s where s.isActive='1'
+union all  Select j.number, j.id, '" + DuplicateNumberEntityType.Joint + @"' as type From Joint j where j.isActive='1') r where r.number=@entityNumber");
 
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
