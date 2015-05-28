@@ -552,7 +552,7 @@
       <DependentUpon>PasswordChangeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Spool\ISpoolRepositories.cs" />
-    <Compile Include="Forms\Spool\SaveSpoolComand.cs" />
+    <Compile Include="Forms\Spool\SaveSpoolCommand.cs" />
     <Compile Include="Forms\Spool\EditPipeForCutCommand.cs" />
     <Compile Include="Forms\Spool\SpoolDeactivationCommand.cs" />
     <Compile Include="Forms\Spool\SpoolRepositories.cs" />
