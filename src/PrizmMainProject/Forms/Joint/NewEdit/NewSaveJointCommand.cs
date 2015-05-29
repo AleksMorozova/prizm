@@ -50,13 +50,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 if (duplicateNumber != null && duplicateNumber.Count > 0)
                 {
                     DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                             duplicateNumber[0].EntityType);
+                             duplicateNumber[0].EntityNumber);
                     String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
 
                     for (int i = 1; i <= duplicateNumber.Count - 1; i++)
                     {
                         DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                             duplicateNumber[i].EntityType);
+                             duplicateNumber[i].EntityNumber);
                         result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
                     }
 
