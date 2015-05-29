@@ -53,28 +53,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     try
                     {
-                        var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
-                        List<DuplicateNumberEntity> resultDuplicateNumber = new List<DuplicateNumberEntity>();
-                        if (viewModel.Joint.Id != Guid.Empty && duplicateNumber != null)
-                        {
-                            foreach (var entity in duplicateNumber)
-                            {
-                                if (entity.EntityType != DuplicateNumberEntityType.Joint.ToString())
-                                {
-                                    resultDuplicateNumber.Add(entity);
-                                }
-                            }
-                        }
-                        if (duplicateNumber != null && resultDuplicateNumber.Count > 0)
-                        {
-                            DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                                     resultDuplicateNumber[0].EntityType);
-                            String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
+                        var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number, viewModel.Joint.Id).Distinct(new DuplicateNumberEntityComparer()).ToList();
+                        String result = string.Empty;
 
-                            for (int i = 1; i <= resultDuplicateNumber.Count - 1; i++)
+                        if (duplicateNumber != null && duplicateNumber.Count > 0)
+                        {
+                            for (int i = 0; i <= duplicateNumber.Count - 1; i++)
                             {
                                 DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                                     resultDuplicateNumber[i].EntityType);
+                                     duplicateNumber[i].EntityType);
                                 result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
                             }
 

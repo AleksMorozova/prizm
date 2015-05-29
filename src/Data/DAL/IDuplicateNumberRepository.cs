@@ -11,6 +11,6 @@ namespace Prizm.Data.DAL
     {
         List<DuplicateNumberEntity> GetAllActiveEntitites();
         List<string> GetAllActiveDuplicateNumber();
-        List<DuplicateNumberEntity> GetAllActiveDuplicateEntityByNumber(string entityNumber);
+        List<DuplicateNumberEntity> GetAllActiveDuplicateEntityByNumber(string entityNumber, Guid entityId);
     }
 }

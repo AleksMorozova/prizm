@@ -50,29 +50,17 @@ namespace Prizm.Main.Forms.Spool
                 return;
             }
 
-            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Spool.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
-            List<DuplicateNumberEntity> resultDuplicateNumber = new List<DuplicateNumberEntity>();
-            if (viewModel.Spool.Id != Guid.Empty && duplicateNumber != null)
-            {
-                foreach (var entity in duplicateNumber)
-                {
-                    if (entity.EntityType != DuplicateNumberEntityType.Spool.ToString())
-                    {
-                        resultDuplicateNumber.Add(entity);
-                    }
-                }
-            }
-            if (duplicateNumber != null && resultDuplicateNumber.Count > 0)
-            {
-                DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                         resultDuplicateNumber[0].EntityType);
-                String result = viewModel.localizedAllPartType[(int)((object)translateFirstElement) - 1];
+            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Spool.Number, viewModel.Spool.Id).Distinct(new DuplicateNumberEntityComparer()).ToList();
+  
+            String result = string.Empty;
 
-                for (int i = 1; i <= resultDuplicateNumber.Count - 1; i++)
+            if (duplicateNumber != null && duplicateNumber.Count > 0)
+            {
+                for (int i = 0; i <= duplicateNumber.Count - 1; i++)
                 {
                     DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                         resultDuplicateNumber[i].EntityType);
-                    result = result + ", " + viewModel.localizedAllPartType[(int)((object)translate) - 1];
+                         duplicateNumber[i].EntityType);
+                    result = result + viewModel.localizedAllPartType[(int)((object)translate) - 1] + (i < duplicateNumber.Count - 1 ? ", " : "");
                 }
 
                 notify.ShowInfo(
