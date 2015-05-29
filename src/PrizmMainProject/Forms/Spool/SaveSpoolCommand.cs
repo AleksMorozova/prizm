@@ -55,13 +55,13 @@ namespace Prizm.Main.Forms.Spool
             if (duplicateNumber != null && duplicateNumber.Count > 0)
             {
                 DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                         duplicateNumber[0].EntityNumber);
+                         duplicateNumber[0].EntityType);
                 String result = viewModel.localizedAllPartType[(int)((object)translateFirstElement) - 1];
 
                 for (int i = 1; i <= duplicateNumber.Count - 1; i++)
                 {
                     DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                         duplicateNumber[i].EntityNumber);
+                         duplicateNumber[i].EntityType);
                     result = result + ", " + viewModel.localizedAllPartType[(int)((object)translate) - 1];
                 }
 

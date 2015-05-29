@@ -13,6 +13,8 @@ using Prizm.Main.Properties;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Construction;
 using Prizm.Data.DAL;
+using Prizm.Domain.Entity;
+using Prizm.Data.DAL.ADO;
 
 
 namespace Prizm.Main.Forms.Joint.NewEdit
@@ -21,7 +23,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
     {
         private int numberOfWeldOperationWithoutWelders = 0;
         private int numberOfControlOperationWithoutInspectors = 0;
-
+        readonly IDuplicateNumberRepository duplicateNumberRepo = new DuplicateNumberRepository();
         private readonly IConstructionRepository repo;
         private readonly JointNewEditViewModel viewModel;
         private readonly IUserNotify notify;
@@ -43,7 +45,30 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             try
             {
-                if(!viewModel.ValidatableView.Validate()) { return; }
+                var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
+
+                if (duplicateNumber != null && duplicateNumber.Count > 0)
+                {
+                    DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                             duplicateNumber[0].EntityType);
+                    String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
+
+                    for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                    {
+                        DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                             duplicateNumber[i].EntityType);
+                        result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                    }
+
+                    notify.ShowInfo(
+                      string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
+                      Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
+                    viewModel.Number = string.Empty;
+
+                }
+                else
+                {
+                                    if(!viewModel.ValidatableView.Validate()) { return; }
 
                 if(!DateCheck())
                 {
@@ -149,6 +174,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     log.Warn(string.Format("There are no welders for appropriate weld operations for the joint #{0}, id:{1} formation",
                         viewModel.Joint.Number,
                         viewModel.Joint.Id));
+                }
                 }
             }
             catch(RepositoryException ex)

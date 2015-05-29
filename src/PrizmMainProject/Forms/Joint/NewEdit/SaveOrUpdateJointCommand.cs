@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Ninject;
 using Prizm.Main.Languages;
 using Prizm.Domain.Entity.Construction;
+using Prizm.Data.DAL.ADO;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.Joint.NewEdit
 {
@@ -23,7 +25,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         private readonly ISecurityContext ctx;
         private int numberOfOperationWithoutInspectors = 0;
         public event RefreshVisualStateEventHandler RefreshVisualStateEvent = delegate { };
-
+        readonly IDuplicateNumberRepository duplicateNumberRepo = new DuplicateNumberRepository();
         public SaveOrUpdateJointCommand(
             IConstructionRepository repo,
             JointNewEditViewModel viewModel,
@@ -51,7 +53,29 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     try
                     {
-                        viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
+                        var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
+
+                        if (duplicateNumber != null && duplicateNumber.Count > 0)
+                        {
+                            DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                                     duplicateNumber[0].EntityType);
+                            String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
+
+                            for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                            {
+                                DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
+                                     duplicateNumber[i].EntityType);
+                                result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                            }
+
+                            notify.ShowInfo(
+                              string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
+                              Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
+                            viewModel.Number = string.Empty;
+
+                        }
+else
+{                        viewModel.Joint.Number = viewModel.Joint.Number.ToUpper();
                         viewModel.Joint.ToExport = true;
                         repo.BeginTransaction();
                         repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
@@ -105,6 +129,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                         viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.Id = viewModel.Joint.Id;
                         viewModel.ModifiableView.UpdateState();
+}
                     }
                     catch(RepositoryException ex)
                     {

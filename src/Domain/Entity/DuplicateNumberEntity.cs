@@ -22,7 +22,7 @@ namespace Prizm.Domain.Entity
             if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
                 return false;
 
-            return x.EntityNumber == y.EntityNumber;
+            return x.EntityType == y.EntityType;
         }
 
         public int GetHashCode(DuplicateNumberEntity obj)
