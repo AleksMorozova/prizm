@@ -68,23 +68,21 @@ namespace Prizm.Main.Forms.Component.NewEdit
             {
                 repos.ComponentRepo.Evict(component);
             }
-            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
+            var duplicateNumber = repo.GetAllActiveDuplicateEntityByNumber(viewModel.Number, viewModel.Component.Id).Distinct(new DuplicateNumberEntityComparer()).ToList();
+            String resultString = string.Empty;
 
             if (duplicateNumber != null && duplicateNumber.Count > 0)
             {
-                DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                         duplicateNumber[0].EntityType);
-                String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
 
-                for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                for (int i = 0; i <= duplicateNumber.Count - 1; i++)
                 {
                     DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
                          duplicateNumber[i].EntityType);
-                    result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                    resultString = resultString + viewModel.localizedAllType[(int)((object)translate) - 1] + (i < duplicateNumber.Count - 1 ? ", " : ""); ;
                 }
 
                 notify.ShowInfo(
-                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + result),
+                  string.Concat(Program.LanguageManager.GetString(StringResources.DuplicateEntity_Message) + resultString),
                   Program.LanguageManager.GetString(StringResources.DuplicateEntity_MessageHeader));
                 viewModel.Number = string.Empty;
 

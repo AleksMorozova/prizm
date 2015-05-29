@@ -47,19 +47,15 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             try
             {
 
-                var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number).Distinct(new DuplicateNumberEntityComparer()).ToList();
-
+                var duplicateNumber = duplicateNumberRepo.GetAllActiveDuplicateEntityByNumber(viewModel.Number, viewModel.Joint.Id).Distinct(new DuplicateNumberEntityComparer()).ToList();
+                String result = string.Empty;
                 if (duplicateNumber != null && duplicateNumber.Count > 0)
                 {
-                    DuplicateNumberEntityType translateFirstElement = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
-                             duplicateNumber[0].EntityType);
-                    String result = viewModel.localizedAllType[(int)((object)translateFirstElement) - 1];
-
-                    for (int i = 1; i <= duplicateNumber.Count - 1; i++)
+                    for (int i = 0; i <= duplicateNumber.Count - 1; i++)
                     {
                         DuplicateNumberEntityType translate = (DuplicateNumberEntityType)Enum.Parse(typeof(DuplicateNumberEntityType),
                              duplicateNumber[i].EntityType);
-                        result = result + ", " + viewModel.localizedAllType[(int)((object)translate) - 1];
+                        result = result + viewModel.localizedAllType[(int)((object)translate) - 1] + (i < duplicateNumber.Count - 1?", ":"");
                     }
 
                     notify.ShowInfo(
