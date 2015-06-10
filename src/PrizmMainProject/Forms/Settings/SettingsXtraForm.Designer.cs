@@ -27,7 +27,7 @@ namespace Prizm.Main.Forms.Settings
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -760,7 +760,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.repositoryItemButtonUserPass.AutoHeight = false;
             this.repositoryItemButtonUserPass.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonUserPass.Name = "repositoryItemButtonUserPass";
             this.repositoryItemButtonUserPass.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonUserPass.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonUserPass_ButtonClick);
@@ -1212,10 +1212,10 @@ namespace Prizm.Main.Forms.Settings
             this.jointsOperationsGridView.OptionsBehavior.FocusLeaveOnTab = true;
             this.jointsOperationsGridView.OptionsNavigation.UseTabKey = false;
             this.jointsOperationsGridView.OptionsView.ShowGroupPanel = false;
+            this.jointsOperationsGridView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.jointsOperationsGridView_ShowingEditor);
             this.jointsOperationsGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.jointsOperationsGridView_InitNewRow);
             this.jointsOperationsGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.CellModifiedGridView_CellValueChanged);
             this.jointsOperationsGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.jointsOperationsGridView_ValidateRow);
-            this.jointsOperationsGridView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.jointsOperationsGridView_ShowingEditor);
             // 
             // nameGridColumn
             // 
@@ -1510,7 +1510,7 @@ namespace Prizm.Main.Forms.Settings
             this.editTestButton.Size = new System.Drawing.Size(110, 24);
             this.editTestButton.StyleController = this.rootLayoutControl;
             this.editTestButton.TabIndex = 19;
-            this.editTestButton.Text = "Редактировать";
+            this.editTestButton.Text = "&Редактировать";
             this.editTestButton.Click += new System.EventHandler(this.editTestButton_Click);
             // 
             // addTestButton
@@ -1522,7 +1522,7 @@ namespace Prizm.Main.Forms.Settings
             this.addTestButton.Size = new System.Drawing.Size(110, 24);
             this.addTestButton.StyleController = this.rootLayoutControl;
             this.addTestButton.TabIndex = 18;
-            this.addTestButton.Text = "Добавить";
+            this.addTestButton.Text = "&Добавить";
             this.addTestButton.Click += new System.EventHandler(this.addTestButton_Click);
             // 
             // closeButton
@@ -2065,8 +2065,8 @@ namespace Prizm.Main.Forms.Settings
             this.tabbedControlGroup.CustomizationFormText = "Группа вкладок";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectorsLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 5;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1255, 504);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.projectLayoutControlGroup,
@@ -2089,7 +2089,7 @@ namespace Prizm.Main.Forms.Settings
             this.inspectorsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.inspectorsLayoutControlGroup.Name = "inspectorsLayoutControlGroup";
             this.inspectorsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.inspectorsLayoutControlGroup.Text = "&Инспекторы";
+            this.inspectorsLayoutControlGroup.Text = "Инспекторы";
             // 
             // inspectorLayoutControlGroup
             // 
@@ -2167,7 +2167,7 @@ namespace Prizm.Main.Forms.Settings
             this.projectLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.projectLayoutControlGroup.Name = "projectLayoutControlGroup";
             this.projectLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.projectLayoutControlGroup.Text = "&Проект";
+            this.projectLayoutControlGroup.Text = "Проект";
             this.projectLayoutControlGroup.Shown += new System.EventHandler(this.projectLayoutControlGroup_Shown);
             // 
             // commonParamsLayoutControlGroup
@@ -2334,7 +2334,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.pipeLayoutControlGroup.Name = "pipeLayoutControlGroup";
             this.pipeLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.pipeLayoutControlGroup.Text = "&Труба";
+            this.pipeLayoutControlGroup.Text = "Труба";
             this.pipeLayoutControlGroup.Shown += new System.EventHandler(this.pipeLayoutControlGroup_Shown);
             // 
             // sizesLayoutControlItem
@@ -2413,7 +2413,7 @@ namespace Prizm.Main.Forms.Settings
             this.pipeLengthLayoutControlItem.Size = new System.Drawing.Size(191, 55);
             this.pipeLengthLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.pipeLengthLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeLengthLayoutControlItem.Text = "Номинал&ьная длина трубы, мм";
+            this.pipeLengthLayoutControlItem.Text = "Номинальна&я длина трубы, мм";
             this.pipeLengthLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeLengthLayoutControlItem.TextSize = new System.Drawing.Size(312, 13);
             // 
@@ -2500,7 +2500,7 @@ namespace Prizm.Main.Forms.Settings
             this.lineLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.lineLayoutControlGroup.Name = "lineLayoutControlGroup";
             this.lineLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.lineLayoutControlGroup.Text = "Тру&бопровод";
+            this.lineLayoutControlGroup.Text = "Трубопровод";
             // 
             // jointOperationLayoutControlItem
             // 
@@ -2523,7 +2523,7 @@ namespace Prizm.Main.Forms.Settings
             this.partsLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.partsLayoutControlGroup.Name = "partsLayoutControlGroup";
             this.partsLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.partsLayoutControlGroup.Text = "Комплектую&щие";
+            this.partsLayoutControlGroup.Text = "Комплектующие";
             // 
             // partsTypeLayoutControlItem
             // 
@@ -2562,7 +2562,7 @@ namespace Prizm.Main.Forms.Settings
             this.weldersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.weldersLayoutControlGroup.Name = "weldersLayoutControlGroup";
             this.weldersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.weldersLayoutControlGroup.Text = "С&варщики";
+            this.weldersLayoutControlGroup.Text = "Сварщики";
             // 
             // weldersLayoutControlItem
             // 
@@ -2585,7 +2585,7 @@ namespace Prizm.Main.Forms.Settings
             this.usersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.usersLayoutControlGroup.Name = "usersLayoutControlGroup";
             this.usersLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.usersLayoutControlGroup.Text = "По&льзователи";
+            this.usersLayoutControlGroup.Text = "Пользователи";
             // 
             // userLayoutControlItem
             // 
@@ -2629,7 +2629,7 @@ namespace Prizm.Main.Forms.Settings
             this.rolesLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.rolesLayoutControlGroup.Name = "rolesLayoutControlGroup";
             this.rolesLayoutControlGroup.Size = new System.Drawing.Size(1231, 458);
-            this.rolesLayoutControlGroup.Text = "&Роли";
+            this.rolesLayoutControlGroup.Text = "Роли";
             // 
             // rolesTabLayoutControlItem
             // 

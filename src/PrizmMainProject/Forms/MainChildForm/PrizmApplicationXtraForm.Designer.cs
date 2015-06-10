@@ -413,14 +413,14 @@
             // 
             // barButtonItemSettingsPipeline
             // 
-            this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
+            this.barButtonItemSettingsPipeline.Caption = "Тр&убопровод";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemComponentry
             // 
-            this.barButtonItemComponentry.Caption = "Комплектующие";
+            this.barButtonItemComponentry.Caption = "Комплектую&щие";
             this.barButtonItemComponentry.Id = 60;
             this.barButtonItemComponentry.Name = "barButtonItemComponentry";
             this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
@@ -502,7 +502,7 @@
             // 
             // barButtonItemAbout
             // 
-            this.barButtonItemAbout.Caption = "О программе";
+            this.barButtonItemAbout.Caption = "О &программе";
             this.barButtonItemAbout.Id = 44;
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             this.barButtonItemAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);

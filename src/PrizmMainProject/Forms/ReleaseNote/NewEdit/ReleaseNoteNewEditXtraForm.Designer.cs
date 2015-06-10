@@ -601,7 +601,7 @@
             this.releasedNoteDateLayout.Name = "releasedNoteDateLayout";
             this.releasedNoteDateLayout.Size = new System.Drawing.Size(294, 50);
             this.releasedNoteDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.releasedNoteDateLayout.Text = "Дата";
+            this.releasedNoteDateLayout.Text = "&Дата";
             this.releasedNoteDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteDateLayout.TextSize = new System.Drawing.Size(101, 13);
             // 
@@ -613,7 +613,7 @@
             this.releasedNoteNumberLayout.Name = "releasedNoteNumberLayout";
             this.releasedNoteNumberLayout.Size = new System.Drawing.Size(294, 50);
             this.releasedNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.releasedNoteNumberLayout.Text = "Номер";
+            this.releasedNoteNumberLayout.Text = "&Номер";
             this.releasedNoteNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 

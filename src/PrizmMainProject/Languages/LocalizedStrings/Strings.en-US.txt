@@ -285,7 +285,7 @@ MillReport_CreateGroup=Create report
 MillReport_PreviewGroup=Preview
 
 ;Отчеты на заводе. Кнопка создания отчета
-MillReport_CreateButton=&Create report
+MillReport_CreateButton= Cre&ate report
 
 ;Отчеты на заводе. Кнопка предпросмотра отчета
 MillReport_PreviewButton=&Preview report
@@ -342,16 +342,16 @@ Spool_WrongPipeNumberForCutting=Wrong pipe number
 Spool_WrongPipeNumberForCuttingHeader=Pipe number
 
 ;Катушка. Номер трубы для нарезания на кaтушки
-Spool_PipeNumberLabel=Pipe number
+Spool_PipeNumberLabel=Pipe &number
 
 ;Катушка. Номер катушки
-Spool_SpoolNumberLabel=Spool number
+Spool_SpoolNumberLabel=Spool n&umber
 
 ;Катушка. Длина трубы
-Spool_PipeLengthLabel=Pipe
+Spool_PipeLengthLabel= &Pipe
 
 ;Катушка. Длина катушки
-Spool_SpoolLengthLabel=Spool
+Spool_SpoolLengthLabel= Sp&ool
 
 ;Катушка. Поиск трубы
 Spool_PipeSearchGroup=Pipe search
@@ -363,7 +363,7 @@ Spool_SpoolGroup=Spool information
 Spool_LenghtGroup=Length, mm
 
 ;Катушка. Входной контроль
-Spool_IncomingInspectionGroup=Incoming inspection
+Spool_IncomingInspectionGroup=Incomin&g inspection
 
 ;Катушка. Дата входного контроля
 Spool_InspectionDateColumn=Date
@@ -471,7 +471,7 @@ Settings_RolesTab=Roles
 Settings_SaveButton=&Save
 
 ;Настройки. Кнопка - Закрыть
-Settings_CloseButton=&Close
+Settings_CloseButton= C&lose
 
 ;Настройки. Надпись колонки завода
 Settings_MillNameGridColumn = Mill name
@@ -540,7 +540,7 @@ SettingsPipe_DiameterLabel=Pipe external &diameter, mm
 SettingsPipe_WallThicknessLabel=&Wall thickness, mm
 
 ;Настройки-труба. Длина трубы для заданного типоразмера, мм
-SettingsPipe_LengthLabel=Pipe l&ength, mm
+SettingsPipe_LengthLabel=Pipe le&ngth, mm
 
 ;Настройки-труба. Тип шва для заданого типоразмера
 SettingsPipe_SeamTypeLabel=Seam t&ype
@@ -926,7 +926,7 @@ PartSearch_TypeColumnHeader=Type
 PartSearch_SearchGroup=Search
 
 ;Поиск элементов трубопровода. Надпись панели результатов поиска
-PartSearch_SearchResultGroup=Search results
+PartSearch_SearchResultGroup=S&earch results
 
 ;Сообщение об успехе экспорта: Экспортирование завершено успешно. Количество экспортированных элементов: 
 Export_Ready=Export was finished successfully. The number of exported elements:
@@ -1112,7 +1112,7 @@ ComponentNewEdit_ComponentNumberLayout=N&umber
 ComponentNewEdit_TypeLayoutControl=T&ype
 
 ;Номер се&ртификата
-ComponentNewEdit_CertificateLayout=Certi&ficate number
+ComponentNewEdit_CertificateLayout=C&ertificate number
 
 ;Длина комплектую&щего, мм
 ComponentNewEdit_ComponentLengthLayout=Component &length, mm
@@ -1214,7 +1214,7 @@ JointNew_JointParametersLayoutGroup=Joint parameters
 JointNew_LoweringLayoutGroup=Lowering parameters
 
 ;Дата &укладки
-JointNew_LoweringDateLayout=Lo&wering date
+JointNew_LoweringDateLayout=Lowerin&g date
 
 ;PK
 JointNew_PKLabelLayout=KP
@@ -1241,10 +1241,10 @@ JointNew_ElevationLayout=Ele&vation
 JointNew_InspectionLayoutGroup=Operations
 
 ;Сварка и ре&монт
-JointNew_RepairOperationLayout=Weld and &repair
+JointNew_RepairOperationLayout= &Weld and repair
 
 ;Контрольные опера&ции
-JointNew_ControlOperationsLayout=&Inspection operations
+JointNew_ControlOperationsLayout= Inspection ope&rations
 
 ;Со&хранить
 JointNew_SaveButton=&Save
@@ -1334,7 +1334,7 @@ JointSearch_WeldingDateToLayout=To
 JointSearch_KMlayout=&KP
 
 ;Состояние стыка
-JointSearch_ActivityLayout=Activity status
+JointSearch_ActivityLayout= &Activity status
 
 ;Параметры поиска
 JointSearch_SearchLayoutGroup=Search parameters
@@ -1343,7 +1343,7 @@ JointSearch_SearchLayoutGroup=Search parameters
 JointSearch_SearchButton=&Search
 
 ;Резул&ьтаты поиска
-JointSearch_SearchResultLayoutGroup=Search results
+JointSearch_SearchResultLayoutGroup=S&earch results
 
 ;Номер стыка
 JointSearch_JointNumberGridColumn=Joint number
@@ -1559,7 +1559,7 @@ InspectionFrequencyType_Selective=Selective
 PartInspection_SearchNumberLabel=Search &number
 
 ;Входной контроль элемента. Надпись номера элемента
-PartInspection_ElementNumberLabel=E&lement number
+PartInspection_ElementNumberLabel= &Element number
 
 ;Входной контроль элемента. Надпись типа элемента
 PartInspection_ElementTypeLabel=Element t&ype
@@ -1607,7 +1607,7 @@ NewEditPipe_PipeNumberLabel=Pipe &number
 NewEditPipe_PipeSizeLabel=Si&ze type
 
 ;Труба. Плавка
-NewEditPipe_HeatsComboLabel=&Heat
+NewEditPipe_HeatsComboLabel=H&eat
 
 ;Труба. Номер наряд-заказа
 NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
@@ -1619,7 +1619,7 @@ NewEditPipe_PurchaseOrederDateLabel=&Purchase order date
 NewEditPipe_PipeCreationLabel=Creat&ion date
 
 ;Труба. Статус трубы
-NewEditPipe_PipeStatusLabel=Status on &mill
+NewEditPipe_PipeStatusLabel=Status on mill
 
 ;Труба. Номер листа
 NewEditPipe_PlateNumberLabel=Number
@@ -1673,7 +1673,7 @@ NewEditPipe_DeactivatedCheckBox=Pipe is deactivated
 NewEditPipe_SaveButton=&Save
 
 ;Труба. Кнопка сохранить и создать
-NewEditPipe_SaveAndNewButton=Save\\&Create
+NewEditPipe_SaveAndNewButton=Save\\C&reate
 
 ;Труба. Кнопка добавления контрольных операций
 NewEditPipe_InspectionsAddButton=A&dd
@@ -1727,7 +1727,7 @@ NewEditPipe_FactSizeGroup=Act&ual parameters
 NewEditPipe_TypeSizeGroup=Size t&ype parameters
 
 ;Труба. Группа отправка
-NewEditPipe_ShippingGroup=Shipping param&eters
+NewEditPipe_ShippingGroup=Shipping parameters
 
 ;Труба. Группа покрытие
 NewEditPipe_CoverGroup=Coatin&g parameters
@@ -1856,7 +1856,7 @@ SearchPipe_WeldingDateLabel=Welding &date
 SearchPipe_ExternalCoatingDateLabel=&External coating date
 
 ;Поиск труб. Дата внутреннего покрытия
-SearchPipe_InternalCoatingDateLabel=&Internal coating date
+SearchPipe_InternalCoatingDateLabel= Interna&l coating date
 
 ;Поиск труб. Кнопка поиск
 SearchPipe_SearchButton=&Search
@@ -1880,7 +1880,7 @@ SearchPipe_PipeStatusColumn=Status
 SearchPipe_SearchGroup=Search parameters
 
 ;Поиск труб. Группа результат
-SearchPipe_ResultGroup=Search res&ults
+SearchPipe_ResultGroup= Search &results
 
 ;Разрешение на отгрузку. Номер разрешения
 ReleaseNoteNewEdit_ReleaseNumberLabel=&Number
@@ -1892,22 +1892,22 @@ ReleaseNoteNewEdit_ReleaseDateLabel=&Date
 ReleaseNoteNewEdit_RailcarNumberLabel=Railcar number
 
 ;Разрешение на отгрузку. Сертификат вагона
-ReleaseNoteNewEdit_CertificateLabel=Certi&ficate number
+ReleaseNoteNewEdit_CertificateLabel=Certificate number
 
 ;Разрешение на отгрузку. Получатель
 ReleaseNoteNewEdit_DestinationLabel=Destinati&on
 
 ;Разрешение на отгрузку. Кнопка добавления трубы
-ReleaseNoteNewEdit_AddPipeButton=Add p&ipe
+ReleaseNoteNewEdit_AddPipeButton=Add pip&e
 
 ;Разрешение на отгрузку. Кнопка удаления трубы
-ReleaseNoteNewEdit_RemovePipeButton=Re&move pipe
+ReleaseNoteNewEdit_RemovePipeButton= &Remove pipe
 
 ;Разрешение на отгрузку. Кнопка добавления файлов
 ReleaseNoteNewEdit_AttachmentsButton=&Attachments
 
 ;Разрешение на отгрузку. Кнопка отгрузки
-ReleaseNoteNewEdit_ShipButton=S&hip
+ReleaseNoteNewEdit_ShipButton=Shi&p
 
 ;Разрешение на отгрузку. Кнопка отклонения отгрузки
 ReleaseNoteNewEdit_UnshipButton=&Unship
@@ -1916,7 +1916,7 @@ ReleaseNoteNewEdit_UnshipButton=&Unship
 ReleaseNoteNewEdit_SaveButton=&Save
 
 ;Разрешение на отгрузку. Столбец номер трубы
-ReleaseNoteNewEdit_PipeNumberColumn=Pipe number
+ReleaseNoteNewEdit_PipeNumberColumn=Pipe num&ber
 
 ;Разрешение на отгрузку. Столбец типоразмер
 ReleaseNoteNewEdit_PipeTypeSizeColumn=Pipe size type
@@ -1982,19 +1982,19 @@ ReleaseNoteNewEdit_PendingStatus=Pending
 ReleaseSearch_NumberLabel=Release note &number
 
 ;Поиск разрешений на отгрузку. Дата
-ReleaseSearch_StartDateLabel=&From
+ReleaseSearch_StartDateLabel= F&rom
 
 ;Поиск разрешений на отгрузку. Дата
 ReleaseSearch_EndDateLabel=T&o
 
 ;Поиск разрешений на отгрузку. Получатель
-ReleaseSearch_DestinationLabel=Dest&ination
+ReleaseSearch_DestinationLabel= &Destination
 
 ;Поиск разрешений на отгрузку. Вагон
 ReleaseSearch_PipeInReleaseNoteLabel=&Pipe number
 
 ;Поиск разрешений на отгрузку. Вагон
-ReleaseSearch_RailcarLabel=&Railcar number
+ReleaseSearch_RailcarLabel= Railcar num&ber
 
 ;Поиск разрешений на отгрузку. Сертификат вагона
 ReleaseSearch_CertificateLabel=Certificate n&umber
@@ -2309,7 +2309,7 @@ Menu_Mill_NewReleaseNote=New &release note
 Menu_Mill_SearchReleaseNotes=F&ind release notes
 
 ;Главное меню, пункт Отчёты на заводе
-Menu_Mill_Reports=&Reports at mill
+Menu_Mill_Reports= Reports at &mill
 
 ;Главное меню, пункт Строительство и входной контроль
 Menu_Construction=Incoming inspection and &Construction
@@ -2333,7 +2333,7 @@ Menu_Construction_FindJoints=Fin&d joints
 Menu_Construction_Spool=&Spools
 
 ;Главное меню, пункт Отчёты на входном контроле
-Menu_Construction_InspectionReports=&Inspection reports
+Menu_Construction_InspectionReports= Inspectio&n reports
 
 ;Главное меню, пункт Отчёты по трубам на стройке
 Menu_Construction_PipeReports=&Pipe reports
@@ -2471,7 +2471,7 @@ PartSearch_Title=Search pipeline elements
 HeatNumberXtraForm_Title=Add heat
 
 ;Плавка
-Heat_Title=Heat
+Heat_Title=H&eat
 
 ;Инспекция трубы
 InspectionAddEdit_Title=Pipe inspection

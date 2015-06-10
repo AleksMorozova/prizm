@@ -1046,7 +1046,7 @@
             this.searchNumberLayout.Size = new System.Drawing.Size(279, 41);
             this.searchNumberLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.searchNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 15, 0, 0);
-            this.searchNumberLayout.Text = "&Номер искомого стыка";
+            this.searchNumberLayout.Text = "Номер искомого &стыка";
             this.searchNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.searchNumberLayout.TextSize = new System.Drawing.Size(120, 13);
             // 

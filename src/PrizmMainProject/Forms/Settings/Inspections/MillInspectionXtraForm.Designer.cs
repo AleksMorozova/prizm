@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MillInspectionXtraForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
@@ -313,9 +313,9 @@
             this.controlType.Size = new System.Drawing.Size(224, 20);
             this.controlType.StyleController = this.mainLayoutControl;
             this.controlType.TabIndex = 23;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Тип контроля не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.controlType, conditionValidationRule5);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Тип контроля не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.controlType, conditionValidationRule1);
             // 
             // resultType
             // 
@@ -327,9 +327,9 @@
             this.resultType.Size = new System.Drawing.Size(236, 20);
             this.resultType.StyleController = this.mainLayoutControl;
             this.resultType.TabIndex = 22;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Тип результата должен быть установлен";
-            this.dxValidationProvider.SetValidationRule(this.resultType, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Тип результата должен быть установлен";
+            this.dxValidationProvider.SetValidationRule(this.resultType, conditionValidationRule2);
             this.resultType.SelectedIndexChanged += new System.EventHandler(this.resultType_SelectedIndexChanged);
             // 
             // category
@@ -350,12 +350,12 @@
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(780, 413);
+            this.cancelButton.Location = new System.Drawing.Point(775, 413);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(82, 22);
+            this.cancelButton.Size = new System.Drawing.Size(87, 22);
             this.cancelButton.StyleController = this.mainLayoutControl;
             this.cancelButton.TabIndex = 18;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "&Отменить";
             // 
             // saveButton
             // 
@@ -363,7 +363,7 @@
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.Location = new System.Drawing.Point(669, 413);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(87, 22);
+            this.saveButton.Size = new System.Drawing.Size(82, 22);
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 17;
             this.saveButton.Text = "&Принять";
@@ -426,9 +426,9 @@
             this.operationName.Size = new System.Drawing.Size(260, 20);
             this.operationName.StyleController = this.mainLayoutControl;
             this.operationName.TabIndex = 5;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Название операции не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.operationName, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Название операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.operationName, conditionValidationRule3);
             // 
             // code
             // 
@@ -437,9 +437,9 @@
             this.code.Size = new System.Drawing.Size(236, 20);
             this.code.StyleController = this.mainLayoutControl;
             this.code.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Код операции не может быть пустым";
-            this.dxValidationProvider.SetValidationRule(this.code, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Код операции не может быть пустым";
+            this.dxValidationProvider.SetValidationRule(this.code, conditionValidationRule4);
             // 
             // Root
             // 
@@ -498,7 +498,7 @@
             this.saveButtonLayout.CustomizationFormText = "saveButtonLayout";
             this.saveButtonLayout.Location = new System.Drawing.Point(647, 401);
             this.saveButtonLayout.Name = "saveButtonLayout";
-            this.saveButtonLayout.Size = new System.Drawing.Size(111, 26);
+            this.saveButtonLayout.Size = new System.Drawing.Size(106, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 0, 0);
             this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
@@ -509,9 +509,9 @@
             this.cancelButtonLayout.AllowHtmlStringInCaption = true;
             this.cancelButtonLayout.Control = this.cancelButton;
             this.cancelButtonLayout.CustomizationFormText = "cancelButtonLayout";
-            this.cancelButtonLayout.Location = new System.Drawing.Point(758, 401);
+            this.cancelButtonLayout.Location = new System.Drawing.Point(753, 401);
             this.cancelButtonLayout.Name = "cancelButtonLayout";
-            this.cancelButtonLayout.Size = new System.Drawing.Size(106, 26);
+            this.cancelButtonLayout.Size = new System.Drawing.Size(111, 26);
             this.cancelButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 10, 0, 0);
             this.cancelButtonLayout.Text = "cancelButtonLayout";
             this.cancelButtonLayout.TextSize = new System.Drawing.Size(0, 0);

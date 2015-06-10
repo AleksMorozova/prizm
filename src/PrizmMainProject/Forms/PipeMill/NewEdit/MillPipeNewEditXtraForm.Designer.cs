@@ -431,10 +431,10 @@
             this.editInspectionButton.Location = new System.Drawing.Point(165, 97);
             this.editInspectionButton.MinimumSize = new System.Drawing.Size(110, 0);
             this.editInspectionButton.Name = "editInspectionButton";
-            this.editInspectionButton.Size = new System.Drawing.Size(110, 22);
+            this.editInspectionButton.Size = new System.Drawing.Size(116, 22);
             this.editInspectionButton.StyleController = this.generalPipeLayout;
             this.editInspectionButton.TabIndex = 61;
-            this.editInspectionButton.Text = "Редактировать";
+            this.editInspectionButton.Text = "Редактироват&ь";
             this.editInspectionButton.Click += new System.EventHandler(this.editInspectionButton_Click);
             // 
             // addInspectionButton
@@ -446,7 +446,7 @@
             this.addInspectionButton.Size = new System.Drawing.Size(110, 22);
             this.addInspectionButton.StyleController = this.generalPipeLayout;
             this.addInspectionButton.TabIndex = 60;
-            this.addInspectionButton.Text = "Добавить";
+            this.addInspectionButton.Text = "&Добавить";
             this.addInspectionButton.Click += new System.EventHandler(this.addInspectionButton_Click);
             // 
             // pipeLength
@@ -1195,8 +1195,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Вкладки";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeTabLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 456);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,
@@ -1451,7 +1451,7 @@
             this.typeSizeaParametersLyoutGroup.Name = "typeSizeaParametersLyoutGroup";
             this.typeSizeaParametersLyoutGroup.Size = new System.Drawing.Size(205, 205);
             this.typeSizeaParametersLyoutGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.typeSizeaParametersLyoutGroup.Text = "Типораз&мер";
+            this.typeSizeaParametersLyoutGroup.Text = "&Типоразмер";
             // 
             // lengthLayoutControlItem
             // 
@@ -1525,9 +1525,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(258, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(264, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(979, 36);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(973, 36);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1549,7 +1549,7 @@
             this.layoutControlItem2.CustomizationFormText = "Редактировать";
             this.layoutControlItem2.Location = new System.Drawing.Point(134, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(124, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(130, 36);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem2.Text = "Редактировать";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
