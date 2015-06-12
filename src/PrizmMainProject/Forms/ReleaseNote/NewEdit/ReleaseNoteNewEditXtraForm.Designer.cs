@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseNoteNewEditXtraForm));
             this.pipesList = new DevExpress.XtraGrid.GridControl();
             this.pipesListView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -76,9 +75,9 @@
             this.pipeNumberLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.addPipeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.addButtonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControlItemRailcar = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pipesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryGridLookUpEditStatus)).BeginInit();
@@ -359,7 +358,7 @@
             this.addPipeButton.Size = new System.Drawing.Size(122, 22);
             this.addPipeButton.StyleController = this.generalLayout;
             this.addPipeButton.TabIndex = 7;
-            this.addPipeButton.Text = "&Добавить трубу";
+            this.addPipeButton.Text = "До&бавить трубу";
             this.addPipeButton.Click += new System.EventHandler(this.addPipeButton_Click);
             // 
             // certificateNumber
@@ -613,7 +612,7 @@
             this.releasedNoteNumberLayout.Name = "releasedNoteNumberLayout";
             this.releasedNoteNumberLayout.Size = new System.Drawing.Size(294, 50);
             this.releasedNoteNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.releasedNoteNumberLayout.Text = "&Номер";
+            this.releasedNoteNumberLayout.Text = "Но&мер";
             this.releasedNoteNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.releasedNoteNumberLayout.TextSize = new System.Drawing.Size(101, 13);
             // 

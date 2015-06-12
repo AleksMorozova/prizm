@@ -321,7 +321,7 @@ InspectionReport_PreviewGroup=Preview
 InspectionReport_PreviewButton=&Preview report
 
 ;Отчет на входном контроле. Кнопка создания отчета
-InspectionReport_CreateButton=&Create report
+InspectionReport_CreateButton=Create &report
 
 ;Длина трубы меньше длины катушки
 Spool_SpoolLengtBigerThenPipeLength=Pipe length is less than spool length
@@ -1154,7 +1154,7 @@ ComponentNewEdit_WallThicknessGridColumn=Wall thickness, mm
 ComponentNewEdit_IsConnectedGridColumn = Is connected
 
 ;Входно&й контроль
-ComponentNewEdit_InspectionLayoutGroup=Inco&ming inspection
+ComponentNewEdit_InspectionLayoutGroup=I&ncoming inspection
 
 ;Сообщение о существующем номере: Уже существует комплектующий элемент с номером:
 ComponentNewEdit_Duplicate=There is existing component with number:
