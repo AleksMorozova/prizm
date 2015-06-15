@@ -160,6 +160,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             inspectorsPopupContainerEdit.SetSize();
             repositoryItemPopupWelders.SetSize();
+
+            
         }
 
         private void BindToViewModel()
@@ -1119,6 +1121,30 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void plateThickness_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
+
+        private void MillPipeNewEditXtraForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                if (viewModel.AvailableTests.Count > 0)
+                {
+                    AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
+                }
+            }
+
+            else if (e.Control && e.KeyCode == Keys.E) 
+            {
+                if (viewModel.AvailableTests.Count > 0)
+                {
+                    int rowHandler = inspectionsGridView.FocusedRowHandle;
+                    if (rowHandler != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                    {
+                        var row = (PipeTestResult)inspectionsGridView.GetRow(rowHandler);
+                        EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                    }
+                }
+            }
         }
     }
 }
