@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrizmApplicationXtraForm));
             DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barMenu = new DevExpress.XtraBars.Bar();
             this.barSubItemApplication = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -86,10 +85,10 @@
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.languageComboBoxEdit = new DevExpress.XtraBars.BarEditItem();
             this.languageRepositoryComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.mainMDIdocumentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.notifyHistory = new DevExpress.XtraEditors.ListBoxControl();
@@ -361,14 +360,14 @@
             // 
             // pipeConstructionRepoBarButton
             // 
-            this.pipeConstructionRepoBarButton.Caption = "Отчет по трубам на стройке";
+            this.pipeConstructionRepoBarButton.Caption = "О&тчет по трубам на стройке";
             this.pipeConstructionRepoBarButton.Id = 64;
             this.pipeConstructionRepoBarButton.Name = "pipeConstructionRepoBarButton";
             this.pipeConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pipeConstructionRepoBarButton_ItemClick);
             // 
             // weldConstructionRepoBarButton
             // 
-            this.weldConstructionRepoBarButton.Caption = "Отчет по сварке (по дате)";
+            this.weldConstructionRepoBarButton.Caption = "Отчет по св&арке (по дате)";
             this.weldConstructionRepoBarButton.Id = 63;
             this.weldConstructionRepoBarButton.Name = "weldConstructionRepoBarButton";
             this.weldConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.weldConstructionRepoBarButton_ItemClick);

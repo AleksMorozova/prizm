@@ -1616,7 +1616,7 @@ NewEditPipe_PurchaseOrdersComboLabel=Purchase &order
 NewEditPipe_PurchaseOrederDateLabel=&Purchase order date
 
 ;Труба. Дата создания трубы
-NewEditPipe_PipeCreationLabel=Creat&ion date
+NewEditPipe_PipeCreationLabel= Creation date
 
 ;Труба. Статус трубы
 NewEditPipe_PipeStatusLabel=Status on mill
@@ -2147,7 +2147,7 @@ InspectionAddEdit_FactLimitGroup=Actual result
 InspectionAddEdit_SaveButton=&Accept
 
 ;Контрольная операция. Кнопка отмена
-InspectionAddEdit_CancelButton=Cancel
+InspectionAddEdit_CancelButton= &Cancel
 
 ;Сообщение об ошибке: Уже существует операция с номером:
 Inspection_ExistingCodeError=There is an existing operation with number:
