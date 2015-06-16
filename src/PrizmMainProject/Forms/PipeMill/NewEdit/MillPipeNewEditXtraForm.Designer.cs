@@ -434,7 +434,7 @@
             this.editInspectionButton.Size = new System.Drawing.Size(116, 22);
             this.editInspectionButton.StyleController = this.generalPipeLayout;
             this.editInspectionButton.TabIndex = 61;
-            this.editInspectionButton.Text = "Редактироват&ь";
+            this.editInspectionButton.Text = "Редактировать";
             this.editInspectionButton.Click += new System.EventHandler(this.editInspectionButton_Click);
             // 
             // addInspectionButton
@@ -446,9 +446,8 @@
             this.addInspectionButton.Size = new System.Drawing.Size(110, 22);
             this.addInspectionButton.StyleController = this.generalPipeLayout;
             this.addInspectionButton.TabIndex = 60;
-            this.addInspectionButton.Text = "До&бавить";
+            this.addInspectionButton.Text = "Добавить";
             this.addInspectionButton.Click += new System.EventHandler(this.addInspectionButton_Click);
-            this.addInspectionButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addInspectionButton_KeyDown);
             // 
             // pipeLength
             // 
