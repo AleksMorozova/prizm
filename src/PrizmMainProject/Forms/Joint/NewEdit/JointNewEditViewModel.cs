@@ -393,6 +393,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     jointTestResults = value;
                     RaisePropertyChanged("JointTestResults");
+                    RaisePropertyChanged("JointConstructionStatus");
                 }
             }
         }
