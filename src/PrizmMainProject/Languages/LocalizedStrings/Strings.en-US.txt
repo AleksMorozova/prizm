@@ -549,10 +549,10 @@ SettingsPipe_SeamTypeLabel=Seam t&ype
 SettingsPipe_CloneTypeSizeButton=Copy s&ize type
 
 ;Настройки-труба. Кнопка добавить контрольную операцию
-SettingsPipe_AddTestButton=&Add
+SettingsPipe_AddTestButton= Add
 
 ;Настройки-труба. Кнопка редактировать контрольную операцию
-SettingsPipe_EditTestButton=&Edit
+SettingsPipe_EditTestButton= Edit
 
 ;Настройки-труба. Список типоразеров
 SettingsPipe_SizeGridColumn=Size type
@@ -1676,10 +1676,10 @@ NewEditPipe_SaveButton=&Save
 NewEditPipe_SaveAndNewButton=Save\\C&reate
 
 ;Труба. Кнопка добавления контрольных операций
-NewEditPipe_InspectionsAddButton=A&dd
+NewEditPipe_InspectionsAddButton=Add
 
 ;Труба. Кнопка редактирования контрольных операций
-NewEditPipe_InspectionsEditsButton=&Edit
+NewEditPipe_InspectionsEditsButton=Edit
 
 ;Труба. Столбец сварщики
 NewEditPipe_WeldersColumnHeader=Welders
