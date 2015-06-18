@@ -101,6 +101,57 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             SetAlwaysReadOnly(thickness);
             SetAlwaysReadOnly(millStatus);
             attachmentsButton.Enabled = true;
+
+            SetConditional(pipeNumber, delegate(bool editMode)
+                    {
+                        return (viewModel.PipeIsActive);
+                    });
+
+            SetConditional(pipeSize, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(heatsLookUp, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(heatsLookUp, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(ordersLookUp, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(pipeCreationDate, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(plateNumber, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(coatingHistory, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(weldingHistory, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
+            SetConditional(inspections, delegate(bool editMode)
+            {
+                return (viewModel.PipeIsActive);
+            });
+
             #endregion //--- Read-only controls ---
 
             #region --- Set Properties.CharacterCasing to Upper ---
@@ -128,7 +179,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             EnumWrapper<PipeTestResultStatus>.LoadItems(localizedAllPipeTestResultStatus, skip0: true);
             EnumWrapper<PipeMillStatus>.LoadItems(localizedAllPipeMillStatus);
             EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
-            BindCommands();
             BindToViewModel();
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
 
@@ -160,6 +210,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             inspectorsPopupContainerEdit.SetSize();
             repositoryItemPopupWelders.SetSize();
+
+            BindCommands();
         }
 
         private void BindToViewModel()
@@ -745,7 +797,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
-            filesForm.SetData(IsEditMode);
+            filesForm.SetData(viewModel.PipeIsActive);
             filesForm.ShowDialog();
         }
 
@@ -1119,6 +1171,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private void plateThickness_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
         {
             BindingHelper.CorrectDecimalSeparator(sender, e);
+        }
+
+        private void deactivated_CheckStateChanged(object sender, EventArgs e)
+        {
+            addInspectionButton.Enabled = viewModel.PipeIsActive;
+            editInspectionButton.Enabled = viewModel.PipeIsActive;
         }
     }
 }

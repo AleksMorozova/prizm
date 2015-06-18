@@ -885,6 +885,7 @@
             this.deactivated.Size = new System.Drawing.Size(193, 19);
             this.deactivated.StyleController = this.generalPipeLayout;
             this.deactivated.TabIndex = 28;
+            this.deactivated.CheckStateChanged += new System.EventHandler(this.deactivated_CheckStateChanged);
             // 
             // saveButton
             // 
@@ -1195,8 +1196,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Вкладки";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.pipeTabLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 1;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 456);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,

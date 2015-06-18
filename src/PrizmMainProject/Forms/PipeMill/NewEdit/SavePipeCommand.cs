@@ -144,6 +144,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         }
 
                         viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.IsEditMode = viewModel.PipeIsActive;
                         viewModel.ModifiableView.Id = viewModel.Pipe.Id;
                         viewModel.ModifiableView.UpdateState();
 
