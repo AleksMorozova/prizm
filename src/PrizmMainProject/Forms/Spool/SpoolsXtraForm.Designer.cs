@@ -143,7 +143,7 @@
             // 
             this.deactivated.Location = new System.Drawing.Point(164, 419);
             this.deactivated.Name = "deactivated";
-            this.deactivated.Properties.Caption = "Катушка деактивирована";
+            this.deactivated.Properties.Caption = "Катушка деакт&ивирована";
             this.deactivated.Size = new System.Drawing.Size(155, 19);
             this.deactivated.StyleController = this.mainLayoutControl;
             this.deactivated.TabIndex = 8;

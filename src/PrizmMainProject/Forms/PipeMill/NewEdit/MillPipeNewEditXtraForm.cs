@@ -1173,11 +1173,35 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindingHelper.CorrectDecimalSeparator(sender, e);
         }
 
-        private void deactivated_CheckStateChanged(object sender, EventArgs e)
+        private void MillPipeNewEditXtraForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                if (viewModel.AvailableTests.Count > 0)
+                {
+                    AddInspection(viewModel.AvailableTests, viewModel.Inspectors, viewModel.TestResultStatuses);
+                }
+            }
+
+            else if (e.Control && e.KeyCode == Keys.E) 
+            {
+                if (viewModel.AvailableTests.Count > 0)
+                {
+                    int rowHandler = inspectionsGridView.FocusedRowHandle;
+                    if (rowHandler != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                    {
+                        var row = (PipeTestResult)inspectionsGridView.GetRow(rowHandler);
+                        EditInspections(viewModel.AvailableTests, row, viewModel.Inspectors, viewModel.TestResultStatuses);
+                    }
+                }
+            }
+        }
+        
+         private void deactivated_CheckStateChanged(object sender, EventArgs e)
         {
             addInspectionButton.Enabled = viewModel.PipeIsActive;
             editInspectionButton.Enabled = viewModel.PipeIsActive;
-        }
+}
     }
 }
 

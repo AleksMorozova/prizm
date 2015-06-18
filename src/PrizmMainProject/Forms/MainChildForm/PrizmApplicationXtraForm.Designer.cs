@@ -361,14 +361,14 @@
             // 
             // pipeConstructionRepoBarButton
             // 
-            this.pipeConstructionRepoBarButton.Caption = "Отчет по трубам на стройке";
+            this.pipeConstructionRepoBarButton.Caption = "О&тчет по трубам на стройке";
             this.pipeConstructionRepoBarButton.Id = 64;
             this.pipeConstructionRepoBarButton.Name = "pipeConstructionRepoBarButton";
             this.pipeConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pipeConstructionRepoBarButton_ItemClick);
             // 
             // weldConstructionRepoBarButton
             // 
-            this.weldConstructionRepoBarButton.Caption = "Отчет по сварке (по дате)";
+            this.weldConstructionRepoBarButton.Caption = "Отчет по св&арке (по дате)";
             this.weldConstructionRepoBarButton.Id = 63;
             this.weldConstructionRepoBarButton.Name = "weldConstructionRepoBarButton";
             this.weldConstructionRepoBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.weldConstructionRepoBarButton_ItemClick);
@@ -413,14 +413,14 @@
             // 
             // barButtonItemSettingsPipeline
             // 
-            this.barButtonItemSettingsPipeline.Caption = "Трубо&провод";
+            this.barButtonItemSettingsPipeline.Caption = "Тр&убопровод";
             this.barButtonItemSettingsPipeline.Id = 3;
             this.barButtonItemSettingsPipeline.Name = "barButtonItemSettingsPipeline";
             this.barButtonItemSettingsPipeline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsPipeline_ItemClick);
             // 
             // barButtonItemComponentry
             // 
-            this.barButtonItemComponentry.Caption = "Комплектующие";
+            this.barButtonItemComponentry.Caption = "Комплектую&щие";
             this.barButtonItemComponentry.Id = 60;
             this.barButtonItemComponentry.Name = "barButtonItemComponentry";
             this.barButtonItemComponentry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemComponentry_ItemClick);
@@ -441,7 +441,7 @@
             // 
             // barButtonItemSettingsUsers
             // 
-            this.barButtonItemSettingsUsers.Caption = "&Пользователи";
+            this.barButtonItemSettingsUsers.Caption = "Пользо&ватели";
             this.barButtonItemSettingsUsers.Id = 4;
             this.barButtonItemSettingsUsers.Name = "barButtonItemSettingsUsers";
             this.barButtonItemSettingsUsers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSettingsUsers_ItemClick);
@@ -502,7 +502,7 @@
             // 
             // barButtonItemAbout
             // 
-            this.barButtonItemAbout.Caption = "О программе";
+            this.barButtonItemAbout.Caption = "О &программе";
             this.barButtonItemAbout.Id = 44;
             this.barButtonItemAbout.Name = "barButtonItemAbout";
             this.barButtonItemAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);

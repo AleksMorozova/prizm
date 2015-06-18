@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionAddEditXtraForm));
             this.rootLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.factString = new DevExpress.XtraEditors.LookUpEdit();
@@ -42,6 +41,7 @@
             this.category = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.factLimit = new DevExpress.XtraEditors.TextEdit();
             this.rootLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.operationLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.categoryLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -63,10 +63,9 @@
             this.dateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.statusLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.footerEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.factLimit = new DevExpress.XtraEditors.TextEdit();
+            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.testsBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutControl)).BeginInit();
             this.rootLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factString.Properties)).BeginInit();
@@ -78,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayoutControlItem)).BeginInit();
@@ -102,7 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rootLayoutControl
@@ -255,7 +254,24 @@
             this.cancelButton.Size = new System.Drawing.Size(101, 22);
             this.cancelButton.StyleController = this.rootLayoutControl;
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Отменить";
+            this.cancelButton.Text = "О&тменить";
+            // 
+            // factLimit
+            // 
+            this.factLimit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.factLimit.Location = new System.Drawing.Point(35, 359);
+            this.factLimit.Name = "factLimit";
+            this.factLimit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.factLimit.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
+            this.factLimit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.factLimit.Size = new System.Drawing.Size(319, 20);
+            this.factLimit.StyleController = this.rootLayoutControl;
+            this.factLimit.TabIndex = 15;
+            this.factLimit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.factLimit_ParseEditValue);
             // 
             // rootLayoutGroup
             // 
@@ -517,23 +533,6 @@
             this.footerEmptySpaceItem.Text = "footerEmptySpaceItem";
             this.footerEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // factLimit
-            // 
-            this.factLimit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.factLimit.Location = new System.Drawing.Point(35, 359);
-            this.factLimit.Name = "factLimit";
-            this.factLimit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.factLimit.Properties.Mask.EditMask = "\\d+([\\.\\,]\\d{0,2})?";
-            this.factLimit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.factLimit.Size = new System.Drawing.Size(319, 20);
-            this.factLimit.StyleController = this.rootLayoutControl;
-            this.factLimit.TabIndex = 15;
-            this.factLimit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.factLimit_ParseEditValue);
-            // 
             // InspectionAddEditXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -560,6 +559,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.expected.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.category.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rootLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.operationLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLayoutControlItem)).EndInit();
@@ -584,7 +584,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factLimit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
