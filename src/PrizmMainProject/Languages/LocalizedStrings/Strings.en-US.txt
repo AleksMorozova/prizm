@@ -531,7 +531,7 @@ SettingsProject_SeamIsActiveColumn=Is active
 SettingsPipe_SizesLabel=Pipe size parameters
 
 ;Настройки-труба. Контрольные операции для типоразмера
-SettingsPipe_InspectionsLabel=&List of inspection operations for selected pipe size
+SettingsPipe_InspectionsLabel=List &of inspection operations for selected pipe size
 
 ;Настройки-труба. Наружный диаметр трубы с заданым типоразмером, мм
 SettingsPipe_DiameterLabel=Pipe external &diameter, mm
@@ -546,7 +546,7 @@ SettingsPipe_LengthLabel=Pipe le&ngth, mm
 SettingsPipe_SeamTypeLabel=Seam t&ype
 
 ;Настройки-труба. Кнопка клонировать типоразмер
-SettingsPipe_CloneTypeSizeButton=Copy s&ize type
+SettingsPipe_CloneTypeSizeButton=Copy si&ze type
 
 ;Настройки-труба. Кнопка добавить контрольную операцию
 SettingsPipe_AddTestButton= Add
@@ -2267,7 +2267,7 @@ ReleaseNoteNewEdit_AddPipeLayoutGroup=Adding pipes to current railcar
 ReleaseNoteNewEdit_PipesListLayoutGroup=Pipe list
 
 ;Разрешение на отгрузку. Надпись номера трубы
-ReleaseNoteNewEdit_PipeNumberLayout=Pipe number
+ReleaseNoteNewEdit_PipeNumberLayout=Pipe num&ber
 
 ;Настройки-труба. Группа параметров типоразмера
 SettingsPipe_sizeParamsLayoutControlGroup= Size type parameters
