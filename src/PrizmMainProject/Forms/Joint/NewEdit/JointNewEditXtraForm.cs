@@ -391,6 +391,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointTestResult = view.GetRow(e.RowHandle) as JointTestResult;
                 currentJointTestResult.IsActive = true;
                 currentJointTestResult.Joint = viewModel.Joint;
+                if (viewModel.Joint.JointTestResults.Count() == 0)
+                {
+                    currentJointTestResult.Order = 0;
+                }
+                else
+                {
+                    currentJointTestResult.Order = viewModel.Joint.JointTestResults.Max(test => test.Order) + 1;
+                }
                 viewModel.Joint.JointTestResults.Add(currentJointTestResult);
             }
         }
@@ -812,6 +820,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (string.IsNullOrEmpty(PKNumber.Text))
             {
                 viewModel.NumberKP = int.MinValue;
+            }
+        }
+
+        private void controlOperationsView_LostFocus(object sender, EventArgs e)
+        {
+            if (viewModel != null)
+            {
+                viewModel.UpdateStatus();
             }
         }
     }

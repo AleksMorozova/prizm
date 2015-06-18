@@ -299,7 +299,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if(Joint.LoweringDate.HasValue)
+                if (Joint.LoweringDate.HasValue)
                 {
                     return Joint.LoweringDate.Value;
                 }
@@ -310,11 +310,11 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
             set
             {
-                if(value != Joint.LoweringDate)
+                if (value != Joint.LoweringDate)
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
-                    RaisePropertyChanged("JointConstructionStatus");
+                    UpdateStatus();
                 }
             }
         }
@@ -393,6 +393,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     jointTestResults = value;
                     RaisePropertyChanged("JointTestResults");
+                    RaisePropertyChanged("JointConstructionStatus");
                 }
             }
         }
@@ -465,17 +466,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                if(LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
-                {
-                    Joint.Status = JointStatus.Lowered;
-                }
-                if(Joint.JointWeldResults
-                    .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
-                    .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
-                {
-                    Joint.Status = JointStatus.Withdrawn;
-                }
-
                 jointStatus = Joint.Status;
                 return jointStatus;
             }
@@ -491,6 +481,85 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             }
         }
 
+        public void UpdateStatus() 
+        {
+            bool isJointReadyTolowered = CheckStatus();
+
+            if (!isJointReadyTolowered && Joint.Status != JointStatus.Withdrawn)
+            {
+                Joint.Status = JointStatus.Welded;
+            }
+            if (isJointReadyTolowered && LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
+            {
+                Joint.Status = JointStatus.Lowered;
+            }
+            if (Joint.JointWeldResults
+                .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
+                .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
+            {
+                Joint.Status = JointStatus.Withdrawn;
+            }
+
+            RaisePropertyChanged("JointConstructionStatus");
+        }
+
+        public List<string> orderTestResult()
+        {
+            List<string> testsResults = new List<string>();
+
+            // order by operation name
+            var query = Joint.JointTestResults.GroupBy(test => test.Operation.Name, (name, results) => new
+            {
+                Key = name, // operation name
+                Date = results.Max(t => t.Date) // max date in group
+            });
+
+            foreach (var result in query)
+            {
+                var lastOperation =
+                    from p in Joint.JointTestResults
+                    where p.Date == result.Date && p.Operation.Name == result.Key
+                    select p;
+
+                if (lastOperation.Count() >= 2)
+                {
+                    int maxOrder = lastOperation.Max(o => o.Order);
+
+                    var lastOperation2 =
+                        from p in lastOperation
+                        where p.Order == maxOrder
+                        select p;
+
+                    foreach (var t in lastOperation2)
+                    {
+                        testsResults.Add(t.Status.ToString());
+                    }
+                }
+                else
+                {
+                    foreach (var t in lastOperation)
+                    {
+                        testsResults.Add(t.Status.ToString());
+                    }
+                }
+            }
+
+            return testsResults;
+        }
+       
+        public bool CheckStatus()
+        {
+            bool resultValue = true;
+
+            List<string> testsResults = orderTestResult();
+
+                resultValue =
+                    !(testsResults.Contains(JointTestResultStatus.Repair.ToString())
+                    || testsResults.Contains(JointTestResultStatus.Withdraw.ToString()));
+
+            return resultValue;
+        }
+        
         public bool IsNotWithdrawn
         {
             get { return JointConstructionStatus != JointStatus.Withdrawn; }
