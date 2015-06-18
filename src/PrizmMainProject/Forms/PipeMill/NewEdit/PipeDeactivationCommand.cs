@@ -53,8 +53,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     try
                     {
                         viewModel.Pipe.IsActive = false;
-                        
                         viewModel.ModifiableView.IsModified = true;
+
+                        viewModel.ModifiableView.UpdateState();
 
                         notify.ShowSuccess(
                             string.Concat(Program.LanguageManager.GetString(

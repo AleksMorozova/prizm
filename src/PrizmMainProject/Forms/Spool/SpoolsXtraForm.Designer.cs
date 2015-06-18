@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -67,8 +68,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.SpoolBindingSource = new System.Windows.Forms.BindingSource();
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
+            this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();

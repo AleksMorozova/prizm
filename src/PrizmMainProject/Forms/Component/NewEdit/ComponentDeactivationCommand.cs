@@ -52,14 +52,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                     {
                         viewModel.ComponentIsActive = false;
 
-                        repos.BeginTransaction();
-                        repos.ComponentRepo.SaveOrUpdate(viewModel.Component);
-                        repos.Commit();
-
-                        repos.ComponentRepo.Evict(viewModel.Component);
-
-                        viewModel.ModifiableView.IsModified = false;
-                        viewModel.ModifiableView.IsEditMode = false;
+                        viewModel.ModifiableView.IsModified = true;
                         viewModel.ModifiableView.UpdateState();
 
                         notify.ShowSuccess(
