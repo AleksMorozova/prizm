@@ -53,18 +53,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     try
                     {
                         viewModel.Pipe.IsActive = false;
-                        viewModel.CheckStatus();
-                        viewModel.UpdatePipeSubStatus();
-                        viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+                        viewModel.ModifiableView.IsModified = true;
 
-                        repo.BeginTransaction();
-                        repo.RepoPipe.SaveOrUpdate(viewModel.Pipe);
-                        repo.Commit();
-
-                        repo.RepoPipe.Evict(viewModel.Pipe);
-
-                        viewModel.ModifiableView.IsEditMode = false;
-                        viewModel.ModifiableView.IsModified = false;
                         viewModel.ModifiableView.UpdateState();
 
                         notify.ShowSuccess(

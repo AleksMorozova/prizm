@@ -84,6 +84,58 @@ namespace Prizm.Main.Forms.Joint.NewEdit
            
             seaLevel.SetFloatMask(Constants.DigitsBeforeDecimalPoint, canBeNegative:true);
             attachmentsButton.Enabled = true;
+
+            SetConditional(jointNumber, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(firstJointElement, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(secondJointElement, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(secondJointElement, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(controlOperations, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(loweringDate, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
+            SetConditional(PKNumber, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+            SetConditional(distanceFromPK, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+            SetConditional(GPSLat, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+            SetConditional(GPSLong, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+            SetConditional(seaLevel, delegate(bool editMode)
+            {
+                return (viewModel.JointIsActive);
+            });
+
             #endregion
         }
 
@@ -97,7 +149,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
-            filesForm.SetData(IsEditMode);
+            filesForm.SetData(viewModel.JointIsActive);
             filesForm.ShowDialog();
         }
 
@@ -339,6 +391,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 currentJointTestResult = view.GetRow(e.RowHandle) as JointTestResult;
                 currentJointTestResult.IsActive = true;
                 currentJointTestResult.Joint = viewModel.Joint;
+                if (viewModel.Joint.JointTestResults.Count() == 0)
+                {
+                    currentJointTestResult.Order = 0;
+                }
+                else
+                {
+                    currentJointTestResult.Order = viewModel.Joint.JointTestResults.Max(test => test.Order) + 1;
+                }
                 viewModel.Joint.JointTestResults.Add(currentJointTestResult);
             }
         }
@@ -760,6 +820,14 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             if (string.IsNullOrEmpty(PKNumber.Text))
             {
                 viewModel.NumberKP = int.MinValue;
+            }
+        }
+
+        private void controlOperationsView_LostFocus(object sender, EventArgs e)
+        {
+            if (viewModel != null)
+            {
+                viewModel.UpdateStatus();
             }
         }
     }

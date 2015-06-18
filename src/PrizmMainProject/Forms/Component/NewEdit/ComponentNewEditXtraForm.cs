@@ -72,6 +72,33 @@ namespace Prizm.Main.Forms.Component.NewEdit
             #endregion //--- Set Properties.CharacterCasing to Upper ---
 
             positiveFloat.SetFloatMask(Constants.DigitsBeforeDecimalPoint);
+
+            SetConditional(this.componentNumber, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
+            SetConditional(certificateNumber, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
+            SetConditional(type, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
+            SetConditional(componentParameters, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
+
+            SetConditional(this.componentLength, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
+
+            SetConditional(inspectionHistoryGrid, delegate(bool editMode)
+            {
+                return (viewModel.ComponentIsActive);
+            });
         }
 
         private void SetControlsTextLength()
@@ -144,7 +171,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
-            filesForm.SetData(IsEditMode);
+            filesForm.SetData(viewModel.ComponentIsActive);
             filesForm.ShowDialog();
 
         }

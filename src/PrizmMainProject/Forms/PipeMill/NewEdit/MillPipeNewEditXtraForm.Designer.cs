@@ -885,6 +885,7 @@
             this.deactivated.Size = new System.Drawing.Size(193, 19);
             this.deactivated.StyleController = this.generalPipeLayout;
             this.deactivated.TabIndex = 28;
+            this.deactivated.CheckStateChanged += new System.EventHandler(this.deactivated_CheckStateChanged);
             // 
             // saveButton
             // 

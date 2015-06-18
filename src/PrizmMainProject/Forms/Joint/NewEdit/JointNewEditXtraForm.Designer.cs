@@ -524,6 +524,7 @@
             this.controlOperationsView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.controlOperationsView_InitNewRow);
             this.controlOperationsView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.HandleInvalidRowException);
             this.controlOperationsView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.controlOperationsView_ValidateRow);
+            this.controlOperationsView.LostFocus += new System.EventHandler(this.controlOperationsView_LostFocus);
             // 
             // controlTypeGridColumn
             // 

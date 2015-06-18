@@ -71,6 +71,20 @@ namespace Prizm.Main.Forms.Spool
                     {
                         return (viewModel.Spool.ConstructionStatus != PartConstructionStatus.Welded); 
                     });
+
+                    SetConditional(spoolNumber, delegate(bool editMode)
+                    {
+                        return (viewModel.SpoolIsActive);
+                    });
+
+                    SetConditional(spoolLength, delegate(bool editMode)
+                    {
+                        return (viewModel.SpoolIsActive);
+                    });
+                    SetConditional(pipeNumber, delegate(bool editMode)
+                    {
+                        return (viewModel.SpoolIsActive);
+                    });
                 }
 
             }
@@ -231,7 +245,7 @@ namespace Prizm.Main.Forms.Spool
                 viewModel.FilesFormViewModel = filesForm.ViewModel;
             }
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
-            filesForm.SetData(IsEditMode);
+            filesForm.SetData(viewModel.SpoolIsActive);
             filesForm.ShowDialog();
         }
 
