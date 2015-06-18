@@ -314,7 +314,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 {
                     Joint.LoweringDate = value;
                     RaisePropertyChanged("LoweringDate");
-                    RaisePropertyChanged("JointConstructionStatus");
+                    UpdateStatus();
                 }
             }
         }
@@ -466,19 +466,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             get
             {
-                bool isJointReadyTolowered = CheckStatus();
-
-                if (isJointReadyTolowered && LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
-                {
-                    Joint.Status = JointStatus.Lowered;
-                }
-                if(Joint.JointWeldResults
-                    .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
-                    .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
-                {
-                    Joint.Status = JointStatus.Withdrawn;
-                }
-
                 jointStatus = Joint.Status;
                 return jointStatus;
             }
@@ -493,7 +480,29 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 }
             }
         }
-       
+
+        public void UpdateStatus() 
+        {
+            bool isJointReadyTolowered = CheckStatus();
+
+            if (!isJointReadyTolowered && Joint.Status != JointStatus.Withdrawn)
+            {
+                Joint.Status = JointStatus.Welded;
+            }
+            if (isJointReadyTolowered && LoweringDate != DateTime.MinValue && Joint.Status != JointStatus.Withdrawn)
+            {
+                Joint.Status = JointStatus.Lowered;
+            }
+            if (Joint.JointWeldResults
+                .Where(_ => _.Date == JointWeldResults.Max(x => x.Date))
+                .Any(x => x.Operation != null && x.Operation.Type == JointOperationType.Withdraw && x.IsCompleted))
+            {
+                Joint.Status = JointStatus.Withdrawn;
+            }
+
+            RaisePropertyChanged("JointConstructionStatus");
+        }
+
         public List<string> orderTestResult()
         {
             List<string> testsResults = new List<string>();
@@ -544,16 +553,9 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             List<string> testsResults = orderTestResult();
 
-            if (Joint.Status == JointStatus.Withdrawn || Joint.Status == JointStatus.Welded)
-            {
                 resultValue =
                     !(testsResults.Contains(JointTestResultStatus.Repair.ToString())
-                    || testsResults.Contains(JointTestResultStatus.Repair.ToString()));
-            }
-            else
-            {
-                resultValue = true;
-            }
+                    || testsResults.Contains(JointTestResultStatus.Withdraw.ToString()));
 
             return resultValue;
         }

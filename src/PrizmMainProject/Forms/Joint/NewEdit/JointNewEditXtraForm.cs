@@ -770,5 +770,13 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                 viewModel.NumberKP = int.MinValue;
             }
         }
+
+        private void controlOperationsView_LostFocus(object sender, EventArgs e)
+        {
+            if (viewModel != null)
+            {
+                viewModel.UpdateStatus();
+            }
+        }
     }
 }
