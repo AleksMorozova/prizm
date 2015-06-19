@@ -1619,6 +1619,7 @@
             this.KeyPreview = true;
             this.Name = "MillPipeNewEditXtraForm";
             this.Text = "Труба";
+            this.Activated += new System.EventHandler(this.MillPipeNewEditXtraForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MillPipeNewEditXtraForm_FormClosed);
             this.Load += new System.EventHandler(this.MillPipeNewEditXtraForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MillPipeNewEditXtraForm_KeyDown);

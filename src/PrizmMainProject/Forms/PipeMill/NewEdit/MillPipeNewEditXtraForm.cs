@@ -1003,6 +1003,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     AddRepeatedInspections(addForm.viewModel.TestResult);    
                 }
             }
+
+            if (viewModel != null)
+            {
+                viewModel.CheckStatus();
+            }
         }
 
         private void EditInspections(BindingList<PipeTest> tests, PipeTestResult row, IList<Inspector> insp, BindingList<EnumWrapper<PipeTestResultStatus>> status)
@@ -1028,6 +1033,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         (Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompleted),
                         Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompletedHeader));
                 }
+            }
+
+            if (viewModel != null)
+            {
+                viewModel.CheckStatus();
             }
         }
 
@@ -1202,6 +1212,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             addInspectionButton.Enabled = viewModel.PipeIsActive;
             editInspectionButton.Enabled = viewModel.PipeIsActive;
 }
+
+         private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
+         {
+             if (viewModel != null)
+             {
+                 bool previousState = viewModel.ModifiableView.IsModified;
+                 viewModel.UpdatePipe();
+                 viewModel.CheckStatus();
+                 viewModel.ModifiableView.IsModified = previousState;
+             }
+         }
     }
 }
 

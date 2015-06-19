@@ -1214,5 +1214,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
             return result;
         }
+
+        public void UpdatePipe() 
+        {
+            if (Pipe.Id != Guid.Empty)
+            {
+                Pipe = repoMill.RepoPipe.GetByNumber(this.Pipe.Number);
+                RaisePropertyChanged("Railcar");
+                RaisePropertyChanged("PipeStatus");
+            }
+        }
     }
 }
