@@ -1212,6 +1212,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             addInspectionButton.Enabled = viewModel.PipeIsActive;
             editInspectionButton.Enabled = viewModel.PipeIsActive;
 }
+
+         private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
+         {
+             bool previousState = viewModel.ModifiableView.IsModified;
+             if (viewModel != null)
+             {
+                 viewModel.UpdatePipe();
+             }
+             viewModel.ModifiableView.IsModified = previousState;
+         }
     }
 }
 
