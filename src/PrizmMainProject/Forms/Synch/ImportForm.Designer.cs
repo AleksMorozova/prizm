@@ -63,7 +63,7 @@
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(111, 23);
             this.btnBrowse.TabIndex = 2;
-            this.btnBrowse.Text = "Обзор...";
+            this.btnBrowse.Text = "О&бзор...";
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // progressBarControl

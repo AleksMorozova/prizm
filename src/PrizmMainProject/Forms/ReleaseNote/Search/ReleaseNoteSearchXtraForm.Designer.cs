@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseNoteSearchXtraForm));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -36,7 +37,7 @@
             this.shipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.unshipButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.releasesGrid = new DevExpress.XtraGrid.GridControl();
-            this.bindingSource = new System.Windows.Forms.BindingSource();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.railcarListView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.NoteId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.releaseNoteNumberGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -389,7 +390,7 @@
             this.pipeNumberLayout.Name = "pipeNumberLayout";
             this.pipeNumberLayout.Size = new System.Drawing.Size(200, 50);
             this.pipeNumberLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.pipeNumberLayout.Text = "Номер трубы";
+            this.pipeNumberLayout.Text = "Но&мер трубы";
             this.pipeNumberLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeNumberLayout.TextSize = new System.Drawing.Size(159, 13);
             // 
@@ -435,10 +436,10 @@
             this.endDateLayout.Name = "endDateLayout";
             this.endDateLayout.Size = new System.Drawing.Size(200, 52);
             this.endDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.endDateLayout.Text = "По";
+            this.endDateLayout.Text = "По дат&у";
             this.endDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.endDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.endDateLayout.TextSize = new System.Drawing.Size(13, 13);
+            this.endDateLayout.TextSize = new System.Drawing.Size(41, 13);
             this.endDateLayout.TextToControlDistance = 5;
             // 
             // searchButtonRightEmptySpace
@@ -493,10 +494,10 @@
             this.startDateLayout.Name = "startDateLayout";
             this.startDateLayout.Size = new System.Drawing.Size(200, 52);
             this.startDateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.startDateLayout.Text = "С";
+            this.startDateLayout.Text = "&С даты";
             this.startDateLayout.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.startDateLayout.TextLocation = DevExpress.Utils.Locations.Top;
-            this.startDateLayout.TextSize = new System.Drawing.Size(7, 13);
+            this.startDateLayout.TextSize = new System.Drawing.Size(37, 13);
             this.startDateLayout.TextToControlDistance = 5;
             // 
             // resultParametersLayoutGroup

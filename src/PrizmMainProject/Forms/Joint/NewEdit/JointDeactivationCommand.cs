@@ -46,14 +46,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                     viewModel.JointDisconnection();
                     viewModel.JointIsActive = false;
 
-                    repo.BeginTransaction();
-                    repo.RepoJoint.SaveOrUpdate(viewModel.Joint);
-                    repo.Commit();
-
-                    repo.RepoJoint.Evict(viewModel.Joint);
-
-                    viewModel.ModifiableView.IsEditMode = false;
-                    viewModel.ModifiableView.IsModified = false;
+                    viewModel.ModifiableView.IsModified = true;
                     viewModel.ModifiableView.UpdateState();
 
                     notify.ShowSuccess(

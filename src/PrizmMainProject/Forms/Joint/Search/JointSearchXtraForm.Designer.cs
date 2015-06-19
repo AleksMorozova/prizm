@@ -489,7 +489,7 @@
             this.activityLayout.Size = new System.Drawing.Size(231, 47);
             this.activityLayout.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.activityLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.activityLayout.Text = "Состояние стыка";
+            this.activityLayout.Text = "&Состояние стыка";
             this.activityLayout.TextLocation = DevExpress.Utils.Locations.Top;
             this.activityLayout.TextSize = new System.Drawing.Size(88, 13);
             // 

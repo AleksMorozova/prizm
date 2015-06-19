@@ -1495,43 +1495,12 @@ namespace Prizm.Main.Forms.Settings
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            if (IsEditMode && IsEditable(IsEditMode))
-            {
-                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes, viewModel.PipeTests.Select(_ => _.Code).ToList<string>());
-                inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
-
-                if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
-                    viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
-                    IsModified = true;
-                    inspectionOperation.RefreshDataSource();
-                }
-
-            }
+            AddPipeTest();
         }
 
         private void editTestButton_Click(object sender, EventArgs e)
         {
-            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
-            {
-                var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
-                if (selectedTest != null)
-                {
-                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests.Where(_ => _.Code != selectedTest.Code).Select(_ => _.Code).ToList<string>());
-
-                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
-                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
-                        
-                        IsModified = true;
-                        inspectionOperation.RefreshDataSource();
-                    }
-                    
-
-                }
-            }
+            EditPipeTest();
         }
 
         private void inspectionOperation_DoubleClick(object sender, EventArgs e)
@@ -2167,5 +2136,58 @@ namespace Prizm.Main.Forms.Settings
             }
         }
 
+        private void SettingsXtraForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                AddPipeTest();
+            }
+
+            else if (e.Control && e.KeyCode == Keys.E) 
+            {
+                EditPipeTest();
+            }
+        }
+
+        private void EditPipeTest() 
+        {
+            if (inspectionView.IsValidRowHandle(inspectionView.FocusedRowHandle) && IsEditMode)
+            {
+                var selectedTest = inspectionView.GetRow(inspectionView.FocusedRowHandle) as PipeTest;
+                if (selectedTest != null)
+                {
+                    var inspectionForm = GetInspectionForm(selectedTest, viewModel.CategoryTypes, viewModel.PipeTests.Where(_ => _.Code != selectedTest.Code).Select(_ => _.Code).ToList<string>());
+
+                    if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        ((IList<PipeTest>)inspectionView.DataSource)[inspectionView.GetFocusedDataSourceRowIndex()]
+                            .CustomShallowCopy(inspectionForm.viewModel.PipeTest);
+
+                        IsModified = true;
+                        inspectionOperation.RefreshDataSource();
+                    }
+
+
+                }
+            }
+        }
+
+        private void AddPipeTest() 
+        {
+            if (IsEditMode && IsEditable(IsEditMode))
+            {
+                var inspectionForm = GetInspectionForm(null, viewModel.CategoryTypes, viewModel.PipeTests.Select(_ => _.Code).ToList<string>());
+                inspectionForm.viewModel.PipeTest.pipeType = viewModel.CurrentPipeMillSizeType;
+
+                if (inspectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    viewModel.CurrentPipeMillSizeType.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    viewModel.PipeTests.Add(inspectionForm.viewModel.PipeTest);
+                    IsModified = true;
+                    inspectionOperation.RefreshDataSource();
+                }
+
+            }
+        }
     }
 }

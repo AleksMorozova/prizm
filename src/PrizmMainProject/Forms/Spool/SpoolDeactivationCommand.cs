@@ -48,17 +48,7 @@ namespace Prizm.Main.Forms.Spool
 
                         viewModel.Spool.IsActive = false;
 
-                        repo.BeginTransaction();
-                        repo.PipeRepo.SaveOrUpdate(viewModel.Pipe);
-                        repo.SpoolRepo.SaveOrUpdate(viewModel.Spool);
-
-                        repo.Commit();
-
-                        repo.PipeRepo.Evict(viewModel.Pipe);
-                        repo.SpoolRepo.Evict(viewModel.Spool);
-
-                        viewModel.ModifiableView.IsEditMode = false;
-                        viewModel.ModifiableView.IsModified = false;
+                        viewModel.ModifiableView.IsModified = true;
                         viewModel.ModifiableView.UpdateState();
 
                         notify.ShowSuccess(
