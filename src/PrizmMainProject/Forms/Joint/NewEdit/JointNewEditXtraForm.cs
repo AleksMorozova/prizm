@@ -267,7 +267,6 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             EnumWrapper<JointTestResultStatus>.LoadItems(localizedResults, skip0: true);
             EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
 
-            BindCommands();
             BindToViewModel();
 
             viewModel.PropertyChanged += (s, eve) =>
@@ -301,6 +300,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
 
             inspectorsPopupContainerEdit.SetSize();
             weldersPopupContainerEdit.SetSize();
+
+            BindCommands();
         }
 
         #region --- Localization ---
