@@ -188,7 +188,6 @@ namespace Prizm.Main.Forms.Spool
         public bool CanExecute()
         {
             return viewModel.ModifiableView.IsEditMode
-                && viewModel.SpoolIsActive
                 && !string.IsNullOrEmpty(viewModel.PipeNumber)
                 && ctx.HasAccess(viewModel.IsNew
                     ? global::Domain.Entity.Security.Privileges.CreateSpool
