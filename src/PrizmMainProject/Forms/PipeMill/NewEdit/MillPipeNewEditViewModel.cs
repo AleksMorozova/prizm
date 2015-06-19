@@ -896,17 +896,24 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         /// </summary>
         public void ChangePipeStatus(List<string> testsResults)
         {
-            if(testsResults.Contains(PipeTestResultStatus.Rejected.ToString())
-                || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
-                || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
-                )
+            if (Pipe.Status != PipeMillStatus.ReadyToShip && Pipe.Status != PipeMillStatus.Shipped)
             {
-                Pipe.Status = PipeMillStatus.Produced;
+                if (testsResults.Count > 0)
+                {
+                    if (testsResults.Contains(PipeTestResultStatus.Rejected.ToString())
+                   || testsResults.Contains(PipeTestResultStatus.Scheduled.ToString())
+                   || testsResults.Contains(PipeTestResultStatus.Repair.ToString())
+                   )
+                    {
+                        Pipe.Status = PipeMillStatus.Produced;
+                    }
+                    else
+                    {
+                        Pipe.Status = PipeMillStatus.Stocked;
+                    }
+                }
             }
-            else
-            {
-                Pipe.Status = PipeMillStatus.Stocked;
-            }
+           
             RaisePropertyChanged("PipeStatus");
         }
 
@@ -1213,16 +1220,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             return result;
-        }
-
-        public void UpdatePipe() 
-        {
-            if (Pipe.Id != Guid.Empty)
-            {
-                Pipe = repoMill.RepoPipe.GetByNumber(this.Pipe.Number);
-                RaisePropertyChanged("Railcar");
-                RaisePropertyChanged("PipeStatus");
-            }
         }
     }
 }

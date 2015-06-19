@@ -211,7 +211,6 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
                 if (pipe != null)
                 {
                     viewModel.RemovePipe(pipe);
-                    pipe.PipeStatus = PipeMillStatus.Stocked;
                     pipesList.RefreshDataSource();
                     pipeNumberLookUp.Properties.DataSource = viewModel.AllPipesToAdd;
                     IsModified = true;
