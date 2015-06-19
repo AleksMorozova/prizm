@@ -1215,13 +1215,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
          private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
          {
-             bool previousState = viewModel.ModifiableView.IsModified;
              if (viewModel != null)
              {
+                 bool previousState = viewModel.ModifiableView.IsModified;
                  viewModel.UpdatePipe();
                  viewModel.CheckStatus();
+                 viewModel.ModifiableView.IsModified = previousState;
              }
-             viewModel.ModifiableView.IsModified = previousState;
          }
     }
 }
