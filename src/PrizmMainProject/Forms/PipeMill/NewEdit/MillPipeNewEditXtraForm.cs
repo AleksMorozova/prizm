@@ -1219,6 +1219,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
              if (viewModel != null)
              {
                  viewModel.UpdatePipe();
+                 viewModel.CheckStatus();
              }
              viewModel.ModifiableView.IsModified = previousState;
          }
