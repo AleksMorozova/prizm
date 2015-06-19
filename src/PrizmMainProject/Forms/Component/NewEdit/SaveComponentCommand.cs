@@ -176,7 +176,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             return !string.IsNullOrEmpty(viewModel.Number)
                 && viewModel.Type != null
-                && viewModel.Component.IsActive
+                && viewModel.ModifiableView.IsEditMode
                 && ctx.HasAccess(viewModel.IsNew
                                     ? global::Domain.Entity.Security.Privileges.CreateComponent
                                     : global::Domain.Entity.Security.Privileges.EditComponent);
