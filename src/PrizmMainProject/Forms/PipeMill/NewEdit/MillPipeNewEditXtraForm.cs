@@ -1001,7 +1001,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     addForm.viewModel.TestResult.Pipe = viewModel.Pipe;
-                    addForm.viewModel.TestResult.Order = viewModel.PipeTestResultsMaxOrder();
+                    addForm.viewModel.TestResult.Order = viewModel.PipeTestResults.Max(test => test.Order) + 1;
                     viewModel.PipeTestResults.Add(addForm.viewModel.TestResult);
                     IsModified = true;
                     inspections.RefreshDataSource();
@@ -1011,6 +1011,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     AddRepeatedInspections(addForm.viewModel.TestResult);    
                 }
+            }
+
+            if (viewModel != null)
+            {
+                viewModel.CheckStatus();
             }
         }
 
@@ -1037,6 +1042,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         (Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompleted),
                         Program.LanguageManager.GetString(StringResources.InspectionAddEditXtraForm_InspectionTestCompletedHeader));
                 }
+            }
+
+            if (viewModel != null)
+            {
+                viewModel.CheckStatus();
             }
         }
 
@@ -1158,7 +1168,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     Pipe = viewModel.Pipe,
                     Status = PipeTestResultStatus.Scheduled,
-                    Operation = pipeTestResult.Operation
+                    Operation = pipeTestResult.Operation,
+                    Order = viewModel.PipeTestResultsMaxOrder()+1
                 });
 
                 foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
@@ -1170,7 +1181,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                         {
                             Pipe = viewModel.Pipe,
                             Status = PipeTestResultStatus.Scheduled,
-                            Operation = operation
+                            Operation = operation,
+                            Order = viewModel.PipeTestResultsMaxOrder() + 1
                         });
                     }
                 }
@@ -1211,6 +1223,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             addInspectionButton.Enabled = viewModel.PipeIsActive;
             editInspectionButton.Enabled = viewModel.PipeIsActive;
 }
+
+         private void MillPipeNewEditXtraForm_Activated(object sender, EventArgs e)
+         {
+             if (viewModel != null)
+             {
+                 bool previousState = viewModel.ModifiableView.IsModified;
+                 viewModel.CheckStatus();
+                 viewModel.ModifiableView.IsModified = previousState;
+             }
+         }
     }
 }
 

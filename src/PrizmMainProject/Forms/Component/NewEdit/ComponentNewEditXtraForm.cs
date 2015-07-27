@@ -182,7 +182,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
         {
             EnumWrapper<PartInspectionStatus>.LoadItems(localizedAllInspectionStatus, skip0: true);
             EnumWrapper<DuplicateNumberEntityType>.LoadItems(localizedAllTypes, skip0: true);
-            BindCommands();
+  
             BindToViewModel();
 
             viewModel.PropertyChanged += (s, eve) => IsModified = true;
@@ -207,6 +207,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
             inspectorsPopupContainerEdit.SetSize();
             type.ReadOnly = !IsEditMode || viewModel.HasConnectedConnectors;
             inspectionHistoryGridView.OptionsBehavior.Editable = !type.ReadOnly;
+
+            BindCommands();
         }
 
         private void BindToViewModel()

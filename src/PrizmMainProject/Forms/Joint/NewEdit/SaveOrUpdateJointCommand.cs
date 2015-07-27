@@ -159,7 +159,7 @@ else
                    ||
                    viewModel.Joint.Status == Domain.Entity.Construction.JointStatus.Withdrawn)
                 &&
-                viewModel.Joint.IsActive
+                    viewModel.ModifiableView.IsEditMode
                 &&
                 ctx.HasAccess(viewModel.IsNew
                                    ? global::Domain.Entity.Security.Privileges.CreateJoint
