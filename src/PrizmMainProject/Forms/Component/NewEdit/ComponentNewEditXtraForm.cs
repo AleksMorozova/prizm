@@ -40,6 +40,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         private ExternalFilesXtraForm filesForm = null;
         private List<string> localizedAllTypes = new List<string>();
 
+        private int componentParametersViewFocusedRow = 0;
+
         public ComponentNewEditXtraForm(Guid id, string number)
         {
             this.Id = id;
@@ -410,6 +412,8 @@ namespace Prizm.Main.Forms.Component.NewEdit
         #region IValidatable Members
         bool IValidatable.Validate()
         {
+            componentParametersViewFocusedRow = componentParametersView.FocusedRowHandle;
+
             bool isValidComponent = true;
             for(int i = 0; i < componentParametersView.RowCount; i++)
             {
@@ -423,7 +427,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
                             .ValidateRowEventArgs(i, componentParametersView.GetDataRow(i)));
                 }
             }
-
+            componentParametersView.FocusedRowHandle = componentParametersViewFocusedRow;
             return dxValidationProvider.Validate() &&
                 isValidComponent &&
                 viewModel.Component.Connectors
