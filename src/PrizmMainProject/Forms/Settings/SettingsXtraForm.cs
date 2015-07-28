@@ -1341,34 +1341,37 @@ namespace Prizm.Main.Forms.Settings
         {
             pipeLayoutControlGroup.Tag = "Visited";
             #region validation only afrer tab is shown
-            ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
-            diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
-            diameterValidationRule.Value1 = 0;
-            diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            diameterValidationRule.ErrorType = ErrorType.Critical;
+            if (viewModel.PipeMillSizeType.Count()>0)
+            {
+                ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
+                diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
+                diameterValidationRule.Value1 = 0;
+                diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                diameterValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
-            wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
-            wallThicknessValidationRule.Value1 = 0;
-            wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            wallThicknessValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
+                wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
+                wallThicknessValidationRule.Value1 = 0;
+                wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                wallThicknessValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
-            pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
-            pipeLengthValidationRule.Value1 = 0;
-            pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            pipeLengthValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
+                pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
+                pipeLengthValidationRule.Value1 = 0;
+                pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                pipeLengthValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
-            seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
-            seamTypeValidationRule.Value1 = seamType.Properties.NullText;
-            seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            seamTypeValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
+                seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
+                seamTypeValidationRule.Value1 = seamType.Properties.NullText;
+                seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                seamTypeValidationRule.ErrorType = ErrorType.Critical;
 
-            dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
-            dxValidationProvider.SetValidationRule(wallThickness, wallThicknessValidationRule);
-            dxValidationProvider.SetValidationRule(pipeLength, pipeLengthValidationRule);
-            dxValidationProvider.SetValidationRule(seamType, seamTypeValidationRule);
+                dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
+                dxValidationProvider.SetValidationRule(wallThickness, wallThicknessValidationRule);
+                dxValidationProvider.SetValidationRule(pipeLength, pipeLengthValidationRule);
+                dxValidationProvider.SetValidationRule(seamType, seamTypeValidationRule);
+            }
             #endregion
             if (viewModel.SeamTypes != null)
             {
