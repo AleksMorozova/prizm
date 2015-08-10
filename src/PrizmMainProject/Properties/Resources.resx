@@ -1869,4 +1869,10 @@
   <data name="PartTypeJoint" xml:space="preserve">
     <value>Стык</value>
   </data>
+  <data name="Settings_UniqueLengthOperation" xml:space="preserve">
+    <value>Операция с подобной категорией уже была введена</value>
+  </data>
+  <data name="Settings_UniqueLengthOperationHeader" xml:space="preserve">
+    <value>Операция уже введена</value>
+  </data>
 </root>
