@@ -1767,12 +1767,6 @@ namespace Prizm.Main.Languages
             Id = "Settings_Title",
             Description = "Настройки"
         };
-
-        public static StringResource Settings_Title = new StringResource
-        {
-            Id = "Settings_Title",
-            Description = "Настройки"
-        };
         public static StringResource Settings_PipeControlOperationValidation = new StringResource
         {
             Id = "Settings_PipeControlOperationValidation",
