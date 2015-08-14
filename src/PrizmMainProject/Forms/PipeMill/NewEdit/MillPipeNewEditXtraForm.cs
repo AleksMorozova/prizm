@@ -999,8 +999,10 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
                     weight.Refresh();
-
-                    AddRepeatedInspections(addForm.viewModel.TestResult);    
+                  
+                    AddRepeatedInspections(addForm.viewModel.TestResult);
+                    viewModel.listOfInspectors.
+                        Add(new KeyValuePair<string, object>(addForm.viewModel.TestResult.Operation.Code, addForm.viewModel.TestResult.Inspectors));
                 }
             }
 
@@ -1016,6 +1018,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if (row.Status == PipeTestResultStatus.Scheduled)
                 {
+                    int index = viewModel.listOfInspectors.IndexOf(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
+                   
                     var editForm = GetInspectionForm(tests, insp, row, status);
                     row.Order = viewModel.PipeTestResultsMaxOrder();
                     editForm.ShowDialog();
@@ -1026,6 +1030,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     weight.Refresh();
 
                     AddRepeatedInspections(row);
+
+                    if (index >= 0 && index < viewModel.listOfInspectors.Count())
+                    {
+                        viewModel.listOfInspectors.RemoveAt(index);
+                    }
+                    
+                    viewModel.listOfInspectors.
+                        Add(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
+
                 }
                 else
                 {
