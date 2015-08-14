@@ -732,6 +732,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
+
             commandManager.RefreshVisualState();
         }
 
