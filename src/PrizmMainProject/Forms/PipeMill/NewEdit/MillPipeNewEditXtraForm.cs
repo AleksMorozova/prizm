@@ -727,11 +727,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                 inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                viewModel.listOfInspectors = new List<KeyValuePair<string, object>>();
                 inspections.RefreshDataSource();
             }
 
             viewModel.PipeMillSizeType = pipeSize.SelectedItem as PipeMillSizeType;
-
             commandManager.RefreshVisualState();
         }
 
