@@ -1047,7 +1047,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             float tmpFloatLength;
 
             //group by category
-            foreach(PipeTestResult t in Pipe.PipeTestResult)
+            foreach(PipeTestResult t in PipeTestResults)
             {
                 if(t.Operation.Category != null
                     && t.Operation.Category.Type == FixedCategory.Length
