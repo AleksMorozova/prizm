@@ -988,7 +988,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if (IsEditMode)
             {
-                var addForm = GetInspectionForm(tests, inspectors, null, statuses);
+                var addForm = GetInspectionForm(tests, inspectors, null, statuses, true,viewModel.listOfInspectors);
 
                 if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -1002,6 +1002,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     weight.Refresh();
                   
                     AddRepeatedInspections(addForm.viewModel.TestResult);
+                    int index = viewModel.listOfInspectors.IndexOf(viewModel.listOfInspectors.Where(_ => _.Key == addForm.viewModel.TestResult.Operation.Code).FirstOrDefault());
+                    if (index >= 0 && index < viewModel.listOfInspectors.Count())
+                    {
+                        viewModel.listOfInspectors.RemoveAt(index);
+                    }
                     viewModel.listOfInspectors.
                         Add(new KeyValuePair<string, object>(addForm.viewModel.TestResult.Operation.Code, addForm.viewModel.TestResult.Inspectors));
                 }
@@ -1020,8 +1025,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (row.Status == PipeTestResultStatus.Scheduled)
                 {
                     int index = viewModel.listOfInspectors.IndexOf(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
-                   
-                    var editForm = GetInspectionForm(tests, insp, row, status);
+
+                    var editForm = GetInspectionForm(tests, insp, row, status, false);
                     row.Order = viewModel.PipeTestResultsMaxOrder();
                     editForm.ShowDialog();
                     IsModified = true;
@@ -1108,15 +1113,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindingList<PipeTest> tests,
             IList<Inspector> inspectors,
             PipeTestResult row,
-            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+            IList<EnumWrapper<PipeTestResultStatus>> statuses,
+            bool isNew,
+            List<KeyValuePair<string, object>> listOfInspectors = null)
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
+                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults, isNew, viewModel.listOfInspectors);
             }
             else
             {
-                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
+                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults, isNew, listOfInspectors);
             }
 
             return inspectionForm;
@@ -1174,7 +1181,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     Pipe = viewModel.Pipe,
                     Status = PipeTestResultStatus.Scheduled,
                     Operation = pipeTestResult.Operation,
-                    Order = viewModel.PipeTestResultsMaxOrder()+1
+                    Order = viewModel.PipeTestResultsMaxOrder()+1,
+                    Inspectors = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == pipeTestResult.Operation.Code).FirstOrDefault().Value
                 });
 
                 foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
@@ -1187,7 +1195,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                             Pipe = viewModel.Pipe,
                             Status = PipeTestResultStatus.Scheduled,
                             Operation = operation,
-                            Order = viewModel.PipeTestResultsMaxOrder() + 1
+                            Order = viewModel.PipeTestResultsMaxOrder() + 1,
+                            Inspectors = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == operation.Code).FirstOrDefault().Value
+
                         });
                     }
                 }
