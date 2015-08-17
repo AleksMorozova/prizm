@@ -1000,8 +1000,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.GetLengthFromOperation();
                     pipeLength.Refresh();
                     weight.Refresh();
-                  
-                    AddRepeatedInspections(addForm.viewModel.TestResult);
+
                     int index = viewModel.listOfInspectors.IndexOf(viewModel.listOfInspectors.Where(_ => _.Key == addForm.viewModel.TestResult.Operation.Code).FirstOrDefault());
                     if (index >= 0 && index < viewModel.listOfInspectors.Count())
                     {
@@ -1009,6 +1008,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     }
                     viewModel.listOfInspectors.
                         Add(new KeyValuePair<string, object>(addForm.viewModel.TestResult.Operation.Code, addForm.viewModel.TestResult.Inspectors));
+
+                    AddRepeatedInspections(addForm.viewModel.TestResult);
+                   
                 }
             }
 
@@ -1035,8 +1037,6 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     pipeLength.Refresh();
                     weight.Refresh();
 
-                    AddRepeatedInspections(row);
-
                     if (index >= 0 && index < viewModel.listOfInspectors.Count())
                     {
                         viewModel.listOfInspectors.RemoveAt(index);
@@ -1044,6 +1044,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     
                     viewModel.listOfInspectors.
                         Add(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
+
+                    AddRepeatedInspections(row);
 
                 }
                 else
