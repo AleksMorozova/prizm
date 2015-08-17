@@ -1178,13 +1178,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if (pipeTestResult.Status != PipeTestResultStatus.Accepted
                     && pipeTestResult.Status != PipeTestResultStatus.Scheduled)
             {
+                var insp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == pipeTestResult.Operation.Code).FirstOrDefault().Value;
+                List<Inspector> inspectors = new List<Inspector>();
+                if (insp != null)
+                {
+                    inspectors.AddRange(insp);
+                }
                 viewModel.PipeTestResults.Add(new PipeTestResult()
                 {
                     Pipe = viewModel.Pipe,
                     Status = PipeTestResultStatus.Scheduled,
                     Operation = pipeTestResult.Operation,
                     Order = viewModel.PipeTestResultsMaxOrder()+1,
-                    Inspectors = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == pipeTestResult.Operation.Code).FirstOrDefault().Value
+                    Inspectors = inspectors
                 });
 
                 foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
@@ -1192,14 +1198,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     if (!viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
                             && x.Status == PipeTestResultStatus.Scheduled))
                     {
+                        var repeatedInsp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == operation.Code).FirstOrDefault().Value;
+                        List<Inspector> repeatedInspectors = new List<Inspector>();
+                        if (repeatedInsp != null)
+                        {
+                            repeatedInspectors.AddRange(repeatedInsp);
+                        }
+
                         viewModel.PipeTestResults.Add(new PipeTestResult()
                         {
                             Pipe = viewModel.Pipe,
                             Status = PipeTestResultStatus.Scheduled,
                             Operation = operation,
                             Order = viewModel.PipeTestResultsMaxOrder() + 1,
-                            Inspectors = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == operation.Code).FirstOrDefault().Value
-
+                            Inspectors = repeatedInspectors
                         });
                     }
                 }

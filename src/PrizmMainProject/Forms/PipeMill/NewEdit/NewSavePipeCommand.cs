@@ -67,7 +67,11 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
                     foreach (var t in viewModel.Pipe.PipeTestResult)
                     {
-                        t.Inspectors = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == t.Operation.Code).FirstOrDefault().Value;
+                        var insp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == t.Operation.Code).FirstOrDefault().Value;                    
+                        if (insp != null)
+                        {
+                            t.Inspectors = insp;
+                        }
                     }
 
                     viewModel.Heat = previousHeat;
