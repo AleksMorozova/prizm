@@ -1869,4 +1869,22 @@
   <data name="PartTypeJoint" xml:space="preserve">
     <value>Стык</value>
   </data>
+  <data name="Joint_JointElement_Connectors" xml:space="preserve">
+    <value>Количество коннекторов</value>
+  </data>
+  <data name="Joint_JointElement_Diameter" xml:space="preserve">
+    <value>Доступные диаметры</value>
+  </data>
+  <data name="Joint_JointElement_Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Joint_JointElement_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Joint_OperationNameColumn" xml:space="preserve">
+    <value>Название операции</value>
+  </data>
+  <data name="PartInspection_ResultColumn" xml:space="preserve">
+    <value>Результат</value>
+  </data>
 </root>

@@ -1180,6 +1180,21 @@ Joint_JointTestResultStatus_Repair=Repair
 ;статус для контрольной операции стыка: Принят
 Joint_JointTestResultStatus_Accepted=Accepted
 
+;колонка название операции
+Joint_OperationNameColumn = Operation name
+
+;колонка название операции
+Joint_JointElement_Number = Number
+
+;колонка название операции
+Joint_JointElement_Type = Type
+
+;колонка название операции
+Joint_JointElement_Connectors =  Сonnectors amount
+
+;колонка название операции
+Joint_JointElement_Diameter = Available diameter
+
 ;Поиск и редактирование стыка
 JointNewNotAllWeldOperationCompleted = Not all weld operations were completed
 
@@ -1593,6 +1608,9 @@ PartInspection_SearchGroup=Search
 
 ;Входной контроль элемента. Надпись инспекций
 PartInspection_IncomingInspectionGroup=Incoming inspection
+
+;Входной контроль элемента. Колонка результат инспекции 
+PartInspection_ResultColumn = Result
 
 ;Сообщение: Неизвестный тип компонента
 Message_UnknownComponentType=Unknown component type

@@ -3407,6 +3407,36 @@ namespace Prizm.Main.Languages
 
         #region --- JointNew ---
 
+        public static StringResource Joint_OperationNameColumn = new StringResource
+        {
+            Id = "Joint_OperationNameColumn",
+            Description = "Колонка название операции"
+        };
+
+        public static StringResource Joint_JointElement_Number = new StringResource
+        {
+            Id = "Joint_JointElement_Number",
+            Description = "Стыкуемые элемент - колонка номер"
+        };
+
+        public static StringResource Joint_JointElement_Type = new StringResource
+        {
+            Id = "Joint_JointElement_Type",
+            Description = "Стыкуемые элемент - колонка тип"
+        };
+
+        public static StringResource Joint_JointElement_Connectors = new StringResource
+        {
+            Id = "Joint_JointElement_Connectors",
+            Description = "Стыкуемые элемент - колонка количество коннекторов"
+        };
+
+        public static StringResource Joint_JointElement_Diameter = new StringResource
+        {
+            Id = "Joint_JointElement_Diameter",
+            Description = "Стыкуемые элемент - колонка доступные диаметры"
+        };
+
         public static StringResource Joint_JointTestResultStatus_Withdraw = new StringResource
         {
             Id = "Joint_JointTestResultStatus_Withdraw",
@@ -4349,6 +4379,12 @@ namespace Prizm.Main.Languages
         public static StringResource PartInspection_IncomingInspectionGroup = new StringResource { 
             Id = "PartInspection_IncomingInspectionGroup", 
             Description = "Входной контроль элемента. Надпись инспекций"};
+
+        public static StringResource PartInspection_ResultColumn = new StringResource
+        {
+            Id = "PartInspection_ResultColumn",
+            Description = "Входной контроль элемента. Надпись инспекций"
+        };
 
         public static StringResource Message_UnknownComponentType = new StringResource
         {

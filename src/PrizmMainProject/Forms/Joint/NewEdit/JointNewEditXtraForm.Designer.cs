@@ -314,6 +314,7 @@
             this.repairOperationsLookUpEdit.NullText = "";
             this.repairOperationsLookUpEdit.ValueMember = "Name";
             this.repairOperationsLookUpEdit.EditValueChanged += new System.EventHandler(this.RepairOperationsLookUpEdit_EditValueChanged);
+            this.repairOperationsLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.repairOperationsLookUpEdit_CustomDisplayText);
             // 
             // repairDateGridColumn
             // 
@@ -548,6 +549,7 @@
             this.ControlOperationLookUpEdit.NullText = "";
             this.ControlOperationLookUpEdit.ValueMember = "Name";
             this.ControlOperationLookUpEdit.EditValueChanged += new System.EventHandler(this.ControlOperationLookUpEdit_EditValueChanged);
+            this.ControlOperationLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.ControlOperationLookUpEdit_CustomDisplayText);
             // 
             // resultGridColumn
             // 
@@ -653,6 +655,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.secondJointElement, conditionValidationRule1);
+            this.secondJointElement.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.secondJointElement_CustomDisplayText);
             this.secondJointElement.TextChanged += new System.EventHandler(this.secondJointElement_TextChanged);
             // 
             // firstJointElement
@@ -677,6 +680,7 @@
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Не может быть пустым";
             this.dxValidationProvider.SetValidationRule(this.firstJointElement, conditionValidationRule2);
+            this.firstJointElement.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.firstJointElement_CustomDisplayText);
             this.firstJointElement.TextChanged += new System.EventHandler(this.firstJointElement_TextChanged);
             // 
             // loweringDate
