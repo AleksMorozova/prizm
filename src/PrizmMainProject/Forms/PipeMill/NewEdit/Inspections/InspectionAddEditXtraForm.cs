@@ -105,6 +105,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             EnumWrapper<PipeTestResultStatus>.LoadItems(status.Properties.Items, skip0: true);
 
             BindToViewModel();
+            if (listOfInspectors != null) 
+            {
+                var insp = (List<Inspector>)listOfInspectors.Where(_ => _.Key == viewModel.Code).FirstOrDefault().Value;
+                if (insp != null)
+                {
+                    viewModel.TestResult.Inspectors = insp;
+                }
+                else
+                {
+                    viewModel.TestResult.Inspectors = new List<Inspector>();
+                }
+                inspectors.SelectInspectors(viewModel.SelectInspectors());
+            }
+  
             inspectors.InspectionDate = viewModel.Date;
             factBool_CheckedChanged(null, null);
 
@@ -183,8 +197,12 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 if (insp != null)
                 {
                     viewModel.TestResult.Inspectors = insp;
-                    inspectors.SelectInspectors(viewModel.SelectInspectors());
                 }
+                else
+                {
+                    viewModel.TestResult.Inspectors = new List<Inspector>();
+                }
+                inspectors.SelectInspectors(viewModel.SelectInspectors());
             }
         }
 

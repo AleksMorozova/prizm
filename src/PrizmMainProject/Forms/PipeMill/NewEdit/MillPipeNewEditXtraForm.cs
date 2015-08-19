@@ -1028,7 +1028,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 {
                     int index = viewModel.listOfInspectors.IndexOf(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
 
-                    var editForm = GetInspectionForm(tests, insp, row, status, false);
+                    var editForm = GetInspectionForm(tests, insp, row, status, false, viewModel.listOfInspectors);
                     row.Order = viewModel.PipeTestResultsMaxOrder();
                     editForm.ShowDialog();
                     IsModified = true;
