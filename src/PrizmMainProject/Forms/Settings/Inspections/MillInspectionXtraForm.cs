@@ -422,6 +422,10 @@ namespace Prizm.Main.Forms.Settings.Inspections
                         operationTypeValidation = true;
                     }
                 }
+                else 
+                {
+                    operationTypeValidation = true;
+                }
             }
         }
     }
