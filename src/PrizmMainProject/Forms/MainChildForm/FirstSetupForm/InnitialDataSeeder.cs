@@ -59,6 +59,73 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
         {
             try
             {
+                firstSetupRepo.BeginTransaction();
+                #region PipeTestCategory
+
+                Category category = new Category { Name = "Измерение длины", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.Length };
+                firstSetupRepo.CategoryRepo.Save(category);
+
+                #endregion
+                firstSetupRepo.Commit();
+
+
+                firstSetupRepo.BeginTransaction();
+                #region Joint weld operation
+
+                JointOperation weldOperation = new JointOperation()
+                {
+                    IsActive = true,
+                    IsRequired = true,
+                    Type = JointOperationType.Weld,
+                    Name = "Сварка стыка"
+                };
+                firstSetupRepo.JointOperationRepo.Save(weldOperation);
+
+                #endregion
+                firstSetupRepo.Commit();
+
+            #region --- CannedMessage ---
+
+            try
+            {
+                string fileName = Path.Combine(Directories.Seeding, "defectList.txt");
+                string[] lines = System.IO.File.ReadAllLines(fileName, Encoding.Default);
+
+                var cannedMessageList = new List<CannedMessage>(lines.Length);
+
+                for (int i = 0; i < lines.LongLength; ++i)
+                {
+                    string[] tmp = lines[i].Split('\t');
+
+                    cannedMessageList.Add(new CannedMessage {Language = tmp[0], IdDefect = tmp[1], Text = tmp[2]});
+                }
+
+                firstSetupRepo.BeginTransaction();
+                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Save(s));
+                firstSetupRepo.Commit();
+                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Evict(s));
+            }
+            catch(Exception e)
+            {
+                log.Warn(string.Format("The file specified in path was not found or path is in an invalid format: {0}", e.Message));
+            }
+
+            #endregion // --- CannedMessage ---
+            }
+            catch(RepositoryException ex)
+            {
+                log.Warn(this.GetType().Name + " | " + ex.ToString());
+            }
+            return false;
+        }
+
+        private bool SeedOptional()
+        {
+            //Required seed hasn't been performed for Master worksration type, but data are used in optional seed
+            if (viewModel.Project.WorkstationType == WorkstationType.Master)
+            {
+                SeedRequired();
+            }
             firstSetupRepo.BeginTransaction();
             #region SeamTypes
             seamTypes = new List<SeamType>
@@ -67,7 +134,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new SeamType{Name = "Прямой", IsActive = true, IsNative = true, Project = viewModel.Project},
                 new SeamType{Name = "Спиралевидный", IsActive = true, IsNative = true, Project = viewModel.Project},
             };
-            foreach(var item in seamTypes)
+            foreach (var item in seamTypes)
             {
                 firstSetupRepo.SeemTypeRepo.Save(item);
             }
@@ -133,7 +200,7 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                 new Category { Name = "Контроль внутреннего покрытия", IsActive = true, Fixed = true, ResultType = "int", Type = FixedCategory.InternalCoat }
 	            #endregion
             };
-            foreach(var category in categories)
+            foreach (var category in categories)
             {
                 firstSetupRepo.CategoryRepo.Save(category);
             }
@@ -538,58 +605,15 @@ namespace Prizm.Main.Forms.MainChildForm.FirstSetupForm
                     IsActive = true,
                     FrequencyType = InspectionFrequencyType.R
                 } 
-	#endregion
+                #endregion
             };
 
-            foreach(var test in tests)
+            foreach (var test in tests)
             {
                 firstSetupRepo.TestRepo.Save(test);
             }
             #endregion
             firstSetupRepo.Commit();
-
-            #region --- CannedMessage ---
-
-            try
-            {
-                string fileName = Path.Combine(Directories.Seeding, "defectList.txt");
-                string[] lines = System.IO.File.ReadAllLines(fileName, Encoding.Default);
-
-                var cannedMessageList = new List<CannedMessage>(lines.Length);
-
-                for (int i = 0; i < lines.LongLength; ++i)
-                {
-                    string[] tmp = lines[i].Split('\t');
-
-                    cannedMessageList.Add(new CannedMessage {Language = tmp[0], IdDefect = tmp[1], Text = tmp[2]});
-                }
-
-                firstSetupRepo.BeginTransaction();
-                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Save(s));
-                firstSetupRepo.Commit();
-                cannedMessageList.ForEach(s => firstSetupRepo.CannedMessageRepo.Evict(s));
-            }
-            catch(Exception e)
-            {
-                log.Warn(string.Format("The file specified in path was not found or path is in an invalid format: {0}", e.Message));
-            }
-
-            #endregion // --- CannedMessage ---
-            }
-            catch(RepositoryException ex)
-            {
-                log.Warn(this.GetType().Name + " | " + ex.ToString());
-            }
-            return false;
-        }
-
-        private bool SeedOptional()
-        {
-            //Required seed hasn't been performed for Master worksration type, but data are used in optional seed
-            if (viewModel.Project.WorkstationType == WorkstationType.Master)
-            {
-                SeedRequired();
-            }
 
             firstSetupRepo.BeginTransaction();
             #region PlateManufacturers

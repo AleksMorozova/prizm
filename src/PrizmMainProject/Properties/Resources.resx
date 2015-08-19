@@ -1872,6 +1872,12 @@
   <data name="Joint_JointElement_Connectors" xml:space="preserve">
     <value>Количество коннекторов</value>
   </data>
+  <data name="Settings_UniqueLengthOperation" xml:space="preserve">
+    <value>Операция с подобной категорией уже была введена</value>
+  </data>
+  <data name="Settings_UniqueLengthOperationHeader" xml:space="preserve">
+    <value>Операция уже введена</value>
+  </data>
   <data name="Joint_JointElement_Diameter" xml:space="preserve">
     <value>Доступные диаметры</value>
   </data>

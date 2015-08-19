@@ -4540,6 +4540,24 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Операция с подобной категорией уже была введена.
+        /// </summary>
+        internal static string Settings_UniqueLengthOperation {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLengthOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операция уже введена.
+        /// </summary>
+        internal static string Settings_UniqueLengthOperationHeader {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLengthOperationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Логин должен быть уникальным.
         /// </summary>
         internal static string Settings_UniqueLogin {

@@ -12,6 +12,7 @@ using Prizm.Main.Properties;
 using Prizm.Main.Security;
 using Prizm.Data.DAL;
 using Prizm.Main.Languages;
+using Prizm.Domain.Entity;
 
 namespace Prizm.Main.Forms.PipeMill.NewEdit
 {
@@ -63,6 +64,15 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     viewModel.PipeMillSizeType = previousPipeMillSizeType;
                     viewModel.PipeTestResults = viewModel.GetRequired(previousPipeMillSizeType);
                     viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
+
+                    foreach (var t in viewModel.Pipe.PipeTestResult)
+                    {
+                        var insp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == t.Operation.Code).FirstOrDefault().Value;                    
+                        if (insp != null)
+                        {
+                            t.Inspectors = insp;
+                        }
+                    }
 
                     viewModel.Heat = previousHeat;
                     viewModel.PipePurchaseOrder = previousPurchaseOrder;

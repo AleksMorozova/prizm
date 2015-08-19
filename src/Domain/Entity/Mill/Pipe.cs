@@ -65,7 +65,7 @@ namespace Prizm.Domain.Entity.Mill
         /// </summary>
         public virtual void RecalculateWeight()
         {
-            this.Weight = (decimal)((decimal)Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length);
+            this.Weight = Math.Round((decimal)((decimal)Math.PI * Ro * this.WallThickness * (this.Diameter - this.WallThickness) * this.Length), 2);
         }
 
     }
