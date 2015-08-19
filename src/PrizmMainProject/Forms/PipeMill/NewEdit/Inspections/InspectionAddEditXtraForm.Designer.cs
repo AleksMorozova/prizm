@@ -144,6 +144,7 @@
             this.factString.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.factString.Properties.NullText = "";
+            this.factString.Properties.ShowHeader = false;
             this.factString.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.factString.Size = new System.Drawing.Size(319, 20);
             this.factString.StyleController = this.rootLayoutControl;

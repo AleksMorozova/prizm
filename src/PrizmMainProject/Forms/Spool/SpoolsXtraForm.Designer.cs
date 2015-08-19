@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpoolsXtraForm));
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.mainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -68,8 +67,8 @@
             this.saveButtonLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonsEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.deactivatedLayout = new DevExpress.XtraLayout.LayoutControlItem();
-            this.SpoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorsDataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SpoolBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorsDataSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).BeginInit();
             this.mainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deactivated.Properties)).BeginInit();
@@ -241,6 +240,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.resultLookUpEdit.Name = "resultLookUpEdit";
             this.resultLookUpEdit.NullText = "";
+            this.resultLookUpEdit.ShowHeader = false;
             this.resultLookUpEdit.EditValueChanged += new System.EventHandler(this.resultLookUpEdit_EditValueChanged);
             this.resultLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultLookUpEdit_CustomDisplayText);
             // 
