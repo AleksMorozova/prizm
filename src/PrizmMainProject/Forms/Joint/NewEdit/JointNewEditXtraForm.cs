@@ -310,6 +310,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
         {
             return new List<LocalizedItem>()
             {
+                                                                    
                 new LocalizedItem(searchLayoutGroup, StringResources.JointNew_SearchGroupLayout.Id),
                 new LocalizedItem(searchNumberLayout, StringResources.JointNew_SearchNumberLayout.Id),
                 new LocalizedItem(searchButton, StringResources.JointNew_SearchButton.Id),
@@ -366,7 +367,8 @@ namespace Prizm.Main.Forms.Joint.NewEdit
                                                                                           StringResources.PartTypeComponent.Id,
                                                                                           StringResources.PartTypeJoint.Id
                                                                                       }),
-                // header
+
+               // header
                 new LocalizedItem(this, localizedHeader, new string[] {
                     StringResources.JointNewXtraForm_Title.Id} )
             };
@@ -830,6 +832,33 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             {
                 viewModel.UpdateStatus();
             }
+        }
+
+        private void repairOperationsLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            repairOperationsLookUpEdit.Columns[0].Caption = Program.LanguageManager.GetString(StringResources.Joint_OperationNameColumn);
+        }
+
+        private void firstJointElement_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            firstJointElement.Properties.Columns[0].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Number);
+            firstJointElement.Properties.Columns[1].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Type);
+            firstJointElement.Properties.Columns[2].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Connectors);
+            firstJointElement.Properties.Columns[3].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Diameter);
+
+        }
+
+        private void secondJointElement_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            secondJointElement.Properties.Columns[0].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Number);
+            secondJointElement.Properties.Columns[1].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Type);
+            secondJointElement.Properties.Columns[2].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Connectors);
+            secondJointElement.Properties.Columns[3].Caption = Program.LanguageManager.GetString(StringResources.Joint_JointElement_Diameter);
+        }
+
+        private void ControlOperationLookUpEdit_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
+        {
+            ControlOperationLookUpEdit.Columns[0].Caption = Program.LanguageManager.GetString(StringResources.Joint_OperationNameColumn);
         }
     }
 }
