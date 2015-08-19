@@ -25,6 +25,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
     {
         public InspectionAddEditViewModel viewModel;
         private IList<PipeTestResult> pipeTestResults;
+        private List<KeyValuePair<string, object>> listOfInspectors;
+        private bool isNew;
 
         private InspectionAddEditViewModel GetInspectionViewModel(
             IList<PipeTest> tests,
@@ -49,11 +51,13 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IList<Inspector> inspectors, 
             PipeTestResult current,
             IList<EnumWrapper<PipeTestResultStatus>> statuses,
-            IList<PipeTestResult> pipeTestResults)
+            IList<PipeTestResult> pipeTestResults,
+            bool isNew,
+            List<KeyValuePair<string, object>> listOfInspectors)
         {
             InitializeComponent();
 
-            this.SetupForm(tests, inspectors, current, statuses, pipeTestResults);
+            this.SetupForm(tests, inspectors, current, statuses, pipeTestResults, isNew, listOfInspectors);
         }
 
         public void SetupForm(
@@ -61,11 +65,14 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             IList<Inspector> inspectors,
             PipeTestResult current,
             IList<EnumWrapper<PipeTestResultStatus>> statuses,
-            IList<PipeTestResult> pipeTestResults)
+            IList<PipeTestResult> pipeTestResults,    
+            bool isNew,
+            List<KeyValuePair<string, object>> listOfInspectors)
         {
             this.pipeTestResults = pipeTestResults;
             GetInspectionViewModel(tests, inspectors, current, statuses);
-
+            this.listOfInspectors = listOfInspectors;
+            this.isNew = isNew;
             date.Properties.NullDate = DateTime.MinValue;
             date.Properties.NullText = string.Empty;
 
@@ -169,6 +176,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.ChangeTest(cd.ToString());
             if (viewModel.TestResult.Operation != null)
             ChangeFact();
+
+            if (isNew)
+            {
+                var insp = (List<Inspector>)listOfInspectors.Where(_ => _.Key == cd.ToString()).FirstOrDefault().Value;
+                if (insp != null)
+                {
+                    viewModel.TestResult.Inspectors = insp;
+                    inspectors.SelectInspectors(viewModel.SelectInspectors());
+                }
+            }
         }
 
         private void ChangeFact()

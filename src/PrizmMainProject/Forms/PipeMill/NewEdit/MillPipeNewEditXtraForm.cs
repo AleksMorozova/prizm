@@ -52,6 +52,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
         private List<string> localizedAllTypes = new List<string>();
+        private int weldingHistoryViewFocusedRow = 0;
+
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
@@ -727,6 +729,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                 viewModel.PipeTestResults = viewModel.GetRequired(currentPipeType);
                 viewModel.Pipe.PipeTestResult = viewModel.PipeTestResults;
                 inspectionCodeLookUpEdit.DataSource = viewModel.AvailableTests;
+                viewModel.listOfInspectors = new List<KeyValuePair<string, object>>();
                 inspections.RefreshDataSource();
             }
 
@@ -895,13 +898,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
+            returnFocus();
             return dxValidationProvider.Validate() && this.ValidateChildren() && ValidateWeldHistory();
         }
 
+        private void returnFocus() 
+        {
+            weldingHistoryGridView.FocusedRowHandle = weldingHistoryViewFocusedRow;
+        }
         #endregion
 
         private bool ValidateWeldHistory()
         {
+            weldingHistoryViewFocusedRow = weldingHistoryGridView.FocusedRowHandle;
+
             bool result = true;
 
             for(int i = 0; i < weldingHistoryGridView.DataRowCount; i++)
@@ -987,7 +997,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         {
             if (IsEditMode)
             {
-                var addForm = GetInspectionForm(tests, inspectors, null, statuses);
+                var addForm = GetInspectionForm(tests, inspectors, null, statuses, true,viewModel.listOfInspectors);
 
                 if (addForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -1000,7 +1010,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     pipeLength.Refresh();
                     weight.Refresh();
 
-                    AddRepeatedInspections(addForm.viewModel.TestResult);    
+                    int index = viewModel.listOfInspectors.IndexOf(viewModel.listOfInspectors.Where(_ => _.Key == addForm.viewModel.TestResult.Operation.Code).FirstOrDefault());
+                    if (index >= 0 && index < viewModel.listOfInspectors.Count())
+                    {
+                        viewModel.listOfInspectors.RemoveAt(index);
+                    }
+                    viewModel.listOfInspectors.
+                        Add(new KeyValuePair<string, object>(addForm.viewModel.TestResult.Operation.Code, addForm.viewModel.TestResult.Inspectors));
+
+                    AddRepeatedInspections(addForm.viewModel.TestResult);
+                   
                 }
             }
 
@@ -1016,7 +1035,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             {
                 if (row.Status == PipeTestResultStatus.Scheduled)
                 {
-                    var editForm = GetInspectionForm(tests, insp, row, status);
+                    int index = viewModel.listOfInspectors.IndexOf(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
+
+                    var editForm = GetInspectionForm(tests, insp, row, status, false);
                     row.Order = viewModel.PipeTestResultsMaxOrder();
                     editForm.ShowDialog();
                     IsModified = true;
@@ -1025,7 +1046,16 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     pipeLength.Refresh();
                     weight.Refresh();
 
+                    if (index >= 0 && index < viewModel.listOfInspectors.Count())
+                    {
+                        viewModel.listOfInspectors.RemoveAt(index);
+                    }
+                    
+                    viewModel.listOfInspectors.
+                        Add(new KeyValuePair<string, object>(row.Operation.Code, row.Inspectors));
+
                     AddRepeatedInspections(row);
+
                 }
                 else
                 {
@@ -1094,15 +1124,17 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             BindingList<PipeTest> tests,
             IList<Inspector> inspectors,
             PipeTestResult row,
-            IList<EnumWrapper<PipeTestResultStatus>> statuses)
+            IList<EnumWrapper<PipeTestResultStatus>> statuses,
+            bool isNew,
+            List<KeyValuePair<string, object>> listOfInspectors = null)
         {
             if(inspectionForm == null)
             {
-                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
+                inspectionForm = new InspectionAddEditXtraForm(tests, inspectors, row, statuses, viewModel.PipeTestResults, isNew, viewModel.listOfInspectors);
             }
             else
             {
-                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults);
+                inspectionForm.SetupForm(tests, inspectors, row, statuses, viewModel.PipeTestResults, isNew, listOfInspectors);
             }
 
             return inspectionForm;
@@ -1155,12 +1187,19 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             if (pipeTestResult.Status != PipeTestResultStatus.Accepted
                     && pipeTestResult.Status != PipeTestResultStatus.Scheduled)
             {
+                var insp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == pipeTestResult.Operation.Code).FirstOrDefault().Value;
+                List<Inspector> inspectors = new List<Inspector>();
+                if (insp != null)
+                {
+                    inspectors.AddRange(insp);
+                }
                 viewModel.PipeTestResults.Add(new PipeTestResult()
                 {
                     Pipe = viewModel.Pipe,
                     Status = PipeTestResultStatus.Scheduled,
                     Operation = pipeTestResult.Operation,
-                    Order = viewModel.PipeTestResultsMaxOrder()+1
+                    Order = viewModel.PipeTestResultsMaxOrder()+1,
+                    Inspectors = inspectors
                 });
 
                 foreach (var operation in pipeTestResult.Operation.RepeatedInspections.Where<PipeTest>(x => x.IsActive))
@@ -1168,12 +1207,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     if (!viewModel.PipeTestResults.Any<PipeTestResult>(x => x.Operation.Code == operation.Code
                             && x.Status == PipeTestResultStatus.Scheduled))
                     {
+                        var repeatedInsp = (List<Inspector>)viewModel.listOfInspectors.Where(_ => _.Key == operation.Code).FirstOrDefault().Value;
+                        List<Inspector> repeatedInspectors = new List<Inspector>();
+                        if (repeatedInsp != null)
+                        {
+                            repeatedInspectors.AddRange(repeatedInsp);
+                        }
+
                         viewModel.PipeTestResults.Add(new PipeTestResult()
                         {
                             Pipe = viewModel.Pipe,
                             Status = PipeTestResultStatus.Scheduled,
                             Operation = operation,
-                            Order = viewModel.PipeTestResultsMaxOrder() + 1
+                            Order = viewModel.PipeTestResultsMaxOrder() + 1,
+                            Inspectors = repeatedInspectors
                         });
                     }
                 }

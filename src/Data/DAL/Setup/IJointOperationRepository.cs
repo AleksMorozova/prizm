@@ -11,7 +11,6 @@ namespace Prizm.Data.DAL.Setup
     {
        IList<JointOperation> GetControlOperations();
        IList<JointOperation> GetRepairOperations();
-       void SeedRequiredWeld(string requiredWeld);
        JointOperation GetRequiredWeld();
     }
 }

@@ -58,7 +58,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         public Pipe Pipe { get; set; }
         public Guid PipeId { get; set; }
         public Project Project { get; set; }
-
+        public List<KeyValuePair<string, object>> listOfInspectors = new List<KeyValuePair<string, object>>();
         public IList<Welder> Welders { get; set; }
         public BindingList<EnumWrapper<PipeTestResultStatus>> TestResultStatuses = new BindingList<EnumWrapper<PipeTestResultStatus>>();
         public IList<Inspector> Inspectors { get; set; }
