@@ -345,6 +345,7 @@
             this.category.StyleController = this.mainLayoutControl;
             this.category.TabIndex = 21;
             this.category.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.category_CloseUp);
+            this.category.EditValueChanged += new System.EventHandler(this.category_EditValueChanged);
             // 
             // cancelButton
             // 

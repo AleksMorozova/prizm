@@ -1750,6 +1750,18 @@ namespace Prizm.Main.Languages
         #region Settings
         //message
 
+        public static StringResource Settings_UniqueLengthOperation = new StringResource
+        {
+            Id = "Settings_UniqueLengthOperation",
+            Description = "Сообщение о том, что операция измерения длинны должна быть уникальной"
+        };
+
+        public static StringResource Settings_UniqueLengthOperationHeader = new StringResource
+        {
+            Id = "Settings_UniqueLengthOperationHeader",
+            Description = "Заголовок сообщения о том, что операция измерения длинны должна быть уникальной"
+        };
+
         public static StringResource Settings_Title = new StringResource
         {
             Id = "Settings_Title",

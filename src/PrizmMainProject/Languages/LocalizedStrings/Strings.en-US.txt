@@ -413,6 +413,12 @@ MissingPortion_acceptButton=&Accept
 ;Недостающие порции. Кнопка отмены импорта
 MissingPortion_cancelButton=&Cancel
 
+;Операция уже введена
+Settings_UniqueLengthOperationHeader = Operation is already entered
+
+;Операция с подобной категорией уже была введена
+Settings_UniqueLengthOperation = Already contains operation with such category
+
 ;Для ввода сертификата необходимо выбрать инспектора
 Settings_ValidateInspectorSertificate=Please select inspector
 
