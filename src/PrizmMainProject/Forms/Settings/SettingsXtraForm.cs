@@ -75,7 +75,7 @@ namespace Prizm.Main.Forms.Settings
         private int certificateTypesViewFocusedRow = 0;
         private int usersViewFocusedRow = 0;
         private int permissionsViewFocusedRow = 0;
-
+        private int plateManufacturersFocusedRow = 0;
 
         public SettingsXtraForm()
         {
@@ -1257,6 +1257,7 @@ namespace Prizm.Main.Forms.Settings
             gridViewUsers.FocusedRowHandle=usersViewFocusedRow;
             gridViewRole.FocusedRowHandle=roleViewFocusedRow;
             gridViewPermissions.FocusedRowHandle = permissionsViewFocusedRow;
+            plateManufacturersListView.FocusedRowHandle = plateManufacturersFocusedRow;
         }
 
         private bool pipeControlOperationValidation()
@@ -1798,6 +1799,7 @@ namespace Prizm.Main.Forms.Settings
         }
         private bool plateManufacturersValidation()
         {
+            plateManufacturersFocusedRow = plateManufacturersListView.FocusedRowHandle;
             plateManufacturersValidate = true;
             for (int i = 0; i < plateManufacturersListView.RowCount - 1; i++)
             {
@@ -1848,7 +1850,7 @@ namespace Prizm.Main.Forms.Settings
 
         private bool categoriesValidation()
         {
-            categoriesGridView.FocusedRowHandle = categoriesGridView.FocusedRowHandle;
+            categoriesViewFocusedRow = categoriesGridView.FocusedRowHandle;
 
             categoriesValidate = true;
             for (int i = 0; i < categoriesGridView.RowCount - 1; i++)
