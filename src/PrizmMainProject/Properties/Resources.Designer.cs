@@ -1655,6 +1655,42 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Количество коннекторов.
+        /// </summary>
+        internal static string Joint_JointElement_Connectors {
+            get {
+                return ResourceManager.GetString("Joint_JointElement_Connectors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Доступные диаметры.
+        /// </summary>
+        internal static string Joint_JointElement_Diameter {
+            get {
+                return ResourceManager.GetString("Joint_JointElement_Diameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        internal static string Joint_JointElement_Number {
+            get {
+                return ResourceManager.GetString("Joint_JointElement_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        internal static string Joint_JointElement_Type {
+            get {
+                return ResourceManager.GetString("Joint_JointElement_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Принято.
         /// </summary>
         internal static string Joint_JointTestResultStatus_Accepted {
@@ -1678,6 +1714,15 @@ namespace Prizm.Main.Properties {
         internal static string Joint_JointTestResultStatus_Withdraw {
             get {
                 return ResourceManager.GetString("Joint_JointTestResultStatus_Withdraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название операции.
+        /// </summary>
+        internal static string Joint_OperationNameColumn {
+            get {
+                return ResourceManager.GetString("Joint_OperationNameColumn", resourceCulture);
             }
         }
         
@@ -3202,6 +3247,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Результат.
+        /// </summary>
+        internal static string PartInspection_ResultColumn {
+            get {
+                return ResourceManager.GetString("PartInspection_ResultColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Входной контроль.
         /// </summary>
         internal static string PartInspection_Title {
@@ -4482,6 +4536,24 @@ namespace Prizm.Main.Properties {
         internal static string Settings_Title {
             get {
                 return ResourceManager.GetString("Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операция с подобной категорией уже была введена.
+        /// </summary>
+        internal static string Settings_UniqueLengthOperation {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLengthOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операция уже введена.
+        /// </summary>
+        internal static string Settings_UniqueLengthOperationHeader {
+            get {
+                return ResourceManager.GetString("Settings_UniqueLengthOperationHeader", resourceCulture);
             }
         }
         

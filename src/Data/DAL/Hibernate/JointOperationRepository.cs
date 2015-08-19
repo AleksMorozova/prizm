@@ -40,29 +40,6 @@ namespace Prizm.Data.DAL.Hibernate
             }
         }
 
-        public void SeedRequiredWeld(string requiredWeldOperation)
-        {
-            try
-            {
-                if (GetAll().Count == 0)
-                {
-                    BeginTransaction();
-                    Save(new JointOperation()
-                    { 
-                        IsActive = true,
-                        IsRequired = true,
-                        Type = JointOperationType.Weld,
-                        Name = requiredWeldOperation
-                    }
-                        );
-                }
-            }
-            catch (GenericADOException e)
-            {
-                throw new RepositoryException("SeedRequiredWeld", e);
-            }
-        }
-
         public JointOperation GetRequiredWeld()
         {
             try

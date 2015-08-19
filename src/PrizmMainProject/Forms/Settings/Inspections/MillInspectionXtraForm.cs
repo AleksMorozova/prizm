@@ -27,7 +27,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
         public MillInspectionViewModel viewModel;
         IReadOnlyList<PipeTest> pipeTestList;
         IReadOnlyList<string> usedCodes;
-
+        bool operationTypeValidation = true;
         public MillInspectionXtraForm(PipeTest current, BindingList<Category> categoryTypes, IReadOnlyList<PipeTest> pipeTestList, IReadOnlyList<string> usedCodes)
         {
             InitializeComponent();
@@ -259,7 +259,7 @@ namespace Prizm.Main.Forms.Settings.Inspections
                 Program.MainForm.ShowError(msg, header);
                 validated = false;
             }
-            return validated && dxValidationProvider.Validate();
+            return validated && dxValidationProvider.Validate() && operationTypeValidation;
         }
 
 
@@ -391,5 +391,38 @@ namespace Prizm.Main.Forms.Settings.Inspections
             BindingHelper.CorrectDecimalSeparator(sender, e);
         }
 
+        private void category_EditValueChanged(object sender, EventArgs e)
+        {
+            var current = viewModel.PipeTest.Category;
+            var editValue = category.EditValue;
+            int lengthOperation = 0;
+            if (!string.IsNullOrEmpty(category.Text) && current != editValue)
+            {
+                Category test = (Category)editValue;
+
+                if (test.Type == FixedCategory.Length)
+                {
+                    foreach (var t in pipeTestList)
+                    {
+                        if (t.Category == test)
+                        {
+                            lengthOperation++;
+                        }
+                    }
+
+                    if (lengthOperation >= 1)
+                    {
+                        operationTypeValidation = false;
+                        Program.MainForm.ShowError
+                            (Program.LanguageManager.GetString(StringResources.Settings_UniqueLengthOperation),
+                            Program.LanguageManager.GetString(StringResources.Settings_UniqueLengthOperationHeader));
+                    }
+                    else
+                    {
+                        operationTypeValidation = true;
+                    }
+                }
+            }
+        }
     }
 }

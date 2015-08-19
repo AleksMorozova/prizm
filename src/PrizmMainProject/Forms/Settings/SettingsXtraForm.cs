@@ -61,6 +61,22 @@ namespace Prizm.Main.Forms.Settings
         private bool roleValidate = true;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingsXtraForm));
 
+        private int pipeSizeViewFocusedRow = 0;
+        private int roleViewFocusedRow = 0;
+        private int inspectorsViewFocusedRow = 0;
+        private int pipesSizeListViewFocusedRow = 0;
+        private int categoriesViewFocusedRow = 0;
+        private int seamTypeViewFocusedRow = 0;
+        private int inspectionViewFocusedRow = 0;
+        private int jointsOperationsViewFocusedRow = 0;
+        private int componentryTypeViewFocusedRow = 0;
+        private int weldersViewFocusedRow = 0;
+        private int inspectorCertificateViewFocusedRow = 0;
+        private int certificateTypesViewFocusedRow = 0;
+        private int usersViewFocusedRow = 0;
+        private int permissionsViewFocusedRow = 0;
+
+
         public SettingsXtraForm()
         {
             InitializeComponent();
@@ -1213,6 +1229,8 @@ namespace Prizm.Main.Forms.Settings
                 controlOperationValidate = pipeControlOperationValidation();
             }
 
+            returnFocus();
+
             return dxValidationProvider.Validate() && controlOperationValidate && pipesSizeValidate
                 && administratorCanEditSettingsValidation
                 && plateManufacturersValidate && seamTypesValidate && categoriesValidate
@@ -1223,8 +1241,29 @@ namespace Prizm.Main.Forms.Settings
                 && usersValidate && roleValidate;
         }
 
+        //return previous value for FocusedRow 
+        private void returnFocus() 
+        {
+            pipesSizeListGridView.FocusedRowHandle = pipesSizeListViewFocusedRow;
+            gridViewInspectors.FocusedRowHandle = inspectorsViewFocusedRow;
+            categoriesGridView.FocusedRowHandle=categoriesViewFocusedRow;
+            seamTypeGridView.FocusedRowHandle = seamTypeViewFocusedRow;
+            inspectionView.FocusedRowHandle = inspectionViewFocusedRow;
+            jointsOperationsGridView.FocusedRowHandle=jointsOperationsViewFocusedRow;
+            componentryTypeGridView.FocusedRowHandle=componentryTypeViewFocusedRow;
+            gridViewWelders.FocusedRowHandle=weldersViewFocusedRow;
+            inspectorCertificateGridView.FocusedRowHandle=inspectorCertificateViewFocusedRow;
+            certificateTypesView.FocusedRowHandle = certificateTypesViewFocusedRow;
+            gridViewUsers.FocusedRowHandle=usersViewFocusedRow;
+            gridViewRole.FocusedRowHandle=roleViewFocusedRow;
+            gridViewPermissions.FocusedRowHandle = permissionsViewFocusedRow;
+        }
+
         private bool pipeControlOperationValidation()
         {
+
+            inspectionViewFocusedRow = inspectionView.FocusedRowHandle;
+
             controlOperationValidate = true;
             inspectionView.ClearColumnErrors();
             for (int i = 0; i < inspectionView.RowCount - 1; i++)
@@ -1341,34 +1380,37 @@ namespace Prizm.Main.Forms.Settings
         {
             pipeLayoutControlGroup.Tag = "Visited";
             #region validation only afrer tab is shown
-            ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
-            diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
-            diameterValidationRule.Value1 = 0;
-            diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            diameterValidationRule.ErrorType = ErrorType.Critical;
+            if (viewModel.PipeMillSizeType.Count()>0)
+            {
+                ConditionValidationRule diameterValidationRule = new ConditionValidationRule();
+                diameterValidationRule.ConditionOperator = ConditionOperator.Greater;
+                diameterValidationRule.Value1 = 0;
+                diameterValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                diameterValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
-            wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
-            wallThicknessValidationRule.Value1 = 0;
-            wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            wallThicknessValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule wallThicknessValidationRule = new ConditionValidationRule();
+                wallThicknessValidationRule.ConditionOperator = ConditionOperator.Greater;
+                wallThicknessValidationRule.Value1 = 0;
+                wallThicknessValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                wallThicknessValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
-            pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
-            pipeLengthValidationRule.Value1 = 0;
-            pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            pipeLengthValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule pipeLengthValidationRule = new ConditionValidationRule();
+                pipeLengthValidationRule.ConditionOperator = ConditionOperator.Greater;
+                pipeLengthValidationRule.Value1 = 0;
+                pipeLengthValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                pipeLengthValidationRule.ErrorType = ErrorType.Critical;
 
-            ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
-            seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
-            seamTypeValidationRule.Value1 = seamType.Properties.NullText;
-            seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
-            seamTypeValidationRule.ErrorType = ErrorType.Critical;
+                ConditionValidationRule seamTypeValidationRule = new ConditionValidationRule();
+                seamTypeValidationRule.ConditionOperator = ConditionOperator.NotEquals;
+                seamTypeValidationRule.Value1 = seamType.Properties.NullText;
+                seamTypeValidationRule.ErrorText = Program.LanguageManager.GetString(StringResources.Settings_ValueRequired);
+                seamTypeValidationRule.ErrorType = ErrorType.Critical;
 
-            dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
-            dxValidationProvider.SetValidationRule(wallThickness, wallThicknessValidationRule);
-            dxValidationProvider.SetValidationRule(pipeLength, pipeLengthValidationRule);
-            dxValidationProvider.SetValidationRule(seamType, seamTypeValidationRule);
+                dxValidationProvider.SetValidationRule(pipeDiameter, diameterValidationRule);
+                dxValidationProvider.SetValidationRule(wallThickness, wallThicknessValidationRule);
+                dxValidationProvider.SetValidationRule(pipeLength, pipeLengthValidationRule);
+                dxValidationProvider.SetValidationRule(seamType, seamTypeValidationRule);
+            }
             #endregion
             if (viewModel.SeamTypes != null)
             {
@@ -1780,6 +1822,9 @@ namespace Prizm.Main.Forms.Settings
 
         private bool seamTypeValidation()
         {
+
+            seamTypeViewFocusedRow = seamTypeGridView.FocusedRowHandle;
+
             seamTypesValidate = true;
             for (int i = 0; i < seamTypeGridView.RowCount - 1; i++)
             {
@@ -1803,6 +1848,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool categoriesValidation()
         {
+            categoriesGridView.FocusedRowHandle = categoriesGridView.FocusedRowHandle;
+
             categoriesValidate = true;
             for (int i = 0; i < categoriesGridView.RowCount - 1; i++)
             {
@@ -1826,6 +1873,9 @@ namespace Prizm.Main.Forms.Settings
 
         private bool pipesSizeValidation()
         {
+            pipesSizeListViewFocusedRow = pipesSizeListGridView.FocusedRowHandle;
+            pipeSizeViewFocusedRow = pipesSizeListGridView.FocusedRowHandle;
+
             pipesSizeValidate = true;
             for (int i = 0; i < pipesSizeListGridView.RowCount - 1; i++)
             {
@@ -1849,6 +1899,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool componentryTypeValidation()
         {
+            componentryTypeViewFocusedRow = componentryTypeGridView.FocusedRowHandle;
+
             componentryTypeValidate = true;
             for (int i = 0; i < componentryTypeGridView.RowCount - 1; i++)
             {
@@ -1872,6 +1924,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool weldersValidation()
         {
+            weldersViewFocusedRow = gridViewWelders.FocusedRowHandle;
+
             weldersValidate = true;
             for (int i = 0; i < gridViewWelders.RowCount - 1; i++)
             {
@@ -1897,6 +1951,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool inspectorsValidation()
         {
+            inspectorsViewFocusedRow = gridViewInspectors.FocusedRowHandle;
+
             inspectorsValidate = true;
             for (int i = 0; i < gridViewInspectors.RowCount - 1; i++)
             {
@@ -1921,6 +1977,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool certificateTypeValidation()
         {
+            certificateTypesViewFocusedRow = certificateTypesView.FocusedRowHandle;
+
             inspectorsCertificateTypeValidate = true;
             for (int i = 0; i < certificateTypesView.RowCount - 1; i++)
             {
@@ -1944,6 +2002,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool certificateValidation()
         {
+            inspectorCertificateViewFocusedRow = inspectorCertificateGridView.FocusedRowHandle;
+
             inspectorsCertificateValidate = true;
             for (int i = 0; i < inspectorCertificateGridView.RowCount - 1; i++)
             {
@@ -1968,6 +2028,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool roleValidation()
         {
+            roleViewFocusedRow = gridViewRole.FocusedRowHandle;
+
             roleValidate = true;
             for (int i = 0; i < gridViewRole.RowCount - 1; i++)
             {
@@ -1990,6 +2052,7 @@ namespace Prizm.Main.Forms.Settings
         }
         private bool userValidation()
         {
+            usersViewFocusedRow = gridViewUsers.FocusedRowHandle;
             usersValidate = true;
             for (int i = 0; i < gridViewUsers.RowCount - 1; i++)
             {
@@ -1997,7 +2060,7 @@ namespace Prizm.Main.Forms.Settings
                     || String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colLastName.Name)))
                     || String.IsNullOrWhiteSpace(Convert.ToString(gridViewUsers.GetRowCellValue(i, colLogin.Name))))
                 {
-                    gridViewRole.FocusedRowHandle = i;
+                    gridViewUsers.FocusedRowHandle = i;
 
                     gridViewUsers_ValidateRow(
                         gridViewUsers,
@@ -2015,6 +2078,8 @@ namespace Prizm.Main.Forms.Settings
 
         private bool jointsOperationValidation()
         {
+            jointsOperationsViewFocusedRow = jointsOperationsGridView.FocusedRowHandle;
+
             jointsOperationsValidate = true;
             for (int i = 0; i < jointsOperationsGridView.RowCount - 1; i++)
             {

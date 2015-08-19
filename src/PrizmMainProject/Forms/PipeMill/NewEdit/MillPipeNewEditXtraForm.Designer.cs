@@ -934,7 +934,6 @@
             this.weight.Location = new System.Drawing.Point(557, 165);
             this.weight.Name = "weight";
             this.weight.Properties.Mask.EditMask = "d";
-            this.weight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.weight.Properties.ReadOnly = true;
             this.weight.Size = new System.Drawing.Size(87, 20);
             this.weight.StyleController = this.generalPipeLayout;
@@ -1132,7 +1131,6 @@
             this.attachmentsButtonLayout.Location = new System.Drawing.Point(0, 510);
             this.attachmentsButtonLayout.Name = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.Size = new System.Drawing.Size(101, 26);
-            this.attachmentsButtonLayout.Text = "attachmentsButtonLayout";
             this.attachmentsButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.attachmentsButtonLayout.TextVisible = false;
             this.attachmentsButtonLayout.TrimClientAreaToControl = false;
@@ -1146,7 +1144,6 @@
             this.deactivateLayout.Name = "deactivateLayout";
             this.deactivateLayout.Size = new System.Drawing.Size(237, 26);
             this.deactivateLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
-            this.deactivateLayout.Text = "deactivateLayout";
             this.deactivateLayout.TextSize = new System.Drawing.Size(0, 0);
             this.deactivateLayout.TextVisible = false;
             this.deactivateLayout.TrimClientAreaToControl = false;
@@ -1172,7 +1169,6 @@
             this.saveButtonLayout.Name = "saveButtonLayout";
             this.saveButtonLayout.Size = new System.Drawing.Size(131, 26);
             this.saveButtonLayout.Spacing = new DevExpress.XtraLayout.Utils.Padding(15, 5, 0, 0);
-            this.saveButtonLayout.Text = "saveButtonLayout";
             this.saveButtonLayout.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayout.TextVisible = false;
             this.saveButtonLayout.TrimClientAreaToControl = false;
@@ -1186,7 +1182,6 @@
             this.saveNewLayoutControlItem.Name = "saveNewLayoutControlItem";
             this.saveNewLayoutControlItem.Size = new System.Drawing.Size(175, 26);
             this.saveNewLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(10, 16, 0, 0);
-            this.saveNewLayoutControlItem.Text = "saveNewLayoutControlItem";
             this.saveNewLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.saveNewLayoutControlItem.TextVisible = false;
             this.saveNewLayoutControlItem.TrimClientAreaToControl = false;
@@ -1196,8 +1191,8 @@
             this.tabbedControlGroup.CustomizationFormText = "Вкладки";
             this.tabbedControlGroup.Location = new System.Drawing.Point(0, 54);
             this.tabbedControlGroup.Name = "tabbedControlGroup";
-            this.tabbedControlGroup.SelectedTabPage = this.inspectionsTabLayoutControlGroup;
-            this.tabbedControlGroup.SelectedTabPageIndex = 1;
+            this.tabbedControlGroup.SelectedTabPage = this.pipeTabLayoutControlGroup;
+            this.tabbedControlGroup.SelectedTabPageIndex = 0;
             this.tabbedControlGroup.Size = new System.Drawing.Size(1261, 456);
             this.tabbedControlGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.pipeTabLayoutControlGroup,
@@ -1237,7 +1232,6 @@
             this.emptySpaceItem1.Location = new System.Drawing.Point(264, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(973, 36);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // addButtonLayoutControlItem
@@ -1271,7 +1265,6 @@
             this.emptySpaceItem2.Location = new System.Drawing.Point(124, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(10, 36);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // pipeTabLayoutControlGroup
@@ -1371,7 +1364,6 @@
             this.coatsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.coatsLayoutControlItem.Name = "coatsLayoutControlItem";
             this.coatsLayoutControlItem.Size = new System.Drawing.Size(406, 156);
-            this.coatsLayoutControlItem.Text = "coatsLayoutControlItem";
             this.coatsLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.coatsLayoutControlItem.TextVisible = false;
             this.coatsLayoutControlItem.TrimClientAreaToControl = false;
@@ -1469,7 +1461,6 @@
             this.weldsLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.weldsLayoutControlItem.Name = "weldsLayoutControlItem";
             this.weldsLayoutControlItem.Size = new System.Drawing.Size(771, 156);
-            this.weldsLayoutControlItem.Text = "weldsLayoutControlItem";
             this.weldsLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.weldsLayoutControlItem.TextVisible = false;
             // 
@@ -1574,7 +1565,6 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(107, 26);
             this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(25, 15, 0, 0);
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -1585,7 +1575,6 @@
             this.plateNumberLayout.Location = new System.Drawing.Point(0, 0);
             this.plateNumberLayout.Name = "layoutControlItem3";
             this.plateNumberLayout.Size = new System.Drawing.Size(1237, 24);
-            this.plateNumberLayout.Text = "layoutControlItem3";
             this.plateNumberLayout.TextSize = new System.Drawing.Size(99, 13);
             // 
             // certificateEmptySpace
@@ -1595,7 +1584,6 @@
             this.certificateEmptySpace.Location = new System.Drawing.Point(351, 0);
             this.certificateEmptySpace.Name = "certificateEmptySpace";
             this.certificateEmptySpace.Size = new System.Drawing.Size(33, 50);
-            this.certificateEmptySpace.Text = "certificateEmptySpace";
             this.certificateEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
             // workspaceManager
