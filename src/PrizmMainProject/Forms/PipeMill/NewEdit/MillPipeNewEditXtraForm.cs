@@ -52,6 +52,8 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
         private List<string> localizedAllPipeMillStatus = new List<string>();
         private List<string> localizedAllPipeTestResultStatus = new List<string>();
         private List<string> localizedAllTypes = new List<string>();
+        private int weldingHistoryViewFocusedRow = 0;
+
         private void UpdateTextEdit()
         {
             pipeNewEditBindingSource.CancelEdit(); // http://stackoverflow.com/questions/14941537/better-way-to-update-bound-controls-when-changing-the-datasource 
@@ -895,13 +897,20 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         bool IValidatable.Validate()
         {
+            returnFocus();
             return dxValidationProvider.Validate() && this.ValidateChildren() && ValidateWeldHistory();
         }
 
+        private void returnFocus() 
+        {
+            weldingHistoryGridView.FocusedRowHandle = weldingHistoryViewFocusedRow;
+        }
         #endregion
 
         private bool ValidateWeldHistory()
         {
+            weldingHistoryViewFocusedRow = weldingHistoryGridView.FocusedRowHandle;
+
             bool result = true;
 
             for(int i = 0; i < weldingHistoryGridView.DataRowCount; i++)
