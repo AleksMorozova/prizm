@@ -4892,6 +4892,11 @@ namespace Prizm.Main.Languages
             Id = "SearchPipe_NumberLabel",
             Description = "Поиск труб. Номер трубы"
         };
+        public static StringResource SearchPipe_HeatNumberLabel = new StringResource
+        {
+            Id = "SearchPipe_HeatNumberLabel",
+            Description = "Поиск труб. Номер плавки"
+        };
         public static StringResource SearchPipe_TypeSizeLabel = new StringResource
         {
             Id = "SearchPipe_TypeSizeLabel",

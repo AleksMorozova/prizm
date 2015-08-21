@@ -76,6 +76,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 .Add("DateTime", MillPipeSearchBindingSource, "ExternalCoatingDate");
             internalCoatingDate.DataBindings
                 .Add("DateTime", MillPipeSearchBindingSource, "InternalCoatingDate");
+            heatNumber.DataBindings
+                .Add("EditValue", MillPipeSearchBindingSource, "HeatNumber");
         }
 
         private void BindCommands()
