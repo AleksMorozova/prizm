@@ -16,6 +16,7 @@ using Prizm.Main.Properties;
 using Prizm.Domain.Entity;
 using Prizm.Data.DAL;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
@@ -25,6 +26,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         private readonly SaveHeatCommand saveCommand;
         IUserNotify notify;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(HeatViewModel));
+        public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         public bool IsNew { get { return this.Heat.IsNew(); } }
 

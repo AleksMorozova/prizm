@@ -45,6 +45,8 @@
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
+            this.attachmentsButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
@@ -59,10 +61,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayoutControl)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
             // 
+            this.masterLayoutControl.Controls.Add(this.attachmentsButton);
             this.masterLayoutControl.Controls.Add(this.steelGrade);
             this.masterLayoutControl.Controls.Add(this.saveButton);
             this.masterLayoutControl.Controls.Add(this.cancelButton);
@@ -147,7 +151,8 @@
             this.numberLayoutControl,
             this.steelLayoutControl,
             this.plateManufacturerLayoutControl,
-            this.divideButtonEmptySpace});
+            this.divideButtonEmptySpace,
+            this.attachmentsButtonLayoutControl});
             this.rootLayoutGroup.Location = new System.Drawing.Point(0, 0);
             this.rootLayoutGroup.Name = "Root";
             this.rootLayoutGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 20, 20);
@@ -181,9 +186,9 @@
             // 
             this.buttonsLeftEmptySpace.AllowHotTrack = false;
             this.buttonsLeftEmptySpace.CustomizationFormText = "buttonsLeftEmptySpace";
-            this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(0, 136);
+            this.buttonsLeftEmptySpace.Location = new System.Drawing.Point(113, 136);
             this.buttonsLeftEmptySpace.Name = "buttonsLeftEmptySpace";
-            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(211, 26);
+            this.buttonsLeftEmptySpace.Size = new System.Drawing.Size(98, 26);
             this.buttonsLeftEmptySpace.Text = "buttonsLeftEmptySpace";
             this.buttonsLeftEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -235,6 +240,28 @@
             this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // attachmentsButton
+            // 
+            this.attachmentsButton.Location = new System.Drawing.Point(22, 158);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Size = new System.Drawing.Size(104, 22);
+            this.attachmentsButton.StyleController = this.masterLayoutControl;
+            this.attachmentsButton.TabIndex = 10;
+            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
+            // 
+            // attachmentsButtonLayoutControl
+            // 
+            this.attachmentsButtonLayoutControl.Control = this.attachmentsButton;
+            this.attachmentsButtonLayoutControl.CustomizationFormText = "attachmentsButtonLayoutControl";
+            this.attachmentsButtonLayoutControl.Location = new System.Drawing.Point(0, 136);
+            this.attachmentsButtonLayoutControl.Name = "attachmentsButtonLayoutControl";
+            this.attachmentsButtonLayoutControl.Size = new System.Drawing.Size(113, 26);
+            this.attachmentsButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
+            this.attachmentsButtonLayoutControl.Text = "attachmentsButtonLayoutControl";
+            this.attachmentsButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
+            this.attachmentsButtonLayoutControl.TextVisible = false;
+            // 
             // HeatXtraForm
             // 
             this.AcceptButton = this.saveButton;
@@ -263,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayoutControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,5 +312,7 @@
         private DevExpress.XtraLayout.LayoutControlItem plateManufacturerLayoutControl;
         private DevExpress.XtraEditors.ComboBoxEdit number;
         private DevExpress.XtraEditors.ComboBoxEdit plateManufacturer;
+        private DevExpress.XtraEditors.SimpleButton attachmentsButton;
+        private DevExpress.XtraLayout.LayoutControlItem attachmentsButtonLayoutControl;
     }
 }

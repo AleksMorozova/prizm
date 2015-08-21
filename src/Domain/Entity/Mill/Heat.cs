@@ -18,6 +18,8 @@ namespace Prizm.Domain.Entity.Mill
 
         public virtual IList<Plate> Plates { get; set; }
 
+        public virtual IList<File> Attachments { get; set; }
+
         public override string ToString()
         {
             return Number;

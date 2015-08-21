@@ -34,7 +34,43 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
                 repo.BeginTransaction();
                 repo.HeatRepo.SaveOrUpdate(heat);
-                repo.Commit();
+                var filesViewModel = viewModel.FilesFormViewModel;
+
+                //saving attached existingDocuments
+                bool fileCopySuccess = true;
+                if (null != filesViewModel)
+                {
+                    filesViewModel.FileRepo = repo.FileRepo;
+                    viewModel.FilesFormViewModel.Item = viewModel.Heat.Id;
+                    if (!viewModel.FilesFormViewModel.TrySaveFiles(viewModel.Heat))
+                    {
+                        fileCopySuccess = false;
+                        repo.Rollback();
+                    }
+                }
+
+                if (fileCopySuccess)
+                {
+                    repo.Commit();
+                }
+
+                repo.HeatRepo.Evict(viewModel.Heat);
+
+                if (fileCopySuccess)
+                {
+                    if (null != filesViewModel)
+                    {
+                        filesViewModel.DetachFileEntities();
+                    }
+                }
+                else
+                {
+                    //notify.ShowError(Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied),
+                    //    Program.LanguageManager.GetString(StringResources.ExternalFiles_NotCopied_Header));
+                    //log.Info(string.Format("File for entity #{0}, id:{1} hasn't been saved", viewModel.Pipe.Number,
+                    //    viewModel.Pipe.Id));
+                }
+
                 repo.HeatRepo.Evict(heat);
 
                 log.Info(string.Format("The entity #{0}, id:{1} has been saved in DB.",
