@@ -20,7 +20,7 @@ namespace Prizm.Main.Forms.ExternalFile
     public partial class ExternalFilesXtraForm : PrizmForm
     {
         private ExternalFilesViewModel viewModel;
-
+        public bool isEdit = false;
         public ExternalFilesXtraForm()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace Prizm.Main.Forms.ExternalFile
         private void ExternalFilesXtraForm_Load(object sender, EventArgs e)
         {
             files.DataSource = viewModel.Files;
+            isEdit = false;
         }
 
 
@@ -82,6 +83,7 @@ namespace Prizm.Main.Forms.ExternalFile
                     Prizm.Domain.Entity.File newFile = new Prizm.Domain.Entity.File() { FileName = fileInfo.Name, UploadDate = DateTime.Now };
                     newFile.NewName = filesToAttachPath;
                     viewModel.Files.Add(newFile);
+                    isEdit = true;
                 }
                 else
                 { 
