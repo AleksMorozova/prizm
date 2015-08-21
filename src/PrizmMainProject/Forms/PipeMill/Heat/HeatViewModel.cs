@@ -24,17 +24,18 @@ namespace Prizm.Main.Forms.PipeMill.Heat
     {
         private readonly IHeatRepositories repo;
         private readonly SaveHeatCommand saveCommand;
-        IUserNotify notify;
+        private readonly IUserNotify notify;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(HeatViewModel));
         public ExternalFilesViewModel FilesFormViewModel { get; set; }
 
         public bool IsNew { get { return this.Heat.IsNew(); } }
 
         [Inject]
-        public HeatViewModel(IHeatRepositories heatRepository, string heatNumber)
+        public HeatViewModel(IHeatRepositories heatRepository, string heatNumber, IUserNotify notify)
         {
+            this.notify = notify;
             this.repo = heatRepository;
-            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo));
+            saveCommand = ViewModelSource.Create(() => new SaveHeatCommand(this, repo, notify));
 
             var heat = GetHeatByNumber(heatNumber);
             if(heat != null)

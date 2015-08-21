@@ -398,6 +398,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
+                    new LocalizedItem(heatAttachmentsButton, StringResources.NewEditPipe_HeatAttachmentsButton.Id),
                     new LocalizedItem(attachmentsButton, StringResources.NewEditPipe_AttachmentsButton.Id),
                     new LocalizedItem(deactivated, StringResources.NewEditPipe_DeactivatedCheckBox.Id),
                     new LocalizedItem(saveButton, StringResources.NewEditPipe_SaveButton.Id),
@@ -1270,6 +1271,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                  viewModel.CheckStatus();
                  viewModel.ModifiableView.IsModified = previousState;
              }
+         }
+
+         private void heatAttachmentsButton_Click(object sender, EventArgs e)
+         {
+             if (filesForm == null)
+             {
+                 filesForm = new ExternalFilesXtraForm();
+                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+             }
+             if (viewModel.Heat != null)
+             {
+                 viewModel.FilesFormViewModel.RefreshFiles(viewModel.Heat.Id);
+             }
+             // open file for in readOnly mode
+             filesForm.SetData(false);
+             filesForm.ShowDialog();
          }
     }
 }
