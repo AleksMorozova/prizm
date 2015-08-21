@@ -121,6 +121,8 @@
             this.plateThicknessLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.steelGradeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.heatAttachmentsButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.coverLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.coatsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.shippingLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -153,8 +155,6 @@
             this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.workspaceManager = new DevExpress.Utils.WorkspaceManager();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.weldersListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldingHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weldBindingSource)).BeginInit();
@@ -225,6 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateThicknessLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGradeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatAttachmentsButtonLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippingLayoutControlGroup)).BeginInit();
@@ -255,8 +257,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // weldersListGridView
@@ -419,6 +419,7 @@
             // 
             // heatAttachmentsButton
             // 
+            this.heatAttachmentsButton.Image = global::Prizm.Main.Properties.Resources.attachment_16;
             this.heatAttachmentsButton.Location = new System.Drawing.Point(46, 251);
             this.heatAttachmentsButton.Name = "heatAttachmentsButton";
             this.heatAttachmentsButton.Size = new System.Drawing.Size(140, 22);
@@ -1315,6 +1316,26 @@
             this.heatAttachmentsButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.heatAttachmentsButtonLayoutControl.TextVisible = false;
             // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
+            this.emptySpaceItem3.Location = new System.Drawing.Point(154, 120);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(252, 36);
+            this.emptySpaceItem3.Text = "emptySpaceItem3";
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 100);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(406, 20);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // coverLayoutControlGroup
             // 
             this.coverLayoutControlGroup.CustomizationFormText = "Параметры покрытия";
@@ -1639,26 +1660,6 @@
             // 
             this.openFileDialog.Filter = "Layouts|*.xml";
             // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(154, 120);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(252, 36);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 100);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(406, 20);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // MillPipeNewEditXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1745,6 +1746,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.plateThicknessLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steelGradeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heatAttachmentsButtonLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coatsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shippingLayoutControlGroup)).EndInit();
@@ -1775,8 +1778,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pipeNewEditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 
         }

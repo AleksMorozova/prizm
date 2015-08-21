@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeatXtraForm));
             this.masterLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.steelGrade = new DevExpress.XtraEditors.TextEdit();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -44,9 +45,8 @@
             this.steelLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.plateManufacturerLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.divideButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.attachmentsButton = new DevExpress.XtraEditors.SimpleButton();
             this.attachmentsButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.masterLayoutControl)).BeginInit();
             this.masterLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.steelGrade.Properties)).BeginInit();
@@ -60,8 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masterLayoutControl
@@ -80,6 +80,17 @@
             this.masterLayoutControl.Size = new System.Drawing.Size(472, 202);
             this.masterLayoutControl.TabIndex = 0;
             this.masterLayoutControl.Text = "layoutControl1";
+            // 
+            // attachmentsButton
+            // 
+            this.attachmentsButton.Image = global::Prizm.Main.Properties.Resources.attachment_16;
+            this.attachmentsButton.Location = new System.Drawing.Point(22, 158);
+            this.attachmentsButton.Name = "attachmentsButton";
+            this.attachmentsButton.Size = new System.Drawing.Size(104, 22);
+            this.attachmentsButton.StyleController = this.masterLayoutControl;
+            this.attachmentsButton.TabIndex = 10;
+            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
             // steelGrade
             // 
@@ -240,16 +251,6 @@
             this.divideButtonEmptySpace.Text = "divideButtonEmptySpace";
             this.divideButtonEmptySpace.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // attachmentsButton
-            // 
-            this.attachmentsButton.Location = new System.Drawing.Point(22, 158);
-            this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(104, 22);
-            this.attachmentsButton.StyleController = this.masterLayoutControl;
-            this.attachmentsButton.TabIndex = 10;
-            this.attachmentsButton.Text = "Вложения";
-            this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
-            // 
             // attachmentsButtonLayoutControl
             // 
             this.attachmentsButtonLayoutControl.Control = this.attachmentsButton;
@@ -289,8 +290,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.steelLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateManufacturerLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divideButtonEmptySpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentsButtonLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
