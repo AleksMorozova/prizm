@@ -12,6 +12,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
+using Prizm.Main.Languages;
 
 namespace Prizm.Main.Controls
 {
@@ -115,6 +116,13 @@ namespace Prizm.Main.Controls
                   }
               }
           }
+      }
+
+      private void WeldersSelectionControl_Load(object sender, EventArgs e)
+      {
+          colLastName.Caption = Program.LanguageManager.GetString(StringResources.LastNameColumn);
+          colFirstName.Caption = Program.LanguageManager.GetString(StringResources.FirstNameColumn);
+          colMiddleName.Caption = Program.LanguageManager.GetString(StringResources.MiddleNameColumn);
       }
    }
 }

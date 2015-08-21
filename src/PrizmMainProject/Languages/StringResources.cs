@@ -159,6 +159,23 @@ namespace Prizm.Main.Languages
             Description = "Контрольная операция выполнена"
         };
 
+        public static StringResource FirstNameColumn = new StringResource
+        {
+            Id = "FirstNameColumn",
+            Description = "Имя"
+        };
+
+        public static StringResource LastNameColumn = new StringResource
+        {
+            Id = "LastNameColumn",
+            Description = "Фамилия"
+        };
+
+        public static StringResource MiddleNameColumn = new StringResource
+        {
+            Id = "MiddleNameColumn",
+            Description = "Отчество"
+        };
 
         #region --- PartType ---
         public static StringResource PartTypeJoint = new StringResource

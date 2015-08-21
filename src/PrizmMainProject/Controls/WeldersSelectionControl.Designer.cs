@@ -49,6 +49,7 @@
             this.gridControlWelders.TabIndex = 0;
             this.gridControlWelders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewWelders});
+            this.gridControlWelders.Load += new System.EventHandler(this.gridControlWelders_Load);
             // 
             // gridViewWelders
             // 
@@ -100,6 +101,8 @@
             this.Controls.Add(this.gridControlWelders);
             this.Name = "WeldersSelectionControl";
             this.Size = new System.Drawing.Size(600, 210);
+            this.Load += new System.EventHandler(this.WeldersSelectionControl_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.WeldersSelectionControl_DragDrop);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlWelders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewWelders)).EndInit();
             this.ResumeLayout(false);
