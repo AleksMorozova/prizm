@@ -26,8 +26,7 @@ namespace Prizm.Main.Forms.Settings
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsXtraForm));
             this.pipesSizeList = new DevExpress.XtraGrid.GridControl();
             this.pipesSizeListGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -36,18 +35,18 @@ namespace Prizm.Main.Forms.Settings
             this.isActiveGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.millGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPermission = new DevExpress.XtraGrid.GridControl();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewPermissions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPermissionDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleSetupName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleNameRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.roleDescriptionRepositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridControlRoles = new DevExpress.XtraGrid.GridControl();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewRoles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDesc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,7 +156,7 @@ namespace Prizm.Main.Forms.Settings
             this.millName = new DevExpress.XtraEditors.TextEdit();
             this.projectTitle = new DevExpress.XtraEditors.TextEdit();
             this.inspectionOperation = new DevExpress.XtraGrid.GridControl();
-            this.inspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspectionBindingSource = new System.Windows.Forms.BindingSource();
             this.inspectionView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.inspectionCodeGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.inspectionNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -240,14 +239,14 @@ namespace Prizm.Main.Forms.Settings
             this.buttonEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editDictionary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.editItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.pipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorBindingSource = new System.Windows.Forms.BindingSource();
+            this.inspectorCertificateBindingSource = new System.Windows.Forms.BindingSource();
+            this.jointOperationsBindingSource = new System.Windows.Forms.BindingSource();
+            this.dxValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.CurrentPipeMillSizeTypeBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipesSizeListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRepositoryTextEdit)).BeginInit();
@@ -760,7 +759,7 @@ namespace Prizm.Main.Forms.Settings
             // 
             this.repositoryItemButtonUserPass.AutoHeight = false;
             this.repositoryItemButtonUserPass.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Prizm.Main.Properties.Resources.password, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.repositoryItemButtonUserPass.Name = "repositoryItemButtonUserPass";
             this.repositoryItemButtonUserPass.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonUserPass.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonUserPass_ButtonClick);
@@ -1262,6 +1261,7 @@ namespace Prizm.Main.Forms.Settings
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.jointOperationTypeLookUpEdit.Name = "jointOperationTypeLookUpEdit";
             this.jointOperationTypeLookUpEdit.NullText = "";
+            this.jointOperationTypeLookUpEdit.ShowHeader = false;
             this.jointOperationTypeLookUpEdit.EditValueChanged += new System.EventHandler(this.jointOperationTypeLookUpEdit_EditValueChanged);
             this.jointOperationTypeLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.jointOperationTypeLookUpEdit_CustomDisplayText);
             // 
