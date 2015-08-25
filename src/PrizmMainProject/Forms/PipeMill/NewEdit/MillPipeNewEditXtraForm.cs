@@ -785,7 +785,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void pipeNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            if (!string.IsNullOrEmpty(pipeNumber.EditValue.ToString()) && !Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
             {
                 pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
