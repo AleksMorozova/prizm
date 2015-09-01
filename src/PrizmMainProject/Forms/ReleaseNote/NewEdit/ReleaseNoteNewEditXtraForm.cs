@@ -247,6 +247,7 @@ namespace Prizm.Main.Forms.ReleaseNote.NewEdit
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.ReleaseNote.Id);
             filesForm.SetData(IsEditMode);
             filesForm.ShowDialog();
+            IsModified = filesForm.isEdit;
         }
 
         #region IValidatable Members
