@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Prizm.Domain.Entity;
 using DevExpress.XtraGrid.Views.Grid;
 using Prizm.Domain.Entity.Setup;
+using Prizm.Main.Languages;
 
 
 namespace Prizm.Main.Controls
@@ -87,6 +88,10 @@ namespace Prizm.Main.Controls
 
         private void inspectorsGridView_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
+            colLastName.Caption = Program.LanguageManager.GetString(StringResources.LastNameColumn);
+            colFirstName.Caption = Program.LanguageManager.GetString(StringResources.FirstNameColumn);
+            colMiddleName.Caption = Program.LanguageManager.GetString(StringResources.MiddleNameColumn);
+
             if (this.checkNotActiveSelection)
             {
                 GridView v = sender as GridView;
@@ -139,6 +144,14 @@ namespace Prizm.Main.Controls
                     }
                 }
             }
+        }
+
+        private void InspectorSelectionControl_Load(object sender, EventArgs e)
+        {
+            // for first load of this control
+            colLastName.Caption = Program.LanguageManager.GetString(StringResources.LastNameColumn);
+            colFirstName.Caption = Program.LanguageManager.GetString(StringResources.FirstNameColumn);
+            colMiddleName.Caption = Program.LanguageManager.GetString(StringResources.MiddleNameColumn);
         }
     }
 }

@@ -1,4 +1,13 @@
-﻿;С таким номером уже существуют сущности в системе: 
+﻿;Имя
+FirstNameColumn = First name
+
+;Фамилия
+LastNameColumn = Last name
+
+;Отчество
+MiddleNameColumn = Middle name
+
+;С таким номером уже существуют сущности в системе: 
 DuplicateEntity_Message = Entities with such number already exist in the system:
 
 ;С таким номером уже существуют сущности в системе: 
@@ -1860,6 +1869,9 @@ SearchPipe_ActivityComboNotActive=Not active
 
 ;Поиск труб. Активность – все
 SearchPipe_ActivityComboAll=All
+
+;Поиск труб. Номер плавки
+SearchPipe_HeatNumberLabel=Heat &number
 
 ;Поиск труб. Номер трубы
 SearchPipe_NumberLabel=Pipe &number
