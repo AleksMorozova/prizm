@@ -89,7 +89,7 @@
             this.attachmentsButton.Size = new System.Drawing.Size(104, 22);
             this.attachmentsButton.StyleController = this.masterLayoutControl;
             this.attachmentsButton.TabIndex = 10;
-            this.attachmentsButton.Text = "Вложения";
+            this.attachmentsButton.Text = "В&ложения";
             this.attachmentsButton.Click += new System.EventHandler(this.attachmentsButton_Click);
             // 
             // steelGrade

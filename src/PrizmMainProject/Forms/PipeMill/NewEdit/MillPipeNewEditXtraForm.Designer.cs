@@ -425,7 +425,7 @@
             this.heatAttachmentsButton.Size = new System.Drawing.Size(140, 22);
             this.heatAttachmentsButton.StyleController = this.generalPipeLayout;
             this.heatAttachmentsButton.TabIndex = 64;
-            this.heatAttachmentsButton.Text = "Вложения плавки";
+            this.heatAttachmentsButton.Text = "Вло&жения плавки";
             this.heatAttachmentsButton.Click += new System.EventHandler(this.heatAttachmentsButton_Click);
             // 
             // releaseNoteNumber

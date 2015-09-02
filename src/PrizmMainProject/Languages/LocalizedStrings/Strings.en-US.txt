@@ -1100,7 +1100,7 @@ Import_ExitButton=&Cancel
 Import_ImportButton=&Import
 
 ;Кнопка вложений для плавки на форме трубы
-NewEditPipe_HeatAttachmentsButton = Heat attachments
+NewEditPipe_HeatAttachmentsButton = &View heat attachments
 
 ;Номер плавки. Надпись номера
 HeatNumber_HeatNumberLabel=Heat number
