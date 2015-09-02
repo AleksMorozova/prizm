@@ -247,6 +247,7 @@ namespace Prizm.Main.Forms.Spool
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Spool.Id);
             filesForm.SetData(viewModel.SpoolIsActive);
             filesForm.ShowDialog();
+            IsModified = filesForm.isEdit;
         }
 
         private void inspectionHistoryGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)

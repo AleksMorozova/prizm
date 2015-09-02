@@ -1893,4 +1893,16 @@
   <data name="PartInspection_ResultColumn" xml:space="preserve">
     <value>Результат</value>
   </data>
+  <data name="SearchPipe_HeatNumberLabel" xml:space="preserve">
+    <value>Номер плавки</value>
+  </data>
+  <data name="FirstNameColumn" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="LastNameColumn" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="MiddleNameColumn" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
 </root>
