@@ -867,6 +867,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Имя.
+        /// </summary>
+        internal static string FirstNameColumn {
+            get {
+                return ResourceManager.GetString("FirstNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Первичные настройки.
         /// </summary>
         internal static string FirstSetup_FormHeader {
@@ -1935,6 +1944,15 @@ namespace Prizm.Main.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        internal static string LastNameColumn {
+            get {
+                return ResourceManager.GetString("LastNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Длина.
         /// </summary>
         internal static string Length {
@@ -2314,6 +2332,15 @@ namespace Prizm.Main.Properties {
         internal static string Message_UnknownComponentType {
             get {
                 return ResourceManager.GetString("Message_UnknownComponentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отчество.
+        /// </summary>
+        internal static string MiddleNameColumn {
+            get {
+                return ResourceManager.GetString("MiddleNameColumn", resourceCulture);
             }
         }
         
@@ -4005,6 +4032,15 @@ namespace Prizm.Main.Properties {
         internal static string SearchPipe_ActivityComboNotActive {
             get {
                 return ResourceManager.GetString("SearchPipe_ActivityComboNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер плавки.
+        /// </summary>
+        internal static string SearchPipe_HeatNumberLabel {
+            get {
+                return ResourceManager.GetString("SearchPipe_HeatNumberLabel", resourceCulture);
             }
         }
         

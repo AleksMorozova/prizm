@@ -98,6 +98,7 @@
             this.Controls.Add(this.inspectorsGridControl);
             this.Name = "InspectorSelectionControl";
             this.Size = new System.Drawing.Size(372, 193);
+            this.Load += new System.EventHandler(this.InspectorSelectionControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspectorsGridView)).EndInit();
             this.ResumeLayout(false);
