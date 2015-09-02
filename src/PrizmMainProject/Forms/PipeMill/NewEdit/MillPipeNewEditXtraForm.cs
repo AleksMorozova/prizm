@@ -804,6 +804,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Pipe.Id);
             filesForm.SetData(viewModel.PipeIsActive);
             filesForm.ShowDialog();
+            IsModified = filesForm.isEdit;
         }
 
         private void ShowHeatDialog(string number)

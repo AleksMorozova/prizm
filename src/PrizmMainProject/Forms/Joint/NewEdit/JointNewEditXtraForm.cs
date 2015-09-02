@@ -151,6 +151,7 @@ namespace Prizm.Main.Forms.Joint.NewEdit
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Joint.Id);
             filesForm.SetData(viewModel.JointIsActive);
             filesForm.ShowDialog();
+            IsModified = filesForm.isEdit;
         }
 
         private void BindToViewModel()

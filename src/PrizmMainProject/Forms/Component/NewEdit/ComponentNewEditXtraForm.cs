@@ -175,7 +175,7 @@ namespace Prizm.Main.Forms.Component.NewEdit
             viewModel.FilesFormViewModel.RefreshFiles(viewModel.Component.Id);
             filesForm.SetData(viewModel.ComponentIsActive);
             filesForm.ShowDialog();
-
+            IsModified = filesForm.isEdit;
         }
 
         private void ComponentNewEditXtraForm_Load(object sender, EventArgs e)
