@@ -398,6 +398,7 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                     new LocalizedItem(destinationLayoutControlItem, StringResources.NewEditPipe_RailcarDestination_Label.Id),
 
                     // controls
+                    new LocalizedItem(heatAttachmentsButton, StringResources.NewEditPipe_HeatAttachmentsButton.Id),
                     new LocalizedItem(attachmentsButton, StringResources.NewEditPipe_AttachmentsButton.Id),
                     new LocalizedItem(deactivated, StringResources.NewEditPipe_DeactivatedCheckBox.Id),
                     new LocalizedItem(saveButton, StringResources.NewEditPipe_SaveButton.Id),
@@ -785,7 +786,9 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
 
         private void pipeNumber_Validating(object sender, CancelEventArgs e)
         {
-            if(!Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
+            // Check that pipe cann't be saved without a number, made at Save Command. Buttons Save and SaveNew are enebled if pipe number is empty
+            if (!string.IsNullOrEmpty(pipeNumber.EditValue.ToString()) 
+                && !Regex.IsMatch(pipeNumber.EditValue.ToString(), pipeNumber.Properties.Mask.EditMask, RegexOptions.IgnoreCase))
             {
                 pipeNumber.ErrorText = Program.LanguageManager.GetString(StringResources.MillPipe_ValueDoesNotMatchMask);
                 e.Cancel = true;
@@ -1271,6 +1274,22 @@ namespace Prizm.Main.Forms.PipeMill.NewEdit
                  viewModel.CheckStatus();
                  viewModel.ModifiableView.IsModified = previousState;
              }
+         }
+
+         private void heatAttachmentsButton_Click(object sender, EventArgs e)
+         {
+             if (filesForm == null)
+             {
+                 filesForm = new ExternalFilesXtraForm();
+                 viewModel.FilesFormViewModel = filesForm.ViewModel;
+             }
+             if (viewModel.Heat != null)
+             {
+                 viewModel.FilesFormViewModel.RefreshFiles(viewModel.Heat.Id);
+             }
+             // open file for in readOnly mode
+             filesForm.SetData(false);
+             filesForm.ShowDialog();
          }
     }
 }

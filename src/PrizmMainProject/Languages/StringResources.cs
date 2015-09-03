@@ -3248,6 +3248,12 @@ namespace Prizm.Main.Languages
         #endregion
 
         #region --- Heat Number Form ---
+        //NewEditPipe_HeatAttachmentsButton
+        public static StringResource NewEditPipe_HeatAttachmentsButton = new StringResource
+        {
+            Id = "NewEditPipe_HeatAttachmentsButton",
+            Description = "Кнопка вложения для плавик на форме трубы"
+        };
         public static StringResource HeatNumber_HeatNumberLabel = new StringResource { 
             Id = "HeatNumber_HeatNumberLabel", 
             Description = "Номер плавки. Надпись номера"};
