@@ -33,6 +33,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.extraButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.PipeSearchLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.heatNumber = new DevExpress.XtraEditors.TextEdit();
             this.pipeSize = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.searchButton = new DevExpress.XtraEditors.SimpleButton();
             this.externalCoatingDate = new DevExpress.XtraEditors.DateEdit();
@@ -61,15 +62,15 @@
             this.searchButtonEmptySpace = new DevExpress.XtraLayout.EmptySpaceItem();
             this.PipeSizeLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.pipeActivityLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.heatNumberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.searchResultLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.PipeSearchGridLayout = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceUnderButton = new DevExpress.XtraLayout.EmptySpaceItem();
             this.MillPipeSearchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.heatNumber = new DevExpress.XtraEditors.TextEdit();
-            this.heatNumberLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).BeginInit();
             this.PipeSearchLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).BeginInit();
@@ -95,12 +96,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSizeLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeActivityLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MillPipeSearchBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayoutControl)).BeginInit();
             this.SuspendLayout();
             // 
             // extraButton
@@ -135,6 +135,14 @@
             this.PipeSearchLayoutControl.Size = new System.Drawing.Size(1210, 461);
             this.PipeSearchLayoutControl.TabIndex = 51;
             this.PipeSearchLayoutControl.Text = "layoutControl";
+            // 
+            // heatNumber
+            // 
+            this.heatNumber.Location = new System.Drawing.Point(644, 107);
+            this.heatNumber.Name = "heatNumber";
+            this.heatNumber.Size = new System.Drawing.Size(148, 20);
+            this.heatNumber.StyleController = this.PipeSearchLayoutControl;
+            this.heatNumber.TabIndex = 10;
             // 
             // pipeSize
             // 
@@ -480,6 +488,18 @@
             this.pipeActivityLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
             this.pipeActivityLayoutControl.TextSize = new System.Drawing.Size(147, 13);
             // 
+            // heatNumberLayoutControl
+            // 
+            this.heatNumberLayoutControl.Control = this.heatNumber;
+            this.heatNumberLayoutControl.CustomizationFormText = "Номер плавки";
+            this.heatNumberLayoutControl.Location = new System.Drawing.Point(607, 45);
+            this.heatNumberLayoutControl.Name = "heatNumberLayoutControl";
+            this.heatNumberLayoutControl.Size = new System.Drawing.Size(176, 45);
+            this.heatNumberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
+            this.heatNumberLayoutControl.Text = "Номе&р плавки";
+            this.heatNumberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
+            this.heatNumberLayoutControl.TextSize = new System.Drawing.Size(147, 13);
+            // 
             // searchResultLayoutGroup
             // 
             this.searchResultLayoutGroup.CustomizationFormText = "Результаты поиска";
@@ -514,26 +534,6 @@
             this.emptySpaceUnderButton.Text = "emptySpaceUnderButton";
             this.emptySpaceUnderButton.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // heatNumber
-            // 
-            this.heatNumber.Location = new System.Drawing.Point(644, 107);
-            this.heatNumber.Name = "heatNumber";
-            this.heatNumber.Size = new System.Drawing.Size(148, 20);
-            this.heatNumber.StyleController = this.PipeSearchLayoutControl;
-            this.heatNumber.TabIndex = 10;
-            // 
-            // heatNumberLayoutControl
-            // 
-            this.heatNumberLayoutControl.Control = this.heatNumber;
-            this.heatNumberLayoutControl.CustomizationFormText = "Номер плавки";
-            this.heatNumberLayoutControl.Location = new System.Drawing.Point(607, 45);
-            this.heatNumberLayoutControl.Name = "heatNumberLayoutControl";
-            this.heatNumberLayoutControl.Size = new System.Drawing.Size(176, 45);
-            this.heatNumberLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(12, 12, 0, 5);
-            this.heatNumberLayoutControl.Text = "Номер плавки";
-            this.heatNumberLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.heatNumberLayoutControl.TextSize = new System.Drawing.Size(147, 13);
-            // 
             // MillPipeSearchXtraForm
             // 
             this.AcceptButton = this.searchButton;
@@ -550,6 +550,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.extraButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchLayoutControl)).EndInit();
             this.PipeSearchLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalCoatingDate.Properties)).EndInit();
@@ -575,12 +576,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonEmptySpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSizeLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeActivityLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeSearchGridLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceUnderButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MillPipeSearchBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heatNumberLayoutControl)).EndInit();
             this.ResumeLayout(false);
 
         }

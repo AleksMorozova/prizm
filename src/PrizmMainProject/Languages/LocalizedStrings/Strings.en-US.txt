@@ -1856,7 +1856,7 @@ MillPipe_ErrorEmptyOrFutureDate=Date cannot be empty or future
 SearchPipe_MillStatusProduced=Produced
 
 ;Поиск труб. Номер плавки 
-SearchPipe_HeatNumberLabel = Heat number
+SearchPipe_HeatNumberLabel = Heat num&ber
 
 ;Поиск труб. статус на складе
 SearchPipe_MillStatusStocked=Stocked
