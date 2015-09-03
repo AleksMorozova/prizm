@@ -10,6 +10,7 @@ using Prizm.Domain.Entity.Mill;
 using Prizm.Main.Common;
 using Prizm.Main.Commands;
 using Prizm.Main.Languages;
+using Prizm.Main.Forms.ExternalFile;
 
 namespace Prizm.Main.Forms.PipeMill.Heat
 {
@@ -19,6 +20,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
         private HeatViewModel viewModel;
         private ICommandManager commandManager = new CommandManager();
+        private ExternalFilesXtraForm filesForm = null;
 
         public HeatXtraForm()
             : this("")
@@ -57,6 +59,7 @@ namespace Prizm.Main.Forms.PipeMill.Heat
 
                 new LocalizedItem(saveButton, StringResources.Heat_SaveButton.Id),
                 new LocalizedItem(cancelButton, StringResources.Heat_CancelButton.Id),
+                new LocalizedItem(attachmentsButton, StringResources.NewEditPipe_AttachmentsButton.Id),
 
                 // header
                 new LocalizedItem(this, localizedHeader, new string[] {
@@ -143,6 +146,18 @@ namespace Prizm.Main.Forms.PipeMill.Heat
         {
             number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
             steelGrade.Properties.MaxLength = LengthLimit.MaxSteelGrade;
+        }
+
+        private void attachmentsButton_Click(object sender, EventArgs e)
+        {
+            if (filesForm == null)
+            {
+                filesForm = new ExternalFilesXtraForm();
+                viewModel.FilesFormViewModel = filesForm.ViewModel;
+            }
+            viewModel.FilesFormViewModel.RefreshFiles(viewModel.Heat.Id);
+            filesForm.SetData(true);
+            filesForm.ShowDialog();
         }
 
 
