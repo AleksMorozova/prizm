@@ -82,6 +82,7 @@
             this.saveButton.StyleController = this.mainLayoutControl;
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "&Сохранить";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -188,6 +189,7 @@
             this.Name = "HeatNumberXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавление плавки";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HeatNumberXtraForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mainLayoutControl)).EndInit();
             this.mainLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.number.Properties)).EndInit();
