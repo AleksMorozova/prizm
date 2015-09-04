@@ -134,6 +134,7 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 new LocalizedItem(weldingDateLayout, StringResources.SearchPipe_WeldingDateLabel.Id),
                 new LocalizedItem(externalCoatingDateLayout, StringResources.SearchPipe_ExternalCoatingDateLabel.Id),
                 new LocalizedItem(internalCoatingDateLayout, StringResources.SearchPipe_InternalCoatingDateLabel.Id),
+                new LocalizedItem(heatNumberLayoutControl, StringResources.SearchPipe_HeatNumberLabel.Id),
 
                 // controls
                 new LocalizedItem(searchButton, StringResources.SearchPipe_SearchButton.Id),
