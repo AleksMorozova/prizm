@@ -49,5 +49,19 @@ namespace Prizm.Main.Forms.PipeMill.Heat
             number.Properties.MaxLength = LengthLimit.MaxHeatNumber;
             number.SetAsIdentifier();
         }
+
+        private void HeatNumberXtraForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.None)
+                e.Cancel = true;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.Number))
+            {
+                this.DialogResult = DialogResult.None;
+            }
+        }
     }
 }
