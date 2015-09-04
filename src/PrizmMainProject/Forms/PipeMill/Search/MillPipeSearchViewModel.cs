@@ -39,6 +39,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
             = new List<PipeMillSizeType>();
 
         private string pipeNumber = String.Empty;
+        private string heatNumber = String.Empty;
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MillPipeSearchViewModel));
 
         [Inject]
@@ -135,6 +137,22 @@ namespace Prizm.Main.Forms.PipeMill.Search
                 if(value != pipeNumber)
                 {
                     pipeNumber = value;
+                    RaisePropertyChanged("PipeNumber");
+                }
+            }
+        }
+
+        public string HeatNumber
+        {
+            get
+            {
+                return heatNumber;
+            }
+            set
+            {
+                if (value != heatNumber)
+                {
+                    heatNumber = value;
                     RaisePropertyChanged("PipeNumber");
                 }
             }

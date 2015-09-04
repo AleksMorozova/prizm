@@ -50,7 +50,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
             HashSet<PipeMillStatus> CheckedStatusTypes,
             DateTime externalCoatingDate,
             DateTime internalCoatingDate,
-            DateTime weldingDate)
+            DateTime weldingDate,
+            string HeatNumber)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -72,6 +73,8 @@ namespace Prizm.Main.Forms.PipeMill.Search
                          left join [PipeMillSizeType] on ([PipeMillSizeType].[id] = [Pipe].[typeId]) ");
 
             sb.Append(string.Format(@" WHERE [Pipe].[number] LIKE N'{0}%' ESCAPE '\' ", Number.EscapeCharacters()));
+
+            sb.Append(string.Format(@" AND [Heat].[number] LIKE N'{0}%' ESCAPE '\' ", HeatNumber.EscapeCharacters()));
 
             if (CheckedPipeTypes.Count > 0)
             {
