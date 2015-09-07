@@ -568,6 +568,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.resultStatusLookUpEdit.Name = "resultStatusLookUpEdit";
             this.resultStatusLookUpEdit.NullText = "";
+            this.resultStatusLookUpEdit.ShowHeader = false;
             this.resultStatusLookUpEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.resultStatusLookUpEdit_QueryPopUp);
             this.resultStatusLookUpEdit.EditValueChanged += new System.EventHandler(this.resultStatusLookUpEdit_EditValueChanged);
             this.resultStatusLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.resultStatusLookUpEdit_CustomDisplayText);
